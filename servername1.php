@@ -316,6 +316,10 @@ elseif ($rrace == 8)
 {
 $race = "Troll";
 }
+elseif ($rrace == 9)
+{
+$race = "Goblin";
+}
 elseif ($rrace == 10)
 {
 $race = "Blood Elf";
@@ -324,13 +328,18 @@ elseif ($rrace == 11)
 {
 $race = "Draenei";
 }
+elseif ($rrace == 22)
+{
+$race = "Worgen";
+}
 //Character Gender
 $ggender = $raw['gender'];
 if($ggender == 1)
 {
 $gender = "Female";
 }
-elseif($ggender == 0)
+else
+if($ggender == 0)
 {
 $gender = "Male";
 }

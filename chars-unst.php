@@ -144,35 +144,27 @@ World of Warcraft Account Name:
 </span>
 </div>
 <?php
+require_once("configs.php");
 function char_unstuck(){
-global $host, $user, $pass, $logon, $char;
+global $serveraddress, $serveruser, $serverpass, $server_adb, $server_cdb;
 if(isset($_POST['unstuck'])){
-//Connect To Database
 $connect = mysql_connect("$serveraddress", "$serveruser", "$serverpass") or die('Connection Error: ' . mysql_error());
-//Get Username From Input
-$username = $_POST['username'];
-//Get Password From Input
-$password = $_POST['password'];
-//Get Character From Input
+$serverusername = $_POST['username'];
 $character = $_POST['char'];
-//Encrypt Password
-$password = sha1(strtoupper($username) . ":" . strtoupper($password));
-//Check If Account Is Valid
-$valid_account = mysql_query("SELECT * FROM $logon.account WHERE username='$username' AND sha_pass_hash='$password'");
+$serverpassword = sha1(strtoupper($serverusername) . ":" . strtoupper($serverpassword));
+$valid_account = mysql_query("SELECT * FROM $server_adb.account WHERE username='$serverusername' AND sha_pass_hash='$serverpassword'");
 $account_valid = mysql_num_rows($valid_account);
 if($account_valid != 1){print'Invalid Account.<br/>';}else{
-//Account Is Valid, Now Check If Character Is Valid
 while($get_char = mysql_fetch_array($valid_account)){
-$valid_char = mysql_query("SELECT * FROM $char.characters WHERE name='$character'");
+$valid_char = mysql_query("SELECT * FROM $server_cdb.characters WHERE name='$character'");
 $char_valid = mysql_num_rows($valid_char);
 if($char_valid != 1){print'Invalid Character.<br/>';}else{
-//Character Is Valid, Check If Character Belongs To Account
-$char_acc = mysql_query("SELECT * FROM $char.characters WHERE account='".$get_char['id']."' AND name='$character'");
+$char_acc = mysql_query("SELECT * FROM $server_cdb.characters WHERE account='".$get_char['id']."' AND name='$character'");
 $acc_char = mysql_num_rows($char_acc);
 if($acc_char != 1){print'That Character Is Not Yours.<br/>';}else{
 //Get Character HomeBind
 while($acc_id = mysql_fetch_array($char_acc)){
-$homeb = mysql_query("SELECT * FROM $char.character_homebind WHERE guid='".$acc_id['guid']."'");
+$homeb = mysql_query("SELECT * FROM $server_cdb.character_homebind WHERE guid='".$acc_id['guid']."'");
 while($home = mysql_fetch_array($homeb)){
 $px = $home['position_x'];//Position X
 $py = $home['position_y'];//Position Y
@@ -180,9 +172,8 @@ $pz = $home['position_z'];//Position Z
 $z = $home['zone'];//Zone
 $m = $home['map'];//Map
 //Unstuck Character
-$unstuck = mysql_query("UPDATE $char.characters SET position_x = '$px', position_y = '$py', position_z = '$pz', zone = '$z', map = '$m' WHERE name='$character'") or die('UnStuck Failed: ' . mysql_error());
-//Success
-print'Your character is unlocked.';
+$unstuck = mysql_query("UPDATE $server_cdb.characters SET position_x = '$px', position_y = '$py', position_z = '$pz', zone = '$z', map = '$m' WHERE name='$character'") or die('UnStuck Failed: ' . mysql_error());
+print'Your Character Is Fixed.';
 }}}}}}}}
 print'
 <table align="center">
@@ -250,12 +241,7 @@ Cancel </span>
 char_unstuck();
 print'</center>';
 ?>
-
-
-
 </div>
-
-
 <script type="text/javascript">
 //<![CDATA[
 (function() {
