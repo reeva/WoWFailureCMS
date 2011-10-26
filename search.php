@@ -1,6 +1,6 @@
 <?php
 require_once("configs.php");
-$page_cat = "home";
+$page_cat = "services";
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
@@ -65,177 +65,216 @@ _gaq.push(['_trackPageLoadTime']);
 	<div class="content-trail">
 	<ol class="ui-breadcrumb">
 	<li>
-	<a href="index.html" rel="np">World of Warcraft</a>
+	<a href="index.php" rel="np">World of Warcraft</a>
+	</li>
+	<li>
+	<a href="services.php" rel="np">Services</a>
 	</li>
 	<li class="last">
-	<a href="searchhtml.html" rel="np">Search</a>
+	<a href="search.php" rel="np">Search</a>
 	</li>
 	</ol>
 	</div>
 	<div class="content-bot">
 	<div class="search">
 	<div class="search-right">
-	<div class="search-header">
-	<form action="" method="get" class="search-form">
-	<div>
-	<input id="search-page-field" type="text" name="q" maxlength="200" tabindex="2" value="" />
+			<div class="search-header">
+				<form action="" method="post" class="search-form">
+					<div>
+						<input id="search-page-field" type="text" name="search" maxlength="200" tabindex="2" value="" />
 	<button
-	class="ui-button button1 "
-	type="submit">
-	<span>
-	<span>Search</span>
-	</span>
+		class="ui-button button1 "
+			type="submit">
+		<span>
+			<span>Search</span>
+		</span>
 	</button>
-	</div>
-	</form>
-	</div>
-	<div class="helpers">
-	<h3 class="subheader ">Character results for <span></span>
-	</h3>
-	</div>
+					</div>
+				</form>
+			</div>
+
+	<span class="clear"><!-- --></span>
+        </div>
+		<div class="search-left">
+			<div class="search-header">
+	<h2 class="header ">					Search
+</h2>
+			</div>
+	<ul class="dynamic-menu" id="menu-search">
+
+			
+				<li class="item-active">
+					<a href="">
+						<span class="arrow">Summary</span>
+					</a>
+
+				</li>
+
+			
+				<li>
+					<a href="">
+						<span class="arrow">No characters</span>
+					</a>
+
+				</li>
+	</ul>
+            </div>
 	<div class="view-table">
 	<div class="table ">
 	<table>
-	<thead>
+	
+			<?php
+require ('configs.php');
+
+function mysql_open($host,$user,$pass){
+	$conn = mysql_connect($host,$user,$pass) or die(mysql_error());
+	return $conn;
+}
+function mysql_end($resc){
+	mysql_close($resc);
+}
+
+
+function translate($race)
+{
+    $faction = "";
+    switch ($race) {
+        case "1":
+        case "3":
+        case "4":
+        case "7":
+        case "11":
+        case "22":
+            global $faction;
+            $faction = "faction_0.jpg";
+            break;
+        case "2":
+        case "5":
+        case "6":
+        case "8":
+        case "9":
+        case "10":
+            global $faction;
+            $faction = "faction_1.jpg";
+            break;
+    }
+    return $faction;
+}
+
+if (isset($_GET['charname'])) {
+    $cont = new wowheadparser();
+    $conn = mysql_open($serveraddress, $serveruser, $serverpass);
+    $sql = "SELECT guid,name,class,level,race,gender FROM `" . $server_cdb .
+        "`.`characters` WHERE name='" . mysql_real_escape_string($_GET["charname"]) .
+        "'";
+    $result = mysql_query($sql, $conn) or die(mysql_error());
+    if ($row = mysql_fetch_array($result)) {
+        $items = show_items($row["guid"]);
+        $all = array_merge($items);
+        $html->load('armory',$all);
+    }
+    mysql_end($conn);
+} elseif (empty($_POST['search'])) {
+    
+} elseif (isset($_POST['search'])) {
+    
+    $term = $_POST['search'];
+    $conn = mysql_open($serveraddress, $serveruser, $serverpass);
+    $sql = "SELECT guid,name,class,level,race,gender FROM `" . $server_cdb .
+        "`.`characters` WHERE name LIKE '%" . mysql_real_escape_string($term) . "%'";
+    $result = mysql_query($sql, $conn) or die(mysql_error());
+    while ($row = mysql_fetch_array($result)) {
+        //echo $row['name'];
+        echo '<thead>
 	<tr>
-	<th class=" first-child">
-	<a href="searcha317html.html?q=&amp;f=wowcharacter&amp;sort=subject&amp;dir=a" class="sort-link" >
-	<span class="arrow">									Name
-	</span>
+	<th width="15%" class=" first-child">
+	<a href="" class="sort-link" >
+	<span class="arrow">Name</span>
+	</a>
+	</th>
+	<th width="6%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Level</span>
+	</a>
+	</th>
+	<th width="6%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Race</span>
+	</a>
+	</th>
+	<th width="6%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Class</span>
+	</a>
+	</th>
+	<th width="6%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Faction</span>
+	</a>
+	</th>
+	<th width="15%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Guild</span>
 	</a>
 	</th>
 	<th>
-	<a href="searchc9a2html.html?q=&amp;f=wowcharacter&amp;sort=level&amp;dir=a" class="sort-link" >
-	<span class="arrow">									Level
-	</span>
-	</a>
-	</th>
-	<th>
-	<a href="search1051html.html?q=&amp;f=wowcharacter&amp;sort=raceId&amp;dir=a" class="sort-link" >
-	<span class="arrow">									Race
-	</span>
-	</a>
-	</th>
-	<th>
-	<a href="search944dhtml.html?q=&amp;f=wowcharacter&amp;sort=classId&amp;dir=a" class="sort-link" >
-	<span class="arrow">									Class
-	</span>
-	</a>
-	</th>
-	<th>
-	<a href="searche736html.html?q=&amp;f=wowcharacter&amp;sort=factionId&amp;dir=a" class="sort-link" >
-	<span class="arrow">									Faction
-	</span>
-	</a>
-	</th>
-	<th>
-	<a href="search2430html.html?q=&amp;f=wowcharacter&amp;sort=guildName&amp;dir=a" class="sort-link" >
-	<span class="arrow">									Guild
-	</span>
-	</a>
-	</th>
-	<th>
-	<a href="search423fhtml.html?q=&amp;f=wowcharacter&amp;sort=realmName&amp;dir=a" class="sort-link" >
-	<span class="arrow">									Realm
-	</span>
+	<a href="" class="sort-link" >
+	<span class="arrow">Realm</span>
 	</a>
 	</th>
 	<th class=" last-child">
-	<a href="searchc924html.html?q=&amp;f=wowcharacter&amp;sort=battlegroup&amp;dir=a" class="sort-link" >
-	<span class="arrow">									Battlegroup
-	</span>
+	<a href="" class="sort-link" >
+	<span class="arrow">Battlegroup</span>
 	</a>
 	</th>
 	</tr>
 	</thead>
-	<tbody>
-	<tr class="row1">
+		<tbody>
+					<tr class="row1">
 	<td>
-	<a href="character/sylvanas//index.html" class="item-link color-c9">
+	<a href="" class="item-link color-c9">
 	<span class="icon-frame frame-18">
-	<img src="../../../eu.battle.net_/wow/static/images/2d/avatar/7-0.jpg?alt=/wow/static/images/2d/avatar/7-0.jpg" alt="" width="18" height="18" />
+	<img src="wow/static/images/icons/faction/'.translate($row["race"]).'" alt="" width="18" height="18" />
 	</span>
-	<strong></strong>
+	<strong><a href="craracter.php?name='.$row["name"].'">'.$row["name"].'</a></strong>
 	</a>
 	</td>
-	<td class="align-center">1</td>
+	<td class="align-center">'.$row["level"].'</td>
 	<td class="align-center">
-	<span class="icon-frame frame-14 " data-tooltip="Gnome">
-	<img src="../../../eu.media.blizzard.com/wow/icons/18/race_7_0.jpg" alt="" width="14" height="14" />
+	<span class="icon-frame frame-14 " data-tooltip="'.$row['race'].'">
+	<img src="wow/static/images/icons/race/'.$row['race'].'-'.$row['gender'].'.gif" alt="" width="14" height="14" />
 	</span>
 	</td>
 	<td class="align-center">
-	<span class="icon-frame frame-14 " data-tooltip="Warlock">
-	<img src="../../../eu.media.blizzard.com/wow/icons/18/class_9.jpg" alt="" width="14" height="14" />
+	<span class="icon-frame frame-14 " data-tooltip="">
+	<img src="wow/static/images/icons/class/'.$row["class"].'.gif" alt="" width="14" height="14" />
 	</span>
 	</td>
 	<td class="align-center">
-	<span class="icon-frame frame-14 " data-tooltip="Alliance">
-	<img src="../../../eu.media.blizzard.com/wow/icons/18/faction_0.jpg" alt="" width="14" height="14" />
+	<span class="icon-frame frame-14 " data-tooltip="">
+	<img src="wow/static/images/icons/faction/'.translate($row["race"]).'" alt="" width="14" height="14" />
 	</span>
 	</td>
 	<td>
 	</td>
-	<td>Sylvanas</td>
-	<td>Rampage / Saccage</td>
-	</tr>
-	<tr class="row2">
-	<td>
-	<a href="character/xavius//index.html" class="item-link color-c2">
-	<span class="icon-frame frame-18">
-	<img src="../../../eu.battle.net_/wow/static/images/2d/avatar/1-1.jpg?alt=/wow/static/images/2d/avatar/1-1.jpg" alt="" width="18" height="18" />
-	</span>
-	<strong></strong>
-	</a>
-	</td>
-	<td class="align-center">1</td>
-	<td class="align-center">
-	<span class="icon-frame frame-14 " data-tooltip="Human">
-	<img src="../../../eu.media.blizzard.com/wow/icons/18/race_1_1.jpg" alt="" width="14" height="14" />
-	</span>
-	</td>
-	<td class="align-center">
-	<span class="icon-frame frame-14 " data-tooltip="Paladin">
-	<img src="../../../eu.media.blizzard.com/wow/icons/18/class_2.jpg" alt="" width="14" height="14" />
-	</span>
-	</td>
-	<td class="align-center">
-	<span class="icon-frame frame-14 " data-tooltip="Alliance">
-	<img src="../../../eu.media.blizzard.com/wow/icons/18/faction_0.jpg" alt="" width="14" height="14" />
-	</span>
-	</td>
-	<td>
-	</td>
-	<td>Xavius</td>
-	<td>Glutsturm / Emberstorm</td>
-	</tr>
-	</tbody>
+	<td>'.$name_realm1['realm'].'</td>
+	<td>Loading...</td>
+	</tr></tbody>';
+    }
+    
+    mysql_end($conn);
+}
+
+?>
+	
+	
 	</table>
 	</div>
 	</div>
-	</div>
-	<div class="search-left">
-	<div class="search-header">
-	<h2 class="header ">					Search
-	</h2>
-	</div>
-	<ul class="dynamic-menu" id="menu-search">
-	<li>
-	<a href="searchb546html.html?q=&amp;f=">
-	<span class="arrow">Summary</span>
-	</a>
-	</li>
-	<li class="item-active">
-	<a href="searchc5dfhtml.html?q=&amp;f=wowcharacter">
-	<span class="arrow">Characters <span>(14)</span></span>
-	</a>
-	</li>
-	</ul>
-	</div>
-	<span class="clear"><!-- --></span>
-	</div>
-	</div>
-	</div>
+	
+</div>
+</div>
+</div>
 	</div>
 	<?php include("functions/footer_man.php"); ?>
 	<?php include("functions/footer_man_nav.php"); ?>
