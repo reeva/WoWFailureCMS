@@ -564,7 +564,11 @@ echo '
 			<table class="dynamic-center"><tr><td>
 			<?php if(isset($_SESSION['username'])){
 			echo 'This thread is locked'; }else{
-			echo 'In order to post you must to be logged in';
+			echo '<a class="ui-button button1 " a href="?login" onclick="return Login.open("../login.php?<?php echo $_SESSION["sessionid"]; ?>
+		<span>
+			<span>Add a reply</span>
+		</span>
+	</a>';
 			} ?>
 			</td></tr></table>
 			</div>

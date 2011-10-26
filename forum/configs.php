@@ -1,5 +1,5 @@
 <?php
-session_save_path('phpsessions');
+session_save_path('../phpsessions');
 session_start();
 
 $serveraddress = "localhost"; // Your MySQL server address

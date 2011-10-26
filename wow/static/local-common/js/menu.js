@@ -10,7 +10,7 @@
  *          children: [
  *              {
  *                  label: "Foo",
- *                  url:   "foo/bar"
+ *                  url:   "/foo/bar"
  *              }
  *          ]
  *      }
@@ -55,27 +55,40 @@ var Menu = {
 	timer: null,
 
 	/**
+	 * Collection of timers for children.
+	 */
+	timers: {},
+
+	/**
 	 * Timer to open/close the menu after a duration.
 	 */
 	openTimer: null,
 
 	/**
-	 * Misc configuration.
+	 * Currently opened children.
 	 */
-	config: {
-		duration: 750,
-		dataUrl: {},
-		colWidth: 200,
-		colMax: 15
-	},
+	children: {},
+
+	/**
+	 * Configuration.
+	 */
+	config: {},
 
 	/**
 	 * Initialize the class a store the container.
 	 *
 	 * @param url
+	 * @param config
 	 * @constructor
 	 */
-	initialize: function(url) {
+	initialize: function(url, config) {
+		Menu.config = $.extend({}, {
+			duration: 750,
+			dataUrl: {},
+			colWidth: 200,
+			colMax: 15
+		}, config);
+
 		Menu.container = $('<div/>').attr('id', 'menu-container').appendTo('body');
 		Menu.container
 			.unbind()
@@ -119,6 +132,20 @@ var Menu = {
 	},
 
 	/**
+	 * Hide the child node if it exists based on url.
+	 *
+	 * @param url
+	 */
+	hideChild: function(url) {
+		if (!Menu.children[url])
+			return;
+
+		Menu.children[url]
+			.children('a:first, span:first').removeClass('opened').end()
+			.children('.'+ Menu.className).hide();
+	},
+
+	/**
 	 * Load a dataset from a location.
 	 *
 	 * @param set
@@ -130,10 +157,23 @@ var Menu = {
 
 		$.ajax({
 			url: Core.baseUrl + url,
+			dataType: 'json',
 			success: function(data) {
 				Menu.data[set] = data;
 				Menu.dataIndex[set] = {};
 				Menu._populate(data, set);
+
+				// Add dotted underline to last breadcrumb node if it has children
+				var lastNode = $('.ui-breadcrumb li:last-child a');
+
+				if (lastNode.length) {
+					var url = lastNode.attr('href').replace(Core.baseUrl, '');
+					var idx = Menu.dataIndex[set][url];
+
+					if (idx && idx.children) {
+						lastNode.parent().addClass('children');
+					}
+				}
 			}
 		});
 
@@ -148,20 +188,18 @@ var Menu = {
 	 * @param options
 	 */
 	open: function(node, path, options) {
-		Menu.node = $(node);
+		options = $.extend({}, { set: 'base' }, options || {});
 
-		if (!options)
-			options = { set: 'base' };
+		Menu.node = $(node);
 
 		var data = Menu.dataIndex[options.set][path] || null;
 
 		if (data && data.children) {
-			var targetMenu = $('#'+ Menu.idName + data.id);
-
-			if (targetMenu.is(':visible'))
+			if ($('#' + Menu._id(path, options.set) ).is(':visible')) {
 				Menu.hide();
-			else
+			} else {
 				Menu._display(path, options);
+			}
 		}
 	},
 
@@ -174,6 +212,14 @@ var Menu = {
 	 * @param options
 	 */
 	show: function(node, path, options) {
+		options = $.extend({}, { set: 'base' }, options || {});
+
+		if (!Menu.dataIndex[options.set][path])
+			return;
+
+		if ($('#' + Menu._id(path, options.set) ).is(':visible'))
+			return;
+
 		Menu.hide();
 		Menu.node = $(node);
 
@@ -182,13 +228,16 @@ var Menu = {
 		}, 200);
 
 		Menu.node
-			.unbind('mouseleave')
+			.unbind('mouseleave mouseenter')
 			.mouseleave(function() {
 				window.clearTimeout(Menu.openTimer);
 
 				Menu.timer = window.setTimeout(function() {
 					Menu.hide();
-				}, 1000);
+				}, Menu.config.duration);
+			})
+			.mouseenter(function() {
+				window.clearTimeout(Menu.timer);
 			});
 	},
 
@@ -205,12 +254,12 @@ var Menu = {
 			uls = [];
 
 		if (cache)
-			div.attr('id', Menu.idName + cache);
+			div.attr('id', cache);
 
 		$.each(menu.children, function(key, data) {
-			var tag = (!data.url) ? 'span' : 'a',
-				li = $('<li>'),
-				item = $('<'+ tag +'>', Menu._prepare(data)).appendTo(li);
+			var tag = (data.url) ? 'a' : 'span',
+				li = $('<li/>'),
+				item = $('<' + tag + '/>', Menu._prepare(data)).appendTo(li);
 
 			if (data.description)
 				item.append('<span class="desc">'+ data.description +'</span>');
@@ -218,27 +267,36 @@ var Menu = {
 			if (data.parentClass)
 				li.addClass(data.parentClass);
 
-			// Bind hovers and children
-			if (data.children) {
+			if (data.children)
 				item.addClass('children');
 
-				li.hover(
-					function() {
-						var self = $(this);
-						self.find('a:first').addClass('opened');
+			li.hover(
+				function() {
+					Menu.hideChild(menu.url);
 
-						if (self.find('.'+ Menu.className).length === 0)
+					if (data.children) {
+						var self = $(this);
+
+						self.children('a:first, span:first').addClass('opened');
+
+						if (self.find('.' + Menu.className).length === 0)
 							Menu._build(this, data, false);
 
-						Menu._position(self.children('.'+ Menu.className));
-					},
-					function() {
-						$(this)
-							.find('a:first').removeClass('opened').end()
-							.children('.'+ Menu.className).hide();
+						Menu._position(self.children('.' + Menu.className));
+
+						Menu.children[menu.url] = self;
+
+						window.clearTimeout(Menu.timers[menu.url]);
 					}
-				);
-			}
+				},
+				function() {
+					if (data.children) {
+						Menu.timers[menu.url] = window.setTimeout(function() {
+							Menu.hideChild(menu.url);
+						}, Menu.config.duration);
+					}
+				}
+			);
 
 			// Determine which list
 			var index = Math.ceil((key + 1) / Menu.config.colMax) - 1;
@@ -270,18 +328,15 @@ var Menu = {
 	 * @param options
 	 */
 	_display: function(path, options) {
-		if (!options)
-			options = { set: 'base' };
-
 		if (!Menu.dataIndex[options.set][path])
 			return;
 
 		var data = Menu.dataIndex[options.set][path],
 			center = (options.center) || (options === true),
-			id = data.id || '-'+ options.set;
+			id = Menu._id(path, options.set);
 
 		if (data && data.children) {
-			var targetMenu = $('#'+ Menu.idName + id);
+			var targetMenu = $('#'+ id);
 
 			if (targetMenu.length > 0)
 				targetMenu.fadeIn('fast');
@@ -314,6 +369,21 @@ var Menu = {
 	},
 
 	/**
+	 * Generate a DOM id.
+	 *
+	 * @param path
+	 * @param set
+	 */
+	_id: function(path, set) {
+		var id = Menu.idName + '-' + set;
+
+		if (Menu.dataIndex[set][path].id)
+			id += Menu.dataIndex[set][path].id;
+
+		return id;
+	},
+
+	/**
 	 * Show the element, and reposition it if it goes off the page.
 	 *
 	 * @param element
@@ -339,7 +409,7 @@ var Menu = {
 	 */
 	_populate: function(node, set) {
 		if (!Menu.dataIndex[set][node.url]) {
-			node.id = node.url.replace(/[^\-a-zA-Z0-9\/]/ig, '');
+			node.id = (node.url ? node.url.replace(/[^\-a-zA-Z0-9\/]/ig, '') : '');
 			node.id = node.id.replace(/\//ig, '-');
 
 			if (node.id.substr(-1) === '-')
@@ -361,7 +431,7 @@ var Menu = {
 	 * @param obj
 	 */
 	_prepare: function(obj) {
-		var mapping = { html: obj.label, rel: 'np' },
+		var mapping = { html: obj.label.replace(/&/ig, '&amp;'), rel: 'np' },
 			params = {};
 
 		if (obj.url != null)
