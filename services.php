@@ -67,7 +67,7 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 					</div>
 					
 					<div class="main-services">
-					<a href="account_man.php" class="main-services-banner left-bnr" style="background-image:url('wow/static/images/services/thumbnails/thumb-main-services-1.jpg');">
+					<a href="account_log.php" class="main-services-banner left-bnr" style="background-image:url('wow/static/images/services/thumbnails/thumb-main-services-1.jpg');">
 						<span class="banner-title">Account Management</span>
 						<span class="banner-desc">Review and change your account security options, use additional account services, and more.</span>
 					</a>
@@ -75,7 +75,7 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 						<span class="banner-title">Ban List</span>
 						<span class="banner-desc">Find which players have been Banned from the server. Beware of what you will see!</span>
 					</a>
-					<a href="#" class="main-services-banner left-bnr" style="background-image:url('wow/static/images/services/thumbnails/thumb-main-services-3.jpg');">
+					<a href="search.php" class="main-services-banner left-bnr" style="background-image:url('wow/static/images/services/thumbnails/thumb-main-services-3.jpg');">
 						<span class="banner-title">Armory</span>
 						<span class="banner-desc">Trying to find your Character, or a friend's? Browse the <?php echo $website['title']; ?> Armory.</span>
 					</a>
@@ -87,7 +87,7 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 						<span class="banner-title">Donation Shop</span>
 						<span class="banner-desc">Visit the Donation Shop and check out our services/gifts/prizes/etc.</span>
 					</a>
-					<a href="#" class="main-services-banner right-bnr" style="background-image:url('wow/static/images/services/thumbnails/thumb-main-services-6.jpg');">
+					<a href="account_log.php" class="main-services-banner right-bnr" style="background-image:url('wow/static/images/services/thumbnails/thumb-main-services-6.jpg');">
 						<span class="banner-title">Upgrade your Account</span>
 						<span class="banner-desc">Upgrade your World of Warcraft Account!</span>
 					</a>
