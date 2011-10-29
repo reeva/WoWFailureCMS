@@ -107,7 +107,7 @@
 			</li>
 			<li>
 			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to ru-ru'); return true;">
-			<?php echo $Rusia['Rusia']; ?>
+			<?php echo $russia['russia']; ?>
 			</a>
 			</li>
 			</ul>
