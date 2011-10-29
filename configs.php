@@ -23,7 +23,7 @@ $website['slogan'] = "WoWFailureCMS, get your best CMS today, simple and fast!";
 $website['address'] = "http://www.wowfailure.com"; // 'http://url/foldername/' or 'http://url/'
 $website['root'] = "/WoWFailureCMS/"; // '/' <- for root and '/foldername/' <- for any folder
 //Initialize Lang Files
-include("lang/gre.php");
+include("lang/eng.php");
 
 $connection_setup = mysql_connect($serveraddress,$serveruser,$serverpass)or die(mysql_error());
 mysql_select_db($server_db,$connection_setup)or die(mysql_error());

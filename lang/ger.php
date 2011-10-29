@@ -68,6 +68,7 @@ $login['login'] = "Einloggen" ;
 $Donate1['Donate1'] = "Donate for"; 
 $Donate['Donate'] = "Donate";
 
+$website['explore'] = "Explore";
 $More['More'] = "Mehr";
 $Retrieve['Retrieve'] = "Retrieve Lost Account";
 $Find['Find'] = "Find us on the Map!";
