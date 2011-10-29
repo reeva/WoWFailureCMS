@@ -193,7 +193,7 @@
 </li>
 <li>
 <a href="" tabindex="55" class="support-category">
-<strong class="support-caption"><?php echo $Support10['Support10']; ?>Your Support Tickets</strong>
+<strong class="support-caption"><?php echo $Support10['Support10']; ?></strong>
 <?php echo $Support7['Support7']; ?>
 </a>
 <div class="ticket-summary" id="ticket-summary"></div>
@@ -217,7 +217,7 @@ shim.style.display = 'block';
 </div>
 </li>
 <li class="service-cell service-explore">
-<a href="#explore" tabindex="50" accesskey="5" class="dropdown" id="explore-link" onclick="return false" style="cursor: progress" rel="javascript">Explore</a>
+<a href="#explore" tabindex="50" accesskey="5" class="dropdown" id="explore-link" onclick="return false" style="cursor: progress" rel="javascript"><?php echo $website['explore']; ?></a>
 <div class="explore-menu" id="explore-menu" style="display:none;">
 <div class="explore-primary">
 <ul class="explore-nav">

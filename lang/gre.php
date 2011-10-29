@@ -1,23 +1,23 @@
 <?php
 // Needs to be Translated
-$lang['adb'] = "Could not connect to Account Database.";
-$lang['db'] = "Could not connect to Website Database.";
-$home['home'] = "home";
-$status['status'] = "Status";
-$Community['Community'] = "Community";
-$Media['Media'] = "Media";
-$Forums['Forums'] = "Forums";
-$Services['Services'] = "Services";
+$lang['adb'] = "&Delta;&epsilon;&nu; &eta;&tau;&alpha;&nu; &delta;&upsilon;&nu;&alpha;&tau;&eta; &eta; &sigma;&upsilon;&nu;&delta;&epsilon;&sigma;&eta; &sigma;&tau;&eta;&nu; Account Database.";
+$lang['db'] = "&Delta;&epsilon;&nu; &eta;&tau;&alpha;&nu; &delta;&upsilon;&nu;&alpha;&tau;&eta; &eta; &sigma;&upsilon;&nu;&delta;&epsilon;&sigma;&eta; &sigma;&tau;&eta;&nu; Website Database.";
+$home['home'] = "&Alpha;&rho;&chi;&iota;&kappa;&eta;";
+$status['status'] = "&Kappa;&alpha;&tau;&alpha;&sigma;&tau;&alpha;&sigma;&eta;";
+$Community['Community'] = "&Kappa;&Omicron;&Iota;&Nu;&Omega;&Tau;&Eta;&Tau;&Alpha;";
+$Media['Media'] = "&Beta;&Iota;&Nu;&Tau;&Epsilon;&Omicron; &amp; &Mu;&Epsilon;&Sigma;&Alpha;";
+$Forums['Forums'] = "&Phi;&Omicron;&Rho;&omicron;&Upsilon;&Mu;";
+$Services['Services'] = "&Upsilon;&Pi;&Eta;&Rho;&Epsilon;&Sigma;&Iota;&Epsilon;&Sigma;";
 $Wow['Wow'] = "World Of Warcraft ";
-$Wow3['Wow3'] = "World of Warcraft - Entire World";
+$Wow3['Wow3'] = "World of Warcraft - &Epsilon;&Pi;&Iota;&Lambda;&Omicron;&Gamma;&Gamma;&eta; &Gamma;&Lambda;&Omega;&Sigma;&Sigma;&Omega;&Nu;";
 $Latest['Latest'] = "Latest Written Posts ";
 $View_all['View_all'] = "View all";
 $all['all'] = "All Main Posts";
 $P_topics['P_topics'] = "Popular Topics";
-$click['click'] = " Click ";
-$code_forum['code_forum']= " to view the Forums Code of Conduct.";
+$click['click'] = " &Pi;&Alpha;&Tau;&Eta;&Sigma;&Tau;&Epsilon; ";
+$code_forum['code_forum']= " to view the &Phi;&Omicron;&Rho;&Upsilon;&Mu; &tau;&omicron;&nu; &Kappa;&omega;&delta;&iota;&kappa;&alpha;.";
 $here['here'] = "here";
-$Account['Account'] = "Account";
+$Account['Account'] = "&Lambda;&Omicron;&Gamma;&Alpha;&Rho;&Iota;&Alpha;&Sigma;&Mu;&Omicron;&Sigma;";
 $Account1['Account1'] = "Can't log in?";
 $Account3['Account3'] = "Create Account";
 $Account4['Account4'] = "Account Summary";
@@ -25,8 +25,7 @@ $Account5['Account5'] = "Account Security";
 $Account6['Account6'] = "Manage your Account";
 
 
-
-$Support['Support'] = "Support";
+$Support['Support'] = "&Upsilon;&Pi;&Omicron;&Sigma;&Tau;&Eta;&Rho;&Iota;&Xi;&Eta;";
 $Support3['Support3'] = "Support Articles";
 $Support4['Support4'] = "Help! I got hacked!";
 $Support5['Support5'] = "Browse our support articles";
@@ -40,6 +39,7 @@ $Support11['Support11'] = "Get Support and explore the knowledgebase.";
 $Games['Games'] = "Games";
 $Client_down['Client_down'] = "Game Client Downloads";
 $Client_down3['Client_down3'] = "Download World of Warcraft Client";
+
 
 $Americas['Americas'] = "Americas";
 $English['English'] = "English (US)";
@@ -63,13 +63,14 @@ $copyright3['copyright3'] = "Powered by WoWFailureCMS";
 $copyright4['copyright4'] = "Resources are in Blizzard Entertainment Property.";
 
 
-$Welcome['Welcome'] ="Welcome, ";
-$logout['logout'] = "Log Out";
-$login['login'] = "Log In" ;
+$Welcome['Welcome'] ="&Kappa;&alpha;&lambda;&omega;&sigmaf; &eta;&rho;&theta;&alpha;&tau;&epsilon;, ";
+$logout['logout'] = "&Alpha;&pi;&omicron;&sigma;&upsilon;&nu;&delta;&epsilon;&sigma;&eta;";
+$login['login'] = "&Sigma;&upsilon;&nu;&delta;&epsilon;&sigma;&eta;" ;
 
 $Donate1['Donate1'] = "Donate for"; 
 $Donate['Donate'] = "Donate";
 
+$website['explore'] = "&Epsilon;&Xi;&Epsilon;&Rho;&Epsilon;&Upsilon;&Nu;&Eta;&Sigma;&Eta;";
 $More['More'] = "More";
 $Retrieve['Retrieve'] = "Retrieve Lost Account";
 $Find['Find'] = "Find us on the Map!";
