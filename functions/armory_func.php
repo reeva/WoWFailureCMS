@@ -60,50 +60,7 @@ if (isset($_GET['charname'])) {
     $result = mysql_query($sql, $conn) or die(mysql_error());
     while ($row = mysql_fetch_array($result)) {
         //echo $row['name'];
-        echo '<thead>
-	<tr>
-	<th width="15%" class=" first-child">
-	<a href="" class="sort-link" >
-	<span class="arrow">Name</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Level</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Race</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Class</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Faction</span>
-	</a>
-	</th>
-	<th width="15%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Guild</span>
-	</a>
-	</th>
-	<th>
-	<a href="" class="sort-link" >
-	<span class="arrow">Realm</span>
-	</a>
-	</th>
-	<th class=" last-child">
-	<a href="" class="sort-link" >
-	<span class="arrow">Battlegroup</span>
-	</a>
-	</th>
-	</tr>
-	</thead>
+        echo '
 		<tbody>
 					<tr class="row1">
 	<td>
