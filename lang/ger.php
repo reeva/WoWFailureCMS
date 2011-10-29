@@ -1,30 +1,28 @@
 <?php
 // Needs to be Translated
-$lang['adb'] = "Could not connect to Account Database.";
-$lang['db'] = "Could not connect to Website Database.";
+$lang['adb'] = "Konnte keine Verbindung zur Account Datenbank herstellen.";
+$lang['db'] = "Konnte keine Verbindung zur Webseiten Datenbank herstellen";
 $home['home'] = "home";
 $status['status'] = "Status";
 $Community['Community'] = "Community";
-$Media['Media'] = "Media";
+$Media['Media'] = "Videos";
 $Forums['Forums'] = "Forums";
-$Services['Services'] = "Services";
+$Services['Services'] = "Service";
 $Wow['Wow'] = "World Of Warcraft ";
 $Wow3['Wow3'] = "World of Warcraft - Entire World";
-$Latest['Latest'] = "Latest Written Posts ";
-$View_all['View_all'] = "View all";
+$Latest['Latest'] = "Zuletzt geschriebene Beiträge";
+$View_all['View_all'] = "Alle Anzeigen";
 $all['all'] = "All Main Posts";
 $P_topics['P_topics'] = "Popular Topics";
-$click['click'] = " Click ";
+$click['click'] = " Klick ";
 $code_forum['code_forum']= " to view the Forums Code of Conduct.";
 $here['here'] = "here";
 $Account['Account'] = "Account";
-$Account1['Account1'] = "Can't log in?";
-$Account3['Account3'] = "Create Account";
+$Account1['Account1'] = "Konnte nicht einloggen";
+$Account3['Account3'] = "Erstelle Account";
 $Account4['Account4'] = "Account Summary";
 $Account5['Account5'] = "Account Security"; 
 $Account6['Account6'] = "Manage your Account";
-
-
 
 $Support['Support'] = "Support";
 $Support3['Support3'] = "Support Articles";
@@ -63,14 +61,14 @@ $copyright3['copyright3'] = "Powered by WoWFailureCMS";
 $copyright4['copyright4'] = "Resources are in Blizzard Entertainment Property.";
 
 
-$Welcome['Welcome'] ="Welcome, ";
-$logout['logout'] = "Log Out";
-$login['login'] = "Log In" ;
+$Welcome['Welcome'] ="Willkommen, ";
+$logout['logout'] = "Ausloggen";
+$login['login'] = "Einloggen" ;
 
 $Donate1['Donate1'] = "Donate for"; 
 $Donate['Donate'] = "Donate";
 
-$More['More'] = "More";
+$More['More'] = "Mehr";
 $Retrieve['Retrieve'] = "Retrieve Lost Account";
 $Find['Find'] = "Find us on the Map!";
 
