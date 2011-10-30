@@ -7,7 +7,6 @@ $Community['Community'] = "&#1057;&#1086;&#1086;&#1073;&#1097;&#1077;&#1089;&#10
 $Media['Media'] = "&#1052;&#1077;&#1076;&#1080;&#1072;";
 $Forums['Forums'] = "&#1060;&#1086;&#1088;&#1091;&#1084;";
 $Services['Services'] = "&#1059;&#1089;&#1083;&#1091;&#1075;&#1080;";
-$Wow['Wow'] = "World Of Warcraft ";
 $Wow3['Wow3'] = "World of Warcraft - &#1042;&#1099;&#1073;&#1086;&#1088; &#1071;&#1101;&#1099;&#1082;&#1086;&#1074;";
 $Latest['Latest'] = "Latest Written Posts ";
 $View_all['View_all'] = "(&#1055;&#1086;&#1089;&#1084;&#1086;&#1090;&#1088;&#1077;&#1090;&#1068; &#1074;&#1089;&#1077;)";
@@ -22,7 +21,7 @@ $Account3['Account3'] = "&#1056;&#1077;&#1075;&#1080;&#1089;&#1090;&#1088;&#1072
 $Account4['Account4'] = "Account Summary";
 $Account5['Account5'] = "Account Security"; 
 $Account6['Account6'] = "Manage your Account";
-
+$Friends['Keepthem'] = "Keep your friends in game.";
 
 
 $Support['Support'] = "&#1055;&#1086;&#1076;&#1076;&#1077;&#1088;&#1078;&#1082;&#1072;";
