@@ -1,11 +1,10 @@
 = WoWFailure Project -- What has to be Done?! =
 
-1) Fix the login in linux (the problem is simple, when the web page read the db for password in linux apache servers the web can't recognize the correct format of the password, in windows work perfect but in linux it can not be recognized)
-If you try to create an account the account will have a incorrect password format, so the problem its a compatibility issue of the web and must be solved as soon as posible. (All tested by icerobert)
+1) Fix the login in linux (Work Started - Finished)
 2) Make a Donation Panel. <-- =Intergrated= -->
-3) We need to add a Translation System, need some people that can create the lang file for english so devs of the team can create the traslate files (the idea it's that player can select his main language in the web so he can see the web in his language, just like wowhead).
-4) Fix and Create the Character View System. (On it's way)
-5) Make the invisible slideshow at the footer. (Will try)
+3) We need to add a Translation System, (Work Started)
+4) Fix and Create the Character View System. (Work Stoped)
+5) REMOVED
 6) Character Transfer (need to be worked as a part of donation system)
 7) Name Change (need to be worked as a part of donation system)
 8) Faction Change (need to be worked as a part of donation system)
@@ -16,7 +15,7 @@ If you try to create an account the account will have a incorrect password forma
 13) delete some options in the web and edit anothers like change website theme or upgrade your account, request gm trial xD
 14) work on forum, we need to fix the things to give gm the moderation permissions for forum and news
 15) fix the submit options in the fan art, wallpapers and general media zone, and add a option to gm can accept the submission before they appear public
-16) fix status functions on the status page, top honor and all other the criterias need to be fixed, and make RealmName will be obtained from Realmlist Table
+16) fix status functions on the status page, top honor and all other the criterias need to be fixed.
 17) script the vote shop and make a little db where we can edit and add items to buy for vote points.
 
 # --------------------------------------------------------------
@@ -26,8 +25,9 @@ If you try to create an account the account will have a incorrect password forma
 # |Database version:                             |    0.1.1    |
 # |Website Version:                              |    0.2.0    |
 # |Release Date:                                 | 2010-05-17  |
-# |Latest Update:                                | 2011-10-19  |
+# |Latest Update:                                | 2011-10-30  |
 # ----------------------------TEAM------------------------------
 # |Members: Apocalipsyz, FailZorD, arnauec, CarlosX,dissaor021,|
-# |hondacrx, Kitiara, Krill156, Lilcrazy, Roberto Roeschmann.  |
+# |hondacrx, Kitiara, Krill156, Lilcrazy, Roberto Roeschmann,  |
+# |MrBillys, Venugh, dju35.						       |
 # --------------------------------------------------------------

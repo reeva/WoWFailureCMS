@@ -131,6 +131,16 @@
 			</li>
 			</ul>
 			</div>
+			<div class="column">
+			<h3>Bulgarian</h3>
+			<ul>
+			<li>
+			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to en-us'); return true;">
+			Български (EU)
+			</a>
+			</li>
+			</ul>
+			</div>
 			<span class="clear"><!-- --></span>
 </div>
 <br />
