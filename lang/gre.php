@@ -15,7 +15,7 @@ $all['all'] = "All Main Posts";
 $P_topics['P_topics'] = "&Delta;&eta;&mu;&omicron;&phi;&iota;&lambda;&eta; &Theta;&epsilon;&mu;&alpha;&tau;&alpha;";
 $click['click'] = " &Pi;&Alpha;&Tau;&Eta;&Sigma;&Tau;&Epsilon; ";
 $code_forum['code_forum']= " to view the &Phi;&Omicron;&Rho;&Upsilon;&Mu; &tau;&omicron;&nu; &Kappa;&omega;&delta;&iota;&kappa;&alpha;.";
-$here['here'] = "here";
+$here['here'] = "&epsilon;&delta;&omega;";
 $Account['Account'] = "&Lambda;&Omicron;&Gamma;&Alpha;&Rho;&Iota;&Alpha;&Sigma;&Mu;&Omicron;&Sigma;";
 $Account1['Account1'] = "&Delta;&epsilon;&nu; &mu;&pi;&omicron;&rho;&epsilon;&iota;&tau;&epsilon; &nu;&alpha; &sigma;&upsilon;&nu;&delta;&epsilon;&theta;&epsilon;&iota;&tau;&epsilon;;";
 $Account3['Account3'] = "&Delta;&eta;&mu;&iota;&omicron;&upsilon;&rho;&gamma;&iota;&alpha; &Lambda;&omicron;&gamma;&alpha;&rho;&iota;&alpha;&sigma;&mu;&omicron;&upsilon;";
@@ -30,12 +30,12 @@ $Support4['Support4'] = "Help! I got hacked!";
 $Support5['Support5'] = "Browse our support articles";
 $Support6['Support6'] = "Create a new support ticket";
 $Support7['Support7'] = "View your active support tickets.";
-$Support8['Support8'] = "Knowledge Center";
+$Support8['Support8'] = "&Kappa;&epsilon;&nu;&tau;&rho;&omicron; &Gamma;&nu;&omega;&sigma;&epsilon;&omega;&nu;";
 $Support9['Support9'] = "&Upsilon;&pi;&omicron;&beta;&alpha;&lambda;&epsilon;&tau;&epsilon; &mu;&iota;&alpha; &epsilon;&rho;&omega;&tau;&eta;&sigma;&eta;";
 $Support10['Support10'] = "Your Support Tickets";
 $Support11['Support11'] = "Get Support and explore the knowledgebase.";
 
-$Games['Games'] = "Games";
+$Games['Games'] = "&Pi;&alpha;&iota;&chi;&nu;&iota;&delta;&iota;&alpha;";
 $Client_down['Client_down'] = "Game Client Downloads";
 $Client_down3['Client_down3'] = "Download World of Warcraft Client";
 
