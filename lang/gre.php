@@ -18,7 +18,7 @@ $click['click'] = " &Pi;&Alpha;&Tau;&Eta;&Sigma;&Tau;&Epsilon; ";
 $code_forum['code_forum']= " to view the &Phi;&Omicron;&Rho;&Upsilon;&Mu; &tau;&omicron;&nu; &Kappa;&omega;&delta;&iota;&kappa;&alpha;.";
 $here['here'] = "here";
 $Account['Account'] = "&Lambda;&Omicron;&Gamma;&Alpha;&Rho;&Iota;&Alpha;&Sigma;&Mu;&Omicron;&Sigma;";
-$Account1['Account1'] = "Can't log in?";
+$Account1['Account1'] = "&Delta;&epsilon;&nu; &mu;&pi;&omicron;&rho;&epsilon;&iota;&tau;&epsilon; &nu;&alpha; &sigma;&upsilon;&nu;&delta;&epsilon;&theta;&epsilon;&iota;&tau;&epsilon;;";
 $Account3['Account3'] = "&Delta;&eta;&mu;&iota;&omicron;&upsilon;&rho;&gamma;&iota;&alpha; &Lambda;&omicron;&gamma;&alpha;&rho;&iota;&alpha;&sigma;&mu;&omicron;&upsilon;";
 $Account4['Account4'] = "Account Summary";
 $Account5['Account5'] = "Account Security"; 
@@ -32,7 +32,7 @@ $Support5['Support5'] = "Browse our support articles";
 $Support6['Support6'] = "Create a new support ticket";
 $Support7['Support7'] = "View your active support tickets.";
 $Support8['Support8'] = "Knowledge Center";
-$Support9['Support9'] = "Ask a Question";
+$Support9['Support9'] = "&Upsilon;&pi;&omicron;&beta;&alpha;&lambda;&epsilon;&tau;&epsilon; &mu;&iota;&alpha; &epsilon;&rho;&omega;&tau;&eta;&sigma;&eta;";
 $Support10['Support10'] = "Your Support Tickets";
 $Support11['Support11'] = "Get Support and explore the knowledgebase.";
 
