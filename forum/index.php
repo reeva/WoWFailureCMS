@@ -237,13 +237,13 @@ Flash.ratingImage = 'http://eu.media.blizzard.com/wow/player/rating-pegi.jpg';
 
 				<div id="popular-topics">
 					<div class="readmore">
-						Popular Topics
+						<a href=""><?php echo $P_topics['P_topics'] ?></a>
 					</div>
 
 <div>
 	<div class="sidebar-title">
 		<h3 class="title-forums">
-			<a href="">Popular Topics</a>
+			<a href=""><?php echo $P_topics['P_topics'] ?></a>
 		</h3>
 	</div>
 

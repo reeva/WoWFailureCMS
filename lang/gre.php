@@ -11,15 +11,15 @@ $Services['Services'] = "&Upsilon;&Pi;&Eta;&Rho;&Epsilon;&Sigma;&Iota;&Epsilon;&
 $Wow['Wow'] = "World Of Warcraft ";
 $Wow3['Wow3'] = "World of Warcraft - &Epsilon;&Pi;&Iota;&Lambda;&Omicron;&Gamma;&Gamma;&eta; &Gamma;&Lambda;&Omega;&Sigma;&Sigma;&Omega;&Nu;";
 $Latest['Latest'] = "Latest Written Posts ";
-$View_all['View_all'] = "View all";
+$View_all['View_all'] = "(&Pi;&rho;&omicron;&beta;&omicron;&lambda;&eta; &Omicron;&lambda;&omega;&nu;)";
 $all['all'] = "All Main Posts";
-$P_topics['P_topics'] = "Popular Topics";
+$P_topics['P_topics'] = "&Delta;&eta;&mu;&omicron;&phi;&iota;&lambda;&eta; &Theta;&epsilon;&mu;&alpha;&tau;&alpha;";
 $click['click'] = " &Pi;&Alpha;&Tau;&Eta;&Sigma;&Tau;&Epsilon; ";
 $code_forum['code_forum']= " to view the &Phi;&Omicron;&Rho;&Upsilon;&Mu; &tau;&omicron;&nu; &Kappa;&omega;&delta;&iota;&kappa;&alpha;.";
 $here['here'] = "here";
 $Account['Account'] = "&Lambda;&Omicron;&Gamma;&Alpha;&Rho;&Iota;&Alpha;&Sigma;&Mu;&Omicron;&Sigma;";
 $Account1['Account1'] = "Can't log in?";
-$Account3['Account3'] = "Create Account";
+$Account3['Account3'] = "&Delta;&eta;&mu;&iota;&omicron;&upsilon;&rho;&gamma;&iota;&alpha; &Lambda;&omicron;&gamma;&alpha;&rho;&iota;&alpha;&sigma;&mu;&omicron;&upsilon;";
 $Account4['Account4'] = "Account Summary";
 $Account5['Account5'] = "Account Security"; 
 $Account6['Account6'] = "Manage your Account";
@@ -68,10 +68,10 @@ $logout['logout'] = "&Alpha;&pi;&omicron;&sigma;&upsilon;&nu;&delta;&epsilon;&si
 $login['login'] = "&Sigma;&upsilon;&nu;&delta;&epsilon;&sigma;&eta;" ;
 
 $Donate1['Donate1'] = "Donate for"; 
-$Donate['Donate'] = "Donate";
+$Donate['Donate'] = "&Delta;&omega;&rho;&epsilon;&alpha;";
 
 $website['explore'] = "&Epsilon;&Xi;&Epsilon;&Rho;&Epsilon;&Upsilon;&Nu;&Eta;&Sigma;&Eta;";
-$More['More'] = "More";
+$More['More'] = "&Pi;&epsilon;&rho;&iota;&sigma;&sigma;&omicron;&tau;&epsilon;&rho;&alpha;";
 $Retrieve['Retrieve'] = "Retrieve Lost Account";
 $Find['Find'] = "Find us on the Map!";
 
