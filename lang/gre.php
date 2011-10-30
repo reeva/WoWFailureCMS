@@ -1,5 +1,5 @@
 <?php
-// Needs to be Translated
+// Needs to be Completed.
 $lang['adb'] = "&Delta;&epsilon;&nu; &eta;&tau;&alpha;&nu; &delta;&upsilon;&nu;&alpha;&tau;&eta; &eta; &sigma;&upsilon;&nu;&delta;&epsilon;&sigma;&eta; &sigma;&tau;&eta;&nu; Account Database.";
 $lang['db'] = "&Delta;&epsilon;&nu; &eta;&tau;&alpha;&nu; &delta;&upsilon;&nu;&alpha;&tau;&eta; &eta; &sigma;&upsilon;&nu;&delta;&epsilon;&sigma;&eta; &sigma;&tau;&eta;&nu; Website Database.";
 $home['home'] = "&Alpha;&rho;&chi;&iota;&kappa;&eta;";
@@ -8,8 +8,7 @@ $Community['Community'] = "&Kappa;&Omicron;&Iota;&Nu;&Omega;&Tau;&Eta;&Tau;&Alph
 $Media['Media'] = "&Beta;&Iota;&Nu;&Tau;&Epsilon;&Omicron; &amp; &Mu;&Epsilon;&Sigma;&Alpha;";
 $Forums['Forums'] = "&Phi;&Omicron;&Rho;&omicron;&Upsilon;&Mu;";
 $Services['Services'] = "&Upsilon;&Pi;&Eta;&Rho;&Epsilon;&Sigma;&Iota;&Epsilon;&Sigma;";
-$Wow['Wow'] = "World Of Warcraft ";
-$Wow3['Wow3'] = "World of Warcraft - &Epsilon;&Pi;&Iota;&Lambda;&Omicron;&Gamma;&Gamma;&eta; &Gamma;&Lambda;&Omega;&Sigma;&Sigma;&Omega;&Nu;";
+$Wow3['Wow3'] = " - &Epsilon;&Pi;&Iota;&Lambda;&Omicron;&Gamma;&Gamma;&eta; &Gamma;&Lambda;&Omega;&Sigma;&Sigma;&Omega;&Nu;";
 $Latest['Latest'] = "Latest Written Posts ";
 $View_all['View_all'] = "(&Pi;&rho;&omicron;&beta;&omicron;&lambda;&eta; &Omicron;&lambda;&omega;&nu;)";
 $all['all'] = "All Main Posts";
@@ -23,7 +22,7 @@ $Account3['Account3'] = "&Delta;&eta;&mu;&iota;&omicron;&upsilon;&rho;&gamma;&io
 $Account4['Account4'] = "Account Summary";
 $Account5['Account5'] = "Account Security"; 
 $Account6['Account6'] = "Manage your Account";
-
+$Friends['Keepthem'] = "Keep your friends in game.";
 
 $Support['Support'] = "&Upsilon;&Pi;&Omicron;&Sigma;&Tau;&Eta;&Rho;&Iota;&Xi;&Eta;";
 $Support3['Support3'] = "Support Articles";

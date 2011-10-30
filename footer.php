@@ -1,11 +1,12 @@
+<div class="wrapper">
 <div id="footer">
-<div id="sitemap" class="footer-ads">
+<div id="sitemap">
 <div class="column">
 <h3 class="bnet">
-<a href="#" tabindex="100"><?php echo $Wow['Wow']; ?></a>
+<a href="#" tabindex="100"><?php echo $website['title']; ?></a>
 </h3>
 <ul>
-<li><a href="account_man.php"><?php echo $Account['Account']; ?></a></li>
+<li><a href="account_log.php"><?php echo $Account['Account']; ?></a></li>
 <li><a href=""><?php echo $Support['Support']; ?></a></li>
 </ul>
 </div>
@@ -14,7 +15,7 @@
 <a href="#" tabindex="100"><?php echo $Games['Games']; ?></a>
 </h3>
 <ul>
-<li><a href="#"><?php echo $Wow['Wow']; ?></a></li>
+<li><a href="#"><?php echo $website['title']; ?></a></li>
 <li><a href="#"><?php echo $Client_down['Client_down']; ?></a></li>
 </ul>
 </div>
@@ -24,9 +25,9 @@
 </h3>
 <ul>
 <li><a href="#"><?php echo $Account1['Account1']; ?></a></li>
-<li><a href="register.php#"><?php echo $Account3['Account3']; ?></a></li>
-<li><a href="account_man.php#"><?php echo $Account4['Account4']; ?></a></li>
-<li><a href="account_man.php#"><?php echo $Account5['Account5']; ?></a></li>
+<li><a href="register.php"><?php echo $Account3['Account3']; ?></a></li>
+<li><a href="account_log.php"><?php echo $Account4['Account4']; ?></a></li>
+<li><a href="account_log.php"><?php echo $Account5['Account5']; ?></a></li>
 </ul>
 </div>
 <div class="column">
@@ -38,33 +39,11 @@
 <li><a href="#"><?php echo $Support4['Support4']; ?></a></li>
 </ul>
 </div>
-<div id="footer-ad">
-<div class="sidebar-content">
-<div class="bnet-offer">
-<div class="bnet-offer-bg">
-<a href="">
-<img src="<?php echo $website['root'];?>wow/static/images/services/more/recruit.jpg" width="310" height="110" alt="" />
-</a>
-</div>
-<div class="desc">
-<a href="#">
-<center>
-<script type="text/javascript" src="http://ja.revolvermaps.com/b.js">
-</script><script type="text/javascript">rmb_ki101('0ffftggap25','','26','26',1,'ffffff','010020','aa0000');</script>
-</center>
-</a>
-<div class="subtitle">
-<center>
-<?php echo $website['title']; ?>
-</center>
-</div>
-</div>
-</div>
-</div>
+<span class="clear"><!-- --></span>
 </div>
 <div id="copyright">
 <a href="javascript:;" tabindex="100" id="change-language">
-<span><?php echo $Wow3['Wow3']; ?></span>
+<span><?php echo $website['title'];  echo $Wow3['Wow3']; ?></span>
 </a>
 <div xmlns="http://www.w3.org/1999/xhtml" id="international" style=": block; ">
 		<div class="column">
@@ -224,7 +203,7 @@ shim.style.display = 'block';
 <li>
 <a href="index.php" tabindex="55">
 <strong class="explore-caption"><?php echo $website['title']; ?></strong>
-Keep your friends in game.
+<?php echo $Friends['Keepthem']; ?>
 </a>
 </li>
 <li>
