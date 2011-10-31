@@ -7,7 +7,7 @@
 			<ul id="menu">
 
 			<?php if(isset($page_cat)){
-			require_once("configs_lang.php");
+			
       ?>
 			<li class="menu-home"><a href="<?php echo $website['root']; ?>index.php" <?php if($page_cat=='home') echo'class="active"';?>><span><?php echo $home['home']; ?></span></a></li>
 			<li class="menu-game"><a href="<?php echo $website['root']; ?>status.php" <?php if($page_cat=='game') echo'class="active"';?>><span><?php echo $status['status']; ?></span></a></li>
