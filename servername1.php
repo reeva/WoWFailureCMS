@@ -73,7 +73,6 @@ _gaq.push(['_trackPageview']);
 	</div>
 
 	<div id="realm-status">
-<?php include("functions/status_nav.php"); ?>
 		<div class="filter-toggle">
 			<a href="javascript:;" class="selected" onclick="RealmStatus.filterToggle(this)">
 				
@@ -479,6 +478,6 @@ echo "<b>There are now players connected right now on.</b>";
 </div>
 </div>
 </div>
-<?php include("functions/footer_man.php"); ?>
+<?php include("footer.php"); ?>
 <div id="fansite-menu" class="ui-fansite"></div><div id="menu-container"></div><ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" role="listbox" aria-activedescendant="ui-active-menuitem" style="z-index: 6; top: 0px; left: 0px; display: none; "></ul></body>
 </html>
