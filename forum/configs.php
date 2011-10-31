@@ -17,8 +17,8 @@ $charTable = 'characters'; //Your Character Table!!
 $charLimit = '10'; //Max characters to show on the page
 
 $website['title'] = "WoWFailureCMS";
-$website['address'] = "http://localhost:81/failure2/WoWFailureCMS/"; // 'http://url/foldername/' or 'http://url/'
-$website['root'] = "/failure2/WoWFailureCMS/"; // '/' <- for root and '/foldername/' <- for any folder
+$website['address'] = "http://www.wowfailure.com"; // 'http://url/foldername/' or 'http://url/'
+$website['root'] = "/WoWFailureCMS/"; // '/' <- for root and '/foldername/' <- for any folder
 
 //Initialize Lang Files
 
