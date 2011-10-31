@@ -178,8 +178,7 @@ _gaq.push(['_trackPageLoadTime']);
 	</div>
 	</div>
 	</div>
-	<?php include("functions/footer_man.php"); ?>
-	<?php include("functions/footer_man_nav.php"); ?>
+	<?php include("footer.php"); ?>
 	<script type="text/javascript">
 //<![CDATA[
 var xsToken = '';
