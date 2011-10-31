@@ -17,10 +17,54 @@ $charTable = 'characters'; //Your Character Table!!
 $charLimit = '10'; //Max characters to show on the page
 
 $website['title'] = "WoWFailureCMS";
-$website['address'] = "http://www.wowfailure.com"; // 'http://url/foldername/' or 'http://url/'
-$website['root'] = "/WoWFailureCMS/"; // '/' <- for root and '/foldername/' <- for any folder
+$website['address'] = "http://localhost:81/failure2/WoWFailureCMS/"; // 'http://url/foldername/' or 'http://url/'
+$website['root'] = "/failure2/WoWFailureCMS/"; // '/' <- for root and '/foldername/' <- for any folder
+
 //Initialize Lang Files
-include("../lang/eng.php");
+
+session_start();
+
+$lang = &$_SESSION['Local'];
+$lang = $_GET['Local'];
+switch ($lang)
+{
+    case 'en-us' :
+        include ("../lang/en-us.php");
+        break;
+    case 'en-gb' :
+        include ("../lang/en-gb.php");
+        break;
+    case 'de-de' :
+        include ("../lang/de-de.php");
+        break;
+    case 'bu-bu' :
+        include ("../lang/bu-bu.php");
+        break;
+    case 'es-es' :
+        include ("../lang/es-es.php");
+        break;
+    case 'es-mx' :
+        include ("../lang/es-mx.php");
+        break;
+    case 'gr-gr' :
+        include ("../lang/gr-gr.php");
+        break;
+    case 'ru-ru' :
+        include ("../lang/ru-ru.php");
+        break;
+    case 'zh-cn' :
+        include ("../lang/zh-cn.php");
+        break;
+    case 'zh-tw' :
+        include ("../lang/zh-tw.php");
+        break;
+    case 'fr-fr' :
+        include ("../lang/fr-fr.php");
+        break;         
+    default :
+        include ("../lang/en-us.php");
+        $lang = 'en-us';
+}
 
 $connection_setup = mysql_connect($serveraddress,$serveruser,$serverpass)or die(mysql_error());
 mysql_select_db($server_db,$connection_setup)or die(mysql_error());

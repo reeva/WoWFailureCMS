@@ -50,12 +50,12 @@
 			<h3><?php echo $Americas['Americas']; ?></h3>
 			<ul>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to en-us'); return true;">
+			<a href="?Local=en-us" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to en-us'); return true;">
 			<?php echo $English['English']; ?>
 			</a>
 			</li>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to es-mx'); return true;">
+			<a href="?Local=es-mx" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to es-mx'); return true;">
 			<?php echo $Spanish['Spanish']; ?>
 			</a>
 			</li>
@@ -65,27 +65,27 @@
 			<h3><?php echo $Europe['Europe']; ?></h3>
 			<ul>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to de-de'); return true;">
+			<a href="?Local=de-de" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to de-de'); return true;">
 			<?php echo $Deutsch['Deutsch']; ?>
 			</a>
 			</li>
 			<li>
-			<a href="" class="selected" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to en-gb'); return true;">
+			<a href="?Local=en.gb" class="selected" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to en-gb'); return true;">
 			<?php echo $English3['English3']; ?>
 			</a>
 			</li>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to es-es'); return true;">
+			<a href="?Local=es-es" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to es-es'); return true;">
 			<?php echo $Spanish3['Spanish3']; ?>
 			</a>
 			</li>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to fr-fr'); return true;">
+			<a href="?Local=fr-fr" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to fr-fr'); return true;">
 			<?php echo $French['French']; ?>
 			</a>
 			</li>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to ru-ru'); return true;">
+			<a href="?Local=ru-ru" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to ru-ru'); return true;">
 			<?php echo $russia['russia']; ?>
 			</a>
 			</li>
@@ -95,7 +95,7 @@
 			<h3><?php echo $Korea['Korea']; ?></h3>
 			<ul>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to ko-kr'); return true;">
+			<a href=?Local=ko-kr" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to ko-kr'); return true;">
 			<?php echo $Korea3['Korea3']; ?>
 			</a>
 			</li>
@@ -105,7 +105,7 @@
 			<h3><?php echo $Taiwan['Taiwan']; ?></h3>
 			<ul>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to zh-tw'); return true;">
+			<a href="?Local=zh-tw" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to zh-tw'); return true;">
 			<?php echo $Taiwan3['Taiwan3']; ?>
 			</a>
 			</li>
@@ -115,7 +115,7 @@
 			<h3><?php echo $China['China']; ?></h3>
 			<ul>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to zh-cn'); return true;">
+			<a href="?Local=zh-cn" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to zh-cn'); return true;">
 			<?php echo $China3['China3']; ?>
 			</a>
 			</li>
@@ -125,7 +125,7 @@
 			<h3><?php echo $Greek['Greek']; ?></h3>
 			<ul>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to en-us'); return true;">
+			<a href="?Local=gr-gr" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to gr-gr'); return true;">
 			<?php echo $Greek['gr_lang']; ?>
 			</a>
 			</li>
@@ -135,7 +135,7 @@
 			<h3>Bulgarian</h3>
 			<ul>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to en-us'); return true;">
+			<a href="?Local=bu-bu" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to bu-bu'); return true;">
 			Български (EU)
 			</a>
 			</li>

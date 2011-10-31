@@ -1,6 +1,7 @@
 <?php
 require_once("configs.php");
 $page_cat = "home";
+
 ?>
 
 <head>
