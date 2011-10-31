@@ -250,7 +250,7 @@ _gaq.push(['_trackPageview']);
 								<span id="comments"></span>
 								<div id="page-comments">
 									<div class="page-comment-interior" id="comments">
-										<h3>Comments(<?php echo $news['comments']; ?>)</h3>
+										<h3><?php echo $comments['comments']; ?>(<?php echo $news['comments']; ?>)</h3>
 
 										<div class="comments-container">
 										<script type="text/javascript">
@@ -314,7 +314,7 @@ _gaq.push(['_trackPageview']);
 																<div class="submit">
 																	<button class="ui-button button1 comment-submit " type="submit">
 																		<span>
-																			<span>Post</span>
+																			<span><?php echo $post['post']; ?></span>
 																		</span>
 																	</button>
 																</div>
@@ -375,7 +375,7 @@ _gaq.push(['_trackPageview']);
 																	<div class="submit">
 																		<button class="ui-button button1 comment-submit" type="submit">
 																			<span>
-																				<span>Post</span>
+																				<span><?php echo $post['post']; ?></span>
 																			</span>
 																		</button>
 																	</div>
@@ -419,7 +419,7 @@ _gaq.push(['_trackPageview']);
 													<span class="time"><a href="#"><?php echo $comment['date']; ?></a></span>
 												  </div>
 												  <div class="content"><?php echo html_entity_decode($comment['comment']); ?></div>
-												  <div class="comment-actions"><a class="reply-link" href="#" onclick="">Reply</a></div>
+												  <div class="comment-actions"><a class="reply-link" href="#" onclick=""><?php echo $reply['reply']; ?></a></div>
 												</div>
 											</div>
 											<?php
@@ -504,10 +504,10 @@ _gaq.push(['_trackPageview']);
 							
 							<div class="sidebar-module" id="sidebar-forums">
 								<div class="sidebar-title">
-									<h3 class="title-forums">Popular Topics</h3>
+									<h3 class="title-forums"><?php echo $P_topics['P_topics']; ?></h3>
 								</div><br />
 								<div align="center">
-								Loading Forum Settings...
+								<?php echo $loading_forum_sett['loading_forum_sett']; ?>
 								<div class="sidebar-content loading"></div>
 								</div>
 							</div>
