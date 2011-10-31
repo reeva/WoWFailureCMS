@@ -8,6 +8,7 @@ $Community['Community'] = "&Kappa;&Omicron;&Iota;&Nu;&Omega;&Tau;&Eta;&Tau;&Alph
 $Media['Media'] = "&Beta;&Iota;&Nu;&Tau;&Epsilon;&Omicron; &amp; &Mu;&Epsilon;&Sigma;&Alpha;";
 $Forums['Forums'] = "&Phi;&Omicron;&Rho;&omicron;&Upsilon;&Mu;";
 $Services['Services'] = "&Upsilon;&Pi;&Eta;&Rho;&Epsilon;&Sigma;&Iota;&Epsilon;&Sigma;";
+$Wow['Wow'] = "World Of Warcraft ";
 $Wow3['Wow3'] = " - &Epsilon;&Pi;&Iota;&Lambda;&Omicron;&Gamma;&Gamma;&eta; &Gamma;&Lambda;&Omega;&Sigma;&Sigma;&Omega;&Nu;";
 $Latest['Latest'] = "Latest Written Posts ";
 $View_all['View_all'] = "(&Pi;&rho;&omicron;&beta;&omicron;&lambda;&eta; &Omicron;&lambda;&omega;&nu;)";
