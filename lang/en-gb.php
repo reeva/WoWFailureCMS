@@ -8,11 +8,15 @@ $Media['Media'] = "Media";
 $Forums['Forums'] = "Forums";
 $Services['Services'] = "Services";
 $Wow['Wow'] = "World Of Warcraft ";
-$Wow3['Wow3'] = "World of Warcraft - Entire World";
+$Wow3['Wow3'] = " - Entire World";
 $Latest['Latest'] = "Latest Written Posts ";
 $View_all['View_all'] = "View all";
 $all['all'] = "All Main Posts";
 $P_topics['P_topics'] = "Popular Topics";
+$comments['comments'] = "Comments";
+$loading_forum_sett['loading_forum_sett'] = "Loading Forum Settings";
+$post['post'] = "Post";
+$reply['reply'] = "Reply";
 $click['click'] = " Click ";
 $code_forum['code_forum']= " to view the Forums Code of Conduct.";
 $here['here'] = "here";
@@ -22,7 +26,7 @@ $Account3['Account3'] = "Create Account";
 $Account4['Account4'] = "Account Summary";
 $Account5['Account5'] = "Account Security"; 
 $Account6['Account6'] = "Manage your Account";
-
+$Friends['Keepthem'] = "Keep your friends in game.";
 
 
 $Support['Support'] = "Support";

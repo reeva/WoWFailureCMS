@@ -29,7 +29,7 @@ ul.profile-sidebar-menu a:hover { background: url("../../images/profile/sidebar-
 .summary-middle .category-right { font-size: 11px; float: right; line-height: 27px; font-style: italic; color: #5D442B; letter-spacing: -.05em; }
 .summary-middle .category-right .tip { border-bottom: 0; }
 .summary-middle .profile-box-simple { border-width: 1px; border-color: #30190b; }
-.summary-middle-inner { padding: 15px 25px; background-color: rgba(0, 0, 0, 0.08); }
+.summary-middle-inner { padding: 15px 25px; background-color: rgba(0, 0, 0, 0.15); -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
 .summary-middle-left { margin-right: 367px; }
 .summary-middle-right { float: right; width: 333px; }
 .summary-bottom { padding: 32px 40px; background: url("../../images/character/summary/bottom-bg.png") left top no-repeat; min-height: 655px; }
@@ -39,6 +39,12 @@ ul.profile-sidebar-menu a:hover { background: url("../../images/profile/sidebar-
 .summary-top-right ul.profile-view-options { position: absolute; right: 25px; top: 56px; }
 .summary-top-right ul.profile-view-options a.simple { background-position: -300px center; }
 .summary-top-right ul.profile-view-options a.threed { background-position: -450px center; cursor: help; }
+
+/* sidebar */
+.summary-sidebar-links { padding: 35px 0 0 25px; }
+.summary-sidebar-button { float: left; margin-right: 10px; }
+a.summary-link-tools { display: block; width: 21px; height: 21px; background: url("../../images/icons/tools-button.gif") no-repeat; }
+.hover a.summary-link-tools, a.summary-link-tools:hover { background-position: bottom left; }
 
 /* average item level */
 .summary-averageilvl { position: absolute; top: 91px; right: 23px; color: white; }
@@ -99,14 +105,14 @@ ul.profile-sidebar-menu a:hover { background: url("../../images/profile/sidebar-
 .summary-inventory-advanced { width: 807px; height: 521px; position: absolute; left: -45px; top: -2px; }
 .summary-inventory-advanced .slot-inner { width: 265px; height: 57px; background: url("../../images/character/summary/item-slot-advanced-bg.png") left top repeat-y; }
 .summary-inventory-advanced .slot-highlight .slot-inner { background-position: left bottom; }
-.summary-inventory-advanced .details { position: absolute; width: 204px; height: 49px; left: 57px; top: 4px; white-space: nowrap;  }
+.summary-inventory-advanced .details { position: absolute; width: 204px; height: 49px; left: 57px; top: 4px; white-space: nowrap; }
 .summary-inventory-advanced a.item,
 .summary-inventory-advanced a.empty { position: absolute; left: 4px; top: 4px; }
 .summary-inventory-advanced a.empty { opacity: 0.25; }
 .summary-inventory-advanced .name, .summary-inventory-advanced .name-shadow { position: absolute; font-size: 11px; }
 .summary-inventory-advanced .name { left: 0; top: -2px; }
 .summary-inventory-advanced .name-shadow { left: 1px; top: -1px; color: black; }
-.summary-inventory-advanced .audit-warning { line-height: 10px; cursor: default; display: inline-block; background: url("../../images/icons/warning-small.png") right center no-repeat; width: 10px; height: 10px; margin-left: 5px; position: relative; top: 1px; cursor: help; }
+.summary-inventory-advanced .audit-warning { display: inline-block; background: url("../../images/icons/warning-small.png") right center no-repeat; width: 10px; height: 10px; margin-left: 5px; cursor: help; }
 .summary-inventory-advanced .enchant, .summary-inventory-advanced .enchant-shadow { position: absolute; font-size: 11px; }
 .summary-inventory-advanced .enchant { left: 0; top: 12px; color: #0f0; }
 .summary-inventory-advanced .enchant .tip { border-bottom: 0; }
@@ -159,6 +165,7 @@ ul.profile-sidebar-menu a:hover { background: url("../../images/profile/sidebar-
 .summary-bonus-tally .other .name a { white-space: nowrap; }
 .summary-bonus-tally .other .name a:hover { color: white; }
 .summary-bonus-tally .other .comma { letter-spacing: 1px; }
+.summary-bonus-tally .tip { border-bottom: 0; }
 
 /* audit */
 .summary-audit { }
@@ -227,7 +234,7 @@ ul.profile-sidebar-menu a:hover { background: url("../../images/profile/sidebar-
 .summary-talents a.active .icon .frame { background-position: 0 -50px; }
 
 /* stats, professions, battlegrounds */
-.summary-stats-profs-bgs { clear: left; padding: 0 25px 23px 25px; background-color: rgba(0, 0, 0, 0.15); }
+.summary-stats-profs-bgs { clear: left; padding: 0 25px 23px 25px; background-color: rgba(0, 0, 0, 0.15); -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
 
 /* stats */
 .summary-stats { padding-top: 15px; }
@@ -249,11 +256,11 @@ a.summary-stats-simple-arrow:hover { background-position: right bottom; }
 .summary-stats-simple-other { position: relative; }
 .summary-stats-simple-other, .summary-stats-advanced-role { float: left; }
 .summary-stats-advanced li { padding: 10px 0; border-top: 1px solid #2f1e18; }
-a.summary-stats-toggler, a.summary-stats-toggler .inner { display: block; height: 26px; line-height: 26px; background: /*#311c12*/ url("../../images/character/summary/stats-expand-bg.gif") left top no-repeat; font-size: 11px; }
+a.summary-stats-toggler, a.summary-stats-toggler .inner { display: block; height: 26px; line-height: 26px; background: url("../../images/character/summary/stats-expand-bg.gif") left top no-repeat; font-size: 11px; }
 a.summary-stats-toggler { margin-top: 15px; text-align: center; padding-left: 10px; }
 a.summary-stats-toggler .inner { background-position: right top; padding-right: 10px; }
-a.summary-stats-toggler:hover { background-position: left bottom; /*background-color: #3c2116;*/ }
-a.summary-stats-toggler:hover .inner { background-position: right bottom; /*background-color: #3c2116;*/ }
+a.summary-stats-toggler:hover { background-position: left bottom; }
+a.summary-stats-toggler:hover .inner { background-position: right bottom; }
 .summary-stats-bottom { border-top: 1px solid #2f1e18; margin-top: 25px; padding-top: 25px; }
 
 /* professions */
@@ -263,12 +270,13 @@ a.summary-stats-toggler:hover .inner { background-position: right bottom; /*back
 .summary-professions .profession-details { width: 234px; display: block; }
 .summary-professions li { height: 23px; margin-bottom: 7px; background: #462414 url("../../images/character/summary/professions-bar-bg.png") repeat-x; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
 .summary-professions .profession-details { position: absolute; left: 0; top: 0; text-shadow: 1px 1px 1px #000; }
+.summary-professions a.profession-details:hover { background-color: rgba(255, 255, 255, 0.15); }
 .summary-professions .profession-details span { float: left; color: white; }
-.summary-professions .icon { margin: 4px 5px 0 4px; }
-.summary-professions .name { font-size: 11px; }
+.summary-professions .icon { margin: 4px 0 0 4px; }
+.summary-professions .name { font-size: 11px; margin-left: 5px; }
 .summary-professions .value { padding-right: 6px; font-family: 'Arial Black', Verdana, Arial, sans-serif; font-weight: bold; float: right !important; }
 .summary-professions li.empty { position: relative; height: 23px; line-height: 23px; }
-.summary-professions li.empty .name { color: #C09A67; text-shadow: none; }
+.summary-professions li.empty .name { color: #996e46; text-shadow: none; }
 
 .summary-professions .profile-progress { background: none; margin: 0; text-align: left; }
 .summary-professions .profile-progress .bar { height: 23px; background: url("../../images/character/summary/professions-bar-bg.png") left -23px repeat-x; }
@@ -306,7 +314,7 @@ a.summary-stats-toggler:hover .inner { background-position: right bottom; /*back
 .summary-raid-wrapper-table { float: left; width: 758px; height: 165px; overflow: hidden; }
 .summary-raid thead th { height: 50px; font-weight: normal; vertical-align: bottom; }
 .summary-raid thead .name-anchor { position: relative; width: 1px; height: 0; }
-.summary-raid thead .name { position: absolute; top: -22px; font-size: 11px; text-transform: lowercase; }
+.summary-raid thead .name { position: absolute; top: -22px; font-size: 11px; text-transform: lowercase; white-space: nowrap; }
 .summary-raid thead .marker { padding-top: 7px; border: 1px solid #40281a; border-bottom: 0; margin-bottom: 16px; }
 .summary-raid thead th.trivial .name-anchor { float: left; }
 .summary-raid thead th.trivial .name { left: 0; }
@@ -327,9 +335,11 @@ a.summary-stats-toggler:hover .inner { background-position: right bottom; /*back
 .summary-raid tr.icons td.expansion-1 .icon { border-color: #49a624; }
 .summary-raid tr.icons td.expansion-2 .icon { border-color: #25aaff; }
 .summary-raid tr.icons td.expansion-3 .icon { border-color: #f15c00; }
-.summary-raid tr.icons .icon, .summary-raid tr.icons .icon div { width: 61px; height: 60px; }
+.summary-raid tr.icons .icon, .summary-raid tr.icons .icon a { width: 61px; height: 60px; display: block; }
 .summary-raid tr.icons .icon { background: url("../../images/character/summary/raid-icons.jpg") no-repeat; }
-.summary-raid tr.icons .icon div { overflow: hidden; text-align: center; cursor: help; text-shadow: 1px 1px 1px black; font-family: 'Arial Black', Verdana, Arial, sans-serif; font-size: 11px; line-height: 98px; }
+.summary-raid tr.icons .icon a, .summary-raid tr.icons .icon span { display: block; overflow: hidden; text-align: center; text-shadow: 1px 1px 1px black; font-family: 'Arial Black', Verdana, Arial, sans-serif; font-size: 11px; line-height: 98px; color: white; width:60px; height:61px }
+.summary-raid tr.icons .icon span { cursor: help; }
+.summary-raid tr.icons .icon a:hover { background-color: rgba(255, 255, 255, 0.2); }
 .summary-raid tr.icons .mc   .icon { background-position:        0 0; }
 .summary-raid tr.icons .bwl  .icon { background-position:    -61px 0; }
 .summary-raid tr.icons .aq10 .icon { background-position:   -122px 0; }
@@ -337,7 +347,6 @@ a.summary-stats-toggler:hover .inner { background-position: right bottom; /*back
 .summary-raid tr.icons .kar  .icon { background-position:   -244px 0; }
 .summary-raid tr.icons .gru  .icon { background-position:   -305px 0; }
 .summary-raid tr.icons .mag  .icon { background-position:   -366px 0; }
-.summary-raid tr.icons .za   .icon { background-position:   -427px 0; }
 .summary-raid tr.icons .ssc  .icon { background-position:   -488px 0; }
 .summary-raid tr.icons .tk   .icon { background-position:   -549px 0; }
 .summary-raid tr.icons .mh   .icon { background-position:   -610px 0; }
@@ -356,6 +365,7 @@ a.summary-stats-toggler:hover .inner { background-position: right bottom; /*back
 .summary-raid tr.icons .bot  .icon { background-position:  -1403px 0; }
 .summary-raid tr.icons .bd   .icon { background-position:  -1464px 0; }
 .summary-raid tr.icons .tfw  .icon { background-position:  -1525px 0; }
+.summary-raid tr.icons .fl   .icon { background-position:  -1586px 0; }
 .summary-raid td.status div { cursor: help; height: 22px; font-size: 10px; line-height: 22px; text-align: center; }
 .summary-raid tr.normal td.status-incomplete div { background-color: #32180c; }
 .summary-raid tr.heroic td.status-incomplete div { background-color: #2d150a; }
@@ -376,7 +386,6 @@ a.summary-stats-toggler:hover .inner { background-position: right bottom; /*back
 /* arena */
 .summary-arena { padding-top: 40px; }
 .summary-arena .profile-box-full { padding: 22px 27px 20px; }
-.summary-arena .rating { font-size: 20px; color: #953203; font-family: 'Arial Black', Verdana, Arial, sans-serif; font-weight: bold; line-height:29px; }
 .summary-arena .arena-columns { width: 645px; margin: 0 auto; }
 .summary-arena .arena-column { width: 205px; height: 242px; float: right; margin-left: 10px; background: #2a150b url("../../images/character/summary/arena-bg.png") no-repeat; }
 .summary-arena .arena-column.column-disabled { background-position: -205px 0; }
@@ -389,7 +398,10 @@ a.summary-stats-toggler:hover .inner { background-position: right bottom; /*back
 .summary-arena .cell-mid { padding: 15px 20px 0 20px; }
 .summary-arena .cell-mid .rating { font-size: 14px; margin-top: 2px; margin-bottom: 8px; line-height: 21px; }
 .summary-arena .cell-mid .icon { margin: 3px 3px 0 0; }
-
+.summary-arena .profile-linktomore { padding-top: 10px; }
+.summary-arena .rating { font-size: 20px; color: #953203; font-family: 'Arial Black', Verdana, Arial, sans-serif; font-weight: bold; line-height:29px; }
+.summary-arena .rank { color: #FEF092; font-size: 14px; font-weight: bold; }
+.summary-arena .rank .unranked { color: #71401F; font-size: 12px; font-style: italic; font-weight: normal; }
 .summary-arena .gameswon { color: #0F0; }
 .summary-arena .gameslost { color: red; }
 .summary-arena .percentwon { padding-left: 6px; }
@@ -409,8 +421,8 @@ a.summary-stats-toggler:hover .inner { background-position: right bottom; /*back
 .ui-tooltip .summary-item-list { white-space: nowrap; }
 .ui-tooltip .summary-item-list .icon { margin-right: 5px; }
 
-/* fansite */
-.summary-fansite-anchor { float: left; position: relative; width: 0; height: 0; }
-.summary-fansite { position: absolute; left: 28px; top: -80px; white-space: nowrap; font-size: 11px; line-height: 1.75em; }
-.summary-professions .fansite-link { position: absolute; right: -13px; top: 4px; margin-left: 10px; display: none; }
-.summary-professions .fansite-hover .fansite-link, .summary-professions li:hover .fansite-link { display: block; }
+/* sidebar */
+.summary-fansite-anchor { padding: 25px; font-size: 11px; }
+.summary-thirdparty a { padding-right: 12px; background: url("../../images/icons/goto-fansite.gif") no-repeat 100% 3px;  }
+.summary-save-image { margin-top: 10px }
+.summary-save-image a { margin-right: 10px; background: url('../../images/icons/down.gif') no-repeat right 3px; padding-right: 12px;}
