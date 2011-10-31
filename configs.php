@@ -2,31 +2,7 @@
 session_save_path('phpsessions');
 session_start();
 
-$serveraddress = "localhost"; // Your MySQL server address
-$serveruser = "root"; // Your MySQL user
-$serverpass = "ascent"; //Your MySQL password
-$serverport	= "3306"; // Your MySQL Port
-
-$server_db = "site"; //Your website database
-$server_adb = "auth"; //Your account database
-$server_cdb = "characters"; //Your characters database
-$server_cdb_2 = "characters2"; //Your characters database
-$server_wdb = "world"; //Your world database
-$server_wdb_2 = "world"; //Your world database
-$charTable = 'characters'; //Your Character Table!!
-$name_realm1['realm'] = "Server_Name_1"; //Your Realm Name 1
-$name_realm2['realm'] = "Server_Name_2"; //Your Realm Name 2
-$charLimit = '10'; //Max characters to show on the page
-
-$website['title'] = "WoWFailureCMS";
-$website['slogan'] = "WoWFailureCMS, get your best CMS today, simple and fast!";
-$website['address'] = "http://www.wowfailure.com"; // 'http://url/foldername/' or 'http://url/'
-$website['root'] = "/WoWFailureCMS/"; // '/' <- for root and '/foldername/' <- for any folder
-
 //Initialize Lang Files
-
-session_start();
-
 $lang = &$_SESSION['Local'];
 $lang = $_GET['Local'];
 switch ($lang)
@@ -69,6 +45,26 @@ switch ($lang)
         $lang = 'en-us';
 }
 
+$serveraddress = "localhost"; // Your MySQL server address
+$serveruser = "root"; // Your MySQL user
+$serverpass = "ascent"; //Your MySQL password
+$serverport	= "3306"; // Your MySQL Port
+
+$server_db = "site"; //Your website database
+$server_adb = "auth"; //Your account database
+$server_cdb = "characters"; //Your characters database
+$server_cdb_2 = "characters2"; //Your characters database
+$server_wdb = "world"; //Your world database
+$server_wdb_2 = "world"; //Your world database
+$charTable = 'characters'; //Your Character Table!!
+$name_realm1['realm'] = "Server_Name_1"; //Your Realm Name 1
+$name_realm2['realm'] = "Server_Name_2"; //Your Realm Name 2
+$charLimit = '10'; //Max characters to show on the page
+
+$website['title'] = "WoWFailureCMS";
+$website['slogan'] = "WoWFailureCMS, get your best CMS today, simple and fast!";
+$website['address'] = "http://www.wowfailure.com"; // 'http://url/foldername/' or 'http://url/'
+$website['root'] = "/WoWFailureCMS/"; // '/' <- for root and '/foldername/' <- for any folder
 
 
 $connection_setup = mysql_connect($serveraddress,$serveruser,$serverpass)or die(mysql_error());
