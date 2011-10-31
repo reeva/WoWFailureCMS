@@ -20,7 +20,7 @@ $reply['reply'] = "&Alpha;&pi;&alpha;&nu;&tau;&eta;&sigma;&eta;";
 $click['click'] = " &Pi;&Alpha;&Tau;&Eta;&Sigma;&Tau;&Epsilon; ";
 $code_forum['code_forum']= " to view the &Phi;&Omicron;&Rho;&Upsilon;&Mu; &tau;&omicron;&nu; &Kappa;&omega;&delta;&iota;&kappa;&alpha;.";
 $here['here'] = "&epsilon;&delta;&omega;";
-$Account['Account'] = "&Lambda;&Omicron;&Gamma;&Alpha;&Rho;&Iota;&Alpha;&Sigma;&Mu;&Omicron;&Sigma;";
+$Account['Account'] = "&Lambda;&omicron;&gamma;&alpha;&rho;&iota;&alpha;&sigma;&mu;&omicron;&sigmaf;";
 $Account1['Account1'] = "&Delta;&epsilon;&nu; &mu;&pi;&omicron;&rho;&epsilon;&iota;&tau;&epsilon; &nu;&alpha; &sigma;&upsilon;&nu;&delta;&epsilon;&theta;&epsilon;&iota;&tau;&epsilon;;";
 $Account3['Account3'] = "&Delta;&eta;&mu;&iota;&omicron;&upsilon;&rho;&gamma;&iota;&alpha; &Lambda;&omicron;&gamma;&alpha;&rho;&iota;&alpha;&sigma;&mu;&omicron;&upsilon;";
 $Account4['Account4'] = "&Sigma;&upsilon;&nu;&omicron;&psi;&eta; &Lambda;&omicron;&gamma;&alpha;&rho;&iota;&alpha;&sigma;&mu;&omicron;&upsilon;";
@@ -28,7 +28,7 @@ $Account5['Account5'] = "&Alpha;&sigma;&phi;&alpha;&lambda;&epsilon;&iota;&alpha
 $Account6['Account6'] = "&Delta;&iota;&alpha;&chi;&epsilon;&iota;&rho;&iota;&sigma;&tau;&epsilon;&iota;&tau;&epsilon; &tau;&omicron; &Lambda;&omicron;&gamma;&alpha;&rho;&iota;&alpha;&sigma;&mu;&omicron; &sigma;&alpha;&#962;";
 $Friends['Keepthem'] = "&Kappa;&rho;&alpha;&tau;&eta;&sigma;&tau;&epsilon; &tau;&omicron;&upsilon;&#962; &phi;&iota;&lambda;&omicron;&upsilon;&#962; &sigma;&alpha;&#962; &sigma;&tau;&omicron; &Pi;&alpha;&iota;&chi;&nu;&iota;&delta;&iota;.";
 
-$Support['Support'] = "&Upsilon;&Pi;&Omicron;&Sigma;&Tau;&Eta;&Rho;&Iota;&Xi;&Eta;";
+$Support['Support'] = "&Upsilon;&pi;&omicron;&sigma;&tau;&eta;&rho;&iota;&xi;&eta;";
 $Support3['Support3'] = "Support Articles";
 $Support4['Support4'] = "Help! I got hacked!";
 $Support5['Support5'] = "Browse our support articles";
@@ -73,7 +73,7 @@ $login['login'] = "&Sigma;&upsilon;&nu;&delta;&epsilon;&sigma;&eta;" ;
 $Donate1['Donate1'] = "Donate for"; 
 $Donate['Donate'] = "&Delta;&omega;&rho;&epsilon;&alpha;";
 
-$website['explore'] = "&Epsilon;&Xi;&Epsilon;&Rho;&Epsilon;&Upsilon;&Nu;&Eta;&Sigma;&Eta;";
+$website['explore'] = "&Epsilon;&xi;&epsilon;&rho;&epsilon;&upsilon;&nu;&eta;&sigma;&eta;";
 $More['More'] = "&Pi;&epsilon;&rho;&iota;&sigma;&sigma;&omicron;&tau;&epsilon;&rho;&alpha;";
 $Retrieve['Retrieve'] = "Retrieve Lost Account";
 $Find['Find'] = "Find us on the Map!";

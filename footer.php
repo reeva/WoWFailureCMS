@@ -95,7 +95,7 @@
 			<h3><?php echo $Korea['Korea']; ?></h3>
 			<ul>
 			<li>
-			<a href=?Local=ko-kr" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to ko-kr'); return true;">
+			<a href="?Local=ko-kr" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to ko-kr'); return true;">
 			<?php echo $Korea3['Korea3']; ?>
 			</a>
 			</li>
