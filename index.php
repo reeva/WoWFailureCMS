@@ -424,9 +424,9 @@ $page_cat = "home";
 							<div class="sidebar-content">
 							<div class="bnet-offer">
 							<!-- Sidebar No.1 of Services-->
-							<div class="bnet-offer-bg"><a href="#"><img src="wow/static/images/services/more/copy.gif" width="300" height="100" alt="" /></a></div>
-							<div class="desc"><a href="#">Donation Shop</a>
-							<div class="subtitle">You wanna help us stay up? You wanna earn magic rewards? Donate now!</div>
+							<div class="bnet-offer-bg"><a href="#"><img src="wow/static/images/services/thumbnails/recruit.jpg" width="300" height="100" alt="" /></a></div>
+							<div class="desc"><a href="#">Recruit a Friend</a>
+							<div class="subtitle">Get your friends ingame and play togethere for free!</div>
 							</div>
 							</div>
 							</div>
@@ -434,9 +434,9 @@ $page_cat = "home";
 							<div class="sidebar-content">
 							<div class="bnet-offer">
 							<!-- Sidebar No.2 of Services-->
-							<div class="bnet-offer-bg"><a href="#"><img src="wow/static/images/services/more/freepets.gif" width="300" height="100" alt="" /></a></div>
-							<div class="desc"><a href="#">Gift Voting Shop</a>
-							<div class="subtitle">The Moonkin Hatchling and Lil' Ragnaros need a home! Vote now!</div>
+							<div class="bnet-offer-bg"><a href="#"><img src="wow/static/images/services/thumbnails/transfer.jpg" width="300" height="100" alt="" /></a></div>
+							<div class="desc"><a href="#">Transfer a Character</a>
+							<div class="subtitle">Make your Transfers realm by realm, Character by Character!</div>
 							</div>
 							</div>
 							</div>

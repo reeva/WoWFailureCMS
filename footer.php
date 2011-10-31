@@ -80,6 +80,11 @@
 			</a>
 			</li>
 			<li>
+			<a href="?Local=es-es" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to es-es'); return true;">
+			<?php echo $Serbian['Europe']; ?>
+			</a>
+			</li>
+			<li>
 			<a href="?Local=fr-fr" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to fr-fr'); return true;">
 			<?php echo $French['French']; ?>
 			</a>
@@ -132,11 +137,21 @@
 			</ul>
 			</div>
 			<div class="column">
-			<h3>Bulgarian</h3>
+			<h3>Bulgaria</h3>
 			<ul>
 			<li>
 			<a href="?Local=bu-bu" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to bu-bu'); return true;">
 			Български (EU)
+			</a>
+			</li>
+			</ul>
+			</div>
+			<div class="column">
+			<h3>Romania</h3>
+			<ul>
+			<li>
+			<a href="?Local=bu-bu" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to bu-bu'); return true;">
+			Romanian (EU)
 			</a>
 			</li>
 			</ul>

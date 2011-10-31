@@ -60,6 +60,7 @@ $Taiwan['Taiwan'] = "Taiwan";
 $China3['China3'] = "&#31616;&#20307;&#20013;&#25991;";
 $China['China'] = "China";
 $Greek['Greek'] = "Greek";
+$Serbian['Europe'] = "Serbian";
 $Greek['gr_lang'] = "&Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&alpha; (EU)";
 $copyright['copyright'] = "Copyright &copy; 2011 ";
 $copyright3['copyright3'] = "Powered by WoWFailureCMS";
