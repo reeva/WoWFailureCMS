@@ -23,9 +23,7 @@ $page_cat = "services";
 <script type="text/javascript" src="wow/static/local-common/js/core.js"></script>
 <script type="text/javascript" src="wow/static/local-common/js/tooltip.js"></script>
 <!--[if IE 6]> <script type="text/javascript">
-//<![CDATA[
-try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
-//]]>
+//<![CDATA[try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}//]]>
 </script>
 <![endif]-->
 <script type="text/javascript">
@@ -34,7 +32,7 @@ Core.staticUrl = '/wow/static';
 Core.sharedStaticUrl= '/wow/static/local-common';
 Core.baseUrl = '/wow/en';
 Core.projectUrl = '/wow';
-Core.cdnUrl = 'http://eu.media.blizzard.com/';
+Core.cdnUrl = 'http://eu.media.blizzard.com';
 Core.supportUrl = 'http://eu.battle.net/support/';
 Core.secureSupportUrl= 'https://eu.battle.net/support/';
 Core.project = 'wow';
@@ -47,7 +45,7 @@ Core.dateTimeFormat = 'dd/MM/yyyy HH:mm';
 Core.loggedIn = false;
 Flash.videoPlayer = 'http://eu.media.blizzard.com/global-video-player/themes/wow/video-player.swf';
 Flash.videoBase = 'http://eu.media.blizzard.com/wow/media/videos';
-Flash.ratingImage = '../../../eu.media.blizzard.com/global-video-player/ratings/wow/rating-pegi.jpg';
+Flash.ratingImage = 'http://eu.media.blizzard.com/global-video-player/ratings/wow/rating-pegi.jpg';
 Flash.expressInstall= 'http://eu.media.blizzard.com/global-video-player/expressInstall.swf';
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-544112-16']);
@@ -57,7 +55,7 @@ _gaq.push(['_trackPageLoadTime']);
 //]]>
 </script>
 </head>
-	<body class="en-gb search-win">
+<body class="en-gb search-win">
 	<div id="wrapper">
 	<?php include("header.php"); ?>
 	<div id="content">
@@ -95,19 +93,72 @@ _gaq.push(['_trackPageLoadTime']);
 	<div class="helpers">
 	<h3 class="subheader ">Summary of results for <span>name</span></h3>
 	</div>
+	<div class="summary">
+	<div class="results results-grid wow-results">
+	<h3 class="category "><a href="">Characters</a>(NUMBER)</h3>
+	<div class="grid">
+	<div class="wowcharacter">
+	<a href="" class="icon-frame frame-56 thumbnail">
+	<img src="images/postavatar.jpg" alt="" width="56" height="56" /></a>
+	<a href="" class="color-c2">
+	<strong>NAME</strong></a><br /><font color="#FEF084">LEVEL RACE CLASS<br />REALM</font>
 	<span class="clear"><!-- --></span>
-    </div>
+	</div>
+	</div>
+	<div class="grid">
+	<div class="wowcharacter">
+	<a href="" class="icon-frame frame-56 thumbnail">
+	<img src="images/postavatar.jpg" alt="" width="56" height="56" /></a>
+	<a href="" class="color-c7">
+	<strong>NAME</strong></a><br /><font color="#FEF084">LEVEL RACE CLASS<br />REALM</font>
+	<span class="clear"><!-- --></span>
+	</div>
+	</div>
+	<div class="grid">
+	<div class="wowcharacter">
+	<a href="" class="icon-frame frame-56 thumbnail">
+	<img src="images/postavatar.jpg" alt="" width="56" height="56" /></a>
+	<a href="" class="color-c11">
+	<strong>NAME</strong></a><br/><font color="#FEF084">LEVEL RACE CLASS<br/>REALM</font>
+	<span class="clear"><!-- --></span>
+	</div>
+	</div>
+	<span class="clear"><!-- --></span>
+	</div>
+	<div class="results results-grid wow-results">
+	<div class="grid">
+	<h4 class="subcategory "><a href="?q=primo&amp;f=wowguild">Guilds</a>(number)</h4>
+	<div class="wowguild">
+	<canvas id="tabard-3125133" class="thumbnail" width="32" height="32"></canvas>
+	<a href="" class="sublink">
+	<strong>NAME</strong>
+	</a><font color="#FEF084">- FACTION</font><br />
+	<span data-tooltip="REALM NAME"><font color="#FEF084">REALM NAME</font></span>
+	<script type="text/javascript">
+	//<![CDATA[
+	$(function(){
+	var tabard3125133 = new GuildTabard('tabard-3125133', {
+	ring: 'alliance', bg: [ 0, '45' ], border: [ '2', '15' ], emblem: [ '38', '14' ]});});
+	//]]>
+    </script>
+	<span class="clear"><!-- --></span>
+	</div>
+	</div>
+	<span class="clear"><!-- --></span>
+	</div>
+	</div>
+	</div>
 	<div class="search-left">
 	<div class="search-header">
 	<h2 class="header ">Search</h2>
 	</div>
 	<ul class="dynamic-menu" id="menu-search">
-	<li class="">
+	<li class="item-active">
 	<a href="">
 	<span class="arrow">Summary</span>
 	</a>
 	</li>
-	<li class="item-active">
+	<li>
 	<a href=""><span class="arrow">Characters<span> (number)</span></span>
 	</a>
 	</li>
@@ -123,64 +174,14 @@ _gaq.push(['_trackPageLoadTime']);
 	</li>
 	</ul>
     </div>
-	<div class="view-table">
-	<div class="table ">
-	<table>
-	<thead>
-	<tr>
-	<th width="15%" class=" first-child">
-	<a href="" class="sort-link" >
-	<span class="arrow">Name</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Level</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Race</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Class</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Faction</span>
-	</a>
-	</th>
-	<th width="15%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Guild</span>
-	</a>
-	</th>
-	<th>
-	<a href="" class="sort-link" >
-	<span class="arrow">Realm</span>
-	</a>
-	</th>
-	<th class=" last-child">
-	<a href="" class="sort-link" >
-	<span class="arrow">Battlegroup</span>
-	</a>
-	</th>
-	</tr>
-	</thead>
-	<?php include("functions/armory_func.php"); ?>
-	</table>
-	</div>
-	</div>
+	<span class="clear"><!-- --></span>
 	</div>
 	</div>
 	</div>
 	</div>
 	<?php include("functions/footer_man.php"); ?>
 	<?php include("functions/footer_man_nav.php"); ?>
-	<script type="text/javascript">
+<script type="text/javascript">
 //<![CDATA[
 var xsToken = '';
 var Msg = {
@@ -279,8 +280,8 @@ other: 'Other'
 };
 //]]>
 </script>
-<script type="text/javascript" src="../static/local-common/js/menua1c4.js?v35"></script>
-<script type="text/javascript" src="../static/js/wow2e13.js?v18"></script>
+<script type="text/javascript" src="/wow/static/local-common/js/menu.js?v35"></script>
+<script type="text/javascript" src="/wow/static/js/wow.js?v18"></script>
 <script type="text/javascript">
 //<![CDATA[
 $(function(){
@@ -289,14 +290,14 @@ Search.initialize('/ta/lookup');
 });
 //]]>
 </script>
-<script type="text/javascript" src="../static/local-common/js/utility/dynamic-menua1c4.js?v35"></script>
-<script type="text/javascript" src="../static/js/character/guild-tabard2e13.js?v18"></script>
-<script type="text/javascript" src="../static/js/character/arena-flag2e13.js?v18"></script>
+<script type="text/javascript" src="/wow/static/local-common/js/utility/dynamic-menu.js?v35"></script>
+<script type="text/javascript" src="/wow/static/js/character/guild-tabard.js?v18"></script>
+<script type="text/javascript" src="/wow/static/js/character/arena-flag.js?v18"></script>
 <script type="text/javascript">
 //<![CDATA[
-Core.load("../static/local-common/js/third-party/jquery-ui-1.8.6.custom.mina1c4.js?v35");
-Core.load("../static/local-common/js/searcha1c4.js?v35");
-Core.load("../static/local-common/js/logina1c4.js?v35", false, function() {
+Core.load("/wow/static/local-common/js/third-party/jquery-ui-1.8.6.custom.min.js?v35");
+Core.load("/wow/static/local-common/js/search.js?v35");
+Core.load("/wow/static/local-common/js/login.js?v35", false, function() {
 if (typeof Login !== 'undefined') {
 Login.embeddedUrl = 'https://eu.battle.net/login/login.frag';
 }
@@ -313,9 +314,9 @@ $('.png-fix').pngFix(); //]]>
 //<![CDATA[
 (function() {
 var ga = document.createElement('script');
-var src = "../../../ssl.google-analytics.com/ga.js";
+var src = "https://ssl.google-analytics.com/ga.js";
 if ('http:' == document.location.protocol) {
-src = "../../../www.google-analytics.com/ga.js";
+src = "http://www.google-analytics.com/ga.js";
 }
 ga.type = 'text/javascript';
 ga.setAttribute('async', 'true');
