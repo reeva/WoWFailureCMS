@@ -66,7 +66,7 @@ if (isset($_GET['charname'])) {
 	<td>
 	<a href="" class="item-link color-c9">
 	<span class="icon-frame frame-18">
-	<img src="wow/static/images/icons/faction/'.translate($row["race"]).'" alt="" width="18" height="18" />
+	<img src="images/postavatar.jpg" alt="" width="18" height="18" />
 	</span>
 	<strong><a href="craracter.php?name='.$row["name"].'">'.$row["name"].'</a></strong>
 	</a>
