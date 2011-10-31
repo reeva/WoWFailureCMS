@@ -1,22 +1,19 @@
 = WoWFailure Project -- What has to be Done?! =
 
-1) Fix the login in linux (Work Started - Finished)
-2) Make a Donation Panel. <-- =Intergrated= -->
-3) We need to add a Translation System, (Work Started)
-4) Fix and Create the Character View System. (Work Stoped)
-5) REMOVED
-6) Character Transfer (need to be worked as a part of donation system)
-7) Name Change (need to be worked as a part of donation system)
-8) Faction Change (need to be worked as a part of donation system)
-9) Appearance Change (need to be worked as a part of donation system)
-10) Race Change (finished but need to be worked as a part of donation system)
-11) Finish the Refer and recruit a Friend (this will need core support)
-12) try to work in armory, need a lot of work, we can work in base of shadez armory and integrate to our repo.
-13) delete some options in the web and edit anothers like change website theme or upgrade your account, request gm trial xD
-14) work on forum, we need to fix the things to give gm the moderation permissions for forum and news
-15) fix the submit options in the fan art, wallpapers and general media zone, and add a option to gm can accept the submission before they appear public
-16) fix status functions on the status page, top honor and all other the criterias need to be fixed.
-17) script the vote shop and make a little db where we can edit and add items to buy for vote points.
+
+1) Make a Donation Panel. <-- =Intergrated= -->
+2) Fix and Create the Character View System. (Work Stoped)
+3) Character Transfer (need to be worked as a part of donation system)
+4) Name Change (need to be worked as a part of donation system)
+5) Faction Change (need to be worked as a part of donation system)
+6) Appearance Change (need to be worked as a part of donation system)
+7) Race Change (finished but need to be worked as a part of donation system)
+8) Finish the Refer and recruit a Friend (this will need core support)
+9) Try to work in armory (Work Started - 50% DONE)
+10) Work on forum, we need to fix the things to give gm the moderation permissions for forum and news
+11) Fix the submit options in the fan art, wallpapers and general media zone, and add a option to gm can accept the submission before they appear public
+12) Fix status functions on the status page, top honor and all other the criterias need to be fixed.
+13) Script the vote shop and make a little db where we can edit and add items to buy for vote points.
 
 # --------------------------------------------------------------
 # |CMS:                                  |    WOWFailureCMS    |
@@ -25,9 +22,9 @@
 # |Database version:                             |    0.1.1    |
 # |Website Version:                              |    0.2.0    |
 # |Release Date:                                 | 2010-05-17  |
-# |Latest Update:                                | 2011-10-30  |
+# |Latest Update:                                | 2011-10-31  |
 # ----------------------------TEAM------------------------------
 # |Members: Apocalipsyz, FailZorD, arnauec, CarlosX,dissaor021,|
 # |hondacrx, Kitiara, Krill156, Lilcrazy, Roberto Roeschmann,  |
-# |MrBillys, Venugh, dju35.						       |
+# |MrBillys, Venugh, dju35.				       |
 # --------------------------------------------------------------
