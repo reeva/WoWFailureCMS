@@ -1,6 +1,5 @@
 = WoWFailure Project -- What has to be Done?! =
 
-
 1) Make a Donation Panel. <-- =Intergrated= -->
 2) Fix and Create the Character View System. (Work Stoped)
 3) Character Transfer (need to be worked as a part of donation system)
@@ -12,7 +11,7 @@
 9) Try to work in armory (Work Started - 50% DONE)
 10) Work on forum, we need to fix the things to give gm the moderation permissions for forum and news
 11) Fix the submit options in the fan art, wallpapers and general media zone, and add a option to gm can accept the submission before they appear public
-12) Fix status functions on the status page, top honor and all other the criterias need to be fixed.
+12) All other the criterias (Conquest, 2v2, 3v3, 5v5) needs to be fixed.
 13) Script the vote shop and make a little db where we can edit and add items to buy for vote points.
 
 # --------------------------------------------------------------
@@ -26,5 +25,5 @@
 # ----------------------------TEAM------------------------------
 # |Members: Apocalipsyz, FailZorD, arnauec, CarlosX,dissaor021,|
 # |hondacrx, Kitiara, Krill156, Lilcrazy, Roberto Roeschmann,  |
-# |MrBillys, Venugh, dju35.				       |
+# |MrBillys, Venugh, dju35.                                    |
 # --------------------------------------------------------------

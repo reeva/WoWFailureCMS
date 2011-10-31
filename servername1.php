@@ -53,7 +53,7 @@ _gaq.push(['_trackPageview']);
 <div class="content-trail">
 <ol class="ui-breadcrumb">
 <li><a href="../index.php" rel="np"><?php echo $website['title']; ?></a></li>
-<li><a href="../game.php" rel="np">Game</a></li>
+<li><a href="../status.php" rel="np">Status</a></li>
 <li><a href="status.php" rel="np">Realm Status</a></li>
 <li class="last"><a href="servername1.php" rel="np"><?php 	require_once("configs.php");
 									echo $name_realm1['realm']; 
@@ -279,7 +279,7 @@ $class = "<img src='wow/static/images/icons/class/9.gif' width='18' height='18'/
 }
 elseif ($cclass == 11)
 {
-$class = "<img src='wow/static/images/icons/class/10.gif' width='18' height='18'/>";
+$class = "<img src='wow/static/images/icons/class/11.gif' width='18' height='18'/>";
 }
 //Character Race
 $rrace = $raw['race'];

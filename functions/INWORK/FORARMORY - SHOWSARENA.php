@@ -31,7 +31,7 @@ a:hover, a:active
 <body>
 
 <?
-include ("config.php");
+include ("configs.php");
 
 $j=1;
         $teamType = array(
@@ -40,8 +40,8 @@ $j=1;
                 '5' => '5x5'
                 );
                 
-$connect = mysql_connect($host,$user,$pass) OR DIE("'Can't connect with $host"); 
-mysql_select_db($characters,$connect) or die(mysql_error()); 
+$connect = mysql_connect($serveraddress, $serveruser, $serverpass, $serverport) or die("'Can't connect with $host"); 
+mysql_select_db($server_cdb,$connect) or die(mysql_error()); 
 mysql_query("SET NAMES '$cod'"); 
 
 if(!isset($_GET['guid'])){

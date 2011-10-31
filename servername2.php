@@ -54,7 +54,7 @@ _gaq.push(['_trackPageview']);
 <div class="content-trail">
 <ol class="ui-breadcrumb">
 <li><a href="../index.php" rel="np"><?php echo $website['title']; ?></a></li>
-<li><a href="../game.php" rel="np">Game</a></li>
+<li><a href="../status.php" rel="np">Status</a></li>
 <li><a href="status.php" rel="np">Realm Status</a></li>
 <li class="last"><a href="servername2.php" rel="np"><?php 	require_once("configs.php");
 									echo $name_realm2['realm']; 

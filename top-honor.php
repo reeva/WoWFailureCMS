@@ -52,8 +52,8 @@ _gaq.push(['_trackPageview']);
 <div class="content-trail">
 <ol class="ui-breadcrumb">
 <li><a href="../index.php" rel="np"><?php echo $website['title']; ?></a></li>
-<li><a href="../game.php" rel="np">Game</a></li>
-<li><a href="status.php" rel="np">Top Honor</a></li>
+<li><a href="../status.php" rel="np">Status</a></li>
+<li><a href="top-honor.php" rel="np">Top Honor</a></li>
 <li class="last"><a href="top-honor.php" rel="np"><?php 	require_once("configs.php");
 									echo $name_realm1['realm']; 
 									?> & <?php 	require_once("configs.php");
@@ -234,15 +234,13 @@ if($numrows > 0)
 		<table>
 			<thead>
 				<tr>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Number</span></a></th>
+					<th width="1%"><a href="javascript:;" class="sort-link"><span class="arrow">&#35;</span></a></th>
 					<th><a href="javascript:;" class="sort-link"><span class="arrow">Name</span></a></th>
 					<th><a href="javascript:;" class="sort-link"><span class="arrow">Level</span></a></th>
 					<th><a href="javascript:;" class="sort-link"><span class="arrow">Top Honor</span></a></th>
 					<th><a href="javascript:;" class="sort-link"><span class="arrow">Total Kills</span></a></th>
 					<th><a href="javascript:;" class="sort-link"><span class="arrow">Class</span></a></th>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow"><?php 	require_once("configs.php");
-									echo $name_realm1['realm']; 
-									?></span></a></th>
+					<th><a href="javascript:;" class="sort-link"><span class="arrow">Server</span></a></th>
 					</tr>
 				</thead>
     <tbody>              
@@ -296,7 +294,7 @@ while($rows = mysql_fetch_object($result))
  }
  elseif ($cclass == 11)
  {
- $class = "<img src='wow/static/images/icons/class/10.gif' width='18' height='18'/>";
+ $class = "<img src='wow/static/images/icons/class/11.gif' width='18' height='18'/>";
  }
  // Alliance or Horde FLAG
 if($rrace == 2 || $rrace == 5 || $rrace == 6 || $rrace == 8 || $rrace == 9 || $rrace == 10)
@@ -309,13 +307,13 @@ $bg = "<img src='wow/static/images/icons/faction/horde.gif' width='18' height='1
 }
     echo " 
 	<tr>
- <td style=''><center>",$i,"</center></td>
- <td><center>",$name,"</center></td>
+ <td style=''>",$i,"</td>
+ <td><center>".$bg."",$name,"</center></td>
  <td><center>",$level,"</center></td>
  <td><center>",$Total_Honor,"</center></td>
  <td><center>",$Total_Kills,"</center></td>
  <td><center>",$class,"</center></td>
- <td><center>",$bg,"</center></td>
+ <td>",$name_realm1['realm'],"</td>
   </tr>
   
   "; 
@@ -338,7 +336,7 @@ $result = mysql_query("SELECT * FROM `characters` ORDER BY `totalKills` DESC LIM
 $numrows = mysql_num_rows($result);
 if($numrows > 0)
 ?>
-<table border="1" width="100%" style="border: 1px solid #c0c0c0;border-collapse:collapse;" align="center">
+<!--<table border="1" width="100%" style="border: 1px solid #c0c0c0;border-collapse:collapse;" align="center">
 <div id="all-realms">
 	<div class="table full-width">
 		<table>
@@ -354,9 +352,9 @@ if($numrows > 0)
 									echo $name_realm2['realm']; 
 									?></span></a></th>
 					</tr>
-				</thead>
+				</thead>-->
     <tbody>              
-<?php
+<!--<?php
 
 while($rows = mysql_fetch_object($result))
  
@@ -435,8 +433,8 @@ $bg = "<img src='wow/static/images/icons/faction/horde.gif' width='18' height='1
 echo '</tr>';
 echo"</table><br/>";
 } 
-?>
-			<tbody>
+?>-->
+			<!--<tbody>
 			
 					<tr class="row1">
 						
@@ -507,7 +505,7 @@ echo"</table><br/>";
 				<tr class="no-results" style="display: none">
 					<td colspan="6"></td>
 				</tr>
-			</tbody>
+			</tbody>-->
 		</table>
 	</div>
 		</div>
