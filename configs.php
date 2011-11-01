@@ -2,7 +2,10 @@
 session_save_path('phpsessions');
 session_start();
 
-//Initialize Lang Files
+/*||||||||||||||||||||||||||||||||||||||||*/
+/*|||||||The Language Configuration|||||||*/
+/*|||||||||||DO NOT TOUCH THIS||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||*/
 $lang = &$_SESSION['Local'];
 $lang = $_GET['Local'];
 switch ($lang)
@@ -44,12 +47,25 @@ switch ($lang)
         include ("lang/en-us.php");
         $lang = 'en-us';
 }
-
+/*||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||The Server Configuration||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||*/
 $serveraddress = "localhost"; // Your MySQL server address
 $serveruser = "root"; // Your MySQL user
 $serverpass = "ascent"; //Your MySQL password
 $serverport	= "3306"; // Your MySQL Port
-
+$donatadmin = "ascent"; // Your Donation Admin Password
+/*||||||||||||||||||||||||||||||||||||||||*/
+/*|||||||The Donation Configuration|||||||*/
+/*||||||||||||||||||||||||||||||||||||||||*/
+define(RECEIVER_EMAIL,"YOURPAYPALEMAIL"); // This is the paypal account payments will be sent to.
+define(FORM_LOCATION,"http://www.yoursite.com/Donation/postback.php"); // The FULL path to postback.php, INCLUDING http://!!!
+define(CURRENCY_CODE,"USD"); // PayPal currency code, i.e. USD or EUR.
+define(CURRENCYSYMBOL,"$"); // Symbol to represent currency, i.e. $ or €.
+define(PAYPAL_ADDRESS,"www.paypal.com"); // Leave this alone unless you wish to use the paypal sandbox.
+/*||||||||||||||||||||||||||||||||||||||||*/
+/*|||||||The Website Configuration||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||*/
 $server_db = "site"; //Your website database
 $server_adb = "auth"; //Your account database
 $server_cdb = "characters"; //Your characters database
@@ -60,13 +76,15 @@ $charTable = 'characters'; //Your Character Table!!
 $name_realm1['realm'] = "Server_Name_1"; //Your Realm Name 1
 $name_realm2['realm'] = "Server_Name_2"; //Your Realm Name 2
 $charLimit = '10'; //Max characters to show on the page
-
-$website['title'] = "WoWFailureCMS";
-$website['slogan'] = "WoWFailureCMS, get your best CMS today, simple and fast!";
+$website['title'] = "WoWFailureCMS"; // Your Website Title
+$website['slogan'] = "WoWFailureCMS, get your best CMS today, simple and fast!"; // Your Website Slogan.
 $website['address'] = "http://www.wowfailure.com"; // 'http://url/foldername/' or 'http://url/'
 $website['root'] = "/WoWFailureCMS/"; // '/' <- for root and '/foldername/' <- for any folder
-
-
+/*||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||DO NOT EDIT BELOW|||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||DO NOT EDIT BELOW|||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||*/
 $connection_setup = mysql_connect($serveraddress,$serveruser,$serverpass)or die(mysql_error());
 mysql_select_db($server_db,$connection_setup)or die(mysql_error());
 

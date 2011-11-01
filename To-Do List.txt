@@ -19,7 +19,7 @@
 # |Original:                             |http://eu.battle.net |
 # --------------------------------------------------------------
 # |Database version:                             |    0.1.1    |
-# |Website Version:                              |    0.2.0    |
+# |Website Version:                              |    0.3.0    |
 # |Release Date:                                 | 2010-05-17  |
 # |Latest Update:                                | 2011-10-31  |
 # ----------------------------TEAM------------------------------
