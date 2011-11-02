@@ -197,7 +197,34 @@ _gaq.push(['_trackPageview']);
 							</div>
 						</td>
 						<td class="name">
-							<a href="servername1.php">
+							<a href="servername1.php"><?php
+						require_once("configs.php");
+						if(realm_status($serveraddress, $serverport) === false)
+						{
+						echo                      "<font color=red>Offline</font>";
+						}
+						elseif(realm_status($serveraddress, $serverport) === true)
+						{
+						echo "<img src='wow/static/images/services/status/online.png'/> ";
+						}
+						else
+						{
+						echo "<font color=#00FF00><img src='wow/static/images/services/status/offline.png'/> ";
+						}
+						function realm_status($host, $port)
+						{
+						error_reporting(0);
+						$etat = fsockopen($host,$port,$errno,$errstr,3);
+						if(!$etat)
+						{
+						return false;
+						}
+						else
+						{
+						return true;
+						}
+						}
+						?>
 							<?php 	require_once("configs.php");
 									echo $name_realm1['realm']; 
 									?>

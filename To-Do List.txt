@@ -1,6 +1,6 @@
 = WoWFailure Project -- What has to be Done?! =
 
-1) Make a Donation Panel. <-- =Intergrated= -->
+1) Make a Donation Panel. <-- =Intergrated= --> (Work Started)
 2) Fix and Create the Character View System. (Work Stoped)
 3) Character Transfer (need to be worked as a part of donation system)
 4) Name Change (need to be worked as a part of donation system)
@@ -18,10 +18,10 @@
 # |CMS:                                  |    WOWFailureCMS    |
 # |Original:                             |http://eu.battle.net |
 # --------------------------------------------------------------
-# |Database version:                             |    0.1.1    |
+# |Database version:                             |    0.1.5    |
 # |Website Version:                              |    0.3.0    |
 # |Release Date:                                 | 2010-05-17  |
-# |Latest Update:                                | 2011-10-31  |
+# |Latest Update:                                | 2011-11-02  |
 # ----------------------------TEAM------------------------------
 # |Members: Apocalipsyz, FailZorD, arnauec, CarlosX,dissaor021,|
 # |hondacrx, Kitiara, Krill156, Lilcrazy, Roberto Roeschmann,  |

@@ -13,25 +13,25 @@
 					   Top Honor
 					</a>
 					 
-					<a href="?top-arena.php"
+					<a
 					   
-					    class="tab-active">
+					    class="tab-inactive">
 					   Top Conquest
 					</a>
 					 
-					<a href="2v2.php"
+					<a
 					   
 					    class="tab-inactive">
 					   Top @ 2v2
 					</a>
 					
-					<a href="3v3.php"
+					<a
 					   
 					    class="tab-inactive">
 					   Top @ 3v3
 					</a>
 					
-					<a href="5v5.php"
+					<a
 					   
 					    class="tab-inactive">
 					   Top @ 5v5

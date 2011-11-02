@@ -294,6 +294,8 @@ $page_cat = "home";
 						$bar_height = "20px";
 						$ally_img = "wow/static/images/services/status/ally.png";
 						$horde_img = "wow/static/images/services/status/horde.png";
+						//OLD $ally_img = "wow/static/images/services/status/ally_old.png";
+						//OLD $horde_img = "wow/static/images/services/status/horde_old.png";
 						//Show percent online (true = yes, false = no)
 						$show_percent = true; 
 
