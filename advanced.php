@@ -187,11 +187,11 @@ NAME @ REALM
 	<div data-id="1" data-type="2" class="slot slot-2 item-quality-3" style=" left: 0px; top: 58px;">
 	<div class="slot-inner">
 	<div class="slot-contents">
-	<a href="/wow/en/item/51996" class="item" data-item="r=-86"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_jewelry_necklace_16.jpg" alt="" /><span class="frame"></span></a>
+	<a href="http://www.wowhead.com/item=51996" class="item" data-item="r=-86"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_jewelry_necklace_16.jpg" alt="" /><span class="frame"></span></a>
 	<div class="details">
 	<span class="name-shadow">Tumultuous Necklace of the Soldier</span>
 	<span class="name color-q3">
-	<a href="/wow/en/item/51996" data-item="r=-86">Tumultuous Necklace of the Soldier</a>
+	<a href="http://www.wowhead.com/item=51996" data-item="r=-86">Tumultuous Necklace of the Soldier</a>
 	</span>
 	<span class="level">35</span>
 	</div>
@@ -201,11 +201,11 @@ NAME @ REALM
 	<div data-id="2" data-type="3" class="slot slot-3 item-quality-2" style=" left: 0px; top: 116px;">
 	<div class="slot-inner">
 	<div class="slot-contents">
-	<a href="/wow/en/item/4835" class="item" data-item="d=59"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_shoulder_05.jpg" alt="" /><span class="frame"></span></a>
+	<a href="http://www.wowhead.com/item=4835" class="item" data-item="d=59"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_shoulder_05.jpg" alt="" /><span class="frame"></span></a>
 	<div class="details">
 	<span class="name-shadow">Elite Shoulders</span>
 	<span class="name color-q2">
-	<a href="/wow/en/item/4835" data-item="d=59">Elite Shoulders</a><a href="javascript:;" class="audit-warning"></a>
+	<a href="http://www.wowhead.com/item=4835" data-item="d=59">Elite Shoulders</a><a href="javascript:;" class="audit-warning"></a>
 	</span>
 	<span class="level">30</span>
 	</div>
@@ -215,17 +215,17 @@ NAME @ REALM
 	<div data-id="14" data-type="16" class="slot slot-16 item-quality-3" style=" left: 0px; top: 174px;">
 	<div class="slot-inner">
 	<div class="slot-contents">
-	<a href="/wow/en/item/51994" class="item" data-item="e=1889&amp;r=-85&amp;s=861470728"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_misc_cape_03.jpg" alt="" /><span class="frame"></span></a>
+	<a href="http://www.wowhead.com/item=51994" class="item" data-item="e=1889&amp;r=-85&amp;s=861470728"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_misc_cape_03.jpg" alt="" /><span class="frame"></span></a>
 	<div class="details">
 	<span class="name-shadow">Tumultuous Cloak of the Sorcerer</span>
 	<span class="name color-q3">
-	<a href="/wow/en/item/51994" data-item="e=1889&amp;r=-85&amp;s=861470728">Tumultuous Cloak of the Sorcerer</a>
+	<a href="http://www.wowhead.com/item=51994" data-item="e=1889&amp;r=-85&amp;s=861470728">Tumultuous Cloak of the Sorcerer</a>
 	</span>
 	<span class="enchant-shadow">
 	Superior Defense
 	</span>
 	<div class="enchant color-q2">
-	<a href="/wow/en/item/16224">Superior Defense</a>
+	<a href="http://www.wowhead.com/item=16224">Superior Defense</a>
 								</div>
 							<span class="level">25</span>
 						</div>
@@ -242,18 +242,18 @@ NAME @ REALM
 	<div data-id="4" data-type="5" class="slot slot-5 item-quality-2" style=" left: 0px; top: 232px;">
 		<div class="slot-inner">
 			<div class="slot-contents">
-					<a href="/wow/en/item/4448" class="item" data-item="e=17&amp;d=94"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_misc_monsterspidercarapace_01.jpg" alt="" /><span class="frame"></span></a>
+					<a href="http://www.wowhead.com/item=4448" class="item" data-item="e=17&amp;d=94"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_misc_monsterspidercarapace_01.jpg" alt="" /><span class="frame"></span></a>
 						<div class="details">
 							<span class="name-shadow">Husk of Naraxis</span>
 							<span class="name color-q2">
 								
-								<a href="/wow/en/item/4448" data-item="e=17&amp;d=94">Husk of Naraxis</a>
+								<a href="http://www.wowhead.com/item=4448" data-item="e=17&amp;d=94">Husk of Naraxis</a>
 							</span>
 								<span class="enchant-shadow">
 									Heavy Armor Kit
 								</span>
 								<div class="enchant color-q2">
-<a href="/wow/en/item/4265">Heavy Armor Kit</a>
+<a href="http://www.wowhead.com/item=4265">Heavy Armor Kit</a>
 								</div>
 							<span class="level">27</span>
 						</div>
@@ -270,12 +270,12 @@ NAME @ REALM
 	<div data-id="3" data-type="4" class="slot slot-4 item-quality-1" style=" left: 0px; top: 290px;">
 		<div class="slot-inner">
 			<div class="slot-contents">
-					<a href="/wow/en/item/23476" class="item" data-item=""><img src="http://eu.media.blizzard.com/wow/icons/56/inv_shirt_16.jpg" alt="" /><span class="frame"></span></a>
+					<a href="http://www.wowhead.com/item=23476" class="item" data-item=""><img src="http://eu.media.blizzard.com/wow/icons/56/inv_shirt_16.jpg" alt="" /><span class="frame"></span></a>
 						<div class="details">
 							<span class="name-shadow">Squire&#39;s Shirt</span>
 							<span class="name color-q1">
 								
-								<a href="/wow/en/item/23476" data-item="">Squire&#39;s Shirt</a>
+								<a href="http://www.wowhead.com/item=23476" data-item="">Squire&#39;s Shirt</a>
 							</span>
 							<span class="level">1</span>
 						</div>
@@ -292,12 +292,12 @@ NAME @ REALM
 	<div data-id="18" data-type="19" class="slot slot-19 item-quality-1" style=" left: 0px; top: 348px;">
 		<div class="slot-inner">
 			<div class="slot-contents">
-					<a href="/wow/en/item/24344" class="item" data-item="s=662226304"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_shirt_12.jpg" alt="" /><span class="frame"></span></a>
+					<a href="http://www.wowhead.com/item=24344" class="item" data-item="s=662226304"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_shirt_12.jpg" alt="" /><span class="frame"></span></a>
 						<div class="details">
 							<span class="name-shadow">Tabard of the Hand</span>
 							<span class="name color-q1">
 								
-								<a href="/wow/en/item/24344" data-item="s=662226304">Tabard of the Hand</a>
+								<a href="http://www.wowhead.com/item=24344" data-item="s=662226304">Tabard of the Hand</a>
 							</span>
 							<span class="level">20</span>
 						</div>
@@ -314,12 +314,12 @@ NAME @ REALM
 	<div data-id="8" data-type="9" class="slot slot-9 item-quality-2" style=" left: 0px; top: 406px;">
 		<div class="slot-inner">
 			<div class="slot-contents">
-					<a href="/wow/en/item/9811" class="item" data-item="e=856&amp;r=1184&amp;s=1458545920&amp;d=30"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_bracer_03.jpg" alt="" /><span class="frame"></span></a>
+					<a href="http://www.wowhead.com/item=9811" class="item" data-item="e=856&amp;r=1184&amp;s=1458545920&amp;d=30"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_bracer_03.jpg" alt="" /><span class="frame"></span></a>
 						<div class="details">
 							<span class="name-shadow">Fortified Bracers of the Bear</span>
 							<span class="name color-q2">
 								
-								<a href="/wow/en/item/9811" data-item="e=856&amp;r=1184&amp;s=1458545920&amp;d=30">Fortified Bracers of the Bear</a>
+								<a href="http://www.wowhead.com/item=9811" data-item="e=856&amp;r=1184&amp;s=1458545920&amp;d=30">Fortified Bracers of the Bear</a>
 							</span>
 								<span class="enchant-shadow">
 									Strength
@@ -343,18 +343,18 @@ NAME @ REALM
 	<div data-id="9" data-type="10" class="slot slot-10 slot-align-right item-quality-2" style=" top: 0px; right: 0px;">
 		<div class="slot-inner">
 			<div class="slot-contents">
-					<a href="/wow/en/item/6595" class="item" data-item="e=17&amp;r=1191&amp;s=1597971648&amp;d=35"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_gauntlets_26.jpg" alt="" /><span class="frame"></span></a>
+					<a href="http://www.wowhead.com/item=6595" class="item" data-item="e=17&amp;r=1191&amp;s=1597971648&amp;d=35"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_gauntlets_26.jpg" alt="" /><span class="frame"></span></a>
 						<div class="details">
 							<span class="name-shadow">Battleforge Gauntlets of the Bear</span>
 							<span class="name color-q2">
 								
-								<a href="/wow/en/item/6595" data-item="e=17&amp;r=1191&amp;s=1597971648&amp;d=35">Battleforge Gauntlets of the Bear</a>
+								<a href="http://www.wowhead.com/item=6595" data-item="e=17&amp;r=1191&amp;s=1597971648&amp;d=35">Battleforge Gauntlets of the Bear</a>
 							</span>
 								<span class="enchant-shadow">
 									Heavy Armor Kit
 								</span>
 								<div class="enchant color-q2">
-<a href="/wow/en/item/4265">Heavy Armor Kit</a>
+<a href="http://www.wowhead.com/item=4265">Heavy Armor Kit</a>
 								</div>
 							<span class="level">28</span>
 						</div>
@@ -372,12 +372,12 @@ NAME @ REALM
 	<div data-id="5" data-type="6" class="slot slot-6 slot-align-right item-quality-2" style=" top: 58px; right: 0px;">
 		<div class="slot-inner">
 			<div class="slot-contents">
-					<a href="/wow/en/item/4707" class="item" data-item=""><img src="http://eu.media.blizzard.com/wow/icons/56/inv_belt_04.jpg" alt="" /><span class="frame"></span></a>
+					<a href="http://www.wowhead.com/item=4707" class="item" data-item=""><img src="http://eu.media.blizzard.com/wow/icons/56/inv_belt_04.jpg" alt="" /><span class="frame"></span></a>
 						<div class="details">
 							<span class="name-shadow">Lambent Scale Girdle</span>
 							<span class="name color-q2">
 								
-								<a href="/wow/en/item/4707" data-item="">Lambent Scale Girdle</a>
+								<a href="http://www.wowhead.com/item=4707" data-item="">Lambent Scale Girdle</a>
 							</span>
 							<span class="level">26</span>
 						</div>
@@ -395,18 +395,18 @@ NAME @ REALM
 	<div data-id="6" data-type="7" class="slot slot-7 slot-align-right item-quality-2" style=" top: 116px; right: 0px;">
 		<div class="slot-inner">
 			<div class="slot-contents">
-					<a href="/wow/en/item/3842" class="item" data-item="e=17&amp;s=728222272&amp;d=74"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_pants_05.jpg" alt="" /><span class="frame"></span></a>
+					<a href="http://www.wowhead.com/item=3842" class="item" data-item="e=17&amp;s=728222272&amp;d=74"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_pants_05.jpg" alt="" /><span class="frame"></span></a>
 						<div class="details">
 							<span class="name-shadow">Green Iron Leggings</span>
 							<span class="name color-q2">
 								
-								<a href="/wow/en/item/3842" data-item="e=17&amp;s=728222272&amp;d=74">Green Iron Leggings</a>
+								<a href="http://www.wowhead.com/item=3842" data-item="e=17&amp;s=728222272&amp;d=74">Green Iron Leggings</a>
 							</span>
 								<span class="enchant-shadow">
 									Heavy Armor Kit
 								</span>
 								<div class="enchant color-q2">
-<a href="/wow/en/item/4265">Heavy Armor Kit</a>
+<a href="http://www.wowhead.com/item=4265">Heavy Armor Kit</a>
 								</div>
 							<span class="level">31</span>
 						</div>
@@ -424,18 +424,18 @@ NAME @ REALM
 	<div data-id="7" data-type="8" class="slot slot-8 slot-align-right item-quality-2" style=" top: 174px; right: 0px;">
 		<div class="slot-inner">
 			<div class="slot-contents">
-					<a href="/wow/en/item/3482" class="item" data-item="e=17&amp;s=1063978688&amp;d=43"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_boots_01.jpg" alt="" /><span class="frame"></span></a>
+					<a href="http://www.wowhead.com/item=3482" class="item" data-item="e=17&amp;s=1063978688&amp;d=43"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_boots_01.jpg" alt="" /><span class="frame"></span></a>
 						<div class="details">
 							<span class="name-shadow">Silvered Bronze Boots</span>
 							<span class="name color-q2">
 								
-								<a href="/wow/en/item/3482" data-item="e=17&amp;s=1063978688&amp;d=43">Silvered Bronze Boots</a>
+								<a href="http://www.wowhead.com/item=3482" data-item="e=17&amp;s=1063978688&amp;d=43">Silvered Bronze Boots</a>
 							</span>
 								<span class="enchant-shadow">
 									Heavy Armor Kit
 								</span>
 								<div class="enchant color-q2">
-<a href="/wow/en/item/4265">Heavy Armor Kit</a>
+<a href="http://www.wowhead.com/item=4265">Heavy Armor Kit</a>
 								</div>
 							<span class="level">26</span>
 						</div>
@@ -453,12 +453,12 @@ NAME @ REALM
 	<div data-id="10" data-type="11" class="slot slot-11 slot-align-right item-quality-2" style=" top: 232px; right: 0px;">
 		<div class="slot-inner">
 			<div class="slot-contents">
-					<a href="/wow/en/item/24349" class="item" data-item="s=683553728"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_jewelry_ring_18.jpg" alt="" /><span class="frame"></span></a>
+					<a href="http://www.wowhead.com/item=24349" class="item" data-item="s=683553728"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_jewelry_ring_18.jpg" alt="" /><span class="frame"></span></a>
 						<div class="details">
 							<span class="name-shadow">Signet Ring of the Hand</span>
 							<span class="name color-q2">
 								
-								<a href="/wow/en/item/24349" data-item="s=683553728">Signet Ring of the Hand</a>
+								<a href="http://www.wowhead.com/item=24349" data-item="s=683553728">Signet Ring of the Hand</a>
 							</span>
 							<span class="level">20</span>
 						</div>
@@ -476,12 +476,12 @@ NAME @ REALM
 	<div data-id="11" data-type="11" class="slot slot-11 slot-align-right item-quality-2" style=" top: 290px; right: 0px;">
 		<div class="slot-inner">
 			<div class="slot-contents">
-					<a href="/wow/en/item/11993" class="item" data-item="r=1183"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_jewelry_ring_14.jpg" alt="" /><span class="frame"></span></a>
+					<a href="http://www.wowhead.com/item=11993" class="item" data-item="r=1183"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_jewelry_ring_14.jpg" alt="" /><span class="frame"></span></a>
 						<div class="details">
 							<span class="name-shadow">Clay Ring of the Bear</span>
 							<span class="name color-q2">
 								
-								<a href="/wow/en/item/11993" data-item="r=1183">Clay Ring of the Bear</a>
+								<a href="http://www.wowhead.com/item=11993" data-item="r=1183">Clay Ring of the Bear</a>
 							</span>
 							<span class="level">22</span>
 						</div>
@@ -528,12 +528,12 @@ NAME @ REALM
 	<div data-id="15" data-type="21" class="slot slot-21 slot-align-right item-quality-3" style=" left: -6px; bottom: 0px;">
 		<div class="slot-inner">
 			<div class="slot-contents">
-					<a href="/wow/en/item/2194" class="item" data-item="s=723013552"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_hammer_06.jpg" alt="" /><span class="frame"></span></a>
+					<a href="http://www.wowhead.com/item=2194" class="item" data-item="s=723013552"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_hammer_06.jpg" alt="" /><span class="frame"></span></a>
 						<div class="details">
 							<span class="name-shadow">Diamond Hammer</span>
 							<span class="name color-q3">
 								<a href="javascript:;" class="audit-warning"></a>
-								<a href="/wow/en/item/2194" data-item="s=723013552">Diamond Hammer</a>
+								<a href="http://www.wowhead.com/item=2194" data-item="s=723013552">Diamond Hammer</a>
 							</span>
 							<span class="level">25</span>
 						</div>
@@ -550,18 +550,18 @@ NAME @ REALM
 	<div data-id="16" data-type="22" class="slot slot-22 item-quality-2" style=" left: 271px; bottom: 0px;">
 		<div class="slot-inner">
 			<div class="slot-contents">
-					<a href="/wow/en/item/6400" class="item" data-item="e=929&amp;s=1509242176&amp;d=84"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_shield_05.jpg" alt="" /><span class="frame"></span></a>
+					<a href="http://www.wowhead.com/item=6400" class="item" data-item="e=929&amp;s=1509242176&amp;d=84"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_shield_05.jpg" alt="" /><span class="frame"></span></a>
 						<div class="details">
 							<span class="name-shadow">Glimmering Shield</span>
 							<span class="name color-q2">
 								
-								<a href="/wow/en/item/6400" data-item="e=929&amp;s=1509242176&amp;d=84">Glimmering Shield</a>
+								<a href="http://www.wowhead.com/item=6400" data-item="e=929&amp;s=1509242176&amp;d=84">Glimmering Shield</a>
 							</span>
 								<span class="enchant-shadow">
 									Greater Stamina
 								</span>
 								<div class="enchant color-q2">
-<a href="/wow/en/item/16217">Greater Stamina</a>
+<a href="http://www.wowhead.com/item=16217">Greater Stamina</a>
 								</div>
 							<span class="level">31</span>
 						</div>
@@ -1764,7 +1764,7 @@ NAME @ REALM
 	
 
 	<div class="profile-progress border-3" >
-		<div class="bar border-3 hover" style="width: 37%"></div>
+		<div class="bar border-3 hover" style="width: 1%"></div>
 			<div class="bar-contents">						<a class="profession-details" href="/wow/en/character/moonglade/Me/profession/herbalism">
 							<span class="icon">
 
@@ -1775,7 +1775,7 @@ NAME @ REALM
 		</span>
 </span>
 							<span class="name">Herbalism</span>
-							<span class="value">195</span>
+							<span class="value">0</span>
 							</a>
 </div>
 	</div>
@@ -1786,7 +1786,7 @@ NAME @ REALM
 	
 
 	<div class="profile-progress border-3" >
-		<div class="bar border-3 hover" style="width: 28%"></div>
+		<div class="bar border-3 hover" style="width: 1%"></div>
 			<div class="bar-contents">						<a class="profession-details" href="/wow/en/character/moonglade/Me/profession/mining">
 							<span class="icon">
 
@@ -1797,7 +1797,7 @@ NAME @ REALM
 		</span>
 </span>
 							<span class="name">Mining</span>
-							<span class="value">151</span>
+							<span class="value">0</span>
 							</a>
 </div>
 	</div>
@@ -2247,8 +2247,8 @@ other: 'Other'
 };
 //]]>
 </script>
-<script type="text/javascript" src="/wow/static/local-common/js/menu.js"></script>
-<script type="text/javascript" src="/wow/static/js/wow.js"></script>
+<script type="text/javascript" src="wow/static/local-common/js/menu.js"></script>
+<script type="text/javascript" src="wow/static/js/wow.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $(function(){
@@ -2257,13 +2257,13 @@ Search.initialize('/ta/lookup');
 });
 //]]>
 </script>
-<script type="text/javascript" src="/wow/static/js/profile.js"></script>
-<script type="text/javascript" src="/wow/static/js/character/summary.js"></script>
+<script type="text/javascript" src="<?php echo $website['root']; ?>wow/static/js/profile.js"></script>
+<script type="text/javascript" src="<?php echo $website['root']; ?>wow/static/js/character/summary.js"></script>
 <script type="text/javascript">
 //<![CDATA[
-Core.load("/wow/static/local-common/js/third-party/jquery-ui-1.8.6.custom.min.js");
-Core.load("/wow/static/local-common/js/search.js");
-Core.load("/wow/static/local-common/js/login.js", false, function() {
+Core.load("wow/static/local-common/js/third-party/jquery-ui-1.8.6.custom.min.js");
+Core.load("wow/static/local-common/js/search.js");
+Core.load("wow/static/local-common/js/login.js", false, function() {
 if (typeof Login !== 'undefined') {
 Login.embeddedUrl = 'https://eu.battle.net/login/login.frag';
 }
