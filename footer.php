@@ -137,7 +137,7 @@
 			</ul>
 			</div>
 			<div class="column">
-			<h3><?php echo $Bulgarian['Bulgarian'];</h3>
+			<h3><?php echo $Bulgarian['Bulgarian']; ?></h3>
 			<ul>
 			<li>
 			<a href="?Local=bu-bu" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to bu-bu'); return true;">
