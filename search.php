@@ -10,15 +10,15 @@ $page_cat = "services";
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="http://eu.battle.net/wow/static/local-common/images/favicons/wow.ico" type="image/x-icon"/>
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common.css" />
-<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie.css?v35" /><![endif]-->
-<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie6.css?v35" /><![endif]-->
-<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie7.css?v35" /><![endif]-->
+<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie.css" /><![endif]-->
+<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie6.css" /><![endif]-->
+<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie7.css" /><![endif]-->
 <link title="World of Warcraft - News" href="feed/newshtml.html" type="application/atom+xml" rel="alternate"/>
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/css/wowe6dd.css" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/cms/search.css" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/css/search.css" />
-<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie.css?v18" /><![endif]--><!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie6.css?v18" /><![endif]-->
-<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie7.css?v18" /><![endif]-->
+<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie.css" /><![endif]--><!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie6.css" /><![endif]-->
+<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie7.css" /><![endif]-->
 <script type="text/javascript" src="wow/static/local-common/js/third-party/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="wow/static/local-common/js/core.js"></script>
 <script type="text/javascript" src="wow/static/local-common/js/tooltip.js"></script>
@@ -278,8 +278,8 @@ other: 'Other'
 };
 //]]>
 </script>
-<script type="text/javascript" src="../static/local-common/js/menua1c4.js?v35"></script>
-<script type="text/javascript" src="../static/js/wow2e13.js?v18"></script>
+<script type="text/javascript" src="wow/static/local-common/js/menu.js"></script>
+<script type="text/javascript" src="wow/static/js/wow.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $(function(){
@@ -288,21 +288,21 @@ Search.initialize('/ta/lookup');
 });
 //]]>
 </script>
-<script type="text/javascript" src="../static/local-common/js/utility/dynamic-menua1c4.js?v35"></script>
-<script type="text/javascript" src="../static/js/character/guild-tabard2e13.js?v18"></script>
-<script type="text/javascript" src="../static/js/character/arena-flag2e13.js?v18"></script>
+<script type="text/javascript" src="wow/static/local-common/js/utility/dynamic-menu.js"></script>
+<script type="text/javascript" src="wow/static/js/character/guild-tabard.js"></script>
+<script type="text/javascript" src="wow/static/js/character/arena-flag.js"></script>
 <script type="text/javascript">
 //<![CDATA[
-Core.load("../static/local-common/js/third-party/jquery-ui-1.8.6.custom.mina1c4.js?v35");
-Core.load("../static/local-common/js/searcha1c4.js?v35");
-Core.load("../static/local-common/js/logina1c4.js?v35", false, function() {
+Core.load("wow/static/local-common/js/third-party/jquery-ui-1.8.6.custom.min.js");
+Core.load("wow/static/local-common/js/search.js");
+Core.load("wow/static/local-common/js/login.js", false, function() {
 if (typeof Login !== 'undefined') {
 Login.embeddedUrl = 'https://eu.battle.net/login/login.frag';
 }
 });
 //]]>
 </script>
-<!--[if lt IE 8]> <script type="text/javascript" src="/wow/static/local-common/js/third-party/jquery.pngFix.pack.js?v35"></script>
+<!--[if lt IE 8]> <script type="text/javascript" src="/wow/static/local-common/js/third-party/jquery.pngFix.pack.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $('.png-fix').pngFix(); //]]>
