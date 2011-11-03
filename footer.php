@@ -164,8 +164,9 @@
 <small><?php echo $copyright['copyright'];  echo $website['title']; ?>.<br /><?php echo $copyright3['copyright3']; ?><br /><?php echo $copyright4['copyright4']; ?></small>
 </center>
 </div>
-<span class="clear"><!-- --></span>
+<center><img src="wow/static/images/logos/wof-logo-small.png"/></center>
 </div>
+<span class="clear"><!-- --></span>
 </div>
 
 
