@@ -171,8 +171,8 @@ include("header.php");
 							<a href="javascript:;" class="main-link" style="background-image:url('wow/static/images/community/thumbnails/thumb-forum.jpg');">
 								<span>
 									<span class="wrapper">
-										<span class="banner-title">Forums <em>(In Development)</em></span>
-										<span class="banner-desc">Get in touch with other Blizzard gamers via the official World of Warcraft forums.</span>
+										<span class="banner-title">Forums </span>
+										<span class="banner-desc">Get in touch with other <?php echo $website['title']; ?> gamers via the official World of Warcraft forums.</span>
 									</span>
 								</span>
 							</a>
@@ -193,15 +193,15 @@ include("header.php");
 						</div>
 						
 						<div class="inside-section comics">
-							<a href="javascript:;" class="main-link" style="background-image:url('wow/static/images/community/thumbnails/thumb-comics.jpg');">
+							<a href="media.php" class="main-link" style="background-image:url('wow/static/images/community/thumbnails/thumb-comics.jpg');">
 								<span class="panel">
 									<span class="wrapper">
-										<span class="banner-title">Comics <em>(0)</em></span>
-										<span class="view-all">View All Comics</span>
+										<span class="banner-title">Media <em>(0)</em></span>
+										<span class="view-all">View All Media</span>
 									</span>
 								</span>
 							</a>
-								<a href="#" class="tosubmit external">Submit Comics</a>
+								<a href="media.php" class="tosubmit external">Submit Media</a>
 						</div>
 						
 						<span class="clear"><!-- --></span>
@@ -248,9 +248,9 @@ include("header.php");
     background: url("wow/static/images/community/001.png") no-repeat;
 }
 							</style>
-								<li><a href="#" class="facebook" target="_blank"><span class="content-title">WoWFailureCMS Facebook</span><span class="content-desc">Follow us on Facebook.</span></a></li>
-								<li><a href="#" class="Twitter" target="_blank"><span class="content-title">WoWFailureCMS Twitter</span><span class="content-desc">Tweet us on Twitter.</span></a></li>
-								<li><a href="#" class="Youtube" target="_blank"><span class="content-title">WoWFailureCMS Youtube</span><span class="content-desc">Subscribe on Youtube.</span></a></li>
+								<li><a href="#" class="facebook" target="_blank"><span class="content-title"><?php echo $website['title']; ?> Facebook</span><span class="content-desc">Follow us on Facebook.</span></a></li>
+								<li><a href="#" class="Twitter" target="_blank"><span class="content-title"><?php echo $website['title']; ?> Twitter</span><span class="content-desc">Tweet us on Twitter.</span></a></li>
+								<li><a href="#" class="Youtube" target="_blank"><span class="content-title"><?php echo $website['title']; ?> Youtube</span><span class="content-desc">Subscribe on Youtube.</span></a></li>
 								
 								
 						</div>
@@ -267,7 +267,7 @@ include("header.php");
     background: url("wow/static/images/community/001.png") no-repeat;
 }
 							</style>
-								<li><a href="#" id="wow" target="_blank"><span class="content-title">WoWFailureCMS Forum</span><span class="content-desc">Join our community.</span></a></li></ul>
+								<li><a href="http://www.strawberry-pr0jcts.com/forum/" id="wow" target="_blank"><span class="content-title">WoWFailureCMS</span><span class="content-desc">Join our community.</span></a></li></ul>
 								
 								
 						</div>

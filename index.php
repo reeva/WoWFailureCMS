@@ -250,7 +250,7 @@ $page_cat = "home";
 						echo "<font color='#00FF00'><b>Uptime :</b></font> <span class='date'>$uptime</span> <br>";
 						?>
 						<div class="sidebar-module" id="sidebar">
-						  Realmlist : <span class="date">Set Realmlist your_realmlist</span><br />
+						  Realmlist : <span class="date">Set Realmlist <?php echo $website['realm']; ?></span><br />
 						  Patch Version : <span class="date">4.x.x</span><br />
 						  Accounts : <span class="date">
 						  <?php
@@ -282,8 +282,7 @@ $page_cat = "home";
 						echo ("<font color='#FF0000'>$char</font>");
 
 						mysql_close($conn);
-						?> Characters Created</span><br />
-						  
+						?> Characters Created</span>
 						</div>
 						<span class="clear"><!-- --></span>
 						<center><?php
