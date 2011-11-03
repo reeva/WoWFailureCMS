@@ -902,7 +902,7 @@ I accept the <a href="" onclick="window.open(this.href); return false;">Terms of
 </span>
 </button>
 <a class="ui-cancel "
-href="http://eu.battle.net/"
+href="index.php"
 tabindex="1">
 <span>
 Cancel </span>
