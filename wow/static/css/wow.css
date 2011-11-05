@@ -303,7 +303,7 @@ tr:hover .fansite-link,
 #slideshow .caption h3 a:hover { color: #fff }
 
 /* footer */
-#footer { background: #000; margin: 0 10px; -moz-user-select: none; -webkit-user-select: none; user-select: none }
+#footer { background: #000; margin:0 5px; -moz-user-select: none; -webkit-user-select: none; user-select: none }
 #footer a { color: #552c09 }
 #footer a:hover { color: #f5ebd1 }
 #footer h3 { color: #70523d }
@@ -322,7 +322,6 @@ tr:hover .fansite-link,
 .bnet-offer-bg:hover { border-color: #CD9000; }
 .bnet-offer-image { display: block; border: 1px solid #000; overflow: hidden; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
 .bnet-offer-image img { display: block; }
-
 
 /* content elements */
 

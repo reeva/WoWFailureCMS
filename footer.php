@@ -45,9 +45,10 @@
 <a href="javascript:;" tabindex="100" id="change-language">
 <span><?php echo $website['title'];  echo $Wow3['Wow3']; ?></span>
 </a>
+<span class="clear"><!-- --></span>
 <div xmlns="http://www.w3.org/1999/xhtml" id="international" style=": block; ">
 		<div class="column">
-			<h3><?php echo $Americas['Americas']; ?></h3>
+			<h3 style="padding-left:12px;" ><?php echo $Americas['Americas']; ?></h3>
 			<ul>
 			<li>
 			<a href="?Local=en-us" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to en-us'); return true;">
@@ -62,7 +63,7 @@
 			</ul>
 			</div>
 			<div class="column">
-			<h3><?php echo $Europe['Europe']; ?></h3>
+			<h3 style="padding-left:14px;" ><?php echo $Europe['Europe']; ?></h3>
 			<ul>
 			<li>
 			<a href="?Local=de-de" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to de-de'); return true;">
@@ -97,7 +98,7 @@
 			</ul>
 			</div>
 			<div class="column">
-			<h3><?php echo $Korea['Korea']; ?></h3>
+			<h3 style="padding-left:12px;" ><?php echo $Korea['Korea']; ?></h3>
 			<ul>
 			<li>
 			<a href="?Local=ko-kr" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to ko-kr'); return true;">
@@ -107,7 +108,7 @@
 			</ul>
 			</div>
 			<div class="column">
-			<h3><?php echo $Taiwan['Taiwan']; ?></h3>
+			<h3 style="padding-left:12px;" ><?php echo $Taiwan['Taiwan']; ?></h3>
 			<ul>
 			<li>
 			<a href="?Local=zh-tw" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to zh-tw'); return true;">
@@ -117,7 +118,7 @@
 			</ul>
 			</div>
 			<div class="column">
-			<h3><?php echo $China['China']; ?></h3>
+			<h3 style="padding-left:12px;" ><?php echo $China['China']; ?></h3>
 			<ul>
 			<li>
 			<a href="?Local=zh-cn" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to zh-cn'); return true;">
@@ -127,7 +128,7 @@
 			</ul>
 			</div>
 			<div class="column">
-			<h3><?php echo $Greek['Greek']; ?></h3>
+			<h3 style="padding-left:15px;" ><?php echo $Greek['Greek']; ?></h3>
 			<ul>
 			<li>
 			<a href="?Local=gr-gr" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to gr-gr'); return true;">
@@ -137,7 +138,7 @@
 			</ul>
 			</div>
 			<div class="column">
-			<h3><?php echo $Bulgarian['Bulgarian']; ?></h3>
+			<h3 style="padding-left:12px;" ><?php echo $Bulgarian['Bulgarian']; ?></h3>
 			<ul>
 			<li>
 			<a href="?Local=bu-bu" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to bu-bu'); return true;">
@@ -147,7 +148,7 @@
 			</ul>
 			</div>
 			<div class="column">
-			<h3>Romania</h3>
+			<h3 style="padding-left:12px;" >Romania</h3>
 			<ul>
 			<li>
 			<a href="?Local=bu-bu" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to bu-bu'); return true;">
@@ -156,7 +157,7 @@
 			</li>
 			</ul>
 			</div>
-			<span class="clear"><!-- --></span>
+<span class="clear"><!-- --></span>
 </div>
 <br />
 <center>
