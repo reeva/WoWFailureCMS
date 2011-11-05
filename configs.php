@@ -20,7 +20,7 @@ switch ($lang)
         include ("lang/de-de.php");
         break;
     case 'bu-bu' :
-        include ("lang/bu-bu.php");
+        include ("lang/bg-bg.php");
         break;
     case 'es-es' :
         include ("lang/es-es.php");

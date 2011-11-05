@@ -1,4 +1,4 @@
-	<?php
+<?php
 require_once("configs.php");
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" xmlns:xml="http://www.w3.org/XML/1998/namespace" class="chrome chrome8">
