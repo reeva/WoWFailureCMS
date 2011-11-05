@@ -25,9 +25,9 @@ $page_cat = "gamesncodes";
 <!--[if IE]><link rel="stylesheet" type="text/css" media="all" href="wow/static/css/bnet-ie.css" /><![endif]-->
 <!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="wow/static/css/bnet-ie6.css" /><![endif]-->
 <!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="wow/static/css/bnet-ie7.css" /><![endif]-->
-<script type="text/javascript" src="wow/static/local-common/js/third-party/jquery.js"></script>
-<script type="text/javascript" src="wow/static/local-common/js/core.js"></script>
-<script type="text/javascript" src="wow/static/local-common/js/tooltip.js"></script>
+<script type="text/javascript" src="wow/static/local-common/js/third-party/jquery-1.4.4-p1.min.js"></script>
+<script type="text/javascript" src="wow/static/local-common/js/core.js?v22"></script>
+<script type="text/javascript" src="wow/static/local-common/js/tooltip.js?v22"></script>
 <!--[if IE 6]> <script type="text/javascript">
 //<![CDATA[
 try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
@@ -103,24 +103,24 @@ _gaq.push(['_trackPageLoadTime']);
 <table id="order-history">
 <thead>
 <tr>
-<th align="left"><a href="#" class="sort-link numeric"><span class="arrow">Order #</span></a></th>
+<th align="left"><a href="#" class="sort-link numeric"><span class="arrow">Vote ID</span></a></th>
 <th align="left"><a href="#" class="sort-link numeric"><span class="arrow down">Date</span></a></th>
 <th align="left">Product</th>
 <th align="right">Unit Price</th>
 <th>Quantity</th>
 <th><a href="#" class="sort-link"><span class="arrow">Status</span></a></th>
-<th align="right"><a href="#" class="sort-link numeric"><span class="arrow">Total</span></a></th>
+<th align="right"><a href="#" class="sort-link numeric"><span class="arrow">Total VP</span></a></th>
 </tr>
 </thead>
 <tbody>
 <tr class="parent-row "
-onclick="location.href = 'order-detail.html?rId=2&amp;oId='">
-<td valign="top"><a href="order-detail.html?rId=2&amp;oId=">CODEofVOTE</a></td>
+onclick="location.href = ''">
+<td valign="top"><a href="">VoteID</a></td>
 <td valign="top" data-raw="201107021825">
 <span><time datetime="2011-07-02T18:25+00:00">7/2/11</time></span>
 </td>
 <td valign="top">
-<strong data-service-id="null">World of Warcraft® Mount: Winged Guardian</strong>
+<strong data-service-id="null">Winged Guardian</strong>
 </td>
 <td valign="top" class="align-right">
 20.00 €
