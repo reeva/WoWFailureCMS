@@ -1,7 +1,6 @@
 <?php 
 require ('configs.php');
-session_save_path('../phpsessions');
-session_start();
+
 // Connection to database
 $conn = mysql_connect("$serveraddress", "$serveruser", "$serverpass")or die("Couldn't connect to database"); 
 mysql_select_db("$server_db",$conn); // Select database

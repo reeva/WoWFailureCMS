@@ -1,0 +1,4 @@
+ALTER TABLE `vote`  DROP COLUMN `Vote_Date`;
+ALTER TABLE `vote`  DROP COLUMN `Points`;
+ALTER TABLE `vote`  ADD COLUMN `Name` VARCHAR(50) NULL AFTER `ID`;
+ALTER TABLE `vote`  ADD COLUMN `Description` TEXT NULL AFTER `Link`;

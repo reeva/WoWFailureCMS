@@ -98,7 +98,7 @@ _gaq.push(['_trackPageLoadTime']);
     </p>
             <p>After you vote you need to wait atleast 12 hours to reset your IP from revoting. Remember to spend your Points wisely. Do not make any mistakes, <?php echo $website['title']; ?> will not return any Points back.</p><br />
 <?php
-include("/functions/vote_func.php");
+include("functions/vote_func.php");
 ?>
         <div style="position:relative;">
 
