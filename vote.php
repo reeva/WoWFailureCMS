@@ -108,8 +108,8 @@ include("functions/vote_func.php");
 					</div>
 					<div class="middle"><?php echo $get1["ID"] ?></div>
 					<div class="right">
-						<h2 class="caption"><a href=""><?php echo $get1["Name"] ?></a></h2>
-						<p><?php echo $get1["Info"] ?></p>
+						<h2 class="caption"><a href="<?php echo $get1["Link"] ?>"><?php echo $get1["Name"] ?></a></h2>
+						<p><?php echo $get1["Description"] ?></p>
 					</div>
 				</div>
 				<div class="subsection">
@@ -118,8 +118,8 @@ include("functions/vote_func.php");
 					</div>
 					<div class="middle"><?php echo $get2["ID"] ?></div>
 					<div class="right">
-						<h2 class="caption"><a href=""><?php echo $get2["Name"] ?></a></h2>
-						<p><?php echo $get2["Info"] ?></p>
+						<h2 class="caption"><a href="<?php echo $get2["Link"] ?>"><?php echo $get2["Name"] ?></a></h2>
+						<p><?php echo $get2["Description"] ?></p>
 						</div>
 				</div>
 				<div class="subsection">
@@ -128,8 +128,8 @@ include("functions/vote_func.php");
 					</div>
 					<div class="middle"><?php echo $get3["ID"] ?></div>
 					<div class="right">
-						<h2 class="caption"><a href=""><?php echo $get3["Name"] ?></a></h2>
-						<p><?php echo $get3["Info"] ?></p>
+						<h2 class="caption"><a href="<?php echo $get3["Link"] ?>"><?php echo $get3["Name"]; ?></a></h2>
+						<p><?php echo $get3["Description"] ?></p>
 						</div>
 				</div>
 				<div class="subsection">
@@ -138,8 +138,8 @@ include("functions/vote_func.php");
 					</div>
 					<div class="middle"><?php echo $get4["ID"] ?></div>
 					<div class="right">
-						<h2 class="caption"><a href=""><?php echo $get4["Name"] ?></a></h2>
-						<p><?php echo $get4["Info"] ?></p>
+						<h2 class="caption"><a href="<?php echo $get4["Link"] ?>"><?php echo $get4["Name"] ?></a></h2>
+						<p><?php echo $get4["Description"] ?></p>
 						</div>
 				</div>
 				<div class="subsection">
@@ -148,8 +148,8 @@ include("functions/vote_func.php");
 					</div>
 					<div class="middle"><?php echo $get5["ID"] ?></div>
 					<div class="right">
-						<h2 class="caption"><a href=""><?php echo $get5["Name"] ?></a></h2>
-						<p><?php echo $get5["Info"] ?></p>
+						<h2 class="caption"><a href="<?php echo $get5["Link"] ?>"><?php echo $get5["Name"] ?></a></h2>
+						<p><?php echo $get5["Description"] ?></p>
 						</div>
 				</div>
             <div class="raf-step3-arrow"></div>
