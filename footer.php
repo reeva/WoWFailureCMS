@@ -70,7 +70,7 @@
 			</a>
 			</li>
 			<li>
-			<a href="?Local=en.gb" class="selected" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to en-gb'); return true;">
+			<a href="?Local=en.gb" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to en-gb'); return true;">
 			<?php echo $English3['English3']; ?>
 			</a>
 			</li>
