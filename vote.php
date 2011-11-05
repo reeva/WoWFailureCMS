@@ -97,57 +97,59 @@ _gaq.push(['_trackPageLoadTime']);
             <a href="" class="active">Vote Now</a>
     </p>
             <p>After you vote you need to wait atleast 12 hours to reset your IP from revoting. Remember to spend your Points wisely. Do not make any mistakes, <?php echo $website['title']; ?> will not return any Points back.</p><br />
-
+<?php
+include("/functions/vote_func.php");
+?>
         <div style="position:relative;">
 
 				<div class="subsection">
 					<div class="left">
 						<img src="wow/static/images/services/wow/raf/en-us/step_01.jpg" alt="" />
 					</div>
-					<div class="middle">1</div>
+					<div class="middle"><?php echo $get1["ID"] ?></div>
 					<div class="right">
-						<h2 class="caption"><a href="">Vote 1</a></h2>
-						<p>Text for info Goes here</p>
+						<h2 class="caption"><a href=""><?php echo $get1["Name"] ?></a></h2>
+						<p><?php echo $get1["Info"] ?></p>
 					</div>
 				</div>
 				<div class="subsection">
 					<div class="left">
 						<img src="wow/static/images/services/wow/raf/en-us/step_02.jpg" alt="" />
 					</div>
-					<div class="middle">2</div>
+					<div class="middle"><?php echo $get2["ID"] ?></div>
 					<div class="right">
-						<h2 class="caption"><a href="">Vote 2</a></h2>
-						<p>Text for info Goes here</p>
+						<h2 class="caption"><a href=""><?php echo $get2["Name"] ?></a></h2>
+						<p><?php echo $get2["Info"] ?></p>
 						</div>
 				</div>
 				<div class="subsection">
 					<div class="left">
 						<img src="wow/static/images/services/wow/raf/en-us/step_03.jpg" alt="" />
 					</div>
-					<div class="middle">3</div>
+					<div class="middle"><?php echo $get3["ID"] ?></div>
 					<div class="right">
-						<h2 class="caption"><a href="">Vote 3</a></h2>
-						<p>Text for info Goes here</p>
+						<h2 class="caption"><a href=""><?php echo $get3["Name"] ?></a></h2>
+						<p><?php echo $get3["Info"] ?></p>
 						</div>
 				</div>
 				<div class="subsection">
 					<div class="left">
 						<img src="wow/static/images/services/wow/raf/en-us/step_04.jpg" alt="" />
 					</div>
-					<div class="middle">4</div>
+					<div class="middle"><?php echo $get4["ID"] ?></div>
 					<div class="right">
-						<h2 class="caption"><a href="">Vote 4</a></h2>
-						<p>Text for info Goes here</p>
+						<h2 class="caption"><a href=""><?php echo $get4["Name"] ?></a></h2>
+						<p><?php echo $get4["Info"] ?></p>
 						</div>
 				</div>
 				<div class="subsection">
 					<div class="left">
 						<img src="wow/static/images/services/wow/raf/en-us/step_05.jpg" alt="" />
 					</div>
-					<div class="middle">5</div>
+					<div class="middle"><?php echo $get5["ID"] ?></div>
 					<div class="right">
-						<h2 class="caption"><a href="">Vote 5</a></h2>
-						<p>Text for info Goes here</p>
+						<h2 class="caption"><a href=""><?php echo $get5["Name"] ?></a></h2>
+						<p><?php echo $get5["Info"] ?></p>
 						</div>
 				</div>
             <div class="raf-step3-arrow"></div>
