@@ -311,8 +311,8 @@ a.ui-button.imgbutton span span span { padding: 0 5px; }
 #footer a:hover { color: #dcdcdc; }
 #footer h3,
 #footer h3 a { font-weight: normal; font-size: 13px; color: #b2bac7; text-transform: uppercase; }
-#footer-ad { float: right; width: 300px; padding-bottom: 20px; }
-#footer-ad a { color: #b2bac7; }
+#footer-promotions { float: right; width: 302px; padding-bottom: 20px; }
+#footer-promotions a { color: #b2bac7; }
 #sitemap h3 { border-bottom: 2px solid #414a56; padding-bottom: 10px; margin-bottom: 10px; padding-left: 20px; background: url("../images/icons/footer.png") no-repeat; }
 #sitemap h3.bnet { background-position: 0 0 }
 #sitemap h3.games { background-position: 2px -50px }
@@ -321,13 +321,25 @@ a.ui-button.imgbutton span span span { padding: 0 5px; }
 #sitemap h3.support { background-position: 0 -200px; padding-left: 23px; }
 #sitemap .column { float: left; width: 25%; padding-bottom: 20px }
 #sitemap .column ul a { display: block; margin: 2px 0; }
-#sitemap.footer-ads .column { width: 170px; }
+#sitemap.promotions .column { width: 170px; }
 #copyright { color: #2a2c2f; border-top: 1px solid #414a56; text-transform: uppercase; font-size: 10px; clear: both; padding: 10px 0;  }
 #copyright a { margin-left: 15px; color: #b2bac7; }
 #legal { padding: 15px 0; }
+#legal a { display: inline-block; vertical-align: top; }
 #legal #blizzard { float: left; }
 #legal #legal-ratings { float: right; vertical-align: top; }
-#legal #legal-ratings .legal-image { vertical-align: top; }
+#legal #legal-ratings img { vertical-align: top; }
+#legal #legal-ratings a { margin-left: 10px; }
+
+/* language switcher */
+#international { display: none; border-bottom: 1px solid #414A56; padding: 25px 0 25px 25px; background: url("../images/layout/world-map.gif") 50% 50% no-repeat; }
+#international h3 { margin: 0 0 10px 0; padding: 0; }
+#international .column { float: left; padding: 20px; width: 115px; }
+#international .column a { display: block; padding: 1px -2; }
+#international .column a.selected { background: url("../images/icons/i18n-support.gif") 0 4px no-repeat; padding-left: 15px; margin-left: -15px; color: #fff; }
+#change-language { float: right; background: url("../images/icons/arrows.gif") 100% -99px no-repeat; padding-right: 20px; margin-top:-2px }
+#change-language.open { background-position: 100% 1px; }
+#change-language span { display: inline-block; background: url("../images/icons/map-small.gif") 0 50% no-repeat; padding: 0px 0 0px 35px }
 
 /* slideshow */
 #slideshow { height: 300px; width: 640px; overflow: hidden; position: relative; }
@@ -344,16 +356,6 @@ a.ui-button.imgbutton span span span { padding: 0 5px; }
 #slideshow .slide { height: 300px; width: 640px; position: absolute; top: 0; left: 0; background-position: 0 0; background-repeat: no-repeat; z-index: 15; }
 #slideshow .slide .click-area { width: 640px; height: 300px; position: absolute; bottom: 0; left: 0; z-index: 20; }
 #slideshow .slide .click-area embed { z-index: 25; }
-
-/* language switcher */
-#international { display: none; border-bottom: 1px solid #414A56; padding: 25px 0 25px 25px; background: url("../images/layout/world-map.gif") 50% 50% no-repeat; }
-#international h3 { margin: 0 0 10px 0; padding: 0; }
-#international .column { float: left; padding: 20px; width: 115px; }
-#international .column a { display: block; padding: 3px 0; }
-#international .column a.selected { background: url("../images/icons/i18n-support.gif") 0 4px no-repeat; padding-left: 15px; margin-left: -15px; color: #fff; }
-#change-language { float: right; background: url("../images/icons/arrows.gif") 100% -99px no-repeat; padding-right: 20px; margin-top:-2px }
-#change-language.open { background-position: 100% 1px; }
-#change-language span { display: inline-block; background: url("../images/icons/map-small.gif") 0 50% no-repeat; padding: 2px 0 2px 35px }
 
 /* embedded login */
 #login-embedded { width: 400px; position: fixed; top: 50%; left: 50%; padding: 0; margin: -200px; z-index: 9005; height: 300px; background: #000; border: 5px solid #525e67; -moz-border-radius: 3px; border-radius: 3px; -moz-box-shadow: #000 0 0 20px; box-shadow: #000 0 0 20px; }
