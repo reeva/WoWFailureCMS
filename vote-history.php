@@ -74,8 +74,8 @@ _gaq.push(['_trackPageLoadTime']);
 <div class="wrapper">
 <div id="content">
 <div id="page-header">
-<h2 class="subcategory">Transaction History</h2>
-<h3 class="headline">Your Order History</h3>
+<h2 class="subcategory">Vote/Reward History</h2>
+<h3 class="headline">Your Vote and Reward History</h3>
 </div>
 <div id="page-content" class="page-content">
 <div id="order-controls" class="order-controls">
@@ -99,42 +99,50 @@ _gaq.push(['_trackPageLoadTime']);
 </div>
 </div>
 </div>
+
+<?php
+$con = mysql_connect($serveraddress, $serveruser, $serverpass, $serverport) or die(mysql_error());
+mysql_select_db($server_db, $con) or die (mysql_error());
+$sql = mysql_query("SELECT * FROM player_vote, vote ORDER BY RAND() LIMIT 49") or die(mysql_error());
+$numrows = mysql_num_rows($sql);
+if($numrows > 0)
+{
+echo '
 <span class="clear"></span>
-<table id="order-history">
-<thead>
-<tr>
-<th align="left"><a href="#" class="sort-link numeric"><span class="arrow">Vote ID</span></a></th>
-<th align="left"><a href="#" class="sort-link numeric"><span class="arrow down">Date</span></a></th>
-<th align="left">Product</th>
-<th align="right">Unit Price</th>
-<th>Quantity</th>
-<th><a href="#" class="sort-link"><span class="arrow">Status</span></a></th>
-<th align="right"><a href="#" class="sort-link numeric"><span class="arrow">Total VP</span></a></th>
-</tr>
-</thead>
+		<table id="order-history">
+			<thead>
+				<tr>
+					<th align="left"><a href="#" class="sort-link numeric"><span class="arrow">Order ID</span></a></th>
+					<th align="left"><a href="#" class="sort-link numeric"><span class="arrow down">Date</span></a></th>
+					<th align="left">Site</th>
+					<th align="right">Vote Earned</th>
+					<th></th>
+					<th><a href="#" class="sort-link"><span class="arrow">Time</span></a></th>
+					<th align="right"><a href="#" class="sort-link numeric"><span class="arrow">Total</span></a></th>
+					</tr>
+				</thead>';
+while($raw = mysql_fetch_array($sql)){
+echo '
 <tbody>
 <tr class="parent-row "
-onclick="location.href = ''">
-<td valign="top"><a href="">VoteID</a></td>
-<td valign="top" data-raw="201107021825">
-<span><time datetime="2011-07-02T18:25+00:00">7/2/11</time></span>
-</td>
-<td valign="top">
-<strong data-service-id="null">Winged Guardian</strong>
-</td>
-<td valign="top" class="align-right">
-20.00 €
-</td>
-<td valign="top" class="align-center">1</td>
-<td valign="top" class="align-center status-success">
-Complete
-</td>
-<td valign="top" class="align-right" data-raw="20">
-20.00 €
-</td>
-</tr>
-</tbody>
-</table>
+onclick="location.href = order-detail.html?rId=2&&amp;oId=">
+<td valign="top"><a href="vote-history.php?rId=2&#38;oId=">'.$raw['AccountID'].'</a></td>
+<td valign="top" data-raw="201107021825"><span><time datetime="2011-07-02T18:25+00:00">'.$raw['Vote_Date'].'</time></span></td>
+<td valign="top"><strong data-service-id="null">'.$raw['Link'].'</strong></td>
+<td valign="top" class="align-right">'.$raw['Points'].'</td>
+<td valign="top" class="align-center"></td>
+<td valign="top" class="align-center status-success">'.$raw['Vote_Hour'].'</td>
+<td valign="top" class="align-right" data-raw="20">'.$raw['ItemID_took'].'</td>
+</tbody>';
+}
+echo '</tr>';
+echo"</table><br />";
+}
+else
+{
+echo "<b>There are no logs from your actions right now.</b>";
+}
+?>
 <script type="text/javascript">
 //<![CDATA[
 $(function() {
