@@ -134,7 +134,7 @@ JavaScript must be enabled to use this site.
  //Get Info By Query
  $conn = mysql_connect("$serveraddress", "$serveruser", "$serverpass")or die("Couldn't connect to database"); 
  $account_info = mysql_query("SELECT id, username  FROM `".$server_db."`.`account` WHERE username='".$_SESSION['username']."'")or die(mysql_error());
- while($get = $array($account_info)) 
+ while($get = mysql_fetch_array($account_info)) 
  {
   //Banned?
   if($get['locked'] == 0)
