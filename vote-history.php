@@ -5,7 +5,7 @@ $page_cat = "gamesncodes";
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
 <head>
-<title>Your Order History - Battle.net</title>
+<title>Vote History - </title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/bam.ico" type="image/x-icon"/>
@@ -78,27 +78,7 @@ _gaq.push(['_trackPageLoadTime']);
 <h3 class="headline">Your Vote and Reward History</h3>
 </div>
 <div id="page-content" class="page-content">
-<div id="order-controls" class="order-controls">
-<div class="order-region" id="order-region-payment">
-<label for="orderRegion">Region:</label>
-<div class="ui-dropdown" id="region-dropdown2">
-<select name="orderRegion" id="orderRegion">
-<option value="1">Americas</option>
-<option value="2" selected="selected">Europe</option>
-<option value="3">Korea</option>
-<option value="6">Southeast Asia</option>
-<option value="4">Taiwan</option>
-</select>
-</div>
-<label for="orderView">View:</label>
-<div class="ui-dropdown" id="view-dropdown2">
-<select name="orderView" id="orderView">
-<option value="1" selected="selected">all</option>
-<option value="2" >chargeback</option>
-</select>
-</div>
-</div>
-</div>
+
 
 <?php
 $con = mysql_connect($serveraddress, $serveruser, $serverpass, $serverport) or die(mysql_error());
@@ -112,27 +92,26 @@ echo '
 		<table id="order-history">
 			<thead>
 				<tr>
-					<th align="left"><a href="#" class="sort-link numeric"><span class="arrow">Order ID</span></a></th>
-					<th align="left"><a href="#" class="sort-link numeric"><span class="arrow down">Date</span></a></th>
-					<th align="left">Site</th>
-					<th align="right">Vote Earned</th>
-					<th></th>
-					<th><a href="#" class="sort-link"><span class="arrow">Time</span></a></th>
-					<th align="right"><a href="#" class="sort-link numeric"><span class="arrow">Total</span></a></th>
+					<th align="center"><a href="#" class="sort-link numeric"><span class="arrow">Account ID</span></a></th>
+					<th align="center"><a href="#" class="sort-link numeric"><span class="arrow">Item ID</span></a></th>
+					<th align="center"><span class="arrow">Date</span></th>
+					<th align="center"><span class="arrow">Time</span></th>
+					<th align="center"><span class="arrow">V.Points Spend</span></th>
+					<th><a href="#" class="sort-link"><span class="arrow">V.Points Earned</span></a></th>
+					<th align="center"><a href="#" class="sort-link numeric"><span class="arrow">Site</span></a></th>
 					</tr>
 				</thead>';
 while($raw = mysql_fetch_array($sql)){
 echo '
 <tbody>
-<tr class="parent-row "
-onclick="location.href = order-detail.html?rId=2&&amp;oId=">
-<td valign="top"><a href="vote-history.php?rId=2&#38;oId=">'.$raw['AccountID'].'</a></td>
-<td valign="top" data-raw="201107021825"><span><time datetime="2011-07-02T18:25+00:00">'.$raw['Vote_Date'].'</time></span></td>
-<td valign="top"><strong data-service-id="null">'.$raw['Link'].'</strong></td>
-<td valign="top" class="align-right">'.$raw['Points'].'</td>
-<td valign="top" class="align-center"></td>
-<td valign="top" class="align-center status-success">'.$raw['Vote_Hour'].'</td>
-<td valign="top" class="align-right" data-raw="20">'.$raw['ItemID_took'].'</td>
+<tr class="parent-row">
+<td valign="top" class="align-center" data-raw="20">'.$raw['AccountID'].'</td>
+<td valign="top" class="align-center" data-raw="20"><a href="">'.$raw['ItemID_took'].'</a></td>
+<td valign="top" class="align-center" data-raw="20"><span><time datetime="2011-07-02T18:25+00:00">'.$raw['Vote_Date'].'</time></span></td>
+<td valign="top" class="align-center" data-raw="20"><strong data-service-id="null">'.$raw['Vote_Hour'].'</strong></td>
+<td valign="top" class="align-center">'.$raw['Costs'].' VP</td>
+<td valign="top" class="align-center">'.$raw['Points'].'</td>
+<td valign="top" class="align-center" data-raw="20">'.$raw['Link'].'</td>
 </tbody>';
 }
 echo '</tr>';
