@@ -2,32 +2,32 @@
 <ul class="service-bar">
 <li class="service-cell service-home"><a href="#" tabindex="50" accesskey="1" title="Home"><div style="width:45px;">&nbsp;</div></a></li>
 <?php if(isset($_SESSION['username'])){ ?>
-<li class="service-cell service-welcome">Welcome, <a href=""><?php echo strtolower($_SESSION['username']); ?></a> | <a href="<?php echo $website['root'];?>logout.php">Log Out</a></li>
+<li class="service-cell service-welcome"><?php echo $Welcome['Welcome']; ?><a href=""><?php echo strtolower($_SESSION['username']); ?></a> | <a href="<?php echo $website['root'];?>logout.php"><?php echo $logout['logout']; ?></a></li>
 <?php }else{ ?>
-<li class="service-cell service-welcome"><a href="?login" onclick="return Login.open('<?php echo $website['root'];?>login.php?<?php echo $_SESSION['sessionid']; ?>')">Log in</a> or <a href="register.php">Create an Account</a></li>
+<li class="service-cell service-welcome"><a href="?login" onclick="return Login.open('<?php echo $website['root'];?>login.php?<?php echo $_SESSION['sessionid']; ?>')"><?php echo $login['login']; ?></a> or <a href="register.php"><?php echo $Account3['Account3']; ?></a></li>
 <?php } ?>
-<li class="service-cell service-account"><a href="account_log.php" class="service-link" tabindex="50" accesskey="3">Account</a></li>
+<li class="service-cell service-account"><a href="account_log.php" class="service-link" tabindex="50" accesskey="3"><?php echo $Account['Account']; ?></a></li>
 <li class="service-cell service-support service-support-enhanced">
-<a href="#support" class="service-link service-link-dropdown" tabindex="50" accesskey="4" id="support-link" onclick="return false" style="cursor: progress" rel="javascript">Support<span class="no-support-tickets" id="support-ticket-count"></span></a>
+<a href="#support" class="service-link service-link-dropdown" tabindex="50" accesskey="4" id="support-link" onclick="return false" style="cursor: progress" rel="javascript"><?php echo $Support['Support']; ?><span class="no-support-tickets" id="support-ticket-count"></span></a>
 <div class="support-menu" id="support-menu" style="display:none;">
 <div class="support-primary">
 <ul class="support-nav">
 <li>
 <a href="" tabindex="55" class="support-category">
-<strong class="support-caption">Knowledge Center</strong>
-Browse our support articles
+<strong class="support-caption"><?php echo $Support8['Support8']; ?></strong>
+<?php echo $Support5['Support5']; ?>
 </a>
 </li>
 <li>
 <a href="" tabindex="55" class="support-category">
-<strong class="support-caption">Ask a Question</strong>
-Create a new support ticket
+<strong class="support-caption"><?php echo $Support9['Support9']; ?></strong>
+<?php echo $Support6['Support6']; ?>
 </a>
 </li>
 <li>
 <a href="" tabindex="55" class="support-category">
-<strong class="support-caption">Your Support Tickets</strong>
-View your active support tickets.
+<strong class="support-caption"><?php echo $Support10['Support10']; ?></strong>
+<?php echo $Support7['Support7']; ?>
 </a>
 <div class="ticket-summary" id="ticket-summary"></div>
 </li>
@@ -50,40 +50,42 @@ shim.style.display = 'block';
 </div>
 </li>
 <li class="service-cell service-explore">
-<a href="#explore" tabindex="50" accesskey="5" class="dropdown" id="explore-link" onclick="return false" style="cursor: progress" rel="javascript">Explore</a>
+<a href="#explore" tabindex="50" accesskey="5" class="dropdown" id="explore-link" onclick="return false" style="cursor: progress" rel="javascript"><?php echo $website['explore']; ?></a>
 <div class="explore-menu" id="explore-menu" style="display:none;">
 <div class="explore-primary">
 <ul class="explore-nav">
 <li>
 <a href="index.php" tabindex="55">
 <strong class="explore-caption"><?php echo $website['title']; ?></strong>
-Keep your friends in game.
-</a>
-</li>
-<li>
-<a href="account_man.php" tabindex="55">
-<strong class="explore-caption">Account</strong>
-Manage your Account
+<?php echo $Friends['Keepthem']; ?>
 </a>
 </li>
 <li>
 <a href="#" tabindex="55">
-<strong class="explore-caption">Support</strong>
-Get Support and explore the knowledgebase.
+<strong class="explore-caption"><?php echo $Account['Account']; ?></strong>
+<?php echo $Account6['Account6']; ?>
 </a>
 </li>
 <li>
 <a href="#" tabindex="55">
-<strong class="explore-caption">Donate</strong>
-Donate for <?php echo $website['title']; ?>.
+<strong class="explore-caption"><?php echo $Support['Support']; ?></strong>
+<?php echo $Support11['Support11']; ?>
+</a>
+</li>
+<li>
+<a href="#" tabindex="55">
+<strong class="explore-caption"><?php echo $Donate['Donate']; ?></strong>
+<?php echo $Donate1['Donate1']; echo $website['title']; ?>.
 </a>
 </li>
 </ul>
 <div class="explore-links">
-<h2 class="explore-caption">More</h2>
+<h2 class="explore-caption"><?php echo $More['More']; ?></h2>
 <ul>
-<li><a href="" tabindex="55">Retrieve Lost Account</a></li>
-<li><a href="" tabindex="55">Download World of Warcraft Client</a></li>
+<li><a href="" tabindex="55"><?php echo $Retrieve['Retrieve']; ?></a></li>
+<li><a href="" tabindex="55"><?php echo $Client_down3['Client_down3']; ?></a></li>
+<li><a href="" tabindex="55"><center><script type="text/javascript" src="http://ja.revolvermaps.com/b.js">
+</script><script type="text/javascript">rmb_ki101('0ffftggap25','','26','26',1,'ffffff','010020','aa0000');</script><br><?php echo $Find['Find']; ?></center></a></li>
 </ul>
 </div>
 <span class="clear"><!-- --></span>
@@ -129,7 +131,7 @@ shim.style.display = 'block';
 var xsToken = '';
 var Msg = {
 cms: {
-requestError: 'Your request cannot be completed.',
+requestError: 'Your request cannot be completed.2',
 ignoreNot: 'Not ignoring this user',
 ignoreAlready: 'Already ignoring this user',
 stickyRequested: 'Sticky requested',
@@ -217,47 +219,6 @@ Login.embeddedUrl = '<?php echo $website['root'];?>loginframe.php';
 });
 //]]>
 </script>
-</a>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-<div id="warnings-wrapper">
-<!--[if lt IE 8]>
-<div id="browser-warning" class="warning warning-red">
-<div class="warning-inner2">
-You are using an outdated web browser.<br />
-<a href="http://eu.blizzard.com/support/article/browserupdate">Upgrade</a> or <a href="http://www.google.com/chromeframe/?hl=en-GB" id="chrome-frame-link">install Google Chrome Frame</a>.
-<a href="#close" class="warning-close" onclick="App.closeWarning('#browser-warning', 'browserWarning'); return false;"></a>
-</div>
-</div>
-<![endif]-->
-<!--[if lte IE 8]>
-<script type="text/javascript" src="wow/static/local-common/js/third-party/CFInstall.min.js?v22"></script>
-<script type="text/javascript">
-//<![CDATA[
-$(function() {
-var age = 365 * 24 * 60 * 60 * 1000;
-var src = 'https://www.google.com/chromeframe/?hl=en-GB';
-if ('http:' == document.location.protocol) {
-src = 'http://www.google.com/chromeframe/?hl=en-GB';
-}
-document.cookie = "disableGCFCheck=0;path=/;max-age="+age;
-$('#chrome-frame-link').bind({
-'click': function() {
-App.closeWarning('#browser-warning');
-CFInstall.check({
-mode: 'overlay',
-url: src
-});
-return false;
-}
-});
-});
-//]]>
-</script>
-<![endif]-->
 <noscript>
 <div id="javascript-warning" class="warning warning-red">
 <div class="warning-inner2">

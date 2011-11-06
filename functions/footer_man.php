@@ -3,142 +3,170 @@
 <div id="sitemap">
 <div class="column">
 <h3 class="bnet">
-<a href="#" tabindex="100">World of Warcraft</a>
+<a href="#" tabindex="100"><?php echo $website['title']; ?></a>
 </h3>
 <ul>
-<li><a href="account_log.php">Account</a></li>
-<li><a href="">Support</a></li>
+<li><a href="account_log.php"><?php echo $Account['Account']; ?></a></li>
+<li><a href=""><?php echo $Support['Support']; ?></a></li>
 </ul>
 </div>
 <div class="column">
 <h3 class="games">
-<a href="#" tabindex="100">Games</a>
+<a href="#" tabindex="100"><?php echo $Games['Games']; ?></a>
 </h3>
 <ul>
-<li><a href="#">World of Warcraft</a></li>
-<li><a href="account_log.php">Game Client Downloads</a></li>
+<li><a href="#"><?php echo $website['title']; ?></a></li>
+<li><a href="#"><?php echo $Client_down['Client_down']; ?></a></li>
 </ul>
 </div>
 <div class="column">
 <h3 class="account">
-<a href="https://eu.battle.netwow/static/management/" tabindex="100">Account</a>
+<a href="#" tabindex="100"><?php echo $Account['Account']; ?></a>
 </h3>
 <ul>
-<li><a href="#">Can't log in?</a></li>
-<li><a href="register.php">Create Account</a></li>
-<li><a href="#">Account Summary</a></li>
-<li><a href="#">Account Security</a></li>
+<li><a href="#"><?php echo $Account1['Account1']; ?></a></li>
+<li><a href="register.php"><?php echo $Account3['Account3']; ?></a></li>
+<li><a href="account_log.php"><?php echo $Account4['Account4']; ?></a></li>
+<li><a href="account_log.php"><?php echo $Account5['Account5']; ?></a></li>
 </ul>
 </div>
 <div class="column">
 <h3 class="support">
-<a href="http://eu.blizzard.com/support/" tabindex="100">Support</a>
+<a href="#" tabindex="100"><?php echo $Support['Support']; ?></a>
 </h3>
 <ul>
-<li><a href="#">Support Articles</a></li>
-<li><a href="#">Help! I got hacked!</a></li>
+<li><a href="#"><?php echo $Support3['Support3']; ?></a></li>
+<li><a href="#"><?php echo $Support4['Support4']; ?></a></li>
 </ul>
 </div>
 <span class="clear"><!-- --></span>
 </div>
 <div id="copyright">
 <a href="javascript:;" tabindex="100" id="change-language">
-<span>World of Warcraft - Entire World</span>
+<span><?php echo $website['title'];  echo $Wow3['Wow3']; ?></span>
 </a>
+<span class="clear"><!-- --></span>
 <div xmlns="http://www.w3.org/1999/xhtml" id="international" style=": block; ">
 		<div class="column">
-			<h3>Americas</h3>
+			<h3 style="padding-left:12px;" ><?php echo $Americas['Americas']; ?></h3>
 			<ul>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to en-us'); return true;">
-			English (US)
+			<a href="?Local=en-us" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to en-us'); return true;">
+			<?php echo $English['English']; ?>
 			</a>
 			</li>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to es-mx'); return true;">
-			Espa&ntilde;ol (AL)
+			<a href="?Local=es-mx" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to es-mx'); return true;">
+			<?php echo $Spanish['Spanish']; ?>
 			</a>
 			</li>
 			</ul>
 			</div>
 			<div class="column">
-			<h3>Europe</h3>
+			<h3 style="padding-left:14px;" ><?php echo $Europe['Europe']; ?></h3>
 			<ul>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to de-de'); return true;">
-			Deutsch
+			<a href="?Local=de-de" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to de-de'); return true;">
+			<?php echo $Deutsch['Deutsch']; ?>
 			</a>
 			</li>
 			<li>
-			<a href="" class="selected" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to en-gb'); return true;">
-			English (EU)
+			<a href="?Local=en.gb" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to en-gb'); return true;">
+			<?php echo $English3['English3']; ?>
 			</a>
 			</li>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to es-es'); return true;">
-			Espa&ntilde;ol (EU)
+			<a href="?Local=es-es" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to es-es'); return true;">
+			<?php echo $Spanish3['Spanish3']; ?>
 			</a>
 			</li>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to fr-fr'); return true;">
-			Fran&ccedil;ais
+			<a href="?Local=es-es" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to es-es'); return true;">
+			<?php echo $Serbian['Europe']; ?>
 			</a>
 			</li>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to ru-ru'); return true;">
-			Pycc&#1082;&#1080;&#1081;
+			<a href="?Local=fr-fr" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to fr-fr'); return true;">
+			<?php echo $French['French']; ?>
+			</a>
+			</li>
+			<li>
+			<a href="?Local=ru-ru" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to ru-ru'); return true;">
+			<?php echo $russia['russia']; ?>
 			</a>
 			</li>
 			</ul>
 			</div>
 			<div class="column">
-			<h3>Korea</h3>
+			<h3 style="padding-left:12px;" ><?php echo $Korea['Korea']; ?></h3>
 			<ul>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to ko-kr'); return true;">
-			&#54620;&#44397;&#51032;
+			<a href="?Local=ko-kr" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to ko-kr'); return true;">
+			<?php echo $Korea3['Korea3']; ?>
 			</a>
 			</li>
 			</ul>
 			</div>
 			<div class="column">
-			<h3>Taiwan</h3>
+			<h3 style="padding-left:12px;" ><?php echo $Taiwan['Taiwan']; ?></h3>
 			<ul>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to zh-tw'); return true;">
-			&#32321;&#39636;&#20013;&#25991;
+			<a href="?Local=zh-tw" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to zh-tw'); return true;">
+			<?php echo $Taiwan3['Taiwan3']; ?>
 			</a>
 			</li>
 			</ul>
 			</div>
 			<div class="column">
-			<h3>China</h3>
+			<h3 style="padding-left:12px;" ><?php echo $China['China']; ?></h3>
 			<ul>
 			<li>
-			<a href="" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to zh-cn'); return true;">
-			&#31616;&#20307;&#20013;&#25991;
+			<a href="?Local=zh-cn" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to zh-cn'); return true;">
+			<?php echo $China3['China3']; ?>
 			</a>
 			</li>
 			</ul>
 			</div>
 			<div class="column">
-			<h3>Southeast Asia</h3>
+			<h3 style="padding-left:15px;" ><?php echo $Greek['Greek']; ?></h3>
 			<ul>
 			<li>
-			<a href="http://sea.battle.net/wow/en-us/?loc" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to en-us'); return true;">
-			English (US)
+			<a href="?Local=gr-gr" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to gr-gr'); return true;">
+			<?php echo $Greek['gr_lang']; ?>
 			</a>
 			</li>
 			</ul>
 			</div>
-			<span class="clear"><!-- --></span>
+			<div class="column">
+			<h3 style="padding-left:12px;" ><?php echo $Bulgarian['Bulgarian']; ?></h3>
+			<ul>
+			<li>
+			<a href="?Local=bu-bu" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to bu-bu'); return true;">
+			<?php echo $Bulgarian['Bulgarian_lang']; ?>
+			</a>
+			</li>
+			</ul>
+			</div>
+			<div class="column">
+			<h3 style="padding-left:12px;" >Romania</h3>
+			<ul>
+			<li>
+			<a href="?Local=bu-bu" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to bu-bu'); return true;">
+			Romanian (EU)
+			</a>
+			</li>
+			</ul>
+			</div>
+<span class="clear"><!-- --></span>
 </div>
 <br />
-<span class="clear"><!-- --></span>
-<small><center>Copyright &copy; 2011 <?php echo $website['title']; ?>.<br />Powered by WoWFailureCMS<br />Resources are in Blizzard Entertainment Property.</center></small>
+<center>
+<br>
+<small><?php echo $copyright['copyright'];  echo $website['title']; ?>.<br /><?php echo $copyright3['copyright3']; ?><br /><?php echo $copyright4['copyright4']; ?></small>
+</center>
 </div>
-<div id="international"></div>
-<div id="legal">
+<center><img src="wow/static/images/logos/wof-logo-small.png"/></center>
+</div>
 <span class="clear"><!-- --></span>
 </div>
 </div>
