@@ -92,9 +92,9 @@ _gaq.push(['_trackPageLoadTime']);
 			<div class="service-wrapper">
     <p class="service-nav">
             <a href="">Spend Points</a>
-            <a href="">History</a>
+            <a href="vote-history.php">History</a>
             <a href="">How It Works</a>
-            <a href="" class="active">Vote Now</a>
+            <a href="vote.php" class="active">Vote Now</a>
     </p>
             <p>After you vote you need to wait atleast 12 hours to reset your IP from revoting. Remember to spend your Points wisely. Do not make any mistakes, <?php echo $website['title']; ?> will not return any Points back.</p><br />
 <?php

@@ -5,7 +5,7 @@ $page_cat = "gamesncodes";
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
 <head>
-<title>Vote History - </title>
+<title>Vote History - <?php echo $website['title']; ?></title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/bam.ico" type="image/x-icon"/>
@@ -78,7 +78,15 @@ _gaq.push(['_trackPageLoadTime']);
 <h3 class="headline">Your Vote and Reward History</h3>
 </div>
 <div id="page-content" class="page-content">
-
+<div class="service-wrapper">
+    <p class="service-nav">
+            <a href="">Spend Points</a>
+            <a href="vote-history.php" class="active">History</a>
+            <a href="">How It Works</a>
+            <a href="vote.php">Vote Now</a>
+    </p>
+	</div>
+	<br>
 
 <?php
 $con = mysql_connect($serveraddress, $serveruser, $serverpass, $serverport) or die(mysql_error());
@@ -105,8 +113,8 @@ while($raw = mysql_fetch_array($sql)){
 echo '
 <tbody>
 <tr class="parent-row">
-<td valign="top" class="align-center" data-raw="20">'.$raw['AccountID'].'</td>
-<td valign="top" class="align-center" data-raw="20"><a href="">'.$raw['ItemID_took'].'</a></td>
+<td valign="top" class="align-center" data-raw="20"><span class="icon-frame frame-14 " data-tooltip="'.$_SESSION['username'].'"><a href="">'.$raw['AccountID'].'</a></span></td>
+<td valign="top" class="align-center" data-raw="20"><a href="http://www.wowhead.com/item='.$raw['ItemID_took'].'">'.$raw['ItemID_took'].'</a></td>
 <td valign="top" class="align-center" data-raw="20"><span><time datetime="2011-07-02T18:25+00:00">'.$raw['Vote_Date'].'</time></span></td>
 <td valign="top" class="align-center" data-raw="20"><strong data-service-id="null">'.$raw['Vote_Hour'].'</strong></td>
 <td valign="top" class="align-center">'.$raw['Costs'].' VP</td>
