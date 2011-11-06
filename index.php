@@ -364,15 +364,15 @@ $page_cat = "home";
 						$hp = @percent($h,$p);
 						$b = @barWidth($a,$p,273);
 						$c = @barWidth($h,$p,273);
-						echo "<div style=\"width:" . $bar_width . ";height:" . $bar_height . ";\">
+						echo "<a data-tooltip='Alliance'\><div style=\"width:" . $bar_width . ";height:" . $bar_height . ";\">
 						<div style=\"float:left;text-align:right;background:url(./" . $ally_img . ");width:" . $b . "px;height:20px;\">";
 						if($show_percent) {
-							echo "<font style=\"color:#FFFFFF;font-weight:bold;\">$ap%</font>";
+							echo "<font style=\"color:#FFFFFF;font-weight:bold;\"><center>$ap%</center></font></a>";
 						}
-						echo "</div>
+						echo "<a data-tooltip='Horde'\></div>
 						<div style=\"float:right;text-align:left;background:url(./" . $horde_img . ");background-position:right;width:" . $c . "px;height:20px;\">";
 						if($show_percent) {
-							echo "<font style=\"color:#FFFFFF;font-weight:bold;\">$hp%</font>";
+							echo "<font style=\"color:#FFFFFF;font-weight:bold;\"><center>$hp%</center></font></a>";
 						}
 						echo "</div>
 						</div>";
