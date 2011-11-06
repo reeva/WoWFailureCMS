@@ -52,6 +52,11 @@ var Tooltip = {
 		useTable: false
 	},
 
+	/**
+	 * Max tooltip width for IE6.
+	 */
+	maxWidth: 250,
+
     /**
      * Initialize the tooltip markup and append it to document.
      *
@@ -120,22 +125,24 @@ var Tooltip = {
 	 * @param callback
 	 */
 	bind: function(query, options, callback) {
-		var doc = $(document);
+		var doc = $(document),
+			func;
 
-		if (!Core.isCallback(callback)) {
-			callback = function(e) {
-				var title = $(this).data('tooltip') || this.title;
+		if (Core.isCallback(callback)) {
+			func = callback;
+		} else {
+			func = function() {
+				var self = $(this),
+					title = self.data('tooltip') || this.title;
 
-				if (!options)
-					options = $(this).data('tooltip-options') || {};
-
-				if (title)
-					Tooltip.show(this, title, options);
+				if (title && self.attr('rel') != 'np') {
+					Tooltip.show(this, title, self.data('tooltip-options') || options);
+				}
 			};
 		}
 
-		doc.undelegate(query, 'mouseover.tooltip', callback);
-		doc.delegate(query, 'mouseover.tooltip', callback);
+		doc.undelegate(query, 'mouseover.tooltip', func);
+		doc.delegate(query, 'mouseover.tooltip', func);
 	},
 
     /**
@@ -177,19 +184,26 @@ var Tooltip = {
 		if (options.className)
 			Tooltip.wrapper.addClass(options.className);
 
+		// Content: DOM node created w/ jQuery
 		if (typeof content === 'object') {
-			// Content: DOM node created w/ jQuery
 			Tooltip.position(node, content, options.location);
 
 		} else if (typeof content === 'string') {
+
 			// Content: AJAX
 			if (options.ajax) {
 				if (Tooltip.cache[content]) {
 					Tooltip.position(node, Tooltip.cache[content], options.location);
 				} else {
+					var url = content;
+
+					if (url.indexOf(Core.projectUrl) != 0) { // Add base URL when provided URL doesn't begin with project URL (e.g. /d3)
+						url = Core.baseUrl + content;
+					}
+
 					$.ajax({
 						type: "GET",
-						url: Core.baseUrl + content,
+						url: url,
 						dataType: "html",
 						global: false,
 						beforeSend: function() {
@@ -197,7 +211,7 @@ var Tooltip = {
 							setTimeout(function() {
 								if (!Tooltip.visible)
 									Tooltip.position(node, Msg.ui.loading, options.location);
-							}, 200);
+							}, 500);
 						},
 						success: function(data) {
 							if (Tooltip.currentNode == node) {
@@ -261,10 +275,10 @@ var Tooltip = {
         var width = Tooltip.wrapper.outerWidth(),
 			height = Tooltip.wrapper.outerHeight();
 
-		if (Core.isIE(6) && width >= 250)
-			width = 250;
+		if (Core.isIE(6) && width > Tooltip.maxWidth)
+			width = Tooltip.maxWidth;
 
-		var coords = Tooltip['_'+ location](width, height, node);
+		var coords = Tooltip['_' + location](width, height, node);
 
 		if (coords)
 			Tooltip.move(coords.x, coords.y, width, height);
@@ -294,8 +308,7 @@ var Tooltip = {
 				top: y +"px"
 			}).fadeTo(0, 0).show();
 
-			if (w >= 200)
-				Tooltip.wrapper.css('width', 200);
+			Tooltip.wrapper.css('width', w);
 		}
 	},
 
@@ -340,7 +353,7 @@ var Tooltip = {
 		var offset = node.offset(),
 			nodeWidth = node.outerWidth(),
 			x = offset.left + ((nodeWidth / 2) - (width / 2)),
-			y = offset.top - height;
+			y = offset.top - height - 5;
 
 		return Tooltip._checkViewport(x, y, width, height, node);
 	},
@@ -427,7 +440,7 @@ var Tooltip = {
 			nodeWidth = node.outerWidth(),
 			nodeHeight = node.outerHeight(),
 			x = offset.left + ((nodeWidth / 2) - (width / 2)),
-			y = offset.top + nodeHeight;
+			y = offset.top + nodeHeight + 5;
 
 		return Tooltip._checkViewport(x, y, width, height, node);
 	},
@@ -465,10 +478,11 @@ var Tooltip = {
 
 		// Greater than x viewport
 		if ((x + width) > Page.dimensions.width)
-			x = (offset.left - width);
+			x = Page.dimensions.width - width;
+			//x = (offset.left - width);
 
 		// Less than x viewport
-		else if (x < 0)
+		if (x < 0)
 			x = 15;
 
 		// Greater than y viewport
@@ -484,7 +498,7 @@ var Tooltip = {
 			y = Page.scroll.top + 15;
 
 		// Less than y viewport
-		else if (y < 0)
+		if (y < 0)
 			y = 15;
 
 		return {

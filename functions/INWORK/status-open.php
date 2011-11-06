@@ -1,37 +1,30 @@
+<?php
+include("configs.php");
+?>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
 <head>
-<title>Ticket History - Battle.net Support</title>
+<title><?php echo $website['title']; ?> - Ticket History</title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
-<link rel="shortcut icon" href="/support/static/local-common/images/favicons/support.ico" type="image/x-icon"/>
+<link rel="shortcut icon" href="wow/static/local-common/images/favicons/support.ico" type="image/x-icon"/>
 <link rel="search" type="application/opensearchdescription+xml" href="http://eu.battle.net/en-gb/data/opensearch" title="Battle.net Search" />
-<link rel="stylesheet" type="text/css" media="all" href="/support/static/local-common/css/common.css?v35" />
-<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/support/static/local-common/css/common-ie.css?v35" />
-<![endif]-->
-<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/support/static/local-common/css/common-ie6.css?v35" />
-<![endif]-->
-<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="/support/static/local-common/css/common-ie7.css?v35" />
-<![endif]-->
-<link rel="stylesheet" type="text/css" media="all" href="/support/static/css/support.css?v13" />
-<!--[if lt IE 9]> <link rel="stylesheet" type="text/css" media="all" href="/support/static/css/support-ie.css?v13" />
-<![endif]-->
-<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/support/static/css/support-ie6.css?v13" />
-<![endif]-->
-<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="/support/static/css/support-ie7.css?v13" />
-<![endif]-->
-<link rel="stylesheet" type="text/css" media="print" href="/support/static/css/support-print.css?v13" />
-<link rel="stylesheet" type="text/css" media="all" href="/support/static/css/tickets/tickets.css?v13" />
-<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/support/static/css/tickets/tickets-ie.css?v13" />
-<![endif]-->
-<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/support/static/css/tickets/tickets-ie6.css?v13" />
-<![endif]-->
-<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="/support/static/css/tickets/tickets-ie7.css?v13" />
-<![endif]-->
-<script type="text/javascript" src="/support/static/local-common/js/third-party/jquery.js?v35"></script>
-<script type="text/javascript" src="/support/static/local-common/js/core.js?v35"></script>
-<script type="text/javascript" src="/support/static/local-common/js/tooltip.js?v35"></script>
+<link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common.css" />
+<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common-ie.css" /><![endif]-->
+<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common-ie6.css" /><![endif]-->
+<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common-ie7.css" /><![endif]-->
+<link rel="stylesheet" type="text/css" media="all" href="wow/static/css/support.css" /><!--[if lt IE 9]> <link rel="stylesheet" type="text/css" media="all" href="wow/static/css/support-ie.css" />
+<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="wow/static/css/support-ie6.css" /><![endif]-->
+<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="wow/static/css/support-ie7.css" /><![endif]-->
+<link rel="stylesheet" type="text/css" media="print" href="wow/static/css/support-print.css" />
+<link rel="stylesheet" type="text/css" media="all" href="wow/static/css/account/tickets.css" />
+<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="wow/static/css/account/tickets-ie.css" /><![endif]-->
+<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="wow/static/css/account/tickets-ie6.css" /><![endif]-->
+<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="wow/static/css/account/tickets-ie7.css" /><![endif]-->
+<script type="text/javascript" src="wow/static/local-common/js/third-party/jquery-1.4.4-p1.min.js"></script>
+<script type="text/javascript" src="wow/static/local-common/js/core.js"></script>
+<script type="text/javascript" src="wow/static/local-common/js/tooltip.js"></script>
 <!--[if IE 6]> <script type="text/javascript">
 //<![CDATA[
 try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
@@ -41,7 +34,7 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 <script type="text/javascript">
 //<![CDATA[
 Core.staticUrl = '/support/static';
-Core.sharedStaticUrl= '/support/static/local-common';
+Core.sharedStaticUrl= 'wow/static/local-common';
 Core.baseUrl = '/support/en';
 Core.projectUrl = '/support';
 Core.cdnUrl = 'http://eu.media.blizzard.com';
@@ -70,15 +63,6 @@ _gaq.push(['_trackPageLoadTime']);
 <body class="en-gb logged-in"><div id="layout-top">
 <div class="wrapper">
 <div id="header">
-<div id="search-bar">
-<form action="https://eu.battle.net/search" method="get" id="search-form">
-<div>
-<input type="text" name="q" id="search-field" value="Search Battle.net" maxlength="35" alt="Search Battle.net" tabindex="50" accesskey="q" />
-<input type="submit" id="search-button" value="" title="Search Battle.net" tabindex="50" />
-</div>
-</form>
-</div>
-<h1 id="logo"><a href="http://eu.battle.net/" tabindex="50" accesskey="h">Battle.net</a></h1>
 <div id="navigation">
 <div id="page-menu" class="large">
 <h2><a href="/support/en/ticket/status"> Support
@@ -101,10 +85,10 @@ _gaq.push(['_trackPageLoadTime']);
 </div>
 <div id="service">
 <ul class="service-bar">
-<li class="service-cell service-home"><a href="http://eu.battle.net/" tabindex="50" accesskey="1" title="Battle.net Home"> </a></li>
+<li class="service-cell service-home"><a href="http://eu.battle.net/" tabindex="50" accesskey="1" title="Battle.net Home"> </a></li>
 <li class="service-cell service-welcome">
 Welcome, Alex
- |  <a href="?logout=fast" tabindex="50" accesskey="2">log out</a>
+ |  <a href="?logout=fast" tabindex="50" accesskey="2">log out</a>
 </li>
 <li class="service-cell service-account"><a href="https://eu.battle.net/account/management/" class="service-link" tabindex="50" accesskey="3">Account</a></li>
 <li class="service-cell service-support service-support-enhanced">
@@ -208,7 +192,7 @@ shim.style.display = 'block';
 <li class="explore-game explore-game-sc2">
 <a href="http://eu.battle.net/sc2/" tabindex="55" data-label="Game - sc2">
 <span class="explore-game-inner">
-<strong class="explore-caption">StarCraft II</strong>
+<strong class="explore-caption">StarCraft II</strong>
 <span>News &amp; Forums</span> <span>Beginner’s Guide</span> <span>Player Profiles</span>
 </span>
 </a>
@@ -224,7 +208,7 @@ shim.style.display = 'block';
 <li class="explore-game explore-game-d3">
 <a href="http://eu.battle.net/d3/" tabindex="55" data-label="Game - d3">
 <span class="explore-game-inner">
-<strong class="explore-caption">Diablo III</strong>
+<strong class="explore-caption">Diablo III</strong>
 <span>Game Guide</span> <span>Beta News</span> <span>Forums</span>
 </span>
 </a>
@@ -250,7 +234,7 @@ You are using an outdated web browser.<br />
 </div>
 </div>
 <![endif]-->
-<!--[if lt IE 8]> <script type="text/javascript" src="/support/static/local-common/js/third-party/CFInstall.min.js?v35"></script>
+<!--[if lt IE 8]> <script type="text/javascript" src="wow/static/local-common/js/third-party/CFInstall.min.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $(function() {
@@ -325,7 +309,7 @@ Region:
 <option value="sea">Southeast Asia</option>
 <option value="tw">Taiwan</option>
 </select>
-<span class="inline-message" id="region-select-message"> </span>
+<span class="inline-message" id="region-select-message"> </span>
 </span>
 </span>
 <button
@@ -364,7 +348,7 @@ View:
 <option value="active" selected="selected">Active Tickets</option>
 <option value="all">All Tickets</option>
 </select>
-<span class="inline-message" id="filter-select-message"> </span>
+<span class="inline-message" id="filter-select-message"> </span>
 </span>
 </span>
 <script type="text/javascript">
@@ -398,15 +382,15 @@ ticketFilter.style.display = 'inline-block';
 </td>
 <td class="ticket-subject" data-raw="lol im 36k away from getting neutral reputation wi">
 <div class="subject">
-<div class="subject-line">lol im 36k away from getting Neutral reputation wi </div>
+<div class="subject-line">lol im 36k away from getting Neutral reputation wi </div>
 <div class="truncate-subject"></div>
 </div>
 </td>
 <td class="ticket-date" data-raw="20111014153100000">
 <span><time datetime="2011-10-14T15:31+00:00">14/10/11 15:31:00 GMT</time></span>
 </td>
-<td class="ticket-status" data-raw="archived">
-<div class="status status-archived" data-tooltip="Your ticket has been archived. It cannot be reopened." data-tooltip-options='{"location": "mouse"}'>Archived</div>
+<td class="ticket-status" data-raw="active">
+<div class="status status-active" data-tooltip="Your ticket has been archived. It cannot be reopened." data-tooltip-options='{"location": "mouse"}'>Archived</div>
 </td>
 <td class="ticket-type" data-raw="in-game">
 <span class="icon-32 icon-ticket-wow" data-tooltip="In-game" data-tooltip-options='{"location": "mouse"}'></span>
@@ -420,7 +404,7 @@ ticketFilter.style.display = 'inline-block';
 </td>
 <td class="ticket-subject" data-raw="can anyone tell me is there a way to come from ha">
 <div class="subject">
-<div class="subject-line">Can anyone tell me is there a way to come from  ha </div>
+<div class="subject-line">Can anyone tell me is there a way to come from  ha </div>
 <div class="truncate-subject"></div>
 </div>
 </td>
@@ -428,7 +412,7 @@ ticketFilter.style.display = 'inline-block';
 <span><time datetime="2011-10-14T10:28+00:00">14/10/11 10:28:55 GMT</time></span>
 </td>
 <td class="ticket-status" data-raw="archived">
-<div class="status status-archived" data-tooltip="Your ticket has been archived. It cannot be reopened." data-tooltip-options='{"location": "mouse"}'>Archived</div>
+<div class="status status-archived" data-tooltip="Your ticket has been archived. It cannot be reopened." data-tooltip-options='{"location": "mouse"}'>Archived</div>
 </td>
 <td class="ticket-type" data-raw="in-game">
 <span class="icon-32 icon-ticket-wow" data-tooltip="In-game" data-tooltip-options='{"location": "mouse"}'></span>
@@ -442,7 +426,7 @@ ticketFilter.style.display = 'inline-block';
 </td>
 <td class="ticket-subject" data-raw=":( i cant go to pirate thingy because im hated wit">
 <div class="subject">
-<div class="subject-line">:( i cant go to pirate thingy because im hated wit </div>
+<div class="subject-line">:( i cant go to pirate thingy because im hated wit </div>
 <div class="truncate-subject"></div>
 </div>
 </td>
@@ -450,7 +434,7 @@ ticketFilter.style.display = 'inline-block';
 <span><time datetime="2011-09-19T08:35+00:00">19/09/11 08:35:50 GMT</time></span>
 </td>
 <td class="ticket-status" data-raw="cancelled">
-<div class="status status-canceled" data-tooltip="Your ticket has been cancelled." data-tooltip-options='{"location": "mouse"}'>Cancelled</div>
+<div class="status status-canceled" data-tooltip="Your ticket has been cancelled." data-tooltip-options='{"location": "mouse"}'>Cancelled</div>
 </td>
 <td class="ticket-type" data-raw="in-game">
 <span class="icon-32 icon-ticket-wow" data-tooltip="In-game" data-tooltip-options='{"location": "mouse"}'></span>
@@ -464,7 +448,7 @@ ticketFilter.style.display = 'inline-block';
 </td>
 <td class="ticket-subject" data-raw="excuse me is there anyone that can help me its not">
 <div class="subject">
-<div class="subject-line">Excuse me is there anyone that can help me its not </div>
+<div class="subject-line">Excuse me is there anyone that can help me its not </div>
 <div class="truncate-subject"></div>
 </div>
 </td>
@@ -472,7 +456,7 @@ ticketFilter.style.display = 'inline-block';
 <span><time datetime="2011-09-06T07:46+00:00">06/09/11 07:46:22 GMT</time></span>
 </td>
 <td class="ticket-status" data-raw="cancelled">
-<div class="status status-canceled" data-tooltip="Your ticket has been cancelled." data-tooltip-options='{"location": "mouse"}'>Cancelled</div>
+<div class="status status-canceled" data-tooltip="Your ticket has been cancelled." data-tooltip-options='{"location": "mouse"}'>Cancelled</div>
 </td>
 <td class="ticket-type" data-raw="in-game">
 <span class="icon-32 icon-ticket-wow" data-tooltip="In-game" data-tooltip-options='{"location": "mouse"}'></span>
@@ -486,7 +470,7 @@ ticketFilter.style.display = 'inline-block';
 </td>
 <td class="ticket-subject" data-raw="im having some problems...im getting disconnected">
 <div class="subject">
-<div class="subject-line">im having some problems…im getting Disconnected  </div>
+<div class="subject-line">im having some problems…im getting Disconnected  </div>
 <div class="truncate-subject"></div>
 </div>
 </td>
@@ -494,7 +478,7 @@ ticketFilter.style.display = 'inline-block';
 <span><time datetime="2011-08-24T12:06+00:00">24/08/11 12:06:27 GMT</time></span>
 </td>
 <td class="ticket-status" data-raw="archived">
-<div class="status status-archived" data-tooltip="Your ticket has been archived. It cannot be reopened." data-tooltip-options='{"location": "mouse"}'>Archived</div>
+<div class="status status-archived" data-tooltip="Your ticket has been archived. It cannot be reopened." data-tooltip-options='{"location": "mouse"}'>Archived</div>
 </td>
 <td class="ticket-type" data-raw="in-game">
 <span class="icon-32 icon-ticket-wow" data-tooltip="In-game" data-tooltip-options='{"location": "mouse"}'></span>
@@ -508,7 +492,7 @@ ticketFilter.style.display = 'inline-block';
 </td>
 <td class="ticket-subject" data-raw="im opening this ticket,because im having a little">
 <div class="subject">
-<div class="subject-line">im opening this ticket,because im having a little  </div>
+<div class="subject-line">im opening this ticket,because im having a little  </div>
 <div class="truncate-subject"></div>
 </div>
 </td>
@@ -516,7 +500,7 @@ ticketFilter.style.display = 'inline-block';
 <span><time datetime="2011-08-21T14:45+00:00">21/08/11 14:45:59 GMT</time></span>
 </td>
 <td class="ticket-status" data-raw="archived">
-<div class="status status-archived" data-tooltip="Your ticket has been archived. It cannot be reopened." data-tooltip-options='{"location": "mouse"}'>Archived</div>
+<div class="status status-archived" data-tooltip="Your ticket has been archived. It cannot be reopened." data-tooltip-options='{"location": "mouse"}'>Archived</div>
 </td>
 <td class="ticket-type" data-raw="in-game">
 <span class="icon-32 icon-ticket-wow" data-tooltip="In-game" data-tooltip-options='{"location": "mouse"}'></span>
@@ -530,7 +514,7 @@ ticketFilter.style.display = 'inline-block';
 </td>
 <td class="ticket-subject" data-raw="excuse me im making this ticket because im getting">
 <div class="subject">
-<div class="subject-line">Excuse me im making this ticket because im getting </div>
+<div class="subject-line">Excuse me im making this ticket because im getting </div>
 <div class="truncate-subject"></div>
 </div>
 </td>
@@ -538,7 +522,7 @@ ticketFilter.style.display = 'inline-block';
 <span><time datetime="2011-08-20T08:46+00:00">20/08/11 08:46:28 GMT</time></span>
 </td>
 <td class="ticket-status" data-raw="archived">
-<div class="status status-archived" data-tooltip="Your ticket has been archived. It cannot be reopened." data-tooltip-options='{"location": "mouse"}'>Archived</div>
+<div class="status status-archived" data-tooltip="Your ticket has been archived. It cannot be reopened." data-tooltip-options='{"location": "mouse"}'>Archived</div>
 </td>
 <td class="ticket-type" data-raw="in-game">
 <span class="icon-32 icon-ticket-wow" data-tooltip="In-game" data-tooltip-options='{"location": "mouse"}'></span>
@@ -552,7 +536,7 @@ ticketFilter.style.display = 'inline-block';
 </td>
 <td class="ticket-subject" data-raw="im reporting heálern for using master loot for bad">
 <div class="subject">
-<div class="subject-line">Im reporting Heálern for using MASTER LOOT FOR bad </div>
+<div class="subject-line">Im reporting Heálern for using MASTER LOOT FOR bad </div>
 <div class="truncate-subject"></div>
 </div>
 </td>
@@ -560,7 +544,7 @@ ticketFilter.style.display = 'inline-block';
 <span><time datetime="2011-07-23T05:39+00:00">23/07/11 05:39:27 GMT</time></span>
 </td>
 <td class="ticket-status" data-raw="cancelled">
-<div class="status status-canceled" data-tooltip="Your ticket has been cancelled." data-tooltip-options='{"location": "mouse"}'>Cancelled</div>
+<div class="status status-canceled" data-tooltip="Your ticket has been cancelled." data-tooltip-options='{"location": "mouse"}'>Cancelled</div>
 </td>
 <td class="ticket-type" data-raw="in-game">
 <span class="icon-32 icon-ticket-wow" data-tooltip="In-game" data-tooltip-options='{"location": "mouse"}'></span>
@@ -574,7 +558,7 @@ ticketFilter.style.display = 'inline-block';
 </td>
 <td class="ticket-subject" data-raw="i have one god damn question,why when i cast and w">
 <div class="subject">
-<div class="subject-line">i have one god damn question,why when i cast and w </div>
+<div class="subject-line">i have one god damn question,why when i cast and w </div>
 <div class="truncate-subject"></div>
 </div>
 </td>
@@ -582,7 +566,7 @@ ticketFilter.style.display = 'inline-block';
 <span><time datetime="2011-07-06T15:06+00:00">06/07/11 15:06:56 GMT</time></span>
 </td>
 <td class="ticket-status" data-raw="cancelled">
-<div class="status status-canceled" data-tooltip="Your ticket has been cancelled." data-tooltip-options='{"location": "mouse"}'>Cancelled</div>
+<div class="status status-canceled" data-tooltip="Your ticket has been cancelled." data-tooltip-options='{"location": "mouse"}'>Cancelled</div>
 </td>
 <td class="ticket-type" data-raw="in-game">
 <span class="icon-32 icon-ticket-wow" data-tooltip="In-game" data-tooltip-options='{"location": "mouse"}'></span>
@@ -591,7 +575,7 @@ ticketFilter.style.display = 'inline-block';
 <tr class="no-results">
 <td class="empty-table" colspan="5">
 <div class="no-tickets">
-<p>You currently have no active support tickets. <a href="" id="filter-link" rel="all">View all tickets</a> if you want to see details of your past tickets.</p>
+<p>You currently have no active support tickets. <a href="" id="filter-link" rel="all">View all tickets</a> if you want to see details of your past tickets.</p>
 </div>
 </td>
 </tr>
@@ -616,7 +600,7 @@ ticketFilter.style.display = 'inline-block';
 <div class="feedback-dialog" id="feedback-dialog" style="display: none;" title="Feedback">
 <div id="feedback-wrapper">
 <div id="feedback-blank" style="display: none;"><p class="text-red"><strong>Please enter your feedback in the field.</strong></p></div>
-<p>Your feedback is important to us. Please let us know how we can improve this website. Thank you!</p>
+<p>Your feedback is important to us. Please let us know how we can improve this website. Thank you!</p>
 <form id="feedback-form" method="post" action="/support/en/feedback/submit">
 <span class="input-textarea input-textarea-large">
 <textarea name="feedback" id="feedback" class="large border-5 glow-shadow-2" cols="78" rows="5" tabindex="1" required="required"></textarea>
@@ -625,7 +609,7 @@ ticketFilter.style.display = 'inline-block';
 </form>
 </div>
 <div class="alert-dialog" id="feedback-success" style="display: none;"><p class="text-green"><strong>Thank you for your feedback.</strong></p></div>
-<div class="alert-dialog" id="feedback-error" style="display: none;"><p class="text-red"><strong>There was an error submitting your feedback. Please try again later.</strong></p></div>
+<div class="alert-dialog" id="feedback-error" style="display: none;"><p class="text-red"><strong>There was an error submitting your feedback. Please try again later.</strong></p></div>
 </div>
 <script type="text/javascript">
 //<![CDATA[
@@ -734,7 +718,7 @@ results: 10
 });
 //]]>
 </script>
-<!--[if IE 6]> <script type="text/javascript" src="/support/static/local-common/js/third-party/DD_belatedPNG.js?v35"></script>
+<!--[if IE 6]> <script type="text/javascript" src="wow/static/local-common/js/third-party/DD_belatedPNG.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 DD_belatedPNG.fix('.icon-16');
@@ -749,88 +733,21 @@ DD_belatedPNG.fix('.input-checkbox');
 </div>
 </div>
 <div id="layout-bottom">
-<div class="wrapper">
-<div id="footer">
-<div id="sitemap">
-<div class="column">
-<h3 class="bnet">
-<a href="http://eu.battle.net/" tabindex="100">Battle.net Home</a>
-</h3>
-<ul>
-<li><a href="http://eu.battle.net/what-is/">What is Battle.net?</a></li>
-<li><a href="https://eu.battle.net/account/management/get-a-game.html">Buy Games</a></li>
-<li><a href="https://eu.battle.net/account/management/">Account</a></li>
-<li><a href="http://eu.blizzard.com/support/">Support</a></li>
-<li><a href="http://eu.battle.net/realid/">Real ID</a></li>
-</ul>
-</div>
-<div class="column">
-<h3 class="games">
-<a href="http://eu.battle.net/" tabindex="100">Games</a>
-</h3>
-<ul>
-<li><a href="http://eu.battle.net/sc2/">StarCraft II</a></li>
-<li><a href="http://eu.battle.net/wow/">World of Warcraft</a></li>
-<li><a href="http://eu.battle.net/d3/">Diablo III</a></li>
-<li><a href="http://eu.battle.net/games/classic">Classic Games</a></li>
-<li><a href="https://eu.battle.net/account/download/">Game Client Downloads</a></li>
-</ul>
-</div>
-<div class="column">
-<h3 class="account">
-<a href="https://eu.battle.net/account/management/" tabindex="100">Account</a>
-</h3>
-<ul>
-<li><a href="https://eu.battle.net/account/support/login-support.html">Can’t log in?</a></li>
-<li><a href="https://eu.battle.net/account/creation/tos.html">Create Account</a></li>
-<li><a href="https://eu.battle.net/account/management/">Account Summary</a></li>
-<li><a href="https://eu.battle.net/account/management/authenticator.html">Account Security</a></li>
-<li><a href="https://eu.battle.net/account/management/add-game.html">Add a Game</a></li>
-<li><a href="https://eu.battle.net/account/management/redemption/redeem.html">Redeem Promo Codes</a></li>
-</ul>
-</div>
-<div class="column">
-<h3 class="support">
-<a href="http://eu.blizzard.com/support/" tabindex="100">Support</a>
-</h3>
-<ul>
-<li><a href="http://eu.blizzard.com/support/">Support Articles</a></li>
-<li><a href="https://eu.battle.net/account/parental-controls/index.html">Parental Controls</a></li>
-<li><a href="http://eu.battle.net/security/">Protect Your Account</a></li>
-<li><a href="http://eu.battle.net/security/help">Help! I got hacked!</a></li>
-</ul>
-</div>
-<span class="clear"><!-- --></span>
-</div>
-<div id="copyright">
-<a href="javascript:;" tabindex="100" id="change-language">
-<span>Europe - English (EU)</span>
-</a>
-©2011 Blizzard Entertainment, Inc. All rights reserved
-<a onclick="return Core.open(this);" href="http://eu.blizzard.com/company/about/termsofuse.html" tabindex="100">Terms of Use</a>
-<a onclick="return Core.open(this);" href="http://eu.blizzard.com/company/legal/" tabindex="100">Legal</a>
-<a onclick="return Core.open(this);" href="http://eu.blizzard.com/company/about/privacy.html" tabindex="100">Privacy Policy</a>
-<a onclick="return Core.open(this);" href="http://eu.blizzard.com/company/about/infringementnotice.html" tabindex="100">Copyright Infringement</a>
-</div>
-<div id="international"></div>
-<div id="legal">
-<span class="clear"><!-- --></span>
-</div>
-</div>
+<?php include("functions/footer_man.php"); ?>
 </div>
 </div><script type="text/javascript">
 //<![CDATA[
-var xsToken = '';
+var xsToken = 'eabaa517-edf8-49e2-b7c7-9ba7ebc12fbe';
 var Msg = {
 support: {
 ticketNew: 'Ticket {0} was created.',
-ticketStatus: 'Ticket {0}’s status changed to {1}.',
+ticketStatus: 'Ticket {0}’s status changed to {1}.',
 ticketOpen: 'Open',
 ticketAnswered: 'Answered',
 ticketResolved: 'Resolved',
 ticketCanceled: 'Cancelled',
 ticketArchived: 'Archived',
-ticketInfo: 'Need Info',
+ticketInfo: 'Need Info',
 ticketAll: 'View All Tickets'
 },
 cms: {
@@ -917,9 +834,9 @@ other: 'Other'
 };
 //]]>
 </script>
-<script type="text/javascript" src="/support/static/js/support.js?v13"></script>
-<script type="text/javascript" src="/support/static/local-common/js/tooltip.js?v35"></script>
-<script type="text/javascript" src="/support/static/local-common/js/menu.js?v35"></script>
+<script type="text/javascript" src="wow/static/js/support.js"></script>
+<script type="text/javascript" src="wow/static/local-common/js/tooltip.js"></script>
+<script type="text/javascript" src="wow/static/local-common/js/menu.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $(function() {
@@ -928,21 +845,21 @@ Menu.config.colWidth = 190;
 });
 //]]>
 </script>
-<script type="text/javascript" src="/support/static/local-common/js/table.js?v35"></script>
-<script type="text/javascript" src="/support/static/local-common/js/third-party/jquery.bgiframe-2.1.2.js?v35"></script>
-<script type="text/javascript" src="/support/static/js/tickets/tickets.js?v13"></script>
+<script type="text/javascript" src="wow/static/local-common/js/table.js"></script>
+<script type="text/javascript" src="wow/static/local-common/js/third-party/jquery.bgiframe-2.1.2.js"></script>
+<script type="text/javascript" src="wow/static/js/account/tickets.js"></script>
 <script type="text/javascript">
 //<![CDATA[
-Core.load("/support/static/local-common/js/third-party/jquery-ui-1.8.6.custom.min.js?v35");
-Core.load("/support/static/local-common/js/search.js?v35");
-Core.load("/support/static/local-common/js/login.js?v35", false, function() {
+Core.load("wow/static/local-common/js/third-party/jquery-ui-1.8.6.custom.min.js");
+Core.load("wow/static/local-common/js/search.js");
+Core.load("wow/static/local-common/js/login.js", false, function() {
 if (typeof Login !== 'undefined') {
 Login.embeddedUrl = 'https://eu.battle.net/login/login.frag';
 }
 });
 //]]>
 </script>
-<!--[if lt IE 8]> <script type="text/javascript" src="/support/static/local-common/js/third-party/jquery.pngFix.pack.js?v35"></script>
+<!--[if lt IE 8]> <script type="text/javascript" src="wow/static/local-common/js/third-party/jquery.pngFix.pack.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $('.png-fix').pngFix(); //]]>
