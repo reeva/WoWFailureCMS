@@ -130,23 +130,7 @@ JavaScript must be enabled to use this site.
 <dt class="subcategory">Account Name</dt>
 <dd class="account-name"><?php echo strtolower($_SESSION['username']); ?></dd>
 <dt class="subcategory">Status</dt>
-<dd class="account-status"> <span><strong class="disable"><?php include("configs.php");
- //Get Info By Query
- $conn = mysql_connect("$serveraddress", "$serveruser", "$serverpass")or die("Couldn't connect to database"); 
- $account_info = $query("SELECT id, username  FROM $server_db.account WHERE username='$_SESSION['username']' ")or die(mysql_error());
-  while($get = $array($account_info)) 
- {
-  //Banned?
-  if($get['locked'] == 0)
-      {
-        $this->banned = "Active";
-      }
-      else
-      {
-        $this->banned = "Banned";
-      }
-   }
-?></strong></span>
+<dd class="account-status"> <span><strong class="active">Active</strong></span>
 </dd>
 <dt class="subcategory">Current Game Source</dt>
 <dd class="account-details"> 100% Days
