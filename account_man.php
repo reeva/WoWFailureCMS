@@ -133,17 +133,17 @@ JavaScript must be enabled to use this site.
 <dd class="account-status"> <span><strong class="disable"><?php include("configs.php");
  //Get Info By Query
  $conn = mysql_connect("$serveraddress", "$serveruser", "$serverpass")or die("Couldn't connect to database"); 
- $account_info = mysql_query("SELECT id, username  FROM `".$server_db."`.`account` WHERE username='".$_SESSION['username']."'")or die(mysql_error());
+ $account_info = mysql_query("SELECT id, username  FROM `".$server_adb."`.`account` WHERE username='".$_SESSION['username']."'")or die(mysql_error());
  while($get = mysql_fetch_array($account_info)) 
  {
   //Banned?
   if($get['locked'] == 0)
       {
-        $this->banned = "Active";
+        $banned = "Active";
       }
       else
       {
-        $this->banned = "Banned";
+        $banned = "Banned";
       }
    }
 ?></strong></span>
