@@ -181,7 +181,7 @@ JavaScript must be enabled to use this site.
 <a href="">View Account History</a>
 </li>
 <li class="download-guide">
-<a href="">Download Beginner's Guide</a>
+<a href="game_client.php">Download Beginner's Guide</a>
 </li>
 <li class="download-client">
 <a href="game_client.php">Download Game Client</a>
@@ -284,16 +284,16 @@ Transfer your characters when he gets stuck.
 <div class="content additional-services" id="additional-services">
 <ul>
 <li class="wow-service ptr-copy">
-<a href="">
+<a href="vote.php">
 <span class="icon glow-shadow-3"></span>
-<strong>Public Test Realm</strong>
-Copy your characters to the Public Test Realms.
+<strong>Vote Shop</strong>
+Vote and get rewarded and support <?php echo $website['title']; ?> to be on the Top List.
 </a>
 </li>
 <li class="wow-service arena-tournament-closed">
 <a href="" onclick="return Core.open(this);">
-<span class="icon glow-shadow-3"></span>
-<strong>Arena Pass (Closed)</strong>
+<span class="icon glow-shadow-3 disabled"></span>
+<strong>Beta Test Realm (Closed)</strong>
 Arena Pass registration is currently closed. Click here for more information.
 </a>
 </li>
@@ -304,13 +304,6 @@ Arena Pass registration is currently closed. Click here for more information.
 Manage, monitor, and limit your child's play time.
 </a>
 </li>
-<li class="wow-service esports">
-<a href="" onclick="return Core.open(this);">
-<span class="icon glow-shadow-3"></span>
-<strong>Blizzard eSports by ESL TV</strong>
-Watch exciting eSports matches and in-depth TV shows exploring the competitive side of Blizzard Entertainment games.
-</a>
-</li>
 </ul>
 </div>
 <div class="content referrals-rewards" id="referrals-rewards">
@@ -319,14 +312,14 @@ Watch exciting eSports matches and in-depth TV shows exploring the competitive s
 <a href="">
 <span class="icon glow-shadow-3"></span>
 <strong>Recruit a Friend</strong>
-Earn game time, in-game rewards, and more by recruiting your friends.
+Earn in-game rewards, and more by recruiting your friends, bringing them to the Ultimate Gaming.
 </a>
 </li>
 <li class="wow-service resurrection-scroll">
 <a href="raf-invite.php">
 <span class="icon glow-shadow-3"></span>
 <strong>Refer a Friend</strong>
-Get more Friends, to <?php echo $website['title']; ?>.
+Get more Friends, to <?php echo $website['title']; ?>, to enjoy the Ultimate Gaming.
 </a>
 </li>
 </ul>
@@ -336,15 +329,15 @@ Get more Friends, to <?php echo $website['title']; ?>.
 <li class="wow-service add-game-card">
 <a href="">
 <span class="icon glow-shadow-3"></span>
-<strong>Add a Game Card</strong>
-Add World of Warcraft game time to your account in prepaid intervals.
+<strong>Donate Subscription</strong>
+Add <?php echo $website['title']; ?> Donation Title to your account and unlock illuminative Rewards.
 </a>
 </li>
 <li class="wow-service wow-anywhere">
 <a href="">
 <span class="icon glow-shadow-3"></span>
-<strong>World of Warcraft Remote</strong>
-Use all the features of the Remote Auction House.
+<strong><?php echo $website['title']; ?> Remote</strong>
+Use all the features of the Remote Auction House of <?php echo $website['title']; ?>.
 </a>
 </li>
 </ul>
