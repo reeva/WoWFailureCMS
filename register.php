@@ -151,7 +151,7 @@ _gaq.push(['_trackPageLoadTime']);
 			  <?php
 						  }else{
 						  ?>
-<p class="privacy-message"><b>We value and respect your privacy.</b> Find out how Blizzard safeguards user information by reading our <a href="" onclick="window.open(this.href); return false;">Online Privacy Policy</a>.</p>
+<p class="privacy-message"><b>We value and respect your privacy.</b> Find out how <?php echo $website['title']; ?> safeguards user information by reading our <a href="" onclick="window.open(this.href); return false;">Online Privacy Policy</a>.</p>
 </div>
 <form action="" method="get" class="country-select">
 <div class="input-row input-row-select">
@@ -873,7 +873,7 @@ Secret Question &amp; Answer:
 <label for="agreedToChatPolicy">
 <input type="checkbox" name="agreedToChatPolicy" value="true" id="agreedToChatPolicy" tabindex="1" required="required" />
 <span class="label-text">
-I consent to Blizzard monitoring and/or reviewing my personal messages.
+I consent to <?php echo $website['title']; ?> monitoring and/or reviewing my personal messages.
 <span class="input-required">*</span>
 </span>
 </label>
