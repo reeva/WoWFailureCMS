@@ -380,7 +380,9 @@ $bg = "<img src='wow/static/images/icons/faction/horde.gif' width='18' height='1
 echo '
 <tr>
 <td style="background-color: '.$bg.';"><b><center>'.$raw['name'].'</center></b></td>
-<td style="background-color: '.$bg.';"><center><img src="wow/static/images/icons/race/'.$raw['race'].'-'.$raw['gender'].'.gif" title="'.$race.' '.$gender.'"/></center></td>
+<span class="icon-frame frame-14 " data-tooltip="'.$race.' '.$gender.'">
+<td style="background-color: '.$bg.';"><center><img src="wow/static/images/icons/race/'.$raw['race'].'-'.$raw['gender'].'.gif" title="'.$race.' '.$gender.'" width="15" height="15"  /></center></td>
+</span>
 <td style="background-color: '.$bg.';"><center>'.$class.'</center></td>
 <td style="background-color: '.$bg.';"><center>'.$raw['level'].'</center></td>
 <td style="background-color: '.$bg.';"><center>'.$location.'</center></td>
