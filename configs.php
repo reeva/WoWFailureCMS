@@ -13,6 +13,9 @@ switch ($lang)
     case 'en-us' :
         include ("lang/en-us.php");
         break;
+	case 'ro-ro' :
+        include ("lang/ro-ro.php");
+        break;
     case 'en-gb' :
         include ("lang/en-gb.php");
         break;

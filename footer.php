@@ -148,11 +148,11 @@
 			</ul>
 			</div>
 			<div class="column">
-			<h3 style="padding-left:12px;" >Romania</h3>
+			<h3 style="padding-left:12px;" ><?php echo $Romanian['RO']; ?></h3>
 			<ul>
 			<li>
-			<a href="?Local=bu-bu" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to bu-bu'); return true;">
-			Romanian (EU)
+			<a href="?Local=ro-ro" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to ro-ro'); return true;">
+			<?php echo $Romanian['ROEU']; ?>
 			</a>
 			</li>
 			</ul>
