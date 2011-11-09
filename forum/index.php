@@ -12,7 +12,7 @@ $page_cat = "forums";
 <!--[if IE]><link rel="stylesheet" type="text/css" media="all" href="../wow/static/local-common/css/common-ie.css?v15" /><![endif]-->
 <!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="../wow/static/local-common/css/common-ie6.css?v15" /><![endif]-->
 <!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="../wow/static/local-common/css/common-ie7.css?v15" /><![endif]-->
-<link rel="stylesheet" type="text/css" media="all" href="../wow/static/css/wow.css?v4" />
+<link rel="stylesheet" type="text/css" media="all" href="../wow/static/css/wowe6dd.css?v4" />
 <link rel="stylesheet" type="text/css" media="all" href="../wow/static/local-common/css/cms/forums.css?v15" />
 <link rel="stylesheet" type="text/css" media="all" href="../wow/static/local-common/css/cms/cms-common.css?v15" />
 <link rel="stylesheet" type="text/css" media="all" href="../wow/static/css/cms.css?v4" />

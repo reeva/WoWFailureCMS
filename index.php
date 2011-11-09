@@ -283,11 +283,10 @@ $page_cat = "home";
 
 						mysql_close($conn);
 						?> Characters Created</span>
-						</div>
+						
 						<span class="clear"><!-- --></span>
-						<center>
+						<center><br>
 						<? require_once("configs.php");
-											
 						$bar_width = "273px";
 						$bar_height = "20px";
 						$ally_img = "wow/static/images/services/status/ally.png";
@@ -376,7 +375,8 @@ $page_cat = "home";
 						}
 						echo "</div>
 						</div>";
-						?></center>
+						
+						?></div></center>
 						</div>
 						<!--<div class="sidebar-module " id="sidebar-friends" style="">
 						<div class="sidebar-title">
