@@ -128,7 +128,7 @@ _gaq.push(['_trackPageLoadTime']);
                 if ($accinfo == 0)
                 {
                     $sha_pass_hash= sha1(strtoupper($accountName ) . ":" . strtoupper($accountPass));
-                    $register_logon = mysql_query("INSERT INTO account (username,sha_pass_hash,email,last_ip,expansion) VALUES (UPPER('".$accountName."'),  CONCAT('".$sha_pass_hash."'),'".$accountEmail."','".$ip."','2')")or die(mysql_error());
+                    $register_logon = mysql_query("INSERT INTO account (username,sha_pass_hash,email,last_ip,expansion) VALUES (UPPER('".$accountName."'),  CONCAT('".$sha_pass_hash."'),'".$accountEmail."','".$ip."','3')")or die(mysql_error());
               
                     mysql_select_db($server_db,$connection_setup)or die(mysql_error());
                     $register_cms = mysql_query("INSERT INTO users(id) VALUES ('".mysql_real_escape_string($accinfo['id'])."')");
