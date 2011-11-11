@@ -165,7 +165,7 @@ Country of Residence:
 </span>
 <span class="input-right">
 <span class="input-select input-select-small">
-<select name="country" id="country" class="small border-5 glow-shadow-2" tabindex="1">
+<select name="country" id="country" class="small border-5 glow-shadow-2 form-disabled" tabindex="1" disabled="disabled" >
 <optgroup label="">
 <option value="GBR" selected="selected">United Kingdom</option>
 <option value="FRA">France</option>
@@ -521,7 +521,7 @@ Date of Birth:
 </span>
 <span class="input-right">
 <span class="input-select input-select-extra-extra-extra-small">
-<select name="dobDay" id="dobDay" class="extra-extra-extra-small border-5 glow-shadow-2" tabindex="1" required="required">
+<select name="dobDay" id="dobDay" class="extra-extra-extra-small border-5 glow-shadow-2" tabindex="1" required="required" disabled="disabled" >
 <option value="" selected="selected">Day</option>
 <option value="1">1</option>
 <option value="2">2</option>
@@ -558,7 +558,7 @@ Date of Birth:
 <span class="inline-message" id="dobDay-message"> </span>
 </span>
 <span class="input-select input-select-extra-extra-small">
-<select name="dobMonth" id="dobMonth" class="extra-extra-small border-5 glow-shadow-2" tabindex="1" required="required">
+<select name="dobMonth" id="dobMonth" class="extra-extra-small border-5 glow-shadow-2" tabindex="1" required="required" disabled="disabled" >
 <option value="" selected="selected">Month</option>
 <option value="1">January</option>
 <option value="2">February</option>
@@ -576,7 +576,7 @@ Date of Birth:
 <span class="inline-message" id="dobMonth-message"> </span>
 </span>
 <span class="input-select input-select-extra-extra-extra-small">
-<select name="dobYear" id="dobYear" class="extra-extra-extra-small border-5 glow-shadow-2" tabindex="1" required="required">
+<select name="dobYear" id="dobYear" class="extra-extra-extra-small border-5 glow-shadow-2" tabindex="1" required="required" disabled="disabled" >
 <option value="" selected="selected">Year</option>
 <option value="2011">2011</option>
 <option value="2010">2010</option>
