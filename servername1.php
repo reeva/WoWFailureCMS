@@ -235,11 +235,6 @@ echo '<div class="view-table">
 	</th>
 	<th width="6%">
 	<a href="" class="sort-link" >
-	<span class="arrow">Level</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
 	<span class="arrow">Race</span>
 	</a>
 	</th>
@@ -250,24 +245,20 @@ echo '<div class="view-table">
 	</th>
 	<th width="6%">
 	<a href="" class="sort-link" >
-	<span class="arrow">Faction</span>
+	<span class="arrow">Level</span>
 	</a>
 	</th>
 	<th width="15%">
 	<a href="" class="sort-link" >
-	<span class="arrow">Guild</span>
+	<span class="arrow">Location</span>
 	</a>
 	</th>
 	<th>
-	<a href="" class="sort-link" >
-	<span class="arrow">Realm</span>
+	<a href="" class="last-child" >
+	<span class="arrow">Faction</span>
 	</a>
 	</th>
-	<th class=" last-child">
-	<a href="" class="sort-link" >
-	<span class="arrow">Battlegroup</span>
-	</a>
-	</th>
+	
 	</tr>
 	</thead>';
 while($raw = mysql_fetch_array($sql)){
@@ -410,6 +401,15 @@ elseif($rrace == 2 || $rrace == 5 || $rrace == 6 || $rrace == 8 || $rrace == 9 |
 {
 $bg = "<img src='wow/static/images/icons/faction/horde.gif' width='18' height='18'/>";
 }
+ // Alliance or Horde FLAG
+if($rrace == 1 || $rrace == 3 || $rrace == 4 || $rrace == 7 || $rrace == 11 || $rrace == 22)
+{
+$bg2 = "Alliance";
+}
+elseif($rrace == 2 || $rrace == 5 || $rrace == 6 || $rrace == 8 || $rrace == 9 || $rrace == 10)
+{
+$bg2 = "Horde";
+}
 echo '
 <tr class="row1">
 	<td>
@@ -434,7 +434,8 @@ echo '
 	<td>
 	'.$location.'
 	</td>
-	<td>'.$bg.'</td>
+	<span class="icon-frame frame-14 " data-tooltip="'.$bg2.'">
+	<td>'.$bg.'</td></span>
 	</tr>';
 
 }
