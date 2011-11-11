@@ -223,20 +223,53 @@ $sql = mysql_query("SELECT * FROM characters WHERE online='1' ORDER BY RAND() LI
 $numrows = mysql_num_rows($sql);
 if($numrows > 0)
 {
-echo '<br /><table border="1" width="100%" style="border: 1px solid #c0c0c0;border-collapse:collapse;" align="center">
-<div id="all-realms">
-	<div class="table full-width">
+echo '<div class="view-table">
+	<div class="table ">
 		<table>
-			<thead>
-				<tr>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Name</span></a></th>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Race</span></a></th>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Class</span></a></th>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Level</span></a></th>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Location</span></a></th>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Faction</span></a></th>
-					</tr>
-				</thead>';
+	<thead>
+	<tr>
+	<th width="15%" class=" first-child">
+	<a href="" class="sort-link" >
+	<span class="arrow">Name</span>
+	</a>
+	</th>
+	<th width="6%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Level</span>
+	</a>
+	</th>
+	<th width="6%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Race</span>
+	</a>
+	</th>
+	<th width="6%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Class</span>
+	</a>
+	</th>
+	<th width="6%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Faction</span>
+	</a>
+	</th>
+	<th width="15%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Guild</span>
+	</a>
+	</th>
+	<th>
+	<a href="" class="sort-link" >
+	<span class="arrow">Realm</span>
+	</a>
+	</th>
+	<th class=" last-child">
+	<a href="" class="sort-link" >
+	<span class="arrow">Battlegroup</span>
+	</a>
+	</th>
+	</tr>
+	</thead>';
 while($raw = mysql_fetch_array($sql)){
 //Character Class
 $cclass = $raw['class'];
@@ -381,9 +414,6 @@ echo '
 <tr class="row1">
 	<td>
 	<a href="" class="item-link color-c9">
-	<span class="icon-frame frame-18">
-	<img src="images/postavatar.jpg" alt="" width="18" height="18" />
-	</span>
 	<strong><a href="advanced.php?name='.$row["name"].'">'.$raw['name'].'</a></strong>
 	</a>
 	</td>
@@ -399,9 +429,7 @@ echo '
 	</span>
 	</td>
 	<td class="align-center">
-	<span class="icon-frame frame-14 " data-tooltip="">
 	'.$raw['level'].'
-	</span>
 	</td>
 	<td>
 	'.$location.'
