@@ -378,18 +378,39 @@ elseif($rrace == 2 || $rrace == 5 || $rrace == 6 || $rrace == 8 || $rrace == 9 |
 $bg = "<img src='wow/static/images/icons/faction/horde.gif' width='18' height='18'/>";
 }
 echo '
-<tr>
-<td style="background-color: '.$bg.';"><b><center>'.$raw['name'].'</center></b></td>
-<span class="icon-frame frame-14 " data-tooltip="'.$race.' '.$gender.'">
-<td style="background-color: '.$bg.';"><center><img src="wow/static/images/icons/race/'.$raw['race'].'-'.$raw['gender'].'.gif" title="'.$race.' '.$gender.'" width="15" height="15"  /></center></td>
-</span>
-<td style="background-color: '.$bg.';"><center>'.$class.'</center></td>
-<td style="background-color: '.$bg.';"><center>'.$raw['level'].'</center></td>
-<td style="background-color: '.$bg.';"><center>'.$location.'</center></td>
-<td style="background-color: '.$bg.';"><center>'.$bg.'</center></td>
-</tr>';
+<tr class="row1">
+	<td>
+	<a href="" class="item-link color-c9">
+	<span class="icon-frame frame-18">
+	<img src="images/postavatar.jpg" alt="" width="18" height="18" />
+	</span>
+	<strong><a href="advanced.php?name='.$row["name"].'">'.$raw['name'].'</a></strong>
+	</a>
+	</td>
+	<td class="align-center">'.$row["level"].'</td>
+	<td class="align-center">
+	<span class="icon-frame frame-14 " data-tooltip="'.$race.' '.$gender.'">
+	<img src="wow/static/images/icons/race/'.$raw['race'].'-'.$raw['gender'].'.gif" alt="" width="14" height="14" />
+	</span>
+	</td>
+	<td class="align-center">
+	<span class="icon-frame frame-14 " data-tooltip="">
+	'.$class.'
+	</span>
+	</td>
+	<td class="align-center">
+	<span class="icon-frame frame-14 " data-tooltip="">
+	'.$raw['level'].'
+	</span>
+	</td>
+	<td>
+	'.$location.'
+	</td>
+	<td>'.$bg.'</td>
+	</tr>';
+
 }
-echo '</tr>';
+echo '';
 echo"</table><br />";
 }
 else
