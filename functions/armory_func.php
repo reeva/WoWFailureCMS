@@ -2,7 +2,7 @@
 require ('configs.php');
 
 function mysql_open($serveraddress, $serveruser, $serverpass){
-	$conn = mysql_connect($host,$user,$pass) or die(mysql_error());
+	$conn = mysql_connect($serveraddress, $serveruser, $serverpass) or die(mysql_error());
 	return $conn;
 }
 function mysql_end($resc){
