@@ -62,11 +62,7 @@ $website['realm'] = "Your_Realmlist"; // You realm (Example: login.wowfailure.co
 /*||||||||||||||||||||||||||||||||||||||||*/
 /*|||||||The Donation Configuration|||||||*/
 /*||||||||||||||||||||||||||||||||||||||||*/
-define(RECEIVER_EMAIL,"YOURPAYPALEMAIL"); // This is the paypal account payments will be sent to.
-define(FORM_LOCATION,"http://www.yoursite.com/Donation/postback.php"); // The FULL path to postback.php, INCLUDING http://!!!
-define(CURRENCY_CODE,"USD"); // PayPal currency code, i.e. USD or EUR.
-define(CURRENCYSYMBOL,"$"); // Symbol to represent currency, i.e. $ or €.
-define(PAYPAL_ADDRESS,"www.paypal.com"); // Leave this alone unless you wish to use the paypal sandbox.
+// Coming SOON!
 /*||||||||||||||||||||||||||||||||||||||||*/
 /*|||||||The Website Configuration||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||*/
