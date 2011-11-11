@@ -227,39 +227,14 @@ echo '<div class="view-table">
 	<div class="table ">
 		<table>
 	<thead>
-	<tr>
-	<th width="15%" class=" first-child">
-	<a href="" class="sort-link" >
-	<span class="arrow">Name</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Race</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Class</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Level</span>
-	</a>
-	</th>
-	<th width="15%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Location</span>
-	</a>
-	</th>
-	<th>
-	<a href="" class="last-child" >
-	<span class="arrow">Faction</span>
-	</a>
-	</th>
-	
-	</tr>
+	 <tr>
+<th><a href="javascript:;" class="sort-link"><span class="arrow">Name</span></a></th>
+<th><a href="javascript:;" class="sort-link"><span class="arrow">Race</span></a></th>
+<th><a href="javascript:;" class="sort-link"><span class="arrow">Class</span></a></th>
+<th><a href="javascript:;" class="sort-link"><span class="arrow">Level</span></a></th>
+<th><a href="javascript:;" class="sort-link"><span class="arrow">Location</span></a></th>
+<th><a href="javascript:;" class="sort-link"><span class="arrow">Faction</span></a></th>
+</tr>
 	</thead>';
 while($raw = mysql_fetch_array($sql)){
 //Character Class
@@ -411,32 +386,22 @@ elseif($rrace == 2 || $rrace == 5 || $rrace == 6 || $rrace == 8 || $rrace == 9 |
 $bg2 = "Horde";
 }
 echo '
+
 <tr class="row1">
-	<td>
-	<a href="" class="item-link color-c9">
-	<strong><a href="advanced.php?name='.$row["name"].'">'.$raw['name'].'</a></strong>
-	</a>
-	</td>
-	<td class="align-center">'.$row["level"].'</td>
-	<td class="align-center">
-	<span class="icon-frame frame-14 " data-tooltip="'.$race.' '.$gender.'">
-	<img src="wow/static/images/icons/race/'.$raw['race'].'-'.$raw['gender'].'.gif" alt="" width="14" height="14" />
-	</span>
-	</td>
-	<td class="align-center">
-	<span class="icon-frame frame-14 " data-tooltip="">
-	'.$class.'
-	</span>
-	</td>
-	<td class="align-center">
-	'.$raw['level'].'
-	</td>
-	<td>
-	'.$location.'
-	</td>
-	<span class="icon-frame frame-14 " data-tooltip="'.$bg2.'">
-	<td>'.$bg.'</td></span>
-	</tr>';
+<td>
+<a href="" class="item-link color-c9"><strong><a href="advanced.php?name='.$raw["name"].'">'.$raw["name"].'</a></strong>
+</a>
+</td>
+<td class="align-center">
+<span class="icon-frame frame-14 " data-tooltip="'.$race.' '.$gender.'">
+<img src="wow/static/images/icons/race/'.$raw['race'].'-'.$raw['gender'].'.gif" alt="" width="14" height="14" />
+</span>
+</td>
+<td style="background-color: '.$bg.';"><center>'.$class.'</center></td>
+<td style="background-color: '.$bg.';"><center>'.$raw['level'].'</center></td>
+<td style="background-color: '.$bg.';"><center>'.$location.'</center></td>
+<td style="background-color: '.$bg.';"><center>'.$bg.'</center></td>
+</tr>';
 
 }
 echo '';
