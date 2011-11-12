@@ -1,4 +1,86 @@
-<?php
+	<div class="helpers">
+	<h3 class="subheader ">Summary of results for <span><?php echo $_POST["search"];?></span></h3>
+	</div>
+	<span class="clear"><!-- --></span>
+    </div>
+	<div class="search-left">
+	<div class="search-header">
+	<h2 class="header ">Search</h2>
+	</div>
+	<ul class="dynamic-menu" id="menu-search">
+	<li class="">
+	<a href="">
+	<span class="arrow">Summary</span>
+	</a>
+	</li>
+	<li class="item-active">
+	<a href=""><span class="arrow">Characters<span> <?php 
+	 
+	echo "$num_rows \n"; ?>
+	</span></span>
+	</a>
+	</li>
+	<li>
+	<a href="">
+	<span class="arrow">Guilds<span></span></span>
+	</a>
+	</li>
+	<li>
+	<a href="">
+	<span class="arrow">Arena Teams<span></span></span>
+	</a>
+	</li>
+	</ul>
+    </div>
+	<div class="view-table">
+	<div class="table ">
+	<table>
+	<thead>
+	<tr>
+	<th width="15%" class=" first-child">
+	<a href="" class="sort-link" >
+	<span class="arrow">Name</span>
+	</a>
+	</th>
+	<th width="6%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Level</span>
+	</a>
+	</th>
+	<th width="6%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Race</span>
+	</a>
+	</th>
+	<th width="6%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Class</span>
+	</a>
+	</th>
+	<th width="6%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Faction</span>
+	</a>
+	</th>
+	<th width="15%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Guild</span>
+	</a>
+	</th>
+	<th>
+	<a href="" class="sort-link" >
+	<span class="arrow">Realm</span>
+	</a>
+	</th>
+	<th class=" last-child">
+	<a href="" class="sort-link" >
+	<span class="arrow">Battlegroup</span>
+	</a>
+	</th>
+	</tr>
+	</thead>
+	
+	<?php
 require ('configs.php');
 
 function mysql_open($serveraddress, $serveruser, $serverpass){
@@ -42,6 +124,7 @@ if (isset($_GET['charname'])) {
     $sql = "SELECT guid,name,class,level,race,gender FROM `" . $server_cdb .
         "`.`characters` WHERE name='" . mysql_real_escape_string($_GET["charname"]) .
         "'";
+		$num_rows = mysql_num_rows($result);
     $result = mysql_query($sql, $conn) or die(mysql_error());
     if ($row = mysql_fetch_array($result)) {
         $items = show_items($row["guid"]);

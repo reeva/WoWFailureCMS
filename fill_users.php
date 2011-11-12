@@ -1,18 +1,18 @@
 <?php
-require_once("../configs.php");
+require_once("configs.php");
 ?>
 <html>
 <head>
 <title><?php echo $website['title']; ?></title>
-<link rel="stylesheet" type="text/css" href="../login/static/local-common/css/common.css?v15"/>
-<link rel="stylesheet" type="text/css" href="../login/static/_themes/bam/css/master.css?v1"/>
-<script type="text/javascript" src="../login/static/local-common/js/third-party/jquery-1.4.2.min.js?v15"></script>
-<script type="text/javascript" src="../login/static/local-common/js/core.js?v15"></script>
+<link rel="stylesheet" type="text/css" href="wow/static/local-common/css/common.css?v15"/>
+<link rel="stylesheet" type="text/css" href="wow/static/_themes/bam/css/master.css?v1"/>
+<script type="text/javascript" src="wow/static/local-common/js/third-party/jquery-1.4.2.min.js?v15"></script>
+<script type="text/javascript" src="wow/static/local-common/js/core.js?v15"></script>
 <style type="text/css">
 .loader {
 	width:24px;
 	height:24px;
-	background: url("../wow/static/images/loaders/canvas-loader.gif") no-repeat;
+	background: url("wow/static/images/loaders/canvas-loader.gif") no-repeat;
 }
 </style>
 </head>
@@ -38,7 +38,7 @@ require_once("../configs.php");
         }
         echo '<br /><br /><font color="aqua">I\'m outta here. All things done.</font>';
 		?>
-		<meta http-equiv="refresh" content="8;url=../index.php"/>
+		<meta http-equiv="refresh" content="8;url=index.php"/>
 	</center>
 </div>
 </body>
