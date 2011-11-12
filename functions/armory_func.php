@@ -68,6 +68,7 @@ if (isset($_GET['charname'])) {
 	<span class="icon-frame frame-18">
 	<img src="images/postavatar.jpg" alt="" width="18" height="18" />
 	</span>
+	
 	<strong><a href="advanced.php?name='.$row["name"].'">'.$row["name"].'</a></strong>
 	</a>
 	</td>
