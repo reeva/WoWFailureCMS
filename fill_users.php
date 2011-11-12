@@ -10,9 +10,9 @@ require_once("configs.php");
 <script type="text/javascript" src="wow/static/local-common/js/core.js?v15"></script>
 <style type="text/css">
 .loader {
-	width:24px;
-	height:24px;
-	background: url("wow/static/images/loaders/canvas-loader.gif") no-repeat;
+	width:220px;
+	height:17px;
+	background: url("images/loading.gif") no-repeat;
 }
 </style>
 </head>
