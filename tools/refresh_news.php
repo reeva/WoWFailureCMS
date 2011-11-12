@@ -4,10 +4,10 @@ require_once("../configs.php");
 <html">
 <head>
 <title><?php echo $website['title']; ?></title>
-<link rel="stylesheet" type="text/css" href="../login/static/local-common/css/common.css?v15"/>
-<link rel="stylesheet" type="text/css" href="../login/static/_themes/bam/css/master.css?v1"/>
-<script type="text/javascript" src="../login/static/local-common/js/third-party/jquery-1.4.2.min.js?v15"></script>
-<script type="text/javascript" src="../login/static/local-common/js/core.js?v15"></script>
+<link rel="stylesheet" type="text/css" href="../wow/static/local-common/css/common.css?v15"/>
+<link rel="stylesheet" type="text/css" href="../wow/static/_themes/bam/css/master.css?v1"/>
+<script type="text/javascript" src="../wow/static/local-common/js/third-party/jquery-1.4.2.min.js?v15"></script>
+<script type="text/javascript" src="../wow/static/local-common/js/core.js?v15"></script>
 <style type="text/css">
 .loader {
 	width:24px;
@@ -18,7 +18,7 @@ require_once("../configs.php");
 </head>
 <body>
 <div id="embedded-login">
-	<h2>Trinity Blizzard Website - Refresh Comments Count</h2>
+	<h2><?php echo $website['title']; ?> - Refresh Comments Count</h2>
 	<br />
 	<center>
 		<?php
@@ -34,6 +34,7 @@ require_once("../configs.php");
 		?>
 		<h3>Refreshing...</h3><br />
 		<div class="loader"></div>
+		<h3>It should be done by now. Let's get outa here!...</h3><br />
 		<meta http-equiv="refresh" content="2;url=../index.php"/>
 	</center>
 </div>
