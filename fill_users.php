@@ -12,13 +12,13 @@ require_once("configs.php");
 .loader {
 	width:220px;
 	height:17px;
-	background: url("images/loading.gif") no-repeat;
+	background: url("wow/static/images/loaders/canvas-loader.gif") no-repeat;
 }
 </style>
 </head>
 <body>
 <div id="embedded-login">
-	<h2>Trinity Blizzard Website - Filling Users</h2>
+	<h2><?php echo $website['title']; ?> - Filling Users</h2>
 	<br />
 	<center>
 		<?php
@@ -36,7 +36,7 @@ require_once("configs.php");
                 $fill_users = mysql_query("INSERT INTO users(id) VALUES ('".$acc['id']."')");
             }
         }
-        echo '<br /><br /><font color="aqua">I\'m outta here. All things done.</font>';
+        echo '<br /><br /><font color="aqua">Everything is Configured! Please rerun to be sure.</font>';
 		?>
 		<meta http-equiv="refresh" content="8;url=index.php"/>
 	</center>
