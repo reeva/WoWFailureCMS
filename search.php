@@ -93,7 +93,7 @@ _gaq.push(['_trackPageLoadTime']);
 	</form>
 	</div>
 	<div class="helpers">
-	<h3 class="subheader ">Summary of results for <span>name</span></h3>
+	<h3 class="subheader ">Summary of results for <span><?php echo $_POST["search"];?></span></h3>
 	</div>
 	<span class="clear"><!-- --></span>
     </div>
