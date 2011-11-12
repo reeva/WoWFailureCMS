@@ -58,7 +58,7 @@ $serveruser = "root"; // Your MySQL user
 $serverpass = "ascent"; //Your MySQL password
 $serverport	= "3306"; // Your MySQL Port
 $donatadmin = "ascent"; // Your Donation Admin Password
-$website['realm'] = "Your_Realmlist"; // You realm (Example: login.wowfailure.com)
+$website['realm'] = "Set Realmlist Your_Realmlist"; // You realm (Example: Set RealmList login.wowfailure.com)
 /*||||||||||||||||||||||||||||||||||||||||*/
 /*|||||||The Donation Configuration|||||||*/
 /*||||||||||||||||||||||||||||||||||||||||*/

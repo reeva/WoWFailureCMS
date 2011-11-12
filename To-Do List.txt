@@ -18,11 +18,10 @@
 # |Original:                             |http://eu.battle.net |
 # --------------------------------------------------------------
 # |Database version:                             |    0.1.6    |
-# |Website Version:                              |    0.3.0    |
+# |Website Version:                              |    0.3.1    |
 # |Release Date:                                 | 2010-05-17  |
-# |Latest Update:                                | 2011-11-07  |
+# |Latest Update:                                | 2011-11-12  |
 # ----------------------------TEAM------------------------------
-# |Members: Apocalipsyz, FailZorD, arnauec, CarlosX,dissaor021,|
-# |hondacrx, Kitiara, Krill156, Lilcrazy, Roberto Roeschmann,  |
-# |MrBillys, Venugh, dju35.                                    |
+# |Team: FailZorD, AwkwardDev, Axium, dju35, Fabian, hondacrx, |
+# |Kitiara, MrBillys, netcho, zze, Voragine(Roberto Roeschmann)|                                   |
 # --------------------------------------------------------------
