@@ -485,10 +485,10 @@ $page_cat = "home";
 
 						<div class="sidebar-module" id="sidebar-forums">
 							<div class="sidebar-title">
-								<h3 class="title-forums">Popular Topics</h3>
+								<h3 class="title-forums"><?php $P_topics['P_topics']; ?></h3>
 							</div><br />
 							<div align="center">
-							Loading Forum Settings...
+							<?php echo $loading_forum_sett['loading_forum_sett']; ?>
 							<div class="sidebar-content loading"></div>
 							</div>
 						</div>
