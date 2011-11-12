@@ -19,10 +19,6 @@ CREATE TABLE `comments` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=latin1;
 
-/*Data for the table `comments` */
-
-insert  into `comments`(`id`,`newsid`,`comment`,`accountId`,`date`) values (57,1,'Nice ',12,'2011-04-21 09:32:53'),(62,1,'Fixed Comment System, no more double post',8,'2011-04-22 13:12:03');
-
 /*Table structure for table `community_slides` */
 
 DROP TABLE IF EXISTS `community_slides`;
@@ -72,8 +68,6 @@ CREATE TABLE `forum_blizzposts` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `forum_blizzposts` */
-
-insert  into `forum_blizzposts`(`id`,`type`,`author`,`postid`,`date`) values (1,'thread','FailZorD',1,'2011-04-19 22:21:47'),(2,'reply','FailZorD',1,'2011-04-20 11:29:21'),(3,'reply','FailZorD',2,'2011-04-20 11:30:22');
 
 /*Table structure for table `forum_categ` */
 
@@ -126,8 +120,6 @@ CREATE TABLE `forum_replies` (
 
 /*Data for the table `forum_replies` */
 
-insert  into `forum_replies`(`id`,`threadid`,`content`,`author`,`date`,`forumid`,`name`) values (1,1,'Testing...',8,'2011-04-20 11:29:21',1,'WoWFailureCMS Opened'),(2,1,'Testing...',8,'2011-04-20 11:30:21',1,'WoWFailureCMS Opened');
-
 /*Table structure for table `forum_threads` */
 
 DROP TABLE IF EXISTS `forum_threads`;
@@ -148,8 +140,6 @@ CREATE TABLE `forum_threads` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `forum_threads` */
-
-insert  into `forum_threads`(`id`,`forumid`,`name`,`author`,`replies`,`views`,`date`,`content`,`locked`,`has_blizz`,`prefix`) values (1,1,'WoWFailureCMS Opened',8,2,56,'2011-04-19','Bla',1,1,'none'),(2,2,'demo',10,0,5,'2011-04-20',' [code]mm11[/code]<br />\r\n [quote]quote[/quote] [item=\\\"1234\\\" /]',0,0,'none'),(3,1,'WoWFailureCMS Updates',8,0,5,'2011-04-20','Here I will post some updates : ',0,0,'none'),(4,4,'hehe, hi i cant wait this website',11,0,5,'2011-04-21','Hi, i have the idea:<br />\r\n- Vote sistem<br />\r\n- Donation Sistem<br />\r\n- The admin panel and account panel.<br />\r\nYou can visit:<br />\r\nhttp://www.wowlcv.com<br />\r\nis a website in spanish but looks why this website (they use your projecy , idon\\\'t know). But it was idea. If you want, you can.',0,0,'none');
 
 /*Table structure for table `messages` */
 
@@ -186,8 +176,6 @@ CREATE TABLE `news` (
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `news` */
-
-insert  into `news`(`id`,`author`,`date`,`content`,`authorlnk`,`contentlnk`,`title`,`comments`,`image`) values (1,'FailZorD','2011-04-22','<p>Hey everyone, I\'m back. After a long time of sleeping I finally decided to continue this project.</p>\r\n<p>I don\'t know how much I will keep updating this project, but it depens on how much support you give me, thanks.</p>\r\nStay Tuned for Updates.',NULL,NULL,'Back on DEV',2,'fix');
 
 /*Table structure for table `slideshows` */
 
