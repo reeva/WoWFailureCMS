@@ -9,18 +9,18 @@ $Media['Media'] = "Medios";
 $Forums['Forums'] = "Foro";
 $Services['Services'] = "Servicios";
 $Wow['Wow'] = "World Of Warcraft ";
-$Wow3['Wow3'] = " - Español EU";
+$Wow3['Wow3'] = " - Espaï¿½ol EU";
 $Latest['Latest'] = "Ultimos posts escritos. ";
 $View_all['View_all'] = "Ver todo";
 $all['all'] = "Todos los posts";
-$P_topics['P_topics'] = "LO MÁS VISTO EN LOS FOROS";
+$P_topics['P_topics'] = "LO Mï¿½S VISTO EN LOS FOROS";
 $comments['comments'] = "Comments";
-$loading_forum_sett['loading_forum_sett'] = "Loading Forum Settings";
+$loading_forum_sett['loading_forum_sett'] = "Cargando Datos del Foro...";
 $post['post'] = "Post";
 $reply['reply'] = "Reply";
 $click['click'] = " Click ";
 $code_forum['code_forum']= " para ver el Codigo de Conducta de los Foros.";
-$here['here'] = "aquí";
+$here['here'] = "aquï¿½";
 $Account['Account'] = "Cuenta";
 $Account1['Account1'] = "No puedes loguearte?";
 $Account3['Account3'] = "Crea una cuenta";
@@ -31,15 +31,15 @@ $Friends['Keepthem'] = "Keep your friends in game.";
 
 
 $Support['Support'] = "ASISTENCIA";
-$Support3['Support3'] = "Artículos de Asistencia";
-$Support4['Support4'] = "¡Ayuda, me han pirateado!";
+$Support3['Support3'] = "Artï¿½culos de Asistencia";
+$Support4['Support4'] = "ï¿½Ayuda, me han pirateado!";
 $Support5['Support5'] = "Busca tus tickets de asistencia";
 $Support6['Support6'] = "Crear un nuevo Ticket de asistancia";
 $Support7['Support7'] = "Ver tus Tickets de asistencia activos.";
 $Support8['Support8'] = "Centro de Ayuda";
 $Support9['Support9'] = "Haz una pregunta";
 $Support10['Support10'] = "Tus Tickets de Soporte";
-$Support11['Support11'] = "Obtén ayuda y explora la base de datos de ayuda..";
+$Support11['Support11'] = "Obtï¿½n ayuda y explora la base de datos de ayuda..";
 
 $Games['Games'] = "Juegos";
 $Client_down['Client_down'] = "Descarga del Cliente";
@@ -69,18 +69,18 @@ $Romanian['RO'] = "Romania";
 $Romanian['ROEU'] = "Romanian (EU)";
 $copyright['copyright'] = "Copyright &copy; 2011 ";
 $copyright3['copyright3'] = "Hecho por WoWFailureCMS";
-$copyright4['copyright4'] = "Todas las imágenes están en propiedad de Blizzard Entertainment.";
+$copyright4['copyright4'] = "Todas las imï¿½genes estï¿½n en propiedad de Blizzard Entertainment.";
 
 
 $Welcome['Welcome'] ="Te damos la bienvenida, ";
-$logout['logout'] = "Cerrar Sesión";
-$login['login'] = "Inicia Sesión" ;
+$logout['logout'] = "Cerrar Sesiï¿½n";
+$login['login'] = "Inicia Sesiï¿½n" ;
 
 $Donate1['Donate1'] = "Donar por";
 $Donate['Donate'] = "Dona";
 
 $website['explore'] = "Explorar";
-$More['More'] = "Más";
+$More['More'] = "Mï¿½s";
 $Retrieve['Retrieve'] = "Recuperar cuenta perdida";
 $Find['Find'] = "Encuentranos en el mapa!";
 
