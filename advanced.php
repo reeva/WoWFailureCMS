@@ -70,7 +70,7 @@ _gaq.push(['_trackPageLoadTime']);
 <div class="content-trail">
 <ol class="ui-breadcrumb">
 <li>
-<a href="" rel="np">
+<a href="index.php" rel="np">
 <?php echo $website['title']; ?>
 </a>
 </li>
@@ -81,7 +81,7 @@ Services
 </li>
 <li class="last">
 <a href="" rel="np">
-NAME @ REALM
+<?php echo $name = $_GET['name'];?> @ <?php echo $name_realm1['realm']; ?>
 </a>
 </li>
 </ol>
@@ -108,7 +108,7 @@ $get = mysql_fetch_assoc($lbrspa);
 	<span class="clear"><!-- --></span>
 	<div class="under-name color-c1"><!-- class="under-name color-c1 is warrior, to be paladin it has to be class="under-name color-c2, so what we change here is the number of the class c2, c3, c4, ... -->
 	<span class="level"><strong><?php echo $get["level"] ?></strong></span> <a href="" class="race"><?php echo $get["race"] ?></a> <a id="profile-info-spec" href="" class="spec tip">TALENT</a> <a href="" class="class"><?php echo $get["class"] ?></a><span class="comma">,</span>
-	<span class="realm tip" id="profile-info-realm" data-battlegroup="">REALM</span>
+	<span class="realm tip" id="profile-info-realm" data-battlegroup=""><?php echo $name_realm1['realm']; ?></span>
 	</div>
 	<div class="achievements"><a href="">ACHIEV Points</a></div>
 	</div>
