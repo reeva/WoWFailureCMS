@@ -2209,10 +2209,10 @@ submit: 'Submit',
 cancel: 'Cancel',
 reset: 'Reset',
 viewInGallery: 'View in gallery',
-loading: 'Loading…',
+loading: 'Loading...',
 unexpectedError: 'An error has occurred',
-fansiteFind: 'Find this on…',
-fansiteFindType: 'Find {0} on…',
+fansiteFind: 'Find this on...',
+fansiteFindType: 'Find {0} on...',
 fansiteNone: 'No fansites available.'
 },
 grammar: {
