@@ -1598,7 +1598,7 @@ $get = mysql_fetch_assoc($lbrspa);
 		$(document).ready(function() {
 			new Summary.Stats({
 
-			"health": 1256,
+			"health": <?php echo $get["health"] ?>,
 			"power": <?php echo $get["power1"] ?>,
 			"powerTypeId": 0,
 			"hasOffhandWeapon": false,
@@ -1657,7 +1657,7 @@ $get = mysql_fetch_assoc($lbrspa);
 			"spr_regen": 43,
 			"expertiseRatingPercent": 0,
 			"mastery": 0,
-			"health": 1256,
+			"health": <?php echo $get["health"] ?>,
 			"manaRegenCombat": 27,
 			"sprTotal": 41,
 			"rangeCritRatingPercent": 2.0634920597076416,
