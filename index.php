@@ -190,8 +190,8 @@ $page_cat = "home";
 				<div class="sidebar-title"><h3 class="title-bnet-ads">Promo Advertisement</h3></div>
 				<!-- DO NOT EDIT BELOW UNLESS YOU KNOW WHAT YOU ARE DOING! -->
 				<div class="bnet-offer-bg">
-				<a href="" target="_blank" id="vote" class="bnet-offer-image" onclick="">
-				<img src="wow/static/images/sidebar/Share/vote.jpg" width="300" height="250" alt=""/>
+				<a href="search.php" target="_blank" id="vote" class="bnet-offer-image" onclick="">
+				<img src="wow/static/images/sidebar/Share/armory.png" width="300" height="250" alt=""/>
 						</a>
 						</div>
 						</div>
