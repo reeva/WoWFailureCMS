@@ -102,7 +102,7 @@ NAME @ REALM
 $connection_setup = mysql_connect($serveraddress,$serveruser,$serverpass)or die(mysql_error());
 mysql_select_db($server_cdb,$connection_setup)or die(mysql_error());
 $username = mysql_real_escape_string($name = $_GET['name']);
-$lbrspa = mysql_query("SELECT name,race,class,gender,level,health FROM characters WHERE name = '".$username."'");
+$lbrspa = mysql_query("SELECT name,race,class,gender,level,health,power1 FROM characters WHERE name = '".$username."'");
 $get = mysql_fetch_assoc($lbrspa);
 ?>
 	<span class="clear"><!-- --></span>
@@ -936,7 +936,7 @@ $get = mysql_fetch_assoc($lbrspa);
 					<div class="summary-health-resource">
 	<ul>
 		<li class="health" id="summary-health" data-id="health"><span class="name">Health</span><span class="value"><?php echo $get["health"] ?></span></li>
-		<li class="resource-0" id="summary-power" data-id="power-0"><span class="name">Mana</span><span class="value">914</span></li>
+		<li class="resource-0" id="summary-power" data-id="power-0"><span class="name">Mana</span><span class="value"><?php echo $get["power1"] ?></span></li>
 	</ul>
 					</div>
 
