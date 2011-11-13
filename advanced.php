@@ -1599,7 +1599,7 @@ $get = mysql_fetch_assoc($lbrspa);
 			new Summary.Stats({
 
 			"health": 1256,
-			"power": 914,
+			"power": <?php echo $get["power1"] ?>,
 			"powerTypeId": 0,
 			"hasOffhandWeapon": false,
 			"masteryName": "Hand of Light",
@@ -1621,7 +1621,7 @@ $get = mysql_fetch_assoc($lbrspa);
 			"rangeHitPercent": 1,
 			"bonusOffWeaponRating": 0,
 			"resilience_damage": 0,
-			"mana": 914,
+			"mana": <?php echo $get["power1"] ?>,
 			"masteryRatingBonus": 0,
 			"dmgMainSpeed": 2.4709999561309814,
 			"rangeAtkPowerBonus": 4,
@@ -1700,7 +1700,7 @@ $get = mysql_fetch_assoc($lbrspa);
 			"block": 5,
 			"dmgOffDps": 0,
 			"dmgRangeMax": -1,
-			"power": 914,
+			"power": <?php echo $get["power1"] ?>,
 			"resistArcane_pet": -1,
 			"dmgMainDps": 36.281612396240234,
 			"healing": 113,
