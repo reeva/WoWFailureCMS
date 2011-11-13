@@ -770,7 +770,7 @@ $get = mysql_fetch_assoc($lbrspa);
 
 							<div class="profile-box-simple">
 
-		This character doesn’t use any gems.
+		This character doesn't use any gems.
 							</div>
 						</div>
 
