@@ -94,13 +94,20 @@ NAME @ REALM
 	<div class="profile-sidebar-contents">
 	<div class="profile-info-anchor">
 	<div class="profile-info">
-	<div class="name"><a href="" rel="np">NAME</a></div>
+	<div class="name"><a href="" rel="np"><?php echo $name = $_GET['name'];?></a></div>
 	<div class="title-guild">
 	<div class="title">&#160;</div>
 	</div>
+<?php
+$connection_setup = mysql_connect($serveraddress,$serveruser,$serverpass)or die(mysql_error());
+mysql_select_db($server_cdb,$connection_setup)or die(mysql_error());
+$username = mysql_real_escape_string($name = $_GET['name']);
+$lbrspa = mysql_query("SELECT name,race,class,gender,level,health FROM characters WHERE name = '".$username."'");
+$get = mysql_fetch_assoc($lbrspa);
+?>
 	<span class="clear"><!-- --></span>
 	<div class="under-name color-c1"><!-- class="under-name color-c1 is warrior, to be paladin it has to be class="under-name color-c2, so what we change here is the number of the class c2, c3, c4, ... -->
-	<span class="level"><strong>LEVEL</strong></span> <a href="" class="race">RACE</a> <a id="profile-info-spec" href="" class="spec tip">TALENT</a> <a href="" class="class">CLASS</a><span class="comma">,</span>
+	<span class="level"><strong><?php echo $get["level"] ?></strong></span> <a href="" class="race"><?php echo $get["race"] ?></a> <a id="profile-info-spec" href="" class="spec tip">TALENT</a> <a href="" class="class"><?php echo $get["class"] ?></a><span class="comma">,</span>
 	<span class="realm tip" id="profile-info-realm" data-battlegroup="">REALM</span>
 	</div>
 	<div class="achievements"><a href="">ACHIEV Points</a></div>
@@ -928,7 +935,7 @@ NAME @ REALM
 
 					<div class="summary-health-resource">
 	<ul>
-		<li class="health" id="summary-health" data-id="health"><span class="name">Health</span><span class="value">1256</span></li>
+		<li class="health" id="summary-health" data-id="health"><span class="name">Health</span><span class="value"><?php echo $get["health"] ?></span></li>
 		<li class="resource-0" id="summary-power" data-id="power-0"><span class="name">Mana</span><span class="value">914</span></li>
 	</ul>
 					</div>
