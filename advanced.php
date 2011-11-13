@@ -156,12 +156,6 @@ $get = mysql_fetch_assoc($lbrspa);
 	</li>
 	</ul>
 	<div class="summary-sidebar-links">
-	<span class="summary-sidebar-button">
-	<a href="javascript:;" id="summary-link-tools" class="summary-link-tools"></a>
-	</span>
-	<span class="summary-sidebar-button">
-	<a href="javascript:;" data-fansite="character|EU|Me|Moonglade" class="fansite-link "> </a>
-	</span>
 	</div>
 	</div>
 	</div>
