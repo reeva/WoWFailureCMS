@@ -80,24 +80,24 @@ $More['More'] = "Di pi&ugrave;";
 $Retrieve['Retrieve'] = "Recuperare un conto dimenticato";
 $Find['Find'] = "Retrouvez-nous sur la carte!";
 
-$Vote['Vote'] = "Sistema de Votación";
-$Vote['Vote1'] = "Sistema de Votación de ";
-$Vote['Vote2'] = "Puntos Gastados";
-$Vote['Vote3'] = "Historial";
-$Vote['Vote4'] = "¿Cómo Funciona?";
-$Vote['Vote5'] = "Vota Ahora";
-$Vote['Vote6'] = "Después de haber votado tienes que esperar como mínimo 12 horas para poder volver a votar. Recuerda gastar tus Puntos de Votación con prudencia. No hagas ningún fallo, ";
-$Vote2['Vote6'] = " no devolverá ningún punto de votación.";
-$Vote['Vote7'] = "Votaciones/Recompensas";
-$Vote['Vote8'] = "Tu historial de Votaciones/Recompensas";
-$Vote['Vote9'] = "No hay registros de sus acciones en estos momentos.";
-$Vote['Vote10'] = "ID de la Cuenta";
+$Vote['Vote'] = "Sistema di voto";
+$Vote['Vote1'] = "Sistema di voto ";
+$Vote['Vote2'] = "Punti trascorso";
+$Vote['Vote3'] = "record";
+$Vote['Vote4'] = "Come funziona";
+$Vote['Vote5'] = "Ora voto";
+$Vote['Vote6'] = "Dopo aver votato dovrete aspettare almeno 12 ore per votare di nuovo. Ricordati di spendere i tuoi punti di voto saggiamente. Non apportare dirigente, ";
+$Vote2['Vote6'] = " non restituire alcun seggio.";
+$Vote['Vote7'] = "Vota / Reward";
+$Vote['Vote8'] = "Vota storico / Reward";
+$Vote['Vote9'] = "Non ci sono registrazioni delle loro azioni in questo momento.";
+$Vote['Vote10'] = "ID account";
 $Vote['Vote11'] = "ID del Item";
-$Vote['Vote12'] = "Fecha";
-$Vote['Vote13'] = "Hora";
-$Vote['Vote14'] = "Cantidad de Puntos Gastados";
-$Vote['Vote15'] = "Cantidad de Puntos Ganados";
-$Vote['Vote16'] = "Orden";
+$Vote['Vote12'] = "Data";
+$Vote['Vote13'] = "Tempo";
+$Vote['Vote14'] = "Totale punti trascorso";
+$Vote['Vote15'] = "Totale punti trascorso";
+$Vote['Vote16'] = "Ordina";
   
 
 ?>

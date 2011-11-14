@@ -80,24 +80,24 @@ $More['More'] = "Plus";
 $Retrieve['Retrieve'] = "R&eacute;cup&eacute;rer un compte perdu";
 $Find['Find'] = "Retrouvez-nous sur la carte!";
 
-$Vote['Vote'] = "Sistema de Votación";
-$Vote['Vote1'] = "Sistema de Votación de ";
-$Vote['Vote2'] = "Puntos Gastados";
-$Vote['Vote3'] = "Historial";
-$Vote['Vote4'] = "¿Cómo Funciona?";
-$Vote['Vote5'] = "Vota Ahora";
-$Vote['Vote6'] = "Después de haber votado tienes que esperar como mínimo 12 horas para poder volver a votar. Recuerda gastar tus Puntos de Votación con prudencia. No hagas ningún fallo, ";
-$Vote2['Vote6'] = " no devolverá ningún punto de votación.";
-$Vote['Vote7'] = "Votaciones/Recompensas";
-$Vote['Vote8'] = "Tu historial de Votaciones/Recompensas";
-$Vote['Vote9'] = "No hay registros de sus acciones en estos momentos.";
-$Vote['Vote10'] = "ID de la Cuenta";
-$Vote['Vote11'] = "ID del Item";
-$Vote['Vote12'] = "Fecha";
+$Vote['Vote'] = "Syst&egrave;me de vote";
+$Vote['Vote1'] = "Syst&egrave;me de vote ";
+$Vote['Vote2'] = "Points Utilis&eacute;s";
+$Vote['Vote3'] = "enregistrement";
+$Vote['Vote4'] = "Comment ça marche?";
+$Vote['Vote5'] = "Votez maintenant";
+$Vote['Vote6'] = "Apr&egrave;s avoir vot&eacute;, vous devez attendre au moins 12 heures pour voter à nouveau. N'oubliez pas de d&eacute;penser vos points judicieusement. ";
+$Vote2['Vote6'] = " ne pas retourner tout lieu de vote.";
+$Vote['Vote7'] = "Vote / R&eacute;compense";
+$Vote['Vote8'] = "Historique de vote / R&eacute;compenses";
+$Vote['Vote9'] = "Il n'existe pas d'enregistrements d'actions en ce moment.";
+$Vote['Vote10'] = "ID du compte";
+$Vote['Vote11'] = "ID Produit";
+$Vote['Vote12'] = "date de";
 $Vote['Vote13'] = "Hora";
-$Vote['Vote14'] = "Cantidad de Puntos Gastados";
-$Vote['Vote15'] = "Cantidad de Puntos Ganados";
-$Vote['Vote16'] = "Orden";
+$Vote['Vote14'] = "Points total d&eacute;pens&eacute;s";
+$Vote['Vote15'] = "Points total d&eacute;pens&eacute;s";
+$Vote['Vote16'] = "Commander";
   
 
 ?>
