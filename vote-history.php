@@ -74,16 +74,16 @@ _gaq.push(['_trackPageLoadTime']);
 <div class="wrapper">
 <div id="content">
 <div id="page-header">
-<h2 class="subcategory">Vote/Reward History</h2>
-<h3 class="headline">Your Vote and Reward History</h3>
+<h2 class="subcategory"><?php echo $Vote['Vote7']; ?></h2>
+<h3 class="headline"><?php echo $Vote['Vote8']; ?></h3>
 </div>
 <div id="page-content" class="page-content">
 <div class="service-wrapper">
     <p class="service-nav">
-            <a href="">Spend Points</a>
-            <a href="vote-history.php" class="active">History</a>
-            <a href="">How It Works</a>
-            <a href="vote.php">Vote Now</a>
+            <a href=""><?php echo $Vote['Vote2']; ?></a>
+            <a href="vote-history.php" class="active"><?php echo $Vote['Vote3']; ?></a>
+            <a href=""><?php echo $Vote['Vote4']; ?></a>
+            <a href="vote.php"><?php echo $Vote['Vote5']; ?></a>
     </p>
 	</div>
 	<br>
@@ -100,13 +100,13 @@ echo '
 		<table id="order-history">
 			<thead>
 				<tr>
-					<th align="center"><a href="#" class="sort-link numeric"><span class="arrow">Account ID</span></a></th>
-					<th align="center"><a href="#" class="sort-link numeric"><span class="arrow">Item ID</span></a></th>
-					<th align="center"><span class="arrow">Date</span></th>
-					<th align="center"><span class="arrow">Time</span></th>
-					<th align="center"><span class="arrow">V.Points Spend</span></th>
-					<th><a href="#" class="sort-link"><span class="arrow">V.Points Earned</span></a></th>
-					<th align="center"><a href="#" class="sort-link numeric"><span class="arrow">Site</span></a></th>
+					<th align="center"><a href="#" class="sort-link numeric"><span class="arrow">'.$Vote['Vote10'].'</span></a></th>
+					<th align="center"><a href="#" class="sort-link numeric"><span class="arrow">'.$Vote['Vote11'].'</span></a></th>
+					<th align="center"><span class="arrow">Date</span>'.$Vote['Vote12'].'</th>
+					<th align="center"><span class="arrow">'.$Vote['Vote13'].'</span></th>
+					<th align="center"><span class="arrow">'.$Vote['Vote14'].'</span></th>
+					<th><a href="#" class="sort-link"><span class="arrow">'.$Vote['Vote15'].'</span></a></th>
+					<th align="center"><a href="#" class="sort-link numeric"><span class="arrow">'.$Vote['Vote16'].'</span></a></th>
 					</tr>
 				</thead>';
 while($raw = mysql_fetch_array($sql)){
@@ -127,7 +127,7 @@ echo"</table><br />";
 }
 else
 {
-echo "<b>There are no logs from your actions right now.</b>";
+echo '<b>'.$Vote['Vote9'].'</b>';
 }
 ?>
 <script type="text/javascript">

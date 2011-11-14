@@ -106,7 +106,7 @@ $lbrspa = mysql_query("SELECT name,race,class,gender,level,health,power1 FROM ch
 $get = mysql_fetch_assoc($lbrspa);
 ?>
 	<span class="clear"><!-- --></span>
-	<div class="under-name color-c1"><!-- class="under-name color-c1 is warrior, to be paladin it has to be class="under-name color-c2, so what we change here is the number of the class c2, c3, c4, ... -->
+	<div class="under-name color-c<?php echo $get["class"] ?>"><!-- class="under-name color-c1 is warrior, to be paladin it has to be class="under-name color-c2, so what we change here is the number of the class c2, c3, c4, ... -->
 	<span class="level"><strong><?php echo $get["level"] ?></strong></span> <a href="" class="race"><?php echo $get["race"] ?></a> <a id="profile-info-spec" href="" class="spec tip">TALENT</a> <a href="" class="class"><?php echo $get["class"] ?></a><span class="comma">,</span>
 	<span class="realm tip" id="profile-info-realm" data-battlegroup=""><?php echo $name_realm1['realm']; ?></span>
 	</div>

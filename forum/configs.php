@@ -19,6 +19,9 @@ switch ($lang)
     case 'en-gb' :
         include ("../lang/en-gb.php");
         break;
+	case 'it-it' :
+        include ("../lang/it-it.php");
+        break;
     case 'de-de' :
         include ("../lang/de-de.php");
         break;

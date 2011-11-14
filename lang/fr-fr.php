@@ -1,44 +1,44 @@
 <?php
-$lang['adb'] = "Ne peux pas se connecter a la Base de donnee Account.";
-$lang['db'] = "Ne peux pas se connecter a la Base de donnee du site.";
+$lang['adb'] = "Erreur de connexion &agrave; la base de donn&eacute;e des comptes.";
+$lang['db'] = "Erreur de connexion &agrave; la base de donn&eacute;e du site.";
 $home['home'] = "Accueil";
 $status['status'] = "Etat";
-$Community['Community'] = "Communaute";
+$Community['Community'] = "Communaut&eacute;e";
 $Media['Media'] = "Media";
 $Forums['Forums'] = "Forums";
 $Services['Services'] = "Services";
 $Wow['Wow'] = "World Of Warcraft ";
 $Wow3['Wow3'] = " - Entire World";
-$Latest['Latest'] = "Latest Written Posts ";
-$View_all['View_all'] = "View all";
-$all['all'] = "All Main Posts";
-$P_topics['P_topics'] = "Popular Topics";
-$click['click'] = " Click ";
-$code_forum['code_forum']= " to view the Forums Code of Conduct.";
-$here['here'] = "here";
-$Account['Account'] = "Account";
-$Account1['Account1'] = "Can't log in?";
-$Account3['Account3'] = "Create Account";
-$Account4['Account4'] = "Account Summary";
-$Account5['Account5'] = "Account Security"; 
-$Account6['Account6'] = "Manage your Account";
+$Latest['Latest'] = "Les derniers messages &eacute;crits ";
+$View_all['View_all'] = "Voir tous";
+$all['all'] = "Tous les messages";
+$P_topics['P_topics'] = "Les discussions populaires";
+$click['click'] = " Cliquez ";
+$code_forum['code_forum']= " pour voir le r&eacute;glement du Forum.";
+$here['here'] = "ici";
+$Account['Account'] = "Compte";
+$Account1['Account1'] = "Connexion impossible?";
+$Account3['Account3'] = "Cr&eacute;er un compte";
+$Account4['Account4'] = "R&eacute;sum&eacute; de compte";
+$Account5['Account5'] = "S&eacute;curit&eacute; du compte"; 
+$Account6['Account6'] = "G&eacute;rer son compte";
 
 
 
 $Support['Support'] = "Support";
-$Support3['Support3'] = "Support Articles";
-$Support4['Support4'] = "Help! I got hacked!";
-$Support5['Support5'] = "Browse our support articles";
-$Support6['Support6'] = "Create a new support ticket";
-$Support7['Support7'] = "View your active support tickets.";
-$Support8['Support8'] = "Knowledge Center";
-$Support9['Support9'] = "Ask a Question";
-$Support10['Support10'] = "Your Support Tickets";
-$Support11['Support11'] = "Get Support and explore the knowledgebase.";
+$Support3['Support3'] = "Articles de support";
+$Support4['Support4'] = "Au secours! je me suis fais Hack!";
+$Support5['Support5'] = "Consultez nos articles de support";
+$Support6['Support6'] = "Cr&eacute;er un ticket support";
+$Support7['Support7'] = "Voir les tickets support actifs.";
+$Support8['Support8'] = "Centre de connaissances";
+$Support9['Support9'] = "Poser un question";
+$Support10['Support10'] = "Vos tickets support";
+$Support11['Support11'] = "Obtenir de l'aide et explorer la base de connaissances.";
 
-$Games['Games'] = "Games";
-$Client_down['Client_down'] = "Game Client Downloads";
-$Client_down3['Client_down3'] = "Download World of Warcraft Client";
+$Games['Games'] = "Jeu";
+$Client_down['Client_down'] = "T&eacute;l&eacute;charger le client de jeu";
+$Client_down3['Client_down3'] = "T&eacute;l&eacute;charger le client d'installation";
 
 $Americas['Americas'] = "Americas";
 $English['English'] = "English (US)";
@@ -63,21 +63,21 @@ $Greek['gr_lang'] = "&Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&alpha; (EU)
 $Romanian['RO'] = "Romania";
 $Romanian['ROEU'] = "Romanian (EU)";
 $copyright['copyright'] = "Copyright &copy; 2011 ";
-$copyright3['copyright3'] = "Powered by WoWFailureCMS";
-$copyright4['copyright4'] = "Resources are in Blizzard Entertainment Property.";
+$copyright3['copyright3'] = "D&eacute;velopp&eacute; par WoWFailureCMS";
+$copyright4['copyright4'] = "Les ressources sont la propri&eacute;t&eacute;e de Blizzard Entertainment.";
 
 
-$Welcome['Welcome'] ="Welcome, ";
-$logout['logout'] = "Log Out";
-$login['login'] = "Log In" ;
+$Welcome['Welcome'] ="Bienvenue, ";
+$logout['logout'] = "D&eacute;connexion";
+$login['login'] = "Connexion" ;
 
-$Donate1['Donate1'] = "Donate for"; 
-$Donate['Donate'] = "Donate";
+$Donate1['Donate1'] = "Faire un don pour"; 
+$Donate['Donate'] = "Faire un don";
 
-$website['explore'] = "Explore";
-$More['More'] = "More";
-$Retrieve['Retrieve'] = "Retrieve Lost Account";
-$Find['Find'] = "Find us on the Map!";
+$website['explore'] = "Explorez";
+$More['More'] = "Plus";
+$Retrieve['Retrieve'] = "R&eacute;cup&eacute;rer un compte perdu";
+$Find['Find'] = "Retrouvez-nous sur la carte!";
 
 
   

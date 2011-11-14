@@ -84,19 +84,19 @@ _gaq.push(['_trackPageLoadTime']);
 		<div class="primary">
 
 			<div class="header">
-	<h2 class="subcategory">Vote System &amp; Simple</h2>
-	<h3 class="headline">Vote System for <?php echo $website['title']; ?></h3>
+	<h2 class="subcategory"><?php echo $Vote['Vote']; ?></h2>
+	<h3 class="headline"><?php echo $Vote['Vote1']; ?><?php echo $website['title']; ?></h3>
     <a href=""><img src="wow/static/local-common/images/game-icons/wow.png" alt="World of Warcraft" width="48" height="48" /></a>
 			</div>
 
 			<div class="service-wrapper">
     <p class="service-nav">
-            <a href="">Spend Points</a>
-            <a href="vote-history.php">History</a>
-            <a href="">How It Works</a>
-            <a href="vote.php" class="active">Vote Now</a>
+            <a href=""><?php echo $Vote['Vote2']; ?></a>
+            <a href="vote-history.php"><?php echo $Vote['Vote3']; ?></a>
+            <a href=""><?php echo $Vote['Vote4']; ?></a>
+            <a href="vote.php" class="active"><?php echo $Vote['Vote5']; ?></a>
     </p>
-            <p>After you vote you need to wait atleast 12 hours to reset your IP from revoting. Remember to spend your Points wisely. Do not make any mistakes, <?php echo $website['title']; ?> will not return any Points back.</p><br />
+            <p><?php echo $Vote['Vote6']; ?><?php echo $website['title']; ?><?php echo $Vote2['Vote6']; ?></p><br />
 <?php
 include("functions/vote_func.php");
 ?>
