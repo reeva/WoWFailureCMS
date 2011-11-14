@@ -95,6 +95,11 @@
 			<?php echo $russia['russia']; ?>
 			</a>
 			</li>
+			<li>
+			<a href="?Local=it-it" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to it-it'); return true;">
+			<?php echo $italy['europe']; ?>
+			</a>
+			</li>
 			</ul>
 			</div>
 			<div class="column">

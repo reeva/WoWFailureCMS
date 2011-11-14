@@ -62,6 +62,7 @@ $Serbian['Europe'] = "Serbian";
 $Greek['gr_lang'] = "&Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&alpha; (EU)";
 $Romanian['RO'] = "Romania";
 $Romanian['ROEU'] = "Romanian (EU)";
+$italy['europe'] = "Italian";
 $copyright['copyright'] = "Copyright &copy; 2011 ";
 $copyright3['copyright3'] = "D&eacute;velopp&eacute; par WoWFailureCMS";
 $copyright4['copyright4'] = "Les ressources sont la propri&eacute;t&eacute;e de Blizzard Entertainment.";
@@ -79,7 +80,24 @@ $More['More'] = "Plus";
 $Retrieve['Retrieve'] = "R&eacute;cup&eacute;rer un compte perdu";
 $Find['Find'] = "Retrouvez-nous sur la carte!";
 
-
+$Vote['Vote'] = "Sistema de Votación";
+$Vote['Vote1'] = "Sistema de Votación de ";
+$Vote['Vote2'] = "Puntos Gastados";
+$Vote['Vote3'] = "Historial";
+$Vote['Vote4'] = "¿Cómo Funciona?";
+$Vote['Vote5'] = "Vota Ahora";
+$Vote['Vote6'] = "Después de haber votado tienes que esperar como mínimo 12 horas para poder volver a votar. Recuerda gastar tus Puntos de Votación con prudencia. No hagas ningún fallo, ";
+$Vote2['Vote6'] = " no devolverá ningún punto de votación.";
+$Vote['Vote7'] = "Votaciones/Recompensas";
+$Vote['Vote8'] = "Tu historial de Votaciones/Recompensas";
+$Vote['Vote9'] = "No hay registros de sus acciones en estos momentos.";
+$Vote['Vote10'] = "ID de la Cuenta";
+$Vote['Vote11'] = "ID del Item";
+$Vote['Vote12'] = "Fecha";
+$Vote['Vote13'] = "Hora";
+$Vote['Vote14'] = "Cantidad de Puntos Gastados";
+$Vote['Vote15'] = "Cantidad de Puntos Ganados";
+$Vote['Vote16'] = "Orden";
   
 
 ?>

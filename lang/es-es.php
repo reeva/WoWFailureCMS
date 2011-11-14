@@ -67,6 +67,7 @@ $Serbian['Europe'] = "Serbian";
 $Greek['gr_lang'] = "&Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&alpha; (EU)";
 $Romanian['RO'] = "Romania";
 $Romanian['ROEU'] = "Romanian (EU)";
+$italy['europe'] = "Italian";
 $copyright['copyright'] = "Copyright &copy; 2011 ";
 $copyright3['copyright3'] = "Hecho por WoWFailureCMS";
 $copyright4['copyright4'] = "Todas las imágenes están en propiedad de Blizzard Entertainment.";
