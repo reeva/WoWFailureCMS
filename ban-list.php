@@ -80,7 +80,7 @@ _gaq.push(['_trackPageLoadTime']);
 <div id="page-content" class="page-content">
 <div class="service-wrapper">
     <p class="service-nav">
-            <a href="ban-list1.php" class="active">Ban List</a>
+            <a href="ban-list.php" class="active">Ban List</a>
     </p>
 	</div>
 	<br>
@@ -137,7 +137,7 @@ echo"</table><br />";
 }
 else
 {
-echo "<b>There are no logs from your actions right now.</b>";
+echo "<b>There are no banned users right now.</b>";
 }
 ?>
 <script type="text/javascript">
