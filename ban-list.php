@@ -105,8 +105,6 @@ echo '
 					<th align="center"><span class="arrow">Unban Date</span></th>
 					<th align="center"><span class="arrow">Duration</span></th>
 					<th align="center"><span class="arrow">Reason</span></th>
-					<th><a href="#" class="sort-link"><span class="arrow"></span></a></th>
-					<th align="center"><a href="#" class="sort-link numeric"><span class="arrow"></span></a></th>
 					</tr>
 				</thead>';
 while($raw = mysql_fetch_array($response)) {
@@ -128,8 +126,6 @@ echo '
 <td valign="top" class="align-center" data-raw="20"><span>'.$unban.'</time></span></td>
 <td valign="top" class="align-center" data-raw="20"><strong data-service-id="null">'.$bantime.'</strong></td>
 <td valign="top" class="align-center">'.$raw['banreason'].'</td>
-<td valign="top" class="align-center">'.$raw[''].'</td>
-<td valign="top" class="align-center" data-raw="20">'.$raw[''].'</td>
 </tbody>';
 }
 echo '</tr>';

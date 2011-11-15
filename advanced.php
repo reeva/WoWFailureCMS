@@ -176,6 +176,7 @@ $get = mysql_fetch_assoc($lbrspa);
 	<div id="summary-averageilvl-best" class="best tip" data-id="averageilvl">20</div>
 	</div>
 	</div>
+	<br>
 	<div class="summary-top-inventory">
 	<div id="summary-inventory" class="summary-inventory summary-inventory-advanced">
 	<div data-id="0" data-type="1" class="slot slot-1" style=" left: 0px; top: 0px;">
