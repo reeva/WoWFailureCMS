@@ -58,7 +58,7 @@ switch ($lang)
 /*||||||||||||||||||||||||||||||||||||||||*/
 $serveraddress = "localhost"; // Your MySQL server address
 $serveruser = "root"; // Your MySQL user
-$serverpass = "ascent"; //Your MySQL password
+$serverpass = "130185"; //Your MySQL password
 $serverport	= "3306"; // Your MySQL Port
 $donatadmin = "ascent"; // Your Donation Admin Password
 $website['realm'] = "Set Realmlist Your_Realmlist"; // You realm (Example: Set RealmList login.wowfailure.com)
@@ -70,12 +70,12 @@ $website['realm'] = "Set Realmlist Your_Realmlist"; // You realm (Example: Set R
 /*|||||||The Website Configuration||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||*/
 $server_db = "site"; //Your website database
-$server_adb = "auth"; //Your account database
-$server_cdb = "characters"; //Your characters database
+$server_adb = "Ezalion-Auth"; //Your account database
+$server_cdb = "Ezalion-Characters"; //Your characters database
 $server_cdb_2 = "characters2"; //Your characters database
-$server_wdb = "world"; //Your world database
+$server_wdb = "Ezalion-World"; //Your world database
 $server_wdb_2 = "world"; //Your world database
-$charTable = 'characters'; //Your Character Table!!
+$charTable = 'Ezalion-Characters'; //Your Character Table!!
 $name_realm1['realm'] = "Server_Name_1"; //Your Realm Name 1
 $name_realm2['realm'] = "Server_Name_2"; //Your Realm Name 2
 $charLimit = '10'; //Max characters to show on the page
