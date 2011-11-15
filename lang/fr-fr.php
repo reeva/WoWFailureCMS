@@ -10,7 +10,7 @@ $Services['Services'] = "Services";
 $Wow['Wow'] = "World Of Warcraft ";
 $Wow3['Wow3'] = " - Entire World";
 $Latest['Latest'] = "Les derniers messages &eacute;crits ";
-$View_all['View_all'] = "Voir tous";
+$View_all['View_all'] = "Voir tous les";
 $all['all'] = "Tous les messages";
 $P_topics['P_topics'] = "Les discussions populaires";
 $click['click'] = " Cliquez ";
@@ -22,7 +22,8 @@ $Account3['Account3'] = "Cr&eacute;er un compte";
 $Account4['Account4'] = "R&eacute;sum&eacute; de compte";
 $Account5['Account5'] = "S&eacute;curit&eacute; du compte"; 
 $Account6['Account6'] = "G&eacute;rer son compte";
-
+$Account7['Account7'] = "List des bannis";
+$Friends['Keepthem'] = "Faites venir vos ami(e)s en jeu.";
 
 
 $Support['Support'] = "Support";
@@ -82,15 +83,15 @@ $Find['Find'] = "Retrouvez-nous sur la carte!";
 
 $Vote['Vote'] = "Syst&egrave;me de vote";
 $Vote['Vote1'] = "Syst&egrave;me de vote ";
-$Vote['Vote2'] = "Points Utilis&eacute;s";
+$Vote['Vote2'] = "Points d&eacute;pens&eacute;s";
 $Vote['Vote3'] = "enregistrement";
 $Vote['Vote4'] = "Comment ça marche?";
 $Vote['Vote5'] = "Votez maintenant";
-$Vote['Vote6'] = "Apr&egrave;s avoir vot&eacute;, vous devez attendre au moins 12 heures pour voter à nouveau. N'oubliez pas de d&eacute;penser vos points judicieusement. ";
-$Vote2['Vote6'] = " ne pas retourner tout lieu de vote.";
+$Vote['Vote6'] = "Apr&egrave;s avoir vot&eacute;, vous devez attendre au moins 12 heures pour voter &agrave; nouveau. N'oubliez pas de d&eacute;penser vos points judicieusement de vote. Ne pas rendre une d&eacute;cision,. ";
+$Vote2['Vote6'] = " renvoie aucun si&egrave;ge.";
 $Vote['Vote7'] = "Vote / R&eacute;compense";
-$Vote['Vote8'] = "Historique de vote / R&eacute;compenses";
-$Vote['Vote9'] = "Il n'existe pas d'enregistrements d'actions en ce moment.";
+$Vote['Vote8'] = "Historique de Vote / R&eacute;compenses";
+$Vote['Vote9'] = "Il n'existe pas de registres de leurs actions &agrave; ce moment.";
 $Vote['Vote10'] = "ID du compte";
 $Vote['Vote11'] = "ID Produit";
 $Vote['Vote12'] = "date de";

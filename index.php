@@ -203,7 +203,7 @@ $page_cat = "home";
 						require_once("configs.php");
 						if(realm_status($serveraddress, $serverport) === false)
 						{
-						echo                      "<font color=red>Offline</font>";
+						echo"<font color=red>Offline</font>";
 						}
 						elseif(realm_status($serveraddress, $serverport) === true)
 						{
