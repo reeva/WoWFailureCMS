@@ -1,43 +1,47 @@
 <?php
-session_save_path('phpsessions');
 session_start();
+session_save_path('phpsessions');
+
 
 /*||||||||||||||||||||||||||||||||||||||||*/
 /*|||||||The Language Configuration|||||||*/
 /*|||||||||||DO NOT TOUCH THIS||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||*/
-$lang = &$_SESSION['Local'];
+if(!empty($_GET['Local']) || !empty($_SESSION['Local'])) {
 $lang = $_GET['Local'];
+$_SESSION['Local'] = $lang;
+$lang = $_SESSION['Local'];
+}
+else {
+$lang = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0,2);
+}
 switch ($lang)
 {
-    case 'en-us' :
+    case 'us' :
         include ("lang/en-us.php");
         break;
 	case 'ro-ro' :
         include ("lang/ro-ro.php");
         break;
-    case 'en-gb' :
+    case 'en' :
         include ("lang/en-gb.php");
         break;
-	case 'it-it' :
-        include ("lang/it-it.php");
-        break;
-    case 'de-de' :
+    case 'de' :
         include ("lang/de-de.php");
         break;
     case 'bu-bu' :
         include ("lang/bg-bg.php");
         break;
-    case 'es-es' :
+    case 'es' :
         include ("lang/es-es.php");
         break;
     case 'es-mx' :
         include ("lang/es-mx.php");
         break;
-    case 'gr-gr' :
+    case 'gr' :
         include ("lang/gr-gr.php");
         break;
-    case 'ru-ru' :
+    case 'ru' :
         include ("lang/ru-ru.php");
         break;
     case 'zh-cn' :
@@ -46,9 +50,12 @@ switch ($lang)
     case 'zh-tw' :
         include ("lang/zh-tw.php");
         break;
-    case 'fr-fr' :
+    case 'fr' :
         include ("lang/fr-fr.php");
-        break;         
+        break;
+    case 'it' :
+        include ("lang/it-it.php");
+        break; 		
     default :
         include ("lang/en-us.php");
         $lang = 'en-us';
@@ -57,8 +64,8 @@ switch ($lang)
 /*||||||||The Server Configuration||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||*/
 $serveraddress = "localhost"; // Your MySQL server address
-$serveruser = "root"; // Your MySQL user
-$serverpass = "130185"; //Your MySQL password
+$serveruser = "billys07_7"; // Your MySQL user
+$serverpass = "mario123"; //Your MySQL password
 $serverport	= "3306"; // Your MySQL Port
 $donatadmin = "ascent"; // Your Donation Admin Password
 $website['realm'] = "Set Realmlist Your_Realmlist"; // You realm (Example: Set RealmList login.wowfailure.com)
@@ -69,20 +76,20 @@ $website['realm'] = "Set Realmlist Your_Realmlist"; // You realm (Example: Set R
 /*||||||||||||||||||||||||||||||||||||||||*/
 /*|||||||The Website Configuration||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||*/
-$server_db = "site"; //Your website database
+$server_db = "billys07_failure"; //Your website database
 $server_adb = "Ezalion-Auth"; //Your account database
 $server_cdb = "Ezalion-Characters"; //Your characters database
-$server_cdb_2 = "characters2"; //Your characters database
+$server_cdb_2 = "Ezalion-Characters"; //Your characters database
 $server_wdb = "Ezalion-World"; //Your world database
-$server_wdb_2 = "world"; //Your world database
-$charTable = 'Ezalion-Characters'; //Your Character Table!!
+$server_wdb_2 = "Ezalion-World"; //Your world database
+$charTable = 'characters'; //Your Character Table!!
 $name_realm1['realm'] = "Server_Name_1"; //Your Realm Name 1
 $name_realm2['realm'] = "Server_Name_2"; //Your Realm Name 2
 $charLimit = '10'; //Max characters to show on the page
 $website['title'] = "WoWFailureCMS"; // Your Website Title
 $website['slogan'] = "WoWFailureCMS, get your best CMS today, simple and fast!"; // Your Website Slogan.
 $website['address'] = "http://www.wowfailure.co.cc"; // 'http://url/foldername/' or 'http://url/'
-$website['root'] = "/WoWFailureCMS/"; // '/' <- for root and '/foldername/' <- for any folder
+$website['root'] = "./"; // '/' <- for root and '/foldername/' <- for any folder
 /*||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||DO NOT EDIT BELOW|||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||*/

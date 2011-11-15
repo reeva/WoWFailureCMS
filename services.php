@@ -104,9 +104,9 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 									<span>Account Services</span>
 								</div>
 								<ul>
-								<li><a href="ban-list.php" class="c3-l6"><span>Ban List</span></a></li>
-								<li><a href="javascript:;" class="c1-l1"><span>Account Settings</span></a></li>
-								<li><a href="javascript:;" class="c1-l2"><span>Account Security</span></a></li>
+								<li><a href="ban-list.php" class="c3-l6"><span><?php echo $Account7['Account7']; ?></span></a></li>
+								<li><a href="javascript:;" class="c1-l1"><span><?php echo $Account6['Account6']; ?></span></a></li>
+								<li><a href="javascript:;" class="c1-l2"><span><?php echo $Account5['Account5']; ?></span></a></li>
 										<!--<li><a href="javascript:;" class="c1-l3"><span>Add an Authenticator</span></a></li>
 										<li><a href="javascript:;" class="c1-l4"><span>Authenticator FAQ</span></a></li>-->
 								</ul>					
@@ -116,7 +116,7 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 									<span>OTHER SERVICES AND PROMOTIONS</span>
 								</div>
 								<ul>
-										<li><a href="javascript:;" class="c4-l1"><span>Recruit-A-Friend</span></a></li>
+										<li><a href="javascript:;" class="c4-l1"><span><?php echo $Friends['Keepthem']; ?></span></a></li>
 										<!--<li><a href="javascript:;" class="c4-l2"><span>World of Warcraft Magazine</span></a></li>-->
 										<li><a href="javascript:;" class="c4-l3"><span>Refer-A-Friend</span></a></li>
 								</ul>					
