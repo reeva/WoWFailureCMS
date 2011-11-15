@@ -104,10 +104,104 @@ mysql_select_db($server_cdb,$connection_setup)or die(mysql_error());
 $username = mysql_real_escape_string($name = $_GET['name']);
 $lbrspa = mysql_query("SELECT name,race,class,gender,level,health,power1 FROM characters WHERE name = '".$username."'");
 $get = mysql_fetch_assoc($lbrspa);
+
+//Character Class
+$cclass = $get['class'];
+if ($cclass == 1)
+{
+$class = "Warrior";
+}
+elseif ($cclass == 2)
+{
+$class = "Paladin";
+}
+elseif ($cclass == 3)
+{
+$class = "Hunter";
+}
+elseif ($cclass == 4)
+{
+$class = "Rogue";
+}
+elseif ($cclass == 5)
+{
+$class = "Priest";
+}
+elseif ($cclass == 6)
+{
+$class = "Death Knight";
+}
+elseif ($cclass == 7)
+{
+$class = "Shaman";
+}
+elseif ($cclass == 8)
+{
+$class = "Mage";
+}
+elseif ($cclass == 9)
+{
+$class = "Warlock";
+}
+elseif ($cclass == 11)
+{
+$class = "Druid";
+}
+//Character Race
+$rrace = $get['race'];
+if ($rrace == 1)
+{
+$race = "Human";
+}
+elseif ($rrace == 2)
+{
+$race = "Orc";
+}
+if ($rrace == 3)
+{
+$race = "Dwarf";
+}
+elseif ($rrace == 4)
+{
+$race = "Night Elf";
+}
+elseif ($rrace == 5)
+{
+$race = "Undead";
+}
+elseif ($rrace == 6)
+{
+$race = "Tauren";
+}
+elseif ($rrace == 7)
+{
+$race = "Gnome";
+}
+elseif ($rrace == 8)
+{
+$race = "Troll";
+}
+elseif ($rrace == 9)
+{
+$race = "Goblin";
+}
+elseif ($rrace == 10)
+{
+$race = "Blood Elf";
+}
+elseif ($rrace == 11)
+{
+$race = "Draenei";
+}
+elseif ($rrace == 22)
+{
+$race = "Worgen";
+}
+
 ?>
 	<span class="clear"><!-- --></span>
-	<div class="under-name color-c<?php echo $get["class"] ?>"><!-- class="under-name color-c1 is warrior, to be paladin it has to be class="under-name color-c2, so what we change here is the number of the class c2, c3, c4, ... -->
-	<span class="level"><strong><?php echo $get["level"] ?></strong></span> <a href="" class="race"><?php echo $get["race"] ?></a> <a id="profile-info-spec" href="" class="spec tip">TALENT</a> <a href="" class="class"><?php echo $get["class"] ?></a><span class="comma">,</span>
+	<div class="under-name color-c1"><!-- class="under-name color-c1 is warrior, to be paladin it has to be class="under-name color-c2, so what we change here is the number of the class c2, c3, c4, ... -->
+	<span class="level"><strong><?php echo $get["level"] ?></strong></span> <a href="" class="race"><?php echo $race ?></a> <a id="profile-info-spec" href="" class="spec tip">TALENT</a> <a href="" class="class"><?php echo $class ?></a><span class="comma">,</span>
 	<span class="realm tip" id="profile-info-realm" data-battlegroup=""><?php echo $name_realm1['realm']; ?></span>
 	</div>
 	<div class="achievements"><a href="">ACHIEV Points</a></div>
