@@ -26,6 +26,7 @@ $Account3['Account3'] = "Create Account";
 $Account4['Account4'] = "Account Summary";
 $Account5['Account5'] = "Account Security"; 
 $Account6['Account6'] = "Manage your Account";
+$Account7['Account7'] = "Ban list";
 $Friends['Keepthem'] = "Keep your friends in game.";
 
 

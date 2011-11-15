@@ -10,7 +10,7 @@ $Services['Services'] = "Services";
 $Wow['Wow'] = "World Of Warcraft ";
 $Wow3['Wow3'] = " - Entire World";
 $Latest['Latest'] = "Les derniers messages &eacute;crits ";
-$View_all['View_all'] = "Voir tous";
+$View_all['View_all'] = "Voir tous les";
 $all['all'] = "Tous les messages";
 $P_topics['P_topics'] = "Les discussions populaires";
 $click['click'] = " Cliquez ";
@@ -22,7 +22,8 @@ $Account3['Account3'] = "Cr&eacute;er un compte";
 $Account4['Account4'] = "R&eacute;sum&eacute; de compte";
 $Account5['Account5'] = "S&eacute;curit&eacute; du compte"; 
 $Account6['Account6'] = "G&eacute;rer son compte";
-
+$Account7['Account7'] = "List des bannis";
+$Friends['Keepthem'] = "Faites venir vos ami(e)s en jeu.";
 
 
 $Support['Support'] = "Support";

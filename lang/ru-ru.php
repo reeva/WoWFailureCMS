@@ -25,6 +25,7 @@ $Account3['Account3'] = "&#1056;&#1077;&#1075;&#1080;&#1089;&#1090;&#1088;&#1072
 $Account4['Account4'] = "Account Summary";
 $Account5['Account5'] = "Account Security"; 
 $Account6['Account6'] = "Manage your Account";
+$Account7['Account7'] = "Ban list";
 $Friends['Keepthem'] = "&#1044;&#1077;&#1088;&#1078;&#1080;&#1090;&#1077; &#1089;&#1074;&#1086;&#1080;&#1093; &#1076;&#1088;&#1091;&#1079;&#1077;&#1081; &#1074; &#1080;&#1075;&#1088;&#1091;";
 
 

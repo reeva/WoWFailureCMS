@@ -26,6 +26,7 @@ $Account3['Account3'] = "&Delta;&eta;&mu;&iota;&omicron;&upsilon;&rho;&gamma;&io
 $Account4['Account4'] = "&Sigma;&upsilon;&nu;&omicron;&psi;&eta; &Lambda;&omicron;&gamma;&alpha;&rho;&iota;&alpha;&sigma;&mu;&omicron;&upsilon;";
 $Account5['Account5'] = "&Alpha;&sigma;&phi;&alpha;&lambda;&epsilon;&iota;&alpha; &Lambda;&omicron;&gamma;&alpha;&rho;&iota;&alpha;&sigma;&mu;&omicron;&upsilon;"; 
 $Account6['Account6'] = "&Delta;&iota;&alpha;&chi;&epsilon;&iota;&rho;&iota;&sigma;&tau;&epsilon;&iota;&tau;&epsilon; &tau;&omicron; &Lambda;&omicron;&gamma;&alpha;&rho;&iota;&alpha;&sigma;&mu;&omicron; &sigma;&alpha;&#962;";
+$Account7['Account7'] = "Ban list";
 $Friends['Keepthem'] = "&Kappa;&rho;&alpha;&tau;&eta;&sigma;&tau;&epsilon; &tau;&omicron;&upsilon;&#962; &phi;&iota;&lambda;&omicron;&upsilon;&#962; &sigma;&alpha;&#962; &sigma;&tau;&omicron; &Pi;&alpha;&iota;&chi;&nu;&iota;&delta;&iota;.";
 
 $Support['Support'] = "&Upsilon;&pi;&omicron;&sigma;&tau;&eta;&rho;&iota;&xi;&eta;";

@@ -22,7 +22,8 @@ $Account3['Account3'] = "Crea un account";
 $Account4['Account4'] = "Riepilogo account";
 $Account5['Account5'] = "Sicurezza dell'account"; 
 $Account6['Account6'] = "Gestisci il tuo account";
-
+$Account7['Account7'] = "Lista dei vietati";
+$Friends['Keepthem'] = "Tieni i tuoi amici nel gioco.";
 
 
 $Support['Support'] = "Supporto";

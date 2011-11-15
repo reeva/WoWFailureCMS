@@ -250,7 +250,7 @@ Flash.ratingImage = 'http://eu.media.blizzard.com/wow/player/rating-pegi.jpg';
 	<div class="sidebar-content poptopic-list">
 	</div>
 </div>				</div>
-	   <div class="coc"> Click <a href="http://battle.net/community/conduct">here</a> to view the Forums Code of Conduct.</div>
+	   <div class="coc"> <?php echo $click['click']; ?> <a href="http://battle.net/community/conduct"><?php echo $here['here']; ?></a> <?php echo $code_forum['code_forum']; ?></div>
 	<span class="clear"><!-- --></span>
 				</div>
 			</div>

@@ -185,7 +185,7 @@ include("header.php");
 								<span class="panel">
 									<span class="wrapper">
 										<span class="banner-title">Fan Art </span>
-										<span class="view-all">View All Fan Art</span>
+										<span class="view-all"><?php echo $View_all['View_all']; ?> Fan Art</span>
 									</span>
 								</span>
 							</a>
@@ -197,7 +197,7 @@ include("header.php");
 								<span class="panel">
 									<span class="wrapper">
 										<span class="banner-title">Media <em>(0)</em></span>
-										<span class="view-all">View All Media</span>
+										<span class="view-all"><?php echo $View_all['View_all']; ?> Media</span>
 									</span>
 								</span>
 							</a>
@@ -211,7 +211,7 @@ include("header.php");
 								<span class="panel">
 									<span class="wrapper">
 										<span class="banner-title">Screenshots <em>(1)</em></span>
-										<span class="view-all">View All Screenshots</span>
+										<span class="view-all"><?php echo $View_all['View_all']; ?> Screenshots</span>
 									</span>
 								</span>
 							</a>
@@ -223,7 +223,7 @@ include("header.php");
 								<span class="panel">
 									<span class="wrapper">
 										<span class="banner-title">Fan Wallpapers <em>(0)</em></span>
-										<span class="view-all">View All Wallpapers</span>
+										<span class="view-all"><?php echo $View_all['View_all']; ?> Wallpapers</span>
 									</span>
 								</span>
 							</a>
