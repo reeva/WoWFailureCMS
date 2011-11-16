@@ -1,108 +1,7 @@
 <?php
 require_once("configs.php");
 $page_cat = "services";
-?>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
-<head>
-<title><?php echo $website['title']; ?> - Armory</title>
-<meta content="false" http-equiv="imagetoolbar" />
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
-<link rel="shortcut icon" href="/wow/static/local-common/images/favicons/wow.ico" type="image/x-icon"/>
-<link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common.css" />
-<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie.css" /><![endif]-->
-<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie6.css" /><![endif]-->
-<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie7.css" /><![endif]-->
-<link title="World of Warcraft - News" href="wow/en/feed/news" type="application/atom+xml" rel="alternate"/>
-<link rel="stylesheet" type="text/css" media="all" href="wow/static/css/wow.css" />
-<link rel="stylesheet" type="text/css" media="all" href="wow/static/css/view.css" />
-<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/profile-ie.css" /><![endif]-->
-<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/profile-ie6.css" /><![endif]-->
-<link rel="stylesheet" type="text/css" media="all" href="wow/static/css/character/character.css" />
-<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/character/summary-ie.css" /><![endif]-->
-<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/character/summary-ie6.css" /><![endif]-->
-<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie.css" /><![endif]-->
-<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie6.css" /><![endif]-->
-<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie7.css" /><![endif]-->
-<script type="text/javascript" src="wow/static/local-common/js/third-party/jquery-1.4.4.min.js"></script>
-<script type="text/javascript" src="wow/static/local-common/js/core.js"></script>
-<script type="text/javascript" src="wow/static/local-common/js/tooltip.js"></script>
-<!--[if IE 6]> <script type="text/javascript">
-//<![CDATA[
-try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
-//]]>
-</script>
-<![endif]-->
-<script type="text/javascript">
-//<![CDATA[
-Core.staticUrl = '/wow/static';
-Core.sharedStaticUrl= '/wow/static/local-common';
-Core.baseUrl = '/wow/en';
-Core.projectUrl = '/wow';
-Core.cdnUrl = 'http://eu.media.blizzard.com';
-Core.supportUrl = 'http://eu.battle.net/support/';
-Core.secureSupportUrl= 'https://eu.battle.net/support/';
-Core.project = 'wow';
-Core.locale = 'en-gb';
-Core.language = 'en';
-Core.buildRegion = 'eu';
-Core.region = 'eu';
-Core.shortDateFormat= 'dd/MM/yyyy';
-Core.dateTimeFormat = 'dd/MM/yyyy HH:mm';
-Core.loggedIn = false;
-Flash.videoPlayer = 'http://eu.media.blizzard.com/global-video-player/themes/wow/video-player.swf';
-Flash.videoBase = 'http://eu.media.blizzard.com/wow/media/videos';
-Flash.ratingImage = 'http://eu.media.blizzard.com/global-video-player/ratings/wow/rating-pegi.jpg';
-Flash.expressInstall= 'http://eu.media.blizzard.com/global-video-player/expressInstall.swf';
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-544112-16']);
-_gaq.push(['_setDomainName', '.battle.net']);
-_gaq.push(['_trackPageview']);
-_gaq.push(['_trackPageLoadTime']);
-//]]>
-</script>
-<style type="text/css">
-#content .content-top { background: url("wow/static/images/character/summary/backgrounds/race/<?php echo $race ?>.jpg") left top no-repeat; }
-.profile-wrapper { background-image: url("wow/static/images/2d/profilemain/class/<?php echo $get["class"] ?>-<?php echo $get["gender"] ?>.jpg"); }
-</style>
-</head>
-<body class="en-gb">
-<div id="wrapper">
-	<?php include("header.php"); ?>
-	<div id="content">
-<div class="content-top">
-<div class="content-trail">
-<ol class="ui-breadcrumb">
-<li>
-<a href="index.php" rel="np">
-<?php echo $website['title']; ?>
-</a>
-</li>
-<li>
-<a href="services.php" rel="np">
-Services
-</a>
-</li>
-<li class="last">
-<a href="" rel="np">
-<?php echo $name = $_GET['name'];?> @ <?php echo $name_realm1['realm']; ?>
-</a>
-</li>
-</ol>
-</div>
-<div class="content-bot">
-	<div id="profile-wrapper" class="profile-wrapper profile-wrapper-advanced profile-wrapper-<?php echo $bg ?>">
-	<div class="profile-sidebar-anchor">
-	<div class="profile-sidebar-outer">
-	<div class="profile-sidebar-inner">
-	<div class="profile-sidebar-contents">
-	<div class="profile-info-anchor">
-	<div class="profile-info">
-	<div class="name"><a href="" rel="np"><?php echo $name = $_GET['name'];?></a></div>
-	<div class="title-guild">
-	<div class="title">&#160;</div>
-	</div>
-<?php
 $connection_setup = mysql_connect($serveraddress,$serveruser,$serverpass)or die(mysql_error());
 mysql_select_db($server_cdb,$connection_setup)or die(mysql_error());
 $username = mysql_real_escape_string($name = $_GET['name']);
@@ -224,8 +123,110 @@ $bg = "horde";
 }
 
 ?>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
+<head>
+<title><?php echo $website['title']; ?> - Armory</title>
+<meta content="false" http-equiv="imagetoolbar" />
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<link rel="shortcut icon" href="/wow/static/local-common/images/favicons/wow.ico" type="image/x-icon"/>
+<link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common.css" />
+<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie.css" /><![endif]-->
+<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie6.css" /><![endif]-->
+<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie7.css" /><![endif]-->
+<link title="World of Warcraft - News" href="wow/en/feed/news" type="application/atom+xml" rel="alternate"/>
+<link rel="stylesheet" type="text/css" media="all" href="wow/static/css/wow.css" />
+<link rel="stylesheet" type="text/css" media="all" href="wow/static/css/view.css" />
+<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/profile-ie.css" /><![endif]-->
+<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/profile-ie6.css" /><![endif]-->
+<link rel="stylesheet" type="text/css" media="all" href="wow/static/css/character/character.css" />
+<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/character/summary-ie.css" /><![endif]-->
+<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/character/summary-ie6.css" /><![endif]-->
+<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie.css" /><![endif]-->
+<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie6.css" /><![endif]-->
+<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie7.css" /><![endif]-->
+<script type="text/javascript" src="wow/static/local-common/js/third-party/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="wow/static/local-common/js/core.js"></script>
+<script type="text/javascript" src="wow/static/local-common/js/tooltip.js"></script>
+<!--[if IE 6]> <script type="text/javascript">
+//<![CDATA[
+try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
+//]]>
+</script>
+<![endif]-->
+<script type="text/javascript">
+//<![CDATA[
+Core.staticUrl = '/wow/static';
+Core.sharedStaticUrl= '/wow/static/local-common';
+Core.baseUrl = '/wow/en';
+Core.projectUrl = '/wow';
+Core.cdnUrl = 'http://eu.media.blizzard.com';
+Core.supportUrl = 'http://eu.battle.net/support/';
+Core.secureSupportUrl= 'https://eu.battle.net/support/';
+Core.project = 'wow';
+Core.locale = 'en-gb';
+Core.language = 'en';
+Core.buildRegion = 'eu';
+Core.region = 'eu';
+Core.shortDateFormat= 'dd/MM/yyyy';
+Core.dateTimeFormat = 'dd/MM/yyyy HH:mm';
+Core.loggedIn = false;
+Flash.videoPlayer = 'http://eu.media.blizzard.com/global-video-player/themes/wow/video-player.swf';
+Flash.videoBase = 'http://eu.media.blizzard.com/wow/media/videos';
+Flash.ratingImage = 'http://eu.media.blizzard.com/global-video-player/ratings/wow/rating-pegi.jpg';
+Flash.expressInstall= 'http://eu.media.blizzard.com/global-video-player/expressInstall.swf';
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-544112-16']);
+_gaq.push(['_setDomainName', '.battle.net']);
+_gaq.push(['_trackPageview']);
+_gaq.push(['_trackPageLoadTime']);
+//]]>
+</script>
+<style type="text/css">
+ #content
+ .content-top{background-image:url("wow/static/images/character/summary/backgrounds/race/<?php echo $get["race"] ?>.jpg"); left top no-repeat;}
+ .profile-wrapper{background-image:url("wow/static/images/character/summary/backgrounds/class/<?php echo $get["race"] ?>-<?php echo $get["gender"] ?>.jpg");}
+ </style>
+</head>
+<body class="en-gb">
+<div id="wrapper">
+	<?php include("header.php"); ?>
+	<div id="content">
+<div class="content-top">
+<div class="content-trail">
+<ol class="ui-breadcrumb">
+<li>
+<a href="index.php" rel="np">
+<?php echo $website['title']; ?>
+</a>
+</li>
+<li>
+<a href="services.php" rel="np">
+Services
+</a>
+</li>
+<li class="last">
+<a href="" rel="np">
+<?php echo $name = $_GET['name'];?> @ <?php echo $name_realm1['realm']; ?>
+</a>
+</li>
+</ol>
+</div>
+<div class="content-bot">
+	<div id="profile-wrapper" class="profile-wrapper profile-wrapper-advanced profile-wrapper-<?php echo $bg ?>">
+	<div class="profile-sidebar-anchor">
+	<div class="profile-sidebar-outer">
+	<div class="profile-sidebar-inner">
+	<div class="profile-sidebar-contents">
+	<div class="profile-info-anchor">
+	<div class="profile-info">
+	<div class="name"><a href="" rel="np"><?php echo $name = $_GET['name'];?></a></div>
+	<div class="title-guild">
+	<div class="title">&#160;</div>
+	</div>
+
 	<span class="clear"><!-- --></span>
-	<div class="under-name color-c<?php echo $get['cclass2'] ?><!-- class="under-name color-c1 is warrior, to be paladin it has to be class="under-name color-c2, so what we change here is the number of the class c2, c3, c4, ... -->
+	<div class="under-name color-c<?php echo $get["class"] ?>"><!-- class="under-name color-c1 is warrior, to be paladin it has to be class="under-name color-c2, so what we change here is the number of the class c2, c3, c4, ... -->
 	<span class="level"><strong><?php echo $get["level"] ?></strong></span> <a href="" class="race"><?php echo $race ?></a> <a id="profile-info-spec" href="" class="spec tip">TALENT</a> <a href="" class="class"><?php echo $class2 ?></a><span class="comma">,</span>
 	<span class="realm tip" id="profile-info-realm" data-battlegroup=""><?php echo $name_realm1['realm']; ?></span>
 	</div>
