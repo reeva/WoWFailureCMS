@@ -6,7 +6,7 @@ $page_cat = "account";
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title><?php echo $website['title']; ?> - Login</title>
+<title><?php echo $website['title']; ?><?php echo $Log['Log']; ?></title>
 <meta http-equiv="imagetoolbar" content="false"/>
 <link rel="stylesheet" type="text/css" href="wow/static/local-common/css/common.css?v22"/>
 <!--[if IE]><link rel="stylesheet" type="text/css" href="wow/static/local-common/css/common-ie.css?v22"/><![endif]-->
@@ -24,7 +24,7 @@ Core.baseUrl = '/login/en/';
 </head>
 <body class="en-gb">
 <div id="wrapper">
-<h1 id="logo"><a href="http://eu.battle.net/">Battle.net</a></h1>
+<h1 id="logo"><a href="http://eu.battle.net/"><?php echo $Log['Log1']; ?></a></h1>
 <div id="content" class="login">
 <div id="left">
 <script>
@@ -50,7 +50,7 @@ Core.baseUrl = '/login/en/';
   </head>
   <body>
     <div id="embedded-login">
-      <h2>Log In</h2>
+      <h2><?php echo $Log['Log2']; ?></h2>
   <?php
   
   if(!isset($_SESSION['username'])){
@@ -76,14 +76,14 @@ Core.baseUrl = '/login/en/';
        }
       </style>
       <center>
-      <h3>Logging In</h3><br />
+      <h3><?php echo $Log['Log3']; ?></h3><br />
       <div class="loader"></div>
       <?php
         if(strtoupper($sha_pass_hash) == $login['sha_pass_hash']){
           $_SESSION['username']=$accountName;
           echo '<br /><br /><meta http-equiv="refresh" content="2"/>';
         }else{
-          echo '<br /><br /><font color="red">Wrong Password</font><meta http-equiv="refresh" content="2"/>';
+          echo '<br /><br /><font color="red">'.$Log['Log4'].'</font><meta http-equiv="refresh" content="2"/>';
         }
       ?>
       </center>
@@ -98,7 +98,7 @@ Core.baseUrl = '/login/en/';
        }
       </style>
       <center>
-      <h3>Invalid Account Name</h3><br />
+      <h3><?php echo $Log['Log5']; ?></h3><br />
       <div class="loader"></div>
       <meta http-equiv="refresh" content="2"/>
       </center>
@@ -113,21 +113,21 @@ Core.baseUrl = '/login/en/';
   <form action="?SSID:<?php echo $sessionid; ?>" method="post">
     <a id="embedded-close" href="javascript:;" onclick="updateParent('close')"> </a>
     <div>
-      <p><label for="accountName" class="label">Account Name</label>
+      <p><label for="accountName" class="label"><?php echo $Log['Log6']; ?></label>
       <input id="accountName" value="" name="accountName" maxlength="320" type="text" tabindex="1" class="input" /></p>
-      <p><label for="password" class="label">Password</label>
+      <p><label for="password" class="label"><?php echo $Log['Log7']; ?></label>
       <input id="password" name="password" maxlength="16" type="password" tabindex="2" autocomplete="off" class="input"/></p>
       <p>
         <span id="remember-me">
           <label for="persistLogin">
             <input type="checkbox" checked="checked" name="persistLogin" value="true" id="persistLogin" />
-            Keep me logged in
+            <?php echo $Log['Log8']; ?>
           </label>
         </span>
         <input type="hidden" name="app" value="com-sc2"/>
         <button class="ui-button button1" type="submit" data-text="Processing…">
           <span>
-            <span>Log In</span>
+            <span><?php echo $Log['Log9']; ?></span>
           </span>
         </button>
       </p>
@@ -140,18 +140,18 @@ Core.baseUrl = '/login/en/';
     parent.postMessage("{\"action\":\"success\"}", "<?php echo $website['address']; ?>");
     </script>
     <?php
-    echo "<h3><font color='green'>You're Logged In</font></h3>";
+    echo "<h3><font color='green'>".$Log['Log10']."</font></h3>";
     
   } ?>
   <ul id="help-links">
       <li class="icon-pass">
-        <a href="#">Can't log in</a>?
+        <a href="#"><?php echo $Log['Log11']; ?></a>?
       </li>
         <li class="icon-signup">
-          Don't have an account yet? <a href="register.php">Sign up now</a>!
+          <?php echo $Log['Log12']; ?><a href="register.php"><?php echo $Log['Log13']; ?></a>!
         </li>
       <li class="icon-secure">
-        Learn how to <a href="#">protect your account</a>!
+        <?php echo $Log['Log14']; ?><a href="#"><?php echo $Log['Log15']; ?></a>!
       </li>
   </ul>
   <br /><br />
@@ -175,14 +175,14 @@ Core.baseUrl = '/login/en/';
     </div>
 </div>
 <div id="right">
-<h2>Already Logged in?</h2>
-<h3>If you are already logged but ths page does not redirect you to the account then press the following button: </h3>
+<h2><?php echo $Log['Log16']; ?></h2>
+<h3><?php echo $Log['Log17']; ?></h3>
 <a
 class="ui-button button1 "
 href="account_man.php"
 >
 <span>
-<span>Account Management</span>
+<span><?php echo $Log['Log18']; ?></span>
 </span>
 </a>
 </div>

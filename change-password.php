@@ -5,7 +5,7 @@ $page_cat = "settings";
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
 <head>
-<title><?php echo $website['title']; ?> - Change Password</title>
+<title><?php echo $website['title']; ?><?php echo $Reg['Reg37']; ?></title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/bam.ico" type="image/x-icon"/>
@@ -62,12 +62,12 @@ _gaq.push(['_trackPageLoadTime']);
 <div class="wrapper">
 <div id="content">
 <div id="page-header">
-<span class="float-right"><span class="form-req">*</span> Required</span>
-<h2 class="subcategory">Account Settings</h2>
-<h3 class="headline">Change Your Password</h3>
+<span class="float-right"><span class="form-req">*</span> <?php echo $Reg['Reg']; ?></span>
+<h2 class="subcategory"><?php echo $Reg['Reg1']; ?></h2>
+<h3 class="headline"><?php echo $Reg['Reg2']; ?></h3>
 </div>
 <div id="page-content" class="page-content">
-<p>You <b>MUST</b> be offline for this tool to successfully work! Plus you need to be Loged to the website. Use this form to change your password.</p>
+<p><?php echo $Reg['Reg3']; ?><b><?php echo $Reg['Reg4']; ?></b><?php echo $Reg['Reg5']; ?></p>
 <form autocomplete="off" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
 <input type="hidden" name="csrftoken" value="" />
 <?php 
@@ -93,14 +93,14 @@ if(isset($_POST['submit']))
         $result = mysql_query($query) or die(mysql_error());
         $numrows = mysql_num_rows($result);
 
-        if($enewpass != $enewpass1) { die("<p align='center'>Error:<br><br>New password fields must match!<br><br>Please go back and try again.</p>"); }
+        if($enewpass != $enewpass1) { die("<p align='center'>".$Reg['Reg6']."<br><br>".$Reg['Reg7']."<br><br>".$Reg['Reg8']."</p>"); }
 
         if(strlen($_POST['passwordNew']) < 5){
                 $chars = strlen($passwordNew);
-                die("<p align='center'>Error:<br><br>Your new password is too short!<br><br>You entered ".$chars." character(s).<br><br>The minimum length is 5 characters and the maximum length is 15.<br><br>Please go back and try again.</p>");
+                die("<p align='center'>".$Reg['Reg6']."<br><br>".$Reg['Reg9']."<br><br>".$Reg['Reg10']."".$chars." ".$Reg['Reg11']."<br><br>".$Reg['Reg12']."<br><br>".$Reg['Reg13']."</p>");
         }
 
-        if($numrows == 0) { die("<p align='center'>Error:<br><br>Invalid account name/password!<br><br>Please go back and try again.</p>"); }
+        if($numrows == 0) { die("<p align='center'>".$Reg['Reg6']."<br><br>".$Reg['Reg14']."<br><br>".$Reg['Reg15']."</p>"); }
 
         $query = "UPDATE account SET sha_pass_hash = '".$enewpass."' WHERE username = '".$account."'";
 		$query = "UPDATE account SET v = '0' WHERE username = '".$account."'";
@@ -109,7 +109,7 @@ if(isset($_POST['submit']))
         $result = mysql_query($query) or die(mysql_error());
         
 
-        echo "<p align='center'>Password for the Account<br><br>'<b>".$account."</b>'<br><br>has been successfully changed!";
+        echo "<p align='center'>".$Reg['Reg16']."<br><br>'<b>".$account."</b>'<br><br>".$Reg['Reg17']."";
 
         //close mysql connection
         mysql_close($con);
@@ -118,7 +118,7 @@ else{
 ?>
 <div class="form-row required">
 <label for="oldPassword" class="label-full ">
-<strong> Account Name:
+<strong> <?php echo $Reg['Reg18']; ?>
 </strong>
 <span class="form-required">*</span>
 </label>
@@ -127,7 +127,7 @@ else{
 </div>
 <div class="form-row required">
 <label for="oldPassword" class="label-full ">
-<strong> Old Password:
+<strong> <?php echo $Reg['Reg19']; ?>
 </strong>
 <span class="form-required">*</span>
 </label>
@@ -136,7 +136,7 @@ else{
 </div>
 <div class="form-row required">
 <label for="newPassword" class="label-full ">
-<strong> New Password:
+<strong> <?php echo $Reg['Reg20']; ?>
 </strong>
 <span class="form-required">*</span>
 </label>
@@ -145,7 +145,7 @@ else{
 <div class="ui-note">
 <div class="form-note toggle-note border-5 glow-shadow" id="newPassword-note">
 <div class="note">
-<h5>Password Rules</h5><ul><li>Your password may only contain <strong>alphabetic characters (A–Z), numeric characters (0–9), and punctuation.</strong></li><li>Your password <strong>must</strong> contain at least one alphabetic character <strong>and</strong> one numeric character.</li><li>You cannot enter your account name as your password.</li><li>Your password must be between <strong>eight and sixteen characters</strong> in length.</li><li>For your security, we highly recommend you choose a unique password that you don’t use for any other online account.</li></ul>
+<h5><?php echo $Reg['Reg21']; ?></h5><ul><li><?php echo $Reg['Reg22']; ?><strong><?php echo $Reg['Reg23']; ?></strong></li><li><?php echo $Reg['Reg24']; ?><strong><?php echo $Reg['Reg25']; ?></strong><?php echo $Reg['Reg26']; ?><strong><?php echo $Reg['Reg27']; ?></strong><?php echo $Reg['Reg28']; ?></li><li><?php echo $Reg['Reg29']; ?></li><li><?php echo $Reg['Reg30']; ?><strong><?php echo $Reg['Reg31']; ?></strong><?php echo $Reg['Reg32']; ?></li><li><?php echo $Reg['Reg33']; ?></li></ul>
 <a href="#" class="close-note" rel="newPassword-note"></a>
 </div>
 <div class="note-arrow"></div>
@@ -157,7 +157,7 @@ else{
 </div>
 <div class="form-row required">
 <label for="newPasswordVerify" class="label-full ">
-<strong> Confirm New Password:
+<strong> <?php echo $Reg['Reg34']; ?>
 </strong>
 <span class="form-required">*</span>
 </label>
@@ -174,14 +174,14 @@ id="settings-submit"
 value="Change my password!"
 tabindex="1">
 <span>
-<span>Continue</span>
+<span><?php echo $Reg['Reg35']; ?></span>
 </span>
 </button>
 <a class="ui-cancel "
 href="account_man.php"
 tabindex="1">
 <span>
-Cancel </span>
+<?php echo $Reg['Reg36']; ?></span>
 </a>
 </fieldset>
 </form>

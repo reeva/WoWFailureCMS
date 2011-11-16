@@ -5,7 +5,7 @@ $page_cat = 'summary';
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
 <head>
-<title><?php echo $website['title']; ?> - Account Management</title>
+<title><?php echo $website['title']; ?><?php echo $Man['Man']; ?></title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="local-common/images/favicons/bam.ico" type="image/x-icon"/>
@@ -102,7 +102,7 @@ return false;
 <noscript>
 <div id="javascript-warning" class="warning warning-red">
 <div class="warning-inner2">
-JavaScript must be enabled to use this site.
+<?php echo $Man['Man2']; ?>
 </div>
 </div>
 </noscript>
@@ -116,8 +116,8 @@ JavaScript must be enabled to use this site.
 <div class="dashboard wowx3 eu">
 <div class="primary">
 <div class="header">
-<h2 class="subcategory">Game Management</h2>
-<h3 class="headline">World of Warcraft&#174;: Cataclysm</h3>
+<h2 class="subcategory"><?php echo $Man['Man3']; ?></h2>
+<h3 class="headline"><?php echo $Man['Man4']; ?></h3>
 <a href=""><img src="wow/static/local-common/images/game-icons/wowx3.png" alt="World of Warcraft®" title="" width="48" height="48" /></a>
 </div>
 <div class="account-summary">
@@ -127,9 +127,9 @@ JavaScript must be enabled to use this site.
 </div>
 <div class="section account-details">
 <dl>
-<dt class="subcategory">Account Name</dt>
+<dt class="subcategory"><?php echo $Man['Man5']; ?></dt>
 <dd class="account-name"><?php echo strtolower($_SESSION['username']); ?></dd>
-<dt class="subcategory">Status</dt>
+<dt class="subcategory"><?php echo $Man['Man6']; ?></dt>
 <dd class="account-status"> <span><strong class="disable"><?php include("configs.php");
  //Get Info By Query
  $conn = mysql_connect("$serveraddress", "$serveruser", "$serverpass")or die("Couldn't connect to database"); 
@@ -139,52 +139,52 @@ JavaScript must be enabled to use this site.
   //Banned?
   if($get['locked'] == 0)
       {
-        $banned = "Active";
+        $banned = ".$Man['Man7'].";
       }
       else
       {
-        $banned = "Banned";
+        $banned = ".$Man['Man8'].";
       }
    }
 ?></strong></span>
 </dd>
-<dt class="subcategory">Current Game Source</dt>
-<dd class="account-details"> 100% Days
+<dt class="subcategory"><?php echo $Man['Man9']; ?></dt>
+<dd class="account-details"> <?php echo $Man['Man10']; ?>
 </dd>
-<dt class="subcategory">Expansion Pack</dt>
-<dd class="account primary-account"><span class="account-history">Cataclysm</span>
-<em><a href="">Change</a></em></dd>
-<dd class="account secondary-account">Wrath of the Lich King
-<em><a href="">Change</a></em></dd>
-<dd class="account secondary-account">The Burning Crusade
-<em><a href="">Change</a></em></dd>
-<dd class="account secondary-account oldest-account">World of Warcraft
-<em><a href="">Change</a></em></dd>
-<dt class="subcategory">Region</dt>
-<dd class="region eu">Europe (EU)</dd>
-<dt class="subcategory"><?php echo $website['title']; ?> Donator</dt>
-<dd><strong class="unsubscribed">Unsubscribed</strong></dd>
+<dt class="subcategory"><?php echo $Man['Man11']; ?></dt>
+<dd class="account primary-account"><span class="account-history"><?php echo $Man['Man12']; ?></span>
+<em><a href=""><?php echo $Man['Man13']; ?></a></em></dd>
+<dd class="account secondary-account"><?php echo $Man['Man14']; ?>
+<em><a href=""><?php echo $Man['Man15']; ?></a></em></dd>
+<dd class="account secondary-account"><?php echo $Man['Man16']; ?>
+<em><a href=""><?php echo $Man['Man17']; ?></a></em></dd>
+<dd class="account secondary-account oldest-account"><?php echo $Man['Man18']; ?>
+<em><a href=""><?php echo $Man['Man19']; ?></a></em></dd>
+<dt class="subcategory"><?php echo $Man['Man20']; ?></dt>
+<dd class="region eu"><?php echo $Man['Man21']; ?></dd>
+<dt class="subcategory"><?php echo $website['title']; ?><?php echo $Man['Man22']; ?></dt>
+<dd><strong class="unsubscribed"><?php echo $Man['Man23']; ?></strong></dd>
 </dl>
 </div>
 <div class="section available-actions">
 <ul class="game-time">
 <li class="change-payment-method">
-<a href="">Donate / Buy Subscription</a>
+<a href=""><?php echo $Man['Man24']; ?></a>
 </li>
 <li class="change-payment-method">
-<a href="vote.php">Vote and Get Rewarded</a>
+<a href="vote.php"><?php echo $Man['Man25']; ?></a>
 </li>
 <li class="add-game-card">
-<a href="change-password.php">Change your Password</a>
+<a href="change-password.php"><?php echo $Man['Man26']; ?></a>
 </li>
 <li class="payment-history">
-<a href="">View Account History</a>
+<a href=""><?php echo $Man['Man27']; ?></a>
 </li>
 <li class="download-guide">
-<a href="game_client.php">Download Beginner's Guide</a>
+<a href="game_client.php"><?php echo $Man['Man28']; ?></a>
 </li>
 <li class="download-client">
-<a href="game_client.php">Download Game Client</a>
+<a href="game_client.php"><?php echo $Man['Man29']; ?></a>
 </li>
 </ul>
 </div>
@@ -199,7 +199,7 @@ JavaScript must be enabled to use this site.
 <input type="hidden" name="product" value="" />
 <input type="hidden" name="region" value="EU" />
 </div>
-<h4>Enter your Game Key</h4>
+<h4><?php echo $Man['Man30']; ?></h4>
 <p></p>
 <p class="simple-input">
 <input type="text" name="gameKey" value="" class="input border-5 glow-shadow-2" maxlength="320" tabindex="1" />
@@ -209,7 +209,7 @@ type="submit"
 disabled="disabled"
 tabindex="1">
 <span>
-<span>Upgrade Account</span>
+<span><?php echo $Man['Man31']; ?></span>
 </span>
 </button>
 <a class="ui-cancel "
@@ -217,10 +217,10 @@ href="#"
 onclick="DashboardForm.hide($('#enter-game-key')); return false;"
 tabindex="1">
 <span>
-Cancel </span>
+<?php echo $Man['Man32']; ?></span>
 </a>
 </p>
-<p>Not case-sensitive, no spaces or hyphens required.</p>
+<p><?php echo $Man['Man33']; ?></p>
 </form>
 </div>
 </div>
@@ -228,10 +228,10 @@ Cancel </span>
 <div class="secondary">
 <div class="service-selection character-services">
 <ul class="wow-services">
-<li class="category"><a href="#character-services" class="character-services">Character Services</a></li>
-<li class="category"><a href="#additional-services" class="additional-services">Additional Services</a></li>
-<li class="category"><a href="#referrals-rewards" class="referrals-rewards">Referrals &amp; Rewards</a></li>
-<li class="category"><a href="#game-time-subscriptions" class="game-time-subscriptions">Game Time &amp; Subscriptions</a></li>
+<li class="category"><a href="#character-services" class="character-services"><?php echo $Man['Man34']; ?></a></li>
+<li class="category"><a href="#additional-services" class="additional-services"><?php echo $Man['Man35']; ?></a></li>
+<li class="category"><a href="#referrals-rewards" class="referrals-rewards"><?php echo $Man['Man36']; ?></a></li>
+<li class="category"><a href="#game-time-subscriptions" class="game-time-subscriptions"><?php echo $Man['Man37']; ?></a></li>
 </ul>
 <div class="service-links">
 <div class="position"></div>
@@ -240,43 +240,43 @@ Cancel </span>
 <li class="wow-service pct">
 <a href="">
 <span class="icon glow-shadow-3"></span>
-<strong>Character Transfer</strong>
-Move your characters to different realms or accounts.
+<strong><?php echo $Man['Man38']; ?></strong>
+<?php echo $Man['Man39']; ?>
 </a>
 </li>
 <li class="wow-service pfc">
 <a href="">
 <span class="icon glow-shadow-3"></span>
-<strong>Faction Change</strong>
-Change a character's faction (Horde to Alliance or Alliance to Horde).
+<strong><?php echo $Man['Man40']; ?></strong>
+<?php echo $Man['Man41']; ?>
 </a>
 </li>
 <li class="wow-service prc">
 <a href="">
 <span class="icon glow-shadow-3"></span>
-<strong>Race Change</strong>
-Change a character's race (within your current faction).
+<strong><?php echo $Man['Man42']; ?></strong>
+<?php echo $Man['Man43']; ?>
 </a>
 </li>
 <li class="wow-service pnc">
 <a href="">
 <span class="icon glow-shadow-3"></span>
-<strong>Name Change</strong>
-Change your characters' names.
+<strong><?php echo $Man['Man44']; ?></strong>
+<?php echo $Man['Man45']; ?>
 </a>
 </li>
 <li class="wow-service pcc">
 <a href="">
 <span class="icon glow-shadow-3"></span>
-<strong>Appearance Change</strong>
-Change your characters' appearance (Optional name change included).
+<strong><?php echo $Man['Man46']; ?></strong>
+<?php echo $Man['Man47']; ?>
 </a>
 </li>
 <li class="wow-service char-move">
 <a href="chars-unst.php">
 <span class="icon glow-shadow-3"></span>
-<strong>Character Unstuck</strong>
-Transfer your characters when he gets stuck.
+<strong><?php echo $Man['Man48']; ?></strong>
+<?php echo $Man['Man49']; ?>
 </a>
 </li>
 </ul>
@@ -286,22 +286,22 @@ Transfer your characters when he gets stuck.
 <li class="wow-service ptr-copy">
 <a href="vote.php">
 <span class="icon glow-shadow-3"></span>
-<strong>Vote Shop</strong>
-Vote and get rewarded and support <?php echo $website['title']; ?> to be on the Top List.
+<strong><?php echo $Man['Man50']; ?></strong>
+<?php echo $Man['Man51']; ?><?php echo $website['title']; ?> <?php echo $Man['Man52']; ?>
 </a>
 </li>
 <li class="wow-service arena-tournament-closed">
 <a href="" onclick="return Core.open(this);">
 <span class="icon glow-shadow-3 disabled"></span>
-<strong>Beta Test Realm (Closed)</strong>
-Arena Pass registration is currently closed. Click here for more information.
+<strong><?php echo $Man['Man53']; ?></strong>
+<?php echo $Man['Man54']; ?>
 </a>
 </li>
 <li class="wow-service parental-controls">
 <a href="">
 <span class="icon glow-shadow-3"></span>
-<strong>Parental Controls</strong>
-Manage, monitor, and limit your child's play time.
+<strong><?php echo $Man['Man55']; ?></strong>
+<?php echo $Man['Man56']; ?>
 </a>
 </li>
 </ul>
@@ -311,15 +311,15 @@ Manage, monitor, and limit your child's play time.
 <li class="wow-service raf">
 <a href="">
 <span class="icon glow-shadow-3"></span>
-<strong>Recruit a Friend</strong>
-Earn in-game rewards, and more by recruiting your friends, bringing them to the Ultimate Gaming.
+<strong><?php echo $Man['Man57']; ?></strong>
+<?php echo $Man['Man58']; ?>
 </a>
 </li>
 <li class="wow-service resurrection-scroll">
 <a href="raf-invite.php">
 <span class="icon glow-shadow-3"></span>
-<strong>Refer a Friend</strong>
-Get more Friends, to <?php echo $website['title']; ?>, to enjoy the Ultimate Gaming.
+<strong><?php echo $Man['Man59']; ?></strong>
+<?php echo $Man['Man60']; ?><?php echo $website['title']; ?><?php echo $Man['Man61']; ?>
 </a>
 </li>
 </ul>
@@ -329,15 +329,15 @@ Get more Friends, to <?php echo $website['title']; ?>, to enjoy the Ultimate Gam
 <li class="wow-service add-game-card">
 <a href="">
 <span class="icon glow-shadow-3"></span>
-<strong>Donate Subscription</strong>
-Add <?php echo $website['title']; ?> Donation Title to your account and unlock illuminative Rewards.
+<strong><?php echo $Man['Man62']; ?></strong>
+<?php echo $Man['Man63']; ?><?php echo $website['title']; ?><?php echo $Man['Man64']; ?>
 </a>
 </li>
 <li class="wow-service wow-anywhere">
 <a href="">
 <span class="icon glow-shadow-3"></span>
-<strong><?php echo $website['title']; ?> Remote</strong>
-Use all the features of the Remote Auction House of <?php echo $website['title']; ?>.
+<strong><?php echo $website['title']; ?><?php echo $Man['Man65']; ?></strong>
+<?php echo $Man['Man66']; ?><?php echo $website['title']; ?>.
 </a>
 </li>
 </ul>
