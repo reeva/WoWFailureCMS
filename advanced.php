@@ -238,7 +238,7 @@ Services
 	<a href="" class="" rel="np">
 	<span class="arrow"><span class="icon">Summary</span></span></a>
 	</li>
-	<li class="">
+	<!--<li class="">
 	<a href="" class="" rel="np">
 	<span class="arrow"><span class="icon">Talents &amp; Glyphs</span></span></a>
 	</li>
@@ -273,7 +273,7 @@ Services
 	<li class="">
 	<a href="" class="" rel="np">
 	<span class="arrow"><span class="icon">Activity Feed</span></span></a>
-	</li>
+	</li>-->
 	</ul>
 	<div class="summary-sidebar-links">
 	</div>
@@ -288,7 +288,6 @@ Services
 	<li class="current">
 	<a href="" rel="np" class="advanced">Advanced</a></li>
 	<li>
-	<a href="" rel="np" class="simple">Simple</a></li>
 	</ul>
 	<div class="summary-averageilvl">
 	<div class="rest">Average item level<br/>(<span class="equipped">20</span> Equipped)
