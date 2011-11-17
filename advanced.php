@@ -9,44 +9,44 @@ $lbrspa = mysql_query("SELECT name,race,class,gender,level,health,power1 FROM ch
 $get = mysql_fetch_assoc($lbrspa);
 
 //Character Class
-$cclass2 = $get['class'];
-if ($cclass2 == 1)
+$cclass = $get['class'];
+if ($cclass == 1)
 {
 $class2 = "Warrior";
 }
-elseif ($cclass2 == 2)
+elseif ($cclass == 2)
 {
 $class2 = "Paladin";
 }
-elseif ($cclass2 == 3)
+elseif ($cclass == 3)
 {
 $class2 = "Hunter";
 }
-elseif ($cclass2 == 4)
+elseif ($cclass == 4)
 {
 $class2 = "Rogue";
 }
-elseif ($cclass2 == 5)
+elseif ($cclass == 5)
 {
 $class2 = "Priest";
 }
-elseif ($cclass2 == 6)
+elseif ($cclass == 6)
 {
 $class2 = "Death Knight";
 }
-elseif ($cclass2 == 7)
+elseif ($cclass == 7)
 {
 $class2 = "Shaman";
 }
-elseif ($cclass2 == 8)
+elseif ($cclass == 8)
 {
 $class2 = "Mage";
 }
-elseif ($cclass2 == 9)
+elseif ($cclass == 9)
 {
 $class2 = "Warlock";
 }
-elseif ($cclass2 == 11)
+elseif ($cclass == 11)
 {
 $class2 = "Druid";
 }
@@ -121,7 +121,48 @@ elseif($rrace == 2 || $rrace == 5 || $rrace == 6 || $rrace == 8 || $rrace == 9 |
 {
 $bg = "horde";
 }
-
+// Powers
+if($cclass == 2 || $cclass == 7 || $cclass == 8 || $cclass == 9 || $cclass == 11 || $cclass == 5)
+{
+$power = "0";
+}
+elseif($cclass == 3)
+{
+$power = "2";
+}
+elseif($cclass == 1)
+{
+$power = "1";
+}
+elseif($cclass == 4)
+{
+$power = "3";
+}
+elseif($cclass == 6)
+{
+$power = "6";
+}
+// Powers NAME
+if($cclass == 2 || $cclass == 7 || $cclass == 8 || $cclass == 9 || $cclass == 11 || $cclass == 5)
+{
+$powname = "Mana";
+}
+elseif($cclass == 3)
+{
+$powname = "Focus";
+}
+elseif($cclass == 1)
+{
+$powname = "Rage";
+}
+elseif($cclass == 4)
+{
+$powname = "Energy";
+}
+elseif($cclass == 6)
+{
+$powname = "Runic";
+}
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
@@ -1052,7 +1093,33 @@ Services
 					<div class="summary-health-resource">
 	<ul>
 		<li class="health" id="summary-health" data-id="health"><span class="name">Health</span><span class="value"><?php echo $get["health"] ?></span></li>
-		<li class="resource-0" id="summary-power" data-id="power-0"><span class="name">Mana</span><span class="value"><?php echo $get["power1"] ?></span></li>
+		<li class="resource-<?php echo $power ?>" id="summary-power" data-id="power-<?php echo $power ?>"><span class="name"><?php echo $powname ?></span><span class="value">
+		<?php 
+		if($cclass == 2 || $cclass == 7 || $cclass == 8 || $cclass == 9 || $cclass == 11 || $cclass == 5)
+		{
+		echo $get["power1"];
+		}
+		elseif($cclass == 3)
+		{
+		echo '100';
+		}
+		elseif($cclass == 1)
+		{
+		echo '100';
+		}
+		elseif($cclass == 4)
+		{
+		echo '100';
+		}
+		elseif($cclass == 7)
+		{
+		echo '100';
+		}
+		elseif($cclass == 6)
+		{
+		echo '100';
+		}
+		 ?></span></li>
 	</ul>
 					</div>
 
@@ -1065,37 +1132,21 @@ Services
 	<div class="summary-stats-column">
 		<h4>Base</h4>
 		<ul>
-
-	 
-
-
-
-
-
 	<li data-id="strength" class="">
 		<span class="name">Strength</span>
 		<span class="value color-q2">0</span>
 	<span class="clear"><!-- --></span>
 	</li>
-
-	 
-
-
-
-
-
+	<li data-id="intellect" class="">
+		<span class="name">Intellect</span>
+		<span class="value color-q10">0</span>
+	<span class="clear"><!-- --></span>
+	</li>
 	<li data-id="stamina" class="">
 		<span class="name">Stamina</span>
 		<span class="value color-q2">0</span>
 	<span class="clear"><!-- --></span>
 	</li>
-
-	 
-
-
-
-
-
 	<li data-id="mastery" class="">
 		<span class="name">Mastery</span>
 		<span class="value">0.00</span>
@@ -1724,7 +1775,7 @@ Services
 			"averageItemLevelBest": 20,
 			"spellHitRating": 0,
 			"agiBase": 32,
-			"energy": 0,
+			"energy": 100,
 			"expertiseOffPercent": 0,
 			"critPercent": 6.109059810638428,
 			"rangeCritPercent": 6.109059810638428,
@@ -1754,14 +1805,14 @@ Services
 			"frostCrit": 6.986073017120361,
 			"armorPenetrationPercent": 0,
 			"resistShadow_pet": -1,
-			"focus": 0,
+			"focus": 100,
 			"rangeHitRatingPercent": 0,
 			"natureResist": 0,
-			"intTotal": 41,
+			"intTotal": 0,
 			"expertiseRating": 0,
 			"bonusOffMainWeaponSkill": 0,
 			"frostResist": 0,
-			"int_mp": 335,
+			"int_mp": 0,
 			"arcaneCrit": 6.986073017120361,
 			"holyCrit": 6.986073017120361,
 			"bonusMainWeaponSkill": 0,
@@ -1838,7 +1889,7 @@ Services
 			"blockRatingPercent": 0,
 			"hitRatingPercent": 0,
 			"hitPercent": 1,
-			"int_crit": 1.5870813131332397,
+			"int_crit": 0,
 			"rap_petSpellDmg": -1,
 			"arcaneResist": 0,
 			"resistFrost_pet": -1,
@@ -1847,7 +1898,7 @@ Services
 			"frostDamage": 113,
 			"sta_hp": 960,
 			"agi_crit": 4.045567989349365,
-			"rage": 0,
+			"rage": 100,
 			"armorTotal": 1983,
 			"sta_petSta": -1,
 			"spellCritRatingPercent": 2.0634920597076416,
@@ -2091,19 +2142,19 @@ Services
 					description: "Your maximum mana. Mana allows you to cast spells."
 				},
 				rage: {
-					title: "Rage {0}",
+					title: "Rage 100",
 					description: "Your maximum rage. Rage is consumed when using abilities and is restored by attacking enemies or being damaged in combat."
 				},
 				focus: {
-					title: "Focus {0}",
+					title: "Focus 100",
 					description: "Your maximum focus. Focus is consumed when using abilities and is restored automatically over time."
 				},
 				energy: {
-					title: "Energy {0}",
+					title: "Energy 100",
 					description: "Your maximum energy. Energy is consumed when using abilities and is restored automatically over time."
 				},
 				runic: {
-					title: "Runic {0}",
+					title: "Runic 100",
 					description: "Your maximum Runic Power."
 				},
 				strength: {
