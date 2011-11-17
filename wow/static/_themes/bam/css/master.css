@@ -97,6 +97,18 @@ h3 { font-size: 18px; margin: 0 0 15px 0; padding: 0; font-weight: normal; lette
 #errors a { color: #ffd800; }
 #content #errors { width: 500px; margin: 0 auto 20px auto; }
 
+/* Error page */
+.brokennavcontainer img {width:954px; height:572px; left:0; position:absolute; top:0; left:0; z-index:117;}
+.brokennavloc {background-position:50% 0; background-repeat:no-repeat;}
+.brokennav {width:954px; height:552px; top:0; z-index:111; margin:0 auto; position:relative;}
+.shatter1 {width:674px; height:549px; left:-40px; z-index:110; top:0px; background-image:url(../../../images/404/shatter1.png); position:absolute;}
+.shatter2 {width:262px; height:285px; right:0px; z-index:109; top:348px; background-image:url(../../../images/404/shatter2.gif); position:absolute;}
+.gratz { position:absolute; top:440px; right:463px; text-align:right; z-index:116;}
+.gratz p.lead {font-size:28px; margin:0 0 5px;}
+.gratz p.lead strong {font-size:39px;}
+.gratz p {font:12px Arial, Helvetica, sans-serif; color:#82B8CB; margin:0;}
+.fillmore {height:600px;}
+
 /* auth */
 #authenticator { padding-left: 200px; background: url("../img/authenticator.gif") no-repeat; font-size: 14px; min-height: 250px; }
 #authenticator strong { color: #8c99a5; font-size: 16px; }
