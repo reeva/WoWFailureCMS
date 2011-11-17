@@ -7,11 +7,11 @@
 5) Faction Change (need to be worked as a part of donation system)
 6) Appearance Change (need to be worked as a part of donation system)
 7) Race Change (finished but need to be worked as a part of donation system)
-8) Finish the Refer and recruit a Friend (this will need core support)
-9) Try to work in armory (Work Started - 50% DONE)
-10) Fix the submit options in the fan art, wallpapers and general media zone, and add a option to gm can accept the submission before they appear public
-11) All other the criterias (Conquest, 2v2, 3v3, 5v5) needs to be fixed.
-12) Create the Module 'add items to buy' for vote points.(Work Started)
+8) Try to work in armory (Work Started - 70% DONE)
+9) Fix the submit options in the fan art, wallpapers and general media zone, 
+   and add a option to gm can accept the submission before they appear public
+10) All other the criterias (Conquest, 2v2, 3v3, 5v5) needs to be fixed.
+11) Create the Module 'add items to buy' for vote points.(Work Started)
 
 # --------------------------------------------------------------
 # |CMS:                                  |    WOWFailureCMS    |
@@ -23,5 +23,5 @@
 # |Latest Update:                                | 2011-11-12  |
 # ----------------------------TEAM------------------------------
 # |Team: FailZorD, AwkwardDev, Axium, dju35, Fabian, hondacrx, |
-# |Kitiara, MrBillys, netcho, zze, Voragine(Roberto Roeschmann)|                                   |
+# |Kitiara, MrBillys, netcho, zze, Voragine(Roberto Roeschmann)|
 # --------------------------------------------------------------
