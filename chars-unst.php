@@ -6,7 +6,7 @@ $page_cat = "security";
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
 <head>
-<title><?php echo $website['title']; ?> - Character Unstuck</title>
+<title><?php echo $website['title']; ?><?php echo $Uns['Uns']; ?></title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/bam.ico" type="image/x-icon"/>
@@ -66,7 +66,7 @@ _gaq.push(['_trackPageLoadTime']);
 <div class="wrapper">
 <div id="content">
 <div id="account-progress">
-<span>Progress 100%</span> [Step 1 of 1]
+<span><?php echo $Uns['Uns1']; ?></span><?php echo $Uns['Uns2']; ?>
 <div id="progress-bar" class="border-3">
 <div id="current-progress" class="border-3" style="width: 100%"></div>
 </div>
@@ -75,8 +75,8 @@ _gaq.push(['_trackPageLoadTime']);
 <div class="alert caution border-4 glow-shadow">
 <div class="alert-inner">
 <div class="alert-message">
-<p class="title"><strong>Game Region Warning</strong></p>
-<p>You should change your country to Korea, republic of and verify your Personal Residence Number to use Korean games.</p>
+<p class="title"><strong><?php echo $Uns['Uns3']; ?></strong></p>
+<p><?php echo $Uns['Uns4']; ?></p>
 </div>
 </div>
 <span class="clear"><!-- --></span>
@@ -86,8 +86,8 @@ _gaq.push(['_trackPageLoadTime']);
 <div class="alert caution border-4 glow-shadow">
 <div class="alert-inner">
 <div class="alert-message">
-<p class="title"><strong>Game Region Warning</strong></p>
-<p>The World of Warcraft account merge process is not yet available in your region.</p>
+<p class="title"><strong><?php echo $Uns['Uns5']; ?></strong></p>
+<p><?php echo $Uns['Uns6']; ?></p>
 </div>
 </div>
 <span class="clear"><!-- --></span>
@@ -97,7 +97,7 @@ _gaq.push(['_trackPageLoadTime']);
 <div class="alert caution border-4 glow-shadow">
 <div class="alert-inner">
 <div class="alert-message">
-<p>If you lost your authenticator, please detach it before proceeding. (Security card service ended 8/13/2010 and was automatically detached.) <a href="http://www.worldofwarcraft.co.kr/myworld/security/unbind-form.do" target="_blank">Detach your authenticator</a>.<br /><br /><a href="http://kr.blizzard.com/support/article.xml?articleId=21140&amp;categoryId=1614&amp;parentCategoryId=&amp;pageNumber=1" target="_blank">Read more</a>.</p>
+<p><?php echo $Uns['Uns7']; ?><a href="http://www.worldofwarcraft.co.kr/myworld/security/unbind-form.do" target="_blank">Detach your authenticator</a>.<br /><br /><a href="http://kr.blizzard.com/support/article.xml?articleId=21140&amp;categoryId=1614&amp;parentCategoryId=&amp;pageNumber=1" target="_blank"><?php echo $Uns['Uns24']; ?></a>.</p>
 </div>
 </div>
 <span class="clear"><!-- --></span>
@@ -107,23 +107,23 @@ _gaq.push(['_trackPageLoadTime']);
 <div class="alert caution border-4 glow-shadow">
 <div class="alert-inner">
 <div class="alert-message">
-<p class="title"><strong>If you use Phone Lock: please unlock your World of Warcraft account before merging.</strong></p>
+<p class="title"><strong><?php echo $Uns['Uns8']; ?></strong></p>
 <p>
-Taiwan: 0800-303-585<br />
-<em>(Not available 10–11AM every first Wed of the month)</em>
+<?php echo $Uns['Uns9']; ?><br />
+<em><?php echo $Uns['Uns10']; ?></em>
 </p>
-<p>Hong Kong &amp; Macau: 396-54666</p>
+<p><?php echo $Uns['Uns11']; ?></p>
 </div>
 </div>
 <span class="clear"><!-- --></span>
 </div>
 </div>
 <div id="page-header">
-<span class="float-right"><span class="form-req">*</span> Required</span>
-<h2 class="subcategory">Game Management</h2>
-<h3 class="headline">Unstuck your World of Warcraft Character</h3>
+<span class="float-right"><span class="form-req">*</span><?php echo $Uns['Uns12']; ?></span>
+<h2 class="subcategory"><?php echo $Uns['Uns13']; ?></h2>
+<h3 class="headline"><?php echo $Uns['Uns14']; ?></h3>
 </div>
-<p>Enter the username and password of the World of Warcraft account and the Character you wish to transfer from the stucked area. You will have the opportunity to move or to continue your journey ingame. You must be offline from your account to let this succeed.</p>
+<p><?php echo $Uns['Uns15']; ?></p>
 <div id="page-content">
 <form method="post" action="" class="account-merge" id="account-merge">
 <div id="wowLogin">
@@ -131,7 +131,7 @@ Taiwan: 0800-303-585<br />
 <span class="input-left">
 <label for="username">
 <span class="label-text">
-World of Warcraft Account Name:
+<?php echo $Uns['Uns16']; ?>
 </span>
 <span class="input-required">*</span>
 </label>
@@ -154,14 +154,14 @@ $character = $_POST['char'];
 $serverpassword = sha1(strtoupper($serverusername) . ":" . strtoupper($serverpassword));
 $valid_account = mysql_query("SELECT * FROM $server_adb.account WHERE username='$serverusername' AND sha_pass_hash='$serverpassword'");
 $account_valid = mysql_num_rows($valid_account);
-if($account_valid != 1){print'Invalid Account.<br/>';}else{
+if($account_valid != 1){print''.$Uns['Uns25'].'<br/>';}else{
 while($get_char = mysql_fetch_array($valid_account)){
 $valid_char = mysql_query("SELECT * FROM $server_cdb.characters WHERE name='$character'");
 $char_valid = mysql_num_rows($valid_char);
-if($char_valid != 1){print'Invalid Character.<br/>';}else{
+if($char_valid != 1){print''.$Uns['Uns26'].'<br/>';}else{
 $char_acc = mysql_query("SELECT * FROM $server_cdb.characters WHERE account='".$get_char['id']."' AND name='$character'");
 $acc_char = mysql_num_rows($char_acc);
-if($acc_char != 1){print'That Character Is Not Yours.<br/>';}else{
+if($acc_char != 1){print''.$Uns['Uns27'].'<br/>';}else{
 //Get Character HomeBind
 while($acc_id = mysql_fetch_array($char_acc)){
 $homeb = mysql_query("SELECT * FROM $server_cdb.character_homebind WHERE guid='".$acc_id['guid']."'");
@@ -173,7 +173,7 @@ $z = $home['zone'];//Zone
 $m = $home['map'];//Map
 //Unstuck Character
 $unstuck = mysql_query("UPDATE $server_cdb.characters SET position_x = '$px', position_y = '$py', position_z = '$pz', zone = '$z', map = '$m' WHERE name='$character'") or die('UnStuck Failed: ' . mysql_error());
-print'Your Character Is Fixed.';
+print''.$Uns['Uns28'].'';
 }}}}}}}}
 print'
 <table align="center">
@@ -184,7 +184,7 @@ print'
 <span class="input-left">
 <label for="username">
 <span class="label-text">
-World of Warcraft Account Character:
+'.$Uns['Uns17'].'
 </span>
 <span class="input-required">*</span>
 </label>
@@ -200,7 +200,7 @@ World of Warcraft Account Character:
 <span class="input-left">
 <label for="password">
 <span class="label-text">
-World of Warcraft Account Password:
+'.$Uns['Uns18'].'
 </span>
 <span class="input-required">*</span>
 </label>
@@ -209,9 +209,9 @@ World of Warcraft Account Password:
 <span class="input-text input-text-small">
 <input type="password" id="password" name="password" value="" class="small border-5 glow-shadow-2" autocomplete="off" onpaste="return false;" maxlength="16" tabindex="1" required="required" />
 <span class="inline-message" id="password-message"><a id="pwLink" class="icon-external" href="" onclick="window.open(this.href);return false" tabindex="1">
-Forgot your password?
+'.$Uns['Uns19'].'
 </a>
-<p id="pwLinkNo" style="display:none;">If you have forgotten your World of Warcraft password, please contact <a href="" target="_blank">Customer Support</a>.</p>
+<p id="pwLinkNo" style="display:none;">'.$Uns['Uns20'].'<a href="" target="_blank">'.$Uns['Uns21'].'</a>.</p>
 </span>
 </span>
 </span>
@@ -221,18 +221,18 @@ Forgot your password?
 class="ui-button button1 "
 type="submit"
 name="unstuck"
-value="Unstuck!"
+value="'.$Uns['Uns22'].'"
 id="merge-submit"
 tabindex="1">
 <span>
-<span>Continue</span>
+<span>'.$Uns['Uns29'].'</span>
 </span>
 </button>
 <a class="ui-cancel "
 href="/account/"
 tabindex="1">
 <span>
-Cancel </span>
+'.$Uns['Uns23'].'</span>
 </a>
 </fieldset>
 </form>

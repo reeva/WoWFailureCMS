@@ -4,8 +4,22 @@ mysql_select_db($server_cdb,$connection_setup)or die(mysql_error());
 $username = mysql_real_escape_string($name = $_GET['name']);
 $lbrspa = mysql_query("SELECT guid,name,race,class,gender,level,totalHonorPoints,totalKills,health,power1,power2,power3,power4,power5,power6,power7,power8,power9 FROM characters WHERE name = '".$username."'");
 $get = mysql_fetch_assoc($lbrspa);
-$itrspa = mysql_query("SELECT itemEntry, slot,enchantments FROM item_instance inner join character_inventory on item_instance.guid=character_inventory.item where owner_guid=".$get['guid']);
-
+$lbrscv = mysql_query("SELECT currency,count FROM character_currency WHERE guid='".$get['guid']."'");
+$supstats = mysql_query("SELECT maxhealth,maxpower1,maxpower2,maxpower3,maxpower4,maxpower5,maxpower6,maxpower7,maxpower8,maxpower9,maxpower10,strength,agility,stamina,intellect,spirit,armor,resHoly,resFire,resNature,resFrost,resShadow,resArcane,blockPct,dodgePct,parryPct,critPct,rangedCritPct,spellCritPct,attackPower,rangedAttackPower,spellPower FROM character_stats WHERE guid='".$get['guid']."'");
+$getc = mysql_fetch_assoc($lbrscv);
+$gets = mysql_fetch_assoc($supstats);
+//Currency - Honor
+$chonor = $getc['currency'];
+if ($chonor == 392)
+{
+$honor = $getc['count'];
+}
+//Currency - Conquest
+$cconq = $getc['currency'];
+if ($cconq == 390)
+{
+$conq = $getc['count'];
+}
 //Character Class
 $cclass = $get['class'];
 if ($cclass == 1)

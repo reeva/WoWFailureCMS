@@ -233,4 +233,50 @@ $Man['Man64'] = " Donation Title to your account and unlock illuminative Rewards
 $Man['Man65'] = " Remote";
 $Man['Man66'] = "Use all the features of the Remote Auction House of ";
 // Finishing Account Man
+//Starting Ban List
+$BanL['BanL1'] = "Banned By:";
+$BanL['BanL2'] = "Unban Date:";
+$BanL['BanL3'] = "Duration:";
+$BanL['BanL4'] = "Reason";
+$BanL['BanL5'] = "Permanent";
+$BanL['BanL6'] = "Never";
+// Finishing Ban List
+//Starting Chatbox
+$ChatB['ChatB1'] = "Shout was empty.";
+$ChatB['ChatB2'] = "You Must Login To Shout.";
+$ChatB['ChatB3'] = "Page:";
+$ChatB['ChatB4'] = "Previous";
+$ChatB['ChatB5'] = "Next";
+//Finishing Chatbox
+// Starting the Char Unstuck translation
+$Uns['Uns'] = " - Character Unstuck";
+$Uns['Uns1'] = "Progress 100%";
+$Uns['Uns2'] = " [Step 1 of 1]";
+$Uns['Uns3'] = "Game Region Warning";
+$Uns['Uns4'] = "You should change your country to Korea, republic of and verify your Personal Residence Number to use Korean games.";
+$Uns['Uns5'] = "Game Region Warning";
+$Uns['Uns6'] = "The World of Warcraft account merge process is not yet available in your region.";
+$Uns['Uns7'] = "If you lost your authenticator, please detach it before proceeding. (Security card service ended 8/13/2010 and was automatically detached.) ";
+$Uns['Uns8'] = "If you use Phone Lock: please unlock your World of Warcraft account before merging.";
+$Uns['Uns9'] = "Taiwan: 0800-303-585";
+$Uns['Uns10'] = "(Not available 10–11AM every first Wed of the month)";
+$Uns['Uns11'] = "Hong Kong &amp; Macau: 396-54666";
+$Uns['Uns12'] = " Required";
+$Uns['Uns13'] = "Game Management";
+$Uns['Uns14'] = "Unstuck your World of Warcraft Character";
+$Uns['Uns15'] = "Enter the username and password of the World of Warcraft account and the Character you wish to transfer from the stucked area. You will have the opportunity to move or to continue your journey ingame. You must be offline from your account to let this succeed.";
+$Uns['Uns16'] = "World of Warcraft Account Name:";
+$Uns['Uns17'] = "World of Warcraft Account Character:";
+$Uns['Uns18'] = "World of Warcraft Account Password:";
+$Uns['Uns19'] = "Forgot your password?";
+$Uns['Uns20'] = "If you have forgotten your World of Warcraft password, please contact ";
+$Uns['Uns21'] = "Customer Support";
+$Uns['Uns22'] = "Unstuck!";
+$Uns['Uns23'] = "Cancel ";
+$Uns['Uns24'] = "Read more";
+$Uns['Uns25'] = "Invalid Account.";
+$Uns['Uns26'] = "Invalid Character.";
+$Uns['Uns27'] = "That Character Is Not Yours.";
+$Uns['Uns28'] = "Your Character Is Fixed.";
+// Finishing the Char Unstuck translation
 ?>

@@ -973,17 +973,17 @@ Services
 		<ul>
 	<li data-id="strength" class="">
 		<span class="name">Strength</span>
-		<span class="value color-q2">0</span>
+		<span class="value color-q2"><?php echo $gets["strength"] ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 	<li data-id="intellect" class="">
 		<span class="name">Intellect</span>
-		<span class="value color-q10">0</span>
+		<span class="value color-q10"><?php echo $gets["intellect"] ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 	<li data-id="stamina" class="">
 		<span class="name">Stamina</span>
-		<span class="value color-q2">0</span>
+		<span class="value color-q2"><?php echo $gets["stamina"] ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 	<li data-id="mastery" class="">
@@ -1014,9 +1014,9 @@ Services
 
 	
 
-	<li data-id="expertise" class="">
-		<span class="name">Expertise</span>
-		<span class="value">0</span>
+	<li data-id="parry" class="">
+		<span class="name">Parry</span>
+		<span class="value"><?php echo $gets["parryPct"] ?>%</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -1052,7 +1052,7 @@ Services
 
 	<li data-id="meleecrit" class="">
 		<span class="name">Crit</span>
-		<span class="value">0%</span>
+		<span class="value"><?php echo $gets["critPct"] ?>%</span>
 	<span class="clear"><!-- --></span>
 	</li>
 		</ul>
@@ -1077,7 +1077,7 @@ Services
 
 	<li data-id="strength" class="">
 		<span class="name">Strength</span>
-		<span class="value color-q2">0</span>
+		<span class="value color-q2"><?php echo $gets["strength"] ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -1224,7 +1224,7 @@ Services
 
 	<li data-id="meleecrit" class="">
 		<span class="name">Crit</span>
-		<span class="value">0%</span>
+		<span class="value"><?php echo $get["critPct"] ?>%</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -1613,14 +1613,14 @@ Services
 			"averageItemLevelEquipped": 20,
 			"averageItemLevelBest": 20,
 			"spellHitRating": 0,
-			"agiBase": 32,
+			"agiBase": 239,
 			"energy": <?php echo $get["power4"] ?>,
 			"expertiseOffPercent": 0,
-			"critPercent": 6.109059810638428,
-			"rangeCritPercent": 6.109059810638428,
-			"dodgeRatingPercent": 0,
-			"parry": 7.928839206695557,
-			"parryRating": 14,
+			"critPercent": <?php echo $gets["critPct"] ?>,
+			"rangeCritPercent": <?php echo $gets["rangedCritPct"] ?>,
+			"dodgeRatingPercent": <?php echo $gets["dodgePct"] ?>,
+			"parry": <?php echo $gets["parryPct"] ?>,
+			"parryRating": 0,
 			"rangeBonusWeaponRating": 0,
 			"atkPowerBase": 270,
 			"runicPower": <?php echo $get["power4"] ?>,
@@ -1647,11 +1647,11 @@ Services
 			"focus": <?php echo $get["power3"] ?>,
 			"rangeHitRatingPercent": 0,
 			"natureResist": 0,
-			"intTotal": 0,
+			"intTotal": <?php echo $gets["maxpower1"] ?>,
 			"expertiseRating": 0,
 			"bonusOffMainWeaponSkill": 0,
 			"frostResist": 0,
-			"int_mp": 0,
+			"int_mp": <?php echo $gets["maxpower1"] ?>,
 			"arcaneCrit": 6.986073017120361,
 			"holyCrit": 6.986073017120361,
 			"bonusMainWeaponSkill": 0,
@@ -1669,9 +1669,9 @@ Services
 			"rangeCritRatingPercent": 2.0634920597076416,
 			"dodgeRating": 0,
 			"bonusMainWeaponRating": 0,
-			"intBase": 37,
-			"strBase": 51,
-			"critRatingPercent": 2.0634920597076416,
+			"intBase": 231,
+			"strBase": 234,
+			"critRatingPercent": <?php echo $gets["critPct"] ?>,
 			"rangeHasteRatingPercent": 1.1555559635162354,
 			"rangeBonusWeaponSkill": 0,
 			"dmgRangeMin": -1,
@@ -1679,7 +1679,7 @@ Services
 			"dmgOffSpeed": 1.9769999980926514,
 			"resistFire_pet": -1,
 			"defense": 0,
-			"strTotal": 106,
+			"strTotal": <?php echo $gets["strength"] ?>,
 			"fireCrit": 6.986073017120361,
 			"natureDamage": 113,
 			"dmgMainMax": 102,
@@ -1723,7 +1723,7 @@ Services
 			"agiTotal": 32,
 			"ap_dps": 19.571428298950195,
 			"atkPowerLoss": 0,
-			"staBase": 53,
+			"staBase": 218,
 			"fireResist": 0,
 			"blockRatingPercent": 0,
 			"hitRatingPercent": 0,
@@ -1735,7 +1735,7 @@ Services
 			"dmgRangeSpeed": -1,
 			"hasteRatingPercent": 1.1555559635162354,
 			"frostDamage": 113,
-			"sta_hp": 960,
+			"sta_hp": <?php echo $gets["maxhealth"] ?>,
 			"agi_crit": 4.045567989349365,
 			"rage": <?php echo $get["power4"] ?>,
 			"armorTotal": 1983,
@@ -1743,12 +1743,12 @@ Services
 			"spellCritRatingPercent": 2.0634920597076416,
 			"armorBase": 1817,
 			"spellCritPercent": 6.986073017120361,
-			"critRating": 10,
+			"critRating": 00,
 			"armorPenetration": 0,
 			"spellPenetration": 0,
-			"parryRatingPercent": 2.9307570457458496,
+			"parryRatingPercent": <?php echo $gets["parryPct"] ?>,
 			"spellDamage": 113,
-			"staTotal": 114,
+			"staTotal": <?php echo $gets["stamina"] ?>,
 			"rap_petAp": -1,
 			"holyDamage": 113,
 	"foo": true
@@ -1762,9 +1762,9 @@ Services
 
 							<div class="summary-battlegrounds">
 	<ul>
-		<li class="rating"><span class="name">Honor Gained</span><span class="value"><?php echo $get["totalHonorPoints"] ?></span>	<span class="clear"><!-- --></span>
+		<li class="rating"><span class="name">Total Honor</span><span class="value"><?php echo $honor ?></span>	<span class="clear"><!-- --></span>
 </li>
-		<li class="kills"><span class="name">Honourable Kills</span><span class="value"><?php echo $get["totalKills"] ?></span>	<span class="clear"><!-- --></span>
+		<li class="kills"><span class="name">Total Conquest</span><span class="value"><?php echo $conq ?></span>	<span class="clear"><!-- --></span>
 </li>
 	</ul>
 							</div>
