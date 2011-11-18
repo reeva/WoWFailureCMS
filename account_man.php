@@ -130,21 +130,18 @@ return false;
 <dt class="subcategory"><?php echo $Man['Man5']; ?></dt>
 <dd class="account-name"><?php echo strtolower($_SESSION['username']); ?></dd>
 <dt class="subcategory"><?php echo $Man['Man6']; ?></dt>
-<dd class="account-status"> <span><strong class="disable"><?php include("configs.php");
+<dd class="account-status"> <span><strong class="disable">
+<?php include("configs.php");
  //Get Info By Query
  $conn = mysql_connect("$serveraddress", "$serveruser", "$serverpass")or die("Couldn't connect to database"); 
- $account_info = mysql_query("SELECT id, username  FROM `".$server_adb."`.`account` WHERE username='".$_SESSION['username']."'")or die(mysql_error());
+ $account_info = mysql_query("SELECT id,username,locked  FROM `".$server_adb."`.`account` WHERE username='".$_SESSION['username']."'")or die(mysql_error());
  while($get = mysql_fetch_array($account_info)) 
  {
   //Banned?
   if($get['locked'] == 0)
-      {
-        $banned = ''.$Man['Man7'].'';
-      }
-      else
-      {
-        $banned = ''.$Man['Man8'].'';
-      }
+      echo "<font color='green'>". $Man['Man7']."</font>";
+      else 
+      echo "<font color='red'>". $Man['Man8']."</font>";
    }
 ?></strong></span>
 </dd>
