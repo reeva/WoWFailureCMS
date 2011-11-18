@@ -187,6 +187,30 @@ $page_cat = "home";
 					<!-- DO NOT EDIT BELOW UNLESS YOU KNOW WHAT YOU ARE DOING! -->
 				<div class="bnet-offer">
 				
+				<!-- Start of Search -->
+				<div class="sidebar-title"><h3 class="title-bnet-ads">Search Bar</h3></div>
+						<div class="search">
+						<div class="search-right">
+						<div class="search-header">
+						<form action="" method="post" class="search-form">
+						<div>
+						<center><input type="text" name="search" value="" id="search-page-field" class="input border-5 glow-shadow-2 form-disabled" autocomplete="off" tabindex="2" required="required" disabled="disabled" />
+						<button
+						class="ui-button button1 disabled"
+						type="submit"
+						disabled="disabled">
+						<span>
+						<span>Search</span>
+						</span>
+						</button></center>
+						</div>
+						</form>
+						</div>
+						</table>
+						</div>
+						</div>
+						<!-- End of Search -->
+						<br>
 				<div class="sidebar-title"><h3 class="title-bnet-ads">Promo Advertisement</h3></div>
 				<!-- DO NOT EDIT BELOW UNLESS YOU KNOW WHAT YOU ARE DOING! -->
 				<div class="bnet-offer-bg">
@@ -196,6 +220,7 @@ $page_cat = "home";
 						</div>
 						</div>
 						</div>
+						
 						<div id="sidebar-marketing" class="sidebar-module">
 						<div class="sidebar-title">
 						<h3 class="title-bnet-ads">Server Information: 
