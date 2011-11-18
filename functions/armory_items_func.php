@@ -164,39 +164,39 @@ $powname = "Runic";
 // Talents Image
 if($cclass == 2)
 {
-$talenimage = "Mana";
+$talenimage = "questionmark";
 }
 elseif($cclass == 7)
 {
-$talenimage = "Mana";
+$talenimage = "questionmark";
 }
 elseif($cclass == 8)
 {
-$talenimage = "Mana";
+$talenimage = "questionmark";
 }
 elseif($cclass == 9)
 {
-$talenimage = "Mana";
+$talenimage = "questionmark";
 }
 elseif($cclass == 11)
 {
-$talenimage = "Mana";
+$talenimage = "questionmark";
 }
 elseif($cclass == 5)
 {
-$talenimage = "Mana";
+$talenimage = "questionmark";
 }
 elseif($cclass == 3)
 {
-$talenimage = "Focus";
+$talenimage = "questionmark";
 }
 elseif($cclass == 1)
 {
-$talenimage = "Rage";
+$talenimage = "questionmark";
 }
 elseif($cclass == 4)
 {
-$talenimage = "Energy";
+$talenimage = "questionmark";
 }
 elseif($cclass == 6)
 {
