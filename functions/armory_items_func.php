@@ -2,9 +2,10 @@
 $connection_setup = mysql_connect($serveraddress,$serveruser,$serverpass)or die(mysql_error());
 mysql_select_db($server_cdb,$connection_setup)or die(mysql_error());
 $username = mysql_real_escape_string($name = $_GET['name']);
-$lbrspa = mysql_query("SELECT guid,name,race,class,gender,level,health,power1 FROM characters WHERE name = '".$username."'");
+$lbrspa = mysql_query("SELECT guid,name,race,class,gender,level,totalHonorPoints,totalKills,health,power1,power2,power3,power4,power5,power6,power7,power8,power9 FROM characters WHERE name = '".$username."'");
 $get = mysql_fetch_assoc($lbrspa);
 $itrspa = mysql_query("SELECT itemEntry, slot,enchantments FROM item_instance inner join character_inventory on item_instance.guid=character_inventory.item where owner_guid=".$get['guid']);
+
 //Character Class
 $cclass = $get['class'];
 if ($cclass == 1)
@@ -159,5 +160,87 @@ $powname = "Energy";
 elseif($cclass == 6)
 {
 $powname = "Runic";
+}
+// Talents Image
+if($cclass == 2)
+{
+$talenimage = "Mana";
+}
+elseif($cclass == 7)
+{
+$talenimage = "Mana";
+}
+elseif($cclass == 8)
+{
+$talenimage = "Mana";
+}
+elseif($cclass == 9)
+{
+$talenimage = "Mana";
+}
+elseif($cclass == 11)
+{
+$talenimage = "Mana";
+}
+elseif($cclass == 5)
+{
+$talenimage = "Mana";
+}
+elseif($cclass == 3)
+{
+$talenimage = "Focus";
+}
+elseif($cclass == 1)
+{
+$talenimage = "Rage";
+}
+elseif($cclass == 4)
+{
+$talenimage = "Energy";
+}
+elseif($cclass == 6)
+{
+$talenimage = "dk_Bpresence";
+}
+// Talents Name
+if($cclass == 2)
+{
+$talename = "Retribution";
+}
+elseif($cclass == 7)
+{
+$talename = "Elemental";
+}
+elseif($cclass == 8)
+{
+$talename = "Frost";
+}
+elseif($cclass == 9)
+{
+$talename = "Destruction";
+}
+elseif($cclass == 11)
+{
+$talename = "Feral";
+}
+elseif($cclass == 5)
+{
+$talename = "Discipline";
+}
+elseif($cclass == 3)
+{
+$talename = "Marksmanship";
+}
+elseif($cclass == 1)
+{
+$talename = "Fury";
+}
+elseif($cclass == 4)
+{
+$talename = "Subtetly";
+}
+elseif($cclass == 6)
+{
+$talename = "Blood";
 }
 ?>

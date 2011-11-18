@@ -890,7 +890,7 @@ Services
 	</li>
 	</ul>
 	<div class="profile-linktomore">
-		<a href="/wow/en/character/moonglade/Me/feed" rel="np">View earlier activity</a>
+		<a href="" rel="np">View earlier activity</a>
 	</div>
 
 	<span class="clear"><!-- --></span>
@@ -904,7 +904,7 @@ Services
 	<ul>
 
 	<li class="summary-talents-0">
-		<a href="/wow/en/character/moonglade/Me/talent/secondary"><span class="inner">
+		<a href=""><span class="inner">
 			<span class="icon"><img src="http://eu.media.blizzard.com/wow/icons/36/inv_misc_questionmark.jpg" alt="" /><span class="frame"></span></span>
 			<span class="name-build">
 				<span class="name">Talents</span>
@@ -914,15 +914,15 @@ Services
 	</li>
 
 	<li class="summary-talents-1">
-		<a href="/wow/en/character/moonglade/Me/talent/primary" class="active"><span class="inner">
+		<a href="" class="active"><span class="inner">
 				<span class="checkmark"></span>
-			<span class="icon"><img src="http://eu.media.blizzard.com/wow/icons/36/spell_holy_auraoflight.jpg" alt="" /><span class="frame"></span></span>
+			<span class="icon"><img src="wow/static/images/icons/talents/<?php echo $talenimage ?>.jpg" alt="" /><span class="frame"></span></span>
 				<span class="roles">
 							<span class="icon-dps"></span>
 				</span>
 			<span class="name-build">
-				<span class="name">Retribution</span>
-				<span class="build">0<ins>/</ins>0<ins>/</ins>9</span>
+				<span class="name"><?php echo $talename ?></span>
+				<span class="build">0<ins>/</ins>0<ins>/</ins>0</span>
 			</span>
 		</span></a>
 	</li>
@@ -956,7 +956,7 @@ Services
 		}
 		elseif($cclass == 6)
 		{
-		echo '100';
+		echo $get["power4"];
 		}
 		 ?></span></li>
 	</ul>
@@ -1614,7 +1614,7 @@ Services
 			"averageItemLevelBest": 20,
 			"spellHitRating": 0,
 			"agiBase": 32,
-			"energy": 100,
+			"energy": <?php echo $get["power4"] ?>,
 			"expertiseOffPercent": 0,
 			"critPercent": 6.109059810638428,
 			"rangeCritPercent": 6.109059810638428,
@@ -1623,7 +1623,7 @@ Services
 			"parryRating": 14,
 			"rangeBonusWeaponRating": 0,
 			"atkPowerBase": 270,
-			"runicPower": 0,
+			"runicPower": <?php echo $get["power4"] ?>,
 			"rangeHitPercent": 1,
 			"bonusOffWeaponRating": 0,
 			"resilience_damage": 0,
@@ -1644,7 +1644,7 @@ Services
 			"frostCrit": 6.986073017120361,
 			"armorPenetrationPercent": 0,
 			"resistShadow_pet": -1,
-			"focus": 100,
+			"focus": <?php echo $get["power3"] ?>,
 			"rangeHitRatingPercent": 0,
 			"natureResist": 0,
 			"intTotal": 0,
@@ -1737,7 +1737,7 @@ Services
 			"frostDamage": 113,
 			"sta_hp": 960,
 			"agi_crit": 4.045567989349365,
-			"rage": 100,
+			"rage": <?php echo $get["power4"] ?>,
 			"armorTotal": 1983,
 			"sta_petSta": -1,
 			"spellCritRatingPercent": 2.0634920597076416,
@@ -1762,9 +1762,9 @@ Services
 
 							<div class="summary-battlegrounds">
 	<ul>
-		<li class="rating"><span class="name">Battleground rating</span><span class="value">0</span>	<span class="clear"><!-- --></span>
+		<li class="rating"><span class="name">Honor Gained</span><span class="value"><?php echo $get["totalHonorPoints"] ?></span>	<span class="clear"><!-- --></span>
 </li>
-		<li class="kills"><span class="name">Honourable kills</span><span class="value">0</span>	<span class="clear"><!-- --></span>
+		<li class="kills"><span class="name">Honourable Kills</span><span class="value"><?php echo $get["totalKills"] ?></span>	<span class="clear"><!-- --></span>
 </li>
 	</ul>
 							</div>
