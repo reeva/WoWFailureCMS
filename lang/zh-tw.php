@@ -80,27 +80,27 @@ $website['explore'] = "Explore";
 $More['More'] = "More";
 $Retrieve['Retrieve'] = "Retrieve Lost Account";
 $Find['Find'] = "Find us on the Map!";
-  
+
 // Starting the voting translation
 
-$Vote['Vote'] = "Sistema de Votación";
-$Vote['Vote1'] = "Sistema de Votación de ";
-$Vote['Vote2'] = "Puntos Gastados";
-$Vote['Vote3'] = "Historial";
-$Vote['Vote4'] = "¿Cómo Funciona?";
-$Vote['Vote5'] = "Vota Ahora";
-$Vote['Vote6'] = "Después de haber votado tienes que esperar como mínimo 12 horas para poder volver a votar. Recuerda gastar tus Puntos de Votación con prudencia. No hagas ningún fallo, ";
-$Vote2['Vote6'] = " no devolverá ningún punto de votación.";
-$Vote['Vote7'] = "Votaciones/Recompensas";
-$Vote['Vote8'] = "Tu historial de Votaciones/Recompensas";
-$Vote['Vote9'] = "No hay registros de sus acciones en estos momentos.";
-$Vote['Vote10'] = "ID de la Cuenta";
-$Vote['Vote11'] = "ID del Item";
-$Vote['Vote12'] = "Fecha";
-$Vote['Vote13'] = "Hora";
-$Vote['Vote14'] = "Cantidad de Puntos Gastados";
-$Vote['Vote15'] = "Cantidad de Puntos Ganados";
-$Vote['Vote16'] = "Orden";
+$Vote['Vote'] = "Vote System &amp; Simple";
+$Vote['Vote1'] = "Vote System for ";
+$Vote['Vote2'] = "Spend Points";
+$Vote['Vote3'] = "History";
+$Vote['Vote4'] = "How It Works";
+$Vote['Vote5'] = "Vote Now";
+$Vote['Vote6'] = "After you vote you need to wait atleast 12 hours to reset your IP from revoting. Remember to spend your Points wisely. Do not make any mistakes, ";
+$Vote2['Vote6'] = " will not return any Points back..";
+$Vote['Vote7'] = "Vote/Reward History";
+$Vote['Vote8'] = "Your Vote and Reward History";
+$Vote['Vote9'] = "There are no logs from your actions right now.";
+$Vote['Vote10'] = "Account ID";
+$Vote['Vote11'] = "Item ID";
+$Vote['Vote12'] = "Date";
+$Vote['Vote13'] = "Time";
+$Vote['Vote14'] = "V.Points Spend";
+$Vote['Vote15'] = "V.Points Earned";
+$Vote['Vote16'] = "Site";
 
 // Finishing the voting translation
 // Starting register
@@ -175,6 +175,7 @@ $Man['Man7'] = "Active";
 $Man['Man8'] = "Banned";
 $Man['Man9'] = "Current Game Source";
 $Man['Man10'] = "100% Days";
+$Man2['Man10'] = "0% Days";
 $Man['Man11'] = "Expansion Pack";
 $Man['Man12'] = "Cataclysm";
 $Man['Man13'] = "Change";
@@ -278,5 +279,6 @@ $Uns['Uns26'] = "Invalid Character.";
 $Uns['Uns27'] = "That Character Is Not Yours.";
 $Uns['Uns28'] = "Your Character Is Fixed.";
 $Uns['Uns29'] = "Continue";
-// Finishing the Char Unstuck translation
+// Finishing the Char Unstuck translation 
+
 ?>

@@ -178,6 +178,7 @@ $Man['Man7'] = "Activada";
 $Man['Man8'] = "Baneada";
 $Man['Man9'] = "Dias de juego restantes";
 $Man['Man10'] = "100% Días - Juego Gratuito";
+$Man2['Man10'] = "0% Días - Juego Gratuito";
 $Man['Man11'] = "Expansiones";
 $Man['Man12'] = "Cataclysmo";
 $Man['Man13'] = "Cambiar";

@@ -175,6 +175,7 @@ $Man['Man7'] = "Active";
 $Man['Man8'] = "Banned";
 $Man['Man9'] = "Current Game Source";
 $Man['Man10'] = "100% Days";
+$Man2['Man10'] = "0% Days";
 $Man['Man11'] = "Expansion Pack";
 $Man['Man12'] = "Cataclysm";
 $Man['Man13'] = "Change";
