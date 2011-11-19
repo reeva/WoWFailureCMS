@@ -18,7 +18,7 @@
 <li><a href="">Communication Preferences</a></li>
 <li><a href="">Parental Controls</a></li>
 <li><a href="">My Payment Options</a></li>
-<li><a href="contact_info.php">Contact &amp; Shipping Addresses</a></li>
+<li><a href="contact_info.php">Contact &amp; General Info</a></li>
 </ul>
 </div>
 </li>

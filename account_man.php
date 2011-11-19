@@ -161,14 +161,14 @@ return false;
 ?>
 </dd>
 <dt class="subcategory"><?php echo $Man['Man11']; ?></dt>
-<dd class="account primary-account"><span class="account-history"><?php echo $Man['Man12']; ?></span>
-<em><a href=""><?php echo $Man['Man13']; ?></a></em></dd>
-<dd class="account secondary-account"><?php echo $Man['Man14']; ?>
-<em><a href=""><?php echo $Man['Man15']; ?></a></em></dd>
-<dd class="account secondary-account"><?php echo $Man['Man16']; ?>
-<em><a href=""><?php echo $Man['Man17']; ?></a></em></dd>
-<dd class="account secondary-account oldest-account"><?php echo $Man['Man18']; ?>
-<em><a href=""><?php echo $Man['Man19']; ?></a></em></dd>
+<dd class="account primary-account"><span class="account-history"><font color="#D16000"><?php echo $Man['Man12']; ?></font></span>
+<em><a href=""><li><?php echo $Man['Man13']; ?></li></a></em></dd>
+<dd class="account secondary-account"><font color="#0072A3"><?php echo $Man['Man14']; ?></font>
+<em><a href=""><li><?php echo $Man['Man15']; ?></li></a></em></dd>
+<dd class="account secondary-account"><font color="#138701"><?php echo $Man['Man16']; ?></font>
+<em><a href=""><li><?php echo $Man['Man17']; ?></li></a></em></dd>
+<dd class="account secondary-account oldest-account"><font color="#5B4325"><?php echo $Man['Man18']; ?></font>
+<em><a href=""><li><?php echo $Man['Man19']; ?></li></a></em></dd>
 <dt class="subcategory"><?php echo $Man['Man20']; ?></dt>
 <dd class="region eu"><?php echo $Man['Man21']; ?></dd>
 <dt class="subcategory"><?php echo $website['title']; ?><?php echo $Man['Man22']; ?></dt>

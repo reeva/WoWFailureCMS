@@ -67,7 +67,7 @@ _gaq.push(['_trackPageLoadTime']);
 <div id="content">
 <div id="page-header">
 <h2 class="subcategory">Account Settings</h2>
-<h3 class="headline">Your Contact &amp; Shipping Addresses</h3>
+<h3 class="headline">Your Contact &amp; General Information</h3>
 </div>
 <div id="page-content" class="page-content">
 <p>Your Primary Contact is the address and phone number that you wish to be associated with this <?php echo $website['title']; ?> account. Edit this address by clicking the button to its right.</p>
@@ -85,19 +85,23 @@ href="wow/static/management/add-address.html"
 </fieldset>
 <div class="address-book" id="address-book">
 <div id="address-1" class="address-box primary-address border-5">
-<div class="actions">
-<a href="edit-address.php" class="icon-edit">Edit</a>
-</div>
-<h4 class="caption">Last Name</h4><br />
-<h4>Username:</h4>
-<p><?php echo strtolower($_SESSION['username']); ?></p>
-<h4>Name:</h4>
-<p class="address-block">Unaivalable
-<br />
-<br />
-Town, INFO
-<br />Country</p>
-<h4>Primary Phone:</h4>
+<h4 class="caption">
+<?php 
+$conn = mysql_connect("$serveraddress", "$serveruser", "$serverpass")or die("Couldn't connect to database"); 
+$account_info = mysql_query("SELECT email,joindate,last_ip,recruiter  FROM `".$server_adb."`.`account` WHERE username='".$_SESSION['username']."'")or die(mysql_error());
+while($get = mysql_fetch_array($account_info)) 
+?>
+Joined at: <?php echo $get["joindate"] ?>
+
+</h4><br />
+<h4>Username: </h4><font color='#66CE21'><?php echo strtolower($_SESSION['username']); ?></font>
+<p></p>
+<h4>E-mail:</h4>
+<p><?php echo $get["email"] ?><p>
+Town: <Font color="#A00000">Unavailable</font>, 
+<p>Last IP: <Font color="#A00000">Unavailable</font>,</p>
+<p>Has a Recruit: <Font color="#A00000">Unavailable</font></p>
+<h4>Primary Phone: <Font color="#A00000">Unavailable</font></h4>
 <p></p>
 <div class="activate-primary">
 <div id="primary-address">This is currently your main shipping address</div>
