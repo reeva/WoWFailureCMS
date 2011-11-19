@@ -8,6 +8,7 @@ $lbrscv = mysql_query("SELECT currency,count FROM character_currency WHERE guid=
 $supstats = mysql_query("SELECT maxhealth,maxpower1,maxpower2,maxpower3,maxpower4,maxpower5,maxpower6,maxpower7,maxpower8,maxpower9,maxpower10,strength,agility,stamina,intellect,spirit,armor,resHoly,resFire,resNature,resFrost,resShadow,resArcane,blockPct,dodgePct,parryPct,critPct,rangedCritPct,spellCritPct,attackPower,rangedAttackPower,spellPower FROM character_stats WHERE guid='".$get['guid']."'");
 $getc = mysql_fetch_assoc($lbrscv);
 $gets = mysql_fetch_assoc($supstats);
+$itrspa = mysql_query("SELECT itemEntry, slot,enchantments FROM item_instance inner join character_inventory on item_instance.guid=character_inventory.item where owner_guid=".$get['guid']);
 //Currency - Honor
 $chonor = $getc['currency'];
 if ($chonor == 392)

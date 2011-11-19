@@ -1762,9 +1762,9 @@ Services
 
 							<div class="summary-battlegrounds">
 	<ul>
-		<li class="rating"><span class="name">Total Honor</span><span class="value"><?php echo $honor ?></span>	<span class="clear"><!-- --></span>
+		<li class="rating"><span class="name">Total Honor</span><span class="value"><?php echo $honor ?></span><span class="clear"><!-- --></span>
 </li>
-		<li class="kills"><span class="name">Total Conquest</span><span class="value"><?php echo $conq ?></span>	<span class="clear"><!-- --></span>
+		<li class="kills"><span class="name">Total Conquest</span><span class="value"><?php echo $conq ?></span><span class="clear"><!-- --></span>
 </li>
 	</ul>
 							</div>
