@@ -310,8 +310,8 @@ tr:hover .fansite-link,
 
 /* content */
 #content { background-color: !important; margin: 0 6px; }
-#content .content-top { background: url("../images/layout/content-topbot.jpg") 0 0 no-repeat; }
-#content .content-bot { background: url("../images/layout/content-topbot.jpg") -992px bottom no-repeat; min-height: 570px; }
+#content .content-top { background: url 0 0 no-repeat; }
+#content .content-bot { background: url -992px bottom no-repeat; min-height: 570px; }
 #content .content-trail { height: 30px; padding: 10px 0 0 22px; }
 #content .content-header { padding: 20px; }
 #content .content-header .desc { margin-right: 400px; margin-top: 15px; }

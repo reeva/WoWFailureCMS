@@ -88,7 +88,7 @@ _gaq.push(['_trackPageLoadTime']);
 	<div class="content-bot">
 
 
-	<div id="profile-wrapper" class="profile-wrapper profile-wrapper-horde">
+	<div id="profile-wrapper" class="profile-wrapper profile-wrapper-alliance">
 
 		<div class="profile-sidebar-anchor">
 			<div class="profile-sidebar-outer">
