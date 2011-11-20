@@ -19,21 +19,21 @@
 					   Top Conquest
 					</a>
 					 
-					<a
+					<a href="2vs2.php"
 					   
-					    class="tab-inactive">
+					    class="tab-active">
 					   Top @ 2v2
 					</a>
 					
-					<a
+					<a href="3vs3.php"
 					   
-					    class="tab-inactive">
+					    class="tab-active">
 					   Top @ 3v3
 					</a>
 					
-					<a
+					<a href="5vs5.php"
 					   
-					    class="tab-inactive">
+					    class="tab-active">
 					   Top @ 5v5
 					</a>
 					
