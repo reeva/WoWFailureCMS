@@ -21,7 +21,7 @@
 	</a>
 	</li>
 	<li>
-	<a href="">
+	<a href="search_g.php">
 	<span class="arrow">Guilds<span></span></span>
 	</a>
 	</li>
