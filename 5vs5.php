@@ -241,7 +241,7 @@ echo '
 <a href="" class="item-link color-c9"><strong><a href="">'.$i.'</a></strong>
 </a>
 </td>
-<td style="background-color: '.$bg.';"><center>'.$pvp_row["name"].'</center></td>
+<td style="background-color: '.$bg.';"><center><a href="arena.php?name='.$pvp_row["name"].'">'.$pvp_row["name"].'</a></center></td>
 <td style="background-color: '.$bg.';"><center>'.$pvp_row["rating"].'</center></td>
 <td style="background-color: '.$bg.';"><center>'.$pvp_row["seasonGames"].'</center></td>
 <td style="background-color: '.$bg.';"><center>'.$pvp_row["seasonWins"].'</center></td>
