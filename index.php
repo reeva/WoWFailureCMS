@@ -192,14 +192,13 @@ $page_cat = "home";
 						<div class="search">
 						<div class="search-right">
 						<div class="search-header">
-						<form action="" method="post" class="search-form">
+					        <form action="search.php" method="post" class="search-form">
 						<div>
 						<center><input href="search.php" type="text" name="search" value="" id="search-page-field" class="input border-5 glow-shadow-2" autocomplete="off" tabindex="2" required="required" />
 						<button
 						class="ui-button button1"
 						type="submit"
-						href="search.php"
-						disabled="disabled">
+						href="search.php">
 						<span>
 						<span>Search</span>
 						</span>
