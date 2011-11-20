@@ -1,12 +1,13 @@
 <?php
 require_once("configs.php");
 $page_cat = "services";
+include("functions/arena_items_func.php");
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
 <head>
-<title>Fishing Trail @ Raserei / Frenzy - <?php echo $website['title']; ?></title>
+<title><?php echo $name = $_GET['name'];?> - <?php echo $website['title']; ?></title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="http://eu.battle.net/wow/static/local-common/images/favicons/wow.ico" type="image/x-icon"/>
@@ -81,7 +82,7 @@ _gaq.push(['_trackPageLoadTime']);
 	<a href="search.php" rel="np">Search</a>
 	</li>
 	<li class="last">
-	<a href="arena.php" rel="np">Arena TEAM</a>
+	<a href="arena.php" rel="np"><?php echo $name = $_GET['name'];?></a>
 	</li>
 	</ol>
 	</div>
@@ -103,14 +104,14 @@ _gaq.push(['_trackPageLoadTime']);
 		</div>
 			<div class="profile-info profile-arenateam-info">
 				<div class="name ">
-					<a href="arena.php">ARENA NAME</a>
+					<a href="arena.php"><?php echo $name = $_GET['name'];?></a>
 				</div>
 
 				<div class="under-name">
-					<span class="teamsize"><b>2v2</b></span> <span class="faction">Alliance</span> Arena Team<span class="comma">,</span>
+					<span class="teamsize"><b><?php echo $type ?></b></span> <span class="faction">Alliance</span> Arena Team<span class="comma">,</span>
 
 					<span class="text" data-tooltip="FACTION">
-					<a href=""><font color="">ARENA NAME</font></a> <!-- Color has to be Red or Blue due to the Faction -->
+					<a href=""><font color=""><?php echo $name = $_GET['name'];?></font></a> <!-- Color has to be Red or Blue due to the Faction -->
 					</span>
 					
 				</div>
@@ -146,7 +147,7 @@ _gaq.push(['_trackPageLoadTime']);
 
 		<a href="index.html" class="" rel="np">
 			<span class="arrow"><span class="icon">
-				ARENA Name
+				<?php echo $name = $_GET['name'];?>
 			</span></span>
 		</a>
 
@@ -192,13 +193,13 @@ _gaq.push(['_trackPageLoadTime']);
 		<td class="align-left">
 			<strong class="week">This Week</strong>
 		</td>
-		<td class="align-center">0</td>
+		<td class="align-center"><?php echo $get['weekGames']; ?></td>
 		<td class="align-center arenateam-gameswonlost">
-			<span class="arenateam-gameswon">0</span> &#8211; <span class="arenateam-gameslost">0</span>
+			<span class="arenateam-gameswon"><?php echo $get['weekWins']; ?></span> &#8211; <span class="arenateam-gameslost">0</span>
 			<span class="arenateam-percent">(0%)</span>
 		</td>
 		<td class="align-center">
-				<span class="arenateam-rating">1313</span>
+				<span class="arenateam-rating"><?php echo $get['rating']; ?></span>
 		</td>
 	</tr>
 	
@@ -206,13 +207,13 @@ _gaq.push(['_trackPageLoadTime']);
 		<td class="align-left">
 			<strong class="season">Season</strong>
 		</td>
-		<td class="align-center">97</td>
+		<td class="align-center"><?php echo $get['seasonGames']; ?></td>
 		<td class="align-center arenateam-gameswonlost">
-			<span class="arenateam-gameswon">46</span> &#8211; <span class="arenateam-gameslost">51</span>
+			<span class="arenateam-gameswon"><?php echo $get['seasonWins']; ?></span> &#8211; <span class="arenateam-gameslost">51</span>
 			<span class="arenateam-percent">(47%)</span>
 		</td>
 		<td class="align-center">
-				<span class="arenateam-rating">1313</span>
+				<span class="arenateam-rating"><?php echo $get['rating']; ?></span>
 		</td>
 	</tr>
 			</tbody>
