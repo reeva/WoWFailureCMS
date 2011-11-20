@@ -89,7 +89,7 @@ _gaq.push(['_trackPageLoadTime']);
 	<div class="content-bot">
 
 
-	<div id="profile-wrapper" class="profile-wrapper profile-wrapper-alliance">
+	<div id="profile-wrapper" class="profile-wrapper profile-wrapper">
 
 		<div class="profile-sidebar-anchor">
 			<div class="profile-sidebar-outer">
@@ -100,7 +100,7 @@ _gaq.push(['_trackPageLoadTime']);
 
 		<div class="profile-info-anchor">
 		<div class="arenateam-flag">
-			<img src="wow/static/images/arena/banners/default.png" alt="" width="240" height="240" />
+			<img src="wow/static/images/arena/banners/arena-a.png" alt="" width="240" height="240" />
 		</div>
 			<div class="profile-info profile-arenateam-info">
 				<div class="name ">
