@@ -82,7 +82,7 @@ include("header.php");
 <div class="content-bot">
 
 
-	<div id="profile-wrapper" class="profile-wrapper profile-wrapper-alliance">
+	<div id="profile-wrapper" class="profile-wrapper profile-wrapper">
 
 		<div class="profile-sidebar-anchor">
 		<div class="profile-sidebar-outer">
