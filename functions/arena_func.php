@@ -108,6 +108,7 @@ if (isset($_GET['arenaname'])) {
 $ttype = $row["type"];
 if ($ttype == 2)
 {
+<<<<<<< HEAD
 $type = "2vs2";
 }
 elseif ($ttype == 3)
@@ -117,6 +118,17 @@ $type = "3vs3";
 elseif ($ttype == 5)
 {
 $type = "5vs5";
+=======
+$type = "2v2";
+}
+elseif ($ttype == 3)
+{
+$type = "3v3";
+}
+elseif ($ttype == 5)
+{
+$type = "5v5";
+>>>>>>> d7ae294007c89e38278ac613a3c865a6718bf1f4
 }
         //echo $row['name'];
         echo '
