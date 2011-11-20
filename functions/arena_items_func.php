@@ -13,15 +13,15 @@ $getb = mysql_fetch_assoc($lbrscv);
 $ttype = $get["type"];
 if ($ttype == 2)
 {
-$type = "2vs2";
+$type = "2v2";
 }
 elseif ($ttype == 3)
 {
-$type = "3vs3";
+$type = "3v3";
 }
 elseif ($ttype == 5)
 {
-$type = "5vs5";
+$type = "5v5";
 }
 //Arena Type Finish
 ?>
