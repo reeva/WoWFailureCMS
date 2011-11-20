@@ -4,13 +4,13 @@
 .profile-wrapper { color: #c09a67; }
 .profile-sidebar-anchor { float: left; width: 0; height: 0; position: relative; }
 .profile-sidebar-outer { position: absolute; left: 0; top: 0; }
-.profile-sidebar-inner { width: 230px; height: 684px; background: url("../../images/profile/sidebar-bg.jpg") no-repeat; }
+.profile-sidebar-inner { width: 230px; height: 684px; background: url("../images/profile/sidebar-bg.jpg") no-repeat; }
 .profile-contents { margin-left: 230px; min-height: 807px; padding-bottom: 40px; }
 .profile-section-header { padding: 11px 15px 0 15px; }
 .profile-section-header .category { font-size: 26px; padding-bottom: 9px; }
 .profile-section-header .category .icon-frame { float: left; margin-top: 10px; margin-right: 7px; }
 .profile-section-header .category a { color: #7E3406; }
-.profile-section { background: url no-repeat; padding: 15px; min-height: 400px; }
+.profile-section { background: url("../../images/profile/section-bg.png") no-repeat; padding: 15px; min-height: 400px; }
 
 	/* tab menu */
 	.profile-section-header .profile-tabs { height: 50px; margin-bottom: -2px; }
