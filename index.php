@@ -275,9 +275,9 @@ $page_cat = "home";
 						echo "<font color='#00FF00'><b>Uptime :</b></font> <span class='date'>$uptime</span> <br>";
 						?>
 						<div class="sidebar-module" id="sidebar">
-						  Realmlist : <span class="date"><?php echo $website['realm']; ?></span><br />
-						  Patch Version : <span class="date">4.x.x</span><br />
-						  Accounts : <span class="date">
+						  <?php echo $website['title']; ?> Realmlist : <span class="date"><?php echo $website['realm']; ?></span><br />
+						  <?php echo $website['title']; ?> Patch Version : <span class="date"><font color='#FF0000'>4.x.x</font></span><br />
+						  <?php echo $website['title']; ?> Accounts : <span class="date">
 						  <?php
 						require_once("configs.php");
 
@@ -293,7 +293,7 @@ $page_cat = "home";
 						mysql_close($conn);
 						?>
 						Accounts Registered</span><br />
-						Characters : <span class="date"><?php
+						<?php echo $name_realm1['realm']; ?> Characters: <span class="date"><?php
 						require_once("configs.php");
 
 						$conn = mysql_connect($serveraddress, $serveruser, $serverpass) or die(mysql_error());
@@ -307,11 +307,27 @@ $page_cat = "home";
 						echo ("<font color='#FF0000'>$char</font>");
 
 						mysql_close($conn);
-						?> Characters Created</span>
-						
+						?> Characters Created</span><br /><!--
+						Characters on R2: <span class="date"><?php
+						require_once("configs.php");
+
+						$conn = mysql_connect($serveraddress, $serveruser, $serverpass) or die(mysql_error());
+						mysql_select_db($server_cdb_2, $conn) or die(mysql_error());
+
+						// Character select
+						$sql = "SELECT COUNT(*) FROM characters";
+						$sqlquery = mysql_query($sql) or die(mysql_error());
+						$char = mysql_result($sqlquery,0,0);
+
+						echo ("<font color='#FF0000'>$char</font>");
+
+						mysql_close($conn);
+						?> Characters Created</span>-->
 						<span class="clear"><!-- --></span>
-						<center><br>
-						<? require_once("configs.php");
+						<br>
+						<div class="sidebar-title"><h3 class="title-bnet-ads"><?php echo $name_realm1['realm']; ?> <img src="wow\static\local-common\images\icons\employee.gif" width="20" height="14" align="right" style="margin-top:6px" /></h3></div>
+						</br>
+						<center><? require_once("configs.php");
 						$bar_width = "273px";
 						$bar_height = "20px";
 						$ally_img = "wow/static/images/services/status/ally.png";
@@ -401,7 +417,101 @@ $page_cat = "home";
 						echo "</div>
 						</div>";
 						
-						?></div></center>
+						?>
+						<br>
+						<!--<div class="sidebar-title"><h3 class="title-bnet-ads"><?php echo $name_realm2['realm']; ?></h3></div>-->
+						<!--<?  require_once("configs.php");
+						$bar_width = "273px";
+						$bar_height = "20px";
+						$ally_img = "wow/static/images/services/status/ally.png";
+						$horde_img = "wow/static/images/services/status/horde.png";
+						//OLD $ally_img = "wow/static/images/services/status/ally_old.png";
+						//OLD $horde_img = "wow/static/images/services/status/horde_old.png";
+						//Show percent2 online (true = yes, false = no)
+						$show_percent2 = true; 
+
+						$alliance = array("1","3","4","7","11","22");
+						$horde = array("2","5","6","8","9","10");
+
+						define("QFAIL","Unable to run query.");
+						define("CFAIL","Database connection failed! Check your settings!");
+						define("DFAIL","Unable to select database.");
+
+						$conn = @mysql_connect($serveraddress,$serveruser,$serverpass) or die(mysql_error());
+						if(!$conn)
+							die(CFAIL);
+							
+						function getPlayers2($server_cdb_2,$conn) {
+							$db = @mysql_select_db($server_cdb_2,$conn);
+							if(!$db) {
+								die(DFAIL);
+							}
+							$query = @mysql_query("SELECT online FROM characters WHERE online = '1'");
+							if(!$query) {
+								die(QFAIL);
+							}
+							return @mysql_num_rows($query);
+						}
+
+						function doFaction2($server_cdb_2,$conn,$a) {
+							$db = @mysql_select_db($server_cdb_2,$conn);
+							if(!$db) {
+								die(DFAIL);
+							}
+							$query = @mysql_query("SELECT race FROM characters WHERE online = '1'");
+							if(!$query) {
+								die(QFAIL);
+							}
+							$i = 0;
+							while($r = @mysql_fetch_array($query)) {
+								$race = $r['race'];
+								if(in_array($race,$a)) {
+									$i++;
+								}
+							}
+							return $i;
+						}
+
+						function percent2($a,$t) {
+							$count1 = $a / $t;
+							$count2 = $count1 * 100;
+							$count = number_format($count2, 0);
+							return $count;
+						}
+
+						function barWidth2($a,$b,$t) {
+							if(($a == 0) && ($b == 0)) {
+								$count2 = "136.5";
+							}
+							else {
+								$count1 = $a / $b;
+								$count2 = $count1 * $t;
+							}
+							return $count2;
+						}
+						
+						$p = @getPlayers2($server_cdb_2,$conn);
+						$a = @doFaction2($server_cdb_2,$conn,$alliance);
+						$h = @doFaction2($server_cdb_2,$conn,$horde);
+						$ap = @percent2($a,$p);
+						$hp = @percent2($h,$p);
+						$b = @barWidth2($a,$p,273);
+						$c = @barWidth2($h,$p,273);
+						echo "<a data-tooltip='".doFaction2($server_cdb_2,$conn,$alliance)." <font style=\"color:#3399ff;font-weight:bold;\">alliance</font> <small>players Online.</small>'\><div style=\"width:" . $bar_width . ";height:" . $bar_height . ";\">
+						<div style=\"float:left;text-align:right;background:url(./" . $ally_img . ");width:" . $b . "px;height:20px;\">";
+						if($show_percent2) {
+							echo "<font style=\"color:#FFFFFF;font-weight:bold;\"><center>$ap%</center></font></a>";
+						}
+						echo "<a data-tooltip='".doFaction2($server_cdb_2,$conn,$horde)." <font style=\"color:#ff3333;font-weight:bold;\">horde</font> <small>players Online.</small>'\></div>
+						<div style=\"float:right;text-align:left;background:url(./" . $horde_img . ");background-position:right;width:" . $c . "px;height:20px;\">";
+						if($show_percent2) {
+							echo "<font style=\"color:#FFFFFF;font-weight:bold;\"><center>$hp%</center></font></a>";
+						}
+						echo "</div>
+						</div>";
+						
+						?>-->
+						</div></center>
 						</div>
 						<!--<div class="sidebar-module " id="sidebar-friends" style="">
 						<div class="sidebar-title">
