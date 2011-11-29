@@ -2,36 +2,36 @@
 $page="loginframe.php";
 include("configs.php");
 ?>
+
 <!DOCTYPE html>
   <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="wow/static/login/static/local-common/css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="wow/static/login/static/_themes/bam/css/master.css"/>
-    <script type="text/javascript" src="wow/static/login/static/local-common/js/third-party/jquery.js"></script>
-    <script type="text/javascript" src="wow/static/login/static/local-common/js/core.js"></script>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="wow/static/login/static/local-common/css/common.css?v22"/>
+		<link rel="stylesheet" type="text/css" href="wow/static/login/static/_themes/bam/css/master.css?v1"/>
+		<script type="text/javascript" src="wow/static/login/static/local-common/js/third-party/jquery-1.4.4-p1.min.js"></script>
+		<script type="text/javascript" src="wow/static/login/static/local-common/js/core.js?v22"></script>
+		<script>
+			var targetOrigin = "http://eu.battle.net";
 
-    <script>
-      var targetOrigin = "<?php echo $website['address']; ?>";
+			function updateParent(action, key, value) {
+				var obj = { action: action };
 
-      function updateParent(action, key, value) {
-        var obj = { action: action };
+				if (key) obj[key] = value;
 
-        if (key) obj[key] = value;
+				parent.postMessage(JSON.stringify(obj), targetOrigin);
+				return false;
+			}
 
-        parent.postMessage(JSON.stringify(obj), targetOrigin);
-        return false;
-      }
+			function checkDefaultValue(input, isPass) {
+				if (input.value == input.title)
+					input.value = "";
 
-      function checkDefaultValue(input, isPass) {
-        if (input.value == input.title)
-          input.value = "";
-
-        if (isPass)
-          input.type = "password";
-      }
-    </script>
-  </head>
+				if (isPass)
+					input.type = "password";
+			}
+		</script>
+	</head>
   <body>
     <div id="embedded-login">
       <h2>World of Warcraft</h2>
@@ -62,7 +62,7 @@ include("configs.php");
       
       <?php
         $_SESSION['username']=$accountName;
-          echo '<meta http-equiv="refresh" content="2"';
+          echo '<meta http-equiv="refresh" content="2;"';
           echo 'Succesfully';
       ?>
       </center>
@@ -150,22 +150,23 @@ include("configs.php");
   <br /><br />
     
     <script type="text/javascript">
-      $(function() {
-        $("#ssl-trigger").click(function() {
-          updateParent('onload', 'height', $(document).height() + 76);
-          $("#thawteseal").show();
-        });
-        
-        $("#help-links a").click(function() {
-          updateParent('redirect', 'url', this.href);
-          return false;
-        });
+			$(function() {
+				$("#ssl-trigger").click(function() {
+					updateParent('onload', 'height', $(document).height() + 76);
+					$("#thawteseal").show();
+				});
+				
+				$("#help-links a").click(function() {
+					updateParent('redirect', 'url', this.href);
+					return false;
+				});
 
-        $('#accountName').focus();
+				$('#accountName').focus();
 
-        updateParent('onload', 'height', $(document).height());
-      });
-    </script>
+				updateParent('onload', 'height', $(document).height());
+			});
+		</script>
+	</form>
 
   
     </div>

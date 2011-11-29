@@ -1,6 +1,9 @@
 <?php
 session_save_path('phpsessions');
-session_start();
+if (!isset($_SESSION)) 
+{
+  session_start();
+}
 
 /*||||||||||||||||||||||||||||||||||||||||*/
 /*|||||||The Language Configuration|||||||*/
