@@ -14,7 +14,7 @@ $page_cat = "services";
 <!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie6.css?v35" /><![endif]-->
 <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie7.css?v35" /><![endif]-->
 <link title="World of Warcraft - News" href="feed/newshtml.html" type="application/atom+xml" rel="alternate"/>
-<link rel="stylesheet" type="text/css" media="all" href="wow/static/css/wowe6dd.css" />
+<link rel="stylesheet" type="text/css" media="all" href="wow/static/css/wow.css" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/cms/search.css" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/css/search.css" />
 <!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie.css?v18" /><![endif]--><!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie6.css?v18" /><![endif]-->
