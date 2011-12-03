@@ -282,4 +282,63 @@ $Uns['Uns27'] = "That Character Is Not Yours.";
 $Uns['Uns28'] = "Your Character Is Fixed.";
 $Uns['Uns29'] = "Continue";
 // Finishing the Char Unstuck translation
+// Starting Index
+$Ind['Ind'] = "Next";
+$Ind['Ind1'] = "Search Bar";
+$Ind['Ind2'] = "Search";
+$Ind['Ind3'] = "Promo Advertisement";
+$Ind['Ind4'] = "Server Information: ";
+$Ind['Ind5'] = " Realmlist : ";
+$Ind['Ind6'] = " Patch Version : ";
+$Ind['Ind7'] = " Accounts : ";
+$Ind['Ind8'] = "Accounts Registered";
+$Ind['Ind9'] = " Characters: ";
+$Ind['Ind10'] = " Characters Created";
+$Ind['Ind11'] = "Recommended Services";
+$Ind['Ind12'] = "Recruit a Friend";
+$Ind['Ind13'] = "Get your friends ingame and play togethere for free!";
+$Ind['Ind14'] = "Transfer a Character";
+$Ind['Ind15'] = "Make your Transfers realm by realm, Character by Character!";
+$Ind['Ind16'] = "Vote to Save the Day";
+$Ind['Ind17'] = "Vote is: ";
+$Ind['Ind18'] = "Online!";
+$Ind['Ind19'] = "Vote Now!";
+$Ind['Ind20'] = "GPS / Visitors Map";
+$Ind['Ind21'] = "Map / GPS is: ";
+$Ind['Ind22'] = "Online!";
+$Ind['Ind23'] = "Check Online Now!";
+// Finishing Index
+// Starting Services
+$Serv['Serv'] = "Services";
+$Serv['Serv1'] = " Account Services";
+$Serv['Serv2'] = "Use the account services available for World of Warcraft to easily upgrade your game and access a number of additional account options.";
+$Serv['Serv3'] = "Account Management";
+$Serv['Serv4'] = "Review and change your account security options, use additional account services, and more.";
+$Serv['Serv5'] = "Ban List";
+$Serv['Serv6'] = "Find which players have been Banned from the server. Beware of what you will see!";
+$Serv['Serv7'] = "Armory";
+$Serv['Serv8'] = "Trying to find your Character, or a friend's? Browse the ";
+$Serv['Serv9'] = " Armory.";
+$Serv['Serv10'] = "Recruit a Friend";
+$Serv['Serv11'] = "Earn epic rewards for each player you invite to play at ";
+$Serv['Serv12'] = "Donation Shop";
+$Serv['Serv13'] = "Visit the Donation Shop and check out our services/gifts/prizes/etc.";
+$Serv['Serv14'] = "Upgrade your Account";
+$Serv['Serv15'] = "Upgrade your World of Warcraft Account!";
+$Serv['Serv16'] = "Account Services";
+$Serv['Serv17'] = "OTHER SERVICES AND PROMOTIONS";
+$Serv['Serv18'] = "Refer-A-Friend";
+$Serv['Serv19'] = "CHARACTER SERVICES";
+$Serv['Serv20'] = "Trade Characters";
+$Serv['Serv21'] = "Character Name Change";
+$Serv['Serv22'] = "Character Race Change";
+$Serv['Serv23'] = "Character Faction Change";
+$Serv['Serv24'] = "Character Customization";
+$Serv['Serv25'] = "Website Options";
+$Serv['Serv26'] = "Change Website Theme";
+$Serv['Serv27'] = "Change Avatar";
+$Serv['Serv28'] = "Request GM Application";
+$Serv['Serv29'] = "Request GM Trial";
+$Serv['Serv30'] = "Download WoW Client";
+// Finishing Services
 ?>

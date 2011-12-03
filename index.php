@@ -44,7 +44,7 @@ $page_cat = "home";
 					<div id="left">
 						<script type="text/javascript" src="wow/static/local-common/js/slideshow.js"></script>
 						<script type="text/javascript" src="wow/static/local-common/js/third-party/swfobject.js"></script>
-						 <div id="slideshow" class="ui-slideshow">
+						<div id="slideshow" class="ui-slideshow">
 							<div class="slideshow">
 							<?php
 							$slideshows = mysql_query("SELECT * FROM slideshows ORDER BY id DESC LIMIT 5");
@@ -174,7 +174,7 @@ $page_cat = "home";
 								<!--Next Page Button-->
 								<div class="blog-paging">
 								<a class="ui-button button1 button1-next float-right " href="<?php echo'?new='.$news['id'];?>">
-								<span><span>Next</span></span></a>
+								<span><span><?php echo $Ind['Ind']; ?></span></span></a>
 								<span class="clear"><!-- --></span>
 								</div>
 							<?php }?>
@@ -187,7 +187,7 @@ $page_cat = "home";
 					<!-- DO NOT EDIT BELOW UNLESS YOU KNOW WHAT YOU ARE DOING! -->
 					<!-- DO NOT EDIT BELOW UNLESS YOU KNOW WHAT YOU ARE DOING! -->
 				<div class="bnet-offer">
-				<div class="sidebar-title"><h3 class="title-bnet-ads">Promo Advertisement</h3></div>
+				<div class="sidebar-title"><h3 class="title-bnet-ads"><?php echo $Ind['Ind3']; ?></h3></div>
 				<!-- DO NOT EDIT BELOW UNLESS YOU KNOW WHAT YOU ARE DOING! -->
 				<div class="bnet-offer-bg">
 				<a href="search.php" target="_blank" id="vote" class="bnet-offer-image" onclick="">
@@ -199,7 +199,7 @@ $page_cat = "home";
 						
 						<div id="sidebar-marketing" class="sidebar-module">
 						<div class="sidebar-title">
-						<h3 class="title-bnet-ads">Server Information: 
+						<h3 class="title-bnet-ads"><?php echo $Ind['Ind4']; ?>
 						<?php
 						require_once("configs.php");
 						if(realm_status($serveraddress, $serverport) === false)
@@ -251,9 +251,9 @@ $page_cat = "home";
 						echo "<font color='#00FF00'><b>Uptime :</b></font> <span class='date'>$uptime</span> <br>";
 						?>
 						<div class="sidebar-module" id="sidebar">
-						  <?php echo $website['title']; ?> Realmlist : <span class="date"><?php echo $website['realm']; ?></span><br />
-						  <?php echo $website['title']; ?> Patch Version : <span class="date"><font color='#FF0000'>4.x.x</font></span><br />
-						  <?php echo $website['title']; ?> Accounts : <span class="date">
+						  <?php echo $website['title']; ?><?php echo $Ind['Ind5']; ?><span class="date"><?php echo $website['realm']; ?></span><br />
+						  <?php echo $website['title']; ?><?php echo $Ind['Ind6']; ?><span class="date"><font color='#FF0000'>4.2.0</font></span><br />
+						  <?php echo $website['title']; ?><?php echo $Ind['Ind7']; ?><span class="date">
 						  <?php
 						require_once("configs.php");
 
@@ -268,8 +268,8 @@ $page_cat = "home";
 						echo ("<font color='#FF0000'>$acc</font>");
 						mysql_close($conn);
 						?>
-						Accounts Registered</span><br />
-						<?php echo $name_realm1['realm']; ?> Characters: <span class="date"><?php
+						<?php echo $Ind['Ind8']; ?></span><br />
+						<?php echo $name_realm1['realm']; ?><?php echo $Ind['Ind9']; ?><span class="date"><?php
 						require_once("configs.php");
 
 						$conn = mysql_connect($serveraddress, $serveruser, $serverpass) or die(mysql_error());
@@ -283,7 +283,7 @@ $page_cat = "home";
 						echo ("<font color='#FF0000'>$char</font>");
 
 						mysql_close($conn);
-						?> Characters Created</span><br /><!--
+						?><?php echo $Ind['Ind10']; ?></span><br /><!--
 						Characters on R2: <span class="date"><?php
 						require_once("configs.php");
 
@@ -531,13 +531,13 @@ $page_cat = "home";
 						<!-- Do not Touch here -->
 						<!-- X -->
 						<div class="sidebar-module" id="sidebar-bnet-ads">
-							<div class="sidebar-title"><h3 class="title-bnet-ads">Recommended Services</h3></div>
+							<div class="sidebar-title"><h3 class="title-bnet-ads"><?php echo $Ind['Ind11']; ?></h3></div>
 							<div class="sidebar-content">
 							<div class="bnet-offer">
 							<!-- Sidebar No.1 of Services-->
 							<div class="bnet-offer-bg"><a href="#"><img src="wow/static/images/services/thumbnails/recruit.jpg" width="300" height="100" alt="" /></a></div>
-							<div class="desc"><a href="#">Recruit a Friend</a>
-							<div class="subtitle">Get your friends ingame and play togethere for free!</div>
+							<div class="desc"><a href="#"><?php echo $Ind['Ind12']; ?></a>
+							<div class="subtitle"><?php echo $Ind['Ind13']; ?></div>
 							</div>
 							</div>
 							</div>
@@ -546,8 +546,8 @@ $page_cat = "home";
 							<div class="bnet-offer">
 							<!-- Sidebar No.2 of Services-->
 							<div class="bnet-offer-bg"><a href="#"><img src="wow/static/images/services/thumbnails/transfer.jpg" width="300" height="100" alt="" /></a></div>
-							<div class="desc"><a href="#">Transfer a Character</a>
-							<div class="subtitle">Make your Transfers realm by realm, Character by Character!</div>
+							<div class="desc"><a href="#"><?php echo $Ind['Ind14']; ?></a>
+							<div class="subtitle"><?php echo $Ind['Ind15']; ?></div>
 							</div>
 							</div>
 							</div>
@@ -557,7 +557,7 @@ $page_cat = "home";
 							<div>
 								<div class="sidebar-title">
 									<h3 class="title-sotd">
-										<a href="vote.php">Vote to Save the Day</a>
+										<a href="vote.php"><?php echo $Ind['Ind16']; ?></a>
 									</h3>
 								</div>
 
@@ -565,8 +565,8 @@ $page_cat = "home";
 									<div class="sotd" style="background-image: url(wow/static/images/vote/clicky.png);">
 									<a href="vote.php" class="image"> </a>
 										<div class="caption">
-											<a class="view">Vote is: <font color="green">Online!</font></a>
-											<a href="vote.php" class="submit">Vote Now!</a>
+											<a class="view"><?php echo $Ind['Ind17']; ?><font color="green"><?php echo $Ind['Ind18']; ?></font></a>
+											<a href="vote.php" class="submit"><?php echo $Ind['Ind19']; ?></a>
 										<span class="clear"><!-- --></span>
 										</div>
 									</div>
@@ -576,7 +576,7 @@ $page_cat = "home";
 							<div>
 								<div class="sidebar-title">
 									<h3 class="title-sotd">
-										<a href="">GPS / Visitors Map</a>
+										<a href=""><?php echo $Ind['Ind20']; ?></a>
 									</h3>
 								</div>
 
@@ -584,8 +584,8 @@ $page_cat = "home";
 									<div class="sotd" alt="Map" style="background-image: url(http://rh.revolvermaps.com/h/m/a/0/ffffff/180/10/7shj9utgbpg.png);" height="180">
 									<a href="http://www.revolvermaps.com/?target=enlarge&amp;i=7omrra41w5x&amp;color=ffffff&amp;m=0" class="image"> </a>
 										<div class="caption">
-											<a class="view">Map / GPS is: <font color="green">Online!</font></a>
-											<a href="http://www.revolvermaps.com/?target=enlarge&amp;i=7omrra41w5x&amp;color=ffffff&amp;m=0" class="submit">Check Online Now!</a>
+											<a class="view"><?php echo $Ind['Ind21']; ?><font color="green"><?php echo $Ind['Ind22']; ?></font></a>
+											<a href="http://www.revolvermaps.com/?target=enlarge&amp;i=7omrra41w5x&amp;color=ffffff&amp;m=0" class="submit"><?php echo $Ind['Ind23']; ?></a>
 										<span class="clear"><!-- --></span>
 										</div>
 									</div>

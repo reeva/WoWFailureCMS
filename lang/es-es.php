@@ -178,7 +178,6 @@ $Man['Man7'] = "Activada";
 $Man['Man8'] = "Baneada";
 $Man['Man9'] = "Dias de juego restantes";
 $Man['Man10'] = "100% Días - Juego Gratuito";
-$Man2['Man10'] = "0% Días - Juego Gratuito";
 $Man['Man11'] = "Expansiones";
 $Man['Man12'] = "Cataclysmo";
 $Man['Man13'] = "Cambiar";
@@ -192,7 +191,7 @@ $Man['Man20'] = "Región";
 $Man['Man21'] = "Europa (EU)";
 $Man['Man22'] = " Donador";
 $Man['Man23'] = "NO";
-$Man['Man24'] = "Dona y Consigue Recompensas";
+$Man['Man24'] = "Dona por Paypal y Consigue Recompensas";
 $Man['Man25'] = "Vota y Consigue Recompensas";
 $Man['Man26'] = "Cambiar Contraseña";
 $Man['Man27'] = "Ver el Historial de la Cuenta";
@@ -235,6 +234,7 @@ $Man['Man63'] = "Añadir ";
 $Man['Man64'] = " Consigue el Título de Donación en tu cuenta y desbloquea Ilimitadas Recompensas.";
 $Man['Man65'] = " Casa de Subastas Remota";
 $Man['Man66'] = "Usa todas las características de la Casa de Subastastas Remota de ";
+$Man['Man67'] = "Dona por SMS y Recibe Recompensas";
 // Finishing Account Man
 // Starting Ban List
 $BanL['BanL1'] = "Baneado Por:";
@@ -283,4 +283,64 @@ $Uns['Uns27'] = "El personaje no es tuyo.";
 $Uns['Uns28'] = "Tu personaje se ha desbloqueado.";
 $Uns['Uns29'] = "Continuar";
 // Finishing the Char Unstuck translation
+// Finishing the Char Unstuck translation
+// Starting Index
+$Ind['Ind'] = "Siguiente";
+$Ind['Ind1'] = "Buscador";
+$Ind['Ind2'] = "Buscar";
+$Ind['Ind3'] = "Novedades";
+$Ind['Ind4'] = "Información del Servidor: ";
+$Ind['Ind5'] = " Realmlist : ";
+$Ind['Ind6'] = " Versión : ";
+$Ind['Ind7'] = " Cuentas : ";
+$Ind['Ind8'] = "Cuentas Registradas";
+$Ind['Ind9'] = " Personajes: ";
+$Ind['Ind10'] = " Personajes Creados";
+$Ind['Ind11'] = "Servicios Recomendados";
+$Ind['Ind12'] = "Recluta a un Amigo";
+$Ind['Ind13'] = "Invita a tus amigos a jugar a Voragine-Gaming y juega con ellos gratuitamente!";
+$Ind['Ind14'] = "Migración de Personajes";
+$Ind['Ind15'] = "Migra tu personaje de otro servidor a Voragine-Gaming, y te lo damos igual que en tu antiguo servidor(*)!";
+$Ind['Ind16'] = "No olvides votar cada día";
+$Ind['Ind17'] = "Las votaciones están: ";
+$Ind['Ind18'] = "Online!";
+$Ind['Ind19'] = "Vota ahora!";
+$Ind['Ind20'] = "GPS / Mapa de Visitantes";
+$Ind['Ind21'] = "Mapa / GPS is: ";
+$Ind['Ind22'] = "Online!";
+$Ind['Ind23'] = "Comprueba la gente que está online en la web!";
+// Finishing Index
+// Starting Services
+$Serv['Serv'] = "Servicios";
+$Serv['Serv1'] = " Servicios de cuentas de World of Warcraft";
+$Serv['Serv2'] = "Utiliza los servicios de cuentas de World of Warcraft para actualizar fácilmente el juego y acceder a una gran cantidad de opciones de cuenta adicionales.";
+$Serv['Serv3'] = "Gestión de Cuenta";
+$Serv['Serv4'] = "Revisa y cambia tus opciones de seguridad, utiliza servicios de cuenta adicionales, y mucho más.";
+$Serv['Serv5'] = "Lista de Baneados";
+$Serv['Serv6'] = "Encuentra los players que han estado baneados del servidor.";
+$Serv['Serv7'] = "Armería";
+$Serv['Serv8'] = "Estás buscando tu peronajes, o un el de un amigo? Busca en la Armeria de Trying to find your Character, or a friend's? Browse the ";
+$Serv['Serv9'] = ".";
+$Serv['Serv10'] = "Recluta a un Amigo";
+$Serv['Serv11'] = "Gana recompensas épicas por cada player que invites al servidor ";
+$Serv['Serv12'] = "Tienda de Donación";
+$Serv['Serv13'] = "Visita la Tienda de Donación y revisa nuestros Servicios/Regalos/Premios/etc.";
+$Serv['Serv14'] = "Actualiza tu Cuenta";
+$Serv['Serv15'] = "Actualiza tu cuenta de World of Warcraft!";
+$Serv['Serv16'] = "Servicios de la Cuenta";
+$Serv['Serv17'] = "OTROS SERVICIOS Y PROMOCIONES";
+$Serv['Serv18'] = "Recluta a un Amigo";
+$Serv['Serv19'] = "SERVICIOS DE PERSONAJES";
+$Serv['Serv20'] = "Transferencia de Personajes";
+$Serv['Serv21'] = "Cambio de Nombre";
+$Serv['Serv22'] = "Cambio de Raza";
+$Serv['Serv23'] = "Cambio de Facción";
+$Serv['Serv24'] = "Personalización de personaje";
+$Serv['Serv25'] = "Herramientas de la Web";
+$Serv['Serv26'] = "Cambiar el Estilo de la Web";
+$Serv['Serv27'] = "Cambiar el Avatar";
+$Serv['Serv28'] = "Aplicación para GM";
+$Serv['Serv29'] = "Pide una prueba de GM";
+$Serv['Serv30'] = "Descarga del Cliente";
+// Finishing Services
 ?>
