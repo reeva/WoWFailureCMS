@@ -1,5 +1,10 @@
 <?php if(!isset($_SESSION['username'])){ ?>
-
+<div xmlns="http://www.w3.org/1999/xhtml" class="user-plate">
+<a href="?login" class="card-login" onclick="BnetAds.trackImpression('Battle.net Login', 'Character Card', 'New'); return Login.open('login.php');">
+<strong>Log in now</strong> to enhance and personalize your experience!
+</a>
+<div class="card-overlay"></div>
+</div>
 <?php }else{
   $side = rand(1,2);
   switch($side){
@@ -11,18 +16,18 @@
     break;
   } 
 ?>
-
-<div id="user-plate" class="user-plate plate-<?php echo $side; ?> ajax-update"
-style="background: url(<?php echo $website['root']; ?>chars/0-0.jpg) 0 100% no-repeat;">
+<div class="user-plate">
+<div id="user-plate" class="card-character plate-<?php echo $side; ?> ajax-update" style="background: url(<?php echo $website['root']; ?>wow/static/images/layout/cards/no-chars.png) 0 100% no-repeat;">
 <div class="card-overlay"></div>
-<a href="#" rel="np" class="profile-link">
 <span class="hover"></span>
 </a>
-<div class="user-meta">
-  <div class="player-name"><?php echo strtolower($_SESSION['username']); ?></div>
-  
-  <div class="character">
-  <a class="character-name context-link" href="#da" rel="np" data-tooltip="Change character">No Characters</a>
+<div class="meta">
+<div class="player-name"><?php echo strtolower($_SESSION['username']); ?></div>
+<div class="character">
+<a class="character-name context-link" 
+href="#" 
+rel="np" 
+data-tooltip="Change character">No Characters</a>
     <div id="context-1" class="ui-context character-select">
     
       <div class="context">
@@ -51,13 +56,13 @@ style="background: url(<?php echo $website['root']; ?>chars/0-0.jpg) 0 100% no-r
           <span class="class color-c1">level race class</span>
           <span class="realm">No Realm</span>
           </a>
-          
-          <!--<a href="/wow/en/character/burning-steppes/stefyvolt/" onclick="CharSelect.pin(1, this); return false;" class="char " rel="np">
+          <!-- At href="advanced.php?NAME" that has to be there-->
+          <a href="javascript:;" onclick="CharSelect.pin(1, this); return false;" class="char " rel="np">
           <span class="pin"></span>
-          <span class="name">TheAdriann</span>
+          <span class="name">Test Character</span>
           <span class="class color-c1">80 Human Warrior</span>
           <span class="realm">No Realm</span>
-          </a>-->
+          </a>
           </div>
           
           <!--

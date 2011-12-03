@@ -22,7 +22,7 @@ $code_forum['code_forum']= " to view the Forums Code of Conduct.";
 $here['here'] = "here";
 $Account['Account'] = "Account";
 $Account1['Account1'] = "Can't log in?";
-$Account3['Account3'] = "Create Account";
+$Account3['Account3'] = "Create an Account";
 $Account4['Account4'] = "Account Summary";
 $Account5['Account5'] = "Account Security"; 
 $Account6['Account6'] = "Manage your Account";
@@ -72,8 +72,8 @@ $copyright4['copyright4'] = "Resources are in Blizzard Entertainment Property.";
 
 
 $Welcome['Welcome'] ="Welcome, ";
-$logout['logout'] = "Log Out";
-$login['login'] = "Log In" ;
+$logout['logout'] = "Log out";
+$login['login'] = "Log in" ;
 
 $Donate1['Donate1'] = "Donate for"; 
 $Donate['Donate'] = "Donate";

@@ -44,7 +44,8 @@ $page_cat = "home";
 					<div id="left">
 						<script type="text/javascript" src="wow/static/local-common/js/slideshow.js"></script>
 						<script type="text/javascript" src="wow/static/local-common/js/third-party/swfobject.js"></script>
-						<div id="slideshow">
+						 <div id="slideshow" class="ui-slideshow">
+							<div class="slideshow">
 							<?php
 							$slideshows = mysql_query("SELECT * FROM slideshows ORDER BY id DESC LIMIT 5");
 							$i=0; 
@@ -104,7 +105,7 @@ $page_cat = "home";
 							});
 						//]]>
 						</script>
-						
+						</div>
 						
 						<div class="featured-news">
 							<?php
@@ -186,31 +187,6 @@ $page_cat = "home";
 					<!-- DO NOT EDIT BELOW UNLESS YOU KNOW WHAT YOU ARE DOING! -->
 					<!-- DO NOT EDIT BELOW UNLESS YOU KNOW WHAT YOU ARE DOING! -->
 				<div class="bnet-offer">
-				
-				<!-- Start of Search -->
-				<div class="sidebar-title"><h3 class="title-bnet-ads">Search Bar</h3></div>
-						<div class="search">
-						<div class="search-right">
-						<div class="search-header">
-					        <form action="search.php" method="post" class="search-form">
-						<div>
-						<center><input href="search.php" type="text" name="search" value="" id="search-page-field" class="input border-5 glow-shadow-2" autocomplete="off" tabindex="2" required="required" />
-						<button
-						class="ui-button button1"
-						type="submit"
-						href="search.php">
-						<span>
-						<span>Search</span>
-						</span>
-						</button></center>
-						</div>
-						</form>
-						</div>
-						</table>
-						</div>
-						</div>
-						<!-- End of Search -->
-						<br>
 				<div class="sidebar-title"><h3 class="title-bnet-ads">Promo Advertisement</h3></div>
 				<!-- DO NOT EDIT BELOW UNLESS YOU KNOW WHAT YOU ARE DOING! -->
 				<div class="bnet-offer-bg">
