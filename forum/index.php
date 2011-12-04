@@ -7,12 +7,11 @@ $page_cat = "forums";
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="../wow/static/local-common/images/favicons/wow.ico" type="image/x-icon" />
-<link rel="search" type="application/opensearchdescription+xml" href="http://eu.battle.net/en-gb/data/opensearch" title="Battle.net Search" />
 <link rel="stylesheet" type="text/css" media="all" href="../wow/static/local-common/css/common.css?v15" />
 <!--[if IE]><link rel="stylesheet" type="text/css" media="all" href="../wow/static/local-common/css/common-ie.css?v15" /><![endif]-->
 <!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="../wow/static/local-common/css/common-ie6.css?v15" /><![endif]-->
 <!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="../wow/static/local-common/css/common-ie7.css?v15" /><![endif]-->
-<link rel="stylesheet" type="text/css" media="all" href="../wow/static/css/wowe6dd.css?v4" />
+<link rel="stylesheet" type="text/css" media="all" href="../wow/static/css/wow.css?v4" />
 <link rel="stylesheet" type="text/css" media="all" href="../wow/static/local-common/css/cms/forums.css?v15" />
 <link rel="stylesheet" type="text/css" media="all" href="../wow/static/local-common/css/cms/cms-common.css?v15" />
 <link rel="stylesheet" type="text/css" media="all" href="../wow/static/css/cms.css?v4" />
@@ -52,7 +51,7 @@ Flash.ratingImage = 'http://eu.media.blizzard.com/wow/player/rating-pegi.jpg';
 <div class="content-trail">
 <ol class="ui-breadcrumb">
 <li>
-<a href="../index.php" rel="np">World of Warcraft</a></li>
+<a href="../index.php" rel="np"><?php echo $website['title']; ?></a></li>
 <li class="last"><a href="index.php" rel="np">Forums</a></li>
 </ol>
 </div>
@@ -65,7 +64,7 @@ Flash.ratingImage = 'http://eu.media.blizzard.com/wow/player/rating-pegi.jpg';
 
 
             <div class="bt-lite">
-                <div class="bt-link readmore">Latest Blizzard Posts <span><a href="blizztracker/">(View all)</a></span></div>
+                <div class="bt-link readmore">Latest <?php echo $website['title']; ?> Posts <span><a href="">(View all)</a></span></div>
                     <a href="javascript:;" onclick="Cms.Station.btLiteScroll(1)" class="bt-left"></a>
                     <a href="javascript:;" onclick="Cms.Station.btLiteScroll(-1)" class="bt-right"></a>
 					

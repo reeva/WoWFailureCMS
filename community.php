@@ -1,18 +1,15 @@
 <?php
 require_once("configs.php");
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" xmlns:xml="http://www.w3.org/XML/1998/namespace" class="chrome chrome8">
+<html>
 <head>
 <title><?php echo $website['title']; ?></title>
-<meta content="false" http-equiv="imagetoolbar" />
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.ico" type="image/x-icon" />
 <link rel="search" type="application/opensearchdescription+xml" href="http://eu.battle.net/en-gb/data/opensearch" title="Battle.net Search" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common.css?v15" />
 <!--[if IE]><link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common-ie.css?v15" /><![endif]-->
 <!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common-ie6.css?v15" /><![endif]-->
 <!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common-ie7.css?v15" /><![endif]-->
-<link title="World of Warcraft - News" href="wow/en/feed/news" type="application/atom+xml" rel="alternate" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/css/wow.css?v3" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/css/community/community-index.css" />
 <!--[if IE]><link rel="stylesheet" type="text/css" media="all" href="wow/static/css/community/community-ie.css?v3" /><![endif]-->
@@ -67,8 +64,9 @@ include("header.php");
     <script type="text/javascript" src="wow/static/local-common/js/slideshow.js"></script>
     <script type="text/javascript" src="wow/static/local-common/js/third-party/swfobject.js"></script>
 
-    <div id="slideshow">
-        <div class="container">
+     <div id="slideshow" class="ui-slideshow">
+        <div class="slideshow">
+        
 				<?php
 				$query = mysql_query("SELECT * FROM community_slides ORDER BY id DESC LIMIT 4");
 				$i=0;
