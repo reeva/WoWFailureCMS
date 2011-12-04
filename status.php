@@ -311,7 +311,7 @@ $total_number = $number * $bar_width;
 						}
 						}
 						?>
-							<?php echo $name_realm1['realm']; ?></a>
+							<?php echo $name_realm2['realm']; ?></a>
 						</td>
 						<td class="type" data-raw="pve">
 							<span class="pve">
