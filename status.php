@@ -276,7 +276,7 @@ $total_number = $number * $bar_width;
 						</td>
 					</tr>
 					<!-- Removed or add the ( --> <!-- ) Only if you know what they are doing -->
-					<!--<tr class="row2">
+					<tr class="row2">
 						<td class="status" data-raw="up">
 							<div class="status-icon up"
 								 onmouseover="Tooltip.show(this, 'Online')">
@@ -297,11 +297,11 @@ $total_number = $number * $bar_width;
 						{
 						echo "<font color=#00FF00><img src='wow/static/images/services/status/offline.png'/> ";
 						}
-						function realm_status($host, $port)
+						function realm_status2($host, $port)
 						{
 						error_reporting(0);
-						$etat = fsockopen($host,$port,$errno,$errstr,3);
-						if(!$etat)
+						$etat2 = fsockopen($serveraddress,$serverport,$errno2,$errstr2,3);
+						if(!$etat2)
 						{
 						return false;
 						}
@@ -326,12 +326,12 @@ $total_number = $number * $bar_width;
 						<td class="locale">
 							Cataclysm
 						</td>
-						<td class="queue" data-raw="false">-->
+						<td class="queue" data-raw="false">
 						
 						<!-- This is the 2nd (Second) Server on the Status, its for Public Use -->
 						
 						<!--Bar Graph 2-->
-<!--<?php 
+<?php 
 require_once("configs.php");
 $con = mysql_connect("$serveraddress","$serveruser","$serverpass");
 if (!$con)
@@ -359,7 +359,7 @@ $total_number = $number * $bar_width;
 ?> / <?php echo"$max_online"; ?>
 </div></div>
 <div style="width:<?php echo"$total_number"; ?>%; background:<?php echo"$graph_fill"; ?>; background-repeat:repeat-x; height:18px;border-right:1px solid <?php echo"$right_border"; ?>;">
-</div></div>-->
+</div></div>
 																<!--Bar Graph 2-->
 																
 																<!--Server No.3-->
