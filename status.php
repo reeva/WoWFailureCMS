@@ -225,9 +225,7 @@ _gaq.push(['_trackPageview']);
 						}
 						}
 						?>
-							<?php 	require_once("configs.php");
-									echo $name_realm1['realm']; 
-									?>
+							<?php echo $name_realm1['realm']; ?>
 									</a>
 						</td>
 						<td class="type" data-raw="pvp">
@@ -285,9 +283,35 @@ $total_number = $number * $bar_width;
 							</div>
 						</td>
 						<td class="name">
-							<a href="servername2.php"><?php 	require_once("configs.php");
-									echo $name_realm2['realm']; 
-									?></a>
+							<a href="servername2.php"><?php
+						require_once("configs.php");
+						if(realm_status($serveraddress, $serverport) === false)
+						{
+						echo                      "<font color=red>Offline</font>";
+						}
+						elseif(realm_status($serveraddress, $serverport) === true)
+						{
+						echo "<img src='wow/static/images/services/status/online.png'/> ";
+						}
+						else
+						{
+						echo "<font color=#00FF00><img src='wow/static/images/services/status/offline.png'/> ";
+						}
+						function realm_status($host, $port)
+						{
+						error_reporting(0);
+						$etat = fsockopen($host,$port,$errno,$errstr,3);
+						if(!$etat)
+						{
+						return false;
+						}
+						else
+						{
+						return true;
+						}
+						}
+						?>
+							<?php echo $name_realm1['realm']; ?></a>
 						</td>
 						<td class="type" data-raw="pve">
 							<span class="pve">

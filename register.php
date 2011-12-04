@@ -6,10 +6,7 @@ $page_cat = "account";
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
 <head>
 <title>Registration of <?php echo $website['title']; ?></title>
-<meta content="false" http-equiv="imagetoolbar" />
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/bam.ico" type="image/x-icon"/>
-<link rel="search" type="application/opensearchdescription+xml" href="http://eu.battle.net/en-gb/data/opensearch" title="Battle.net Search" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common.css" />
 <!--[if IE]><link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common-ie.css" /><![endif]-->
 <!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common-ie6.css" /><![endif]-->
@@ -741,7 +738,7 @@ E-mail Address:
 </div>
 <div class="input-row input-row-text">
 <span class="input-left">
-<label for="emailAddress">
+<label for="Username">
 <span class="label-text">
 Username:
 </span>
@@ -750,7 +747,7 @@ Username:
 </span>
 <span class="input-right">
 <span class="input-text input-text-small">
-<input type="email" name="accountName" value="" id="emailAddress" class="small border-5 glow-shadow-2" autocomplete="off" onpaste="return false;" maxlength="320" tabindex="1" required="required" placeholder="Enter your Username" />
+<input type="text" name="accountName" value="" id="accountName" class="small border-5 glow-shadow-2" autocomplete="off" onpaste="return false;" maxlength="320" tabindex="1" required="required" placeholder="Enter your Username" />
 <span class="inline-message" id="emailAddress-message"></span>
 </span>
 </span>
