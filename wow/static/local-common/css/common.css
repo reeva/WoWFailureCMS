@@ -32,6 +32,28 @@ textarea { overflow: auto; }
 .row-hidden { display: none !important; }
 
 /*----------------------------------------------
+	Flag Interface
+----------------------------------------------*/
+
+.flag-card { width:459px; height:183px; margin-bottom:25px; box-shadow:0 0 6px #000; -moz-box-shadow:0 0 6px #000; -webkit-box-shadow:0 0 6px #000; float:left;}
+.flag-card .class-name { font-size:18px; display:block; padding-top:11px; margin-left:186px; }
+.flag-card .class-type { color:#f0e29a; font-size:11px; line-height:13px; display:block; margin-left:186px; }
+.flag-card .class-req { font-size:11px; line-height:12px; margin-left:186px;  }
+.flag-card .class-req.wrath { color:#2588c0 }
+.flag-card .class-desc { color:#b79855; font-size:11px; line-height:14px; display:block; margin:10px 25px 0 186px; }
+.flag-card a:hover .class-type, .flag-card a:hover .class-desc { color:#fff }
+.faction-req { margin-left: 53px }
+.faction-req .group { font-size: 12px; line-height: 18px; display: inline-block; height: 20px; padding-right: 20px }
+.faction-req .horde { background: url(../../images/icons/horde.png) no-repeat right 2px }
+.faction-req .alliance { background: url(../../images/icons/alliance.png) no-repeat right 2px }
+.faction-req .req { font-style: italic; font-size: 11px; margin-left: 10px; line-height:18px; vertical-align:top }
+.faction-req .req.bc { color: #5b9b17 }
+.faction-req .req.wow { color: #f7ad01 }
+.faction-req .req.wrath { color: #2588c0 }
+.faction-req .req.cataclysm { color: #DD6800 }
+.faction-req .req.mists { color: #008467 }
+
+/*----------------------------------------------
 	User Interface
 ----------------------------------------------*/
 

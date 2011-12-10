@@ -183,6 +183,7 @@ _gaq.push(['_trackPageview']);
 				<tr>
 					<th><a href="javascript:;" class="sort-link"><span class="arrow">Status</span></a></th>
 					<th><a href="javascript:;" class="sort-link"><span class="arrow">Realm Name</span></a></th>
+					<th><a href="javascript:;" class="sort-link"><span class="arrow">Information</span></a></th>
 					<th><a href="javascript:;" class="sort-link"><span class="arrow">Type</span></a></th>
 					<th><a href="javascript:;" class="sort-link"><span class="arrow">Population</span></a></th>
 					<th><a href="javascript:;" class="sort-link"><span class="arrow">Locale</span></a></th>
@@ -227,6 +228,11 @@ _gaq.push(['_trackPageview']);
 						?>
 							<?php echo $name_realm1['realm']; ?>
 									</a>
+						</td>
+						<td class="name">
+						<a href="statistics.php"><span class="icon-frame frame-18 " style="background-image: url(http://eu.media.blizzard.com/wow/icons/18/inv_scroll_12.jpg);">
+		</span> Statistics
+						</a>
 						</td>
 						<td class="type" data-raw="pvp">
 							<span class="pvp">
@@ -312,6 +318,11 @@ $total_number = $number * $bar_width;
 						}
 						?>
 							<?php echo $name_realm2['realm']; ?></a>
+						</td>
+						<td class="name">
+						<a href="statistics2.php"><span class="icon-frame frame-18 " style="background-image: url(http://eu.media.blizzard.com/wow/icons/18/inv_scroll_12.jpg);">
+		</span> Statistics
+						</a>
 						</td>
 						<td class="type" data-raw="pve">
 							<span class="pve">
