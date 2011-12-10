@@ -252,12 +252,12 @@ tr:hover .fansite-link,
 #header .user-plate .character-name .arrow { background: url("../images/layout/cms/char-arrow.png") 0 3px no-repeat; display: inline-block; width: 11px; height: 15px; }
 #header .user-plate .character-name:hover .arrow { background-position: 0 -145px; }
 
-#header .user-plate .card-login { width: 215px; height: 65px; padding: 32px 110px 0 30px; display: block; color: #EEE; font-size: 14px; background: url("../images/layout/cards/login.jpg") 0 0 no-repeat; position: absolute; bottom: 0; right: 0; text-overflow: ellipsis; line-height: 1.4em; }
+#header .user-plate .card-login { width: 215px; height: 65px; padding: 32px 110px 0 30px; display: block; color: #EEE; font-size: 14px; background: url("../images/layout/cards/login.png") 0 0 no-repeat; position: absolute; bottom: 0; right: 0; text-overflow: ellipsis; line-height: 1.4em; }
 #header .user-plate .card-login strong { color: #ffb100; }
 #header .user-plate a.card-login:hover { color: #fff; background-position: 0 -97px; }
 #header .user-plate a.card-login:hover strong { color: white; }
 #header .user-plate .card-nochars,
-#header .user-plate .card-default { width: 330px; height: 58px; padding: 25px 0 0 25px; background: url("../images/layout/cards/no-chars.jpg") 0 0 no-repeat; position: absolute; bottom: 0; right: 0; }
+#header .user-plate .card-default { width: 330px; height: 58px; padding: 25px 0 0 25px; background: url("../images/layout/cards/no-chars.png") 0 0 no-repeat; position: absolute; bottom: 0; right: 0; }
 #header .user-plate .card-default { background: url("../images/layout/cards/default.jpg") 0 0 no-repeat; }
 #header .user-plate .card-default .icon-frame { position: absolute; right: 17px; bottom: 17px; }
 #header .user-plate .card-character { width: 353px; height: 178px; position: absolute; bottom: 0; right: 2px; }

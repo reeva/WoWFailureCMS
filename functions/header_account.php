@@ -29,6 +29,7 @@
 <ul>
 <li><a href="vote.php">Vote Panel</a></li>
 <li><a href="">Donation Panel</a></li>
+<li><a href="sms.php">SMS Donation Panel</a></li>
 <li><a href="">V.i.P Item Switch Panel</a></li>
 <li><a href="game_client.php">Download Game Clients</a></li>
 <li><a href="">Beta Settings</a></li>

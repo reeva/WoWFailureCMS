@@ -105,10 +105,10 @@ $userInfo = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE id = '".$ac
 echo '
 <ol class="ui-breadcrumb">
 <li><a href="'.$website['root'].'index.php" rel="np">'.$website['title'].'</a></li>
-<li><a href="index.php" rel="np">Forums</a></li>
+<li><a href="index.php" rel="np">'.Forum['Forum7'].'</a></li>
 <li><a href="index.php" rel="np">'.$category['name'].'</a></li>
 <li><a href="forum.php?f='.$forum['id'].'" rel="np">'.$forum['name'].'</a></li>
-<li class="last"><a href="createthread.php?f='.$forumid.'" rel="np">New Topic</a></li>
+<li class="last"><a href="createthread.php?f='.$forumid.'" rel="np">'.Forum['Forum8'].'</a></li>
 </ol>
 ';
 $error=0;
@@ -116,8 +116,8 @@ $error=0;
 if($error == 1){
 echo '
 <ol class="ui-breadcrumb">
-<li><a href="../index.php" rel="np">World of Warcraft</a></li>
-<li class="last"><a href="index.php" rel="np">Forums</a></li>
+<li><a href="../index.php" rel="np">'.Forum['Forum9'].'</a></li>
+<li class="last"><a href="index.php" rel="np">'.Forum['Forum10'].'</a></li>
 </ol>
 ';
 echo '<meta http-equiv="refresh" content="2;url=index.php"/>';
@@ -135,11 +135,11 @@ echo '<meta http-equiv="refresh" content="2;url=index.php"/>';
 	</script>
     <?php if(isset($_POST['create'])){
 	//Done for $error == 1 | if(!isset($_GET['f'])){ $errorx = "No ForumId request"; }
-	if(empty($_POST['subject'])){ $errorx[] = "Empty Thread Name"; }
-	if(empty($_POST['detail'])){ $errorx[] = "Empty Thread Content"; }
-	if($error == 1){ $errorx[] = "Internal Error"; }
+	if(empty($_POST['subject'])){ $errorx[] = "'.Forum['Forum11'].'"; }
+	if(empty($_POST['detail'])){ $errorx[] = "'.Forum['Forum12'].'"; }
+	if($error == 1){ $errorx[] = "'.Forum['Forum13'].'"; }
 	echo '<center>
-	<h3>Creating Thread...</h3><br />
+	<h3>'.Forum['Forum14'].'</h3><br />
 	<div class="loader"></div><br />';
 	if(isset($errorx) && count($errorx) > 0){
 		echo '<div class="errors">';
@@ -156,9 +156,9 @@ echo '<meta http-equiv="refresh" content="2;url=index.php"/>';
 	$author = $account_information['id'];
 	$today = getdate();
 	$date = $today['year']."-".$today['mon']."-".$today['mday'];
-	$insert = mysql_query("INSERT INTO forum_threads (forumid,name,author,views,date,content) VALUES ('".$forumid."','".$subject."','".$author."','0','".$date."','".$content."')")or print("Could not post the thread!");
+	$insert = mysql_query("INSERT INTO forum_threads (forumid,name,author,views,date,content) VALUES ('".$forumid."','".$subject."','".$author."','0','".$date."','".$content."')")or print("'.Forum['Forum15'].'");
 	echo '<div class="success">';
-	echo 'Thread has been successfully created.';
+	echo ''.Forum['Forum16'].'';
 	echo '</div>';
 	echo '<meta http-equiv="refresh" content="2;url=forum.php?f='.$forumid.'"';
 	}
@@ -175,7 +175,7 @@ echo '<meta http-equiv="refresh" content="2;url=index.php"/>';
 						if($error != 1){
 						?>
 						<div class="post-user-details ">
-							<h4>Create Thread</h4>
+							<h4><?php echo $Forum['Forum17'];?></h4>
 							<div class="post-user ajax-update">
 								
 								<div class="avatar">
@@ -195,10 +195,10 @@ echo '<meta http-equiv="refresh" content="2;url=index.php"/>';
 												<div class="context-user">
 													<strong><?php echo $_SESSION['username']; ?></strong>
 														<br />
-														<span>No Realm</span>
+														<span><?php echo $Forum['Forum18'];?></span>
 												</div>
 												<div class="context-links">
-														<a href="#" title="Profile" rel="np" class="icon-profile link-first">Profile</a>
+														<a href="#" title="Profile" rel="np" class="icon-profile link-first"><?php echo $Forum['Forum19'];?></a>
 														<a href="#" title="View my posts" rel="np" class="icon-posts"> </a>
 														<a href="#" title="View auctions" rel="np" class="icon-auctions"> </a>
 														<a href="#" title="View events" rel="np" class="icon-events link-last"> </a>
@@ -209,7 +209,7 @@ echo '<meta http-equiv="refresh" content="2;url=index.php"/>';
 									</div>
 									
 									<div class="userCharacter">
-										<div class="character-desc"><span class="color-c1">Level Race Class</span></div>
+										<div class="character-desc"><span class="color-c1"><?php echo $Forum['Forum20'];?></span></div>
 										<div class="achievements">0</div>
 									</div>
 								</div>
@@ -220,8 +220,8 @@ echo '<meta http-equiv="refresh" content="2;url=index.php"/>';
 						<div class="post-edit">
 							<div id="post-errors"></div>
 							<div class="talkback-controls">
-								<a href="javascript:;" onclick="Cms.Topic.previewToggle(this, 'preview')" class="preview-btn"><span class="arr"></span><span class="r"></span><span class="c">Preview</span></a>
-								<a href="javascript:;" onclick="Cms.Topic.previewToggle(this, 'edit')" class="edit-btn selected"><span class="arr"></span><span class="r"></span><span class="c">Edit</span></a>
+								<a href="javascript:;" onclick="Cms.Topic.previewToggle(this, 'preview')" class="preview-btn"><span class="arr"></span><span class="r"></span><span class="c"><?php echo $Forum['Forum21'];?></span></a>
+								<a href="javascript:;" onclick="Cms.Topic.previewToggle(this, 'edit')" class="edit-btn selected"><span class="arr"></span><span class="r"></span><span class="c"><?php echo $Forum['Forum22'];?></span></a>
 							</div>
 							<div class="editor1" id="post-edit"><div class="bml-toolbar"></div>
 								<a id="editorMax" rel="5000"></a>
@@ -246,7 +246,7 @@ echo '<meta http-equiv="refresh" content="2;url=index.php"/>';
 									<div id="submitBtn">
 									<button class="ui-button button1 " type="submit" name="create">
 										<span>
-											<span>Submit</span>
+											<span><?php echo $Forum['Forum23'];?></span>
 										</span>
 									</button>
 									</div>
@@ -267,11 +267,11 @@ echo '<meta http-equiv="refresh" content="2;url=index.php"/>';
 			<div class="talkback-code">
 				<div class="talkback-code-interior">
 					<div class="talkback-icon">
-						<h4 class="code-header">Please report any Code of Conduct violations, including:</h4>
-						<p>Threats of violence. <strong>We take these seriously and will alert the proper authorities.</strong></p>
-						<p>Posts containing personal information about other players. <strong>This includes physical addresses, e-mail addresses, phone numbers, and inappropriate photos and/or videos.</strong></p>
-						<p>Harassing or discriminatory language. <strong>This will not be tolerated.</strong></p>
-						<p>Click <a href="http://battle.net/community/conduct">here</a> to view the Forums Code of Conduct.</p>
+						<h4 class="code-header"><?php echo $Forum['Forum24'];?></h4>
+						<p><?php echo $Forum['Forum25'];?><strong><?php echo $Forum['Forum26'];?></strong></p>
+						<p><?php echo $Forum['Forum27'];?><strong><?php echo $Forum['Forum28'];?></strong></p>
+						<p><?php echo $Forum['Forum29'];?><strong><?php echo $Forum['Forum30'];?></strong></p>
+						<p><?php echo $Forum['Forum31'];?><a href="http://battle.net/community/conduct"><?php echo $Forum['Forum32'];?></a><?php echo $Forum['Forum33'];?></p>
 					</div>
 				</div>
 			</div>

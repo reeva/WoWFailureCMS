@@ -29,7 +29,7 @@ href="#"
 rel="np" 
 data-tooltip="Change character">No Characters</a>
     <div id="context-1" class="ui-context character-select">
-    
+    <span class="arrow"></span>
       <div class="context">
         <a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
         
@@ -42,7 +42,8 @@ data-tooltip="Change character">No Characters</a>
         <div class="context-links">
         <a href="#" title="Profile" class="icon-profile link-first">Profile</a>
         <a href="#" title="View my posts" class="icon-posts"> </a>
-        <a href="#" title="View auctions" rel="np"class="icon-auctions"> </a>
+		<a href="#" title="View auctions" rel="np"class="icon-auctions"> </a>
+		<a href="#" title="View my Arena" class="icon-profile"> </a>
         <a href="#" title="View events" rel="np" class="icon-events link-last"> </a>
         </div>
       </div>
@@ -65,17 +66,17 @@ data-tooltip="Change character">No Characters</a>
           </a>
           </div>
           
-          <!--
+          
           <a href="javascript:;" class="manage-chars" onclick="CharSelect.swipe('in', this); return false;">
           <span class="plus"></span>
           Manage Characters<br />
           <span>Customize characters that appear in this menu.</span>
           </a>
-          -->
+          
           
         </div>
         
-        <!--
+        
         <div class="secondary chars-pane" style="display: none">
         <div class="char-wrapper scrollbar-wrapper" id="scroll">
         <div class="scrollbar">
@@ -87,74 +88,27 @@ data-tooltip="Change character">No Characters</a>
         class="color-c1 pinned"
         rel="np"
         onmouseover="Tooltip.show(this, $(this).children('.hide').text());">
-        <img src="/wow/static/images/icons/race/2-0.gif" alt="" />
-        <img src="/wow/static/images/icons/class/1.gif" alt="" />
-        28 Aghman
-        <span class="hide">Orc Warrior (Burning Steppes)</span>
+        <img src="wow/static/images/icons/race/2-0.gif" width="18" height="18" alt="" />
+        <img src="wow/static/images/icons/class/1.gif" width="18" height="18" alt="" />
+        80 Test Character
+        <span class="hide">Human Warrior (Server)</span>
         </a>
-        <a href="/wow/en/character/burning-steppes/stefyvolt/"
-        class="color-c2"
-        rel="np"
-        onclick="CharSelect.pin(1, this); return false;"
-        onmouseover="Tooltip.show(this, $(this).children('.hide').text());">
         
-        <img src="/wow/static/images/icons/race/10-0.gif" alt="" />
-        <img src="/wow/static/images/icons/class/2.gif" alt="" />
-        80 Stefyvolt
-        <span class="hide">Blood Elf Paladin (Burning Steppes)</span>
-        </a>
-        <a href="/wow/en/character/burning-steppes/taylda/"
-        class="color-c6"
-        rel="np"
-        onclick="CharSelect.pin(2, this); return false;"
-        onmouseover="Tooltip.show(this, $(this).children('.hide').text());">
-        <img src="/wow/static/images/icons/race/10-1.gif" alt="" />
-        <img src="/wow/static/images/icons/class/6.gif" alt="" />
-        62 Taylda
-        <span class="hide">Blood Elf Death Knight (Burning Steppes)</span>
-        </a>
-        <a href="/wow/en/character/burning-steppes/stefybank/"
-        class="color-c1"
-        rel="np"
-        onclick="CharSelect.pin(3, this); return false;"
-        onmouseover="Tooltip.show(this, $(this).children('.hide').text());">
-        <img src="/wow/static/images/icons/race/6-0.gif" alt="" />
-        <img src="/wow/static/images/icons/class/1.gif" alt="" />
-        5 Stefybank
         
-        <span class="hide">Tauren Warrior (Burning Steppes)</span>
-        </a>
-        <a href="/wow/en/character/arathi/pvpsausage/"
-        class="color-c7"
-        rel="np"
-        onclick="CharSelect.pin(4, this); return false;"
-        onmouseover="Tooltip.show(this, $(this).children('.hide').text());">
-        <img src="/wow/static/images/icons/race/2-0.gif" alt="" />
-        <img src="/wow/static/images/icons/class/7.gif" alt="" />
-        1 Pvpsausage
-        <span class="hide">Orc Shaman (Arathi)</span>
-        </a>
-        <a href="/wow/en/character/ragnaros/adenor/"
-        class="color-c6"
-        rel="np"
-        onclick="CharSelect.pin(5, this); return false;"
-        onmouseover="Tooltip.show(this, $(this).children('.hide').text());">
-        <img src="/wow/static/images/icons/race/11-0.gif" alt="" />
-        <img src="/wow/static/images/icons/class/6.gif" alt="" />
-        61 Adenor
-        <span class="hide">Draenei Death Knight (Ragnaros)</span>
-        </a>
+        
+        
+        
         
         <div class="no-results hide">No characters were found</div>
         </div>
         </div>
         </div>
         <div class="filter">
-        <input type="input" class="input character-filter" value="Filter�" alt="Filter�" /><br />
-        <a href="javascript:;" onclick="CharSelect.swipe('out', this); return false;">Return to characters</a>
+<input type="input" class="input character-filter" value="Filter…" alt="Filter…" /><br />
+<a href="javascript:;" onclick="CharSelect.swipe('out', this); return false;">Return to characters</a>
+</div>
         </div>
-        </div>
-        -->
+        
       </div>
     </div>
   </div>

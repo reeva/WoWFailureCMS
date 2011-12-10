@@ -70,8 +70,8 @@ Search.init('ta/lookup');
 	$get_threads = mysql_query("SELECT * FROM forum_threads WHERE forumid = '".$forum['id']."'");
 	
 	echo '
-	<li><a href="'.$website['root'].'index.php" rel="np">World of Warcraft</a></li>
-	<li><a href="index.php" rel="np">Forums</a></li>
+	<li><a href="'.$website['root'].'index.php" rel="np">'.Forum['Forum34'].'</a></li>
+	<li><a href="index.php" rel="np">'.Forum['Forum35'].'</a></li>
 	<li><a href="index.php" rel="np">'.$category['name'].'</a></li>
 	<li class="last"><a href="#" rel="np">'.$forum['name'].'</a></li>
 	';
@@ -81,8 +81,8 @@ Search.init('ta/lookup');
 }else{ $error=1; }
 if($error == 1){
 echo '
-<li><a href="'.$website['root'].'index.php" rel="np">World of Warcraft</a></li>
-<li class="last"><a href="index.php" rel="np">Forums</a></li>
+<li><a href="'.$website['root'].'index.php" rel="np">'.Forum['Forum34'].'</a></li>
+<li class="last"><a href="index.php" rel="np">'.Forum['Forum35'].'</a></li>
 ';
 }
 ?>
@@ -103,13 +103,13 @@ echo '
 			background: url("../wow/static/images/loaders/canvas-loader.gif") no-repeat;
 		   }
 		</style>
-		<center>Request forum does not exist...<br /><br /><div class="loader"> </div><br />Redirecting...</center>
+		<center>'.Forum['Forum36].'<br /><br /><div class="loader"> </div><br />'.Forum['Forum37].'</center>
 		<meta http-equiv="refresh" content="2;url=index.php"/>
 		';
 		}else{ ?>
 		<div class="forum-options">
-            <a href="javascript:;" onclick="Cms.Forum.setView('advanced',this)">Advanced</a>
-        	<a href="javascript:;" class="active" onclick="Cms.Forum.setView('simple',this)">Simple</a>
+            <a href="javascript:;" onclick="Cms.Forum.setView('advanced',this)"><?php echo $Forum['Forum38'];?></a>
+        	<a href="javascript:;" class="active" onclick="Cms.Forum.setView('simple',this)"><?php echo $Forum['Forum39'];?></a>
         </div>
 		
 		<div class="forum-actions top">
@@ -136,22 +136,22 @@ echo '
 				$posterInfo = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE id = '".$account_information['id']."'"));
 					switch($posterInfo['class']){
 						case "blizz":
-							echo'<a class="ui-button button1" href="createthread.php?f='.$forumid.'"><span><span>Create Thread</span></span></a>';
+							echo'<a class="ui-button button1" href="createthread.php?f='.$forumid.'"><span><span>'.Forum['Forum40].'</span></span></a>';
 							break;
 							
 						case "mvp":
-							echo'<a class="ui-button button1" href="createthread.php?f='.$forumid.'"><span><span>Create Thread</span></span></a>';
+							echo'<a class="ui-button button1" href="createthread.php?f='.$forumid.'"><span><span>'.Forum['Forum40].'</span></span></a>';
 							break;
 							
 						default:
-							echo'<a class="ui-button button1 disabled" href="#"><span><span>Create Thread</span></span></a>';
+							echo'<a class="ui-button button1 disabled" href="#"><span><span>'.Forum['Forum40].'</span></span></a>';
 							break;
 					}
 			}else{
-				echo'<a class="ui-button button1" href="createthread.php?f='.$forumid.'"><span><span>Create Thread</span></span></a>';
+				echo'<a class="ui-button button1" href="createthread.php?f='.$forumid.'"><span><span>'.Forum['Forum40].'</span></span></a>';
 			}
 		}else{
-			echo '<a class="ui-button button1 disabled"><span><span>Create Thread</span></span></a>';
+			echo '<a class="ui-button button1 disabled"><span><span>'.Forum['Forum40].'</span></span></a>';
 		}
 		?>
 		<span class="clear"><!-- --></span>
@@ -164,16 +164,16 @@ echo '
 					<td></td>
 					<td colspan="2">Subject</td>
 					<td>Author</td>
-						<td class="replies">Replies</td>
-						<td class="views">Views</td>
-						<td class="poster">Last Poster</td>
+						<td class="replies">'.Forum['Forum41].'</td>
+						<td class="views">'.Forum['Forum42].'</td>
+						<td class="poster">'.Forum['Forum43].'</td>
 				</tr>
 				<?php
 				if(mysql_num_rows($get_threads) == 0){
 				echo '
 					<tr>
 					<td class="post-icon"><div class="forum-post-icon"></div></td>
-					<td class="post-title">No Threads in this forum.</td>
+					<td class="post-title">'.Forum['Forum44].'</td>
 					<td class="post-pageNav"></td>
 					<td class="post-author"></td>
 						<td class="post-replies"></td>
@@ -279,8 +279,8 @@ echo '
 						...
 					</div>
 
-					<a href="#">Last Page</a>
-					<a href="#">Next &gt;</a>-->
+					<a href="#">'.Forum['Forum45].'</a>
+					<a href="#">'.Forum['Forum46].'</a>-->
 				</div>
 				<a class="ui-button button1 imgbutton " href="index.php"><span><span><span class="back-arrow"> </span></span></span></a>
 				<?php
@@ -291,22 +291,22 @@ echo '
 						$posterInfo = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE id = '".$account_information['id']."'"));
 							switch($posterInfo['class']){
 								case "blizz":
-									echo'<a class="ui-button button1" href="createthread.php?f='.$forumid.'"><span><span>Create Thread</span></span></a>';
+									echo'<a class="ui-button button1" href="createthread.php?f='.$forumid.'"><span><span>'.Forum['Forum40].'</span></span></a>';
 									break;
 									
 								case "mvp":
-									echo'<a class="ui-button button1" href="createthread.php?f='.$forumid.'"><span><span>Create Thread</span></span></a>';
+									echo'<a class="ui-button button1" href="createthread.php?f='.$forumid.'"><span><span>'.Forum['Forum40].'</span></span></a>';
 									break;
 									
 								default:
-									echo'<a class="ui-button button1 disabled" href="#"><span><span>Create Thread</span></span></a>';
+									echo'<a class="ui-button button1 disabled" href="#"><span><span>'.Forum['Forum40].'</span></span></a>';
 									break;
 							}
 					}else{
-						echo'<a class="ui-button button1" href="createthread.php?f='.$forumid.'"><span><span>Create Thread</span></span></a>';
+						echo'<a class="ui-button button1" href="createthread.php?f='.$forumid.'"><span><span>'.Forum['Forum40].'</span></span></a>';
 					}
 				}else{
-					echo '<a class="ui-button button1 disabled"><span><span>Create Thread</span></span></a>';
+					echo '<a class="ui-button button1 disabled"><span><span>'.Forum['Forum40].'</span></span></a>';
 				}
 				?>
 				<span class="clear"><!-- --></span>
