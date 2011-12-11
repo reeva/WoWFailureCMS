@@ -4,7 +4,7 @@
 .profile-wrapper { color: #c09a67; }
 .profile-sidebar-anchor { float: left; width: 0; height: 0; position: relative; }
 .profile-sidebar-outer { position: absolute; left: 0; top: 0; }
-.profile-sidebar-inner { width: 230px; height: 684px; background: url("../images/profile/sidebar-bg.jpg") no-repeat; }
+.profile-sidebar-inner { width: 230px; height: 684px; background: url("../../images/profile/sidebar-bg.jpg") no-repeat; }
 .profile-contents { margin-left: 230px; min-height: 807px; padding-bottom: 40px; }
 .profile-section-header { padding: 11px 15px 0 15px; }
 .profile-section-header .category { font-size: 26px; padding-bottom: 9px; }

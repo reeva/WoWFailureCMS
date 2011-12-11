@@ -141,11 +141,11 @@ Services
 	<li class="">
 	<a href="" class=" has-submenu" rel="np">
 	<span class="arrow"><span class="icon">Professions</span></span></a>
-	</li>
+	</li>-->
 	<li class="">
-	<a href="" class="" rel="np">
+	<a href="reputation.php" class="" rel="np">
 	<span class="arrow"><span class="icon">Reputation</span></span></a>
-	</li>
+	</li><!--
 	<li class="">
 	<a href="" class="" rel="np">
 	<span class="arrow"><span class="icon">PvP</span></span></a>
