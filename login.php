@@ -34,7 +34,7 @@ include("configs.php");
 	</head>
   <body>
     <div id="embedded-login">
-      <h2>World of Warcraft</h2>
+      <h2><?php echo $website['title']; ?></h2>
   <?php
   
   if(!isset($_SESSION['username'])){
@@ -126,30 +126,7 @@ include("configs.php");
     echo "<h3><font color='green'>You're Logged In</font></h3>";
     
   } ?>
-  
-  <ul id="help-links">
-
-
-      <li class="icon-pass">
-        <a href="#">Can't log in</a>?
-      </li>
-
-
-        <li class="icon-signup">
-          Don't have an account yet? <a href="register.php">Sign up now</a>!
-        </li>
-
-      <li class="icon-secure">
-        Learn how to <a href="#">protect your account</a>!
-      </li>
-
-
-
-
-  </ul>
-  <br /><br />
-    
-    <script type="text/javascript">
+        <script type="text/javascript">
 			$(function() {
 				$("#ssl-trigger").click(function() {
 					updateParent('onload', 'height', $(document).height() + 76);

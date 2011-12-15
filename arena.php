@@ -4,12 +4,9 @@ $page_cat = "services";
 include("functions/arena_items_func.php");
 ?>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<html>
 <head>
 <title><?php echo $name = $_GET['name'];?> - <?php echo $website['title']; ?></title>
-<meta content="false" http-equiv="imagetoolbar" />
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="http://eu.battle.net/wow/static/local-common/images/favicons/wow.ico" type="image/x-icon"/>
 <link rel="search" type="application/opensearchdescription+xml" href="http://eu.battle.net/en-gb/data/opensearch" title="Battle.net Search" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/armory/common.css?" />
@@ -17,7 +14,7 @@ include("functions/arena_items_func.php");
 <!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie6.css?" /><![endif]-->
 <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie7.css?" /><![endif]-->
 <link title="World of Warcraft - News" href="http://eu.battle.net/wow/en/feed/news" type="application/atom+xml" rel="alternate"/>
-<link rel="stylesheet" type="text/css" media="all" href="wow/static/css/armory/wow.css?" />
+<link rel="stylesheet" type="text/css" media="all" href="wow/static/css/wow.css?" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/css/armory/profile.css?" />
 <!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/profile-ie.css?" /><![endif]-->
 <!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/profile-ie6.css?" /><![endif]-->
