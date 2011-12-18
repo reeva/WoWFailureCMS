@@ -14,6 +14,7 @@
 11) Create the Module 'add items to buy' for vote points.(Work Started)
 12) Work on Arena teams, Guild teams (Work Started - 20%-30% Done)
 13) Work on Search. Make 1 search for all (Characters,Arena,Guilds)...
+14) Make Admin panel (No work done for now...)
 
 # --------------------------------------------------------------
 # |CMS:                                  |    WOWFailureCMS    |
