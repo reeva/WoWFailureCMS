@@ -25,6 +25,9 @@ $page_cat = 'summary';
 <script type="text/javascript" src="wow/static/local-common/js/third-party/jquery-1.4.4-p1.min.js"></script>
 <script type="text/javascript" src="wow/static/local-common/js/core.js"></script>
 <script type="text/javascript" src="wow/static/local-common/js/tooltip.js"></script>
+<script type="text/javascript" src="wow/static/local-common/js/third-party/swfobject.js"></script>
+<script type="text/javascript" src="wow/static/js/management/dashboard.js"></script>
+<script type="text/javascript" src="wow/static/js/management/wow/dashboard.js"></script>
 <!--[if IE 6]> <script type="text/javascript">
 //<![CDATA[
 try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
@@ -355,6 +358,7 @@ tabindex="1">
 </div>
 </div>
 </div>
+
 <!--[if lt IE 7]> <script type="text/javascript" src="local-common/js/third-party/DD_belatedPNG.js"></script>
 <script type="text/javascript">
 //<![CDATA[
@@ -473,9 +477,7 @@ Locale.dataPath = 'data/i18n.frag.xml';
 <script type="text/javascript" src="wow/static/local-common/js/third-party/jquery.pngFix.pack.js"></script>
 <script type="text/javascript">$('.png-fix').pngFix();</script>
 <![endif]-->
-<script type="text/javascript" src="wow/static/local-common/js/third-party/swfobject.js"></script>
-<script type="text/javascript" src="wow/static/js/management/dashboard.js"></script>
-<script type="text/javascript" src="wow/static/js/management/wow/dashboard.js"></script>
+
 <script type="text/javascript">
 //<![CDATA[
 Core.load("wow/static/local-common/js/overlay.js");
