@@ -316,7 +316,7 @@ tr:hover .fansite-link,
 #menu li a.menu-active { background-image: url("../images/layout/menu-tab-baked.jpg"); }
 #menu li a:hover { color: white; }
 /* for Hover Change */
-#menu li a.menu-active { color: #fff !important; -moz-box-shadow: 0 0 15px #fcfff7; -webkit-box-shadow: 0 0 15px #fcfff7; box-shadow: 0 0 15px #fcfff7; position: relative; }
+#menu li a.menu-active { color: #fff !important; -moz-box-shadow: 0 0 15px #B13B3B; -webkit-box-shadow: 0 0 15px #B13B3B; box-shadow: 0 0 15px #B13B3B; position: relative; }
 #menu li.menu-game,
 #menu li.menu-forums { width: 104px }
 #menu li.menu-community,
