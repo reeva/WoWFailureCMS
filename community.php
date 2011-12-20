@@ -4,7 +4,7 @@ require_once("configs.php");
 <html>
 <head>
 <title><?php echo $website['title']; ?></title>
-<link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
 <link rel="search" type="application/opensearchdescription+xml" href="http://eu.battle.net/en-gb/data/opensearch" title="Battle.net Search" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common.css?v15" />
 <!--[if IE]><link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common-ie.css?v15" /><![endif]-->
@@ -265,7 +265,7 @@ include("header.php");
     background: url("wow/static/images/community/001.png") no-repeat;
 }
 							</style>
-								<li><a href="http://www.strawberry-pr0jcts.com/forum/" id="wow" target="_blank"><span class="content-title">WoWFailureCMS</span><span class="content-desc">Join our community.</span></a></li></ul>
+								<li><a href="http://www.strawberry-pr0jcts.com/forum/" id="wow" target="_blank"><span class="content-title">AquaFlame CMS</span><span class="content-desc">Join our community.</span></a></li></ul>
 								
 								
 						</div>

@@ -170,7 +170,7 @@
 <small><?php echo $copyright3['copyright3']; ?>.<br /><?php echo $copyright['copyright'];  echo $website['title']; ?>.<br /><?php echo $copyright4['copyright4']; ?></small>
 </center>
 </div>
-<center><img src="<?php echo $website['root'];?>wow/static/images/logos/wof-logo-small.png"/></center>
+<center><a href="http://www.strawberry-pr0jcts.com/forum/index.php?/forum/27-wowfailurecms/"><img src="<?php echo $website['root'];?>wow/static/images/logos/wof-logo-small.png" height="46px" width="190px"/></center></a>
 </div>
 <span class="clear"><!-- --></span>
 </div>

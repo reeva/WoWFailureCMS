@@ -68,7 +68,7 @@ $Greek['gr_lang'] = "&Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&alpha; (EU)
 $Romanian['RO'] = "Romania";
 $Romanian['ROEU'] = "Romanian (EU)";
 $copyright['copyright'] = "Copyright &copy; 2011 ";
-$copyright3['copyright3'] = "Hecho por WoWFailureCMS";
+$copyright3['copyright3'] = "Hecho por AquaFlame CMS";
 $copyright4['copyright4'] = "Todas las imágenes están en propiedad de Blizzard Entertainment.";
 
 
@@ -344,8 +344,8 @@ $Serv['Serv29'] = "Pide una prueba de GM";
 $Serv['Serv30'] = "Descarga del Cliente";
 // Finishing Services
 // Starting the Forum Translation
-$Forum['Forum'] = "WoWFailureCMS";
-$Forum['Forum1'] = "WoWFailureCMS - Redirección";
+$Forum['Forum'] = "AquaFlame CMS";
+$Forum['Forum1'] = "AquaFlame CMS - Redirección";
 $Forum['Forum2'] = "Felicidades.";
 $Forum['Forum3'] = " Lo has roto.";
 $Forum['Forum4'] = "Por favor espera mientras eres Redirigido a tu Gestor de Cuentas.";

@@ -8,6 +8,7 @@ $page_cat = "account";
 <head>
 <title><?php echo $website['title']; ?><?php echo $Log['Log']; ?></title>
 <meta http-equiv="imagetoolbar" content="false"/>
+<link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" href="wow/static/local-common/css/common.css?v22"/>
 <!--[if IE]><link rel="stylesheet" type="text/css" href="wow/static/local-common/css/common-ie.css?v22"/><![endif]-->
 <!--[if IE 6]><link rel="stylesheet" type="text/css" href="wow/static/local-common/css/common-ie6.css?v22"/><![endif]-->

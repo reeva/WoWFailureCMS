@@ -66,7 +66,7 @@ $Romanian['RO'] = "Romania";
 $Romanian['ROEU'] = "Romanian (EU)";
 $italy['europe'] = "Italian";
 $copyright['copyright'] = "Copyright &copy; 2011 ";
-$copyright3['copyright3'] = "Hecho por WoWFailureCMS";
+$copyright3['copyright3'] = "Hecho por AquaFlame CMS";
 $copyright4['copyright4'] = "Todas las imágenes están en propiedad de Blizzard Entertainment.";
 
 
@@ -281,5 +281,117 @@ $Uns['Uns27'] = "That Character Is Not Yours.";
 $Uns['Uns28'] = "Your Character Is Fixed.";
 $Uns['Uns29'] = "Continue";
 // Finishing the Char Unstuck translation
-
+// Finishing the Char Unstuck translation
+// Finishing the Char Unstuck translation
+// Starting Index
+$Ind['Ind'] = "Siguiente";
+$Ind['Ind1'] = "Buscador";
+$Ind['Ind2'] = "Buscar";
+$Ind['Ind3'] = "Novedades";
+$Ind['Ind4'] = "Información del Servidor: ";
+$Ind['Ind5'] = " Realmlist : ";
+$Ind['Ind6'] = " Versión : ";
+$Ind['Ind7'] = " Cuentas : ";
+$Ind['Ind8'] = "Cuentas Registradas";
+$Ind['Ind9'] = " Personajes: ";
+$Ind['Ind10'] = " Personajes Creados";
+$Ind['Ind11'] = "Servicios Recomendados";
+$Ind['Ind12'] = "Recluta a un Amigo";
+$Ind['Ind13'] = "Invita a tus amigos a jugar a Voragine-Gaming y juega con ellos gratuitamente!";
+$Ind['Ind14'] = "Migración de Personajes";
+$Ind['Ind15'] = "Migra tu personaje de otro servidor a Voragine-Gaming, y te lo damos igual que en tu antiguo servidor(*)!";
+$Ind['Ind16'] = "No olvides votar cada día";
+$Ind['Ind17'] = "Las votaciones están: ";
+$Ind['Ind18'] = "Online!";
+$Ind['Ind19'] = "Vota ahora!";
+$Ind['Ind20'] = "GPS / Mapa de Visitantes";
+$Ind['Ind21'] = "Mapa / GPS is: ";
+$Ind['Ind22'] = "Online!";
+$Ind['Ind23'] = "Comprueba la gente que está online en la web!";
+// Finishing Index
+// Starting Services
+$Serv['Serv'] = "Servicios";
+$Serv['Serv1'] = " Servicios de cuentas de World of Warcraft";
+$Serv['Serv2'] = "Utiliza los servicios de cuentas de World of Warcraft para actualizar fácilmente el juego y acceder a una gran cantidad de opciones de cuenta adicionales.";
+$Serv['Serv3'] = "Gestión de Cuenta";
+$Serv['Serv4'] = "Revisa y cambia tus opciones de seguridad, utiliza servicios de cuenta adicionales, y mucho más.";
+$Serv['Serv5'] = "Lista de Baneados";
+$Serv['Serv6'] = "Encuentra los players que han estado baneados del servidor.";
+$Serv['Serv7'] = "Armería";
+$Serv['Serv8'] = "Estás buscando tu peronajes, o un el de un amigo? Busca en la Armeria de Trying to find your Character, or a friend's? Browse the ";
+$Serv['Serv9'] = ".";
+$Serv['Serv10'] = "Recluta a un Amigo";
+$Serv['Serv11'] = "Gana recompensas épicas por cada player que invites al servidor ";
+$Serv['Serv12'] = "Tienda de Donación";
+$Serv['Serv13'] = "Visita la Tienda de Donación y revisa nuestros Servicios/Regalos/Premios/etc.";
+$Serv['Serv14'] = "Actualiza tu Cuenta";
+$Serv['Serv15'] = "Actualiza tu cuenta de World of Warcraft!";
+$Serv['Serv16'] = "Servicios de la Cuenta";
+$Serv['Serv17'] = "OTROS SERVICIOS Y PROMOCIONES";
+$Serv['Serv18'] = "Recluta a un Amigo";
+$Serv['Serv19'] = "SERVICIOS DE PERSONAJES";
+$Serv['Serv20'] = "Transferencia de Personajes";
+$Serv['Serv21'] = "Cambio de Nombre";
+$Serv['Serv22'] = "Cambio de Raza";
+$Serv['Serv23'] = "Cambio de Facción";
+$Serv['Serv24'] = "Personalización de personaje";
+$Serv['Serv25'] = "Herramientas de la Web";
+$Serv['Serv26'] = "Cambiar el Estilo de la Web";
+$Serv['Serv27'] = "Cambiar el Avatar";
+$Serv['Serv28'] = "Aplicación para GM";
+$Serv['Serv29'] = "Pide una prueba de GM";
+$Serv['Serv30'] = "Descarga del Cliente";
+// Finishing Services
+// Starting the Forum Translation
+$Forum['Forum'] = "AquaFlame CMS";
+$Forum['Forum1'] = "AquaFlame CMS - Redirección";
+$Forum['Forum2'] = "Felicidades.";
+$Forum['Forum3'] = " Lo has roto.";
+$Forum['Forum4'] = "Por favor espera mientras eres Redirigido a tu Gestor de Cuentas.";
+$Forum['Forum5'] = "o";
+$Forum['Forum6'] = "Esta p&aacute;gina no existe o ha habido algún otro tipo de error, por favor, contacta el administrador de la web.";
+$Forum['Forum7'] = "Foros";
+$Forum['Forum8'] = "Nuevo Tema";
+$Forum['Forum9'] = "World of Warcraft";
+$Forum['Forum10'] = "Foros";
+$Forum['Forum11'] = "Nombre del Tema Vacío";
+$Forum['Forum12'] = "Contenido del Tema Vacío";
+$Forum['Forum13'] = "Error Interno";
+$Forum['Forum14'] = "Creando un Tema...";
+$Forum['Forum15'] = "No se ha podido postear el tema!";
+$Forum['Forum16'] = "El tema ha sido creado con éxito.";
+$Forum['Forum17'] = "Crear Tema";
+$Forum['Forum18'] = "No hay Reino";
+$Forum['Forum19'] = "Perfil";
+$Forum['Forum20'] = "Nivel Raza Clase";
+$Forum['Forum21'] = "Vista Prévia";
+$Forum['Forum22'] = "Editar";
+$Forum['Forum23'] = "Enviar";
+$Forum['Forum24'] = "Por favor reporta cualquier violación del Código de Conducta, incluyendo:";
+$Forum['Forum25'] = "Temas que inciten a la violencia. ";
+$Forum['Forum26'] = "Nosotros nos tomamos esto en serio y vamos a alertar las autoridades pertenecientes si algo de eso sucede.";
+$Forum['Forum27'] = "Posts que contengan información personal sobre otros jugadores. ";
+$Forum['Forum28'] = "Esto incluye direcciones postales, correos electrónicos, números de telefono y fotos inapropiadas y/o vídeos.";
+$Forum['Forum29'] = "Insultos o lenguaje discriminatorio. ";
+$Forum['Forum30'] = "Esto no será tolerado.";
+$Forum['Forum31'] = "Haz click ";
+$Forum['Forum32'] = "aquí";
+$Forum['Forum33'] = " para ver los Códigos de Conducta del Foro.";
+$Forum['Forum34'] = "World of Warcraft";
+$Forum['Forum35'] = "Foros";
+$Forum['Forum36'] = "El foro no existe...";
+$Forum['Forum37'] = "Redireccionando...";
+$Forum['Forum38'] = "Avanzado";
+$Forum['Forum39'] = "Simple";
+$Forum['Forum40'] = "Crear Tema nuevo";
+$Forum['Forum41'] = "Respuestas";
+$Forum['Forum42'] = "Visitas";
+$Forum['Forum43'] = "Último Posteador";
+$Forum['Forum44'] = "No hay temas en este foro.";
+$Forum['Forum45'] = "Página Siguiente";
+$Forum['Forum46'] = "Siguiente &gt;";
+$Forum['Forum47'] = "No estás Logueado";
+$Forum['Forum48'] = "Título";
+$Forum['Forum49'] = "Autor";
+// Finishing the Forum Translation
 ?>

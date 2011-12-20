@@ -3,6 +3,7 @@
   <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>World of Warcraft</title>
+	<link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="wow/static/local-common/css/common.css?v15"/>
     <link rel="stylesheet" type="text/css" href="wow/static/_themes/bam/css/master.css?v1"/>
     <script type="text/javascript" src="wow/static/local-common/js/third-party/jquery-1.4.2.min.js?v15"></script>

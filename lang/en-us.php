@@ -67,7 +67,7 @@ $Greek['gr_lang'] = "&Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&alpha; (EU)
 $Romanian['RO'] = "Romania";
 $Romanian['ROEU'] = "Romanian (EU)";
 $copyright['copyright'] = "Copyright &copy; 2011 ";
-$copyright3['copyright3'] = "Powered by WoWFailureCMS";
+$copyright3['copyright3'] = "Powered by AquaFlame CMS";
 $copyright4['copyright4'] = "Resources are in Blizzard Entertainment Property.";
 
 
@@ -280,7 +280,6 @@ $Uns['Uns25'] = "Invalid Account.";
 $Uns['Uns26'] = "Invalid Character.";
 $Uns['Uns27'] = "That Character Is Not Yours.";
 $Uns['Uns28'] = "Your Character Is Fixed.";
-$Uns['Uns29'] = "Continue";
 // Finishing the Char Unstuck translation
 // Starting Index
 $Ind['Ind'] = "Next";
@@ -341,4 +340,62 @@ $Serv['Serv28'] = "Request GM Application";
 $Serv['Serv29'] = "Request GM Trial";
 $Serv['Serv30'] = "Download WoW Client";
 // Finishing Services
+// Starting the Forum Translation
+$Forum['Forum'] = "AquaFlame CMS";
+$Forum['Forum1'] = "AquaFlame CMS - Redirection";
+$Forum['Forum2'] = "Grats.";
+$Forum['Forum3'] = " You broke it.";
+$Forum['Forum4'] = "Please wait while we are Redirecting you to the Account Management.";
+$Forum['Forum5'] = "or";
+$Forum['Forum6'] = "This page doesn't exist or some other horrible error has occurred.";
+$Forum['Forum7'] = "Forums";
+$Forum['Forum8'] = "New Topic";
+$Forum['Forum9'] = "World of Warcraft";
+$Forum['Forum10'] = "Forums";
+$Forum['Forum11'] = "Empty Thread Name";
+$Forum['Forum12'] = "Empty Thread Content";
+$Forum['Forum13'] = "Internal Error";
+$Forum['Forum14'] = "Creating Thread...";
+$Forum['Forum15'] = "Could not post the thread!";
+$Forum['Forum16'] = "Thread has been successfully created.";
+$Forum['Forum17'] = "Create Thread";
+$Forum['Forum18'] = "No Realm";
+$Forum['Forum19'] = "Profile";
+$Forum['Forum20'] = "Level Race Class";
+$Forum['Forum21'] = "Preview";
+$Forum['Forum22'] = "Edit";
+$Forum['Forum23'] = "Submit";
+$Forum['Forum24'] = "Please report any Code of Conduct violations, including:";
+$Forum['Forum25'] = "Threats of violence. ";
+$Forum['Forum26'] = "We take these seriously and will alert the proper authorities.";
+$Forum['Forum27'] = "Posts containing personal information about other players. ";
+$Forum['Forum28'] = "This includes physical addresses, e-mail addresses, phone numbers, and inappropriate photos and/or videos.";
+$Forum['Forum29'] = "Harassing or discriminatory language. ";
+$Forum['Forum30'] = "This will not be tolerated.";
+$Forum['Forum31'] = "Click ";
+$Forum['Forum32'] = "here";
+$Forum['Forum33'] = " to view the Forums Code of Conduct.";
+$Forum['Forum34'] = "World of Warcraft";
+$Forum['Forum35'] = "Forums";
+$Forum['Forum36'] = "Request forum does not exist...";
+$Forum['Forum37'] = "Redirecting...";
+$Forum['Forum38'] = "Advanced";
+$Forum['Forum39'] = "Simple";
+$Forum['Forum40'] = "Create Thread";
+$Forum['Forum41'] = "Replies";
+$Forum['Forum42'] = "Views";
+$Forum['Forum43'] = "Last Poster";
+$Forum['Forum44'] = "No Threads in this forum.";
+$Forum['Forum45'] = "Last Page";
+$Forum['Forum46'] = "Next &gt;";
+$Forum['Forum47'] = "Not Logged In";
+$Forum['Forum48'] = "Subject";
+$Forum['Forum49'] = "Author";
+$Forum['Forum50'] = "";
+$Forum['Forum51'] = "";
+$Forum['Forum52'] = "";
+$Forum['Forum53'] = "";
+$Forum['Forum54'] = "";
+
+// Finishing the Forum Translation
 ?>

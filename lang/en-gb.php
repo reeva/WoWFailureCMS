@@ -67,7 +67,7 @@ $Greek['gr_lang'] = "&Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&alpha; (EU)
 $Romanian['RO'] = "Romania";
 $Romanian['ROEU'] = "Romanian (EU)";
 $copyright['copyright'] = "Copyright &copy; 2011 ";
-$copyright3['copyright3'] = "Powered by WoWFailureCMS";
+$copyright3['copyright3'] = "Powered by AquaFlame CMS";
 $copyright4['copyright4'] = "Resources are in Blizzard Entertainment Property.";
 
 
@@ -339,8 +339,8 @@ $Serv['Serv29'] = "Request GM Trial";
 $Serv['Serv30'] = "Download WoW Client";
 // Finishing Services
 // Starting the Forum Translation
-$Forum['Forum'] = "WoWFailureCMS";
-$Forum['Forum1'] = "WoWFailureCMS - Redirection";
+$Forum['Forum'] = "AquaFlame CMS";
+$Forum['Forum1'] = "AquaFlame CMS - Redirection";
 $Forum['Forum2'] = "Grats.";
 $Forum['Forum3'] = " You broke it.";
 $Forum['Forum4'] = "Please wait while we are Redirecting you to the Account Management.";
