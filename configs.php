@@ -64,11 +64,16 @@ $serveruser = "root"; // Your MySQL user
 $serverpass = "ascent"; //Your MySQL password
 $serverport	= "3306"; // Your MySQL Port
 $donatadmin = "ascent"; // Your Donation Admin Password
-$website['realm'] = "Set Realmlist Your_Realmlist"; // You realm (Example: Set RealmList login.wowfailure.com)
-/*||||||||||||||||||||||||||||||||||||||||*/
-/*|||||||The Donation Configuration|||||||*/
-/*||||||||||||||||||||||||||||||||||||||||*/
-// Coming SOON!
+$website['realm'] = "Set Realmlist Your_Realmlist"; // You realm (Example: Set Realmlist login.wowfailure.com)
+/*||||||||||||||||||||||||||||||||||||*/
+/*|||||||The Admin Configuration||||||*/
+/*||||||||||||||||||||||||||||||||||||*/
+// define('MYSQL_SERVER', 'localhost'); // Your MySQL server address
+// define('MYSQL_USERNAME', 'root'); // Your MySQL user
+// define('MYSQL_PASSWORD', 'ascent'); //Your MySQL password
+// define('MYSQL_DATABASE', 'site'); //Your website database
+// Leave it True if you want to Manage only the Website. Change it to false if you want to manage all your Databases
+// define('MYSQL_PREDEFINED_DATABASE', TRUE); # if set to true, we use MYSQL_DATABASE as the database, otherwise user can select which database to use
 /*||||||||||||||||||||||||||||||||||||||||*/
 /*|||||||The Website Configuration||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||*/
