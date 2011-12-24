@@ -1,4 +1,8 @@
-<?php if(!isset($_SESSION['username'])){ ?>
+<?php
+include("functions/userplate.inc.php"); 
+if(!isset($_SESSION['username']))
+{
+?>
 <div xmlns="http://www.w3.org/1999/xhtml" class="user-plate">
 <a href="?login" class="card-login" onclick="BnetAds.trackImpression('Battle.net Login', 'Character Card', 'New'); return Login.open('login.php');">
 <strong>Log in now</strong> to enhance and personalize your experience!
@@ -15,6 +19,7 @@
       $side = "horde";
     break;
   } 
+  $Userplate = new Userplate();
 ?>
 <div class="user-plate">
 <div id="user-plate" class="card-character plate-<?php echo $side; ?> ajax-update" style="background: url(<?php echo $website['root']; ?>wow/static/images/layout/cards/no-chars.png) 0 100% no-repeat;">
@@ -24,10 +29,7 @@
 <div class="meta">
 <div class="player-name"><?php echo strtolower($_SESSION['username']); ?></div>
 <div class="character">
-<a class="character-name context-link" 
-href="#" 
-rel="np" 
-data-tooltip="Change character">No Characters</a>
+<a class="character-name context-link" href="#" rel="np" data-tooltip="Change character"><?php if($Userplate->getNumChars() > 0) { echo $Userplate->getNumChars()." Characters";} else {echo "No Characters" ;} ?></a>
     <div id="context-1" class="ui-context character-select">
     <span class="arrow"></span>
       <div class="context">
@@ -47,10 +49,27 @@ data-tooltip="Change character">No Characters</a>
         <a href="#" title="View events" rel="np" class="icon-events link-last"> </a>
         </div>
       </div>
-      
       <div class="character-list">
         <div class="primary chars-pane">
           <div class="char-wrapper">
+      <?php
+      $chars = $Userplate->getChars();
+	  foreach($chars as $key => $character)
+	  {
+	  	if($key == 0)
+		{
+			$pinned = "pinned";
+		} else {
+			$pinned = "";
+		}
+	  	echo '<a href="javascript:;" class="char '.$pinned.'" rel="np">
+          <span class="pin"></span>
+          <span class="name">'.$character->getName().'</span>
+          <span class="class color-c1">'.$character->getLevel().' race '.checkClass($character->getClass()).'</span>
+          <span class="realm">No Realm</span>
+          </a>';
+	  }
+	  ?>
           <a href="javascript:;" class="char pinned" rel="np">
           <span class="pin"></span>
           <span class="name">No Characters</span>
@@ -84,10 +103,7 @@ data-tooltip="Change character">No Characters</a>
         </div>
         <div class="viewport">
         <div class="overview">
-        <a href="javascript:;"
-        class="color-c1 pinned"
-        rel="np"
-        onmouseover="Tooltip.show(this, $(this).children('.hide').text());">
+        <a href="javascript:;" class="color-c1 pinned" rel="np" onmouseover="Tooltip.show(this, $(this).children('.hide').text());">
         <img src="wow/static/images/icons/race/2-0.gif" width="18" height="18" alt="" />
         <img src="wow/static/images/icons/class/1.gif" width="18" height="18" alt="" />
         80 Test Character
