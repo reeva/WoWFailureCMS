@@ -105,7 +105,7 @@ $userInfo = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE id = '".$ac
 echo '
 <ol class="ui-breadcrumb">
 <li><a href="'.$website['root'].'index.php" rel="np">'.$website['title'].'</a></li>
-<li><a href="index.php" rel="np">'.Forum['Forum7'].'</a></li>
+<li><a href="index.php" rel="np">'.$Forum['Forum7'].'</a></li>
 <li><a href="index.php" rel="np">'.$category['name'].'</a></li>
 <li><a href="forum.php?f='.$forum['id'].'" rel="np">'.$forum['name'].'</a></li>
 <li class="last"><a href="createthread.php?f='.$forumid.'" rel="np">'.Forum['Forum8'].'</a></li>
