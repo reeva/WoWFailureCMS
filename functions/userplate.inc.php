@@ -148,7 +148,7 @@ function checkClass($classId)
 		case 9:
 			return "Warlock";
 			break;
-		case 10:
+		case 11:
 			return "Druid";
 			break;
 	}

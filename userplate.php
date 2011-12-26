@@ -65,7 +65,7 @@ if(!isset($_SESSION['username']))
 	  	echo '<a href="javascript:;" class="char '.$pinned.'" rel="np">
           <span class="pin"></span>
           <span class="name">'.$character->getName().'</span>
-          <span class="class color-c1">'.$character->getLevel().' race '.checkClass($character->getClass()).'</span>
+          <span class="class color-c'.$character->getClass().'">'.$character->getLevel().' race '.checkClass($character->getClass()).'</span>
           <span class="realm">No Realm</span>
           </a>';
 	  }
