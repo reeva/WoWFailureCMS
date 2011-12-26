@@ -138,4 +138,4 @@ Tooltip.bind('#header .user-meta .character-name', { location: 'topCenter' });
 });
 //]]>
 </script>
-<?php } ?>
+<?php $Userplate = null; } ?>

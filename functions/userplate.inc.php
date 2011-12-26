@@ -8,8 +8,8 @@ class Userplate
 	public function __construct()
 	{
 		require_once("configs.php");
-		global $server_adb,$server_cdb,$serveraddress,$serveruser,$serverpass;
-		$this->connection = mysql_connect($serveraddress,$serveruser,$serverpass) or die(musql_error());
+		global $server_adb,$server_cdb,$connection_setup;
+		$this->connection = $connection_setup;
 		mysql_select_db($server_adb,$this->connection);
 		$this->userID = mysql_result(mysql_query("SELECT id FROM `account` WHERE username = '".mysql_real_escape_string($_SESSION['username'])."';",$this->connection),0);
 		mysql_select_db($server_cdb,$this->connection);
@@ -18,8 +18,10 @@ class Userplate
 	
 	public function __destruct()
 	{
+		require_once("configs.php");
+		global $server_db;
+		mysql_select_db($server_db);
 		mysql_free_result($this->queryResult);
-		mysql_close($this->connection);
 	}
 	
 	private function _executeQuery()
