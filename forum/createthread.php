@@ -105,10 +105,10 @@ $userInfo = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE id = '".$ac
 echo '
 <ol class="ui-breadcrumb">
 <li><a href="'.$website['root'].'index.php" rel="np">'.$website['title'].'</a></li>
-<li><a href="index.php" rel="np">'.Forum['Forum7'].'</a></li>
+<li><a href="index.php" rel="np">'.$Forum['Forum7'].'</a></li>
 <li><a href="index.php" rel="np">'.$category['name'].'</a></li>
 <li><a href="forum.php?f='.$forum['id'].'" rel="np">'.$forum['name'].'</a></li>
-<li class="last"><a href="createthread.php?f='.$forumid.'" rel="np">'.Forum['Forum8'].'</a></li>
+<li class="last"><a href="createthread.php?f='.$forumid.'" rel="np">'.$Forum['Forum8'].'</a></li>
 </ol>
 ';
 $error=0;
@@ -116,8 +116,8 @@ $error=0;
 if($error == 1){
 echo '
 <ol class="ui-breadcrumb">
-<li><a href="../index.php" rel="np">'.Forum['Forum9'].'</a></li>
-<li class="last"><a href="index.php" rel="np">'.Forum['Forum10'].'</a></li>
+<li><a href="../index.php" rel="np">'.$Forum['Forum9'].'</a></li>
+<li class="last"><a href="index.php" rel="np">'.$Forum['Forum10'].'</a></li>
 </ol>
 ';
 echo '<meta http-equiv="refresh" content="2;url=index.php"/>';
@@ -135,11 +135,11 @@ echo '<meta http-equiv="refresh" content="2;url=index.php"/>';
 	</script>
     <?php if(isset($_POST['create'])){
 	//Done for $error == 1 | if(!isset($_GET['f'])){ $errorx = "No ForumId request"; }
-	if(empty($_POST['subject'])){ $errorx[] = "'.Forum['Forum11'].'"; }
-	if(empty($_POST['detail'])){ $errorx[] = "'.Forum['Forum12'].'"; }
-	if($error == 1){ $errorx[] = "'.Forum['Forum13'].'"; }
+	if(empty($_POST['subject'])){ $errorx[] = "'.$Forum['Forum11'].'"; }
+	if(empty($_POST['detail'])){ $errorx[] = "'.$Forum['Forum12'].'"; }
+	if($error == 1){ $errorx[] = "'.$Forum['Forum13'].'"; }
 	echo '<center>
-	<h3>'.Forum['Forum14'].'</h3><br />
+	<h3>'.$Forum['Forum14'].'</h3><br />
 	<div class="loader"></div><br />';
 	if(isset($errorx) && count($errorx) > 0){
 		echo '<div class="errors">';
@@ -158,7 +158,7 @@ echo '<meta http-equiv="refresh" content="2;url=index.php"/>';
 	$date = $today['year']."-".$today['mon']."-".$today['mday'];
 	$insert = mysql_query("INSERT INTO forum_threads (forumid,name,author,views,date,content) VALUES ('".$forumid."','".$subject."','".$author."','0','".$date."','".$content."')")or print("'.Forum['Forum15'].'");
 	echo '<div class="success">';
-	echo ''.Forum['Forum16'].'';
+	echo ''.$Forum['Forum16'].'';
 	echo '</div>';
 	echo '<meta http-equiv="refresh" content="2;url=forum.php?f='.$forumid.'"';
 	}
