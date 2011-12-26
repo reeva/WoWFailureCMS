@@ -10,12 +10,12 @@ require_once("configs.php");
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <![endif]-->
 <meta name="robots" content="none" />
-<meta http-equiv="refresh" content="8;url=../register.php"/>
-<link rel="shortcut icon" href="<?php echo $website['root'];?>wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
+<meta http-equiv="refresh" content="120" />
+<link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
 <!--[if LT IE 9]>
 <link rel="shortcut icon" type="image/x-icon" href="images/root.ico" />
 <![endif]-->
-<link rel="stylesheet" type="text/css" href="<?php echo $website['root'];?>wow/static/css/error/error.css"/>
+<link rel="stylesheet" type="text/css" href="wow/static/css/error/error.css"/>
 <!--[if LT IE 9]>
 <style>
 .info .twitter { background-image: url("images/twitter.png"); }
@@ -37,8 +37,8 @@ body.zh-cn .info .twitter { background-image: url("/static/maintenance/wow/image
 <div class="notice" id="en-us:notice">
 <h1 class="logo"><span><?php echo $website['title']; ?></span></h1>
 <div class="info">
-<h2 class="title">Why are you here?</h2>
-<p class="short">You broke <?php echo $website['title']; ?> Registration Page, Please wait while we are using our best engineers to fix the problem, it will only take 5 seconds. Thank you for your patience!</p>
+<h2 class="title">We will be back soon!</h2>
+<p class="short"><?php echo $website['title']; ?> family of websites is currently undergoing maintenance to improve your browsing experience. Thank you for your patience!</p>
 <div class="twitter">
 For updates, follow <a tabindex="1" target="_blank" href="http://www.twitter.com/test">@<?php echo $website['title']; ?></a> on Twitter.
 </div>
