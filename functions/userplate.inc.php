@@ -34,6 +34,7 @@ class Userplate
 		$result = array();
 		for($i = 0;$i < mysql_num_rows($this->queryResult); $i++)
 		{
+			mysql_data_seek($this->queryResult,$i);
 			$row = mysql_fetch_object($this->queryResult);
 			$obj = new Userplate_Character();
 			$obj->setClass($row->class)
@@ -41,8 +42,7 @@ class Userplate
 				->setName($row->name)
 				->setGender($row->gender)
 				->setRace($row->race);
-			$result[] = $obj;
-			mysql_data_seek($this->queryResult,$i);
+			$result[$i] = $obj;
 		}
 		return $result;
 	}
@@ -50,7 +50,6 @@ class Userplate
 	public function getNumChars()
 	{
 		return mysql_num_rows($this->queryResult);
-		//var_dump($this->queryResult);
 	}
 }
 class Userplate_Character
@@ -122,35 +121,56 @@ function checkClass($classId)
 	switch($classId)
 	{
 		case 1:
-			return "Warrior";
-			break;
+			return "Warrior"; break;
 		case 2:
-			return "Paladin";
-			break;
+			return "Paladin"; break;
 		case 3:
-			return "Hunter";
-			break;
+			return "Hunter"; break;
 		case 4:
-			return "Rouge";
-			break;
+			return "Rouge"; break;
 		case 5:
-			return "Priest";
-			break;
+			return "Priest"; break;
 		case 6:
-			return "Death Knight";
-			break;
+			return "Death Knight"; break;
 		case 7:
-			return "Shaman";
-			break;
+			return "Shaman"; break;
 		case 8:
-			return "Mage";
-			break;
+			return "Mage"; break;
 		case 9:
-			return "Warlock";
-			break;
+			return "Warlock"; break;
 		case 11:
-			return "Druid";
-			break;
+			return "Druid"; break;
+	}
+}
+
+function checkRace($raceId)
+{
+	switch($raceId)
+	{
+		case 1:
+			return "Human"; break;
+		case 2:
+			return "Orc"; break;
+		case 3:
+			return "Dwarf"; break;
+		case 4:
+			return "Night Elf"; break;
+		case 5:
+			return "Undead"; break;
+		case 6:
+			return "Tauren"; break;
+		case 7:
+			return "Gnome"; break;
+		case 8:
+			return "Troll"; break;
+		case 9:
+			return "Goblin"; break;
+		case 10:
+			return "Blood Elf"; break;
+		case 11:
+			return "Dranei"; break;
+		case 22:
+			return "Worgen"; break;
 	}
 }
 ?>
