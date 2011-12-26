@@ -135,9 +135,9 @@ echo '<meta http-equiv="refresh" content="2;url=index.php"/>';
 	</script>
     <?php if(isset($_POST['create'])){
 	//Done for $error == 1 | if(!isset($_GET['f'])){ $errorx = "No ForumId request"; }
-	if(empty($_POST['subject'])){ $errorx[] = "'.$Forum['Forum11'].'"; }
-	if(empty($_POST['detail'])){ $errorx[] = "'.$Forum['Forum12'].'"; }
-	if($error == 1){ $errorx[] = "'.$Forum['Forum13'].'"; }
+	if(empty($_POST['subject'])){ $errorx[] = $Forum[Forum11]; }
+	if(empty($_POST['detail'])){ $errorx[] = $Forum[Forum12]; }
+	if($error == 1){ $errorx[] = $Forum[Forum13]; }
 	echo '<center>
 	<h3>'.$Forum['Forum14'].'</h3><br />
 	<div class="loader"></div><br />';
@@ -223,6 +223,7 @@ echo '<meta http-equiv="refresh" content="2;url=index.php"/>';
 								<a href="javascript:;" onclick="Cms.Topic.previewToggle(this, 'preview')" class="preview-btn"><span class="arr"></span><span class="r"></span><span class="c"><?php echo $Forum['Forum21'];?></span></a>
 								<a href="javascript:;" onclick="Cms.Topic.previewToggle(this, 'edit')" class="edit-btn selected"><span class="arr"></span><span class="r"></span><span class="c"><?php echo $Forum['Forum22'];?></span></a>
 							</div>
+							<br><br>
 							<div class="editor1" id="post-edit"><div class="bml-toolbar"></div>
 								<a id="editorMax" rel="5000"></a>
 								<input type="text" id="subject" name="subject" value="" class="post-subject" maxlength="55" />

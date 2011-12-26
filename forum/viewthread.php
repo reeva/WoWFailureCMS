@@ -520,6 +520,7 @@ echo '
 					<a href="javascript:;" onclick="Cms.Topic.previewToggle(this, 'preview')" class="preview-btn"><span class="arr"></span><span class="r"></span><span class="c">Preview</span></a>
 					<a href="javascript:;" onclick="Cms.Topic.previewToggle(this, 'edit')" class="edit-btn selected"><span class="arr"></span><span class="r"></span><span class="c">Edit</span></a>
 				</div>
+				<br><br>
 				<div class="editor1" id="post-edit"><div class="bml-toolbar"></div>
 				<a id="editorMax" rel="5000"></a>
 
