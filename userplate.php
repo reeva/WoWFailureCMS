@@ -54,20 +54,21 @@ if(!isset($_SESSION['username']))
           <div class="char-wrapper">
       <?php
       $chars = $Userplate->getChars();
-	  foreach($chars as $key => $character)
+	  for($i = 0; $i < count($chars); $i++)
 	  {
-	  	if($key == 0)
+	  	$character = $chars[$i];
+	  	if($i == 0)
 		{
-			$pinned = "pinned";
+			$pinned = '<a href="javascript:;" class="char pinned" rel="np">';
 		} else {
-			$pinned = "";
+			$pinned = '<a href="javascript:;" onclick="CharSelect.pin('.$i.', this); return false;" class="char " rel="np">';
 		}
-	  	echo '<a href="javascript:;" class="char '.$pinned.'" rel="np">
-          <span class="pin"></span>
+	  	echo $pinned.'<span class="pin"></span>
           <span class="name">'.$character->getName().'</span>
-          <span class="class color-c'.$character->getClass().'">'.$character->getLevel().' race '.checkClass($character->getClass()).'</span>
+          <span class="class color-c'.$character->getClass().'">'.$character->getLevel().' '.checkRace($character->getRace()).' '.checkClass($character->getClass()).'</span>
           <span class="realm">No Realm</span>
           </a>';
+         //echo $key;
 	  }
 	  ?>
           <a href="javascript:;" class="char pinned" rel="np">
