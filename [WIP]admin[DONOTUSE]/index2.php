@@ -6,6 +6,7 @@ session_start();
 // Check, if username session is NOT set then this page will jump to login page
 if (!isset($_SESSION['username'])) {
         header('Location: index.php');
+		
 }
 
 ?>
@@ -13,11 +14,12 @@ if (!isset($_SESSION['username'])) {
 
 <head>
   <title>Secured Page</title>
+  <link rel="stylesheet" type="text/css" href="../wow/static/login/static/_themes/bam/css/master.css?v1"/>
 </head>
 
-<body>
+<body style="background-image:url(images/bg-top-man.jpg);">
 
-<p>This is secured page with session: <b><?php echo $_SESSION['username']; ?></b>
+<p>This is secured page with session: <b><span style="color:red"><?php echo $_SESSION['username']; ?></span></b>
 <p ALIGN=RIGHT><a href="logout.php">Logout</a></p>
 
 </body>
@@ -502,3 +504,4 @@ function return_5_char_number($number) {
 }
 ?>
 </div><!-- /#rm_database_container -->
+<html><br><br><center><img src="../wow/static/images/logos/wof-logo.png" alt="Logo"/></center></html>

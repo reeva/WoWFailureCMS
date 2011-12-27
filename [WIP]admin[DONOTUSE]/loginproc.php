@@ -26,12 +26,15 @@ if (mysql_num_rows($login) == 1) {
         $_SESSION['username'] = $_POST['username'];
         // Jump to secured page
         header('refresh:5;url=index2.php');
-		echo '<center><b>Logged Succesfully,</b></br>You\'ll be redirected in about 5 secs. If not, click <a href="index2.php">here</a>.</center>';
+		echo '<link rel="stylesheet" type="text/css" href="../wow/static/login/static/_themes/bam/css/master.css?v1"/>
+ <center><b><span style="color:red">Logged Succesfully,</span></b></br>You\'ll be redirected in about 5 secs. If not, click <a href="index2.php">here</a>.</center>';
 }
 else {
         // Jump to login page
        header('refresh:5;url=index.php');
-		echo '<center><b>Somethink was Wrong or you dont have Access,</b></br>You\'ll be redirected in about 5 secs. If not, click <a href="index.php">here</a>.</center>';
+		echo '<link rel="stylesheet" type="text/css" href="../wow/static/login/static/_themes/bam/css/master.css?v1"/>
+ <center><b><span style="color:red">Somethink was Wrong or you dont have Access,</span></b></br>You\'ll be redirected in about 5 secs. If not, click <a href="index.php">here</a>.</center>';
 }
 
 ?>
+<html><br><br><center><img src="../wow/static/images/logos/wof-logo.png" alt="Logo"/></center></html>
