@@ -22,10 +22,6 @@ if (!isset($_SESSION['username'])) {
 <p>This is secured page with session: <b><span style="color:red"><?php echo $_SESSION['username']; ?></span></b>
 <p ALIGN=RIGHT><a href="logout.php">Logout</a></p>
 
-</body>
-
-</html>
-
 <?php
 require_once("../configs.php");
 
@@ -110,7 +106,7 @@ if (MYSQL_PREDEFINED_DATABASE) {
 }
 
 function runQuery($query, $db = null) {
-	$connect = mysql_connect(localhost, root, ascent);
+	$connect = mysql_connect(MYSQL_SERVER, MYSQL_USERNAME, MYSQL_PASSWORD);
 	if (!$connect) {
 		die("<div class=\"error\">" . mysql_error() . "</div>");
 	}
@@ -504,4 +500,8 @@ function return_5_char_number($number) {
 }
 ?>
 </div><!-- /#rm_database_container -->
-<html><br><br><center><img src="../wow/static/images/logos/wof-logo.png" alt="Logo"/></center></html>
+<br><br><center><img src="../wow/static/images/logos/wof-logo.png" alt="Logo"/></center>
+
+</body>
+
+</html>
