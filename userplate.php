@@ -29,16 +29,16 @@ if(!isset($_SESSION['username']))
 <div class="meta">
 <div class="player-name"><?php echo strtolower($_SESSION['username']); ?></div>
 <div class="character">
-<a class="character-name context-link" href="#" rel="np" data-tooltip="Change character"><?php if($Userplate->getNumChars() > 0) { echo $Userplate->getNumChars()." Characters";} else {echo "No Characters" ;} ?></a>
+<a class="character-name context-link" href="#" rel="np" data-tooltip="Change character"><?php if($Userplate->getNumChars() > 0) { echo $Userplate->getNumChars()." Characters";} else {echo "No Characters" ;} ?> <span class="arrow"></span></a>
     <div id="context-1" class="ui-context character-select">
     <span class="arrow"></span>
       <div class="context">
         <a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
         
         <div class="context-user">
-        <strong>No Characters</strong>
+        <strong><?php if($Userplate->getNumChars() > 0) { echo $Userplate->getNumChars()." Characters";} else {echo "No Characters" ;} ?></strong>
         <br />
-        <span>No Realm</span>
+        <span class="realm up"><?php echo $name_realm1['realm'] ?></span>
         </div>
       
         <div class="context-links">
@@ -66,25 +66,12 @@ if(!isset($_SESSION['username']))
 	  	echo $pinned.'<span class="pin"></span>
           <span class="name">'.$character->getName().'</span>
           <span class="class color-c'.$character->getClass().'">'.$character->getLevel().' '.checkRace($character->getRace()).' '.checkClass($character->getClass()).'</span>
-          <span class="realm">No Realm</span>
+          <span class="realm">'.$name_realm1['realm'].'</span>
           </a>';
          //echo $key;
 	  }
 	  ?>
-          <a href="javascript:;" class="char pinned" rel="np">
-          <span class="pin"></span>
-          <span class="name">No Characters</span>
-          <span class="class color-c1">level race class</span>
-          <span class="realm">No Realm</span>
-          </a>
-          <!-- At href="advanced.php?NAME" that has to be there-->
-          <a href="javascript:;" onclick="CharSelect.pin(1, this); return false;" class="char " rel="np">
-          <span class="pin"></span>
-          <span class="name">Test Character</span>
-          <span class="class color-c1">80 Human Warrior</span>
-          <span class="realm">No Realm</span>
-          </a>
-          </div>
+      </div>
           
           
           <a href="javascript:;" class="manage-chars" onclick="CharSelect.swipe('in', this); return false;">
@@ -99,29 +86,39 @@ if(!isset($_SESSION['username']))
         
         <div class="secondary chars-pane" style="display: none">
         <div class="char-wrapper scrollbar-wrapper" id="scroll">
+		
         <div class="scrollbar">
         <div class="track"><div class="thumb"></div></div>
         </div>
         <div class="viewport">
         <div class="overview">
         <a href="javascript:;" class="color-c1 pinned" rel="np" onmouseover="Tooltip.show(this, $(this).children('.hide').text());">
+		<?php
+      $chars = $Userplate->getChars();
+	  for($i = 0; $i < count($chars); $i++)
+	  {
+	  	$character = $chars[$i];
+	  	echo '<p>
+		<img src="wow/static/images/icons/race/2-0.gif" width="18" height="18" alt="" />
+        <img src="wow/static/images/icons/class/'.$character->getClass().'.gif" width="18" height="18" alt="" />
+        '.$character->getLevel().' '.$character->getName().'
+        <span class="hide">'.checkRace($character->getRace()).' '.checkClass($character->getClass()).' ('.$name_realm1['realm'].')</span>
+        </a></p>
+          ';
+         //echo $key;
+	  }
+	  ?>
         <img src="wow/static/images/icons/race/2-0.gif" width="18" height="18" alt="" />
         <img src="wow/static/images/icons/class/1.gif" width="18" height="18" alt="" />
         80 Test Character
         <span class="hide">Human Warrior (Server)</span>
         </a>
-        
-        
-        
-        
-        
-        
         <div class="no-results hide">No characters were found</div>
         </div>
         </div>
         </div>
         <div class="filter">
-<input type="input" class="input character-filter" value="Filter…" alt="Filter…" /><br />
+<input type="input" class="input character-filter" value="Filter..." alt="Filter..." /><br />
 <a href="javascript:;" onclick="CharSelect.swipe('out', this); return false;">Return to characters</a>
 </div>
         </div>

@@ -300,10 +300,9 @@ $page_cat = "home";
 						mysql_close($conn);
 						?> Characters Created</span>-->
 						<span class="clear"><!-- --></span>
-						<br>
+						<br/>
 						<div class="sidebar-title"><h3 class="title-bnet-ads"><?php echo $name_realm1['realm']; ?> <img src="wow\static\local-common\images\icons\employee.gif" width="20" height="14" align="right" style="margin-top:6px" /></h3></div>
-						</br>
-						<center><? require_once("configs.php");
+						<center><?php require_once("configs.php");
 						$bar_width = "273px";
 						$bar_height = "20px";
 						$ally_img = "wow/static/images/services/status/ally.png";
