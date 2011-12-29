@@ -99,7 +99,7 @@ if(!isset($_SESSION['username']))
 	  {
 	  	$character = $chars[$i];
 	  	echo '<p>
-		<img src="wow/static/images/icons/race/2-0.gif" width="18" height="18" alt="" />
+		<img src="wow/static/images/icons/race/'.$character->getRace().'-'.$character->getGender().'.gif" width="18" height="18" alt="" />
         <img src="wow/static/images/icons/class/'.$character->getClass().'.gif" width="18" height="18" alt="" />
         '.$character->getLevel().' '.$character->getName().'
         <span class="hide">'.checkRace($character->getRace()).' '.checkClass($character->getClass()).' ('.$name_realm1['realm'].')</span>
