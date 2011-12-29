@@ -22,7 +22,7 @@ if(!isset($_SESSION['username']))
   $Userplate = new Userplate();
 ?>
 <div class="user-plate">
-<div id="user-plate" class="card-character plate-<?php echo $side; ?> ajax-update" style="background: url(<?php echo $website['root']; ?>wow/static/images/layout/cards/no-chars.png) 0 100% no-repeat;">
+<div id="user-plate" class="card-character plate-0 ajax-update" style="background: url(<?php echo $website['root']; ?>wow/static/images/layout/cards/no-chars.png) 0 100% no-repeat;">
 <div class="card-overlay"></div>
 <span class="hover"></span>
 </a>
