@@ -2,8 +2,6 @@
 include("configs.php");
 $page_cat = "account";
 ?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title><?php echo $website['title']; ?><?php echo $Log['Log']; ?></title>
@@ -56,16 +54,13 @@ Core.baseUrl = '/login/en/';
   
   if(!isset($_SESSION['username'])){
   if(isset($_POST['accountName'])){
-    $accountName = stripslashes($_POST['accountName']);
-    $accountPass = stripslashes($_POST['password']);
-	function sha_password($user,$pass){
-		$user = strtoupper($user);
-		$pass = strtoupper($pass);
-		return SHA1($user.':'.$pass);
-	}
-	$sha_pass_hash = sha_password($accountName,$accountPass);
-	$db_setup = mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
-    $login_query = mysql_query("SELECT * FROM account WHERE username = '".mysql_real_escape_string($accountName)."'");
+    $accountName = mysql_real_escape_string($_POST['accountName']);
+    $accountPass = mysql_real_escape_string($_POST['password']);
+
+    $sha_pass_hash = sha1(strtoupper($accountName ) . ":" . strtoupper($accountPass));
+
+    $db_setup = mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
+    $login_query = mysql_query("SELECT * FROM account WHERE username = UPPER('".$accountName."') AND sha_pass_hash = CONCAT('".$sha_pass_hash."')");
     $login = mysql_fetch_assoc($login_query);
     if($login){
       ?>
@@ -79,13 +74,10 @@ Core.baseUrl = '/login/en/';
       <center>
       <h3><?php echo $Log['Log3']; ?></h3><br />
       <div class="loader"></div>
-      <?php
-        if(strtoupper($sha_pass_hash) == $login['sha_pass_hash']){
-          $_SESSION['username']=$accountName;
-          echo '<br /><br /><meta http-equiv="refresh" content="2"/>';
-        }else{
-          echo '<br /><br /><font color="red">'.$Log['Log4'].'</font><meta http-equiv="refresh" content="2"/>';
-        }
+     <?php
+        $_SESSION['username']=$accountName;
+          echo '<meta http-equiv="refresh" content="2;"';
+          echo 'Succesfully';
       ?>
       </center>
       <?php
@@ -114,21 +106,22 @@ Core.baseUrl = '/login/en/';
   <form action="?SSID:<?php echo $sessionid; ?>" method="post">
     <a id="embedded-close" href="javascript:;" onclick="updateParent('close')"> </a>
     <div>
-      <p><label for="accountName" class="label"><?php echo $Log['Log6']; ?></label>
+      <p><label for="accountName" class="label">Account Name</label>
       <input id="accountName" value="" name="accountName" maxlength="320" type="text" tabindex="1" class="input" /></p>
-      <p><label for="password" class="label"><?php echo $Log['Log7']; ?></label>
+
+      <p><label for="password" class="label">Password</label>
       <input id="password" name="password" maxlength="16" type="password" tabindex="2" autocomplete="off" class="input"/></p>
+
       <p>
         <span id="remember-me">
           <label for="persistLogin">
             <input type="checkbox" checked="checked" name="persistLogin" value="true" id="persistLogin" />
-            <?php echo $Log['Log8']; ?>
+            Keep me logged in
           </label>
         </span>
-        <input type="hidden" name="app" value="com-sc2"/>
-        <button class="ui-button button1" type="submit" data-text="Processing…">
+        <button class="ui-button button1" type="submit" data-text="Processing...">
           <span>
-            <span><?php echo $Log['Log9']; ?></span>
+            <span>Log In</span>
           </span>
         </button>
       </p>
@@ -141,8 +134,8 @@ Core.baseUrl = '/login/en/';
     parent.postMessage("{\"action\":\"success\"}", "<?php echo $website['address']; ?>");
     </script>
     <?php
-    echo "<h3><font color='green'>".$Log['Log10']."</font></h3>";
-    
+    echo "<h3><font color='green'>You're Logged In</font></h3>";
+    echo '<meta http-equiv="refresh" content="8;url=account_man.php"';
   } ?>
   <ul id="help-links">
       <li class="icon-pass">
