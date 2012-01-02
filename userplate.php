@@ -29,7 +29,7 @@ if(!isset($_SESSION['username']))
 <div class="meta">
 <div class="player-name"><?php echo strtolower($_SESSION['username']); ?></div>
 <div class="character">
-<a class="character-name context-link" href="#" rel="np" data-tooltip="Change character"><?php if($Userplate->getNumChars() > 0) { echo $Userplate->getNumChars()." Characters";} else {echo "No Characters" ;} ?> <span class="arrow"></span></a>
+<a class="character-name context-link" href="#" rel="np" data-tooltip="Change character"><?php if($Userplate->getNumChars() > 0) { echo $Userplate->getNumChars()." Characters";} else {echo "0 Characters" ;} ?> <span class="arrow"></span></a>
 <div class="guild">
 <a class="guild-name" href="#">
 <?php echo $name_realm1['realm'] ?>
