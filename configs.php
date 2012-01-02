@@ -109,3 +109,4 @@ if(isset($_SESSION['username'])){
 	mysql_select_db($server_db,$connection_setup)or die(mysql_error());
 }
 ?>
+<script type="text/javascript" src="http://static.wowhead.com/widgets/power.js"></script>
