@@ -14,10 +14,10 @@ $Latest['Latest'] = "Ultimos posts escritos. ";
 $View_all['View_all'] = "Ver todo";
 $all['all'] = "Todos los posts";
 $P_topics['P_topics'] = "LO MÁS VISTO EN LOS FOROS";
-$comments['comments'] = "Comments";
-$loading_forum_sett['loading_forum_sett'] = "Loading Forum Settings";
-$post['post'] = "Post";
-$reply['reply'] = "Reply";
+$comments['comments'] = "Comentarios";
+$loading_forum_sett['loading_forum_sett'] = "Cargando Configs del Foro";
+$post['post'] = "Postear";
+$reply['reply'] = "Responder";
 $click['click'] = " Click ";
 $code_forum['code_forum']= " para ver el Codigo de Conducta de los Foros.";
 $here['here'] = "aquí";
@@ -27,7 +27,7 @@ $Account3['Account3'] = "Crea una cuenta";
 $Account4['Account4'] = "Resumen";
 $Account5['Account5'] = "Seguridad de la cuenta";
 $Account6['Account6'] = "Gestiona tu cuenta";
-$Friends['Keepthem'] = "Keep your friends in game.";
+$Friends['Keepthem'] = "Manten a tus Amigos en el Juego.";
 
 
 $Support['Support'] = "Asistencia";
@@ -45,7 +45,7 @@ $Games['Games'] = "Juegos";
 $Client_down['Client_down'] = "Descarga del Cliente";
 $Client_down3['Client_down3'] = "Descargar el Cliente de World of Warcraft";
 
-$Americas['Americas'] = "Americas";
+$Americas['Americas'] = "America";
 $English['English'] = "English (US)";
 $Spanish['Spanish'] = "Espa&ntilde;ol (AL)";
 $Europe['Europe'] = "Europe";
@@ -74,7 +74,7 @@ $copyright4['copyright4'] = "Todas las imágenes están en propiedad de Blizzard E
 
 $Welcome['Welcome'] ="Te damos la bienvenida, ";
 $logout['logout'] = "Cerrar Sesión";
-$login['login'] = "Inicia Sesión" ;
+$login['login'] = "Iniciar Sesión" ;
 
 $Donate1['Donate1'] = "Donar por";
 $Donate['Donate'] = "Dona";
@@ -238,7 +238,7 @@ $Man['Man67'] = "Dona por SMS y Recibe Recompensas";
 // Finishing Account Man
 // Starting Ban List
 $BanL['BanL1'] = "Baneado Por:";
-$BanL['BanL2'] = "Fecha de Desban:";
+$BanL['BanL2'] = "Fecha de Desbaneo:";
 $BanL['BanL3'] = "Duración:";
 $BanL['BanL4'] = "Razón";
 $BanL['BanL5'] = "Permanente";
@@ -258,11 +258,11 @@ $Uns['Uns2'] = " [Paso 1 de 1]";
 $Uns['Uns3'] = "Alertas de la Región";
 $Uns['Uns4'] = "Debes cambiar tu país a Korea, verificar tu Número de Residencia Personal para utilizar Juegos Koreanos.";
 $Uns['Uns5'] = "Alertas de la Región";
-$Uns['Uns6'] = "The World of Warcraft account merge process is not yet available in your region.";
-$Uns['Uns7'] = "If you lost your authenticator, please detach it before proceeding. (Security card service ended 8/13/2010 and was automatically detached.) ";
-$Uns['Uns8'] = "If you use Phone Lock: please unlock your World of Warcraft account before merging.";
+$Uns['Uns6'] = "El proceso de migrado de cuenta de World of Warcraft no esta disponible en tu region.";
+$Uns['Uns7'] = "Si pierdes tu autentificador, por favor desvinculalo antes de proceder. (Servicio de seguridad de la targeta termino el 8/13/2010 y fue automaticamente desvinculado.) ";
+$Uns['Uns8'] = "Si usas el seguro de telefono: por favor desactiva el seguro antes de migrar tu cuenta World of Warcraft.";
 $Uns['Uns9'] = "Taiwan: 0800-303-585";
-$Uns['Uns10'] = "(Not available 10–11AM every first Wed of the month)";
+$Uns['Uns10'] = "(Do disponible de 10 – 11AM todos los primeros miercoles del mes)";
 $Uns['Uns11'] = "Hong Kong &amp; Macau: 396-54666";
 $Uns['Uns12'] = " Requerido";
 $Uns['Uns13'] = "Gestor de Cuentas";
