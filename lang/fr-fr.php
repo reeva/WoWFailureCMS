@@ -22,7 +22,7 @@ $Account3['Account3'] = "Cr&eacute;er un compte";
 $Account4['Account4'] = "R&eacute;sum&eacute; de compte";
 $Account5['Account5'] = "S&eacute;curit&eacute; du compte"; 
 $Account6['Account6'] = "G&eacute;rer son compte";
-$Account7['Account7'] = "List des bannis";
+$Account7['Account7'] = "Liste des bannis";
 $Friends['Keepthem'] = "Faites venir vos ami(e)s en jeu.";
 
 
@@ -108,8 +108,8 @@ $Reg['Reg'] = "Requis";
 $Reg['Reg1'] = "Options du compte";
 $Reg['Reg2'] = "Changez votre mot de passe";
 $Reg['Reg3'] = "Vous ";
-$Reg['Reg4'] = "Requis";
-$Reg['Reg5'] = " Soyez d&eacute;connecter pour que cet outil marche. De plus, vous devez &ecirc;tre connecter au site web pour utiliser cet outil de changement de mot de passe.";
+$Reg['Reg4'] = "devez";
+$Reg['Reg5'] = "  &ecirc;tre d&eacute;connecter pour que cet outil marche. De plus, vous devez &ecirc;tre connecter au site web pour utiliser cet outil de changement de mot de passe.";
 $Reg['Reg6'] = "Erreur:";
 $Reg['Reg7'] = "Les mots de passe doivent correspondre";
 $Reg['Reg8'] = "SVP, retournez en arri&ecirc;re et r&eacute;&eacute;ssayez";
