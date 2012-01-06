@@ -10,7 +10,7 @@ if (!isset($_SESSION))
 /*|||||||||||DO NOT TOUCH THIS||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||*/
 $lang = &$_SESSION['Local'];
-$lang = $_GET['Local'];
+//$lang = $_GET['Local'];
 switch ($lang)
 {
     case 'en-us' :
@@ -59,11 +59,11 @@ switch ($lang)
 /*||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||The Server Configuration||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||*/
-$serveraddress = "localhost"; // Your MySQL server address
+$serveraddress = "127.0.0.1"; // Your MySQL server address
 $serveruser = "root"; // Your MySQL user
-$serverpass = "ascent"; //Your MySQL password
+$serverpass = "kabeli"; //Your MySQL password
 $serverport	= "3306"; // Your MySQL Port
-$donatadmin = "ascent"; // Your Donation Admin Password
+$donatadmin = "kabeli"; // Your Donation Admin Password
 $website['realm'] = "Set Realmlist Your_Realmlist"; // You realm (Example: Set Realmlist login.wowfailure.com)
 /*||||||||||||||||||||||||||||||||||||*/
 /*|||||||The Admin Configuration||||||*/
@@ -77,7 +77,7 @@ $website['realm'] = "Set Realmlist Your_Realmlist"; // You realm (Example: Set R
 /*||||||||||||||||||||||||||||||||||||||||*/
 /*|||||||The Website Configuration||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||*/
-$server_db = "site"; //Your website database
+$server_db = "wowsite"; //Your website database
 $server_adb = "auth"; //Your account database
 $server_cdb = "characters"; //Your characters database
 $server_cdb_2 = "characters"; //Your characters database
@@ -92,7 +92,7 @@ $mysql_cod = 'cp1251';
 $website['title'] = "WoWFailureCMS"; // Your Website Title
 $website['slogan'] = "WoWFailureCMS, get your best CMS today, simple and fast!"; // Your Website Slogan.
 $website['address'] = "http://www.wowfailure.co.cc"; // 'http://url/foldername/' or 'http://url/'
-$website['root'] = "/WoWFailureCMS/"; // '/' <- for root and '/foldername/' <- for any folder
+$website['root'] = ""; // '/' <- for root and '/foldername/' <- for any folder
 /*||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||DO NOT EDIT BELOW|||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||*/

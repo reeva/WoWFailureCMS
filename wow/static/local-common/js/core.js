@@ -1517,7 +1517,7 @@ var CharSelect = {
 		Tooltip.hide();
 		$('div.character-list').html("").addClass('loading-chars');
 
-		var switchUrl = Core.baseUrl +'/pref/character';
+		var switchUrl = Core.baseUrl +'userplate_ajax.php';
 
 		$.ajax({
 			type: 'POST',
