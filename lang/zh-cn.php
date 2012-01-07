@@ -236,6 +236,37 @@ $Man['Man64'] = " Donation Title to your account and unlock illuminative Rewards
 $Man['Man65'] = " Remote";
 $Man['Man66'] = "Use all the features of the Remote Auction House of ";
 // Finishing Account Man
+
+// Starting Header acount
+$ha['ha26'] ="Account";
+$ha['ha0'] = "Summary";
+$ha['ha1'] = "Settings";
+$ha['ha2'] = "Change E-mail Adress";
+$ha['ha3'] = "Change password";
+$ha['ha4'] = "Communication Preferences";
+$ha['ha5'] = "Parental Controls";
+$ha['ha6'] = "My Payment Options";
+$ha['ha7'] = "Contact &amp; General Info";
+$ha['ha8'] = "Codes &amp; Services";
+$ha['ha9'] = "Vote Panel";
+$ha['ha10'] = "Donation Panel";
+$ha['ha11'] = "SMS Donation Panel";
+$ha['ha12'] = "V.i.P Item Switch Panel";
+$ha['ha13'] = "Download Game Clients";
+$ha['ha14'] = "Beta Settings";
+$ha['ha15'] = "V.i.P Code Redemption";
+$ha['ha16'] = "Player Options";
+$ha['ha17'] = "Character Unstuck";
+$ha['ha18'] = "Name Change";
+$ha['ha19'] = "Faction Change";
+$ha['ha20'] = "Race Change";
+$ha['ha21'] = "Character Transfer";
+$ha['ha22'] = "Appearance Change";
+$ha['ha23'] = "Refer an Account";
+$ha['ha24'] = "Recruit a Friend";
+$ha['ha25'] = "Return to Website";
+// Finishing Header Account
+
 //Starting Ban List
 $BanL['BanL1'] = "Banned By:";
 $BanL['BanL2'] = "Unban Date:";
