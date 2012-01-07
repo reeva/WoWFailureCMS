@@ -61,9 +61,9 @@ switch ($lang)
 /*||||||||||||||||||||||||||||||||||||||||*/
 $serveraddress = "127.0.0.1"; // Your MySQL server address
 $serveruser = "root"; // Your MySQL user
-$serverpass = "kabeli"; //Your MySQL password
+$serverpass = "ascent"; //Your MySQL password
 $serverport	= "3306"; // Your MySQL Port
-$donatadmin = "kabeli"; // Your Donation Admin Password
+$donatadmin = "ascent"; // Your Donation Admin Password
 $website['realm'] = "Set Realmlist Your_Realmlist"; // You realm (Example: Set Realmlist login.wowfailure.com)
 /*||||||||||||||||||||||||||||||||||||*/
 /*|||||||The Admin Configuration||||||*/
@@ -77,7 +77,7 @@ $website['realm'] = "Set Realmlist Your_Realmlist"; // You realm (Example: Set R
 /*||||||||||||||||||||||||||||||||||||||||*/
 /*|||||||The Website Configuration||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||*/
-$server_db = "wowsite"; //Your website database
+$server_db = "site"; //Your website database
 $server_adb = "auth"; //Your account database
 $server_cdb = "characters"; //Your characters database
 $server_cdb_2 = "characters"; //Your characters database
