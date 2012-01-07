@@ -77,6 +77,35 @@ _gaq.push(['_trackPageLoadTime']);
 	</div>
 	<div class="content-bot">
 	<div class="search">
+	<div class="search-left">
+	<div class="search-header">
+	<h2 class="header ">Search</h2>
+	</div>
+	<ul class="dynamic-menu" id="menu-search">
+	<li class="">
+	<a href="">
+	<span class="arrow">Summary</span>
+	</a>
+	</li>
+	<li class="item-active">
+	<a href="search.php"><span class="arrow">Characters<span> <?php 
+	 
+	echo "$num_rows \n"; ?>
+	</span></span>
+	</a>
+	</li>
+	<li>
+	<a href="search_g.php">
+	<span class="arrow">Guilds<span></span></span>
+	</a>
+	</li>
+	<li>
+	<a href="search_a.php">
+	<span class="arrow">Arena Teams<span></span></span>
+	</a>
+	</li>
+	</ul>
+    </div>  
 	<div class="search-right">
 	<div class="search-header">
 	<form action="" method="post" class="search-form">
@@ -92,15 +121,63 @@ _gaq.push(['_trackPageLoadTime']);
 	</div>
 	</form>
 	</div>
-	
+	<div class="helpers">
+	<h3 class="subheader ">Summary of results for <span><?php echo $_POST["search"];?></span></h3>
+	</div>
+    
+	<div class="view-table">
+	<div class="table ">
+	<table>
+	<thead>
+	<tr>
+	<th width="15%" class=" first-child">
+	<a href="" class="sort-link" >
+	<span class="arrow">Name</span>
+	</a>
+	</th>
+	<th width="6%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Level</span>
+	</a>
+	</th>
+	<th width="6%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Race</span>
+	</a>
+	</th>
+	<th width="6%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Class</span>
+	</a>
+	</th>
+	<th width="6%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Faction</span>
+	</a>
+	</th>
+	<th width="15%">
+	<a href="" class="sort-link" >
+	<span class="arrow">Guild</span>
+	</a>
+	</th>
+	<th>
+	<a href="" class="sort-link" >
+	<span class="arrow">Realm</span>
+	</a>
+	</th>
+	<th class=" last-child">
+	<a href="" class="sort-link" >
+	<span class="arrow">Battlegroup</span>
+	</a>
+	</th>
+	</tr>
+	</thead></div></div>
 	<?php include("functions/armory_func.php"); ?>
 	</table>
 	</div>
 	</div>
 	</div>
-	</div>
-	</div>
-	</div>
+	</div></div></div></div>
 	<?php include("footer.php"); ?>
 	<script type="text/javascript">
 //<![CDATA[
