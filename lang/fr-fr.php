@@ -233,6 +233,37 @@ $Man['Man64'] = " le titre de donateur &agrave; votre compte et d&eacute;bloqu&e
 $Man['Man65'] = " &eagrave; distance";
 $Man['Man66'] = "Hotel des ventes &eagrave; distance de ";
 // Finishing Account Man
+
+// Starting Header acount
+$ha['ha26'] ="Compte";
+$ha['ha0'] = "Accueil";
+$ha['ha1'] = "Options";
+$ha['ha2'] = "Changer l'adresse e-mail";
+$ha['ha3'] = "Changer le mot de passe";
+$ha['ha4'] = "Options de communications";
+$ha['ha5'] = "Contr&ocirc;le parental";
+$ha['ha6'] = "Options de paiements";
+$ha['ha7'] = "Contact &amp; infos g&eacute;n&eacute;rale";
+$ha['ha8'] = "Codes &amp; Services";
+$ha['ha9'] = "Voter";
+$ha['ha10'] = "Dons";
+$ha['ha11'] = "Dons par SMS";
+$ha['ha12'] = "Changement d'item V.I.P";
+$ha['ha13'] = "T&eacute;l&eacute;charger le client de jeu";
+$ha['ha14'] = "Options de la beta";
+$ha['ha15'] = "Rachat de code V.I.P";
+$ha['ha16'] = "Options joueurs";
+$ha['ha17'] = "D&eacute;bloquage de personnage";
+$ha['ha18'] = "Changement de nom";
+$ha['ha19'] = "Changement de faction";
+$ha['ha20'] = "Changement de race";
+$ha['ha21'] = "Transfert de personnage";
+$ha['ha22'] = "Changement d'appareance";
+$ha['ha23'] = "Reporter un compte";
+$ha['ha24'] = "Parrainer un ami";
+$ha['ha25'] = "Retourner au site web";
+// Finishing Header Account
+
 //Starting Ban List
 $BanL['BanL1'] = "Banni par:";
 $BanL['BanL2'] = "Date de d&eacute;banissement:";
