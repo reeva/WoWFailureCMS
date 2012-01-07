@@ -88,9 +88,7 @@ _gaq.push(['_trackPageLoadTime']);
 	</a>
 	</li>
 	<li class="item-active">
-	<a href="search.php"><span class="arrow">Characters<span> <?php 
-	 
-	echo "$num_rows \n"; ?>
+	<a href="search.php"><span class="arrow">Characters<span>
 	</span></span>
 	</a>
 	</li>
@@ -122,7 +120,7 @@ _gaq.push(['_trackPageLoadTime']);
 	</form>
 	</div>
 	<div class="helpers">
-	<h3 class="subheader ">Summary of results for <span><?php echo $_POST["search"];?></span></h3>
+	<h3 class="subheader ">Summary of results for <span><?php echo @$_POST["search"];?></span></h3>
 	</div>
     
 	<div class="view-table">

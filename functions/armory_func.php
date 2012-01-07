@@ -1,8 +1,5 @@
-
-	
-	<span class="clear"><!-- --></span>
-	
-	<?php
+<span class="clear"><!-- --></span>
+<?php
 require ('configs.php');
 
 function mysql_open($serveraddress, $serveruser, $serverpass){
@@ -103,4 +100,3 @@ if (isset($_GET['charname'])) {
 }
 
 ?>
-	

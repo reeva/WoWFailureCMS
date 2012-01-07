@@ -1,71 +1,4 @@
-	<div class="helpers">
-	<h3 class="subheader ">Summary of results for <span><?php echo $_POST["search"];?></span></h3>
-	</div>
-	<span class="clear"><!-- --></span>
-    </div>
-	<div class="search-left">
-	<div class="search-header">
-	<h2 class="header ">Search</h2>
-	</div>
-	<ul class="dynamic-menu" id="menu-search">
-	<li class="">
-	<a href="">
-	<span class="arrow">Summary</span>
-	</a>
-	</li>
-	<li>
-	<a href="search.php"><span class="arrow">Characters<span> <?php 
-	 
-	echo "$num_rows \n"; ?>
-	</span></span>
-	</a>
-	</li>
-	<li class="item-active">
-	<a href="search_g.php">
-	<span class="arrow">Guilds<span></span></span>
-	</a>
-	</li>
-	<li>
-	<a href="search_a.php">
-	<span class="arrow">Arena Teams<span></span></span>
-	</a>
-	</li>
-	</ul>
-    </div>
-	<div class="view-table">
-	<div class="table ">
-	<table>
-	<thead>
-	<tr>
-	<th width="15%" class=" first-child">
-	<a href="" class="sort-link" >
-	<span class="arrow">Name</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Realm</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Battlegroup</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Faction</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Level</span>
-	</a>
-	</th>
-	</tr>
-	</thead>
-	
-	<?php
+<?php
 require ('configs.php');
 
 function mysql_open($serveraddress, $serveruser, $serverpass){
@@ -116,8 +49,8 @@ if (isset($_GET['guildname'])) {
 	<td class="align-center"><span class="icon-frame " data-tooltip="">
 	<img src="wow/static/images/loaders/thumbnail-loader.gif" width="15" height="15" alt="" />
 	</span></td>
-	<td class="align-center">'.$row2["faction"].'</td>
-	<td class="align-center">'.$row["level"].'</td>
+	<td class="align-center">'.@$row2["faction"].'</td>
+	<td class="align-center">'.@$row["level"].'</td>
 	</tr></tbody>';
     }
     
