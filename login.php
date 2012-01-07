@@ -12,6 +12,15 @@ include("configs.php");
 		<link rel="stylesheet" type="text/css" href="wow/static/login/static/_themes/bam/css/master.css?v1"/>
 		<script type="text/javascript" src="wow/static/login/static/local-common/js/third-party/jquery-1.4.4-p1.min.js"></script>
 		<script type="text/javascript" src="wow/static/login/static/local-common/js/core.js?v22"></script>
+		<style type="text/css">
+		.wuaha {
+		text-shadow:0px 0px 6px #000;
+			}
+
+		.wuaha2 {
+			text-shadow:0px 0px 10px #444;
+			}
+		</style>
 		<script>
 			var targetOrigin = "http://eu.battle.net";
 
@@ -35,7 +44,8 @@ include("configs.php");
 	</head>
   <body>
     <div id="embedded-login">
-      <h2><?php echo $website['title']; ?></h2>
+	<center><a href="http://www.strawberry-pr0jcts.com/forum/index.php?/forum/27-wowfailurecms/" height="46" width="190"><img src="<?php echo $website['root'];?>wow/static/images/logos/wof-logo.png" /></a>
+      <h2 class="wuaha2"><?php echo $website['title']; ?></h2></center>
   <?php
   
   if(!isset($_SESSION['username'])){

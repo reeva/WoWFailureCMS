@@ -159,7 +159,7 @@ $page_cat = "home";
 
 								<div class="article-right">
 									<div class="article-summary">
-									<p>'.substr($news['content'],0,120)."...".'</p>
+									<p>'.substr($news['content'],0,310)."...".'</p>
 									<a href="news.php?id='.$news['id'].'" class="more">More</a>
 									</div>
 								</div>
