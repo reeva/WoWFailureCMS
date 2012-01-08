@@ -10,8 +10,8 @@ if(!isset($_GET['local'])) $lang = $_GET['local'];
 else if($lang == "") $lang = 'en-us';
 
 $langs = Array("en-us", "ro-ro", "en-db", "it-it", "de-de", "es-es", "bu-bg", "es-mx", "gr-gr", "ru-ru", "zh-cn", "zh-tw", "fr-fr");
-if(in_array($lang,$langs)) require_once("/langs/".$lang.".php");
-else require_once("/langs/en-us.php");
+if(in_array($lang,$langs)) require_once("/lang/".$lang.".php");
+else require_once("/lang/en-us.php");
 
 ######################
 
