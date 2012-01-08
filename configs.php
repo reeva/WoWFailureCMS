@@ -1,7 +1,5 @@
 <?php
-session_save_path('phpsessions');
-if (!isset($_SESSION)){  session_start(); }
-
+if(!isset($_SESSION)) session_start();
 
 # Languages ############
 
@@ -15,7 +13,6 @@ $langs = Array("en-us" => null, "ro-ro" => null, "en-db" => null, "it-it" => nul
 if(array_key_exists($lang,$langs))require_once("/lang/".$lang.".php");
 else require_once("/lang/en-us.php");
 $_SESSION['Local'] = $language;
-
 ######################
 
 
