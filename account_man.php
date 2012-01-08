@@ -7,9 +7,9 @@ if (!isset($_SESSION['username'])) {
 }
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
+<html>
 <head>
-<title><?php echo $website['title']; ?><?php echo $Man['Man']; ?></title>
+<title><?php echo $website['title']; ?><?php echo @$Man['Man']; ?></title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
