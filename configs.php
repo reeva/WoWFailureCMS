@@ -5,13 +5,16 @@ if (!isset($_SESSION)){  session_start(); }
 
 # Languages ############
 
-$lang = &$_SESSION['local'];
 if(isset($_GET['Local'])) $lang = $_GET['Local'];
-else if($lang == "") $lang = 'en-us';
+else if(isset($_SESSION['Local'])) $lang = $_SESSION['Local'];
+if(empty($lang)) $lang = 'en-us';
 
-$langs = Array("en-us", "ro-ro", "en-db", "it-it", "de-de", "es-es", "bu-bg", "es-mx", "gr-gr", "ru-ru", "zh-cn", "zh-tw", "fr-fr");
-if(in_array($lang,$langs)) require_once("/lang/".$lang.".php");
+
+$language = $lang;
+$langs = Array("en-us" => null, "ro-ro" => null, "en-db" => null, "it-it" => null, "de-de" => null, "es-es" => null, "bu-bg" => null , "es-mx" => null, "gr-gr" => null, "ru-ru" => null, "zh-cn" => null, "zh-tw" => null, "fr-fr" => null);
+if(array_key_exists($lang,$langs))require_once("/lang/".$lang.".php");
 else require_once("/lang/en-us.php");
+$_SESSION['Local'] = $language;
 
 ######################
 
