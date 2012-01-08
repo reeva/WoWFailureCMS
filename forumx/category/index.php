@@ -1,13 +1,13 @@
 <?php
 $page_cat = "forums";
-require_once("../configs.php");
+require_once("../../configs.php");
 
 ?>
 <head>
 <title><?php echo $website['title']; ?></title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
-<link rel="shortcut icon" href="<?php echo $website['root'];?>wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
+<link rel="shortcut icon" href="<?php echo $website['root'];?>wow/static/local-common/images/favicons/wow.ico" type="image/x-icon" />
 <link rel="search" type="application/opensearchdescription+xml" href="http://eu.battle.net/en-gb/data/opensearch" title="Battle.net Search" />
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo $website['root'];?>wow/static/local-common/css/common.css?v15" />
 <!--[if IE]><link rel="stylesheet" type="text/css" media="all" href="<?php echo $website['root'];?>wow/static/local-common/css/common-ie.css?v15" /><![endif]-->
@@ -33,10 +33,10 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 <![endif]-->
 <script type="text/javascript">
 //<![CDATA[
-Core.staticUrl = '<?php echo $website['root'];?>wow/static';
-Core.baseUrl = '<?php echo $website['root'];?>';
+Core.staticUrl = '<?php echo $website['address'];?>wow/static';
+Core.baseUrl = '<?php echo $website['address'];?>';
 Core.project = 'wow';
-Core.locale = 'en-us';
+Core.locale = 'en-gb';
 Core.buildRegion = 'eu';
 Core.loggedIn = true;
 Flash.videoPlayer = 'http://eu.media.blizzard.com/wow/player/videoplayer.swf';
@@ -46,18 +46,11 @@ Flash.ratingImage = 'http://eu.media.blizzard.com/wow/player/rating-pegi.jpg';
 </script>
 <script type="text/javascript" src="<?php echo $website['root'];?>wow/static/local-common/js/menu.js?v15"></script>
 <script type="text/javascript" src="<?php echo $website['root'];?>wow/static/js/wow.js?v4"></script>
-<script type="text/javascript"> 
-friendData = [];
-$(function(){
-Menu.initialize('data/menu.json');
-Search.init('ta/lookup');
-});
-</script>
 </head>
 <body class="en-gb logged-in">
 
 <div id="wrapper">
-<?php include("../header.php"); ?>
+<?php include("../../header.php"); ?>
 <div id="content">
 <div class="content-top">
 <div class="content-trail">
@@ -68,12 +61,22 @@ Search.init('ta/lookup');
 	$forum = mysql_fetch_assoc($get_forum)or $error=1;
 	$get_category = mysql_query("SELECT * FROM forum_categ WHERE id = '".$forum['categ']."'");
 	$category = mysql_fetch_assoc($get_category)or $error=1;
-	$get_threads = mysql_query("SELECT * FROM forum_threads WHERE forumid = '".$forum['id']."'");
-	
+	if(isset($_GET['page'])){
+		$page = intval($_GET['page']);
+	}else{
+		$page = 1;
+	}
+	$news_second = ($page-1)*20;
+	if($page==1){
+	$get_threads = mysql_query("SELECT * FROM forum_threads WHERE forumid = '".$forum['id']."' ORDER by last_date DESC LIMIT 20");
+	}else{
+	$get_threads = mysql_query("SELECT * FROM forum_threads WHERE forumid = '".$forum['id']."' ORDER by last_date DESC LIMIT 20,$news_second");
+	}
+	$get_allthreads = mysql_query("SELECT * FROM forum_threads WHERE forumid = '".$forum['id']."'");
 	echo '
-	<li><a href="'.$website['root'].'index.php" rel="np">'.$Forum['Forum34'].'</a></li>
-	<li><a href="index.php" rel="np">'.$Forum['Forum35'].'</a></li>
-	<li><a href="index.php" rel="np">'.$category['name'].'</a></li>
+	<li><a href="'.$website['root'].'index.php" rel="np">World of Warcraft</a></li>
+	<li><a href="'.$website['root'].'forum" rel="np">Forums</a></li>
+	<li><a href="'.$website['root'].'forum" rel="np">'.$category['name'].'</a></li>
 	<li class="last"><a href="#" rel="np">'.$forum['name'].'</a></li>
 	';
 	
@@ -82,8 +85,8 @@ Search.init('ta/lookup');
 }else{ $error=1; }
 if($error == 1){
 echo '
-<li><a href="'.$website['root'].'index.php" rel="np">'.$Forum['Forum34'].'</a></li>
-<li class="last"><a href="index.php" rel="np">'.$Forum['Forum35'].'</a></li>
+<li><a href="'.$website['root'].'index.php" rel="np">World of Warcraft</a></li>
+<li class="last"><a href="'.$website['root'].'forum" rel="np">Forums</a></li>
 ';
 }
 ?>
@@ -101,22 +104,29 @@ echo '
 			.loader {
 			width:24px;
 			height:24px;
-			background: url("../wow/static/images/loaders/canvas-loader.gif") no-repeat;
+			background: url("/wow/static/images/loaders/canvas-loader.gif") no-repeat;
 		   }
 		</style>
-		<center>'.$Forum['Forum36'].'<br /><br /><div class="loader"> </div><br />'.$Forum['Forum37'].'</center>
-		<meta http-equiv="refresh" content="2;url=index.php"/>
+		<center>Request forum does not exist...<br /><br /><div class="loader"> </div><br />Redirecting...</center>
+		<meta http-equiv="refresh" content="2;url='.$website['root'].'"/>
 		';
 		}else{ ?>
 		<div class="forum-options">
-            <a href="javascript:;" onclick="Cms.Forum.setView('advanced',this)"><?php echo $Forum['Forum38'];?></a>
-        	<a href="javascript:;" class="active" onclick="Cms.Forum.setView('simple',this)"><?php echo $Forum['Forum39'];?></a>
+            <a href="javascript:;" onclick="Cms.Forum.setView('advanced',this)">Advanced</a>
+        	<a href="javascript:;" class="active" onclick="Cms.Forum.setView('simple',this)">Simple</a>
         </div>
 		
 		<div class="forum-actions top">
 		<div class="actions-panel">
         <div class="pageNav">
-        <span class="active">1</span><!--
+		<?php
+		$pages = ceil(mysql_num_rows($get_allthreads)/20);
+		for ($i=1;$i<=$pages;$i++){
+			if($i == $page){ echo '<span class="active">'.$i.'</span>'; }else{
+			echo '<a href="?f='.$forumid.'&page='.$i.'">'.$i.'</a><div class="page-sep"></div>';}
+		}
+		?>
+		<!--
 						<a href="#">2</a>
 						<div class="page-sep"></div>
 
@@ -137,22 +147,22 @@ echo '
 				$posterInfo = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE id = '".$account_information['id']."'"));
 					switch($posterInfo['class']){
 						case "blizz":
-							echo'<a class="ui-button button1" href="createthread.php?f='.$forumid.'"><span><span>'.$Forum['Forum40'].'</span></span></a>';
+							echo'<a class="ui-button button1" href="create-topic/?f='.$forumid.'"><span><span>Create Thread</span></span></a>';
 							break;
 							
 						case "mvp":
-							echo'<a class="ui-button button1" href="createthread.php?f='.$forumid.'"><span><span>'.$Forum['Forum40'].'</span></span></a>';
+							echo'<a class="ui-button button1" href="create-topic/?f='.$forumid.'"><span><span>Create Thread</span></span></a>';
 							break;
 							
 						default:
-							echo'<a class="ui-button button1 disabled" href="#"><span><span>'.$Forum['Forum40'].'</span></span></a>';
+							echo'<a class="ui-button button1 disabled" href="#"><span><span>Create Thread</span></span></a>';
 							break;
 					}
 			}else{
-				echo'<a class="ui-button button1" href="createthread.php?f='.$forumid.'"><span><span>'.$Forum['Forum40'].'</span></span></a>';
+				echo'<a class="ui-button button1" href="create-topic/?f='.$forumid.'"><span><span>Create Thread</span></span></a>';
 			}
 		}else{
-			echo '<a class="ui-button button1 disabled"><span><span>'.$Forum['Forum40'].'</span></span></a>';
+			echo '<a class="ui-button button1 disabled"><span><span>Create Thread</span></span></a>';
 		}
 		?>
 		<span class="clear"><!-- --></span>
@@ -165,16 +175,16 @@ echo '
 					<td></td>
 					<td colspan="2">Subject</td>
 					<td>Author</td>
-						<td class="replies">'.Forum['Forum41].'</td>
-						<td class="views">'.Forum['Forum42].'</td>
-						<td class="poster">'.Forum['Forum43].'</td>
+						<td class="replies">Replies</td>
+						<td class="views">Views</td>
+						<td class="poster">Last Poster</td>
 				</tr>
 				<?php
 				if(mysql_num_rows($get_threads) == 0){
 				echo '
 					<tr>
 					<td class="post-icon"><div class="forum-post-icon"></div></td>
-					<td class="post-title">'.$Forum['Forum44'].'</td>
+					<td class="post-title">No Threads in this forum.</td>
 					<td class="post-pageNav"></td>
 					<td class="post-author"></td>
 						<td class="post-replies"></td>
@@ -182,13 +192,15 @@ echo '
 						<td class="post-lastPost"></td>
 					<tr>
 				';
-				}
+				}else{
 				while($thread = mysql_fetch_array($get_threads)){
 				    mysql_select_db($server_adb,$connection_setup)or print($lang['adb']);
 				    $posterAccount = mysql_fetch_assoc(mysql_query("SELECT * FROM account WHERE id = '".$thread['author']."'"));
                     mysql_select_db($server_db,$connection_setup)or print($lang['db']);
 				    $posterInfo = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE id = '".$thread['author']."'"));
-                    
+					if($posterInfo['character'] == 0){ $charInfo['name'] = $posterInfo['firstName']; }else{
+                    $charInfo = mysql_fetch_assoc(mysql_query("SELECT name FROM $server_cdb.characters WHERE guid = '".$posterInfo['character']."'"));
+					}
 				echo'
 				<tr id="postRowId" class=" featured read">
 					<td class="post-icon">
@@ -215,11 +227,28 @@ echo '
 								
 								<div class="tt_time">'.$thread['date'].'</div> 
 								<div class="tt_info">
-									'.$thread['views'].' Views / '.$thread['replies'].' Replies<br />
-										Last Post by <i>'.strtolower($posterAccount['username']).'</i> on '.$thread['date'].'
+									'.$thread['views'].' Views / '.$thread['replies'].' Replies<br />';
+									$get_last_reply = mysql_query("SELECT * FROM forum_replies WHERE threadid = '".$thread['id']."' ORDER BY id DESC");
+									if(mysql_num_rows($get_last_reply) == 0){
+										$get_user = mysql_query("SELECT * FROM users WHERE id = '".$thread['author']."'");
+										$lp = mysql_fetch_assoc($get_user);
+										$date = $thread['date'];
+									}else{
+										$this_reply = mysql_fetch_assoc($get_last_reply);
+										$date = $this_reply['date'];
+										$get_user = mysql_query("SELECT * FROM users WHERE id = '".$this_reply['author']."'");
+										$lp = mysql_fetch_assoc($get_user);
+										
+									}
+									$posterAccountx = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_adb.account WHERE id = '".$lp['id']."'"))or print(mysql_error());
+									if($lp['character'] == 0){ $posterCharacterx['name'] = $lp['firstName']; }else{
+									$posterCharacterx = mysql_fetch_assoc(mysql_query("SELECT name FROM $server_cdb.characters WHERE guid = '".$lp['character']."'"))or print(mysql_error());
+									}
+									echo'
+										Last Post by <i>'.strtolower($posterCharacterx['name']).'</i> on '.$date.'
 								</div>
 							</div>
-							<a href="viewthread.php?t='.$thread['id'].'" onmouseover="Tooltip.show(this, \'#thread_tt_'.$thread['id'].'\',{ location: \'mouse\' });">
+							<a href="view-topic/?t='.$thread['id'].'" onmouseover="Tooltip.show(this, \'#thread_tt_'.$thread['id'].'\',{ location: \'mouse\' });">
 									'.$thread['name'];
 								if($thread['locked'] != 0){
 								echo ' <img src="'.$website['root'].'wow/static/images/layout/cms/post_locked.gif" alt="" />';
@@ -231,14 +260,14 @@ echo '
 					<td class="post-pageNav"></td>
 					<td class="post-author">
 							';
-							if($posterInfo['blizz'] != 0){
+							if($posterInfo['class'] == 'blizz'){
 							echo'
 							<span class="type-blizzard">
-								'.strtolower($posterAccount['username']).'
+								'.$charInfo['name'].'
 								<img src="'.$website['root'].'wow/static/images/layout/cms/icon_blizzard.gif" alt="" />
 							</span>';
 							}else{
-							echo strtolower($posterAccount['username']);
+							echo $charInfo['name'];
 							}
 							echo '
 					</td>
@@ -252,16 +281,39 @@ echo '
 					</td>
 					
 					<td class="post-lastPost">
-						<a href="#" onmouseover="Tooltip.show(this, \'date\');">
+					
+						<a href="#" onmouseover="Tooltip.show(this, \''.$date.'\');">
+								';
+								$get_last_reply = mysql_query("SELECT * FROM forum_replies WHERE threadid = '".$thread['id']."' ORDER BY id DESC");
+								if(mysql_num_rows($get_last_reply) == 0){
+									$get_user = mysql_query("SELECT * FROM users WHERE id = '".$thread['author']."'");
+									$lp = mysql_fetch_assoc($get_user);
+								}else{
+									$this_reply = mysql_fetch_assoc($get_last_reply);
+									$get_user = mysql_query("SELECT * FROM users WHERE id = '".$this_reply['author']."'");
+									$lp = mysql_fetch_assoc($get_user);
+									
+								}
+								$posterAccountx = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_adb.account WHERE id = '".$lp['id']."'"))or print(mysql_error());
+								if($lp['character'] == 0){ $posterCharacterx['name'] = $lp['firstName']; }else{
+								$posterCharacterx = mysql_fetch_assoc(mysql_query("SELECT name FROM $server_cdb.characters WHERE guid = '".$lp['character']."'"))or print(mysql_error());
+								}
+								if($lp['class'] == "blizz"){
+								echo '
 								<span class="type-blizzard">
-										Not done yet
-								</span>
+										'.$posterCharacterx['name'].'
+								</span><img src="'.$website['root'].'wow/static/images/layout/cms/icon_blizzard.png" alt="" />';}else{
+								echo $posterCharacterx['name'];
+								}
+								echo'
 						</a>
-							<img src="'.$website['root'].'wow/static/images/layout/cms/icon_blizzard.gif" alt="" />
+							
 					</td>
 				</tr>';
-				}
+				} 
+				$_SESSION['dpage'] = $thread['last_date']; }
 				?>
+				
 				</table>
 		</div>
 
@@ -272,16 +324,13 @@ echo '
 		<div class="forum-actions topic-bottom">
 			<div class="actions-panel">
 				<div class="pageNav">
-					<span class="active">1</span><!--
-							<a href="#">2</a>
-							<div class="page-sep"></div>
-
-					<div class="page-sep">
-						...
-					</div>
-
-					<a href="#">'.Forum['Forum45].'</a>
-					<a href="#">'.Forum['Forum46].'</a>-->
+					<?php
+					$pages = ceil(mysql_num_rows($get_allthreads)/20);
+					for ($i=1;$i<=$pages;$i++){
+						if($i == $page){ echo '<span class="active">'.$i.'</span>'; }else{
+						echo '<a href="?f='.$forumid.'&page='.$i.'">'.$i.'</a><div class="page-sep"></div>';}
+					}
+					?>
 				</div>
 				<a class="ui-button button1 imgbutton " href="index.php"><span><span><span class="back-arrow"> </span></span></span></a>
 				<?php
@@ -292,22 +341,22 @@ echo '
 						$posterInfo = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE id = '".$account_information['id']."'"));
 							switch($posterInfo['class']){
 								case "blizz":
-									echo'<a class="ui-button button1" href="createthread.php?f='.$forumid.'"><span><span>'.$Forum['Forum40'].'</span></span></a>';
+									echo'<a class="ui-button button1" href="create-topic/?f='.$forumid.'"><span><span>Create Thread</span></span></a>';
 									break;
 									
 								case "mvp":
-									echo'<a class="ui-button button1" href="createthread.php?f='.$forumid.'"><span><span>'.$Forum['Forum40'].'</span></span></a>';
+									echo'<a class="ui-button button1" href="create-topic/?f='.$forumid.'"><span><span>Create Thread</span></span></a>';
 									break;
 									
 								default:
-									echo'<a class="ui-button button1 disabled" href="#"><span><span>'.$Forum['Forum40'].'</span></span></a>';
+									echo'<a class="ui-button button1 disabled" href="#"><span><span>Create Thread</span></span></a>';
 									break;
 							}
 					}else{
-						echo'<a class="ui-button button1" href="createthread.php?f='.$forumid.'"><span><span>'.$Forum['Forum40'].'</span></span></a>';
+						echo'<a class="ui-button button1" href="create-topic/?f='.$forumid.'"><span><span>Create Thread</span></span></a>';
 					}
 				}else{
-					echo '<a class="ui-button button1 disabled"><span><span>'.$Forum['Forum40'].'</span></span></a>';
+					echo '<a class="ui-button button1 disabled"><span><span>Create Thread</span></span></a>';
 				}
 				?>
 				<span class="clear"><!-- --></span>
@@ -319,6 +368,7 @@ echo '
 </div>
 </div>
 </div>
-
-<?php include("../footer.php"); ?></body>
+<?php include("../../footer.php"); ?>
+</div>
+</body>
 </html>

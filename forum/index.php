@@ -1,6 +1,7 @@
 <?php
-require_once("configs.php");
 $page_cat = "forums";
+require_once("../configs.php");
+
 ?>
 <head>
 <title><?php echo $website['title']; ?></title>
