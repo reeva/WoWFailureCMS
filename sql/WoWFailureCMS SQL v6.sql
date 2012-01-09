@@ -2,7 +2,8 @@
 SQLyog Community v9.50 
 MySQL - 5.5.8 : Database - failure
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -14,7 +15,7 @@ MySQL - 5.5.8 : Database - failure
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`failure` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-USE `failure`;
+USE `website`;
 
 /*Table structure for table `comments` */
 
@@ -29,9 +30,6 @@ CREATE TABLE `comments` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
 
-/*  Data  */
-
-insert  into `community_slides`(`id`,`desc`,`title`,`url`,`date`,`image`) values (1,'Testing WoWFailureCMS at maximum capacity.','Testing WoWFailureCMS','#','2011-04-20','4ZONJ2G8H02S1291403588642.jpg'),(2,'Find us on WoWFailureCore.org.','Where to find us?','#','2011-04-20','3A016YGNDN971281040709386.jpg'),(3,'Check The Forum for the latest updates.','WoWFailureCMS Forum','#','2011-04-20','HXW8I6KL6MRK1290045863003.jpg'),(4,'test','test','#','2011-04-20','TE943VAV1IVZ1290560963083.jpg');
 
 /*Table structure for table `community_slides` */
 
@@ -46,6 +44,10 @@ CREATE TABLE `community_slides` (
   `image` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*  Data  */
+
+insert  into `community_slides`(`id`,`desc`,`title`,`url`,`date`,`image`) values (1,'Testing WoWFailureCMS at maximum capacity.','Testing WoWFailureCMS','#','2011-04-20','4ZONJ2G8H02S1291403588642.jpg'),(2,'Find us on WoWFailureCore.org.','Where to find us?','#','2011-04-20','3A016YGNDN971281040709386.jpg'),(3,'Check The Forum for the latest updates.','WoWFailureCMS Forum','#','2011-04-20','HXW8I6KL6MRK1290045863003.jpg'),(4,'test','test','#','2011-04-20','TE943VAV1IVZ1290560963083.jpg');
+
 
 /*Table structure for table `contacts` */
 
@@ -75,8 +77,7 @@ CREATE TABLE `forum_blizzposts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*  Data  */
-insert  into `forum_categ`(`id`,`num`,`name`) values (1,1,'WoWFailureCMS');
+
 
 /*Table structure for table `forum_forums` */
 
