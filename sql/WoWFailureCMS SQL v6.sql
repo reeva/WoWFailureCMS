@@ -29,6 +29,10 @@ CREATE TABLE `comments` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
 
+/*  Data  */
+
+insert  into `community_slides`(`id`,`desc`,`title`,`url`,`date`,`image`) values (1,'Testing WoWFailureCMS at maximum capacity.','Testing WoWFailureCMS','#','2011-04-20','4ZONJ2G8H02S1291403588642.jpg'),(2,'Find us on WoWFailureCore.org.','Where to find us?','#','2011-04-20','3A016YGNDN971281040709386.jpg'),(3,'Check The Forum for the latest updates.','WoWFailureCMS Forum','#','2011-04-20','HXW8I6KL6MRK1290045863003.jpg'),(4,'test','test','#','2011-04-20','TE943VAV1IVZ1290560963083.jpg');
+
 /*Table structure for table `community_slides` */
 
 DROP TABLE IF EXISTS `community_slides`;
@@ -71,7 +75,10 @@ CREATE TABLE `forum_blizzposts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Table structure for table `forum_categ` */
+/*  Data  */
+insert  into `forum_categ`(`id`,`num`,`name`) values (1,1,'WoWFailureCMS');
+
+/*Table structure for table `forum_forums` */
 
 DROP TABLE IF EXISTS `forum_categ`;
 
@@ -81,6 +88,10 @@ CREATE TABLE `forum_categ` (
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+/*  Data  */
+
+insert  into `forum_categ`(`id`,`num`,`name`) values (1,1,'WoWFailureCMS');
 
 /*Table structure for table `forum_forums` */
 
@@ -107,6 +118,10 @@ CREATE TABLE `forum_posts` (
   `postid` int(10) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+
+/*  Data  */
+
+insert  into `forum_forums`(`id`,`num`,`categ`,`name`,`image`,`description`,`locked`) values (1,1,1,'Announcement','blizzard','All important messages/announcements/informations regarding WoWFailureCMS will be posted here.',1),(2,2,1,'General Talk','general','You can talk anything you want here :)',0),(3,3,1,'Bugs','bugs','Post here all bugs you find.',0),(4,4,1,'Suggestions','suggestions','Post here your ideas regarding WoWFailureCMS.',0);
 
 /*Table structure for table `forum_replies` */
 
