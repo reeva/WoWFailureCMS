@@ -8,7 +8,7 @@
 $(function() {
 	Page.initialize();
 	Input.initialize();
-	Explore.initialize();
+	App.initialize();
 	Tickets.initialize();
 	Flash.initialize();
 	Locale.initialize();
@@ -193,7 +193,7 @@ var Core = {
 				localDate = new Date(datetime);
 			}
 
-			// safari… still thinking different
+			// safari still thinking different
 			if (isNaN(localDate.getTime())) { // 2010/07/22 07:41 GMT-0700
 				datetime = datetime.substring(0,4) + '/' + datetime.substring(5,7) + '/' + datetime.substring(8,29);
 				localDate = new Date(datetime);
@@ -262,10 +262,12 @@ var Core = {
 				Core.browser = 'ie7';
 			else
 				Core.browser = 'ie6';
+
 		} else if (s.hrefNormalized && s.tbody && s.style && !s.opacity) {
 			Core.browser = 'ie8';
+
 		} else {
-			Core.browser = 'other';
+			Core.browser = UserAgent.browser + UserAgent.version;
 		}
 
 		return Core.browser;
@@ -351,7 +353,7 @@ var Core = {
 		if (version)
 			return ('ie'+ version == browser);
 		else
-			return ((browser == 'ie6') || (browser == 'ie7') || (browser == 'ie8'));
+			return (browser == 'ie6' || browser == 'ie7' || browser == 'ie8' || browser == 'ie9');
 	},
 
 	/**
@@ -366,27 +368,25 @@ var Core = {
 		deferred = deferred !== false;
 
 		if (Page.loaded || !deferred)
-			Core.loadDeferred(path);
+			Core.loadDeferred(path, callback);
 		else
 			Core.deferredLoadQueue.push(path);
-
-		if (Core.isCallback(callback))
-			callback();
 	},
 
 	/**
 	 * Determine which type to load.
 	 *
 	 * @param path
+	 * @param callback
 	 */
-	loadDeferred: function(path) {
+	loadDeferred: function(path, callback) {
 		var queryIndex = path.indexOf("?");
 		var extIndex = path.lastIndexOf(".") + 1;
 		var ext = path.substring(extIndex, queryIndex == -1 ? path.length : queryIndex);
 
 		switch (ext) {
 			case 'js':
-				Core.loadDeferredScript(path);
+				Core.loadDeferredScript(path, callback);
 			break;
 			case "css":
 				Core.loadDeferredStyle(path);
@@ -398,12 +398,16 @@ var Core = {
 	 * Include JS file.
 	 *
 	 * @param path
+	 * @param callback
 	 */
-	loadDeferredScript: function(path) {
-		$("<script/>", {
-			type: "text/javascript",
-			src: path
-		}).appendTo("head");
+	loadDeferredScript: function(path, callback) {
+		$.ajax({
+			url: path,
+			cache: true,
+			global: false,
+			dataType: 'script',
+			success: callback
+		});
 	},
 
 	/**
@@ -472,6 +476,15 @@ var Core = {
 	},
 
 	/**
+     * Helper function for event preventDefault.
+     *
+     * @param e
+     */
+    preventDefault: function(e) {
+        e.preventDefault();
+    },
+
+	/**
 	 * Run on page load!
 	 */
 	processLoadQueue: function() {
@@ -483,6 +496,16 @@ var Core = {
 	},
 
 	/**
+	 * Generate a random number between 0 and up to the argument.
+	 *
+	 * @param no
+	 * @return int
+	 */
+	randomNumber: function(no) {
+		return Math.floor(Math.random() * no);
+	},
+
+	/**
 	 * Scroll to a specific part of the page.
 	 *
 	 * @param target
@@ -490,8 +513,8 @@ var Core = {
 	 * @param callback
 	 */
 	scrollTo: function(target, duration, callback) {
-
 		target = $(target);
+
 		if (target.length != 1)
 			return;
 
@@ -520,15 +543,15 @@ var Core = {
 	 * @param callback
 	 */
 	scrollToVisible: function(target, duration, callback) {
-
 		target = $(target);
+
 		if (target.length != 1)
 			return;
 
 		var win = $(window),
 			winTop = win.scrollTop(),
 			winBottom = winTop + win.height(),
-			top = target.offset().top
+			top = target.offset().top,
 			bottom = top + target.height();
 
 		top -= 15;
@@ -543,6 +566,15 @@ var Core = {
 		duration || 350,
 		callback || null);
 	},
+
+	/**
+     * Helper function for event stopPropagation.
+     *
+     * @param e
+     */
+    stopPropagation: function(e) {
+        e.stopPropagation();
+    },
 
 	/**
 	 * Trims specific characters off the end of a string.
@@ -562,6 +594,19 @@ var Core = {
 	},
 
 	/**
+	 * Trims specific characters off the right end of a string.
+	 *
+	 * @param string
+	 * @param charlist
+	 * @return string
+	 */
+	trimRight: function(string, charlist) {
+		charlist = !charlist ? ' \\s\u00A0' : (charlist + '').replace(/([\[\]\(\)\.\?\/\*\{\}\+\$\^\:])/g, '\\$1');
+
+		return (string + '').replace( new RegExp('[' + charlist + ']+$', 'g') , '');
+	},
+
+	/**
 	 * Apply global functionality to certain UI elements.
 	 *
 	 * @param context
@@ -570,12 +615,10 @@ var Core = {
 		context = context || document;
 
 		if (Core.isIE(6)) {
-			$('button.ui-button', context).hover(
+			$(context).find('button.ui-button').hover(
 				function() {
-					var self = $(this);
-
-					if ((self.attr('disabled') != 'disabled') || (self.attr('disabled') != false))
-						self.addClass('hover');
+					if (!this.hasAttribute('disabled') || this.className.indexOf('disabled') == -1)
+						$(this).addClass('hover');
 				},
 				function() {
 					$(this).removeClass('hover');
@@ -584,11 +627,11 @@ var Core = {
 		}
 
 		if (Core.project != 'bam') {
-			$('button.ui-button', context).click(function(e) {
+			$(context).find('button.ui-button').click(function(e) {
 				var self = $(this);
 				var alt = self.attr('data-text');
 
-				if (alt == undefined)
+				if (typeof alt == 'undefined')
 					alt = "";
 
 				if (this.tagName.toLowerCase() == 'button' && alt != "") {
@@ -620,7 +663,7 @@ var Core = {
 	 * @return string
 	 */
 	zeroFill: function(number, width, includeDecimal) {
-		if (includeDecimal === undefined)
+		if (typeof includeDecimal == 'undefined')
 			includeDecimal = false;
 
 		var result = parseFloat(number),
@@ -655,6 +698,85 @@ var Core = {
 			return '-' + result;
 
 		return result;
+	},
+
+	/**
+	 * Utility for boxes that can be closed permanently.
+	 * e.g: New Feature Box, BlizzCon Bar
+	 *
+	 * @param nodeQuery
+	 * @param cookieId
+	 * @param options - startDate, endDate, cookieParams, fadeIn, trackingCategory, trackingAction, onShow, onHide
+	 */
+	showUntilClosed: function(nodeQuery, cookieId, options) {
+		options = options || {};
+
+		var node = $(nodeQuery),
+			COOKIE_NAME = 'bnet.closed.' + cookieId;
+
+		if (!node.length || !Cookie.isSupported() || Cookie.read(COOKIE_NAME)) {
+			return false;
+	}
+
+		// Date validation
+		var now = new Date();
+
+		if (options.startDate) {
+			var startDate = new Date(options.startDate);
+
+			if ((startDate - now) > 0) {
+				return false;
+			}
+		}
+
+		if (options.endDate) {
+			var endDate = new Date(options.endDate);
+
+			if ((endDate - now) < 0) {
+				return false;
+			}
+		}
+
+		// Show the node
+		if (options.fadeIn) {
+			node.fadeIn(options.fadeIn, options.onShow);
+		} else {
+			node.show();
+
+			if (options.onShow) {
+				options.onShow();
+			}
+		}
+
+		// Click events
+		var cookieParams = $.extend({
+			path: Core.baseUrl,
+			expires: 8760
+		}, options.cookieParams || {});
+
+		node.delegate('a', 'click', function() {
+			var self = $(this),
+				trackingLabel = self.data('label'),
+				closeButton = (this.rel == 'close');
+
+			if (closeButton) {
+				node.hide();
+
+				if (options.onHide) {
+					options.onHide();
+				}
+			}
+
+			if(closeButton || !options.closeButtonOnly) {
+				Cookie.create(COOKIE_NAME, 1, cookieParams);
+			}
+
+			if (trackingLabel) {
+				BnetAds.trackImpression(options.trackingCategory || 'Tracking', options.trackingAction || 'Click', trackingLabel);
+			}
+		});
+
+		return true;
 	}
 
 };
@@ -663,6 +785,58 @@ var Core = {
  * Application related functionality.
  */
 var App = {
+
+	/**
+	 * Enable the explore links.
+	 *
+	 * @constructor
+	 */
+	initialize: function() {
+		var links = $('a[rel="javascript"]');
+
+		if (links.length) {
+			links
+				.removeAttr('onclick')
+				.removeAttr('onmouseover')
+				.removeAttr('title')
+				.css('cursor', 'pointer');
+		}
+
+		var supportLink = $('#support-link');
+		var exploreLink = $('#explore-link');
+		var newsLink = $('#breaking-link');
+
+		if (supportLink.length > 0) {
+			supportLink.unbind().click(function() {
+				Tickets.loadStatus();
+				Toggle.open(this, 'active', '#support-menu');
+				return false;
+			});
+		}
+
+		if (exploreLink.length > 0) {
+			exploreLink.unbind().click(function() {
+				Toggle.open(this, 'active', '#explore-menu');
+				return false;
+			});
+
+			$('#explore-menu').delegate('a', 'click', function() { // TODO: Centralize with other click tracking (e.g. new feature tip)
+				var $this = $(this);
+				var label = $this.data('label');
+				if(!label) {
+					label = 'Other';
+		}
+				BnetAds.trackImpression('Battle.net Explore Menu', 'Link Click', label);
+			});
+		}
+
+		if (newsLink.length > 0) {
+			newsLink.unbind().click(function() {
+				App.breakingNews();
+				return false;
+			});
+		}
+	},
 
 	/**
 	 * Hide the service bar warnings.
@@ -737,45 +911,95 @@ var App = {
 	},
 
 	/**
+	 * Values for sidebar module loading.
+	 */
+	totalModules: 0,
+	totalLoaded: 0,
+	modules: [],
+	forceLoad: true,
+
+	/**
 	 * Dynamically load more than one sidebar module at a time.
 	 *
 	 * @param modules
 	 */
 	sidebar: function(modules) {
-		if (modules) {
+		App.totalModules = modules.length;
+
+		if (modules.length) {
 			for (var i = 0; i <= (modules.length - 1); ++i) {
-				App.loadModule(modules[i]);
+				App.loadModule(modules[i], i);
 			}
 		}
+
+		// Show the modules after 5 seconds incase some are hanging
+		window.setTimeout(function() {
+			if (App.forceLoad) {
+				App.showSidebar();
+			}
+		}, 5000);
+	},
+
+	/**
+	 * Show the sidebar modules.
+	 */
+	showSidebar: function() {
+		App.forceLoad = false;
+
+		var sidebar = $('#sidebar').find('.sidebar-bot');
+
+		for (var i = 0; i < App.totalModules; i++) {
+			if (App.modules[i]) {
+				App.modules[i].appendTo(sidebar);
+			}
+		}
+
+		$('#sidebar-loading').fadeOut('normal', function() {
+			sidebar.find('.sidebar-module').fadeIn();
+			$(this).remove();
+		});
 	},
 
 	/**
 	 * Load the content of a sidebar module through AJAX.
 	 *
-	 * @param key
+	 * @param module
+	 * @param index
 	 */
-	loadModule: function(key) {
-		var module = $('#sidebar-'+ key);
+	loadModule: function(module, index) {
+		var sidebar = $('#sidebar').find('.sidebar-bot');
 
-		if (module.length > 0) {
-			$.ajax({
-				url: Core.baseUrl +'/sidebar/'+ key,
-				type: 'GET',
-				dataType: 'html',
-				cache: false,
-				global: false,
-				success: function(data) {
-					if (data)
-						module.html(data);
-					else
-						module.remove();
-				},
-				error: function() {
-					module.remove();
+		$.ajax({
+			url: Core.baseUrl +'/sidebar/'+ module.type + (module.query || ""),
+			type: 'GET',
+			dataType: 'html',
+			cache: true,
+			global: false,
+			success: function(data) {
+				App.totalLoaded++;
+
+				if ($.trim(data) != "") {
+					var node = $(data);
+
+					if (App.forceLoad) {
+						node.hide();
+						App.modules[index] = node;
+					} else {
+						node.appendTo(sidebar);
+					}
 				}
-			});
-		}
+			},
+			error: function() {
+				App.totalLoaded++;
+			},
+			complete: function() {
+				if (App.totalLoaded >= App.totalModules) {
+					window.setTimeout(App.showSidebar, 100);
+				}
+			}
+		});
 	}
+
 };
 
 /**
@@ -797,7 +1021,7 @@ var Cookie = {
 	 */
 	create: function(key, value, options) {
 		options = $.extend({}, options);
-		options.expires = options.expires || 1; // 1 hour
+		options.expires = options.expires || 1; // Default expiration: 1 hour
 
 		if (typeof options.expires == 'number') {
 			var hours = options.expires;
@@ -817,7 +1041,7 @@ var Cookie = {
 		document.cookie = cookie.join('');
 
 		if (Cookie.cache) {
-			if (options.expires == -1)
+			if (options.expires.getTime() < (new Date()).getTime())
 				delete Cookie.cache[key];
 			else
 				Cookie.cache[key] = value;
@@ -856,10 +1080,24 @@ var Cookie = {
 	 *
 	 * @param key
 	 */
-	erase: function(key) {
-		Cookie.create(key, true, {
-			expires: -1
-		});
+	erase: function(key, options) {
+		if (!options) {
+			options = { expires: -1 };
+
+		} else if (!options.expires) {
+		options.expires = -1;
+		}
+
+		Cookie.create(key, 0, options);
+	},
+
+	/**
+	 * Returns whether cookies are supported/enabled by the browser
+	 *
+	 * @return boolean
+	 */
+	isSupported: function() {
+		return (document.cookie.indexOf('=') != -1);
 	}
 };
 
@@ -872,9 +1110,6 @@ var Input = {
 	 * Initialize binds for search form.
 	 */
 	initialize: function() {
-		$('#search-form, #search-page-field').attr('autocomplete', 'off');
-
-		// Ensure alt text is displayed after empty search is submitted.
 		Input.bind('#search-field');
 	},
 
@@ -888,25 +1123,22 @@ var Input = {
 
 		var field = $(target);
 
-		field
-			.focus(function() {
-				Input.activate(this);
-			})
-			.blur(function() {
-				Input.reset(this);
-			})
-			.parentsUntil('form').parent().submit(function() {
-				return Input.submit(field);
-			});
+		field.focus(Input.activate).blur(Input.reset);
+		field.parentsUntil('form').parent().submit(function() {
+			return Input.submit(field);
+		});
 	},
 
 	/**
 	 * Save the current placeholder to the cache and remove.
 	 *
-	 * @param node
+	 * @param e
 	 */
-	activate: function(node) {
-		node = $(node);
+	activate: function(e) {
+		var node = (typeof e == 'string') ? $(e) : $(this);
+
+		if (!node.length)
+			return;
 
 		if (node.val() == node.attr('alt'))
 			node.val("");
@@ -917,13 +1149,17 @@ var Input = {
 	/**
 	 * Display placeholder if value is empty.
 	 *
-	 * @param node
+	 * @param e
 	 */
-	reset: function(node) {
-		node = $(node);
+	reset: function(e) {
+		var node = (typeof e == 'string') ? $(e) : $(this);
+
+		if (!node.length)
+			return;
 
 		if (node.val() == "")
 			node.removeClass("active").val(node.attr('alt'));
+
 		else if (node.val() != node.attr('alt'))
 			node.addClass("active")
 	},
@@ -934,13 +1170,14 @@ var Input = {
 	 * @param node
 	 */
 	submit: function(node) {
-		node = $(node);
+		node = $(node || this);
 
 		if (node.val() == node.attr('alt'))
 			node.val("");
 
 		return true;
-	}
+		}
+
 };
 
 /**
@@ -1009,55 +1246,6 @@ var Page = {
 	getDimensions: function() {
 		Page.dimensions.width  = Page.object.width();
 		Page.dimensions.height = Page.object.height();
-	}
-};
-
-/**
- * Explore menu.
- */
-var Explore = {
-
-	/**
-	 * Enable the explore links.
-	 *
-	 * @constructor
-	 */
-	initialize: function() {
-		var links = $('a[rel="javascript"]');
-
-		if (links.length) {
-			links
-				.removeAttr('onclick')
-				.removeAttr('onmouseover')
-				.removeAttr('title')
-				.css('cursor', 'pointer');
-		}
-
-		var supportLink = $('#support-link');
-		var exploreLink = $('#explore-link');
-		var newsLink = $('#breaking-link');
-
-		if (supportLink.length > 0) {
-			supportLink.unbind().click(function() {
-				Tickets.loadStatus();
-				Toggle.open(this, 'active', '#support-menu');
-				return false;
-			});
-		}
-
-		if (exploreLink.length > 0) {
-			exploreLink.unbind().click(function() {
-				Toggle.open(this, 'active', '#explore-menu');
-				return false;
-			});
-		}
-
-		if (newsLink.length > 0) {
-			newsLink.unbind().click(function() {
-				App.breakingNews();
-				return false;
-			});
-		}
 	}
 };
 
@@ -1212,10 +1400,9 @@ var Tickets = {
 	 * @param count
 	 */
 	updateTotal: function(count) {
+		count = (typeof count === 'number') ? count : 0;
 
-		count = typeof count === 'number' ? count : 0;
-
-		var css = Core.isIE(6) || Core.isIE(7) ? 'className' : 'class';
+		var css = (Core.isIE(6) || Core.isIE(7)) ? 'className' : 'class';
 
 		if (count > 0) {
 			Tickets.tag.setAttribute(css, 'open-support-tickets');
@@ -1233,7 +1420,6 @@ var Tickets = {
 	 * @param timestamp
 	 */
 	localizeDatetime: function(timestamp) {
-
 		var format = Core.dateTimeFormat,
 			locale = Core.locale,
 			datetime = null;
@@ -1261,23 +1447,25 @@ var Tickets = {
 	 * Load the ticket information through AJAX.
 	 */
 	loadStatus: function() {
-        var supportUrl = Core.secureSupportUrl + 'update/json';
-
-        if (Tickets.summary !== null) {
-            $.ajax({
-                timeout: 3000,
-                url: supportUrl,
-                ifModified: true,
-                global: false,
-                dataType: 'jsonp',
-                jsonpCallback: 'getStatus',
-                success: function(json) {
-                    Tickets.updateTotal(json.total);
-                    Tickets.updateSummary(json.details, json.total);
-                }
-            });
-        }
+		if (Tickets.summary !== null) {
+			$.ajax({
+				timeout: 3000,
+				url: Core.secureSupportUrl +'update/json',
+				ifModified: true,
+				global: false,
+				dataType: 'jsonp',
+				jsonpCallback: 'getStatus',
+				data: {
+					supportToken: supportToken
+				},				
+				success: function(json) {
+					Tickets.updateTotal(json.total);
+					Tickets.updateSummary(json.details, json.total);
+				}
+			});
+		}
 	}
+
 };
 
 /**
@@ -1378,7 +1566,6 @@ var Toggle = {
 	 * @param force
 	 */
 	close: function(triggerNode, activeClass, targetPath, delay, force) {
-
 		force = typeof force === 'boolean' ? force : false;
 
 		var key = Toggle.key(targetPath);
@@ -1436,6 +1623,7 @@ var Blackout = {
 	 */
     initialize: function() {
         Blackout.element = $('<div/>', { id: 'blackout' });
+		Blackout.element.click(Core.stopPropagation);
 
         $("body").append(Blackout.element);
 
@@ -1517,7 +1705,7 @@ var CharSelect = {
 		Tooltip.hide();
 		$('div.character-list').html("").addClass('loading-chars');
 
-		var switchUrl = Core.baseUrl +'userplate_ajax.php';
+		var switchUrl = Core.baseUrl +'/pref/character';
 
 		$.ajax({
 			type: 'POST',
@@ -1529,6 +1717,10 @@ var CharSelect = {
 			global: false,
 			success: function(content) {
 				var refreshUrl = switchUrl;
+
+				if (Core.isIE(9)) {
+					location.reload(true);
+				}
 
 				// Take the user directly to the newly-selected character, don't wait for card update
 				if (location.pathname.indexOf('/character/') != -1) {
@@ -1562,10 +1754,9 @@ var CharSelect = {
 	 * @param content
 	 */
 	replace: function(content) {
-		var replaceList = $('.ajax-update'),
-			pageData = $((typeof content == 'string') ? content : content.documentElement);
+		var pageData = $((typeof content == 'string') ? content : content.documentElement);
 
-		replaceList.each(function() {
+		$('.ajax-update').each(function() {
 			var self = $(this),
 				target;
 
@@ -1576,8 +1767,7 @@ var CharSelect = {
 				target = '.'+ target.split(' ')[0];
 			}
 
-			var clone = pageData.find(target +'.ajax-update').clone();
-			self.replaceWith(clone);
+			self.replaceWith( pageData.find(target +'.ajax-update').clone() );
 		});
 
 		CharSelect.initialize();
@@ -1591,7 +1781,7 @@ var CharSelect = {
 	 * @param fallbackUrl
 	 */
 	pageUpdate: function(refreshUrl, fallbackUrl) {
-			refreshUrl = refreshUrl || location.href;
+		refreshUrl = refreshUrl || location.href;
 		var ck = Date.parse(new Date());
 
 		if (Core.isIE() && refreshUrl == Core.baseUrl +'/') {
@@ -1663,7 +1853,7 @@ var CharSelect = {
 			page = RegExp.$2;
 
 			// Ignore pages that aren't always available
-			$.each(['pet'], function() {
+			$.each(['pet', 'profession'], function() {
 				if (page.indexOf(this) != -1) {
 					page = '';
 					return;
@@ -1682,6 +1872,7 @@ var CharSelect = {
 	toggle: function(e) {
 		e.preventDefault();
 		e.stopImmediatePropagation();
+
 		Toggle.open(e.currentTarget, "context-open", $(e.currentTarget).siblings('.ui-context'));
 		return false;
 	},
@@ -1727,14 +1918,17 @@ var CharSelect = {
 	 * @param e
 	 */
 	filter: function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+
 		Toggle.keepOpen = true;
+
+		if (e.keyCode == KeyCode.enter)
+			return;
 
 		var target = $(e.srcElement || e.currentTarget),
 			filterVal = target.val().toLowerCase(),
 			filterTable = target.parents('.chars-pane').find('.overview');
-
-		if (e.keyCode == KeyCode.enter)
-			return;
 
 		if (e.keyCode == KeyCode.esc)
 			target.val('');
@@ -1900,6 +2094,7 @@ var Locale = {
 	 */
 	display: function() {
 		var node = $('#international');
+
 		node.slideDown('fast', function() {
 			$(this).css('display', 'block');
 		});
@@ -2161,34 +2356,34 @@ var KeyCode = {
 	/**
 	 * Validates an input to only accept letters and controls.
 	 *
-	 * @param code
+	 * @param e
 	 * @param lang
 	 * @return bool
 	 */
-	isAlpha: function(code, lang) {
-		return ($.inArray(code, KeyCode.get(['letters', 'controls'], lang)) >= 0);
+	isAlpha: function(e, lang) {
+		return ($.inArray(e.which, KeyCode.get(['letters', 'controls'], lang)) >= 0);
 	},
 
 	/**
 	 * Validates an input to only accept letters, numbers and controls.
 	 *
-	 * @param code
+	 * @param e
 	 * @param lang
 	 * @return bool
 	 */
-	isAlnum: function(code, lang) {
-		return ($.inArray(code, KeyCode.get(['letters', 'numbers', 'controls'], lang)) >= 0);
+	isAlnum: function(e, lang) {
+		return (KeyCode.isAlpha(e, lang) || KeyCode.isNumeric(e, lang));
 	},
 
 	/**
 	 * Validates an input to only accept numbers and controls.
 	 *
-	 * @param code
+	 * @param e
 	 * @param lang
 	 * @return bool
 	 */
-	isNumeric: function(code, lang) {
-		return ($.inArray(code, KeyCode.get(['numbers', 'controls'], lang)) >= 0);
+	isNumeric: function(e, lang) {
+		return ($.inArray(e.which, KeyCode.get(['numbers', 'controls'], lang)) >= 0) && !e.shiftKey;
 	},
 
 	/**
@@ -2408,9 +2603,10 @@ var Storage = {
 	/**
 	 * Get all items from storage.
 	 *
+	 * @param prefix
 	 * @return mixed
 	 */
-	getAll: function() {
+	getAll: function(prefix) {
 		var items = [];
 
 		if (!Storage.initialized)
@@ -2419,6 +2615,9 @@ var Storage = {
 		for (var i = 0, l = localStorage.length, k = null; i < l; i++) {
 			k = localStorage.key(i);
 
+			if (prefix && k.indexOf(prefix) !== 0)
+				continue;
+
 			items.push({
 				key: k,
 				value: localStorage[k]
@@ -2426,6 +2625,15 @@ var Storage = {
 		}
 
 		return items;
+	},
+
+	/**
+	 * Check if a key exists and has a value.
+	 *
+	 * @param key
+	 */
+	has: function(key) {
+		return (Storage.get(key) !== null);
 	},
 
 	/**
@@ -2472,10 +2680,521 @@ var Storage = {
 	/**
 	 * Get the total items stored.
 	 *
+	 * @param prefix
 	 * @return int
 	 */
-	size: function() {
+	size: function(prefix) {
+		if (prefix) {
+			return Storage.getAll(prefix).length;
+		}
+
 		return localStorage.length || 0;
+	}
+
+};
+
+/**
+ * Creates an overlay box (modal) and blacks out the page for focus.
+ * Can fetch content from a DOM element or through AJAX.
+ *
+ * @copyright   2010, Blizzard Entertainment, Inc
+ * @class       Overlay
+ * @requires    Page
+ * @example
+ *
+ *      onclick="Overlay.open('/ajax/url/', { ajax: true });"
+ *
+ */
+
+var Overlay = {
+
+	/**
+     * Cached results from the AJAX responses.
+     */
+    cache: {},
+
+	/**
+	 * Default configuration.
+	 */
+	config: {
+		ajax: false,
+		bindClose: true,
+		className: "",
+		fadeSpeed: 250,
+		blackout: true
+	},
+
+	/**
+	 * Has the class been initialized?
+	 */
+	loaded: null,
+
+	/**
+	 * DOM object for the overlay.
+	 */
+	wrapper: null,
+
+	/**
+	 * Initialize the class and create the markup.
+     *
+     * @constructor
+	 */
+	initialize: function() {
+		if (Overlay.loaded && Overlay.wrapper)
+			return;
+
+		Overlay.wrapper = $('<div/>', {
+			id: 'overlay',
+			'class': 'ui-overlay'
+		}).appendTo('body').hide();
+
+		$('<a/>')
+			.addClass('overlay-close')
+			.attr('href', 'javascript:;')
+			.click(Overlay.close)
+			.appendTo(Overlay.wrapper);
+
+		var top = $('<div/>').addClass('overlay-top').appendTo(Overlay.wrapper);
+		var bot = $('<div/>').addClass('overlay-bottom').appendTo(top);
+		var mid = $('<div/>').addClass('overlay-middle').appendTo(bot);
+
+		Overlay.loaded = true;
+	},
+
+	/**
+	 * Close the overlay.
+	 */
+	close: function(speed) {
+		speed = !speed ? 10 : (speed || 250);
+
+		$("#blackout").fadeOut(speed);
+
+		Overlay.wrapper.fadeOut(speed, function() {
+			Overlay.setContent("");
+			Overlay.wrapper.attr('class', 'ui-overlay');
+
+			if (Overlay.wrapper.attr('id') !== 'overlay')
+				Overlay.wrapper.hide();
+		});
+	},
+
+	/**
+	 * Open up an overlay. Fill the content with text, DOM or AJAX.
+	 *
+	 * @param content
+	 * @param config
+	 */
+	open: function(content, config) {
+		Overlay.initialize();
+		config = $.extend({}, Overlay.config, config);
+
+		if (config.className)
+			Overlay.wrapper.addClass(config.className);
+
+		if (config.blackout) {
+			if (config.bindClose) {
+				Blackout.show(null, function() {
+					Overlay.close(config.fadeSpeed);
+				});
+			} else {
+				Blackout.show();
+			}
+		}
+
+		// Content: AJAXs
+		if (config.ajax) {
+
+			// Look in cache
+            if (Overlay.cache[content]) {
+				Overlay.show(Overlay.cache[content]);
+            } else {
+				$.ajax({
+					type: "GET",
+					url: content,
+					dataType: "html",
+					beforeSend: function() {
+						Overlay.reset();
+						Overlay.show();
+					},
+					success: function(data, status) {
+						Overlay.cache[content] = data;
+						Overlay.setContent(data);
+					}
+				});
+			}
+
+		// Content: DOM
+        } else if (content.substr(0, 1) === '#') {
+            Overlay.show($(content).html());
+
+        // Content: Text
+        } else {
+            Overlay.show(content);
+        }
+	},
+
+	/**
+	 * Open up a custom overlay.
+	 *
+	 * @param element
+	 * @param config
+	 */
+	openCustom: function(element, config) {
+		Overlay.wrapper = $(element);
+
+		if (Overlay.wrapper) {
+			config = $.extend({}, Overlay.config, config);
+
+			if (config.blackout) {
+				if (config.bindClose) {
+					Blackout.show(null, function() {
+						Overlay.close(config.fadeSpeed);
+					});
+				} else {
+					Blackout.show();
+				}
+			}
+
+			Overlay.position();
+		}
+	},
+
+	/**
+     * Position the overlay at specific coodinates.
+     *
+     * @param node
+     */
+    position: function(node) {
+        node = node || Overlay.wrapper;
+
+        var width = node.outerWidth(),
+			height = node.outerHeight(),
+			x = (Page.dimensions.width / 2) - (width / 2),
+			y = (Page.dimensions.height / 2) - (height / 2);
+
+		if (Core.isIE(6))
+			y = Page.scroll.top + y;
+
+        node.show().css({
+			left: x +'px',
+			top: y +'px',
+			position: Core.isIE(6) ? 'absolute': 'fixed'
+		});
+    },
+
+	/**
+	 * Wipe the overlay and display a loading animation.
+	 */
+	reset: function() {
+		Overlay.wrapper.find('.overlay-middle')
+			.html("")
+			.addClass('overlay-loading');
+	},
+
+	/**
+	 * Now display the overlay.
+	 *
+	 * @param content
+	 */
+	show: function(content) {
+		Overlay.setContent(content);
+		Overlay.position();
+	},
+
+	/**
+	 * Set the content of the overlay.
+	 *
+	 * @param content
+	 */
+	setContent: function(content) {
+		if (content != null)
+			Overlay.wrapper.find('.overlay-middle').html(content);
+	}
+
+};
+
+/**
+ * Used to encode/decode basic numbers into a hash string.
+ */
+var Hash = {
+
+	/**
+	 * Base 64
+	 */
+	base: 'aZbYcXdWeVfUgThSiRjQkPlOmNnMoLpKqJrIsHtGuFvEwDxCyBzA0123456789+/',
+
+	/**
+	 * Delimiter used when grouping multiple batches.
+	 */
+	delimiter: '!',
+
+	/**
+	 * Used to denote an empty character.
+	 */
+	empty: '.',
+
+	/**
+	 * Batch multiple hashes with encode.
+	 *
+	 * @param data
+	 * @return string
+	 */
+	batch: function(data) {
+		var hashes = [];
+
+		for (var i = 0, l = data.length; i < l; i++) {
+			hashes.push( Hash.encode(data[i]) );
+			}
+
+		return Core.trimRight(hashes.join(Hash.delimiter), Hash.delimiter);
+	},
+
+	/**
+	 * Encode an array into a hash using the base.
+	 *
+	 * @param data
+	 * @return string
+	 */
+	encode: function(data, useEmpty) {
+		var hash = '',
+			base = Hash.base,
+			empty = Hash.empty;
+
+		for (var i = 0, l = data.length; i < l; i++) {
+			if (data[i] !== null)
+				hash += base.charAt(data[i]);
+
+			else if (useEmpty)
+				hash += empty;
+		}
+
+		return Core.trimRight(hash, empty);
+	},
+
+	/**
+	 * Decode a hash into an array using the base.
+	 *
+	 * @param data
+	 * @return array
+	 */
+	decode: function(data) {
+		var array = [],
+			base = Hash.base,
+			empty = Hash.empty;
+
+		for (var i = 0, l = data.length, v; i < l; i++) {
+			v = data.charAt(i);
+			v = (v == empty) ? null : base.indexOf(v);
+
+			array.push(v);
+		}
+
+		return array;
+			}
+
+};
+
+/**
+ * Opens up a quick prompt that accepts an input.
+ */
+var Prompt = {
+
+	/**
+	 * DOM objects.
+	 */
+	node: null,
+	input:  null,
+	title: null,
+	errors: null,
+
+	/**
+	 * Is markup created?
+	 */
+	initialized: false,
+
+	/**
+	 * Default rules.
+	 */
+	defaults: {
+		minLength: { value: 1 },
+		maxLength: { value: 25 },
+		numeric: { value: false }
+	},
+
+	/**
+	 * Set of rules to validate against.
+	 */
+	rules: {},
+
+	/**
+	 * Validation callback.
+	 */
+	callback: null,
+
+	/**
+	 * Create the DOM elements.
+	 */
+	initialize: function() {
+		Prompt.node = $('<div/>')
+			.addClass('ui-prompt')
+			.click(Core.stopPropagation)
+			.appendTo('body');
+
+		var inner = $('<form/>')
+			.attr('method', 'post')
+			.attr('action', '')
+			.addClass('prompt-inner')
+			.appendTo(Prompt.node)
+			.submit(Core.preventDefault)
+			.keyup(function(e) {
+				if (e.which == KeyCode.enter) {
+					Prompt.validate();
+				}
+			});
+
+		Prompt.title = $('<h3/>')
+			.addClass('subheader')
+			.text('')
+			.appendTo(inner);
+
+		Prompt.input = $('<input/>')
+			.addClass('input')
+			.appendTo(inner)
+			.focus(Input.activate)
+			.blur(Input.reset);
+
+		Prompt.errors = $('<ul/>')
+			.addClass('prompt-errors')
+			.hide()
+			.appendTo(inner);
+
+		var buttons = $('<div/>')
+			.addClass('prompt-buttons')
+			.appendTo(inner);
+
+		// IE blows up if you set type via attr()
+		$('<button type="button"/>')
+			.addClass('ui-button button1')
+			.html('<span><span>' + Msg.ui.submit + '</span></span>')
+			.click(Prompt.validate)
+			.appendTo(buttons);
+
+		$('<button type="button"/>')
+			.addClass('ui-button button1')
+			.html('<span><span>' + Msg.ui.cancel + '</span></span>')
+			.click(Prompt.close)
+			.appendTo(buttons);
+
+		$(document).bind('keyup.prompt', function(e) {
+			if (e.which == KeyCode.esc)
+				Prompt.close();
+		});
+
+		Prompt.initialized = true;
+	},
+
+	/**
+	 * Open the prompt at the target location and set the rules and callback.
+	 *
+	 * @param title
+	 * @param callback
+	 * @param rules
+	 */
+	open: function(title, callback, rules) {
+		if (!Prompt.initialized)
+			Prompt.initialize();
+
+		var width = Prompt.node.outerWidth(),
+			height = Prompt.node.outerHeight(),
+			x = (Page.dimensions.width / 2) - (width / 2),
+			y = (Page.dimensions.height / 2) - (height / 2) + Page.scroll.top;
+
+		Prompt.rules = $.extend({}, Prompt.defaults, rules || {});
+		Prompt.callback = callback;
+
+		Prompt.title.text(title);
+		Prompt.input.attr('maxlength', Prompt.rules.maxLength.value);
+
+		Prompt.node.css({
+			top: y,
+			left: x
+		}).show();
+
+		Blackout.show(function() {
+			Prompt.input.focus();
+		}, Prompt.close);
+	},
+
+	/**
+	 * Close the prompt and reset.
+	 */
+	close: function() {
+		Prompt.input.val('').trigger('blur');
+		Prompt.errors.empty().hide();
+
+		Prompt.node.hide();
+		Blackout.hide();
+	},
+
+	/**
+	 * Validate the rules. If successful, trigger callback.
+	 *
+	 * @param e
+	 */
+	validate: function() {
+
+		var input = Prompt.input,
+			value = input.val().trim(),
+			valid = true,
+			errors = [],
+			rule,
+			i = 0,
+			l = 0;
+
+		for (var key in Prompt.rules) {
+			rule = Prompt.rules[key];
+			valid = true;
+
+			if (!rule) {
+				continue;
+			}
+
+			if (typeof rule.value === 'function') {
+				valid = rule.value(value);
+			} else {
+				switch (key) {
+					case 'minLength':
+						if (rule.value && value.length < rule.value)
+							valid = false;
+					break;
+					case 'maxLength':
+						if (rule.value && value.length > rule.value)
+							valid = false;
+					break;
+					case 'numeric':
+						if (rule.value && isNaN(value))
+							valid = false;
+					break;
+				}
+			}
+
+			if (!valid)
+				errors.push(rule.message || key);
+		}
+
+		if (errors.length) {
+			Prompt.errors.empty().show();
+
+			for (i = 0, l = errors.length; i < l; i++) {
+				$('<li/>').text(errors[i]).appendTo(Prompt.errors);
+			}
+
+		} else {
+			if (Core.isCallback(Prompt.callback))
+				Prompt.callback(value);
+
+			Prompt.close();
+		}
 	}
 
 };
@@ -2502,7 +3221,7 @@ String.prototype.trim = function() {
 		fnTest = /xyz/.test(function(){xyz;}) ? /\b_super\b/ : /.*/;
 
 	// The base Class implementation (does nothing)
-	this.Class = function() {};
+	window.Class = function() {};
 
 	// Create a new Class that inherits from this class
 	Class.extend = function(prop) {
@@ -2515,11 +3234,10 @@ String.prototype.trim = function() {
 
 		// Copy the properties over onto the new prototype
 		for (var name in prop) {
+
 			// Check if we're overwriting an existing function
-			prototype[name] =
-				(typeof prop[name] == "function" && typeof _super[name] == "function" && fnTest.test(prop[name]))
-			?
-				(function(name, fn) {
+			if (typeof prop[name] == "function" && typeof _super[name] == "function" && fnTest.test(prop[name])) {
+				prototype[name] = (function(name, fn) {
 					return function() {
 						var tmp = this._super;
 
@@ -2534,9 +3252,11 @@ String.prototype.trim = function() {
 
 						return ret;
 					};
-				})(name, prop[name])
-			:
-				prop[name];
+				})(name, prop[name]);
+
+			} else {
+				prototype[name] = prop[name];
+		}
 		}
 
 		// The dummy class constructor
@@ -2553,7 +3273,7 @@ String.prototype.trim = function() {
 		Class.constructor = Class;
 
 		// And make this class extendable
-		Class.extend = arguments.callee;
+		Class.extend = this.callee || arguments.callee;
 
 		return Class;
 	};
@@ -2563,12 +3283,12 @@ String.prototype.trim = function() {
  * Setup ajax calls.
  */
 $.ajaxSetup({
-	error: function(xhr) {
+	error: function(xhr, status) {
 		if (xhr.readyState != 4)
 			return false;
 
 		if (xhr.getResponseHeader("X-App") == "login") {
-			location.reload(true);
+			Login.openOrRedirect();
 			return false;
 		}
 
@@ -2585,6 +3305,13 @@ $.ajaxSetup({
 					return false;
 				break;
 			}
+		}
+
+		// Attempt to detect a redirect. Redirect throws no headers, others do.
+		if (status == 'error' && !xhr.getAllResponseHeaders()) {
+			// Not working correctly
+			//Login.openOrRedirect();
+			return false;
 		}
 
 		return true;

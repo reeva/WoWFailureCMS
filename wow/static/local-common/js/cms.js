@@ -7,7 +7,7 @@ $(document).ready(function(){
 });
 
 function consoleLog(data){
-	if(typeof (console.log) != 'undefined')
+	if(typeof (console) != 'undefined' && typeof (console.log) != 'undefined')
 		console.log(data)
 }
 
@@ -62,7 +62,15 @@ var Cms = {
 	Station: {
 		_WOFFSET : 921,
 		init: function(){
-			$('input.filter').bind('keyup',Cms.Station.forumFilter)
+			$('input.filter').bind('keyup',Cms.Station.forumFilter);
+			$.ajax({
+				url: Core.baseUrl +'/sidebar/forums',
+				type: 'GET',
+				dataType: 'html',
+				success: function(data) {
+					$('#popular-topics-inner').html(data);
+				}
+			});
 		},
 		
 		forumFilter: function(e){
@@ -234,7 +242,10 @@ var Cms = {
 							$("#k-" + postId + ' .rate' + rateDir).parent().addClass('selected');
 						},
 						error: function(request,status,error) {
-							//console.log(request);
+							if (request.statusText.length === 0) {
+								Core.goTo(window.location + '?login');
+								return false;
+							}
 							Overlay.open(request.statusText);
 						}
 				   });
@@ -315,24 +326,25 @@ var Cms = {
 										reason:	' ',
 										xstoken:xsToken
 									},
+						global: false,
 						success:	function(e){
 										//console.log(e);
-										$('.sticky-request').hide();
-										Overlay.open(Msg.cms.stickyRequested)
+										Overlay.open(Msg.cms.stickyRequested);
+									},
+						error: function(){
+										Overlay.open(Msg.cms.stickyHasBeenRequested);
 									}
 				   });
 
 		},
-		topicInit: function(topicId) {
+		topicInit: function(topicId, forumId, page) {
 			$('.rate-btn-holder').bind('mouseleave', function() {
 					$(this).children('.rate-action').hide();
 				})
-			$('.user-name').bind('mouseleave', function() {
-					//$(this).children('.character-options').hide();
-				})
+			
+			//Cms.ajaxErrorInit();
+			Cms.Topic.readThread(topicId, forumId, page);
 
-			Cms.ajaxErrorInit();
-			Cms.Topic.readThread(topicId);
 			if($.trim($('#post-errors > div').html())!= ''){
 				$('#post-errors').hide();
 				Overlay.open('#post-errors')
@@ -344,6 +356,11 @@ var Cms = {
 							  .bind('mouseleave',function(){ $(this).removeClass('iehover'); });
 		},
 		previewToggle: function(target, type) {
+
+			if(type == 'preview' && $('.post-editor').val().length > $('#editorMax').attr('rel')){
+				return false;
+			}
+
 			target = $(target);
 			target
 				.addClass('selected')
@@ -384,7 +401,7 @@ var Cms = {
 			$.ajax({
 				dataType: 'json',
 				type: 'GET',
-				url: Core.baseUrl +'/forum/topic/post/'+ post_id +'/frag',
+				url: '/forum/getpost.php?p='+ post_id,
 				success: function(data) {
 					Cms.Topic.cachedQuotes[post_id] = data;
 					BML.quote(data.detail, post_id);
@@ -394,10 +411,16 @@ var Cms = {
 		
 		pollRefresh: function(bool, data) {
 			if($('.results').is(':visible')){
+				if($('.poll-interior .results td:first-child').outerWidth() > $('.results').width()/2) {
+					$('.results').addClass('verbose')
+				}
+				
 				if (bool) {
 					$("#poll-container .result-container .result").each(function() {
+						if (!$.browser.opera) {
 							var targw = $(this).css('width');
 							$(this).width(0).animate({width:targw}, "slow");
+						}
 						});
 				} else {
 					var targr = $('#poll-container .result-container .result');
@@ -443,24 +466,75 @@ var Cms = {
 					}
 				); //End Post
 		},
-		readThread:function(id){
-			var threadRead = Cookie.read('visitedThread')
+		readThread:function(id, forumId, page){
+			// delete cookie from earlier revision to prevent invalid header size
+			Cookie.erase("visitedThread", {
+				path: Core.baseUrl + '/forum/' + forumId + '/'
+			});
+			
+			var threadRead = Cookie.read('visitedThread');
 			threadRead = (threadRead != null)?decodeURIComponent(threadRead).split(','):[];
 
 			var d = new Date;
-			d = d.getTime()
+			d = d.getTime();
 
-			var mod = false
-			for(x in threadRead)
-			{ 	threadRead[x] = threadRead[x].split('//');
-				if(threadRead[x][0] == id) { threadRead[x][1] = d; mod = true; }
+			var changed = false;
+				
+			for(var x in threadRead) {
+				threadRead[x] = threadRead[x].split('//');
+				if(threadRead[x][0] == id) { 
+					threadRead[x][1] = d; 
+					threadRead[x][2] = (!threadRead[x][2] || threadRead[x][2]<page)?page:threadRead[x][2]; 
+					changed = true; 
+				}
 			}
 
-			if(!mod) threadRead.push([id,d])
-			for(x in threadRead) { threadRead[x] = threadRead[x].join('//'); }
+			if (!changed)
+				threadRead.push([id,d,page]);
 
-			if(threadRead.length > 100) threadRead.shift()
-			Cookie.create('visitedThread',encodeURIComponent(threadRead.join(',')),{path:Core.baseUrl+'/forum', expires: 8760});
+			for (x in threadRead) {
+				threadRead[x] = threadRead[x].join('//');
+			}
+
+			if (threadRead.length > 80)
+				threadRead.shift();
+
+			Cookie.create('visitedThread', encodeURIComponent(threadRead.join(',')), {
+				path: Core.baseUrl + '/forum',
+				expires: 8760
+			});
+		},
+		deletePost: function(id, notice) {
+			if (!confirm(notice))
+				return false;
+
+			$.ajax({
+				url: Core.baseUrl +'/forum/topic/post/'+ id +'/delete',
+				type: 'POST',
+				data: {
+					xstoken: xsToken
+				},
+				dataType: 'json',
+				success: function(response) {
+					if (response.errorMessage) {
+						Overlay.open(response.errorMessage);
+
+					} else if (response.status == 'postDeleted') {
+						var url = '/forum/topic/'+ response.topicId +'?page='+ (response.page || 1);
+
+						if (response.anchor != 0)
+							url += '#'+ response.anchor;
+						
+						location.href.replace(url);
+						location.reload(true);
+
+					} else if (response.status == 'topicDeleted') {
+						Core.goTo('/forum/'+ response.forumId +'/', true);
+		}
+				}
+			});
+
+			return true;
 		}
 	},
 	Forum: {
@@ -491,24 +565,20 @@ var Cms = {
 			if (cfr.prev().attr("id") != target.attr("id")) {
 				var commentText = "@" + author + ": ";
 
-				cfr.slideUp(50, function() {
+				cfr.hide().insertAfter(target).show();
 					cmtTextarea.val(commentText).focus();
-					$(this).insertAfter(target).slideDown(50);
-				});
-				
-			} 
-			else 
-				cfr.slideToggle(50);
+			} else
+				cfr.hide();
 
 			$('#replyTo').val(parent);
 		},
 		validateComment:function(target){
 			var ta = $(target).find("textarea")
-			$(target).find('button[type=submit]').addClass('disabled')[0].disabled = true
+			$(target).find('.comment-submit').addClass('disabled')[0].disabled = true
 			if(ta.val().trim() == ''){
 				ta.css('borderColor',"red");
 				Overlay.open(Msg.cms.validationError);
-				$(target).find('button[type=submit]').removeClass('disabled')[0].disabled = false
+				$(target).find('.comment-submit').removeClass('disabled')[0].disabled = false
 				return false;
 			}
 			else return true;
@@ -529,16 +599,58 @@ var Cms = {
 														})
 											.bind('focus',function(){$(taRef).width(($(this).width())*0.98)})
 											.height(taRef.height())
-									})
-		},
-		commentInitIe: function() {
-			$('#page-comments .comment').bind('mouseenter',function(){ $(this).addClass('iehover'); })
+									});
+
+			if (Core.isIE(6)) {
+				$('#page-comments .comment').bind('mouseenter',function(){ $(this).addClass('iehover'); })
 										.bind('mouseleave',function(){ $(this).removeClass('iehover'); });
+			}
+		},
+		ajaxComment: function(button, callback) {
+			var form = $(button).parentsUntil('form').parent();
+
+			if (Cms.Comments.validateComment(form) && callback) {
+				$.ajax({
+					url: form.attr('action'),
+					type: 'POST',
+					data: form.serialize(),
+					dataType: 'json',
+					success: callback
+				});
+		}
+		},
+		deleteComment: function(id, notice) {
+			if (!confirm(notice))
+				return;
+			
+			$.ajax({
+				url: Core.baseUrl +'/discussion/comment/'+ id +'/delete',
+				type: 'POST',
+				data: {
+					xstoken: xsToken
+				},
+				dataType: 'json',
+				success: function(response) {
+					if (response.success) {
+						$('#c-'+ id).fadeOut('fast', function() {
+							$(this).remove();
+						});
+		}
+				}
+			});
 		}
 	},
+			
 	Blog: {
-		getRelated: function(kw, excludeId) {
-			$.get(Core.baseUrl + '/sidebar/articles.frag?k=' + kw + '&exclude=' + excludeId,
+		init : function(){
+			$('#blog a.lightbox').click(function(){
+				var imgUrl = $(this).attr('href')
+				Lightbox.loadImage([ { src:imgUrl } ])
+				return false;
+			})
+		},
+		getRelated: function(excludeId) {
+			$.get(Core.baseUrl + '/sidebar/articles.frag?id=' + excludeId,
 					function(data){
 						$('#sidebar-related').show();
 						var dataContent = (typeof data == 'string')?data:data.documentElement.innerHTML

@@ -84,6 +84,27 @@ var BML = {
 		BML.container = $(node);
 		BML.textarea = BML.container.find('textarea');
 
+		// Checking character Exceed of textarea
+		var editor = $('#post-edit .post-editor'),
+			editorMax = $('#editorMax').attr('rel'),
+			errorMsgs = $('#post-errors'),
+			previewBtn = $('.talkback-controls .preview-btn');
+		
+		BML.textarea.bind('keyup',function(){
+			
+			errorMsgs.empty();
+			
+			if(BML.textarea.val().length > editorMax){				
+				var ul = $('<ul/>').appendTo(errorMsgs);
+				$('<li/>').html(Msg.cms.characterExceed.replace('XXXXXX',editorMax)).appendTo(ul);
+				editor.css('border', '1px solid red');
+				previewBtn.addClass('disabled');
+			} else {
+				editor.css('border', 'none');
+				previewBtn.removeClass('disabled');
+			}
+		});
+		
 		if (isCm) {
 			BML.addCommands([
 				{
@@ -201,7 +222,7 @@ var BML = {
 	 * @param string
 	 */
 	encode: function(string) {
-		return string.replace(/</gi, '&lt;').replace(/>/gi, '&gt;').replace(/&/gi, '&amp;');
+		return string.replace(/&/gi, '&amp;').replace(/</gi, '&lt;').replace(/>/gi, '&gt;');
 	},
 
 	/**
@@ -223,7 +244,8 @@ var BML = {
 
 			if (answer) {
 				prompts[0] = answer;
-				prompts[1] = '="'+ answer +'"';
+				//theadriann edit prompts[1] = '="'+ answer +'"';
+				prompts[1] = '='+ answer +'';
 			} else {
 				return;
 			}
@@ -275,9 +297,12 @@ var BML = {
 	preview: function(content, target, callback) {
 		$.ajax({
 			dataType: 'json',
-			data: { post: content },
+			data: {
+				post: content,
+				xstoken: Cookie.read('xstoken')
+			},
 			type: 'POST',
-			url: Core.baseUrl +'/forum/topic/post/preview',
+			url: '/forum/preview2.php',
 			global: false,
 			success: function(data, status, xhr) {
 				$(target).append(data.detail);
@@ -290,7 +315,7 @@ var BML = {
 					Core.goTo('/account-status', true);
 
 				// Attempt to detect a redirect. Redirect throws no headers, others do.
-				else if (status == 'error' && xhr.getAllResponseHeaders() == null)
+				else if (status == 'error' && !xhr.getAllResponseHeaders())
 					Login.openOrRedirect();
 			}
 		});

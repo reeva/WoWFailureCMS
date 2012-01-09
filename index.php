@@ -25,6 +25,7 @@ $page_cat = "home";
 	<script type="text/javascript" src="wow/static/local-common/js/third-party/jquery-1.4.4-p1.min.js"></script>
 	<script type="text/javascript" src="wow/static/local-common/js/core.js?v15"></script>
 	<script type="text/javascript" src="wow/static/local-common/js/tooltip.js?v15"></script>
+	<script type="text/javascript" src="http://static.wowhead.com/widgets/power.js"></script>
 	<!--[if IE 6]> <script type="text/javascript">
 	//<![CDATA[
 	try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
@@ -489,20 +490,35 @@ $page_cat = "home";
 
 						<div class="sidebar-module" id="sidebar-forums">
 							<div class="sidebar-title">
-								<h3 class="title-forums"><?php $P_topics['P_topics']; ?></h3>
+								<h3 class="category title-forums"><a href="#"><?php echo $P_topics['P_topics']; ?></a></h3>
 							</div><br />
-							<div align="center">
-							<?php echo $loading_forum_sett['loading_forum_sett']; ?>
-							<div class="sidebar-content loading"></div>
+							<div class="sidebar-content poptopic-list">
+								<?php
+								$get_lastactivity = mysql_query("SELECT * FROM $server_db.forum_threads ORDER BY `last_date` DESC LIMIT 10");
+								if(mysql_num_rows($get_lastactivity) > 0){
+								while($lastact = mysql_fetch_array($get_lastactivity)){
+									$forum = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_db.forum_forums WHERE id = '".$lastact['forumid']."'"));
+									echo '
+									<a href="category/view-topic/?t='.$lastact['id'].'">
+									<span class="int">
+									<span class="title">'.$lastact['name'].'</span>
+									<span class="desk">in<span class="loc">
+									</span>'.$forum['name'].'</span></span></a>
+									';
+								}
+								}else{
+									echo 'No Topics';
+								}
+								?>
 							</div>
 						</div>
- 
 					</div>
 					<span class="clear"><!-- --></span>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<?php include("footer.php"); ?>
 </div>
 </body>

@@ -20,7 +20,7 @@ var Login = {
 	/**
 	 * Embedded login URL.
 	 */
-	embeddedUrl: "loginframe.php",
+	embeddedUrl: "/loginframe.php",
 
 	/**
 	 * Use token to log in behind the scenes.
@@ -82,6 +82,15 @@ var Login = {
 				src: url,
 				frameborder: 0
 			}));
+
+			$(window).resize(function() {
+				var doc = $(document);
+
+				$('#blackout').css({
+					width: doc.width(),
+					height: doc.height()
+				});
+			});
 		} else {
 			container.append($("<object/>").attr("data", url));
 		}

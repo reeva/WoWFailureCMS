@@ -20,10 +20,10 @@ $_SESSION['Local'] = $language;
 
 $serveraddress = "127.0.0.1";
 $serveruser = "root";
-$serverpass = "ascent";
+$serverpass = "password";
 $serverport	= "3306";
 
-$server_db = "site";
+$server_db = "website";
 $server_adb = "auth";
 
 $server_cdb = "characters";
@@ -52,8 +52,8 @@ $mysql_cod = 'cp1251';
 
 $website['title'] = "WoWFailureCMS";
 $website['slogan'] = "WoWFailureCMS, get your best CMS today, simple and fast!";
-$website['address'] = "http://www.wowfailure.co.cc";
-$website['root'] = "/WoWFailureCMS/";
+$website['address'] = "http://theadriann.idle.ro";
+$website['root'] = "/";
 
 ######################
 
@@ -68,4 +68,3 @@ if(isset($_SESSION['username'])){
 	mysql_select_db($server_db,$connection_setup)or die(mysql_error());
 }
 ?>
-<script type="text/javascript" src="http://static.wowhead.com/widgets/power.js"></script>

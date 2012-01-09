@@ -182,7 +182,7 @@
 <?php if(isset($_SESSION['username'])){ ?>
 <li class="service-cell service-welcome"><?php echo $Welcome['Welcome']; ?><a href=""><?php echo strtolower($_SESSION['username']); ?></a> | <a href="<?php echo $website['root'];?>logout.php"><?php echo $logout['logout']; ?></a></li>
 <?php }else{ ?>
-<li class="service-cell service-welcome"><a href="?login" onclick="return Login.open('<?php echo $website['root'];?>login.php?<?php echo $_SESSION['sessionid']; ?>')"><?php echo $login['login']; ?></a> or <a href="register.php"><?php echo $Account3['Account3']; ?></a></li>
+<li class="service-cell service-welcome"><a href="?login" onclick="return Login.open()"><?php echo $login['login']; ?></a> or <a href="register.php"><?php echo $Account3['Account3']; ?></a></li>
 <?php } ?>
 <li class="service-cell service-account"><a href="account_log.php" class="service-link" tabindex="50" accesskey="3"><?php echo $Account['Account']; ?></a></li>
 <li class="service-cell service-support service-support-enhanced">
@@ -304,15 +304,29 @@ shim.style.display = 'block';
 </li>
 </ul>
 </div>
-<script type="text/javascript"> 
+
+<script type="text/javascript">
 //<![CDATA[
-var xsToken = '';
+var xsToken = '272c2eb0-9252-4eae-b494-93fd89788702';
+var supportToken = '';
 var Msg = {
+support: {
+ticketNew: 'Ticket {0} was created.',
+ticketStatus: 'Ticket {0}’s status changed to {1}.',
+ticketOpen: 'Open',
+ticketAnswered: 'Answered',
+ticketResolved: 'Resolved',
+ticketCanceled: 'Cancelled',
+ticketArchived: 'Archived',
+ticketInfo: 'Need Info',
+ticketAll: 'View All Tickets'
+},
 cms: {
-requestError: 'Your request cannot be completed.2',
+requestError: 'Your request cannot be completed.',
 ignoreNot: 'Not ignoring this user',
 ignoreAlready: 'Already ignoring this user',
 stickyRequested: 'Sticky requested',
+stickyHasBeenRequested: 'You have already sent a sticky request for this topic.',
 postAdded: 'Post added to tracker',
 postRemoved: 'Post removed from tracker',
 userAdded: 'User added to tracker',
@@ -322,9 +336,10 @@ characterExceed: 'The post body exceeds XXXXXX characters.',
 searchFor: "Search for",
 searchTags: "Articles tagged:",
 characterAjaxError: "You may have become logged out. Please refresh the page and try again.",
-ilvl: "Item Lvl",
-shortQuery: "Search requests must be at least two characters long."
+ilvl: "Level {0}",
+shortQuery: "Search requests must be at least three characters long."
 },
+
 bml: {
 bold: 'Bold',
 italics: 'Italics',
@@ -335,12 +350,16 @@ quote: 'Quote',
 quoteBy: 'Posted by {0}',
 unformat: 'Remove Formating',
 cleanup: 'Fix Linebreaks',
+code: 'Code Blocks',
 item: 'WoW Item',
 itemPrompt: 'Item ID:',
 url: 'URL',
 urlPrompt: 'URL Address:'
 },
 ui: {
+submit: 'Submit',
+cancel: 'Cancel',
+reset: 'Reset',
 viewInGallery: 'View in gallery',
 loading: 'Loading…',
 unexpectedError: 'An error has occurred',
@@ -349,7 +368,9 @@ fansiteFindType: 'Find {0} on…',
 fansiteNone: 'No fansites available.'
 },
 grammar: {
-colon: '{0}:'
+colon: '{0}:',
+first: 'First',
+last: 'Last'
 },
 fansite: {
 achievement: 'achievement',
@@ -358,42 +379,78 @@ faction: 'faction',
 'class': 'class',
 object: 'object',
 talentcalc: 'talents',
-skill: 'skill',
+skill: 'profession',
 quest: 'quest',
 spell: 'spell',
 event: 'event',
 title: 'title',
-arena: 'arena',
+arena: 'arena team',
 guild: 'guild',
 zone: 'zone',
 item: 'item',
 race: 'race',
 npc: 'NPC',
 pet: 'pet'
+},
+
+search: {
+kb: 'Support',
+post: 'Forums',
+article: 'Blog Articles',
+static: 'General Content',
+wowcharacter: 'Characters',
+wowitem: 'Items',
+wowguild: 'Guilds',
+wowarenateam: 'Arena Teams',
+other: 'Other'
 }
 };
 //]]>
 </script>
-<script type="text/javascript" src="wow/static/local-common/js/menu.js?v15"></script>
-<script type="text/javascript" src="wow/static/js/wow.js?v4"></script>
-<script type="text/javascript"> 
-friendData = [];
-$(function(){
-Menu.initialize('data/menu.json');
-Search.init('ta/lookup');
-});
-</script>
-<!--[if lt IE 8]> <script type="text/javascript" src="wow/static/local-common/js/third-party/jquery.pngFix.pack.js?v15"></script>
-<script type="text/javascript">$('.png-fix').pngFix();</script>
-<![endif]-->
-<script type="text/javascript" src="wow/static/local-common/js/cms.js?v15?v2"></script>
+
+<script type="text/javascript" src="/wow/static/local-common/js/search.js?v37"></script>
+
 <script type="text/javascript">
 //<![CDATA[
-Core.load("<?php echo $website['root'];?>wow/static/local-common/js/third-party/jquery-ui-1.8.6.custom.min.js?v15");
-Core.load("<?php echo $website['root'];?>wow/static/local-common/js/overlay.js?v15");
-Core.load("<?php echo $website['root'];?>wow/static/local-common/js/search.js?v15");
-Core.load("<?php echo $website['root'];?>wow/static/local-common/js/login.js?v15", false, function() {
-Login.embeddedUrl = '<?php echo $website['root'];?>loginframe.php';
+Core.load("<?php echo $website['root']; ?>wow/static/local-common/js/third-party/jquery-ui-1.8.6.custom.min.js?v37");
+Core.load("<?php echo $website['root']; ?>wow/static/local-common/js/login.js?v37", false, function() {
+Login.embeddedUrl = '/loginframe.php';
 });
+//]]>
+</script>
+
+
+<script type="text/javascript" src="/wow/static/local-common/js/menu.js?v37"></script>
+<script type="text/javascript" src="/wow/static/js/wow.js?v19"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(function() {
+Menu.initialize('/data/menu.json');
+});
+//]]>
+</script>
+<script type="text/javascript" src="/wow/static/local-common/js/cms.js?v37"></script>
+
+<!--[if lt IE 8]> <script type="text/javascript" src="/wow/static/local-common/js/third-party/jquery.pngFix.pack.js?v37"></script>
+<script type="text/javascript">
+//<![CDATA[
+$('.png-fix').pngFix(); //]]>
+</script>
+<![endif]-->
+<script type="text/javascript">
+//<![CDATA[
+(function() {
+var ga = document.createElement('script');
+var src = "https://ssl.google-analytics.com/ga.js";
+if ('http:' == document.location.protocol) {
+src = "http://www.google-analytics.com/ga.js";
+}
+ga.type = 'text/javascript';
+ga.setAttribute('async', 'true');
+ga.src = src;
+var s = document.getElementsByTagName('script');
+s = s[s.length-1];
+s.parentNode.insertBefore(ga, s.nextSibling);
+})();
 //]]>
 </script>

@@ -25,7 +25,7 @@
 			<li class="menu-services"><a href="<?php echo $website['root']; ?>services.php" <?php if($page_cat=='services') echo'class="menu-active"';?>><span><?php echo $Services['Services']; ?></span></a></li>
 			</ul>
 			<?php
-			if($page_cat == "forums"){ include("../userplate.php"); }else{ include("userplate.php"); }
+			if($page_cat == "forums"){ require("userplate.php"); }else{ require("userplate.php"); }
 			}else{ ?>
 			<li class="menu-home"><a href="<?php echo $website['root']; ?>index.php"><span><?php echo $home['home']; ?></span></a></li>
 			<li class="menu-game"><a href="<?php echo $website['root']; ?>media.php"><span><?php echo $Media['Media']; ?></span></a></li>
@@ -34,6 +34,6 @@
 			<li class="menu-forums"><a href="<?php echo $website['root']; ?>forum/"><span><?php echo $Forums['Forums']; ?></span></a></li>
 			<li class="menu-services"><a href="<?php echo $website['root']; ?>services.php"><span><?php echo $Services['Services']; ?></span></a></li>
 			</ul>
-			<?php include("userplate.php"); } ?>
+			<?php require("userplate.php"); } ?>
 		</div>
 	</div>

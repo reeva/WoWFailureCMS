@@ -83,13 +83,18 @@ _gaq.push(['_trackPageLoadTime']);
 						  mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
 						  $check_query = mysql_query("SELECT * FROM account WHERE username = '".$accountName."'");
 						  $check = mysql_fetch_assoc($check_query);
-
+						  $firstName = mysql_real_escape_string($_POST['firstName']);
+						  $lastName = mysql_real_escape_string($_POST['lastName']);
+							
 						  if(!$check){
 
 							if($accountPass != stripslashes($_POST['accountPassc'])){
 							  $error[]="Passwords does not match.";
 							}
-
+							
+							if(empty($firstName)) $error[] = "You need to enter your first name.";
+							if(empty($lastName)) $error[] = "You need to enter your last name.";
+							
 							if(empty($accountEmail)){
 							  $error[]="You need to enter your e-mail";
 							}
@@ -128,7 +133,8 @@ _gaq.push(['_trackPageLoadTime']);
                     $register_logon = mysql_query("INSERT INTO account (username,sha_pass_hash,email,last_ip,expansion) VALUES (UPPER('".$accountName."'),  CONCAT('".$sha_pass_hash."'),'".$accountEmail."','".$ip."','3')")or die(mysql_error());
               
                     mysql_select_db($server_db,$connection_setup)or die(mysql_error());
-                    $register_cms = mysql_query("INSERT INTO users(id) VALUES ('".mysql_real_escape_string($accinfo['id'])."')");
+					$accountinfo = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_adb.account WHERE username = '".strtoupper($accountName)."'"));
+                    $register_cms = mysql_query("INSERT INTO users(id,firstName,lastName) VALUES ('".mysql_real_escape_string($accountinfo['id'])."','".$firstName."','".$lastName."')");
                 
                     if ($register_logon == true && $register_cms == true)
                     {
@@ -575,6 +581,7 @@ Date of Birth:
 <span class="input-select input-select-extra-extra-extra-small">
 <select name="dobYear" id="dobYear" class="extra-extra-extra-small border-5 glow-shadow-2" tabindex="1" required="required" disabled="disabled" >
 <option value="" selected="selected">Year</option>
+<option value="2012">2012</option>
 <option value="2011">2011</option>
 <option value="2010">2010</option>
 <option value="2009">2009</option>
@@ -716,9 +723,44 @@ Title:
 </span>
 </span>
 </div>
+
 <div class="input-row input-row-text">
 <span class="input-left">
 <label for="firstname">
+<span class="label-text">
+First Name:
+</span>
+<span class="input-required">*</span>
+</label>
+</span>
+<span class="input-right">
+<span class="input-text input-text-small">
+<input type="text" name="firstName" value="" id="firstname" class="small border-5 glow-shadow-2" autocomplete="off" maxlength="32" tabindex="1" required="required" placeholder="Enter First Name" />
+<span class="inline-message" id="firstName-message"></span>
+</span>
+</span>
+</div>
+
+<div class="input-row input-row-text">
+<span class="input-left">
+<label for="lastname">
+<span class="label-text">
+Last Name:
+</span>
+<span class="input-required">*</span>
+</label>
+</span>
+<span class="input-right">
+<span class="input-text input-text-small">
+<input type="text" name="lastName" value="" id="lastname" class="small border-5 glow-shadow-2" autocomplete="off" maxlength="32" tabindex="1" required="required" placeholder="Enter Last Name" />
+<span class="inline-message" id="lastName-message"></span>
+</span>
+</span>
+</div>
+
+<div class="input-row input-row-text">
+<span class="input-left">
+<label for="emailAddress">
 <span class="label-text">
 E-mail Address:
 </span>
@@ -735,6 +777,7 @@ E-mail Address:
 <span class="inline-message" id="emailAddressConfirmation-message"></span>
 </span>
 </span>
+
 </div>
 <div class="input-row input-row-text">
 <span class="input-left">
