@@ -7,7 +7,7 @@
 
 #station-view .bt-set { overflow: hidden; background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/wow/static/images/layout/cms/bt_lite_bg.png', sizingMethod='crop'); }
 #station-view .bt-set a:hover { background: none; }
-#station-view .bt-mask-l { background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/wow/static/images/layout/cms/bt_mask_bg.png', sizingMethod='crop'); }
+#station-view .bt-mask-l {  background-image:url(../images/layout/cms/bt_mask_bg.gif);  }
 
 #station-view .bt-mask-r { background-image:url(../images/layout/cms/bt_mask_bg.gif); }
 

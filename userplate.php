@@ -48,12 +48,12 @@
 	mysql_select_db($server_db,$connection_setup)or die(mysql_error());
 	?>
 <div class="user-plate">
-<div id="user-plate" class="card-character plate-0 ajax-update" style="background: url(<?php echo $website['root']; ?>wow/static/images/2d/card/<?php echo $actualchar["race"] . "-" . $actualchar["gender"];?>.jpg) 0 100% no-repeat;">
+<div id="user-plate" class="card-character plate-<?php echo $side; ?> ajax-update" style="background: url(<?php echo $website['root']; ?>wow/static/images/2d/card/<?php echo $actualchar["race"] . "-" . $actualchar["gender"];?>.jpg) 0 100% no-repeat;">
 <div class="card-overlay"></div>
 <span class="hover"></span>
 </a>
 <div class="meta">
-<div class="player-name"><?php echo strtolower($_SESSION['username']); ?></div>
+<div class="player-name"><?php echo $userInfo['firstName'].' '.$userInfo['lastName']; ?></div>
 	  
 	  <div class="character">
 	  <a class="character-name context-link" href="#" rel="np" data-tooltip="Change character"><?php echo $actualchar["name"]; ?><span class="arrow"></span></a>

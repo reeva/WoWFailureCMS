@@ -2,7 +2,7 @@
 /* ui */
 .ui-pagination li { float: left; display: block; margin-right: 2px; }
 .ui-pagination li a { float: left; }
-.ui-tooltip { float: left; width: 250px; }
+.ui-tooltip { float: left; }
 
 /* warnings */
 #service { float: right; }
@@ -13,3 +13,8 @@
 /* footer */
 #sitemap .column { width: 247px; }
 #copyright { line-height: normal; padding: 5px; }
+
+/* pagination */
+.ie7 #posts .post-pages { text-align:left }
+.ie7 #posts .post-pages .ui-pagination { float:right; margin-top:10px; position:relative; top:-6px;  }
+.ie7 #posts .post-pages .ui-pagination li { float:left; display:block; }

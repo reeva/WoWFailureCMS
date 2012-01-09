@@ -1,5 +1,7 @@
 
 a span { cursor:pointer }
+.ui-button,
+.ui-cancel { width: auto; }
 button.ui-button.hover span { background-position: 0 -41px }
 button.ui-button.hover span span { background-position: 100% -164px; }
 
@@ -9,9 +11,6 @@ button.ui-button.hover span span { background-position: 100% -164px; }
 /* service bar */
 #service { z-index: 150; }
 .service-bar { display: inline; zoom: 1; z-index: 150; }
-
-/* search bar */
-#search-bar #search { padding-top: 8px }
 
 /* menu */
 .ui-menu { zoom:1 }
@@ -37,9 +36,11 @@ button.ui-button.hover span span { background-position: 100% -164px; }
 #forum-list a.forum-parent,
 .comment-ta, .news-article, #news-updates, #blog, #station-view * { zoom:1 }
 
-
 /* Forums */
 .deleted .post-character { z-index:40 }
+.low-rated .post-user { filter:alpha(opacity=40) }
+#page-comments .low-rated { filter:alpha(opacity=30) }
+#page-comments .low-rated:hover { filter:alpha(opacity=60) }
 
 /* Search */
 .type-icon img { visibility:visible; }
@@ -57,6 +58,11 @@ comment-ta { zoom:1 }
 .bml-toolbar button { position: relative; zoom: 1 }
 
 /* slideshow */
-#slideshow .paging a { background: #aeaeae; overflow: hidden; }
-#slideshow .paging a:hover,
-#slideshow .paging a.current { background: #fff; }
+.ui-slideshow .paging a { background: #aeaeae; overflow: hidden; }
+.ui-slideshow .paging a:hover,
+.ui-slideshow .paging a.current { background: #fff; }
+
+/* pagination */
+.ui-pagination { zoom: 1; display: inline; }
+.ui-pagination li { zoom: 1; }
+#posts .post-pages .ui-pagination { position:relative; top:3px;  }

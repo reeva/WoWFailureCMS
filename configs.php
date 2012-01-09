@@ -53,7 +53,7 @@ $mysql_cod = 'cp1251';
 $website['title'] = "WoWFailureCMS";
 $website['slogan'] = "WoWFailureCMS, get your best CMS today, simple and fast!";
 $website['address'] = "http://www.wowfailure.co.cc";
-$website['root'] = "";
+$website['root'] = "/WoWFailureCMS/";
 
 ######################
 
