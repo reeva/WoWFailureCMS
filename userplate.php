@@ -1,6 +1,6 @@
 <?php if(!isset($_SESSION['username'])){ ?>
 <div class="user-plate">
-<a href="?login" class="card-login" onclick="BnetAds.trackImpression('Battle.net Login', 'Character Card', 'New'); return Login.open('login.php');">
+<a href="?login" onclick="return Login.open()" class="card-login" onclick="BnetAds.trackImpression('Battle.net Login', 'Character Card', 'New'); return Login.open('login.php');">
 <strong>Log in now</strong> to enhance and personalize your experience!
 </a>
 <div class="card-overlay"></div>

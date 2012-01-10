@@ -137,6 +137,17 @@ include("configs.php");
     echo "<h3><font color='green'>You're Logged In</font></h3>";
     
   } ?>
+	  <ul id="help-links">
+		  <li class="icon-pass">
+			<a href="#"><?php echo $Log['Log11']; ?></a>?
+		  </li>
+			<li class="icon-signup">
+			  <?php echo $Log['Log12']; ?><a href="register.php"><?php echo $Log['Log13']; ?></a>!
+			</li>
+		  <li class="icon-secure">
+			<?php echo $Log['Log14']; ?><a href="#"><?php echo $Log['Log15']; ?></a>!
+		  </li>
+	  </ul>
         <script type="text/javascript">
 			$(function() {
 				$("#ssl-trigger").click(function() {

@@ -104,7 +104,7 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 									<span><?php echo $Serv['Serv16']; ?></span>
 								</div>
 								<ul>
-								<li><a href="ban-list.php" class="c3-l6"><span><?php echo $Account7['Account7']; ?></span></a></li>
+								<li><a href="ban-list.php" class="c3-l6"><span><?php echo $Serv['Serv5']; ?></span></a></li>
 								<li><a href="javascript:;" class="c1-l1"><span><?php echo $Account6['Account6']; ?></span></a></li>
 								<li><a href="javascript:;" class="c1-l2"><span><?php echo $Account5['Account5']; ?></span></a></li>
 										<!--<li><a href="javascript:;" class="c1-l3"><span>Add an Authenticator</span></a></li>
