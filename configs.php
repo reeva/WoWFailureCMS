@@ -10,7 +10,7 @@ if(empty($lang)) $lang = 'en-us';
 
 $language = $lang;
 $langs = Array("en-us" => null, "ro-ro" => null, "en-db" => null, "it-it" => null, "de-de" => null, "es-es" => null, "bu-bg" => null , "es-mx" => null, "gr-gr" => null, "ru-ru" => null, "zh-cn" => null, "zh-tw" => null, "fr-fr" => null);
-if(array_key_exists($lang,$langs))require_once("/lang/".$lang.".php");
+if(array_key_exists($lang,$langs))require_once("lang/".$lang.".php");
 else require_once("/lang/en-us.php");
 $_SESSION['Local'] = $language;
 ######################
