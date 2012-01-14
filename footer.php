@@ -414,7 +414,7 @@ other: 'Other'
 //<![CDATA[
 Core.load("<?php echo $website['root']; ?>wow/static/local-common/js/third-party/jquery-ui-1.8.6.custom.min.js?v37");
 Core.load("<?php echo $website['root']; ?>wow/static/local-common/js/login.js?v37", false, function() {
-Login.embeddedUrl = '/loginframe.php';
+Login.embeddedUrl = '<?php echo $website['root']; ?>loginframe.php';
 });
 //]]>
 </script>
