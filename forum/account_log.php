@@ -1,5 +1,5 @@
 <?php
-require_once("configs.php");
+require_once("../configs.php");
 ?>
 <!DOCTYPE html>
 <html lang="en-us">
@@ -46,7 +46,7 @@ For updates, follow <a tabindex="1" target="_blank" href="http://www.twitter.com
 </div>
 <div class="footer" id="en-us:footer"><center>
 <small><?php echo $copyright3['copyright3']; ?>.<br /><?php echo $copyright['copyright'];  echo $website['title']; ?>.<br /><?php echo $copyright4['copyright4']; ?></small><a href="http://www.strawberry-pr0jcts.com/forum/index.php?/forum/27-wowfailurecms/" height="46" width="190">
-<p><img src="<?php echo $website['root'];?>wow/static/images/logos/wof-logo-small.png" height="46px" width="190px"/></center></a></p>
+<p><img src="<?php echo $website['root'];?>wow/static/images/logos/wof-logo-small.png" /></center></a></p>
 <span class="language">English (US)</span><br>
 </div></div>
 </body>
