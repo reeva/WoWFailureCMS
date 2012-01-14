@@ -10,8 +10,8 @@ require_once("configs.php");
 <!--[if IE]><link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie.css?v17" /><![endif]-->
 <!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie6.css?v17" /><![endif]-->
 <!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie7.css?v17" /><![endif]-->
-<link rel="stylesheet" type="text/css" media="all" href="wow/static/css/wowe6dd.css?v7" />
-<link rel="stylesheet" type="text/css" media="all" href="wow/static/css/status/realmstatuse6dd.css?v7" />
+<link rel="stylesheet" type="text/css" media="all" href="wow/static/css/wow.css?v7" />
+<link rel="stylesheet" type="text/css" media="all" href="wow/static/css/status/realmstatus.css?v7" />
 <!--[if IE]><link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie.css?v7" /><![endif]-->
 <!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie6.css?v7" /><![endif]-->
 <!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie7.css?v7" /><![endif]-->
