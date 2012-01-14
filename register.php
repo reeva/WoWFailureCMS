@@ -1110,7 +1110,7 @@ Core.load("wow/static/local-common/js/third-party/jquery-ui-1.8.6.custom.min.js"
 Core.load("wow/static/local-common/js/third-party/jquery.mousewheel.min.js");
 Core.load("wow/static/local-common/js/third-party/jquery.tinyscrollbar.custom.js");
 Core.load("wow/static/local-common/js/login.js", false, function() {
-Login.embeddedUrl = 'https://eu.battle.net/login/login.frag';
+Login.embeddedUrl = '<?php echo $website['root'];?>loginframe.php';
 });
 //]]>
 </script>

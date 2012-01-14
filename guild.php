@@ -822,7 +822,7 @@ other: 'Other'
 //<![CDATA[
 Core.load("wow/static/local-common/js/third-party/jquery-ui-1.8.6.custom.min6cc4.js");
 Core.load("wow/static/local-common/js/login6cc4.js", false, function() {
-Login.embeddedUrl = 'https://eu.battle.net/login/login.frag';
+Login.embeddedUrl = '<?php echo $website['root'];?>loginframe.php';
 });
 //]]>
 </script>
