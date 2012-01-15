@@ -782,6 +782,8 @@ Services
 	<h3 class="category ">						Recent Activity
 </h3>
 					<div class="profile-box-simple">
+					<p>There is no Recent Activity.</p>
+					This feature is Disabled.
 	<ul class="activity-feed">
 
 
@@ -886,10 +888,11 @@ Services
 	Earned the achievement <a href="achievement#97:14777:a769" data-achievement="769">Explore Silverpine Forest</a> for 10 points.
 </dd>
 		<dt>17/04/2011</dt>-->
+		
 	</dl>
 	</li>
 	</ul>
-	<div class="profile-linktomore">
+	<div class="profile-linktomore">	
 		<a href="" rel="np">View earlier activity</a>
 	</div>
 
@@ -1762,9 +1765,9 @@ Services
 
 							<div class="summary-battlegrounds">
 	<ul>
-		<li class="rating"><span class="name">Total Honor</span><span class="value"><?php echo $honor ?></span><span class="clear"><!-- --></span>
+		<li class="rating"><span class="name">Total Honor</span><span class="value"><?php echo @$honor ?></span><span class="clear"><!-- --></span>
 </li>
-		<li class="kills"><span class="name">Total Conquest</span><span class="value"><?php echo $conq ?></span><span class="clear"><!-- --></span>
+		<li class="kills"><span class="name">Total Conquest</span><span class="value"><?php echo @$conq ?></span><span class="clear"><!-- --></span>
 </li>
 	</ul>
 							</div>

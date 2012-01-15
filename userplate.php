@@ -74,7 +74,7 @@
 			</div>
 		  
 			<div class="context-links">
-			<a href="#" title="Profile" class="icon-profile link-first">Profile</a>
+			<a href="advanced.php?name=<?php echo $actualchar["name"]; ?>" title="Profile" class="icon-profile link-first">Profile</a>
 			<a href="#" title="View my posts" class="icon-posts"> </a>
 			<a href="#" title="View auctions" rel="np"class="icon-auctions"> </a>
 			<a href="#" title="View events" rel="np" class="icon-events link-last"> </a>
