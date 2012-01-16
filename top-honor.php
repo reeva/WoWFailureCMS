@@ -249,7 +249,7 @@ if($numrows > 0)
 while($rows = mysql_fetch_object($result))
  
 { 
- $i++; 
+ @$i++; 
  $name = $rows->name; 
  $level = $rows->level;  
  $Total_Kills = $rows->totalKills;
@@ -297,11 +297,11 @@ while($rows = mysql_fetch_object($result))
  $class = "<img src='wow/static/images/icons/class/11.gif' width='18' height='18'/>";
  }
  // Alliance or Horde FLAG
-if($rrace == 2 || $rrace == 5 || $rrace == 6 || $rrace == 8 || $rrace == 9 || $rrace == 10)
+if(@$rrace == 2 || @$rrace == 5 || @$rrace == 6 || @$rrace == 8 || @$rrace == 9 || @$rrace == 10)
 {
 $bg = "<img src='wow/static/images/icons/faction/ally.gif' width='18' height='18'/>";
 }
-elseif($rrace == 1 || $rrace == 3 || $rrace == 4 || $rrace == 7 || $rrace == 11 || $rrace == 22)
+elseif(@$rrace == 1 || @$rrace == 3 || @$rrace == 4 || @$rrace == 7 || @$rrace == 11 || @$rrace == 22)
 {
 $bg = "<img src='wow/static/images/icons/faction/horde.gif' width='18' height='18'/>";
 }
@@ -407,11 +407,11 @@ while($rows = mysql_fetch_object($result))
  $class = "<img src='wow/static/images/icons/class/10.gif' width='18' height='18'/>";
  }
   // Alliance or Horde FLAG
-if($rrace == 2 || $rrace == 5 || $rrace == 6 || $rrace == 8 || $rrace == 9 || $rrace == 10)
+if(@$rrace == 2 || @$rrace == 5 || @$rrace == 6 || @$rrace == 8 || @$rrace == 9 || @$rrace == 10)
 {
 $bg = "<img src='wow/static/images/icons/faction/ally.gif' width='18' height='18'/>";
 }
-elseif($rrace == 1 || $rrace == 3 || $rrace == 4 || $rrace == 7 || $rrace == 11 || $rrace == 22)
+elseif(@$rrace == 1 || @$rrace == 3 || @$rrace == 4 || @$rrace == 7 || @$rrace == 11 || @$rrace == 22)
 {
 $bg = "<img src='wow/static/images/icons/faction/horde.gif' width='18' height='18'/>";
 }
@@ -508,14 +508,13 @@ echo"</table><br/>";
 			</tbody>-->
 		</table>
 	</div>
-		</div>
+		</div></div></div>
 
 	<span class="clear"><!-- --></span>
 
 </div>
 </div>
 </div>
-<?php include("functions/footer_man.php"); ?>
-<?php include("functions/footer_man_nav.php"); ?>
+<?php include("footer.php"); ?>
 <div id="fansite-menu" class="ui-fansite"></div><div id="menu-container"></div><ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" role="listbox" aria-activedescendant="ui-active-menuitem" style="z-index: 6; top: 0px; left: 0px; display: none; "></ul></body>
 </html>
