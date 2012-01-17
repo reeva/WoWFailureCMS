@@ -19,7 +19,7 @@
     $login_query = mysql_query("SELECT * FROM $server_adb.account WHERE username = '".mysql_real_escape_string($_SESSION["username"])."'");
     $login2 = mysql_fetch_assoc($login_query);	
 	$uI = mysql_query("SELECT * FROM $server_db.users WHERE id = '".$login2['id']."'");
-	$userInfo = mysql_fetch_assoc($uI);
+	@$userInfo = mysql_fetch_assoc($uI);
 	mysql_select_db($server_cdb ,$connection_setup)or die(mysql_error());
 	$chars_query = mysql_query("SELECT name, class, race, level, gender FROM characters WHERE account = ". $login2['id'] ." ORDER BY guid ASC LIMIT 1");
 	if(mysql_num_rows($chars_query) > 0){
