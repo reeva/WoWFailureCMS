@@ -468,25 +468,6 @@ $page_cat = "home";
 								</div>
 							</div>
 							<br>
-							<div>
-								<div class="sidebar-title">
-									<h3 class="title-sotd">
-										<a href=""><?php echo $Ind['Ind20']; ?></a>
-									</h3>
-								</div>
-
-								<div class="sidebar-content">
-									<div class="sotd" alt="Map" style="background-image: url(http://rh.revolvermaps.com/h/m/a/0/ffffff/180/10/7shj9utgbpg.png);" height="180">
-									<a href="http://www.revolvermaps.com/?target=enlarge&amp;i=7omrra41w5x&amp;color=ffffff&amp;m=0" class="image"> </a>
-										<div class="caption">
-											<a class="view"><?php echo $Ind['Ind21']; ?><font color="green"><?php echo $Ind['Ind22']; ?></font></a>
-											<a href="http://www.revolvermaps.com/?target=enlarge&amp;i=7omrra41w5x&amp;color=ffffff&amp;m=0" class="submit"><?php echo $Ind['Ind23']; ?></a>
-										<span class="clear"><!-- --></span>
-										</div>
-									</div>
-								</div>
-							</div>
-							
 						</div>
 
 						<div class="sidebar-module" id="sidebar-forums">
