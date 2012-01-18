@@ -253,9 +253,9 @@ $page_cat = "home";
 						echo "<font color='#00FF00'><b>Uptime :</b></font> <span class='date'>$uptime</span> <br>";
 						?>
 						<div class="sidebar-module" id="sidebar">
-						  <?php echo $website['title']; ?><?php echo $Ind['Ind5']; ?><span class="date"><?php echo $website['realm']; ?></span><br />
-						  <?php echo $website['title']; ?><?php echo $Ind['Ind6']; ?><span class="date"><font color='#FF0000'>4.0.6a</font></span><br />
-						  <?php echo $website['title']; ?><?php echo $Ind['Ind7']; ?><span class="date">
+						  <?php echo $Ind['Ind5']; ?><span class="date"><?php echo $website['realm']; ?></span><br />
+						  <?php echo $Ind['Ind6']; ?><span class="date"><font color='#FF0000'>4.0.6a</font></span><br />
+						  <?php echo $Ind['Ind7']; ?><span class="date">
 						  <?php
 						require_once("configs.php");
 
@@ -285,7 +285,8 @@ $page_cat = "home";
 						echo ("<font color='#FF0000'>$char</font>");
 
 						mysql_close($conn);
-						?><?php echo $Ind['Ind10']; ?></span><br />
+						?>
+						<?php echo $Ind['Ind10']; ?></span><br />
 						<span class="clear"><!-- --></span>
 						<br/>
 						<div class="sidebar-title"><h3 class="title-bnet-ads"><?php echo $name_realm1['realm']; ?> <img src="wow\static\local-common\images\icons\employee.gif" width="20" height="14" align="right" style="margin-top:6px" /></h3></div>

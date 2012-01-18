@@ -486,17 +486,21 @@ _gaq.push(['_trackPageview']);
 									<div class="sidebar-title">
 										<h3 class="title-recent"> Recent Articles </h3>
 									</div>
-									<div class="featured-news">
+									<div class="sidebar-content">
 											<?php
 											$articles_query = mysql_query("SELECT * FROM news ORDER BY DATE desc LIMIT 6")or print("No Articles");
 											while($articles = mysql_fetch_array($articles_query)){
 											?>
-											<div class="featured">
+											<ul class="articles-list">
+											<li>
 												<a href="news.php?id=<?php echo $articles['id']; ?>">
-													<span class="featured-desc"> <?php echo $articles['title']; ?></span>
+												<span class="image" style="background-image: url('news/<?php echo $articles['image']; ?>.jpg');"></span>
+													<span class="title"> <?php echo $articles['title']; ?></span>
 												   <span class="date"><?php echo $articles['date']; ?></span>
+												   <span class="clear"></span>
 												</a>
-											</div>
+												</li>
+											</ul>
 											<?php
 											}
 											?>
@@ -508,12 +512,28 @@ _gaq.push(['_trackPageview']);
 							
 							<div class="sidebar-module" id="sidebar-forums">
 								<div class="sidebar-title">
-									<h3 class="title-forums"><?php echo $P_topics['P_topics']; ?></h3>
-								</div><br />
-								<div align="center">
-								<?php echo $loading_forum_sett['loading_forum_sett']; ?>
-								<div class="sidebar-content loading"></div>
-								</div>
+							<h3 class="category title-forums"><a href="#"><?php echo $P_topics['P_topics']; ?></a></h3>
+							</div>
+							<div class="sidebar-content">
+							<ul class="trending-topics">
+								<?php
+								$get_lastactivity = mysql_query("SELECT * FROM $server_db.forum_threads ORDER BY `last_date` DESC LIMIT 10");
+								if(mysql_num_rows($get_lastactivity) > 0){
+								while($lastact = mysql_fetch_array($get_lastactivity)){
+									$forum = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_db.forum_forums WHERE id = '".$lastact['forumid']."'"));
+									echo '
+									<li>
+									<a href="forum/category/view-topic/?t='.$lastact['id'].'" class="topic">
+									'.$lastact['name'].'</a>
+									<a class="forum">'.$forum['name'].'</a> - <span class="date">00/00/00 00:00</span></li>
+									';
+								}
+								}else{
+									echo 'No Topics';
+								}
+								?>
+								</ul>
+							</div>
 							</div>
 						</div>
 	
