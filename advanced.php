@@ -8,7 +8,6 @@ include("functions/armory_items_func.php")
 <head>
 <title><?php echo $website['title']; ?> - Armory</title>
 <meta content="false" http-equiv="imagetoolbar" />
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common.css" />
 <!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie.css" /><![endif]-->
@@ -34,34 +33,7 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 //]]>
 </script>
 <![endif]-->
-<script type="text/javascript">
-//<![CDATA[
-Core.staticUrl = '/wow/static';
-Core.sharedStaticUrl= '/wow/static/local-common';
-Core.baseUrl = '/wow/en';
-Core.projectUrl = '/wow';
-Core.cdnUrl = 'http://eu.media.blizzard.com';
-Core.supportUrl = 'http://eu.battle.net/support/';
-Core.secureSupportUrl= 'https://eu.battle.net/support/';
-Core.project = 'wow';
-Core.locale = 'en-gb';
-Core.language = 'en';
-Core.buildRegion = 'eu';
-Core.region = 'eu';
-Core.shortDateFormat= 'dd/MM/yyyy';
-Core.dateTimeFormat = 'dd/MM/yyyy HH:mm';
-Core.loggedIn = false;
-Flash.videoPlayer = 'http://eu.media.blizzard.com/global-video-player/themes/wow/video-player.swf';
-Flash.videoBase = 'http://eu.media.blizzard.com/wow/media/videos';
-Flash.ratingImage = 'http://eu.media.blizzard.com/global-video-player/ratings/wow/rating-pegi.jpg';
-Flash.expressInstall= 'http://eu.media.blizzard.com/global-video-player/expressInstall.swf';
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-544112-16']);
-_gaq.push(['_setDomainName', '.battle.net']);
-_gaq.push(['_trackPageview']);
-_gaq.push(['_trackPageLoadTime']);
-//]]>
-</script>
+
 <style type="text/css">
  #content
  .content-top{background-image:url("wow/static/images/character/summary/backgrounds/race/<?php echo @$get["race"] ?>.jpg"); left top no-repeat;}
@@ -165,9 +137,10 @@ Services
 	<div class="summary-top">
 	<div class="summary-top-right">
 	<ul class="profile-view-options" id="profile-view-options-summary">
-	<li class="current">
-	<a href="" rel="np" class="advanced">Advanced</a></li>
 	<li>
+	<a rel="np" class="threed">3D Model</a></li>
+	<li class="current">
+	<a href="advanced.php?name=<?php echo @$name = $_GET['name'];?>" rel="np" class="advanced">Advanced</a></li>
 	</ul>
 	<div class="summary-averageilvl">
 	<div class="rest">Average item level<br/>(<span class="equipped">20</span> Equipped)
@@ -175,9 +148,143 @@ Services
 	<div id="summary-averageilvl-best" class="best tip" data-id="averageilvl">20</div>
 	</div>
 	</div>
+	
+
 	<br>
 	<div class="summary-top-inventory">
 	<div id="summary-inventory" class="summary-inventory summary-inventory-advanced">
+	<div class="character-3d">
+	<?php
+
+$dbc = mysql_connect($serveraddress, $serveruser, $serverpass);
+
+    $errors = 0;
+
+    mysql_select_db($server_cdb);
+    $query_select_character = "SELECT guid, race, gender, playerBytes, playerBytes2 FROM characters WHERE name = '".@$name = $_GET['name']."' LIMIT 1";
+    $result_select_character = mysql_query($query_select_character);
+
+    if (!mysql_num_rows($result_select_character) == 0) 
+    { // If OK
+
+        $row = mysql_fetch_array($result_select_character);
+
+        $guid = $row['guid'];
+        $race = $row['race'];
+        $gender = $row['gender'];
+        $b = $row['playerBytes'];
+        $b2 = $row['playerBytes2'];
+
+        // Set Character Features
+        $ha = ($b>>16)%256;
+        $hc = ($b>>24)%256;
+        $fa = ($b>>8)%256;
+        $sk = $b%256;
+        $fh = $b2%256;
+
+        // Set Character Race/Gender
+        $char_race = array(
+        1 => 'human',
+        2 => 'orc',
+        3 => 'dwarf',
+        4 => 'nightelf',
+        5 => 'scourge',
+        6 => 'tauren',
+        7 => 'gnome',
+        8 => 'troll',
+        10 => 'bloodelf',
+        11 => 'draenei');
+
+        $char_gender = array(
+        0 => 'male',
+        1 => 'female');
+
+        $rg = $char_race[$race].$char_gender[$gender];
+
+        $query_select_guid = mysql_query("SELECT item FROM character_inventory WHERE guid = '$guid' AND bag='0' AND slot <'18'");
+        if (mysql_num_rows($query_select_guid) != 0) 
+        {
+            $eq = "";
+            while($row_select_guid = mysql_fetch_array($query_select_guid))
+            {
+                $item = $row_select_guid['item'];
+                mysql_select_db($server_cdb);
+                $query_select_itemEntry = mysql_query("SELECT itemEntry FROM item_instance WHERE guid = '$item'");
+                if (mysql_num_rows($query_select_itemEntry) != 0) 
+                {
+                    while ($row_itemEntry = mysql_fetch_array($query_select_itemEntry)) 
+                    {
+                        $itemEntry = $row_itemEntry['itemEntry'];
+                        if ($itemEntry != "") 
+                        {
+                            mysql_select_db($server_wdb);
+                            $query_select_item = "SELECT displayid, InventoryType FROM item_template WHERE entry = '$itemEntry' LIMIT 1";
+                            $result_select_item = mysql_query($query_select_item);
+                            if (!mysql_num_rows($result_select_item) == 0) 
+                            {
+                                $row_item = mysql_fetch_array($result_select_item);
+                                $displayid = $row_item['displayid'];
+                                $inventory_type = $row_item['InventoryType'];
+                                if ($eq == "") 
+                                {
+                                    $eq = $inventory_type.','.$displayid;
+                                } else 
+                                {
+                                    $eq .= ','.$inventory_type.','.$displayid;
+                                }
+                            } 
+                            else 
+                            {
+                                // If not OK
+                                echo '<p>The DisplayID could not be retrieved. We apologize for any inconvenience.</p>'; // Public message.
+                                //echo '<p>' . mysql_error() . '<br /><br />Query: ' . $query . '</p>'; // Debugging message.
+                                $errors++;
+                            }
+                        }
+                        else 
+                        {
+                            // If not OK
+                            echo '<p>The itemEntry could not be retrieved. We apologize for any inconvenience.</p>'; // Public message.
+                            //echo '<p>' . mysql_error() . '<br /><br />Query: ' . $query . '</p>'; // Debugging message.
+                            $errors++;
+                        }
+                    }
+                } 
+                else 
+                { 
+                    // If not OK
+                    echo '<p>The Inventory could not be retrieved. We apologize for any inconvenience.</p>'; // Public message.
+                    //echo '<p>' . mysql_error() . '<br /><br />Query: ' . $query . '</p>'; // Debugging message.
+                    $errors++;
+                }
+            }
+        } 
+    }
+    else 
+    { 
+        // If not OK
+        echo '<p>The Character could not be retrieved. We apologize for any inconvenience.</p>'; // Public message.
+        //echo '<p>' . mysql_error() . '<br /><br />Query: ' . $query . '</p>'; // Debugging message.
+        $errors++;
+    }
+
+    if ($errors == 0) 
+    {
+        echo '<div id="model_scene" align="center">';
+        echo '<object id="wowhead" type="application/x-shockwave-flash" data="http://static.wowhead.com/modelviewer/ModelView.swf" height="440px" width="440px">';
+        echo '<param name="quality" value="high">';
+        echo '<param name="allowscriptaccess" value="always">';
+        echo '<param name="menu" value="false">';
+        echo '<param value="transparent" name="wmode">';
+        echo printf('<param name="flashvars" value="model=%s&amp;modelType=16&amp;ha=%s&amp;hc=%s&amp;fa=%s&amp;sk=%s&amp;fh=%s&amp;fc=0&amp;contentPath=http://static.wowhead.com/modelviewer/&amp;blur=0&amp;equipList=%s">', $rg,$ha,$hc,$fa,$sk,$fh,$eq);
+        echo '<param name="movie" value="http://static.wowhead.com/modelviewer/ModelView.swf">';
+        echo '</object>';
+        echo '</div>';
+    }
+ // End of Submit Conditional
+
+?>
+</div>
 	<div data-id="0" data-type="1" class="slot slot-1" style=" left: 0px; top: 0px;">
 	<div class="slot-inner">
 	<div class="slot-contents">
@@ -585,7 +692,7 @@ Services
 		</div>
 	</div>
 	</div>
-
+</div>
         <script type="text/javascript">
         //<![CDATA[
 		$(document).ready(function() {
@@ -687,7 +794,7 @@ Services
 
 				</div>
 
-		</div>
+		
 
 			<div class="summary-middle">
 				<div class="summary-middle-inner">
@@ -2262,8 +2369,8 @@ other: 'Other'
 };
 //]]>
 </script>
-<script type="text/javascript" src="wow/static/local-common/js/menu.js"></script>
-<script type="text/javascript" src="wow/static/js/wow.js"></script>
+<script type="text/javascript" src="<?php echo $website['root']; ?>wow/static/local-common/js/menu.js"></script>
+<script type="text/javascript" src="<?php echo $website['root']; ?>wow/static/js/wow.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $(function(){
@@ -2276,9 +2383,9 @@ Search.initialize('/ta/lookup');
 <script type="text/javascript" src="<?php echo $website['root']; ?>wow/static/js/character/summary.js"></script>
 <script type="text/javascript">
 //<![CDATA[
-Core.load("wow/static/local-common/js/third-party/jquery-ui-1.8.6.custom.min.js");
-Core.load("wow/static/local-common/js/search.js");
-Core.load("wow/static/local-common/js/login.js", false, function() {
+Core.load("<?php echo $website['root']; ?>wow/static/local-common/js/third-party/jquery-ui-1.8.6.custom.min.js");
+Core.load("<?php echo $website['root']; ?>wow/static/local-common/js/search.js");
+Core.load("<?php echo $website['root']; ?>wow/static/local-common/js/login.js", false, function() {
 if (typeof Login !== 'undefined') {
 Login.embeddedUrl = '<?php echo $website['root'];?>loginframe.php';
 }

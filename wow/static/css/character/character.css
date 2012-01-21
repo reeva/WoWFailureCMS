@@ -34,6 +34,7 @@ ul.profile-sidebar-menu a:hover { background: url("../../images/profile/sidebar-
 .summary-middle-right { float: right; width: 333px; }
 .summary-bottom { padding: 32px 40px; background: url("../../images/character/summary/bottom-bg.png") left top no-repeat; min-height: 655px; }
 .summary-bottom-left { margin-right: 367px; }
+.character-3d { position:absolute; top:5; right:0; left:180; width:0px; }
 
 /* view options */
 .summary-top-right ul.profile-view-options { position: absolute; right: 25px; top: 56px; }
