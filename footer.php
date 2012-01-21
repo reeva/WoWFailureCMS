@@ -262,8 +262,6 @@ shim.style.display = 'block';
 <ul>
 <li><a href="" tabindex="55"><?php echo $Retrieve['Retrieve']; ?></a></li>
 <li><a href="" tabindex="55"><?php echo $Client_down3['Client_down3']; ?></a></li>
-<li><a href="" tabindex="55"><center><script type="text/javascript" src="http://ja.revolvermaps.com/b.js">
-</script><script type="text/javascript">rmb_ki101('0ffftggap25','','26','26',1,'ffffff','010020','aa0000');</script><br><?php echo $Find['Find']; ?></center></a></li>
 </ul>
 </div>
 <span class="clear"><!-- --></span>
