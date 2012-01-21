@@ -64,8 +64,8 @@ _gaq.push(['_trackPageLoadTime']);
 </script>
 <style type="text/css">
  #content
- .content-top{background-image:url("wow/static/images/character/summary/backgrounds/race/<?php echo $get["race"] ?>.jpg"); left top no-repeat;}
- .profile-wrapper{background-image:url("wow/static/images/character/summary/backgrounds/class/<?php echo $get["race"] ?>-<?php echo $get["gender"] ?>.jpg");}
+ .content-top{background-image:url("wow/static/images/character/summary/backgrounds/race/<?php echo @$get["race"] ?>.jpg"); left top no-repeat;}
+ .profile-wrapper{background-image:url("wow/static/images/character/summary/backgrounds/class/<?php echo $get["race"] ?>-<?php echo @$get["gender"] ?>.jpg");}
  </style>
 </head>
 <body class="en-gb">
@@ -87,27 +87,27 @@ Services
 </li>
 <li class="last">
 <a href="" rel="np">
-<?php echo $name = $_GET['name'];?> @ <?php echo $name_realm1['realm']; ?>
+<?php echo @$name = $_GET['name'];?> @ <?php echo @$name_realm1['realm']; ?>
 </a>
 </li>
 </ol>
 </div>
 <div class="content-bot">
-	<div id="profile-wrapper" class="profile-wrapper profile-wrapper-advanced profile-wrapper-<?php echo $bg ?>">
+	<div id="profile-wrapper" class="profile-wrapper profile-wrapper-advanced profile-wrapper-<?php echo @$bg ?>">
 	<div class="profile-sidebar-anchor">
 	<div class="profile-sidebar-outer">
 	<div class="profile-sidebar-inner">
 	<div class="profile-sidebar-contents">
 	<div class="profile-info-anchor">
 	<div class="profile-info">
-	<div class="name"><a href="" rel="np"><?php echo $name = $_GET['name'];?></a></div>
+	<div class="name"><a href="" rel="np"><?php echo @$name = $_GET['name'];?></a></div>
 	<div class="title-guild">
 	<div class="title">&#160;</div>
 	</div>
 
 	<span class="clear"><!-- --></span>
-	<div class="under-name color-c<?php echo $get["class"] ?>"><!-- class="under-name color-c1 is warrior, to be paladin it has to be class="under-name color-c2, so what we change here is the number of the class c2, c3, c4, ... -->
-	<span class="level"><strong><?php echo $get["level"] ?></strong></span> <a href="" class="race"><?php echo $race ?></a> <a id="profile-info-spec" href="" class="spec tip">TALENT</a> <a href="" class="class"><?php echo $class2 ?></a><span class="comma">,</span>
+	<div class="under-name color-c<?php echo @$get["class"] ?>"><!-- class="under-name color-c1 is warrior, to be paladin it has to be class="under-name color-c2, so what we change here is the number of the class c2, c3, c4, ... -->
+	<span class="level"><strong><?php echo @$get["level"] ?></strong></span> <a href="" class="race"><?php echo $race ?></a> <a id="profile-info-spec" href="" class="spec tip">TALENT</a> <a href="" class="class"><?php echo $class2 ?></a><span class="comma">,</span>
 	<span class="realm tip" id="profile-info-realm" data-battlegroup=""><?php echo $name_realm1['realm']; ?></span>
 	</div>
 	<div class="achievements"><a href="">A.Points</a></div>
@@ -350,14 +350,13 @@ Services
 					<div class="details">
 							<!--<span class="name-shadow">Battleforge Gauntlets of the Bear</span>
 							<span class="name color-q2">
-								
 								<a href="http://www.wowhead.com/item=6595" data-item="e=17&amp;r=1191&amp;s=1597971648&amp;d=35">Battleforge Gauntlets of the Bear</a>
-							</span>
+								</span>
 								<span class="enchant-shadow">
-									Heavy Armor Kit
+								Heavy Armor Kit
 								</span>
 								<div class="enchant color-q2">
-<a href="http://www.wowhead.com/item=4265">Heavy Armor Kit</a>
+								<a href="http://www.wowhead.com/item=4265">Heavy Armor Kit</a>
 								</div>
 							<span class="level">28</span>-->
 						</div>

@@ -585,7 +585,7 @@ body {
 	line-height:40px
 }
 #content .datalist ul li p.descrip {
-	width:310px;
+	width:480px;
 	height:43px;
 	float:left;
 	font-family:Tahoma, Geneva, sans-serif;
@@ -594,7 +594,7 @@ body {
 	line-height:40px
 }
 #content .datalist ul li p.descripHead {
-	width:310px;
+	width:480px;
 	height:43px;
 	float:left;
 	font-family:Tahoma, Geneva, sans-serif;
@@ -768,8 +768,8 @@ body {
 	float:left;
 	margin-top:20px;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:11px;
-	color:#8a8a8a
+	font-size:13px;
+	color:#000000
 }
 #content .forms .styleForm p label {
 	width:auto;
@@ -779,7 +779,7 @@ body {
 #content .forms .styleForm input.reg {
 	width:208px;
 	height:15px;
-	float:left;
+	/* [disabled]float:left; */
 	padding:5px;
 	margin-top:10px;
 	font-family:Arial, Helvetica, sans-serif;

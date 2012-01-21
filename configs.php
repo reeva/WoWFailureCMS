@@ -45,6 +45,7 @@ $name_realm2['realm'] = "Server_Name_2";
 $realm_count = '1';
 $charLimit = '10';
 $mysql_cod = 'cp1251';
+$core = "strawberry";
 
 ######################
 
