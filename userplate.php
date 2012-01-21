@@ -265,8 +265,9 @@
 	</a>
 	<div class="meta">
 	<div class="player-name">';
-	echo strtolower($_SESSION['username']);
-	echo '</div>
+	echo $userInfo['firstName'].'
+	'.$userInfo['lastName'].'
+	</div>
 	<div class="character">
 	  <a class="character-name context-link" href="#" rel="np" data-tooltip="Change character">0 Characters</span></a>
 	  <div class="guild">

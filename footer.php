@@ -180,7 +180,7 @@
 <ul class="service-bar">
 <li class="service-cell service-home"><a href="#" tabindex="50" accesskey="1" title="Home"><div style="width:45px;">&nbsp;</div></a></li>
 <?php if(isset($_SESSION['username'])){ ?>
-<li class="service-cell service-welcome"><?php echo $Welcome['Welcome']; ?><a href=""><?php echo strtolower($_SESSION['username']); ?></a> | <a href="<?php echo $website['root'];?>logout.php"><?php echo $logout['logout']; ?></a></li>
+<li class="service-cell service-welcome"><?php echo $Welcome['Welcome']; ?><?php echo $userInfo['firstName']; ?> | <a href="<?php echo $website['root'];?>logout.php"><?php echo $logout['logout']; ?></a></li>
 <?php }else{ ?>
 <li class="service-cell service-welcome"><a href="?login" onclick="return Login.open()"><?php echo $login['login']; ?></a> or <a href="register.php"><?php echo $Account3['Account3']; ?></a></li>
 <?php } ?>
