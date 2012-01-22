@@ -805,6 +805,7 @@ var App = {
 		var supportLink = $('#support-link');
 		var exploreLink = $('#explore-link');
 		var newsLink = $('#breaking-link');
+		var authLink = $('#auth-link');
 
 		if (supportLink.length > 0) {
 			supportLink.unbind().click(function() {
@@ -812,6 +813,35 @@ var App = {
 				Toggle.open(this, 'active', '#support-menu');
 				return false;
 			});
+		}
+
+		if (authLink.length > 0) {
+			authLink.unbind().click(function() {
+				BnetAds.trackImpression('Battle.net Authenticator', 'Menu Toggle', $('#auth-menu').is(':hidden') ? 'Open' : 'Close');
+				Toggle.open(this, 'active', '#auth-menu');
+				return false;
+			});
+
+			$('#auth-menu a').click(function() {
+				var label;
+
+				if (this.className == 'auth-close') {
+					Toggle.open(authLink, 'active', '#auth-menu');
+					authLink.parent().hide();
+					label = 'Close';
+				} else if (this.className == 'auth-button') {
+					label = 'Add';
+				} else {
+					label = 'More';
+				}
+
+				BnetAds.trackImpression('Battle.net Authenticator', 'Link Click', label);
+
+				Cookie.create('serviceBar.authCheck', 1, {
+					expires: 744, // 1 month of hours
+					path: '/'
+				});
+			})
 		}
 
 		if (exploreLink.length > 0) {
@@ -825,7 +855,8 @@ var App = {
 				var label = $this.data('label');
 				if(!label) {
 					label = 'Other';
-		}
+				}
+
 				BnetAds.trackImpression('Battle.net Explore Menu', 'Link Click', label);
 			});
 		}
@@ -1718,7 +1749,7 @@ var CharSelect = {
 			success: function(content) {
 				var refreshUrl = switchUrl;
 
-				if (Core.isIE(9)) {
+				if (Core.isIE()) {
 					location.reload(true);
 				}
 
@@ -1740,13 +1771,21 @@ var CharSelect = {
 					refreshUrl = Core.baseUrl +'/';
 
 				// Request new content or replace
-				if (refreshUrl != switchUrl)
+				/*if (refreshUrl != switchUrl)
 					CharSelect.pageUpdate(refreshUrl);
 				else
-					CharSelect.replace(content);
+					CharSelect.replace(content);   */
+
+				// Grab the whole page
+				CharSelect.pageUpdate();
 			}
 		})
 	},
+
+	/**
+	 * Textarea content to persist between switches.
+	 */
+	textareaContent: '',
 
 	/**
 	 * Replace elements in the current page with fetched elements.
@@ -1767,7 +1806,15 @@ var CharSelect = {
 				target = '.'+ target.split(' ')[0];
 			}
 
-			self.replaceWith( pageData.find(target +'.ajax-update').clone() );
+			var clone = pageData.find(target + '.ajax-update').clone(),
+				textarea = self.find('textarea');
+
+			if (textarea.length && textarea.val().length) {
+				CharSelect.textareaContent = textarea.val();
+			}
+
+			clone.find('textarea').val(CharSelect.textareaContent);
+			self.replaceWith(clone);
 		});
 
 		CharSelect.initialize();
@@ -1792,7 +1839,7 @@ var CharSelect = {
 		refreshUrl = refreshUrl + ((refreshUrl.indexOf('?') > -1) ? '&' : '?') +"cachekill="+ ck;
 
 		$.ajax({
-			url: refreshUrl,
+			url: location.href,
 			global: false,
 			error: function(xhr) {
 				if (fallbackUrl) {

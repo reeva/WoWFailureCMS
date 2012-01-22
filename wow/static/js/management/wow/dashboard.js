@@ -7,7 +7,7 @@ $(document).ready(function() {
  *
  * @copyright   2010, Blizzard Entertainment, Inc.
  * @class       Services
- * @requires    
+ * @requires
  * @example
  *
  *      Services.initialize();
@@ -19,11 +19,12 @@ var Services = {
 	initialize: function() {
 		Services.wrapper = $('.service-selection');
 		Services.menuItems = $('.wow-services li a');
+		Services.total = Services.menuItems.length;
 
 		if (!Services.menuItems.length) {
 			return false;
 		}
-		
+
 		Services.menuItems.bind({
 			'click': function() {
 				Services.pick(this);
@@ -62,7 +63,7 @@ var Services = {
 				break;
 			case 'referrals-rewards':
 				$('.position').animate({
-					left: 585
+					left: Services.total > 2 ? 585 : 338
 				}, 400);
 				break;
 			case 'game-time-subscriptions':

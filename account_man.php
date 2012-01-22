@@ -29,38 +29,25 @@ if (!isset($_SESSION['username'])) {
 <script type="text/javascript" src="wow/static/local-common/js/third-party/jquery-1.4.4-p1.min.js"></script>
 <script type="text/javascript" src="wow/static/local-common/js/core.js"></script>
 <script type="text/javascript" src="wow/static/local-common/js/tooltip.js"></script>
-<script type="text/javascript" src="wow/static/local-common/js/third-party/swfobject.js"></script>
-<script type="text/javascript" src="wow/static/js/management/dashboard.js"></script>
-<script type="text/javascript" src="wow/static/js/management/wow/dashboard.js"></script>
+<script type="text/javascript" src="wow/static/local-common/js/third-party/swfobject.js?v37"></script>
+<script type="text/javascript" src="wow/static/js/management/dashboard.js?v23"></script>
+<script type="text/javascript" src="wow/static/js/management/wow/dashboard.js?v23"></script>
+<script type="text/javascript" src="wow/static/js/bam.js?v23"></script>
+<script type="text/javascript" src="wow/static/local-common/js/tooltip.js?v37"></script>
+<script type="text/javascript" src="wow/static/local-common/js/menu.js?v37"></script>
+<script type="text/javascript">
+$(function() {
+Menu.initialize();
+Menu.config.colWidth = 190;
+Locale.dataPath = 'data/i18n.frag.xml';
+});
+</script>
 <!--[if IE 6]> <script type="text/javascript">
 //<![CDATA[
 try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 //]]>
 </script>
 <![endif]-->
-<script type="text/javascript">
-//<![CDATA[
-Core.staticUrl = '/account';
-Core.sharedStaticUrl= 'local-common';
-Core.baseUrl = '/account';
-Core.supportUrl = 'http://eu.battle.net/support/';
-Core.secureSupportUrl= 'https://eu.battle.net/support/';
-Core.project = 'bam';
-Core.locale = 'en-gb';
-Core.buildRegion = 'eu';
-Core.shortDateFormat= 'dd/MM/yyyy';
-Core.dateTimeFormat = 'dd/MM/yyyy HH:mm';
-Core.loggedIn = true;
-Flash.videoPlayer = 'http://eu.media.blizzard.com/global-video-player/themes/bam/video-player.swf';
-Flash.videoBase = 'http://eu.media.blizzard.com/bam/media/videos';
-Flash.ratingImage = 'http://eu.media.blizzard.com/global-video-player/ratings/bam/rating-pegi.jpg';
-Flash.expressInstall= 'http://eu.media.blizzard.com/global-video-player/expressInstall.swf';
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-544112-16']);
-_gaq.push(['_trackPageview']);
-_gaq.push(['_trackPageLoadTime']);
-//]]>
-</script>
 </head>
 <body class="en-gb logged-in">
 <div id="layout-top">
@@ -383,17 +370,20 @@ var times = new DateTime();
 <div id="layout-bottom">
 <?php include("functions/footer_man.php"); ?>
 </div>
+</div>
+<script type="text/javascript" src="wow/static/local-common/js/search.js?v37"></script>
 <script type="text/javascript">
 //<![CDATA[
-var xsToken = '3dfc660d-d3a2-4e3c-a7c4-c73e23a74175';
+var xsToken = '';
+var supportToken = '';
 var Msg = {
 support: {
 ticketNew: 'Ticket {0} was created.',
-ticketStatus: 'Ticket {0}'s status changed to {1}.',
+ticketStatus: 'Ticket {0}’s status changed to {1}.',
 ticketOpen: 'Open',
 ticketAnswered: 'Answered',
 ticketResolved: 'Resolved',
-ticketCanceled: 'Cancelled',
+ticketCanceled: 'Canceled',
 ticketArchived: 'Archived',
 ticketInfo: 'Need Info',
 ticketAll: 'View All Tickets'
@@ -403,6 +393,7 @@ requestError: 'Your request cannot be completed.',
 ignoreNot: 'Not ignoring this user',
 ignoreAlready: 'Already ignoring this user',
 stickyRequested: 'Sticky requested',
+stickyHasBeenRequested: 'You have already sent a sticky request for this topic.',
 postAdded: 'Post added to tracker',
 postRemoved: 'Post removed from tracker',
 userAdded: 'User added to tracker',
@@ -412,7 +403,7 @@ characterExceed: 'The post body exceeds XXXXXX characters.',
 searchFor: "Search for",
 searchTags: "Articles tagged:",
 characterAjaxError: "You may have become logged out. Please refresh the page and try again.",
-ilvl: "Item Lvl",
+ilvl: "Level {0}",
 shortQuery: "Search requests must be at least three characters long."
 },
 bml: {
@@ -432,6 +423,9 @@ url: 'URL',
 urlPrompt: 'URL Address:'
 },
 ui: {
+submit: 'Submit',
+cancel: 'Cancel',
+reset: 'Reset',
 viewInGallery: 'View in gallery',
 loading: 'Loading…',
 unexpectedError: 'An error has occurred',
@@ -463,13 +457,32 @@ item: 'item',
 race: 'race',
 npc: 'NPC',
 pet: 'pet'
+},
+search: {
+kb: 'Support',
+post: 'Forums',
+article: 'Blog Articles',
+static: 'General Content',
+wowcharacter: 'Characters',
+wowitem: 'Items',
+wowguild: 'Guilds',
+wowarenateam: 'Arena Teams',
+other: 'Other'
 }
 };
 //]]>
 </script>
-<script type="text/javascript" src="wow/static/js/bam.js"></script>
-<script type="text/javascript" src="wow/static/local-common/js/tooltip.js"></script>
-<script type="text/javascript" src="wow/static/local-common/js/menu.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+Core.load("wow/static/local-common/js/third-party/jquery-ui-1.8.6.custom.min.js?v37");
+Core.load("wow/static/local-common/js/login.js?v37", false, function() {
+Login.embeddedUrl = 'https://eu.battle.net/login/login.frag';
+});
+//]]>
+</script>
+<script type="text/javascript" src="wow/static/js/bam.js?v23"></script>
+<script type="text/javascript" src="wow/static/local-common/js/tooltip.js?v37"></script>
+<script type="text/javascript" src="wow/static/local-common/js/menu.js?v37"></script>
 <script type="text/javascript">
 $(function() {
 Menu.initialize();
@@ -478,22 +491,18 @@ Locale.dataPath = 'data/i18n.frag.xml';
 });
 </script>
 <!--[if lt IE 8]>
-<script type="text/javascript" src="wow/static/local-common/js/third-party/jquery.pngFix.pack.js"></script>
+<script type="text/javascript" src="wow/static/local-common/js/third-party/jquery.pngFix.pack.js?v37"></script>
 <script type="text/javascript">$('.png-fix').pngFix();</script>
 <![endif]-->
-
+<script type="text/javascript" src="wow/static/local-common/js/third-party/swfobject.js?v37"></script>
+<script type="text/javascript" src="wow/static/js/management/dashboard.js?v23"></script>
+<script type="text/javascript" src="wow/static/js/management/wow/dashboard.js?v23"></script>
+<!--[if lt IE 8]> <script type="text/javascript" src="wow/static/local-common/js/third-party/jquery.pngFix.pack.js?v37"></script>
 <script type="text/javascript">
 //<![CDATA[
-Core.load("wow/static/local-common/js/overlay.js");
-Core.load("wow/static/local-common/js/search.js");
-Core.load("wow/static/local-common/js/third-party/jquery-ui-1.8.6.custom.min.js");
-Core.load("wow/static/local-common/js/third-party/jquery.mousewheel.min.js");
-Core.load("wow/static/local-common/js/third-party/jquery.tinyscrollbar.custom.js");
-Core.load("wow/static/local-common/js/login.js", false, function() {
-Login.embeddedUrl = '<?php echo $website['root'];?>loginframe.php';
-});
-//]]>
+$('.png-fix').pngFix(); //]]>
 </script>
+<![endif]-->
 <script type="text/javascript">
 //<![CDATA[
 (function() {

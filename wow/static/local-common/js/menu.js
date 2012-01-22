@@ -102,8 +102,7 @@ var Menu = {
 			});
 
 		// Get the data
-		if (url)
-			Menu.load('base', url);
+		Menu.load('base', url);
 
 		// Bind the handlers
 		$('.ui-breadcrumb li a').each(function(key, crumb) {
