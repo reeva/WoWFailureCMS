@@ -192,8 +192,10 @@ $dbc = mysql_connect($serveraddress, $serveruser, $serverpass);
         6 => 'tauren',
         7 => 'gnome',
         8 => 'troll',
+		9 => 'goblin',
         10 => 'bloodelf',
-        11 => 'draenei');
+        11 => 'draenei',
+		22 => 'worgen');
 
         $char_gender = array(
         0 => 'male',
