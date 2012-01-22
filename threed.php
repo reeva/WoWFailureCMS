@@ -137,9 +137,9 @@ Services
 	<div class="summary-top">
 	<div class="summary-top-right">
 	<ul class="profile-view-options" id="profile-view-options-summary">
-	<li>
-	<a href="threed.php?name=<?php echo @$name = $_GET['name'];?>" rel="np" class="threed">3D Model</a></li>
 	<li class="current">
+	<a href="threed.php?name=<?php echo @$name = $_GET['name'];?>" rel="np" class="threed">3D Model</a></li>
+	<li>
 	<a href="advanced.php?name=<?php echo @$name = $_GET['name'];?>" rel="np" class="advanced">Advanced</a></li>
 	</ul>
 	<div class="summary-averageilvl">
@@ -153,6 +153,138 @@ Services
 	<br>
 	<div class="summary-top-inventory">
 	<div id="summary-inventory" class="summary-inventory summary-inventory-advanced">
+	<div class="character-3d">
+	<?php
+
+$dbc = mysql_connect($serveraddress, $serveruser, $serverpass);
+
+    $errors = 0;
+
+    mysql_select_db($server_cdb);
+    $query_select_character = "SELECT guid, race, gender, playerBytes, playerBytes2 FROM characters WHERE name = '".@$name = $_GET['name']."' LIMIT 1";
+    $result_select_character = mysql_query($query_select_character);
+
+    if (!mysql_num_rows($result_select_character) == 0) 
+    { // If OK
+
+        $row = mysql_fetch_array($result_select_character);
+
+        $guid = $row['guid'];
+        $race = $row['race'];
+        $gender = $row['gender'];
+        $b = $row['playerBytes'];
+        $b2 = $row['playerBytes2'];
+
+        // Set Character Features
+        $ha = ($b>>16)%256;
+        $hc = ($b>>24)%256;
+        $fa = ($b>>8)%256;
+        $sk = $b%256;
+        $fh = $b2%256;
+
+        // Set Character Race/Gender
+        $char_race = array(
+        1 => 'human',
+        2 => 'orc',
+        3 => 'dwarf',
+        4 => 'nightelf',
+        5 => 'scourge',
+        6 => 'tauren',
+        7 => 'gnome',
+        8 => 'troll',
+        10 => 'bloodelf',
+        11 => 'draenei');
+
+        $char_gender = array(
+        0 => 'male',
+        1 => 'female');
+
+        $rg = $char_race[$race].$char_gender[$gender];
+
+        $query_select_guid = mysql_query("SELECT item FROM character_inventory WHERE guid = '$guid' AND bag='0' AND slot <'18'");
+        if (mysql_num_rows($query_select_guid) != 0) 
+        {
+            $eq = "";
+            while($row_select_guid = mysql_fetch_array($query_select_guid))
+            {
+                $item = $row_select_guid['item'];
+                mysql_select_db($server_cdb);
+                $query_select_itemEntry = mysql_query("SELECT itemEntry FROM item_instance WHERE guid = '$item'");
+                if (mysql_num_rows($query_select_itemEntry) != 0) 
+                {
+                    while ($row_itemEntry = mysql_fetch_array($query_select_itemEntry)) 
+                    {
+                        $itemEntry = $row_itemEntry['itemEntry'];
+                        if ($itemEntry != "") 
+                        {
+                            mysql_select_db($server_wdb);
+                            $query_select_item = "SELECT displayid, InventoryType FROM item_template WHERE entry = '$itemEntry' LIMIT 1";
+                            $result_select_item = mysql_query($query_select_item);
+                            if (!mysql_num_rows($result_select_item) == 0) 
+                            {
+                                $row_item = mysql_fetch_array($result_select_item);
+                                $displayid = $row_item['displayid'];
+                                $inventory_type = $row_item['InventoryType'];
+                                if ($eq == "") 
+                                {
+                                    $eq = $inventory_type.','.$displayid;
+                                } else 
+                                {
+                                    $eq .= ','.$inventory_type.','.$displayid;
+                                }
+                            } 
+                            else 
+                            {
+                                // If not OK
+                                echo '<p>The DisplayID could not be retrieved. We apologize for any inconvenience.</p>'; // Public message.
+                                //echo '<p>' . mysql_error() . '<br /><br />Query: ' . $query . '</p>'; // Debugging message.
+                                $errors++;
+                            }
+                        }
+                        else 
+                        {
+                            // If not OK
+                            echo '<p>The itemEntry could not be retrieved. We apologize for any inconvenience.</p>'; // Public message.
+                            //echo '<p>' . mysql_error() . '<br /><br />Query: ' . $query . '</p>'; // Debugging message.
+                            $errors++;
+                        }
+                    }
+                } 
+                else 
+                { 
+                    // If not OK
+                    echo '<p>The Inventory could not be retrieved. We apologize for any inconvenience.</p>'; // Public message.
+                    //echo '<p>' . mysql_error() . '<br /><br />Query: ' . $query . '</p>'; // Debugging message.
+                    $errors++;
+                }
+            }
+        } 
+    }
+    else 
+    { 
+        // If not OK
+        echo '<p>The Character could not be retrieved. We apologize for any inconvenience.</p>'; // Public message.
+        //echo '<p>' . mysql_error() . '<br /><br />Query: ' . $query . '</p>'; // Debugging message.
+        $errors++;
+    }
+
+    if ($errors == 0) 
+    {
+        echo '<div id="model_scene" align="center">';
+        echo '<object id="wowhead" type="application/x-shockwave-flash" data="http://static.wowhead.com/modelviewer/ModelView.swf" height="440px" width="440px">';
+        echo '<param name="quality" value="high">';
+        echo '<param name="allowscriptaccess" value="always">';
+        echo '<param name="menu" value="false">';
+        echo '<param value="transparent" name="wmode">';
+        echo printf('<param name="flashvars" value="model=%s&amp;modelType=16&amp;ha=%s&amp;hc=%s&amp;fa=%s&amp;sk=%s&amp;fh=%s&amp;fc=0&amp;contentPath=http://static.wowhead.com/modelviewer/&amp;blur=0&amp;equipList=%s">', $rg,$ha,$hc,$fa,$sk,$fh,$eq);
+        echo '<param name="movie" value="http://static.wowhead.com/modelviewer/ModelView.swf">';
+        echo '</object>';
+        echo '</div>';
+    }
+ // End of Submit Conditional
+
+?>
+</div>
 	<div data-id="0" data-type="1" class="slot slot-1" style=" left: 0px; top: 0px;">
 	<div class="slot-inner">
 	<div class="slot-contents">
