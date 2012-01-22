@@ -397,10 +397,10 @@ echo '
 <img src="wow/static/images/icons/race/'.$raw['race'].'-'.$raw['gender'].'.gif" alt="" width="14" height="14" />
 </span>
 </td>
-<td style="background-color: '.$bg.';"><center>'.$class.'</center></td>
-<td style="background-color: '.$bg.';"><center>'.$raw['level'].'</center></td>
-<td style="background-color: '.$bg.';"><center>'.$location.'</center></td>
-<td style="background-color: '.$bg.';"><center>'.$bg.'</center></td>
+<td style="background-color: '.$bg.';"><center>'.@$class.'</center></td>
+<td style="background-color: '.$bg.';"><center>'.@$raw['level'].'</center></td>
+<td style="background-color: '.$bg.';"><center>'.@$location.'</center></td>
+<td style="background-color: '.$bg.';"><center>'.@$bg.'</center></td>
 </tr>';
 
 }
