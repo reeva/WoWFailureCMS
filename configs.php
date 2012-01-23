@@ -26,10 +26,10 @@ $serverport	= "3306";
 $server_db = "website";
 $server_adb = "auth";
 
-$server_cdb = "characters";
+$server_cdb = "characters406";
 $server_wdb = "world";
 
-$server_cdb_2 = "characters";
+$server_cdb_2 = "characters406";
 $server_wdb_2 = "world";
 
 ######################
@@ -54,7 +54,7 @@ $core = "strawberry";
 $website['title'] = "WoWFailureCMS";
 $website['slogan'] = "WoWFailureCMS, get your best CMS today, simple and fast!";
 $website['address'] = "http://theadriann.idle.ro";
-$website['root'] = "/classic/";
+$website['root'] = "/";
 
 ######################
 

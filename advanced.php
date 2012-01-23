@@ -153,7 +153,412 @@ Services
 	<br>
 	<div class="summary-top-inventory">
 	<div id="summary-inventory" class="summary-inventory summary-inventory-advanced">
-	<?php include("functions/armory.class.php") ?>
+	<div data-id="0" data-type="1" class="slot slot-1" style=" left: 0px; top: 0px;">
+	<div class="slot-inner">
+	<div class="slot-contents">
+	<a href="javascript:;" class="empty"><span class="frame"></span></a>
+	</div>
+	</div>
+	</div>
+	<div data-id="1" data-type="2" class="slot slot-2 item-quality-3" style=" left: 0px; top: 58px;">
+	<div class="slot-inner">
+	<div class="slot-contents">
+	<a href="javascript:;" class="empty"><span class="frame"></span></a>
+	<div class="details">
+	<span class="name-shadow"></span>
+	<span class="name color-q3">
+	<!--<a href="http://www.wowhead.com/item=51996" data-item="r=-86">Tumultuous Necklace of the Soldier</a>
+	</span>
+	<span class="level">35</span>-->
+	</div>
+	</div>
+	</div>
+	</div>
+	<div data-id="2" data-type="3" class="slot slot-3 item-quality-2" style=" left: 0px; top: 116px;">
+	<div class="slot-inner">
+	
+	<div class="slot-contents">
+	<a href="javascript:;" class="empty"><span class="frame"></span></a>
+	<!--<a href="http://www.wowhead.com/item=4835" class="item" data-item="d=59"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_shoulder_05.jpg" alt="" /><span class="frame"></span></a>-->
+	<div class="details">
+	<!--<span class="name-shadow">Elite Shoulders</span>
+	<span class="name color-q2">
+	<a href="http://www.wowhead.com/item=4835" data-item="d=59">Elite Shoulders</a><a href="javascript:;" class="audit-warning"></a>
+	</span>
+	<span class="level">30</span>-->
+	</div>
+	</div>
+	</div>
+	</div>
+	<div data-id="14" data-type="16" class="slot slot-16 item-quality-3" style=" left: 0px; top: 174px;">
+	<div class="slot-inner">
+	<div class="slot-contents">
+	<a href="javascript:;" class="empty"><span class="frame"></span></a>
+	<div class="details">
+	<!--<span class="name-shadow">Tumultuous Cloak of the Sorcerer</span>-->
+	<!--<span class="name color-q3">
+	<a href="http://www.wowhead.com/item=51994" data-item="e=1889&amp;r=-85&amp;s=861470728">Tumultuous Cloak of the Sorcerer</a>
+	</span>
+	<span class="enchant-shadow">
+	Superior Defense
+	</span>
+	<div class="enchant color-q2">
+	<a href="http://www.wowhead.com/item=16224">Superior Defense</a>
+								</div>
+							<span class="level">25</span>-->
+						</div>
+			</div>
+		</div>
+	</div>
+
+
+	 	
+
+
+
+
+	<div data-id="4" data-type="5" class="slot slot-5 item-quality-2" style=" left: 0px; top: 232px;">
+		<div class="slot-inner">
+			<div class="slot-contents">
+	<a href="javascript:;" class="empty"><span class="frame"></span></a>
+	<div class="details">
+							<!--<span class="name-shadow">Husk of Naraxis</span>
+							<span class="name color-q2">
+								
+								<a href="http://www.wowhead.com/item=4448" data-item="e=17&amp;d=94">Husk of Naraxis</a>
+							</span>
+								<span class="enchant-shadow">
+									Heavy Armor Kit
+								</span>
+								<div class="enchant color-q2">
+<a href="http://www.wowhead.com/item=4265">Heavy Armor Kit</a>
+								</div>
+							<span class="level">27</span>-->
+						</div>
+			</div>
+		</div>
+	</div>
+
+
+	 	
+
+
+
+
+	<div data-id="3" data-type="4" class="slot slot-4 item-quality-1" style=" left: 0px; top: 290px;">
+		<div class="slot-inner">
+			<div class="slot-contents">
+	<a href="javascript:;" class="empty"><span class="frame"></span></a>
+	<div class="details">
+							<!--<span class="name-shadow">Squire&#39;s Shirt</span>
+							<span class="name color-q1">
+								
+								<a href="http://www.wowhead.com/item=23476" data-item="">Squire&#39;s Shirt</a>
+							</span>
+							<span class="level">1</span>-->
+						</div>
+			</div>
+		</div>
+	</div>
+
+
+	 	
+
+
+
+
+	<div data-id="18" data-type="19" class="slot slot-19 item-quality-1" style=" left: 0px; top: 348px;">
+		<div class="slot-inner">
+			<div class="slot-contents">
+					<a href="javascript:;" class="empty"><span class="frame"></span></a>
+					<div class="details">
+							<!--<span class="name-shadow">Tabard of the Hand</span>
+							<span class="name color-q1">
+								
+								<a href="http://www.wowhead.com/item=24344" data-item="s=662226304">Tabard of the Hand</a>
+							</span>
+							<span class="level">20</span>-->
+						</div>
+			</div>
+		</div>
+	</div>
+
+
+	 	
+
+
+
+
+	<div data-id="8" data-type="9" class="slot slot-9 item-quality-2" style=" left: 0px; top: 406px;">
+		<div class="slot-inner">
+			<div class="slot-contents">
+					<a href="javascript:;" class="empty"><span class="frame"></span></a>
+					<div class="details">
+							<!--<span class="name-shadow">Fortified Bracers of the Bear</span>
+							<span class="name color-q2">
+								
+								<a href="http://www.wowhead.com/item=9811" data-item="e=856&amp;r=1184&amp;s=1458545920&amp;d=30">Fortified Bracers of the Bear</a>
+							</span>
+								<span class="enchant-shadow">
+									Strength
+								</span>
+								<div class="enchant color-q2">
+<span class="tip" data-spell="13661">Strength</span>
+								</div>
+							<span class="level">24</span>-->
+						</div>
+			</div>
+		</div>
+	</div>
+
+
+	 
+	
+
+
+
+
+	<div data-id="9" data-type="10" class="slot slot-10 slot-align-right item-quality-2" style=" top: 0px; right: 0px;">
+		<div class="slot-inner">
+			<div class="slot-contents">
+					<a href="javascript:;" class="empty"><span class="frame"></span></a>
+					<div class="details">
+							<!--<span class="name-shadow">Battleforge Gauntlets of the Bear</span>
+							<span class="name color-q2">
+								<a href="http://www.wowhead.com/item=6595" data-item="e=17&amp;r=1191&amp;s=1597971648&amp;d=35">Battleforge Gauntlets of the Bear</a>
+								</span>
+								<span class="enchant-shadow">
+								Heavy Armor Kit
+								</span>
+								<div class="enchant color-q2">
+								<a href="http://www.wowhead.com/item=4265">Heavy Armor Kit</a>
+								</div>
+							<span class="level">28</span>-->
+						</div>
+			</div>
+		</div>
+	</div>
+
+
+	 
+	
+
+
+
+
+	<div data-id="5" data-type="6" class="slot slot-6 slot-align-right item-quality-2" style=" top: 58px; right: 0px;">
+		<div class="slot-inner">
+			<div class="slot-contents">
+					<a href="javascript:;" class="empty"><span class="frame"></span></a>
+					<div class="details">
+							<!--<span class="name-shadow">Lambent Scale Girdle</span>
+							<span class="name color-q2">
+								
+								<a href="http://www.wowhead.com/item=4707" data-item="">Lambent Scale Girdle</a>
+							</span>
+							<span class="level">26</span>-->
+						</div>
+			</div>
+		</div>
+	</div>
+
+
+	 
+	
+
+
+
+
+	<div data-id="6" data-type="7" class="slot slot-7 slot-align-right item-quality-2" style=" top: 116px; right: 0px;">
+		<div class="slot-inner">
+			<div class="slot-contents">
+					<a href="javascript:;" class="empty"><span class="frame"></span></a>
+					<div class="details">
+							<!--<span class="name-shadow">Green Iron Leggings</span>
+							<span class="name color-q2">
+								
+								<a href="http://www.wowhead.com/item=3842" data-item="e=17&amp;s=728222272&amp;d=74">Green Iron Leggings</a>
+							</span>
+								<span class="enchant-shadow">
+									Heavy Armor Kit
+								</span>
+								<div class="enchant color-q2">
+<a href="http://www.wowhead.com/item=4265">Heavy Armor Kit</a>
+								</div>
+							<span class="level">31</span>-->
+						</div>
+			</div>
+		</div>
+	</div>
+
+
+	 
+	
+
+
+
+
+	<div data-id="7" data-type="8" class="slot slot-8 slot-align-right item-quality-2" style=" top: 174px; right: 0px;">
+		<div class="slot-inner">
+			<div class="slot-contents">
+					<a href="javascript:;" class="empty"><span class="frame"></span></a>
+					<div class="details">
+							<!--<span class="name-shadow">Silvered Bronze Boots</span>
+							<span class="name color-q2">
+								
+								<a href="http://www.wowhead.com/item=3482" data-item="e=17&amp;s=1063978688&amp;d=43">Silvered Bronze Boots</a>
+							</span>
+								<span class="enchant-shadow">
+									Heavy Armor Kit
+								</span>
+								<div class="enchant color-q2">
+<a href="http://www.wowhead.com/item=4265">Heavy Armor Kit</a>
+								</div>
+							<span class="level">26</span>-->
+						</div>
+			</div>
+		</div>
+	</div>
+
+
+	 
+	
+
+
+
+
+	<div data-id="10" data-type="11" class="slot slot-11 slot-align-right item-quality-2" style=" top: 232px; right: 0px;">
+		<div class="slot-inner">
+			<div class="slot-contents">
+					<a href="javascript:;" class="empty"><span class="frame"></span></a>
+					<div class="details">
+							<!--<span class="name-shadow">Signet Ring of the Hand</span>
+							<span class="name color-q2">
+								
+								<a href="http://www.wowhead.com/item=24349" data-item="s=683553728">Signet Ring of the Hand</a>
+							</span>
+							<span class="level">20</span>-->
+						</div>
+			</div>
+		</div>
+	</div>
+
+
+	 
+	
+
+
+
+
+	<div data-id="11" data-type="11" class="slot slot-11 slot-align-right item-quality-2" style=" top: 290px; right: 0px;">
+		<div class="slot-inner">
+			<div class="slot-contents">
+					<a href="javascript:;" class="empty"><span class="frame"></span></a>
+					<div class="details">
+							<!--<span class="name-shadow">Clay Ring of the Bear</span>
+							<span class="name color-q2">
+								
+								<a href="http://www.wowhead.com/item=11993" data-item="r=1183">Clay Ring of the Bear</a>
+							</span>
+							<span class="level">22</span>-->
+						</div>
+			</div>
+		</div>
+	</div>
+
+
+	 
+	
+
+
+
+
+	<div data-id="12" data-type="12" class="slot slot-12 slot-align-right" style=" top: 348px; right: 0px;">
+		<div class="slot-inner">
+			<div class="slot-contents">
+					<a href="javascript:;" class="empty"><span class="frame"></span></a>
+			</div>
+		</div>
+	</div>
+
+
+	 
+	
+
+
+
+
+	<div data-id="13" data-type="12" class="slot slot-12 slot-align-right" style=" top: 406px; right: 0px;">
+		<div class="slot-inner">
+			<div class="slot-contents">
+					<a href="javascript:;" class="empty"><span class="frame"></span></a>
+			</div>
+		</div>
+	</div>
+
+
+	 
+
+
+
+
+	<div data-id="15" data-type="21" class="slot slot-21 slot-align-right item-quality-3" style=" left: -6px; bottom: 0px;">
+		<div class="slot-inner">
+			<div class="slot-contents">
+					<a href="javascript:;" class="empty"><span class="frame"></span></a>
+					<div class="details">
+							<!--<span class="name-shadow">Diamond Hammer</span>
+							<span class="name color-q3">
+								<a href="javascript:;" class="audit-warning"></a>
+								<a href="http://www.wowhead.com/item=2194" data-item="s=723013552">Diamond Hammer</a>
+							</span>
+							<span class="level">25</span>-->
+						</div>
+			</div>
+		</div>
+	</div>
+
+
+	 
+
+
+
+
+	<div data-id="16" data-type="22" class="slot slot-22 item-quality-2" style=" left: 271px; bottom: 0px;">
+		<div class="slot-inner">
+			<div class="slot-contents">
+					<a href="javascript:;" class="empty"><span class="frame"></span></a>
+					<div class="details">
+							<!--<span class="name-shadow">Glimmering Shield</span>
+							<span class="name color-q2">
+								
+								<a href="http://www.wowhead.com/item=6400" data-item="e=929&amp;s=1509242176&amp;d=84">Glimmering Shield</a>
+							</span>
+								<span class="enchant-shadow">
+									Greater Stamina
+								</span>
+								<div class="enchant color-q2">
+<a href="http://www.wowhead.com/item=16217">Greater Stamina</a>
+								</div>
+							<span class="level">31</span>-->
+						</div>
+			</div>
+		</div>
+	</div>
+
+
+	 
+
+
+
+
+	<div data-id="17" data-type="28" class="slot slot-28" style=" left: 548px; bottom: 0px;">
+		<div class="slot-inner">
+			<div class="slot-contents">
+					<a href="javascript:;" class="empty"><span class="frame"></span></a>
+			</div>
+		</div>
+	</div>
 	</div>
 </div>
         <script type="text/javascript">
