@@ -55,7 +55,7 @@
 </script>
 
 <meta name="title" content="Im looking for someone to play with" />
-<link rel="image_src" href="/wow/static/images/icons/facebook/article.jpg" />
+<link rel="image_src" href="<?php echo $website['root'];?>wow/static/images/icons/facebook/article.jpg" />
 </head>
 <body class="en-gb logged-in">
 

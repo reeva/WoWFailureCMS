@@ -14,9 +14,9 @@ $page_cat = "forums";
 <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie7.css?v37" /><![endif]-->
 <link title="World of Warcraft - News" href="/wow/en/feed/news" type="application/atom+xml" rel="alternate"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo $website['root'];?>wow/static/css/wow.css?v19" />
-<link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/cms/forums.css?v37" />
-<link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/cms/cms-common.css?v37" />
-<link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/cms.css?v19" />
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo $website['root'];?>wow/static/local-common/css/cms/forums.css?v37" />
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo $website['root'];?>wow/static/local-common/css/cms/cms-common.css?v37" />
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo $website['root'];?>wow/static/css/cms.css?v19" />
 <!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/cms-ie6.css?v19" /><![endif]-->
 <!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie.css?v19" /><![endif]-->
 <!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie6.css?v19" /><![endif]-->
