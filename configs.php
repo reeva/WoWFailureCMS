@@ -26,10 +26,10 @@ $serverport	= "3306";
 $server_db = "website";
 $server_adb = "auth";
 
-$server_cdb = "characters406";
+$server_cdb = "characters";
 $server_wdb = "world";
 
-$server_cdb_2 = "characters406";
+$server_cdb_2 = "characters";
 $server_wdb_2 = "world";
 
 ######################
@@ -58,7 +58,7 @@ $website['root'] = "/";
 
 ######################
 
-$connection_setup = mysql_connect($serveraddress,$serveruser,$serverpass)or die(mysql_error());
+$connection_setup = mysql_connect($serveraddress . ':' . $serverport,$serveruser,$serverpass)or die(mysql_error());
 mysql_select_db($server_db,$connection_setup)or die(mysql_error());
 
 if(isset($_SESSION['username'])){

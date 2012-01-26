@@ -18,6 +18,10 @@ require_once("configs.php");?>
 <script type="text/javascript" src="wow/static/local-common/js/third-party/jquery-1.4.4-p1.min.js"></script>
 <script type="text/javascript" src="wow/static/local-common/js/core.js?v17"></script>
 <script type="text/javascript" src="wow/static/local-common/js/tooltip.js?v17"></script>
+<style type="text/css">
+.Good {text-shadow:1px 2px 6px #004; margin-top:3px;}	
+.Shadow {text-shadow:0px 0px 10px #444;}	  	
+-</style>
 <!--[if IE 6]> <script type="text/javascript">
 //<![CDATA[
 try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
@@ -263,19 +267,19 @@ $max_online="500";
 $graph_fill="#10AA00";
 $right_border="#6cc02c";
 print'
-<div style="width:'.$bar_width.'px; height:18px; position:relative;margin-left:5px;text-align:left; background-repeat:repeat-x;">
-<div style="position:absolute; z-index:50; width:100%; height:18px; text-align:center;color:white;">
+<div style="width:'.$bar_width.'px; height:23px; position:relative;margin-left:5px;text-align:left; background-repeat:repeat-x;">
+<div style="position:absolute; z-index:50; width:100%; height:21px; text-align:center;color:white;">
 <div style="margin-top:1px;">';
 $sql = "SELECT SUM(online) FROM characters";
 $sqlquery = mysql_query($sql) or die(mysql_error());
 $memb = mysql_result($sqlquery,0,0);
 
-echo $memb;
+echo '<h3 class="Good"> '.$memb.' Characters</h3>';
 $number = $memb / $max_online;
 $total_number = $number * $bar_width;
-?>
+ ?>
 </div></div>
-<div style="width:<?php echo"$total_number"; ?>%; background:<?php echo"$graph_fill"; ?>; background-repeat:repeat-x; height:18px;border-right:1px solid <?php echo"$right_border"; ?>;">
+<div style="width:<?php echo"$total_number"; ?>%; background:<?php echo"$graph_fill"; ?>; background-repeat:repeat-x; height:22px;border-right:1px solid <?php echo"$right_border"; ?>;">
 </div></div>
 																<!--Bar Graph 1-->
 						</td>
