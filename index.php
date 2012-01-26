@@ -49,7 +49,7 @@ $page_cat = "home";
 							<div class="slideshow">
 							<?php
 							$slideshows = mysql_query("SELECT * FROM slideshows ORDER BY id DESC LIMIT 5");
-							mysql_error($connection_setup);
+							mysql_error($connection_setupection_setup);
 							$i=0; 
 							echo '<div class="container">';
 							while($slideshow=mysql_fetch_array($slideshows)){
@@ -235,7 +235,7 @@ $page_cat = "home";
 						<?php
 						require_once("configs.php");
 
-						mysql_connect($serveraddress, $serveruser, $serverpass) or die ("<font color='#00FF00'>Can't connect with</font> <font color='#FF0000'>$host</font>");
+						mysql_connect($serveraddress . ':' . $serverport,$serveruser,$serverpass) or die ("<font color='#00FF00'>Can't connect with</font> <font color='#FF0000'>$host</font>");
 						mysql_selectdb ("$server_adb");
 
 						$sql = mysql_query ("SELECT * FROM $server_adb.`uptime` ORDER BY `starttime` DESC LIMIT 1");  
@@ -258,9 +258,7 @@ $page_cat = "home";
 						  <?php echo $Ind['Ind7']; ?><span class="date">
 						  <?php
 						require_once("configs.php");
-
-						$conn = mysql_connect($serveraddress, $serveruser, $serverpass) or die(mysql_error());
-						mysql_select_db($server_adb, $conn) or die(mysql_error());
+						mysql_select_db($server_adb, $connection_setup) or die(mysql_error());
 
 						// Account Selection
 						$acct_sql = "SELECT COUNT(*) FROM account";
@@ -268,14 +266,14 @@ $page_cat = "home";
 						$acc = mysql_result($acct_sqlquery,0,0);
 
 						echo ("<font color='#FF0000'>$acc</font>");
-						mysql_close($conn);
+						mysql_close($connection_setup);
 						?>
 						<?php echo $Ind['Ind8']; ?></span><br />
 						<?php echo $name_realm1['realm']; ?><?php echo $Ind['Ind9']; ?><span class="date"><?php
 						require_once("configs.php");
 
-						$conn = mysql_connect($serveraddress, $serveruser, $serverpass) or die(mysql_error());
-						mysql_select_db($server_cdb, $conn) or die(mysql_error());
+						$connection_setup = mysql_connect($serveraddress, $serveruser, $serverpass) or die(mysql_error());
+						mysql_select_db($server_cdb, $connection_setup) or die(mysql_error());
 
 						// Character select
 						$sql = "SELECT COUNT(*) FROM characters";
@@ -284,7 +282,7 @@ $page_cat = "home";
 
 						echo ("<font color='#FF0000'>$char</font>");
 
-						mysql_close($conn);
+						mysql_close($connection_setup);
 						?>
 						<?php echo $Ind['Ind10']; ?></span><br />
 						<span class="clear"><!-- --></span>
@@ -307,12 +305,12 @@ $page_cat = "home";
 						define("CFAIL","Database connection failed! Check your settings!");
 						define("DFAIL","Unable to select database.");
 
-						$conn = @mysql_connect($serveraddress,$serveruser,$serverpass) or die(mysql_error());
-						if(!$conn)
+						$connection_setup = @mysql_connect($serveraddress,$serveruser,$serverpass) or die(mysql_error());
+						if(!$connection_setup)
 							die(CFAIL);
 							
-						function getPlayers($server_cdb,$conn) {
-							$db = @mysql_select_db($server_cdb,$conn);
+						function getPlayers($server_cdb,$connection_setup) {
+							$db = @mysql_select_db($server_cdb,$connection_setup);
 							if(!$db) {
 								die(DFAIL);
 							}
@@ -323,8 +321,8 @@ $page_cat = "home";
 							return @mysql_num_rows($query);
 						}
 
-						function doFaction($server_cdb,$conn,$a) {
-							$db = @mysql_select_db($server_cdb,$conn);
+						function doFaction($server_cdb,$connection_setup,$a) {
+							$db = @mysql_select_db($server_cdb,$connection_setup);
 							if(!$db) {
 								die(DFAIL);
 							}
@@ -360,19 +358,19 @@ $page_cat = "home";
 							return $count2;
 						}
 						
-						$p = @getPlayers($server_cdb,$conn);
-						$a = @doFaction($server_cdb,$conn,$alliance);
-						$h = @doFaction($server_cdb,$conn,$horde);
+						$p = @getPlayers($server_cdb,$connection_setup);
+						$a = @doFaction($server_cdb,$connection_setup,$alliance);
+						$h = @doFaction($server_cdb,$connection_setup,$horde);
 						$ap = @percent($a,$p);
 						$hp = @percent($h,$p);
 						$b = @barWidth($a,$p,273);
 						$c = @barWidth($h,$p,273);
-						echo "<a data-tooltip='".doFaction($server_cdb,$conn,$alliance)." <font style=\"color:#3399ff;font-weight:bold;\">alliance</font> <small>players Online.</small>'\><div style=\"width:" . $bar_width . ";height:" . $bar_height . ";\">
+						echo "<a data-tooltip='".doFaction($server_cdb,$connection_setup,$alliance)." <font style=\"color:#3399ff;font-weight:bold;\">alliance</font> <small>players Online.</small>'\><div style=\"width:" . $bar_width . ";height:" . $bar_height . ";\">
 						<div style=\"float:left;text-align:right;background:url(./" . $ally_img . ");width:" . $b . "px;height:20px;\">";
 						if($show_percent) {
 							echo "<font style=\"color:#FFFFFF;font-weight:bold;\"><center>$ap%</center></font></a>";
 						}
-						echo "<a data-tooltip='".doFaction($server_cdb,$conn,$horde)." <font style=\"color:#ff3333;font-weight:bold;\">horde</font> <small>players Online.</small>'\></div>
+						echo "<a data-tooltip='".doFaction($server_cdb,$connection_setup,$horde)." <font style=\"color:#ff3333;font-weight:bold;\">horde</font> <small>players Online.</small>'\></div>
 						<div style=\"float:right;text-align:left;background:url(./" . $horde_img . ");background-position:right;width:" . $c . "px;height:20px;\">";
 						if($show_percent) {
 							echo "<font style=\"color:#FFFFFF;font-weight:bold;\"><center>$hp%</center></font></a>";
