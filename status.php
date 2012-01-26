@@ -260,11 +260,10 @@ if (!$con)
   
 $bar_width="100";
 $max_online="500";
-$border_color="#6cc02c";
-$graph_fill="#2fa4f3";
+$graph_fill="#10AA00";
 $right_border="#6cc02c";
 print'
-<div style="width:'.$bar_width.'px; border:1px solid '.$border_color.'; height:18px; position:relative;margin-left:5px;text-align:left; background-repeat:repeat-x;">
+<div style="width:'.$bar_width.'px; height:18px; position:relative;margin-left:5px;text-align:left; background-repeat:repeat-x;">
 <div style="position:absolute; z-index:50; width:100%; height:18px; text-align:center;color:white;">
 <div style="margin-top:1px;">';
 $sql = "SELECT SUM(online) FROM characters";
@@ -274,7 +273,7 @@ $memb = mysql_result($sqlquery,0,0);
 echo $memb;
 $number = $memb / $max_online;
 $total_number = $number * $bar_width;
-?> / <?php echo"$max_online"; ?>
+?>
 </div></div>
 <div style="width:<?php echo"$total_number"; ?>%; background:<?php echo"$graph_fill"; ?>; background-repeat:repeat-x; height:18px;border-right:1px solid <?php echo"$right_border"; ?>;">
 </div></div>
