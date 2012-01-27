@@ -37,15 +37,14 @@ $server_wdb_2 = "world";
 
 # Extra ################
 
-$donatadmin = "ascent";
 $website['realm'] = "Set Realmlist Your_Realmlist";
 $charTable = 'characters';
 $name_realm1['realm'] = "Server_Name_1";
 $name_realm2['realm'] = "Server_Name_2";
+$website['version'] = "4.0.6a";
 $realm_count = '1';
 $charLimit = '10';
 $mysql_cod = 'cp1251';
-$core = "strawberry";
 
 ######################
 
