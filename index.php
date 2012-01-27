@@ -49,7 +49,7 @@ $page_cat = "home";
 							<div class="slideshow">
 							<?php
 							$slideshows = mysql_query("SELECT * FROM slideshows ORDER BY id DESC LIMIT 5");
-							mysql_error($connection_setupection_setup);
+							mysql_error($connection_setup);
 							$i=0; 
 							echo '<div class="container">';
 							while($slideshow=mysql_fetch_array($slideshows)){
