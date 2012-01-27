@@ -255,31 +255,27 @@ _gaq.push(['_trackPageview']);
 														<!--Bar Graph 1-->
 <?php 
 require_once("configs.php");
-$con = mysql_connect("$serveraddress","$serveruser","$serverpass");
-if (!$con)
+if (!$connection_setup)
   {
   die('Could not connect: ' . mysql_error());
   }
-  mysql_select_db("$server_cdb", $con);
-  
-$bar_width="100";
+  @mysql_select_db($server_cdb,$connection_setup)or die(mysql_error());
+
 $max_online="500";
-$graph_fill="#10AA00";
-$right_border="#6cc02c";
 print'
-<div style="width:'.$bar_width.'px; height:23px; position:relative;margin-left:5px;text-align:left; background-repeat:repeat-x;">
+<div style="width:100px; height:23px; position:relative;margin-left:5px;text-align:left; background-repeat:repeat-x;">
 <div style="position:absolute; z-index:50; width:100%; height:21px; text-align:center;color:white;">
 <div style="margin-top:1px;">';
-$sql = "SELECT SUM(online) FROM characters";
-$sqlquery = mysql_query($sql) or die(mysql_error());
-$memb = mysql_result($sqlquery,0,0);
+@$sql = "SELECT SUM(online) FROM characters";
+@$sqlquery = mysql_query($sql) or die(mysql_error());
+@$memb = mysql_result($sqlquery,0,0);
 
 echo '<h3 class="Good"> '.$memb.' Characters</h3>';
 $number = $memb / $max_online;
-$total_number = $number * $bar_width;
+$total_number = $number * '100';
  ?>
 </div></div>
-<div style="width:<?php echo"$total_number"; ?>%; background:<?php echo"$graph_fill"; ?>; background-repeat:repeat-x; height:22px;border-right:1px solid <?php echo"$right_border"; ?>;">
+<div style="width:<?php echo"$total_number"; ?>%; background:#10AA00; background-repeat:repeat-x; height:22px;border-right:1px solid #6cc02c;">
 </div></div>
 																<!--Bar Graph 1-->
 						</td>

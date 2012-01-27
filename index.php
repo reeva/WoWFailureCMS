@@ -234,10 +234,7 @@ $page_cat = "home";
 						<span class="clear"><!-- --></span>
 						<?php
 						require_once("configs.php");
-
-						mysql_connect($serveraddress . ':' . $serverport,$serveruser,$serverpass) or die ("<font color='#00FF00'>Can't connect with</font> <font color='#FF0000'>$host</font>");
-						mysql_selectdb ("$server_adb");
-
+						mysql_select_db ($server_adb,$connection_setup)or die(mysql_error());
 						$sql = mysql_query ("SELECT * FROM $server_adb.`uptime` ORDER BY `starttime` DESC LIMIT 1");  
 						$uptime_results = mysql_fetch_array($sql);    
 
@@ -254,12 +251,11 @@ $page_cat = "home";
 						?>
 						<div class="sidebar-module" id="sidebar">
 						  <?php echo $Ind['Ind5']; ?><span class="date"><?php echo $website['realm']; ?></span><br />
-						  <?php echo $Ind['Ind6']; ?><span class="date"><font color='#FF0000'>4.0.6a</font></span><br />
+						  <?php echo $Ind['Ind6']; ?><span class="date"><font color='#FF0000'><?php echo $website['version']; ?></font></span><br />
 						  <?php echo $Ind['Ind7']; ?><span class="date">
 						  <?php
 						require_once("configs.php");
 						mysql_select_db($server_adb, $connection_setup) or die(mysql_error());
-
 						// Account Selection
 						$acct_sql = "SELECT COUNT(*) FROM account";
 						$acct_sqlquery = mysql_query($acct_sql) or die(mysql_error());
@@ -271,30 +267,26 @@ $page_cat = "home";
 						<?php echo $Ind['Ind8']; ?></span><br />
 						<?php echo $name_realm1['realm']; ?><?php echo $Ind['Ind9']; ?><span class="date"><?php
 						require_once("configs.php");
-
-						$connection_setup = mysql_connect($serveraddress, $serveruser, $serverpass) or die(mysql_error());
+						$connection_setup = mysql_connect($serveraddress . ':' . $serverport,$serveruser,$serverpass)or die(mysql_error());
 						mysql_select_db($server_cdb, $connection_setup) or die(mysql_error());
-
 						// Character select
-						$sql = "SELECT COUNT(*) FROM characters";
-						$sqlquery = mysql_query($sql) or die(mysql_error());
+						$char_sql = "SELECT COUNT(*) FROM characters";
+						$sqlquery = mysql_query($char_sql) or die(mysql_error());
 						$char = mysql_result($sqlquery,0,0);
 
 						echo ("<font color='#FF0000'>$char</font>");
-
 						mysql_close($connection_setup);
 						?>
 						<?php echo $Ind['Ind10']; ?></span><br />
 						<span class="clear"><!-- --></span>
 						<br/>
 						<div class="sidebar-title"><h3 class="title-bnet-ads"><?php echo $name_realm1['realm']; ?> <img src="wow\static\local-common\images\icons\employee.gif" width="20" height="14" align="right" style="margin-top:6px" /></h3></div>
-						<center><?php require_once("configs.php");
+						<center><?php 
+						require_once("configs.php");
 						$bar_width = "273px";
 						$bar_height = "20px";
 						$ally_img = "wow/static/images/services/status/ally.png";
 						$horde_img = "wow/static/images/services/status/horde.png";
-						//OLD $ally_img = "wow/static/images/services/status/ally_old.png";
-						//OLD $horde_img = "wow/static/images/services/status/horde_old.png";
 						//Show percent online (true = yes, false = no)
 						$show_percent = true; 
 
@@ -305,7 +297,7 @@ $page_cat = "home";
 						define("CFAIL","Database connection failed! Check your settings!");
 						define("DFAIL","Unable to select database.");
 
-						$connection_setup = @mysql_connect($serveraddress,$serveruser,$serverpass) or die(mysql_error());
+						$connection_setup = mysql_connect($serveraddress . ':' . $serverport,$serveruser,$serverpass)or die(mysql_error());
 						if(!$connection_setup)
 							die(CFAIL);
 							

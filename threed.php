@@ -155,12 +155,9 @@ Services
 	<div id="summary-inventory" class="summary-inventory summary-inventory-advanced">
 	<div class="character-3d">
 	<?php
-
-$dbc = mysql_connect($serveraddress, $serveruser, $serverpass);
-
     $errors = 0;
 
-    mysql_select_db($server_cdb);
+    mysql_select_db($server_cdb,$connection_setup)or die(mysql_error());
     $query_select_character = "SELECT guid, race, gender, playerBytes, playerBytes2 FROM characters WHERE name = '".@$name = $_GET['name']."' LIMIT 1";
     $result_select_character = mysql_query($query_select_character);
 
