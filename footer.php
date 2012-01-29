@@ -6,7 +6,7 @@
 <a href="#" tabindex="100"><?php echo $website['title']; ?></a>
 </h3>
 <ul>
-<li><a href="account_log.php"><?php echo $Account['Account']; ?></a></li>
+<li><a href="<?php echo $website['root'];?>account_log.php"><?php echo $Account['Account']; ?></a></li>
 <li><a href=""><?php echo $Support['Support']; ?></a></li>
 </ul>
 </div>
@@ -25,9 +25,9 @@
 </h3>
 <ul>
 <li><a href="#"><?php echo $Account1['Account1']; ?></a></li>
-<li><a href="register.php"><?php echo $Account3['Account3']; ?></a></li>
-<li><a href="account_log.php"><?php echo $Account4['Account4']; ?></a></li>
-<li><a href="account_log.php"><?php echo $Account5['Account5']; ?></a></li>
+<li><a href="<?php echo $website['root'];?>register.php"><?php echo $Account3['Account3']; ?></a></li>
+<li><a href="<?php echo $website['root'];?>account_log.php"><?php echo $Account4['Account4']; ?></a></li>
+<li><a href="<?php echo $website['root'];?>account_log.php"><?php echo $Account5['Account5']; ?></a></li>
 </ul>
 </div>
 <div class="column">
@@ -233,7 +233,7 @@ shim.style.display = 'block';
 <div class="explore-primary">
 <ul class="explore-nav">
 <li>
-<a href="index.php" tabindex="55">
+<a href="<?php echo $website['root'];?>index.php" tabindex="55">
 <strong class="explore-caption"><?php echo $website['title']; ?></strong>
 <?php echo $Friends['Keepthem']; ?>
 </a>
@@ -260,8 +260,8 @@ shim.style.display = 'block';
 <div class="explore-links">
 <h2 class="explore-caption"><?php echo $More['More']; ?></h2>
 <ul>
-<li><a href="" tabindex="55"><?php echo $Retrieve['Retrieve']; ?></a></li>
-<li><a href="" tabindex="55"><?php echo $Client_down3['Client_down3']; ?></a></li>
+<li><a href="#" tabindex="55"><?php echo $Retrieve['Retrieve']; ?></a></li>
+<li><a href="#" tabindex="55"><?php echo $Client_down3['Client_down3']; ?></a></li>
 </ul>
 </div>
 <span class="clear"><!-- --></span>
@@ -278,26 +278,7 @@ shim.style.display = 'block';
 </script>
 <![endif]-->
 </div>
-<!--<ul class="explore-secondary">
-<li class="explore-game explore-game-sc2">
-<a href="http://eu.battle.net/sc2/" tabindex="55">
-<strong class="explore-caption">StarCraft II</strong>
-<span>Community Site</span> <span>Forum Discussions</span> <span>Character Profiles and more…</span>
-</a>
-</li>
-<li class="explore-game explore-game-wow">
-<a href="http://eu.battle.net/wow/" tabindex="55">
-<strong class="explore-caption">World of Warcraft</strong>
-<span>Community Site</span> <span>Forum Discussions</span> <span>Character Profiles and more…</span>
-</a>
-</li>
-<li class="explore-game explore-game-d3">
-<a href="http://eu.battle.net/d3" tabindex="55">
-<strong class="explore-caption">Diablo III</strong>
-<span>Under Development, visit the Announcement Site</span>
-</a>
-</li>
-</ul>-->
+
 </div>
 </li>
 </ul>
@@ -406,7 +387,7 @@ other: 'Other'
 //]]>
 </script>
 
-<script type="text/javascript" src="/wow/static/local-common/js/search.js?v37"></script>
+<script type="text/javascript" src="<?php echo $website['root'];?>wow/static/local-common/js/search.js?v37"></script>
 
 <script type="text/javascript">
 //<![CDATA[
@@ -418,16 +399,16 @@ Login.embeddedUrl = '<?php echo $website['root']; ?>loginframe.php';
 </script>
 
 
-<script type="text/javascript" src="/wow/static/local-common/js/menu.js?v37"></script>
-<script type="text/javascript" src="/wow/static/js/wow.js?v19"></script>
+<script type="text/javascript" src="<?php echo $website['root'];?>wow/static/local-common/js/menu.js?v37"></script>
+<script type="text/javascript" src="<?php echo $website['root'];?>wow/static/js/wow.js?v19"></script>
 <script type="text/javascript">
 //<![CDATA[
 $(function() {
-Menu.initialize('/data/menu.json');
+Menu.initialize('<?php echo $website['root'];?>data/menu.json');
 });
 //]]>
 </script>
-<script type="text/javascript" src="/wow/static/local-common/js/cms.js?v37"></script>
+<script type="text/javascript" src="<?php echo $website['root'];?>wow/static/local-common/js/cms.js?v37"></script>
 
 <!--[if lt IE 8]> <script type="text/javascript" src="/wow/static/local-common/js/third-party/jquery.pngFix.pack.js?v37"></script>
 <script type="text/javascript">
