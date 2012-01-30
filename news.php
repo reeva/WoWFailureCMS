@@ -517,15 +517,15 @@ _gaq.push(['_trackPageview']);
 							<div class="sidebar-content">
 							<ul class="trending-topics">
 								<?php
-								@$get_lastactivity = mysql_query("SELECT * FROM $server_db.forum_threads ORDER BY `last_date` DESC LIMIT 10");
-								if(mysql_num_rows(@$get_lastactivity) > 0){
+								@$get_lastactivity = mysql_query("SELECT *, date FROM $server_db.forum_threads ORDER BY `last_date` DESC LIMIT 10");
+								if(mysql_num_rows($get_lastactivity) > 0){
 								while($lastact = mysql_fetch_array($get_lastactivity)){
 									$forum = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_db.forum_forums WHERE id = '".$lastact['forumid']."'"));
 									echo '
 									<li>
 									<a href="forum/category/view-topic/?t='.$lastact['id'].'" class="topic">
 									'.$lastact['name'].'</a>
-									<a class="forum">'.$forum['name'].'</a> - <span class="date">00/00/00 00:00</span></li>
+									<a class="forum">'.$forum['name'].'</a> - <span class="date">'.$lastact['date'].'</span></li>
 									';
 								}
 								}else{
