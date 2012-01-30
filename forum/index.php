@@ -198,7 +198,7 @@ Flash.ratingImage = 'http://eu.media.blizzard.com/wow/player/rating-pegi.jpg';
 									$forum = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_db.forum_forums WHERE id = '".$lastact['forumid']."'"));
 									echo '
 									<li>
-									<a href="forum/category/view-topic/?t='.$lastact['id'].'" class="topic">
+									<a href="category/view-topic/?t='.$lastact['id'].'" class="topic">
 									'.$lastact['name'].'</a>
 									<a class="forum">'.$forum['name'].'</a> - <span class="date">'.$lastact['date'].'</span></li>
 									';
