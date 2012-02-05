@@ -307,12 +307,12 @@ $bg = "<img src='wow/static/images/icons/faction/horde.gif' width='18' height='1
 }
     echo " 
 	<tr>
- <td style=''>",$i,"</td>
- <td><center>".$bg."",$name,"</center></td>
- <td><center>",$level,"</center></td>
- <td><center>",$Total_Honor,"</center></td>
- <td><center>",$Total_Kills,"</center></td>
- <td><center>",$class,"</center></td>
+ <td style=''>",@$i,"</td>
+ <td><center>".@$bg."",@$name,"</center></td>
+ <td><center>",@$level,"</center></td>
+ <td><center>",@$Total_Honor,"</center></td>
+ <td><center>",@$Total_Kills,"</center></td>
+ <td><center>",@$class,"</center></td>
  <td>",$name_realm1['realm'],"</td>
   </tr>
   
