@@ -11,7 +11,7 @@ if( $_POST['cont'] ) {
 	if( !$_GET['edit'] ) mysql_query("INSERT INTO `news` (`id`, `author`, `date`, `content`, `authorlnk`, `contentlnk`, `title`, `comments`, `image`) VALUES
 (NULL, '".$_SESSION['username']."', '".date("y")."-".date("n")."-".date("j")."', '$body', NULL, NULL, '$tittle', 0, 'staff');");	
 	else mysql_query("UPDATE `news` SET `content` =  '$body',
-`title` =  '$tittle' WHERE `id` =".$_GET['edit');	
+`title` =  '$tittle' WHERE `id` =".$_GET['edit']);	
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
