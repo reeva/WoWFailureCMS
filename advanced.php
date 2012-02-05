@@ -80,8 +80,8 @@ Services
 	</div>
 
 	<span class="clear"><!-- --></span>
-	<div class="under-name color-c<?php $character->getObjectInfo()->class; ?>"><!-- class="under-name color-c1 is warrior, to be paladin it has to be class="under-name color-c2, so what we change here is the number of the class c2, c3, c4, ... -->
-	<span class="level"><strong><?php echo $character->getObjectInfo()->level; ?></strong></span> <a href="" class="race"><?php $character->getObjectInfo()->race; ?></a> <a id="profile-info-spec" href="" class="spec tip">TALENT</a> <a href="" class="class"><?php echo $character->getObjectInfo()->class; ?></a><span class="comma">,</span>
+	<div class="under-name color-c<?php echo $character->getObjectInfo()->class; ?>"><!-- class="under-name color-c1 is warrior, to be paladin it has to be class="under-name color-c2, so what we change here is the number of the class c2, c3, c4, ... -->
+	<span class="level"><strong><?php echo $character->getObjectInfo()->level; ?></strong></span> <a href="" class="race"><?php echo $character->getObjectInfo()->race; ?></a> <a id="profile-info-spec" href="" class="spec tip">TALENT</a> <a href="" class="class"><?php echo $character->getObjectInfo()->class; ?></a><span class="comma">,</span>
 	<span class="realm tip" id="profile-info-realm" data-battlegroup=""><?php echo $name_realm1['realm']; ?></span>
 	</div>
 	<div class="achievements"><a href="">A.Points</a></div>
