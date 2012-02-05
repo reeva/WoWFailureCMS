@@ -84,6 +84,7 @@ $website['explore'] = "&Epsilon;&xi;&epsilon;&rho;&epsilon;&upsilon;&nu;&eta;&si
 $More['More'] = "&Pi;&epsilon;&rho;&iota;&sigma;&sigma;&omicron;&tau;&epsilon;&rho;&alpha;";
 $Retrieve['Retrieve'] = "Retrieve Lost Account";
 $Find['Find'] = "Find us on the Map!";
+$or['or'] = "or";
 
 // Starting the voting translation
 

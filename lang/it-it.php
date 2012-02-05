@@ -80,6 +80,7 @@ $website['explore'] = "Esplorare";
 $More['More'] = "Di pi&ugrave;";
 $Retrieve['Retrieve'] = "Recuperare un conto dimenticato";
 $Find['Find'] = "Find us on the Map!";
+$or['or'] = "or";
 
 // Starting the voting translation
 
