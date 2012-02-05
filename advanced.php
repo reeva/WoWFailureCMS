@@ -28,6 +28,7 @@ $character = Factory_Armory::createCharacter($_GET['name']);
 <script type="text/javascript" src="wow/static/local-common/js/third-party/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="wow/static/local-common/js/core.js"></script>
 <script type="text/javascript" src="wow/static/local-common/js/tooltip.js"></script>
+<script type="text/javascript" src="http://static.wowhead.com/widgets/power.js"></script>
 <!--[if IE 6]> <script type="text/javascript">
 //<![CDATA[
 try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
@@ -156,6 +157,7 @@ Services
     $character->run();
     ?>
     </div>
+	</div>
         <script type="text/javascript">
         //<![CDATA[
 		$(document).ready(function() {

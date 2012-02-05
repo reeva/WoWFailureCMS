@@ -1,6 +1,7 @@
 <?php
 require('mysql.class.php');
 require('wowheadparser.php');
+
 class Factory_Armory
 {
 	static public function createCharacter($charName)
@@ -72,8 +73,8 @@ class Armory_Character extends Armory
     	
 	public function __construct($name)
 	{
-		$this->setCharDb(new Character_Database(array('host' => 'localhost','username' => 'root','password'=>'kabeli',ucfirst('character') => 'characters')));
-		$this->setWorldDb(new World_Database(array('host' => 'localhost','username' => 'root','password'=>'kabeli',ucfirst('world') => 'world')));
+		$this->setCharDb(new Character_Database(array('host' => 'localhost','username' => 'root','password'=>'password',ucfirst('character') => 'characters')));
+		$this->setWorldDb(new World_Database(array('host' => 'localhost','username' => 'root','password'=>'password',ucfirst('world') => 'world')));
 		$this->setObjectId($this->getCharDb()->getGuidByName($name));
 		$this->setObjectInfo($this->getCharDb()->getInfoFor($this->getObjectId()));
 	}
@@ -250,20 +251,20 @@ class Armory_Character extends Armory
 				echo '<div data-id="'.$item[1].'" data-type="'.$item[2].'" class="slot slot-'.$item[1].' '.$alignment3.' item-quality-'.$item[3]->Quality.'" style=" '.$alignment.': '.$px.'px; '.$alignment2.': '.$pixelWidth.'px;">
 					<div class="slot-inner">
 						<div class="slot-contents">
-						<a href="/wow/en/item/77096" class="item" data-item="e=4072&g0=52236">
+						<a href="#" rel="item='.$item[0].'" class="item" data-item="">
 						'.$item[4]->getItemImage().'
 						<span class="frame"></span></a>
 							<div class="details">
                                 <span class="name-shadow">'.$item[3]->name.'</span>
-								<span class="name color-q'.$item[3]->Quality.'">'.$item[3]->name.'</span>
+								<span class="name color-q'.$item[3]->Quality.'"><a href="#" rel="item='.$item[0].'">'.$item[3]->name.'</a></span>
 								</span>
-								<span class="enchant-shadow">
+								<!--<span class="enchant-shadow">
 									Intellect
 								</span>
 									<div class="enchant color-q2">
 										<a href="/wow/en/item/52753">Intellect</a>
-									</div>
-								<span class="level">397</span>
+									</div>-->
+								<!--<span class="level">397</span>
 								<span class="sockets">
 								<span class="icon-socket socket-2">
 									<a href="/wow/en/item/52236" class="gem">
@@ -271,7 +272,7 @@ class Armory_Character extends Armory
 								<span class="frame"></span>
 										</a>
 									</span>
-								</span>
+								</span>-->
 							</div>
 						</div>
 					</div>
