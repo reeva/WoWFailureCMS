@@ -1,8 +1,7 @@
 <?php
 abstract class MySQL
 {
-	abstract private $_Instance;
-	abstract protected function runQuery();
+	protected $_Instance;
 	
 	public function getInstance()
 	{
@@ -17,22 +16,30 @@ abstract class MySQL
 	
 	public function makeArgumentsSafe($arguments)
 	{
-		$result = array();
-		foreach($arguments as $argument)
+		if(is_array($arguments))
 		{
-			$result[] = mysql_real_escape_string($argument); 
+			$result = array();
+			foreach($arguments as $argument)
+			{
+				$result[] = $this->getInstance()->quote($argument); 
+			}
+		}else{
+			$result = $this->getInstance()->quote($arguments);
 		}
-		
 		return $result;
 	}
 	
 	public function prepareStatement($sql,$arguments)
 	{
-		$args = $this->makeArgumentsSafe($arguments);
 		$stmn = $this->getInstance()->prepare($sql);
-		for($i = 0; $i < count($args);$i++)
-		{
-			$stmn->bindValue($i+1,$args[$i]);
+		if(is_array($arguments))
+		{			
+			for($i = 0; $i < count($arguments);$i++)
+			{
+				$stmn->bindValue($i+1,$arguments[$i]);
+			}
+		}else{
+			$stmn->bindValue(1,$arguments);
 		}
 		return $stmn;
 	}
@@ -46,23 +53,23 @@ abstract class MySQL
 		}
 		catch(PDOException $error)
 		{
-			if($error->getCode() == 1062)
-			{
-				$this->getInstance()->rollback();
-				return FALSE;
-			}else{
-				return TRUE;
-			}
+			$this->getInstance()->rollback();
+			return $error->getCode();
 		}
+		
 	}
 	
 	public function fetchResult($result)
 	{
-		if($result->rowCount() > 1)
-		{
-			return $result->fetch(PDO::FETCH_OBJ);
-		}else {
-			return $result->fetchAll(PDO::FETCH_OBJ);			
+		if(is_object($result)){
+			if(1 < $result->rowCount())
+			{
+				return $result->fetchAll();
+			}else{
+				return $result->fetch(PDO::FETCH_LAZY);			
+			}
+		}else{
+			var_dump($result);
 		}
 	}
 	
@@ -70,7 +77,6 @@ abstract class MySQL
 
 class Realm_Database extends MySQL
 {
-	private $_Instance;
 	
 	public function __construct($details)
 	{
@@ -90,7 +96,7 @@ class Realm_Database extends MySQL
 	
 	public function authorize($username,$password)
 	{
-		$result = $this->getInstance()->prepareStatement("SELECT id FROM `account` WHERE username='?' AND sha_pass_hash='?';",array($username,$password));
+		$result = $this->getInstance()->prepareStatement("SELECT id FROM `account` WHERE username='?' AND sha_pass_hash='?';",array($username,$this->_generatePassword($username,$password)));
 		if($result->rowCount() <= 0){
 			return FALSE;
 		}else if($result->rowCount() == 1)
@@ -111,12 +117,11 @@ class Realm_Database extends MySQL
 
 class Character_Database extends MySQL
 {
-	private $_Instance;
 	
 	public function __construct($details)
 	{
 		$dbIdentifier = explode('_',get_class());
-		$this->setInstance(new PDO("mysql:host='".$details['host'].";dbname=".$details[$dbIdentifier[0]], $details['username'], $details['password']));
+		$this->setInstance(new PDO("mysql:host=".$details['host'].";dbname=".$details[$dbIdentifier[0]], $details['username'], $details['password']));
 	}
 	
 	public function __destruct()
@@ -124,6 +129,66 @@ class Character_Database extends MySQL
 		$this->setInstance(NULL);
 	}
 	
+	public function getGuidByName($name)
+	{
+		$arg = $this->makeArgumentsSafe($name);
+		$result = $this->getInstance()->query("SELECT guid FROM `characters` WHERE name=".$arg);
+		if($result)
+		{
+			return $this->fetchResult($result)->guid;
+		}
+	}
 	
+	public function getEquipedItems($Guid)
+	{
+		$itemsRaw = $this->fetchResult($this->getInstance()->query("SELECT itemEntry,slot FROM `item_instance` INNER JOIN `character_inventory` ON `character_inventory`.`item`=`item_instance`.`guid` WHERE owner_guid=".$this->makeArgumentsSafe($Guid)." AND slot <= 18 AND bag = 0 ORDER BY slot"));
+        $items = array();
+        foreach($itemsRaw as $item)
+        {
+            if(!in_array($item["itemEntry"],$itemsRaw))
+            {
+                $items[$item["slot"]] = $item;
+            }
+        }
+        $result = array();
+        for($i = 0; $i <= 18;$i++)
+        {
+            if(isset($items[$i]))
+            {
+                $result[$items[$i]["slot"]] = $items[$i];
+            }else{
+                $result[$i] = NULL;
+            }
+        }
+        return $result;
+	}
+	
+	public function getInfoFor($Guid)
+	{
+		$character = $this->prepareStatement("SELECT name,race,class,gender,level,health,power1,power2,power4,power5,power6,power7 FROM `characters` WHERE guid=?",$Guid);
+		$character->execute();
+		return $this->fetchResult($character);
+	}
+}
+class World_Database extends MySQL
+{
+
+	public function __construct($details)
+	{
+		$dbIdentifier = explode('_',get_class());
+		$this->setInstance(new PDO("mysql:host=".$details['host'].";dbname=".$details[$dbIdentifier[0]], $details['username'], $details['password']));
+	}
+	
+	public function __destruct()
+	{
+		$this->setInstance(NULL);
+	}
+	
+	public function getItemInfo($itemId)
+	{
+		$secure = $this->makeArgumentsSafe($itemId);
+		$itemEntry = $this->getInstance()->query("SELECT entry,name,displayid,Quality,InventoryType FROM `item_template` WHERE entry=".$secure);
+		return $this->fetchResult($itemEntry);
+	}
 }
 ?>

@@ -1,7 +1,8 @@
 <?php
 require_once("configs.php");
 $page_cat = "services";
-include("functions/armory_items_func.php")
+include("classes/armory.class.php");
+$character = Factory_Armory::createCharacter($_GET['name']);
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
@@ -36,8 +37,8 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 
 <style type="text/css">
  #content
- .content-top{background-image:url("wow/static/images/character/summary/backgrounds/race/<?php echo @$get["race"] ?>.jpg"); left top no-repeat;}
- .profile-wrapper{background-image:url("wow/static/images/character/summary/backgrounds/class/<?php echo $get["race"] ?>-<?php echo @$get["gender"] ?>.jpg");}
+ .content-top{background-image:url("wow/static/images/character/summary/backgrounds/race/<?php echo $character->getObjectInfo()->race; ?>.jpg"); left top no-repeat;}
+ .profile-wrapper{background-image:url("wow/static/images/character/summary/backgrounds/class/<?php echo $character->getObjectInfo()->race; ?>-<?php echo $character->getObjectInfo()->gender; ?>.jpg");}
  </style>
 </head>
 <body class="en-gb">
@@ -59,7 +60,7 @@ Services
 </li>
 <li class="last">
 <a href="" rel="np">
-<?php echo @$name = $_GET['name'];?> @ <?php echo @$name_realm1['realm']; ?>
+<?php echo $character->getObjectInfo()->name;?> @ <?php echo @$name_realm1['realm']; ?>
 </a>
 </li>
 </ol>
@@ -72,14 +73,14 @@ Services
 	<div class="profile-sidebar-contents">
 	<div class="profile-info-anchor">
 	<div class="profile-info">
-	<div class="name"><a href="" rel="np"><?php echo @$name = $_GET['name'];?></a></div>
+	<div class="name"><a href="" rel="np"><?php echo $character->getObjectInfo()->name;?></a></div>
 	<div class="title-guild">
 	<div class="title">&#160;</div>
 	</div>
 
 	<span class="clear"><!-- --></span>
-	<div class="under-name color-c<?php echo @$get["class"] ?>"><!-- class="under-name color-c1 is warrior, to be paladin it has to be class="under-name color-c2, so what we change here is the number of the class c2, c3, c4, ... -->
-	<span class="level"><strong><?php echo @$get["level"] ?></strong></span> <a href="" class="race"><?php echo $race ?></a> <a id="profile-info-spec" href="" class="spec tip">TALENT</a> <a href="" class="class"><?php echo $class2 ?></a><span class="comma">,</span>
+	<div class="under-name color-c<?php $character->getObjectInfo()->class; ?>"><!-- class="under-name color-c1 is warrior, to be paladin it has to be class="under-name color-c2, so what we change here is the number of the class c2, c3, c4, ... -->
+	<span class="level"><strong><?php echo $character->getObjectInfo()->level; ?></strong></span> <a href="" class="race"><?php $character->getObjectInfo()->race; ?></a> <a id="profile-info-spec" href="" class="spec tip">TALENT</a> <a href="" class="class"><?php echo $character->getObjectInfo()->class; ?></a><span class="comma">,</span>
 	<span class="realm tip" id="profile-info-realm" data-battlegroup=""><?php echo $name_realm1['realm']; ?></span>
 	</div>
 	<div class="achievements"><a href="">A.Points</a></div>
@@ -138,9 +139,9 @@ Services
 	<div class="summary-top-right">
 	<ul class="profile-view-options" id="profile-view-options-summary">
 	<li>
-	<a href="threed.php?name=<?php echo @$name = $_GET['name'];?>" rel="np" class="threed">3D Model</a></li>
+	<a href="threed.php?name=<?php echo $character->getObjectInfo()->name;?>" rel="np" class="threed">3D Model</a></li>
 	<li class="current">
-	<a href="advanced.php?name=<?php echo @$name = $_GET['name'];?>" rel="np" class="advanced">Advanced</a></li>
+	<a href="advanced.php?name=<?php $character->getObjectInfo()->name;?>" rel="np" class="advanced">Advanced</a></li>
 	</ul>
 	<div class="summary-averageilvl">
 	<div class="rest">Average item level<br/>(<span class="equipped">20</span> Equipped)
@@ -148,419 +149,13 @@ Services
 	<div id="summary-averageilvl-best" class="best tip" data-id="averageilvl">20</div>
 	</div>
 	</div>
-	
-
 	<br>
 	<div class="summary-top-inventory">
 	<div id="summary-inventory" class="summary-inventory summary-inventory-advanced">
-	<div data-id="0" data-type="1" class="slot slot-1" style=" left: 0px; top: 0px;">
-	<div class="slot-inner">
-	<div class="slot-contents">
-	<a href="javascript:;" class="empty"><span class="frame"></span></a>
-	</div>
-	</div>
-	</div>
-	<div data-id="1" data-type="2" class="slot slot-2 item-quality-3" style=" left: 0px; top: 58px;">
-	<div class="slot-inner">
-	<div class="slot-contents">
-	<a href="javascript:;" class="empty"><span class="frame"></span></a>
-	<div class="details">
-	<span class="name-shadow"></span>
-	<span class="name color-q3">
-	<!--<a href="http://www.wowhead.com/item=51996" data-item="r=-86">Tumultuous Necklace of the Soldier</a>
-	</span>
-	<span class="level">35</span>-->
-	</div>
-	</div>
-	</div>
-	</div>
-	<div data-id="2" data-type="3" class="slot slot-3 item-quality-2" style=" left: 0px; top: 116px;">
-	<div class="slot-inner">
-	
-	<div class="slot-contents">
-	<a href="javascript:;" class="empty"><span class="frame"></span></a>
-	<!--<a href="http://www.wowhead.com/item=4835" class="item" data-item="d=59"><img src="http://eu.media.blizzard.com/wow/icons/56/inv_shoulder_05.jpg" alt="" /><span class="frame"></span></a>-->
-	<div class="details">
-	<!--<span class="name-shadow">Elite Shoulders</span>
-	<span class="name color-q2">
-	<a href="http://www.wowhead.com/item=4835" data-item="d=59">Elite Shoulders</a><a href="javascript:;" class="audit-warning"></a>
-	</span>
-	<span class="level">30</span>-->
-	</div>
-	</div>
-	</div>
-	</div>
-	<div data-id="14" data-type="16" class="slot slot-16 item-quality-3" style=" left: 0px; top: 174px;">
-	<div class="slot-inner">
-	<div class="slot-contents">
-	<a href="javascript:;" class="empty"><span class="frame"></span></a>
-	<div class="details">
-	<!--<span class="name-shadow">Tumultuous Cloak of the Sorcerer</span>-->
-	<!--<span class="name color-q3">
-	<a href="http://www.wowhead.com/item=51994" data-item="e=1889&amp;r=-85&amp;s=861470728">Tumultuous Cloak of the Sorcerer</a>
-	</span>
-	<span class="enchant-shadow">
-	Superior Defense
-	</span>
-	<div class="enchant color-q2">
-	<a href="http://www.wowhead.com/item=16224">Superior Defense</a>
-								</div>
-							<span class="level">25</span>-->
-						</div>
-			</div>
-		</div>
-	</div>
-
-
-	 	
-
-
-
-
-	<div data-id="4" data-type="5" class="slot slot-5 item-quality-2" style=" left: 0px; top: 232px;">
-		<div class="slot-inner">
-			<div class="slot-contents">
-	<a href="javascript:;" class="empty"><span class="frame"></span></a>
-	<div class="details">
-							<!--<span class="name-shadow">Husk of Naraxis</span>
-							<span class="name color-q2">
-								
-								<a href="http://www.wowhead.com/item=4448" data-item="e=17&amp;d=94">Husk of Naraxis</a>
-							</span>
-								<span class="enchant-shadow">
-									Heavy Armor Kit
-								</span>
-								<div class="enchant color-q2">
-<a href="http://www.wowhead.com/item=4265">Heavy Armor Kit</a>
-								</div>
-							<span class="level">27</span>-->
-						</div>
-			</div>
-		</div>
-	</div>
-
-
-	 	
-
-
-
-
-	<div data-id="3" data-type="4" class="slot slot-4 item-quality-1" style=" left: 0px; top: 290px;">
-		<div class="slot-inner">
-			<div class="slot-contents">
-	<a href="javascript:;" class="empty"><span class="frame"></span></a>
-	<div class="details">
-							<!--<span class="name-shadow">Squire&#39;s Shirt</span>
-							<span class="name color-q1">
-								
-								<a href="http://www.wowhead.com/item=23476" data-item="">Squire&#39;s Shirt</a>
-							</span>
-							<span class="level">1</span>-->
-						</div>
-			</div>
-		</div>
-	</div>
-
-
-	 	
-
-
-
-
-	<div data-id="18" data-type="19" class="slot slot-19 item-quality-1" style=" left: 0px; top: 348px;">
-		<div class="slot-inner">
-			<div class="slot-contents">
-					<a href="javascript:;" class="empty"><span class="frame"></span></a>
-					<div class="details">
-							<!--<span class="name-shadow">Tabard of the Hand</span>
-							<span class="name color-q1">
-								
-								<a href="http://www.wowhead.com/item=24344" data-item="s=662226304">Tabard of the Hand</a>
-							</span>
-							<span class="level">20</span>-->
-						</div>
-			</div>
-		</div>
-	</div>
-
-
-	 	
-
-
-
-
-	<div data-id="8" data-type="9" class="slot slot-9 item-quality-2" style=" left: 0px; top: 406px;">
-		<div class="slot-inner">
-			<div class="slot-contents">
-					<a href="javascript:;" class="empty"><span class="frame"></span></a>
-					<div class="details">
-							<!--<span class="name-shadow">Fortified Bracers of the Bear</span>
-							<span class="name color-q2">
-								
-								<a href="http://www.wowhead.com/item=9811" data-item="e=856&amp;r=1184&amp;s=1458545920&amp;d=30">Fortified Bracers of the Bear</a>
-							</span>
-								<span class="enchant-shadow">
-									Strength
-								</span>
-								<div class="enchant color-q2">
-<span class="tip" data-spell="13661">Strength</span>
-								</div>
-							<span class="level">24</span>-->
-						</div>
-			</div>
-		</div>
-	</div>
-
-
-	 
-	
-
-
-
-
-	<div data-id="9" data-type="10" class="slot slot-10 slot-align-right item-quality-2" style=" top: 0px; right: 0px;">
-		<div class="slot-inner">
-			<div class="slot-contents">
-					<a href="javascript:;" class="empty"><span class="frame"></span></a>
-					<div class="details">
-							<!--<span class="name-shadow">Battleforge Gauntlets of the Bear</span>
-							<span class="name color-q2">
-								<a href="http://www.wowhead.com/item=6595" data-item="e=17&amp;r=1191&amp;s=1597971648&amp;d=35">Battleforge Gauntlets of the Bear</a>
-								</span>
-								<span class="enchant-shadow">
-								Heavy Armor Kit
-								</span>
-								<div class="enchant color-q2">
-								<a href="http://www.wowhead.com/item=4265">Heavy Armor Kit</a>
-								</div>
-							<span class="level">28</span>-->
-						</div>
-			</div>
-		</div>
-	</div>
-
-
-	 
-	
-
-
-
-
-	<div data-id="5" data-type="6" class="slot slot-6 slot-align-right item-quality-2" style=" top: 58px; right: 0px;">
-		<div class="slot-inner">
-			<div class="slot-contents">
-					<a href="javascript:;" class="empty"><span class="frame"></span></a>
-					<div class="details">
-							<!--<span class="name-shadow">Lambent Scale Girdle</span>
-							<span class="name color-q2">
-								
-								<a href="http://www.wowhead.com/item=4707" data-item="">Lambent Scale Girdle</a>
-							</span>
-							<span class="level">26</span>-->
-						</div>
-			</div>
-		</div>
-	</div>
-
-
-	 
-	
-
-
-
-
-	<div data-id="6" data-type="7" class="slot slot-7 slot-align-right item-quality-2" style=" top: 116px; right: 0px;">
-		<div class="slot-inner">
-			<div class="slot-contents">
-					<a href="javascript:;" class="empty"><span class="frame"></span></a>
-					<div class="details">
-							<!--<span class="name-shadow">Green Iron Leggings</span>
-							<span class="name color-q2">
-								
-								<a href="http://www.wowhead.com/item=3842" data-item="e=17&amp;s=728222272&amp;d=74">Green Iron Leggings</a>
-							</span>
-								<span class="enchant-shadow">
-									Heavy Armor Kit
-								</span>
-								<div class="enchant color-q2">
-<a href="http://www.wowhead.com/item=4265">Heavy Armor Kit</a>
-								</div>
-							<span class="level">31</span>-->
-						</div>
-			</div>
-		</div>
-	</div>
-
-
-	 
-	
-
-
-
-
-	<div data-id="7" data-type="8" class="slot slot-8 slot-align-right item-quality-2" style=" top: 174px; right: 0px;">
-		<div class="slot-inner">
-			<div class="slot-contents">
-					<a href="javascript:;" class="empty"><span class="frame"></span></a>
-					<div class="details">
-							<!--<span class="name-shadow">Silvered Bronze Boots</span>
-							<span class="name color-q2">
-								
-								<a href="http://www.wowhead.com/item=3482" data-item="e=17&amp;s=1063978688&amp;d=43">Silvered Bronze Boots</a>
-							</span>
-								<span class="enchant-shadow">
-									Heavy Armor Kit
-								</span>
-								<div class="enchant color-q2">
-<a href="http://www.wowhead.com/item=4265">Heavy Armor Kit</a>
-								</div>
-							<span class="level">26</span>-->
-						</div>
-			</div>
-		</div>
-	</div>
-
-
-	 
-	
-
-
-
-
-	<div data-id="10" data-type="11" class="slot slot-11 slot-align-right item-quality-2" style=" top: 232px; right: 0px;">
-		<div class="slot-inner">
-			<div class="slot-contents">
-					<a href="javascript:;" class="empty"><span class="frame"></span></a>
-					<div class="details">
-							<!--<span class="name-shadow">Signet Ring of the Hand</span>
-							<span class="name color-q2">
-								
-								<a href="http://www.wowhead.com/item=24349" data-item="s=683553728">Signet Ring of the Hand</a>
-							</span>
-							<span class="level">20</span>-->
-						</div>
-			</div>
-		</div>
-	</div>
-
-
-	 
-	
-
-
-
-
-	<div data-id="11" data-type="11" class="slot slot-11 slot-align-right item-quality-2" style=" top: 290px; right: 0px;">
-		<div class="slot-inner">
-			<div class="slot-contents">
-					<a href="javascript:;" class="empty"><span class="frame"></span></a>
-					<div class="details">
-							<!--<span class="name-shadow">Clay Ring of the Bear</span>
-							<span class="name color-q2">
-								
-								<a href="http://www.wowhead.com/item=11993" data-item="r=1183">Clay Ring of the Bear</a>
-							</span>
-							<span class="level">22</span>-->
-						</div>
-			</div>
-		</div>
-	</div>
-
-
-	 
-	
-
-
-
-
-	<div data-id="12" data-type="12" class="slot slot-12 slot-align-right" style=" top: 348px; right: 0px;">
-		<div class="slot-inner">
-			<div class="slot-contents">
-					<a href="javascript:;" class="empty"><span class="frame"></span></a>
-			</div>
-		</div>
-	</div>
-
-
-	 
-	
-
-
-
-
-	<div data-id="13" data-type="12" class="slot slot-12 slot-align-right" style=" top: 406px; right: 0px;">
-		<div class="slot-inner">
-			<div class="slot-contents">
-					<a href="javascript:;" class="empty"><span class="frame"></span></a>
-			</div>
-		</div>
-	</div>
-
-
-	 
-
-
-
-
-	<div data-id="15" data-type="21" class="slot slot-21 slot-align-right item-quality-3" style=" left: -6px; bottom: 0px;">
-		<div class="slot-inner">
-			<div class="slot-contents">
-					<a href="javascript:;" class="empty"><span class="frame"></span></a>
-					<div class="details">
-							<!--<span class="name-shadow">Diamond Hammer</span>
-							<span class="name color-q3">
-								<a href="javascript:;" class="audit-warning"></a>
-								<a href="http://www.wowhead.com/item=2194" data-item="s=723013552">Diamond Hammer</a>
-							</span>
-							<span class="level">25</span>-->
-						</div>
-			</div>
-		</div>
-	</div>
-
-
-	 
-
-
-
-
-	<div data-id="16" data-type="22" class="slot slot-22 item-quality-2" style=" left: 271px; bottom: 0px;">
-		<div class="slot-inner">
-			<div class="slot-contents">
-					<a href="javascript:;" class="empty"><span class="frame"></span></a>
-					<div class="details">
-							<!--<span class="name-shadow">Glimmering Shield</span>
-							<span class="name color-q2">
-								
-								<a href="http://www.wowhead.com/item=6400" data-item="e=929&amp;s=1509242176&amp;d=84">Glimmering Shield</a>
-							</span>
-								<span class="enchant-shadow">
-									Greater Stamina
-								</span>
-								<div class="enchant color-q2">
-<a href="http://www.wowhead.com/item=16217">Greater Stamina</a>
-								</div>
-							<span class="level">31</span>-->
-						</div>
-			</div>
-		</div>
-	</div>
-
-
-	 
-
-
-
-
-	<div data-id="17" data-type="28" class="slot slot-28" style=" left: 548px; bottom: 0px;">
-		<div class="slot-inner">
-			<div class="slot-contents">
-					<a href="javascript:;" class="empty"><span class="frame"></span></a>
-			</div>
-		</div>
-	</div>
-	</div>
-</div>
+	<?php
+    $character->run();
+    ?>
+    </div>
         <script type="text/javascript">
         //<![CDATA[
 		$(document).ready(function() {
@@ -893,12 +488,12 @@ Services
 	<li class="summary-talents-1">
 		<a href="" class="active"><span class="inner">
 				<span class="checkmark"></span>
-			<span class="icon"><img src="wow/static/images/icons/talents/<?php echo $talenimage ?>.jpg" alt="" /><span class="frame"></span></span>
+			<span class="icon"><img src="wow/static/images/icons/talents/<?php echo @$talenimage ?>.jpg" alt="" /><span class="frame"></span></span>
 				<span class="roles">
 							<span class="icon-dps"></span>
 				</span>
 			<span class="name-build">
-				<span class="name"><?php echo $talename ?></span>
+				<span class="name"><?php echo @$talename ?></span>
 				<span class="build">0<ins>/</ins>0<ins>/</ins>0</span>
 			</span>
 		</span></a>
@@ -908,10 +503,10 @@ Services
 
 					<div class="summary-health-resource">
 	<ul>
-		<li class="health" id="summary-health" data-id="health"><span class="name">Health</span><span class="value"><?php echo $get["health"] ?></span></li>
-		<li class="resource-<?php echo $power ?>" id="summary-power" data-id="power-<?php echo $power ?>"><span class="name"><?php echo $powname ?></span><span class="value">
+		<li class="health" id="summary-health" data-id="health"><span class="name">Health</span><span class="value"><?php echo @$get["health"] ?></span></li>
+		<li class="resource-<?php echo @$power ?>" id="summary-power" data-id="power-<?php echo @$power ?>"><span class="name"><?php echo @$powname ?></span><span class="value">
 		<?php 
-		if($cclass == 2 || $cclass == 7 || $cclass == 8 || $cclass == 9 || $cclass == 11 || $cclass == 5)
+		/*if($cclass == 2 || $cclass == 7 || $cclass == 8 || $cclass == 9 || $cclass == 11 || $cclass == 5)
 		{
 		echo $get["power1"];
 		}
@@ -934,7 +529,7 @@ Services
 		elseif($cclass == 6)
 		{
 		echo $get["power4"];
-		}
+		}*/
 		 ?></span></li>
 	</ul>
 					</div>
@@ -950,17 +545,17 @@ Services
 		<ul>
 	<li data-id="strength" class="">
 		<span class="name">Strength</span>
-		<span class="value color-q2"><?php echo $gets["strength"] ?></span>
+		<span class="value color-q2"><?php echo @$gets["strength"] ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 	<li data-id="intellect" class="">
 		<span class="name">Intellect</span>
-		<span class="value color-q10"><?php echo $gets["intellect"] ?></span>
+		<span class="value color-q10"><?php echo @$gets["intellect"] ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 	<li data-id="stamina" class="">
 		<span class="name">Stamina</span>
-		<span class="value color-q2"><?php echo $gets["stamina"] ?></span>
+		<span class="value color-q2"><?php echo @$gets["stamina"] ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 	<li data-id="mastery" class="">
@@ -993,7 +588,7 @@ Services
 
 	<li data-id="parry" class="">
 		<span class="name">Parry</span>
-		<span class="value"><?php echo $gets["parryPct"] ?>%</span>
+		<span class="value"><?php echo @$gets["parryPct"] ?>%</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -1029,7 +624,7 @@ Services
 
 	<li data-id="meleecrit" class="">
 		<span class="name">Crit</span>
-		<span class="value"><?php echo $gets["critPct"] ?>%</span>
+		<span class="value"><?php echo @$gets["critPct"] ?>%</span>
 	<span class="clear"><!-- --></span>
 	</li>
 		</ul>
@@ -1054,7 +649,7 @@ Services
 
 	<li data-id="strength" class="">
 		<span class="name">Strength</span>
-		<span class="value color-q2"><?php echo $gets["strength"] ?></span>
+		<span class="value color-q2"><?php echo @$gets["strength"] ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -1201,7 +796,7 @@ Services
 
 	<li data-id="meleecrit" class="">
 		<span class="name">Crit</span>
-		<span class="value"><?php echo $get["critPct"] ?>%</span>
+		<span class="value"><?php echo @$get["critPct"] ?>%</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -1581,8 +1176,8 @@ Services
 		$(document).ready(function() {
 			new Summary.Stats({
 
-			"health": <?php echo $get["health"] ?>,
-			"power": <?php echo $get["power1"] ?>,
+			"health": <?php echo @$get["health"] ?>,
+			"power": <?php echo @$get["power1"] ?>,
 			"powerTypeId": 0,
 			"hasOffhandWeapon": false,
 			"masteryName": "Hand of Light",
@@ -1591,20 +1186,20 @@ Services
 			"averageItemLevelBest": 20,
 			"spellHitRating": 0,
 			"agiBase": 239,
-			"energy": <?php echo $get["power4"] ?>,
+			"energy": <?php echo @$get["power4"] ?>,
 			"expertiseOffPercent": 0,
-			"critPercent": <?php echo $gets["critPct"] ?>,
-			"rangeCritPercent": <?php echo $gets["rangedCritPct"] ?>,
-			"dodgeRatingPercent": <?php echo $gets["dodgePct"] ?>,
-			"parry": <?php echo $gets["parryPct"] ?>,
+			"critPercent": <?php echo @$gets["critPct"] ?>,
+			"rangeCritPercent": <?php echo @$gets["rangedCritPct"] ?>,
+			"dodgeRatingPercent": <?php echo @$gets["dodgePct"] ?>,
+			"parry": <?php echo @$gets["parryPct"] ?>,
 			"parryRating": 0,
 			"rangeBonusWeaponRating": 0,
 			"atkPowerBase": 270,
-			"runicPower": <?php echo $get["power4"] ?>,
+			"runicPower": <?php echo @$get["power4"] ?>,
 			"rangeHitPercent": 1,
 			"bonusOffWeaponRating": 0,
 			"resilience_damage": 0,
-			"mana": <?php echo $get["power1"] ?>,
+			"mana": <?php echo @$get["power1"] ?>,
 			"masteryRatingBonus": 0,
 			"dmgMainSpeed": 2.4709999561309814,
 			"rangeAtkPowerBonus": 4,
@@ -1621,14 +1216,14 @@ Services
 			"frostCrit": 6.986073017120361,
 			"armorPenetrationPercent": 0,
 			"resistShadow_pet": -1,
-			"focus": <?php echo $get["power3"] ?>,
+			"focus": <?php echo @$get["power3"] ?>,
 			"rangeHitRatingPercent": 0,
 			"natureResist": 0,
-			"intTotal": <?php echo $gets["maxpower1"] ?>,
+			"intTotal": <?php echo @$gets["maxpower1"] ?>,
 			"expertiseRating": 0,
 			"bonusOffMainWeaponSkill": 0,
 			"frostResist": 0,
-			"int_mp": <?php echo $gets["maxpower1"] ?>,
+			"int_mp": <?php echo @$gets["maxpower1"] ?>,
 			"arcaneCrit": 6.986073017120361,
 			"holyCrit": 6.986073017120361,
 			"bonusMainWeaponSkill": 0,
@@ -1640,7 +1235,7 @@ Services
 			"spr_regen": 43,
 			"expertiseRatingPercent": 0,
 			"mastery": 0,
-			"health": <?php echo $get["health"] ?>,
+			"health": <?php echo @$get["health"] ?>,
 			"manaRegenCombat": 27,
 			"sprTotal": 41,
 			"rangeCritRatingPercent": 2.0634920597076416,
@@ -1648,7 +1243,7 @@ Services
 			"bonusMainWeaponRating": 0,
 			"intBase": 231,
 			"strBase": 234,
-			"critRatingPercent": <?php echo $gets["critPct"] ?>,
+			"critRatingPercent": <?php echo @$gets["critPct"] ?>,
 			"rangeHasteRatingPercent": 1.1555559635162354,
 			"rangeBonusWeaponSkill": 0,
 			"dmgRangeMin": -1,
@@ -1656,7 +1251,7 @@ Services
 			"dmgOffSpeed": 1.9769999980926514,
 			"resistFire_pet": -1,
 			"defense": 0,
-			"strTotal": <?php echo $gets["strength"] ?>,
+			"strTotal": <?php echo @$gets["strength"] ?>,
 			"fireCrit": 6.986073017120361,
 			"natureDamage": 113,
 			"dmgMainMax": 102,
@@ -1683,7 +1278,7 @@ Services
 			"block": 5,
 			"dmgOffDps": 0,
 			"dmgRangeMax": -1,
-			"power": <?php echo $get["power1"] ?>,
+			"power": <?php echo @$get["power1"] ?>,
 			"resistArcane_pet": -1,
 			"dmgMainDps": 36.281612396240234,
 			"healing": 113,
@@ -1712,9 +1307,9 @@ Services
 			"dmgRangeSpeed": -1,
 			"hasteRatingPercent": 1.1555559635162354,
 			"frostDamage": 113,
-			"sta_hp": <?php echo $gets["maxhealth"] ?>,
+			"sta_hp": <?php echo @$gets["maxhealth"] ?>,
 			"agi_crit": 4.045567989349365,
-			"rage": <?php echo $get["power4"] ?>,
+			"rage": <?php echo @$get["power4"] ?>,
 			"armorTotal": 1983,
 			"sta_petSta": -1,
 			"spellCritRatingPercent": 2.0634920597076416,
@@ -1723,9 +1318,9 @@ Services
 			"critRating": 00,
 			"armorPenetration": 0,
 			"spellPenetration": 0,
-			"parryRatingPercent": <?php echo $gets["parryPct"] ?>,
+			"parryRatingPercent": <?php echo @$gets["parryPct"] ?>,
 			"spellDamage": 113,
-			"staTotal": <?php echo $gets["stamina"] ?>,
+			"staTotal": <?php echo @$gets["stamina"] ?>,
 			"rap_petAp": -1,
 			"holyDamage": 113,
 	"foo": true
