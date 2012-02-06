@@ -85,6 +85,7 @@ $More['More'] = "&Pi;&epsilon;&rho;&iota;&sigma;&sigma;&omicron;&tau;&epsilon;&r
 $Retrieve['Retrieve'] = "Retrieve Lost Account";
 $Find['Find'] = "Find us on the Map!";
 $or['or'] = "or";
+$search['text_bar'] = "Search characters, items and more...";
 
 // Starting the voting translation
 

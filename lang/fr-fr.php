@@ -1,4 +1,7 @@
 <?php
+/* Please, use the html code for the special character.
+For this lang, use : &egrave; (grave accent) ; &eacute; (acute accent) ; &ecirc; (circumflex accent) ; &aacute; (a with accent). */
+
 $lang['adb'] = "Erreur de connexion &agrave; la base de donn&eacute;e des comptes.";
 $lang['db'] = "Erreur de connexion &agrave; la base de donn&eacute;e du site.";
 $home['home'] = "Accueil";
@@ -81,6 +84,7 @@ $More['More'] = "Plus";
 $Retrieve['Retrieve'] = "R&eacute;cup&eacute;rer un compte perdu";
 $Find['Find'] = "Retrouvez-nous sur la carte!";
 $or['or'] = "ou";
+$search['text_bar'] = "Rechercher des persos, items...";
 
 // Starting the voting translation
 

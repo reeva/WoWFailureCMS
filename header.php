@@ -3,7 +3,7 @@
 <div class="search-bar">
 <form action="search.php" method="post" autocomplete="off">
 <div>
-<input href="search.php" type="text" class="input border-5 glow-shadow-2" name="search" id="search-field" maxlength="200" tabindex="40" alt="Search characters, items and more�" value="Search characters, items and more�" />
+<input href="search.php" type="text" class="input border-5 glow-shadow-2" name="search" id="search-field" maxlength="200" tabindex="40" alt="<?php echo $search['text_bar']; ?>" value="<?php echo $search['text_bar']; ?>" />
 <input href="search.php" type="submit" class="search-button" value="" tabindex="41" />
 </div>
 </form>
