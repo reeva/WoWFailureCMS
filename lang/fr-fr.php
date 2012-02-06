@@ -86,8 +86,8 @@ $Find['Find'] = "Retrouvez-nous sur la carte!";
 $or['or'] = "ou";
 $search['text_bar'] = "Rechercher des persos, items...";
 
-// Starting the voting translation
 
+// Starting the voting translation
 $Vote['Vote'] = "Syst&egrave;me de vote";
 $Vote['Vote1'] = "Syst&egrave;me de vote ";
 $Vote['Vote2'] = "Points d&eacute;pens&eacute;s";
@@ -106,8 +106,52 @@ $Vote['Vote13'] = "Hora";
 $Vote['Vote14'] = "Points total d&eacute;pens&eacute;s";
 $Vote['Vote15'] = "Points total d&eacute;pens&eacute;s";
 $Vote['Vote16'] = "Commander";
-
 // Finishing the voting translation
+
+// Starting the register.php translation
+$re['re'] = "Inscription sur ";
+$re['re1'] = "Cr&eacute;ation de compte";
+$re['re2'] = "Nous respectons votre vie priv&eacute;e</b> Regarder comment ";
+$re['re3'] = " gardons vos donn&eacute;es personnelles, en lisant notre ";
+$re['re4'] = "D&eacute;claration de protection de la vie priv&eacute;e";
+$re['re5'] = "Pays:";
+$re['re6'] = "Date de naissance";
+$re['re7'] = "Civillit&eacute;:";
+$re['re8'] = "Nom:";
+$re['re9'] = "Pr&eacute;nom";
+$re['re10'] = "Adresse e-mail:";
+$re['re11'] = "Nom d'utilisateur:";
+$re['re12'] = "Mot de passe:";
+$re['re13'] = "Pour votre s&eacute;curit&eacute;e, nous vous recommandons de choisir un mot de passe unique &aacute; ce compte";
+$re['re14'] = "Niveau du mot de passe:";
+$re['re15'] = "Votre mot de passe doit &ecirc;tre entre 8 et 16 caract&egrave;res";
+$re['re16'] = "Votre mot de passe doit contenir un caract&egrave;re num&eacute;rique et un alphab&eacute;tique";
+$re['re17'] = "Votre nom de compte ne peut &ecirc;tre votre mot de passe";
+$re['re18'] = "Les mots de passe doivent correspondre.";
+$re['re19'] = "Question secr&ecirc;te &amp; r&eacute;ponse:";
+$re['re20'] = "S&eacute;l&eacute;ctionnez une question:";
+$re['re21'] = "Ma premi&egrave;re &eacute;cole primaire ?";
+$re['re22'] = "L'&eacute;cole o&ugrave; j'ai fait mes &eacute;tudes ?";
+$re['re23'] = "Lieu de naissance de ma m&egrave;re ? ";
+$re['re24'] = "Lieu de naissance de mon p&egrave;re ?";
+$re['re25'] = "Mon lieu de naissance ?";
+$re['re26'] = "Nom de mon premier animal ?";
+$re['re27'] = "Mon meilleur ami &agrave; l'&eacute;cole ?";
+$re['re28'] = "Mod&egrave;le de ma premi&egrave;re voiture ?";
+$re['re29'] = "Mon &eacute;quipe de sport favori ?";
+$re['re30'] = "Mon premier employeur ?";
+$re['re31'] = "Ces informations sont utilis&eacute;es si vous devez r&eacute;initialiser votre mot de passe";
+$re['re32'] = "R&egrave;gles du chat:";
+$re['re33'] = "Pour vous fournir le jeu gratuitement, nous allons devoir vous surveiller, et vous accepter, en cas de litige, que nous lisions les logs de votre chat afin que nous puissions r&eacute;gler ce litige. En aucun cas nous ne lirons vos donn&eacute;es sans raison &eacute;vidente et raisonnable.";
+$re['re34'] = "Je consent à ce que ";
+$re['re35'] = " stockent et, &eacute;ventellement lise mes messages personnels";
+$re['re36'] = "J'accepte les ";
+$re['re37'] = "conditions d'utilisations ";
+$re['re38'] = " applicable dans mon pays de r&eacute;sidence";
+$re['re39'] = "Cr&eacute;er votre compte gratuitement";
+$re['re40'] = "Retour";
+//Finishing the register.php translation
+
 // Starting register
 $Reg['Reg'] = "Requis";
 $Reg['Reg1'] = "Options du compte";
@@ -148,6 +192,7 @@ $Reg['Reg35'] = "Continuer";
 $Reg['Reg36'] = "Quitter ";
 $Reg['Reg37'] = " - Changer le mot de passe";
 // Finishing register
+
 // Starting Account Log
 $Log['Log'] = " - Connexion";
 $Log['Log1'] = "Battle.net";
