@@ -127,20 +127,24 @@ _gaq.push(['_trackPageLoadTime']);
 	</div>
 	<div class="results results-grid wow-results">
 	<div class="grid">
-	<h4 class="subcategory "><a href="?q=primo&amp;f=wowguild">Guilds</a>(number)</h4>
+	<h4 class="subcategory "><a href="?q=primo&amp;f=wowguild">Arena Teams</a>(NUMBER)</h4>
+	<div class="wowguild">
+	<canvas id="tabard-3125133" class="thumbnail" width="32" height="32"></canvas>
+	<a href="" class="sublink">
+	<strong>NAME</strong>
+	</a><font color="#FEF084">- 3v3</font><br />
+	<span data-tooltip="REALM NAME"><font color="#FEF084">REALM NAME</font></span>
+	<span class="clear"><!-- --></span>
+	</div>
+	</div>
+	<div class="grid">
+	<h4 class="subcategory "><a href="?q=primo&amp;f=wowguild">Guilds</a>(NUMBER)</h4>
 	<div class="wowguild">
 	<canvas id="tabard-3125133" class="thumbnail" width="32" height="32"></canvas>
 	<a href="" class="sublink">
 	<strong>NAME</strong>
 	</a><font color="#FEF084">- FACTION</font><br />
 	<span data-tooltip="REALM NAME"><font color="#FEF084">REALM NAME</font></span>
-	<script type="text/javascript">
-	//<![CDATA[
-	$(function(){
-	var tabard3125133 = new GuildTabard('tabard-3125133', {
-	ring: 'alliance', bg: [ 0, '45' ], border: [ '2', '15' ], emblem: [ '38', '14' ]});});
-	//]]>
-    </script>
 	<span class="clear"><!-- --></span>
 	</div>
 	</div>
@@ -159,17 +163,17 @@ _gaq.push(['_trackPageLoadTime']);
 	</a>
 	</li>
 	<li>
-	<a href=""><span class="arrow">Characters<span> (number)</span></span>
+	<a href=""><span class="arrow">Characters<span> (NUMBER)</span></span>
 	</a>
 	</li>
 	<li>
 	<a href="">
-	<span class="arrow">Guilds<span></span></span>
+	<span class="arrow">Guilds<span> (NUMBER)</span></span>
 	</a>
 	</li>
 	<li>
 	<a href="">
-	<span class="arrow">Arena Teams<span></span></span>
+	<span class="arrow">Arena Teams<span> (NUMBER)</span></span>
 	</a>
 	</li>
 	</ul>

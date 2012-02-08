@@ -178,7 +178,7 @@
 
 <div id="service">
 <ul class="service-bar">
-<li class="service-cell service-home"><a href="#" tabindex="50" accesskey="1" title="Home"><div style="width:45px;">&nbsp;</div></a></li>
+<li class="service-cell service-home"><a href="<?php echo $website['address']; ?>" tabindex="50" accesskey="1" title="Home"><div style="width:45px;">&nbsp;</div></a></li>
 <?php if(isset($_SESSION['username'])){ ?>
 <li class="service-cell service-welcome"><?php echo $Welcome['Welcome']; ?><?php echo $userInfo['firstName']; ?> | <a href="<?php echo $website['root'];?>logout.php"><?php echo $logout['logout']; ?></a></li>
 <?php }else{ ?>
