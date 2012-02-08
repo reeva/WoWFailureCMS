@@ -5,7 +5,7 @@ $page_cat = "account";
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
 <head>
-<title>Registration of <?php echo $website['title']; ?></title>
+<title><?php echo $re['re']; ?> <?php echo $website['title']; ?></title>
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common.css" />
 <!--[if IE]><link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common-ie.css" /><![endif]-->
@@ -60,7 +60,7 @@ _gaq.push(['_trackPageLoadTime']);
 <div id="header">
 <div id="navigation">
 <div id="page-menu" class="large">
-<h2 class="isolated"> Account Creation
+<h2 class="isolated"> <?php echo $re['re1']; ?>
 </h2>
 <span class="clear"></span>
 </div>
@@ -154,14 +154,14 @@ _gaq.push(['_trackPageLoadTime']);
 			  <?php
 						  }else{
 						  ?>
-<p class="privacy-message"><b>We value and respect your privacy.</b> Find out how <?php echo $website['title']; ?> safeguards user information by reading our <a href="" onclick="window.open(this.href); return false;">Online Privacy Policy</a>.</p>
+<p class="privacy-message"><b><?php echo $re['re2']; ?><?php echo $website['title']; ?> <?php echo $re['re3']; ?><a href="" onclick="window.open(this.href); return false;"><?php echo $re['re4']; ?></a>.</p>
 </div>
 <form action="" method="get" class="country-select">
 <div class="input-row input-row-select">
 <span class="input-left">
 <label for="country">
 <span class="label-text">
-Country of Residence:
+<?php echo $re['re5']; ?>
 </span>
 <span class="input-required"></span>
 </label>
@@ -517,7 +517,7 @@ passwordStrength3: 'Strong'
 <span class="input-left">
 <label for="dobDay">
 <span class="label-text">
-Date of Birth:
+<?php echo $re['re6']; ?>
 </span>
 <span class="input-required">*</span>
 </label>
@@ -697,16 +697,13 @@ Date of Birth:
 </select>
 <span class="inline-message" id="dobYear-message"> </span>
 </span>
-<span class="inline-note">
-<span class="caption">Parents registering for children, <a href="wow/static/creation/parent-signup.html?country=GBR">click here.</a></span>
-</span>
 </span>
 </div>
 <div class="input-row input-row-select">
 <span class="input-left">
 <label for="gender">
 <span class="label-text">
-Title:
+<?php echo $re['re7']; ?>
 </span>
 <span class="input-required">*</span>
 </label>
@@ -728,7 +725,7 @@ Title:
 <span class="input-left">
 <label for="firstname">
 <span class="label-text">
-First Name:
+<?php echo $re['re8']; ?>
 </span>
 <span class="input-required">*</span>
 </label>
@@ -745,7 +742,7 @@ First Name:
 <span class="input-left">
 <label for="lastname">
 <span class="label-text">
-Last Name:
+<?php echo $re['re9']; ?>
 </span>
 <span class="input-required">*</span>
 </label>
@@ -762,7 +759,7 @@ Last Name:
 <span class="input-left">
 <label for="emailAddress">
 <span class="label-text">
-E-mail Address:
+<?php echo $re['re10']; ?>
 </span>
 <span class="input-required">*</span>
 </label>
@@ -783,7 +780,7 @@ E-mail Address:
 <span class="input-left">
 <label for="Username">
 <span class="label-text">
-Username:
+<?php echo $re['re11']; ?>
 </span>
 <span class="input-required">*</span>
 </label>
@@ -799,7 +796,7 @@ Username:
 <span class="input-left">
 <label for="password">
 <span class="label-text">
-Password:
+<?php echo $re['re12']; ?>
 </span>
 <span class="input-required">*</span>
 </label>
@@ -818,12 +815,12 @@ Password:
 <div class="input-row input-row-note" id="password-strength" style="display: none">
 <div class="input-note border-5 glow-shadow">
 <div class="input-note-left">
-<p class="caption">For your security, we highly recommend that you choose a unique password that you don't use for any other online account.</p>
+<p class="caption"><?php echo $re['re13']; ?></p>
 </div>
 <div class="input-note-right border-5">
 <div class="password-strength">
 <span class="password-result">
-Password Strength:
+<?php echo $re['re14']; ?>
 <strong id="password-result"></strong>
 </span>
 <span class="password-rating"><span class="rating rating-default" id="password-rating"></span></span>
@@ -831,23 +828,23 @@ Password Strength:
 <ul class="password-level" id="password-level">
 <li id="password-level-0">
 <span class="icon-16"></span>
-<span class="icon-16-label">Your password must be between 8-16 characters in length.</span>
+<span class="icon-16-label"><?php echo $re['re15']; ?></span>
 </li>
 <li id="password-level-1">
 <span class="icon-16"></span>
-<span class="icon-16-label">Your password may only contain alphabetic characters (A-Z), numeric characters (0-9), and punctuation.</span>
+<span class="icon-16-label"><?php echo $reg['reg22']; ?></span>
 </li>
 <li id="password-level-2">
 <span class="icon-16"></span>
-<span class="icon-16-label">Your password must contain at least one alphabetic character and one numeric character.</span>
+<span class="icon-16-label"><?php echo $re['re16']; ?></span>
 </li>
 <li id="password-level-3">
 <span class="icon-16"></span>
-<span class="icon-16-label">You cannot enter your account name as your password.</span>
+<span class="icon-16-label"><?php echo $re['re17']; ?></span>
 </li>
 <li id="password-level-4">
 <span class="icon-16"></span>
-<span class="icon-16-label">Passwords must match.</span>
+<span class="icon-16-label"><?php echo $re['re18']; ?></span>
 </li>
 </ul>
 </div>
@@ -859,7 +856,7 @@ Password Strength:
 <span class="input-left">
 <label for="question1">
 <span class="label-text">
-Secret Question &amp; Answer:
+<?php echo $re['re19']; ?>
 </span>
 <span class="input-required">*</span>
 </label>
@@ -867,17 +864,17 @@ Secret Question &amp; Answer:
 <span class="input-right">
 <span class="input-select input-select-small">
 <select name="question1" id="question1" class="small border-5 glow-shadow-2" tabindex="1" required="required">
-<option value="" selected="selected">Select a Question</option>
-<option value="1">First elementary school I attended?</option>
-<option value="2">The high school I graduated from?</option>
-<option value="3">Mother's city of birth? </option>
-<option value="4">Father's city of birth?</option>
-<option value="5">Your city of birth?</option>
-<option value="6">Name of your first pet?</option>
-<option value="7">Best friend in high school?</option>
-<option value="8">Model of your first car?</option>
-<option value="9">Your favorite sports team?</option>
-<option value="10">Your first employer (company name)?</option>
+<option value="" selected="selected"><?php echo $re['re20']; ?></option>
+<option value="1"><?php echo $re['re21']; ?></option>
+<option value="2"><?php echo $re['re22']; ?></option>
+<option value="3"><?php echo $re['re23']; ?></option>
+<option value="4"><?php echo $re['re24']; ?></option>
+<option value="5"><?php echo $re['re25']; ?></option>
+<option value="6"><?php echo $re['re26']; ?></option>
+<option value="7"><?php echo $re['re27']; ?></option>
+<option value="8"><?php echo $re['re28']; ?></option>
+<option value="9"><?php echo $re['re29']; ?></option>
+<option value="10"><?php echo $re['re30']; ?></option>
 </select>
 <span class="inline-message" id="question1-message"> </span>
 </span>
@@ -888,18 +885,18 @@ Secret Question &amp; Answer:
 </span>
 </div>
 <div class="input-row input-row-note question-info" id="question-info" style="display: none;">
-<span class="inline-message">This information is used for account security related issues such as resetting your password.</span>
+<span class="inline-message"><?php echo $re['re31']; ?></span>
 </div>
 <div class="input-row input-row-text">
 <span class="input-left">
 <label for="agreedToChatPolicy">
-<span class="label-text">Chat Agreement:</span>
+<span class="label-text"><?php echo $re['re32']; ?></span>
 <span class="input-required">*</span>
 </label>
 </span>
 <span class="input-right">
 <div class="agreement-check">
-<p class="tou-desc">In order to provide Free Gaming, we will monitor and/or review your text chat, including private, or 'whisper' chat, in the event of complaints from other users or violations of the rules. By clicking the check box below, you agree with the rule of allowing us to review your chat Conversations ingame, to investigate potential violations of the rules. We will not use the information for any reason other than pursuing such violations.</p>
+<p class="tou-desc"><?php echo $re['re33']; ?></p>
 </div>
 </span>
 </div>
@@ -913,7 +910,7 @@ Secret Question &amp; Answer:
 <label for="agreedToChatPolicy">
 <input type="checkbox" name="agreedToChatPolicy" value="true" id="agreedToChatPolicy" tabindex="1" required="required" />
 <span class="label-text">
-I consent to <?php echo $website['title']; ?> monitoring and/or reviewing my personal messages.
+<?php echo $re['re34']; ?><?php echo $website['title']; ?><?php echo $re['re35']; ?> 
 <span class="input-required">*</span>
 </span>
 </label>
@@ -927,7 +924,7 @@ I consent to <?php echo $website['title']; ?> monitoring and/or reviewing my per
 <label for="agreedToToU">
 <input type="checkbox" name="agreedToToU" value="true" id="agreedToToU" tabindex="1" required="required" />
 <span class="label-text">
-I accept the <a href="" onclick="window.open(this.href); return false;">Terms of Use</a> applicable to my country of residence and if under 18 years old, agree and acknowledge that my parent or guardian has also reviewed and accepted the Terms of Use on my behalf.
+<?php echo $re['re36']; ?><a href="" onclick="window.open(this.href); return false;"><?php echo $re['re37']; ?><?php echo $re['re38']; ?></a>
 <span class="input-required">*</span>
 </span>
 </label>
@@ -938,14 +935,14 @@ I accept the <a href="" onclick="window.open(this.href); return false;">Terms of
 <div class="input-right">
 <button class="ui-button button1" type="submit" name="reg" onclick="Form.submit(this)" id="submit" tabindex="1">
 <span>
-<span>Create Free Account</span>
+<span><?php echo $re['re39'] ?></span>
 </span>
 </button>
 <a class="ui-cancel "
 href="index.php"
 tabindex="1">
 <span>
-Cancel </span>
+<?php echo $re['re40']; ?> </span>
 </a>
 </div>
 </div>

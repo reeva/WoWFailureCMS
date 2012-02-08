@@ -82,6 +82,8 @@ $website['explore'] = "Explore";
 $More['More'] = "More";
 $Retrieve['Retrieve'] = "Retrieve Lost Account";
 $Find['Find'] = "Find us on the Map!";
+$or['or'] = "or";
+$search['text_bar'] = "Search characters, items and more...";
 
 // Starting the voting translation
 
@@ -105,6 +107,51 @@ $Vote['Vote15'] = "V.Points Earned";
 $Vote['Vote16'] = "Site";
 
 // Finishing the voting translation
+
+// Starting the register.php translation
+$re['re'] = "Registration of";
+$re['re1'] = "Account Creation";
+$re['re2'] = "We value and respect your privacy.</b> Find out how ";
+$re['re3'] = " safeguards user information by reading our ";
+$re['re4'] = "Online Privacy Policy";
+$re['re5'] = "Country of Residence:";
+$re['re6'] = "Date of Birth:";
+$re['re7'] = "Title:";
+$re['re8'] = "First Name:";
+$re['re9'] = "Last Name:";
+$re['re10'] = "E-mail Address:";
+$re['re11'] = "Username:";
+$re['re12'] = "Password:";
+$re['re13'] = "For your security, we highly recommend that you choose a unique password that you don't use for any other online account.";
+$re['re14'] = "Password Strength:";
+$re['re15'] = "Your password must be between 8-16 characters in length.";
+$re['re16'] = "Your password must contain at least one alphabetic character and one numeric character.";
+$re['re17'] = "You cannot enter your account name as your password.";
+$re['re18'] = "Passwords must match.";
+$re['re19'] = "Secret Question &amp; Answer:";
+$re['re20'] = "Select a Question";
+$re['re21'] = "First elementary school I attended?";
+$re['re22'] = "The high school I graduated from?";
+$re['re23'] = "Mother's city of birth? ";
+$re['re24'] = "Father's city of birth?";
+$re['re25'] = "Your city of birth?";
+$re['re26'] = "Name of your first pet?";
+$re['re27'] = "Best friend in high school?";
+$re['re28'] = "Model of your first car?";
+$re['re29'] = "Your favorite sports team?";
+$re['re30'] = "Your first employer (company name)?";
+$re['re31'] = "This information is used for account security related issues such as resetting your password.";
+$re['re32'] = "Chat Agreement:";
+$re['re33'] = "In order to provide Free Gaming, we will monitor and/or review your text chat, including private, or 'whisper' chat, in the event of complaints from other users or violations of the rules. By clicking the check box below, you agree with the rule of allowing us to review your chat Conversations ingame, to investigate potential violations of the rules. We will not use the information for any reason other than pursuing such violations.";
+$re['re34'] = "I consent to ";
+$re['re35'] = " monitoring and/or reviewing my personal messages.";
+$re['re36'] = "I accept the ";
+$re['re37'] = "Terms of Use ";
+$re['re38'] = " applicable to my country of residence and if under 18 years old, agree and acknowledge that my parent or guardian has also reviewed and accepted the Terms of Use on my behalf.";
+$re['re39'] = "Create Free Account";
+$re['re40'] = "Cancel";
+//Finishing the register.php translation
+
 // Starting register
 $Reg['Reg'] = "Required";
 $Reg['Reg1'] = "Account Settings";
