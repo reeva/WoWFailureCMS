@@ -7,13 +7,13 @@
 	?>
 <div id="service">
 <ul class="service-bar">
-<li class="service-cell service-home"><a href="#" tabindex="50" accesskey="1" title="Home"><div style="width:45px;">&nbsp;</div></a></li>
+<li class="service-cell service-home"><a href="<?php echo $website['root']; ?>index.php" tabindex="50" accesskey="1" title="Home"><div style="width:45px;">&nbsp;</div></a></li>
 <?php if(isset($_SESSION['username'])){ ?>
 <li class="service-cell service-welcome"><?php echo $Welcome['Welcome']; ?><?php echo $userInfo['firstName']; ?> | <a href="<?php echo $website['root'];?>logout.php"><?php echo $logout['logout']; ?></a></li>
 <?php }else{ ?>
-<li class="service-cell service-welcome"><a href="?login" onclick="return Login.open('<?php echo $website['root'];?>login.php?<?php echo $_SESSION['sessionid']; ?>')"><?php echo $login['login']; ?></a> or <a href="register.php"><?php echo $Account3['Account3']; ?></a></li>
+<li class="service-cell service-welcome"><a href="?login" onclick="return Login.open('<?php echo $website['root'];?>login.php?<?php echo $_SESSION['sessionid']; ?>')"><?php echo $login['login']; ?></a> or <a href="<?php echo $website['root']; ?>register.php"><?php echo $Account3['Account3']; ?></a></li>
 <?php } ?>
-<li class="service-cell service-account"><a href="account_log.php" class="service-link" tabindex="50" accesskey="3"><?php echo $Account['Account']; ?></a></li>
+<li class="service-cell service-account"><a href="<?php echo $website['root']; ?>account_log.php" class="service-link" tabindex="50" accesskey="3"><?php echo $Account['Account']; ?></a></li>
 <li class="service-cell service-support service-support-enhanced">
 <a href="#support" class="service-link service-link-dropdown" tabindex="50" accesskey="4" id="support-link" onclick="return false" style="cursor: progress" rel="javascript"><?php echo $Support['Support']; ?><span class="no-support-tickets" id="support-ticket-count"></span></a>
 <div class="support-menu" id="support-menu" style="display:none;">
@@ -62,7 +62,7 @@ shim.style.display = 'block';
 <div class="explore-primary">
 <ul class="explore-nav">
 <li>
-<a href="index.php" tabindex="55">
+<a href="<?php echo $website['root']; ?>index.php" tabindex="55">
 <strong class="explore-caption"><?php echo $website['title']; ?></strong>
 <?php echo $Friends['Keepthem']; ?>
 </a>

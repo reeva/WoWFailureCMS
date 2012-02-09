@@ -192,7 +192,7 @@ $page_cat = "home";
 				<div class="sidebar-title"><h3 class="title-bnet-ads"><?php echo $Ind['Ind3']; ?></h3></div>
 				<!-- DO NOT EDIT BELOW UNLESS YOU KNOW WHAT YOU ARE DOING! -->
 				<div class="bnet-offer-bg">
-				<a href="search.php" target="_blank" id="vote" class="bnet-offer-image" onclick="">
+				<a href="search.php" target="_blank" id="vote" class="bnet-offer-image">
 				<img src="wow/static/images/sidebar/Share/armory.png" width="300" height="250" alt=""/>
 						</a>
 						</div>
@@ -238,7 +238,10 @@ $page_cat = "home";
 						$sql = mysql_query ("SELECT * FROM $server_adb.`uptime` ORDER BY `starttime` DESC LIMIT 1");  
 						$uptime_results = mysql_fetch_array($sql);    
 
-						if ($uptime_results['uptime'] > 86400) { 
+						if ($uptime_results['uptime'] > 2592000) { 
+					    $uptime =  round(($uptime_results['uptime'] / 30 / 24 / 60 / 60),2)." Months";
+						}
+						elseif ($uptime_results['uptime'] > 86400) { 
 					    $uptime =  round(($uptime_results['uptime'] / 24 / 60 / 60),2)." Days";
 						}
 						elseif($uptime_results['uptime'] > 3600) { 
