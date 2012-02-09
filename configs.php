@@ -20,10 +20,10 @@ $_SESSION['Local'] = $language;
 
 $serveraddress = "127.0.0.1";
 $serveruser = "root";
-$serverpass = "kabeli";
+$serverpass = "password";
 $serverport	= "3306";
 
-$server_db = "wowsite";
+$server_db = "website";
 $server_adb = "auth";
 
 $server_cdb = "characters";
