@@ -1,4 +1,86 @@
 <?php
+//require('bootstrap.class.php');
+class DB_Store
+{
+    private $_configuration;
+    private $_storage;
+    
+    public function __construct($bootstrap)
+    {
+        $this->_configuration = $bootstrap->getConfiguration();
+        $this->_startDB();
+    }
+    
+    public function createNewInstance($db,$caller,$number = 1)
+    {
+        $dbString = $db."_Database";
+        $loginDetails = array("host" => $this->_configuration->getOption("dbHost"), "username" => $this->_configuration->getOption("dbUser"),"password" => $this->_configuration->getOption("dbPass"));
+        if($db == "Character")
+        {
+            $id = $number - 1;
+            $loginDetails[$db] = $this->_configuration->getDBName("Character",$i);
+        }else{
+            $loginDetails[$db] = $this->_configuration->getDBName($db);
+        }
+        return $this->_registerDB(new $dbString($loginDetails),$caller);
+    }
+    
+    public function getInstance($db = "",$uid = 0,$caller = "global") 
+    {
+        foreach($this->_storage as $UID => $instance)
+        {
+            if($caller == "global" && $caller == $instance[1])
+            {
+                return $instance[0];
+            }elseif($UID == $uid && $caller == $instance[1]){
+                return $instance[0];
+            }
+        }
+        return FALSE;
+    }
+    
+    private function _startDB()
+    {
+        for($i = 0; $i < $this->_configuration->getCountCharsDB() + 2;$i++)
+        {
+            $loginDetails = array("host" => $this->_configuration->getOption("dbHost"), "username" => $this->_configuration->getOption("dbUser"),"password" => $this->_configuration->getOption("dbPass"));
+            if($i == 0){
+                $loginDetails["World"] = $this->_configuration->getDBName("World");
+                $this->_registerDB(new World_Database($loginDetails)); 
+            }elseif($i == 1){
+                $loginDetails["Realm"] = $this->_configuration->getDBName("Realm");
+                $this->_registerDB(new Realm_Database($loginDetails));
+            }elseif($i == 2){
+                $tmp = $this->_configuration->getDBName("Character");
+                $loginDetails["Character"] = $tmp[$i-2];
+                $this->_registerDB(new Character_Database($loginDetails));
+            }
+            unset($loginDetails);
+        }
+    }
+    
+    private function _checkUID($UID)
+    {
+        if(isset($this->_storage[$UID]))
+        {
+            return TRUE;
+        }else{
+            return FALSE;
+        }
+    }
+    
+    private function _registerDB($instance,$caller = "global")
+    {
+        do{
+            $UID = rand(1,65535);
+        }while($this->_checkUID($UID));
+        $this->_storage[$UID] = array($instance,$caller);
+        if($caller != "global"){
+            return $UID;
+        }
+    }
+}
+
 abstract class MySQL
 {
 	protected $_Instance;
@@ -81,7 +163,7 @@ class Realm_Database extends MySQL
 	public function __construct($details)
 	{
 		$dbIdentifier = explode('_',get_class());
-		$this->setInstance(new PDO("mysql:host='".$details['host'].";dbname=".$details[$dbIdentifier[0]], $details['username'], $details['password']));
+		$this->setInstance(new PDO("mysql:host=".$details['host'].";dbname=".$details[$dbIdentifier[0]], $details['username'], $details['password']));
 	}
 	
 	public function __destruct()
@@ -133,8 +215,7 @@ class Character_Database extends MySQL
 	{
 		$arg = $this->makeArgumentsSafe($name);
 		$result = $this->getInstance()->query("SELECT guid FROM `characters` WHERE name=".$arg);
-		if($result)
-		{
+		if($result){
 			return $this->fetchResult($result)->guid;
 		}
 	}
@@ -169,6 +250,13 @@ class Character_Database extends MySQL
 		$character->execute();
 		return $this->fetchResult($character);
 	}
+    
+    public function getStats($Guid)
+    {
+        $stats = $this->prepareStatement("SELECT * FROM `character_stats` WHERE guid=?",$Guid);
+        $stats->execute();
+        return $this->fetchResult($stats);
+    }
 }
 class World_Database extends MySQL
 {

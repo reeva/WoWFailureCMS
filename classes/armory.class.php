@@ -1,6 +1,6 @@
 <?php
-require('mysql.class.php');
 require('wowheadparser.php');
+require('bootstrap.class.php');
 class Factory_Armory
 {
 	static public function createCharacter($charName)
@@ -129,7 +129,7 @@ class Armory_Character extends Armory
 	private function _fillEmpty()
 	{
 	   $items = $this->_getEquipedItems();
-	   for($i = 0; $i < count($items); $i++)
+	   for($i = 0; $i <= 18; $i++)
        {
             if($items[$i] == NULL)
             {
@@ -156,7 +156,7 @@ class Armory_Character extends Armory
     private function _orderItems($items)
     {
         $result = array();
-        for($i = 0; $i < count($items);$i++)
+        for($i = 0; $i <= 18;$i++)
         {
             switch($i)
             {
@@ -195,8 +195,10 @@ class Armory_Character extends Armory
                     }
                     $result[] = $items[$i - $koef];
                     break;
+                case 16:
+                    $result[] = $items[$i - 1];
                 default:
-                    if(count($result) < 18)
+                    if(count($result) <= 18)
                     {
                         $result[] = $items[$i];
                     }
@@ -210,10 +212,10 @@ class Armory_Character extends Armory
 	{
         $pixelWidth = 0;
         $intItr = 0;
-        $pxs = array("0","-6","271","548");
+        $pxs = array("-6","271","548");
 		foreach($input as $item)
 		{
-            if($intItr <= 7 || $intItr > 15)
+            if($intItr <= 7 || $item[1] > 15)
             {
                 $alignment = "left";
                 $alignment3 = "";
@@ -221,19 +223,20 @@ class Armory_Character extends Armory
             {
                 $alignment = "right";
                 $alignment3 = "slot-align-right";
+            }elseif($item[1] == 15){
+                $alignment = "left";
             }
             if($intItr > 15)
             {
                 $alignment2 = "bottom";
-            }else
-            {
+            }else{
                 $alignment2 = "top";
             }
-            if($item[2] <= 15)
+            if($item[1] <= 14)
             {
-                $px = $pxs[0];
-            }elseif($intItr > 15){
-                $px = $pxs[$intItr - 15];
+                $px = "0";
+            }elseif($item[1] > 14 && $item[1] <= 17){
+                $px = $pxs[$item[1] - 15];
                 $pixelWidth = 0;
             }
 			if($item[0] === NULL)
@@ -279,7 +282,7 @@ class Armory_Character extends Armory
 				';
 			}
             $pixelWidth += 58;
-            if($intItr == 7)
+            if($intItr == 7 || $item[1] == 13)
             {
                 $pixelWidth = 0;
             }
@@ -291,11 +294,14 @@ class Armory_Character extends Armory
 	{
 		$result = $this->_parseEquipmentCache();
 		$this->_viewItems($result);
-		//print_r($result);
-		//get_object_vars($this->getObjectInfo());
-		//get_object_vars($this->getObjectId());
-		//echo $this->getObjectInfo()->equipmentCache;
+        //print_r($result);
 	}
+    
+    public function runStats()
+    {
+        $stats = $this->getCharDb()->getStats($this->getObjectId());
+        print_r($stats);
+    }
 }
 
 ?>
