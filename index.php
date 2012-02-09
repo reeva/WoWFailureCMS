@@ -238,7 +238,10 @@ $page_cat = "home";
 						$sql = mysql_query ("SELECT * FROM $server_adb.`uptime` ORDER BY `starttime` DESC LIMIT 1");  
 						$uptime_results = mysql_fetch_array($sql);    
 
-						if ($uptime_results['uptime'] > 86400) { 
+						if ($uptime_results['uptime'] > 2592000) { 
+					    $uptime =  round(($uptime_results['uptime'] / 30 / 24 / 60 / 60),2)." Months";
+						}
+						elseif ($uptime_results['uptime'] > 86400) { 
 					    $uptime =  round(($uptime_results['uptime'] / 24 / 60 / 60),2)." Days";
 						}
 						elseif($uptime_results['uptime'] > 3600) { 
