@@ -142,7 +142,7 @@ Services
 	<li>
 	<a href="threed.php?name=<?php echo $character->getObjectInfo()->name;?>" rel="np" class="threed">3D Model</a></li>
 	<li class="current">
-	<a href="advanced.php?name=<?php $character->getObjectInfo()->name;?>" rel="np" class="advanced">Advanced</a></li>
+	<a href="advanced.php?name=<?php echo $character->getObjectInfo()->name;?>" rel="np" class="advanced">Advanced</a></li>
 	</ul>
 	<div class="summary-averageilvl">
 	<div class="rest">Average item level<br/>(<span class="equipped">20</span> Equipped)
