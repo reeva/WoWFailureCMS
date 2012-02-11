@@ -169,7 +169,7 @@ div.forum-options a.active { color:#fff; font-weight: bold; }
 .post-lastPost .more-arrow { background-image:url(../images/profile/sidebar-menu-arrows.png); }
 
 #posts .post-replies, #posts .post-views { color: #643416; }
-#posts tr.read .post-title a { color:#a67100; }
+#posts tr.read .post-title a { color:#FFB100; }
 #posts tr.read .post-title a:hover { color: #fff; } 
 
 #posts tr.read .forum-post-icon { background-image:url(../images/layout/cms/post_inactive.png); }

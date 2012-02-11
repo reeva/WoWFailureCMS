@@ -202,7 +202,7 @@ echo '
                     $charInfo = mysql_fetch_assoc(mysql_query("SELECT name FROM $server_cdb.characters WHERE guid = '".$posterInfo['character']."'"));
 					}
 				echo'
-				<tr id="postRowId" class=" featured read">
+				<tr id="postRowId" class="featured read">
 					<td class="post-icon">
 						<div class="forum-post-icon">';
 						if($thread['has_blizz'] == 1 || $posterInfo['blizz'] == 1){
@@ -249,12 +249,12 @@ echo '
 								</div>
 							</div>
 							<a href="view-topic/?t='.$thread['id'].'" onmouseover="Tooltip.show(this, \'#thread_tt_'.$thread['id'].'\',{ location: \'mouse\' });">
-									'.$thread['name'];
+									<b>'.$thread['name'];
 								if($thread['locked'] != 0){
 								echo ' <img src="'.$website['root'].'wow/static/images/layout/cms/post_locked.gif" alt="" />';
 								}
 								echo '
-							</a>
+							</a></b>
 					</td>
 					
 					<td class="post-pageNav"></td>
