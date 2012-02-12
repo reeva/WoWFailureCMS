@@ -200,7 +200,7 @@ $page_cat = "home";
 					<!-- Right Panel -->
 					<div id="right" class="ajax-update">
 					<?php
-						include("panel/armory.php");
+						include("panel/promo.php");
 						echo '<br><br>';
 						include("panel/server_information.php");
 						echo '<br><br>';
