@@ -1,1 +1,1 @@
-ALTER TABLE `news`     DROP COLUMN `authorlnk`,   CHANGE `author` `author` INT(10) DEFAULT 0 NOT NULL;  CHANGE `date` `date` DATETIME NOT NULL;
+ALTER TABLE `news`  DROP COLUMN `authorlnk`,   CHANGE `author` `author` INT(10) DEFAULT 0 NOT NULL,  CHANGE COLUMN `date` `date` DATETIME NOT NULL AFTER `author`;

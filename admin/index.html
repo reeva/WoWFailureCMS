@@ -1,7 +1,3 @@
-<?php
-require "../configs.php";
-if( isset($_SESSION['username']) ) header("Location: dashboard.php");
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
     <head>
@@ -34,7 +30,7 @@ if( isset($_SESSION['username']) ) header("Location: dashboard.php");
         <span>Admin Login Panel</span></h1>
           <div id="LogPannel">
         <h2>Administrator Login</h2>
-        <form method="post" action="dashboard.php">
+        <form method="post" action="dashboard.html">
               <input name="username" type="text" value="Username" onfocus="if(this.value=='Username')this.value=''" onblur="if(this.value=='')this.value='Username'" />
               <input name="password" type="password" value="password" onfocus="if(this.value=='password')this.value=''" onblur="if(this.value=='')this.value='password'" />
               <input name="submit" type="submit" value="LOGIN" />
@@ -53,7 +49,7 @@ if( isset($_SESSION['username']) ) header("Location: dashboard.php");
       <div class="push"></div>
     </div>
 <div id="foot">
-      <p> All rights reserved.  |  Powered by: <a href="" target="_blank"><font color="#15509E">AquaFlame CMS</font></a> | Admin Cp By Raffa50 (Aldrigo Raffaele)</p>
+      <p> All rights reserved.  |  Powered by: <a href="" target="_blank"><font color="#15509E">AquaFlame CMS</font></a></p>
     </div>
 </body>
 </html>

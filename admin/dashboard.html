@@ -1,35 +1,3 @@
-<?php
-require "../configs.php";
-
-if( $_POST['accountName'] and !isset($_SESSION['username']) ) { 
-	$accountName = mysql_real_escape_string($_POST['accountName']);
-    $accountPass = mysql_real_escape_string($_POST['password']);
-
-    $sha_pass_hash = sha1(strtoupper($accountName ) . ":" . strtoupper($accountPass));
-
-    $db_setup = mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
-    $login_query = mysql_query("SELECT * FROM account WHERE username = UPPER('".$accountName."') AND sha_pass_hash = CONCAT('".$sha_pass_hash."')");
-    $login = mysql_fetch_assoc($login_query);
-    if($login){
-		$_SESSION['username']=$accountName;	
-		header("Location: dashboard.php");
-	} else header("Location: index.html");
-}
-
-switch($core) {
-	case "skyfire":
-		$acess_level = mysql_fetch_assoc( mysql_query("SELECT gmlevel FROM account_access WHERE id =".$account_information['id']) );
-	break;
-	
-	case "strawberry":
-		$acess_level = $account_information['gmlevel'];
-	break;
-}
-
-if($acess_level['gmlevel']=="0") header("Location: ../index.php");
-
-if( $_GET['ndel'] ) mysql_query("DELETE FROM `news` WHERE `id` = ".$_GET['ndel']);
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -112,13 +80,53 @@ $('#checkall').toggleClass('clicked');
         <li><a href="#a"><span>Dashboard Links</span></a></li>
         <li><a href="#b"><span>Image Gallery</span></a></li>
       </ul>
-              <? include "navbar.php"; ?>
+              <div id="tabsPanel">
+        <div id="a" class="tab_content">
+                  <div class='carousel_container'>
+            <div class='left_scroll'><img src='images/leftArrow.png' alt="" /></div>
+            <div class='carousel_inner'>
+                      <ul class='carousel_ul'>
+                <li><a class="ico1" href='#'></a></li>
+                <li><a class="ico2" href='#'></a></li>
+                <li><a class="ico3" href='#'></a></li>
+                <li><a class="ico4" href='#'></a></li>
+                <li><a class="ico5" href='#'></a></li>
+                <li><a class="ico6" href='#'></a></li>
+                <li><a class="ico7" href='#'></a></li>
+                <li><a class="ico8" href='#'></a></li>
+                <li><a class="ico9" href='#'></a></li>
+              </ul>
+                    </div>
+            <div class='right_scroll'><img src='images/rightArrow.png' alt="" /></div>
+          </div>
+                </div>
+        <div id="b" class="tab_content">
+                  <div class='carousel_container'>
+            <div class='left_scroll2'><img src='images/leftArrow.png' alt="" /></div>
+            <div class='carousel_inner'>
+                      <ul class='carousel_ul2'>
+                <li><a class="ico1" href='#'></a></li>
+                <li><a class="ico2" href='#'></a></li>
+                <li><a class="ico3" href='#'></a></li>
+                <li><a class="ico4" href='#'></a></li>
+                <li><a class="ico5" href='#'></a></li>
+                <li><a class="ico6" href='#'></a></li>
+                <li><a class="ico7" href='#'></a></li>
+                <li><a class="ico8" href='#'></a></li>
+                <li><a class="ico9" href='#'></a></li>
+              </ul>
+                    </div>
+            <div class='right_scroll2'><img src='images/rightArrow.png' alt="" /></div>
+          </div>
+                </div>
+        <!--Tab End--> 
+      </div>
               <img src="images/shadow.png" class="shadow" alt="" /> </div>
     <!--Content Start-->
     <div id="content">
               <div class="datalist">
         <div class="heading">
-                  <h2>News Manager</h2>
+                  <h2>Data Lists</h2>
                   <select name="sort">
             <option>Sort By</option>
             <option>Option1</option>
@@ -130,30 +138,75 @@ $('#checkall').toggleClass('clicked');
             <div class="chk"><a id="checkall"></a> </div>
             <p class="title"><strong>Title</strong></p>
             <p class="descripHead">Description</p>
+            <p class="incHead">Increace by</p>
+            <p class="decHead">Decrease by</p>
             <p class="editHead">Edit/Delete</p>
           </li>
-         
-         <?php
-		 	$query_news = mysql_query("SELECT * FROM news");
-			while( $riga=mysql_fetch_array($query_news) ){
-				?>
-             <li class="odd">
-                <div class="chk">
-                          <label>
-                    <input class="chkl" type="checkbox" name="chk" value="checkbox" />
-                  </label>
-               </div>
-                <p class="title"><?=$riga['title'];?></p>
-                <p class="descrip"><?=$riga['content'];?></p>
-                <p class="edit"><a href="writenews.php?edit=<?=$riga['id'];?>"><img src="images/editIco.png" alt="" /></a> <a href="?ndel=<?=$riga['id'];?>"><img src="images/deletIco.png" alt="" /></a></p>
-          </li>       
-         <?		
-			}
-		 ?>         
+                  <li class="odd">
+            <div class="chk">
+                      <label>
+                <input class="chkl" type="checkbox" name="chk" value="checkbox" />
+              </label>
+                    </div>
+            <p class="title">Lorem ipsum</p>
+            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
+            <p class="inc">0.02</p>
+            <p class="dec">9.98</p>
+            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
+          </li>
+                  <li>
+            <div class="chk">
+                      <label>
+                <input class="chkl" type="checkbox" name="chk" value="checkbox"  />
+              </label>
+                    </div>
+            <p class="title">Lorem ipsum</p>
+            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
+            <p class="inc">0.02</p>
+            <p class="dec">9.98</p>
+            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
+          </li>
+                  <li class="odd">
+            <div class="chk">
+                      <label>
+                <input class="chkl" type="checkbox" name="chk" value="checkbox"  />
+              </label>
+                    </div>
+            <p class="title">Lorem ipsum</p>
+            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
+            <p class="inc">0.02</p>
+            <p class="dec">9.98</p>
+            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
+          </li>
+                  <li>
+            <div class="chk">
+                      <label>
+                <input class="chkl" type="checkbox" name="chk" value="checkbox"/>
+              </label>
+                    </div>
+            <p class="title">Lorem ipsum</p>
+            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
+            <p class="inc">0.02</p>
+            <p class="dec">9.98</p>
+            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
+          </li>
                 </ul>
       </div>
               <img src="images/sepLine.png" alt="" class="sepline" />
-              <div class="messages"></div>
+              <div class="messages">
+        <div><img src="images/warningIco.png" alt="" />
+                  <p>Warning Message, Lorem ipsum dolor sit amet, consectetur adipiscing elit Pellentesque quis.</p>
+                </div>
+        <div><img src="images/infoIcon.png" alt="" />
+                  <p>Information Message, Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+        <div><img src="images/success.png" alt="" />
+                  <p>Success Message, Lorem ipsum dolor sit amet, Nam bibendum sagittis lobortis.consectetur.</p>
+                </div>
+        <div><img src="images/errorIco.png" alt="" />
+                  <p>Error Message, Lorem ipsum dolor sit amet, Nam bibendum sagittis lobortis.consectetur.</p>
+                </div>
+      </div>
               <div id="calen">
         <div id="yuicalendar1"></div>
         <script type="text/javascript">
@@ -213,7 +266,7 @@ $('#checkall').toggleClass('clicked');
           <div class="push"></div>
         </div>
 <div id="foot">
-          <p> All rights reserved.  |  Powered by: <a href="" target="_blank"><font color="#15509E">AquaFlame CMS</font></a> | Admin Cp By Raffa50 (Aldrigo Raffaele)</p>
+          <p> All rights reserved.  |  Powered by: <a href="" target="_blank"><font color="#15509E">AquaFlame CMS</font></a></p>
         </div>
 </body>
 </html>
