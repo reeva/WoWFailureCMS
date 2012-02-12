@@ -151,11 +151,13 @@ _gaq.push(['_trackPageview']);
 											$show_comment=false;
 										}else{				
 										
+										$posterInfo = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_db.users WHERE id = '".$news['author']."'"));
+										
 										echo'
 										<h3 class="blog-title">'.$news['title'].'</h3>
 										<div class="byline">
 											<div class="blog-info">
-											by <a href="'.$news['authorlnk'].'">'.$news['author'].'</a><span>//</span> '.$news['date'].'
+											by <a href="#">'.$posterInfo['firstName'].'</a><span>//</span> '.$news['date'].'
 											</div>
 											<a class="comments-link" href="#comments">'.$news['comments'].'</a>
 											<span class="clear"><!-- --></span>
