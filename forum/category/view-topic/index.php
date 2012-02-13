@@ -24,6 +24,36 @@
 <script type="text/javascript" src="<?php echo $website['root'];?>wow/static/local-common/js/bml.js"></script>
 <script type="text/javascript" src="http://static.wowhead.com/widgets/power.js"></script>
 <!--[if IE 6]> <script type="text/javascript">//<![CDATA[try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}//]]></script><![endif]-->
+
+<script type="text/javascript">
+	//<![CDATA[
+		Core.staticUrl = '/wow/static';
+		Core.sharedStaticUrl= '/wow/static/local-common';
+		Core.baseUrl = '';
+		Core.projectUrl = '/wow';
+		Core.cdnUrl = 'http://eu.media.blizzard.com';
+		Core.supportUrl = 'http://eu.battle.net/support/';
+		Core.secureSupportUrl= 'https://eu.battle.net/support/';
+		Core.project = 'wow';
+		Core.locale = 'en-gb';
+		Core.language = 'en';
+		Core.buildRegion = 'eu';
+		Core.region = 'eu';
+		Core.shortDateFormat= 'dd/MM/yyyy';
+		Core.dateTimeFormat = 'dd/MM/yyyy HH:mm';
+		Core.loggedIn = true;
+		Flash.videoPlayer = 'http://eu.media.blizzard.com/global-video-player/themes/wow/video-player.swf';
+		Flash.videoBase = 'http://eu.media.blizzard.com/wow/media/videos';
+		Flash.ratingImage = 'http://eu.media.blizzard.com/global-video-player/ratings/wow/en-gb.jpg';
+		Flash.expressInstall= 'http://eu.media.blizzard.com/global-video-player/expressInstall.swf';
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-544112-16']);
+		_gaq.push(['_setDomainName', '.battle.net']);
+		_gaq.push(['_trackPageview']);
+		_gaq.push(['_trackPageLoadTime']);
+	//]]>
+</script>
+
 <meta name="title" content="Im looking for someone to play with" />
 <link rel="image_src" href="<?php echo $website['root'];?>wow/static/images/icons/facebook/article.jpg" />
 </head>
@@ -78,7 +108,7 @@ if($error == 1){
 		$insert = mysql_query("INSERT INTO forum_replies (threadid,forumid,content,author,name,last_date) VALUES ('".$thread['id']."','".$forum['id']."','".mysql_real_escape_string($reply)."','".mysql_real_escape_string($account_information['id'])."','".mysql_real_escape_string($thread['name'])."','".$ndate."')")or print("Could not post the reply!");
 		$replies = mysql_fetch_assoc(mysql_query("SELECT * FROM forum_replies WHERE threadid = '".$thread['id']."' ORDER BY id DESC LIMIT 1"));
 		$insert = mysql_query("INSERT INTO forum_posts (type,postid) VALUES ('2','".$replies['id']."')");
-		$update = mysql_query("UPDATE forum_threads SET last_date = '".$ndate."' WHERE id = '".$thread['id']."'");
+		$update = mysql_query("UPDATE forum_threads SET last_date = '".$ndate."', replies = replies + 1 WHERE id = '".$thread['id']."'");
 		
 		if($userInfo['class'] == "blizz"){
 			$update = mysql_query("UPDATE forum_threads SET has_blizz = 1 WHERE id = '".$thread['id']."'");

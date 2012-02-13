@@ -201,6 +201,13 @@ $page_cat = "home";
 					<div id="right" class="ajax-update">
 					<?php
 						include("panel/promo.php");
+						
+						if(isset($_SESSION['username']))
+						{
+							echo '<br><br>';
+							include("panel/vote.php");
+						}
+						
 						echo '<br><br>';
 						include("panel/server_information.php");
 						echo '<br><br>';
