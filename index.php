@@ -201,14 +201,9 @@ $page_cat = "home";
 					<div id="right" class="ajax-update">
 					<?php
 						include("panel/promo.php");
-						echo '<br><br>';
 						include("panel/server_information.php");
-						echo '<br><br>';
 						include("panel/services.php");
-						echo '<br><br>';
 						include("panel/popular_topics.php");
-						
-			
 						//include("panel/sotd.php");
 					?>
 					</div>
