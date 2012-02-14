@@ -73,8 +73,8 @@ _gaq.push(['_trackPageLoadTime']);
 <?php include("functions/footer_man_nav.php"); ?>
 </div>
 <div id="layout-middle">
-            <div class="wrapper">
-                <div id="content">
+	<div class="wrapper">
+	<div id="content">
 
 
      <!--[if lte IE 7]>  <style type="text/css">
@@ -88,73 +88,194 @@ _gaq.push(['_trackPageLoadTime']);
 		<div class="primary">
 
 			<div class="header">
-	<h2 class="subcategory"><?php echo $Vote['Vote']; ?></h2>
-	<h3 class="headline"><?php echo $Vote['Vote1']; ?><?php echo $website['title']; ?></h3>
-    <a href=""><img src="wow/static/local-common/images/game-icons/wow.png" alt="World of Warcraft" width="48" height="48" /></a>
+				<h2 class="subcategory"><?php echo $Vote['Vote']; ?></h2>
+				<h3 class="headline"><?php echo $Vote['Vote1']; ?><?php echo $website['title']; ?></h3>
+				<a href=""><img src="wow/static/local-common/images/game-icons/wow.png" alt="World of Warcraft" width="48" height="48" /></a>
 			</div>
 
 			<div class="service-wrapper">
-    <p class="service-nav">
-            <a href=""><?php echo $Vote['Vote2']; ?></a>
-            <a href="vote-history.php"><?php echo $Vote['Vote3']; ?></a>
-            <a href=""><?php echo $Vote['Vote4']; ?></a>
-            <a href="vote.php" class="active"><?php echo $Vote['Vote5']; ?></a>
-    </p>
+			<p class="service-nav">
+				<a href=""><?php echo $Vote['Vote2']; ?></a> <!-- Spend Points -->
+				<a href="vote-history.php"><?php echo $Vote['Vote3']; ?></a>
+				<a href="#howitworks"><?php echo $Vote['Vote4']; ?></a> <!-- How it works -->
+				<a href="vote.php" class="active"><?php echo $Vote['Vote5']; ?></a>
+			</p>
             <p><?php echo $Vote['Vote6']; ?><?php echo $website['title']; ?><?php echo $Vote2['Vote6']; ?></p><br />
-<?php
-include("functions/vote_func.php");
-?>
-        <div style="position:relative;">
+			<p>You have <?php echo $account_extra['vote_points']; ?> Vote Points</p>
+			<br><br>
+			<?php include("functions/vote_func.php"); ?>
+			<div style="position:relative;">
+				<?php
 
+					if(isset($_GET['id'])){
+					
+						$errors = Array();
+					
+						if(empty($_GET['id'])) $errors[] = "The vote id entered is NULL.";
+						if($_GET['id'] != (int)$_GET['id']) $errors[] = "The vote id entered is not an integer.";
+						
+						$id = (int)$_GET['id'];
+						
+						$check = mysql_query("SELECT * FROM $server_db.vote WHERE id = '".$id."'");
+						if(mysql_num_rows($check) < 1) $errors[] = "The vote option does not exist";					
+						
+						
+						if(count($errors) > 0)
+						{
+							echo'					
+							<div class="subsection">
+								<div class="middle">??!</div>
+								<div class="right">
+									<h2 class="caption">Voting...</h2>
+									<meta http-equiv="refresh" content="3;url=vote.php"/>
+									';
+									
+									foreach($errors AS $message) { echo $message . '<br>'; }
+									$error = 1;
+									
+									echo '
+									<small>Redirecting...</small>
+								</div>
+							</div>
+							';
+							
+						} else {
+							
+							$vote_option = mysql_fetch_assoc($check);
+							$check = mysql_query("SELECT * FROM votes WHERE userid = '".$account_information['id']."' AND voteid = '".$vote_option['ID']."' ORDER BY `date` DESC");
+							
+							function vote()
+							{
+								global $server_db, $account_information, $vote_option;
+								$add_points = mysql_query("UPDATE $server_db.users SET vote_points = vote_points + 1 WHERE id = '".$account_information['id']."'");	
+								$date = date('Y-m-d H:i:s',time());
+								$add_vote = mysql_query("INSERT INTO $server_db.votes (userid,date,voteid) VALUES ('".$account_information['id']."','".$date."','".$vote_option['ID']."')");
+								?>
+								<SCRIPT LANGUAGE="JavaScript">
+								window.open("<?php echo $vote_option['Link']; ?>");
+								</SCRIPT>
+								<?php
+							}
+							
+							if(mysql_num_rows($check) > 0)
+								{
+									$last_vote = mysql_fetch_assoc($check);
+									$whenIcanvote = strtotime($last_vote['date']) + (13*60*60); // + 12 Hours
+									if(time() >= $whenIcanvote)
+									{
+										vote();
+										$voted = 1;
+									} else $voted = 0;
+								} else { vote(); $voted = 1; }
+							
+							echo '					
+								<div class="subsection">
+									<div class="middle">';
+										if($voted == 1) echo '!!!';
+										else echo '??!';
+									echo'
+									</div>
+									<div class="right">
+										<h2 class="caption">Voting...</h2>';
+											if($voted == 1) echo 'Thank you for voting.';
+											else echo 'You have already voted in the last 12 hours';
+										echo'
+									</div>
+								</div>
+							';
+							
+							echo '<meta http-equiv="refresh" content="3;url=vote.php"/>';
+							
+							$error = 1;
+						
+						}
+						
+					} else $error = 0;
+					
+					if($error != 1){
+						$votes = mysql_query("SELECT * FROM $server_db.vote ORDER BY `id` ASC");
+							$i=0;
+							while($vote = mysql_fetch_array($votes))
+							{
+								$i++;
+								$votedx = mysql_query("SELECT * FROM $server_db.votes WHERE voteid = '".$vote['ID']."' AND userid = '".$account_information['id']."' ORDER BY `date`	 DESC");
+								if(mysql_num_rows($votedx) > 0)
+								{
+									require_once("functions/custom.php");
+									
+									$voted = mysql_fetch_assoc($votedx);
+									$last_vote = $voted['date'];
+									$whenIcanvote = strtotime($last_vote) + (13*60*60);
+									
+									if(time() >= $whenIcanvote) $voteable = 1;
+									else
+									{
+										$mYear = date('Y', $whenIcanvote);
+										$mMonth = date('m', $whenIcanvote);
+										$mDay = date('d', $whenIcanvote);
+										$mHour = date('H', $whenIcanvote);
+										$mMinute = date('i', $whenIcanvote);
+										$mSecond = date('s', $whenIcanvote);
+										$target = mktime($mHour, $mMinute, $mSecond, $mMonth, $mDay, $mYear);
+										$when = $target - time();
+										
+										$timp['ore'] = floor(($when%86400)/3600);
+										$timp['min'] = floor((($when%86400) - $timp['ore']*3600)/60);
+										$timp['sec'] = $when%60;
+										
+										$voteable = 0;
+										
+										if($timp['ore'] > 0)
+											if($timp['ore'] > 1) $in_time = 'in '.$timp['ore'].' hours';
+											else $in_time = 'in '.$timp['ore'].' hour';
+										else if($timp['min'] > 0)
+											if($timp['min'] > 1) $in_time = 'in '.$timp['min'].' minutes';
+											else $in_time = 'in '.$timp['min'].' minute';
+										else if($timp['sec'] > 0)
+											if($timp['sec'] > 1) $in_time = 'in '.$timp['sec'].' seconds';
+											else $in_time = 'in '.$timp['sec'].' second';
+										else $voteable = 1;
+									}
+									
+									
+								} else $voteable = 1;
+								
+								
+								
+								echo'					
+								<div class="subsection">
+									<div class="left">
+										';
+										if($voteable == 1) echo '<img src="wow/static/images/services/wow/raf/en-us/step_02.jpg" alt="" />';
+										else echo '<img src="wow/static/images/services/wow/raf/en-us/step_01.jpg" alt="" />';
+									echo'
+									</div>
+									<div class="middle">'.$i.'</div>
+									<div class="right">
+										<h2 class="caption"><a target="_blank" href="'.$vote['Link'].'" onclick="window.location = \'vote.php?id='.$vote['ID'].'\'">'.$vote['Name'].'</a> (click to vote)</h2>
+										<p>'.$vote['Description'].'</p>';
+										echo '<br><br><br>';
+										if($voteable == 1) echo '<small>You can vote now</small>';
+										else echo '<small>You can vote ' . $in_time . '</small>';
+										echo '
+									</div>
+								</div>
+								';
+							}
+						}
+				
+				?>
+				
+				<br><br><br>
+				
 				<div class="subsection">
-					<div class="left">
-						<img src="wow/static/images/services/wow/raf/en-us/step_01.jpg" alt="" />
-					</div>
-					<div class="middle"><?php echo $get1["ID"] ?></div>
+					<div class="middle">?</div>
 					<div class="right">
-						<h2 class="caption"><a href="<?php echo $get1["Link"] ?>"><?php echo $get1["Name"] ?></a></h2>
-						<p><?php echo $get1["Description"] ?></p>
+						<h2 class="caption" id="howitworks"><a href="#">How it works</a></h2>
+						<p>In order to vote you must click the vote option's title.</p>
+						<P>If the vote option has a red X image on its left that means you cannot vote otherwise you can.</p>
+						<p>Every vote option displays the time when you can vote.</p>
 					</div>
-				</div>
-				<div class="subsection">
-					<div class="left">
-						<img src="wow/static/images/services/wow/raf/en-us/step_02.jpg" alt="" />
-					</div>
-					<div class="middle"><?php echo $get2["ID"] ?></div>
-					<div class="right">
-						<h2 class="caption"><a href="<?php echo $get2["Link"] ?>"><?php echo $get2["Name"] ?></a></h2>
-						<p><?php echo $get2["Description"] ?></p>
-						</div>
-				</div>
-				<div class="subsection">
-					<div class="left">
-						<img src="wow/static/images/services/wow/raf/en-us/step_03.jpg" alt="" />
-					</div>
-					<div class="middle"><?php echo $get3["ID"] ?></div>
-					<div class="right">
-						<h2 class="caption"><a href="<?php echo $get3["Link"] ?>"><?php echo $get3["Name"]; ?></a></h2>
-						<p><?php echo $get3["Description"] ?></p>
-						</div>
-				</div>
-				<div class="subsection">
-					<div class="left">
-						<img src="wow/static/images/services/wow/raf/en-us/step_04.jpg" alt="" />
-					</div>
-					<div class="middle"><?php echo $get4["ID"] ?></div>
-					<div class="right">
-						<h2 class="caption"><a href="<?php echo $get4["Link"] ?>"><?php echo $get4["Name"] ?></a></h2>
-						<p><?php echo $get4["Description"] ?></p>
-						</div>
-				</div>
-				<div class="subsection">
-					<div class="left">
-						<img src="wow/static/images/services/wow/raf/en-us/step_05.jpg" alt="" />
-					</div>
-					<div class="middle"><?php echo $get5["ID"] ?></div>
-					<div class="right">
-						<h2 class="caption"><a href="<?php echo $get5["Link"] ?>"><?php echo $get5["Name"] ?></a></h2>
-						<p><?php echo $get5["Description"] ?></p>
-						</div>
 				</div>
             <div class="raf-step3-arrow"></div>
             <div class="raf-step5-arrow"></div>
