@@ -23,7 +23,7 @@
 								
 								$voted = mysql_fetch_assoc($votedx);
 								$last_vote = $voted['date'];
-								$whenIcanvote = strtotime($last_vote) + (13*60*60);
+								$whenIcanvote = strtotime($last_vote) + (12*60*60);
 								
 								if(time() >= $whenIcanvote) $voteable = 1;
 								else

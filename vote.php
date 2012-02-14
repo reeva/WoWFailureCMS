@@ -160,7 +160,7 @@ _gaq.push(['_trackPageLoadTime']);
 							if(mysql_num_rows($check) > 0)
 								{
 									$last_vote = mysql_fetch_assoc($check);
-									$whenIcanvote = strtotime($last_vote['date']) + (13*60*60); // + 12 Hours
+									$whenIcanvote = strtotime($last_vote['date']) + (12*60*60); // + 12 Hours
 									if(time() >= $whenIcanvote)
 									{
 										vote();
@@ -205,7 +205,7 @@ _gaq.push(['_trackPageLoadTime']);
 									
 									$voted = mysql_fetch_assoc($votedx);
 									$last_vote = $voted['date'];
-									$whenIcanvote = strtotime($last_vote) + (13*60*60);
+									$whenIcanvote = strtotime($last_vote) + (12*60*60);
 									
 									if(time() >= $whenIcanvote) $voteable = 1;
 									else
