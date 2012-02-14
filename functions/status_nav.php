@@ -7,9 +7,9 @@
 					   All Realms
 					</a>
 					 
-					<a href="top-honor.php"
+					<a 
 					   
-					    class="tab-active">
+					    class="tab-inactive">
 					   Top Honor
 					</a>
 					 

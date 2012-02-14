@@ -208,15 +208,9 @@ $page_cat = "home";
 							include("panel/vote.php");
 						}
 						
-						echo '<br><br>';
 						include("panel/server_information.php");
-						echo '<br><br>';
 						include("panel/services.php");
-						echo '<br><br>';
 						include("panel/popular_topics.php");
-						
-			
-						//include("panel/sotd.php");
 					?>
 					</div>
 					<span class="clear"><!-- --></span>
