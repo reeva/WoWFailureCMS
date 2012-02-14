@@ -258,13 +258,42 @@ if($error == 1){
 										<a href="#'.$i.'">#'.$i.'</a>
 										<div class="date" onmouseover="Tooltip.show(this,\'Posted Date : '.$thread['date'].'\')">'.ago(strtotime($thread['date'])).'</div>
 									</div>
+									<div class="karma">
+									<div class="karma-feedback">
+									Rate is Disabled. 
+									</div>
+									<span class="clear"><!-- --></span>
+									</div>
 									
 									<!--<div class="blizzard_icon"><a class="nextBlizz" href="#" onmouseover="Tooltip.show(this,\'Next Blizzard Post\')"></a></div>-->
 								</div>
 						</td>
 					</tr>
 					</table>';
-					
+					// Goes on Rate is Disabled if not Logged in-> <a href="?login" onclick="return Login.open(https://eu.battle.net/login/login.frag)">Login</a>
+					// Goes only if Logged In. ONLY if you are Logged in.
+					// <div class="karma">
+					// <div class="rate-btn-holder">
+					// <a href="javascript:;" onclick="Cms.Topic.vote(POSTNUMBER,'up',1,'')" class="rateup rate-btn"><span>Like</span></a>
+					// </div>
+					// <div class="rate-btn-holder">
+					// <a href="javascript:;" onclick="$(this).siblings('.rate-action').show();" class="ratedown rate-btn"></a>
+					// <div class="rate-action" style="display: none; ">
+					// <div class="ui-dropdown">
+					// <div class="dropdown-wrapper">
+					// <ul>
+					// <li><a href="javascript:;" onclick="Cms.Topic.vote(POSTNUMBER,'down',1,'')">Dislike</a></li>
+					// <li><a href="javascript:;" onclick="Cms.Topic.vote(POSTNUMBER,'down',2,'')">Trolling</a></li>
+					// <li><a href="javascript:;" onclick="Cms.Topic.vote(POSTNUMBER,'down',3,'')">Spam</a></li>
+					// <li><a href="javascript:;" onclick="Cms.Topic.report(POSTNUMBER,'CHARNAME','post-POSTNUMBER')" class="report">Report</a></li>
+					// </ul>
+					// </div>
+					// </div>
+					// </div>
+					// </div>
+					// <div class="prev-vote">You have already rated this item.</div>
+					// <span class="clear"><!-- --></span>
+					// </div>
 					$postid = mysql_fetch_assoc(mysql_query("SELECT * FROM forum_posts WHERE type = 1 AND postid = '".$thread['id']."'"));
 					### POST OPTIONS ###
 					if(isset($_SESSION['username']))
