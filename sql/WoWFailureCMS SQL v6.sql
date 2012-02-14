@@ -312,7 +312,7 @@ CREATE TABLE IF NOT EXISTS `version` (
 # Dumping data for table website.version: ~1 rows (approximately)
 DELETE FROM `version`;
 /*!40000 ALTER TABLE `version` DISABLE KEYS */;
-REPLACE INTO `version` (`Name`, `Number`, `Revision`, `DB_Version`, `Updates`) VALUES ('AquaFlameCMS', 'v6', '170', 'v6', '0');
+REPLACE INTO `version` (`Name`, `Number`, `Revision`, `DB_Version`, `Updates`) VALUES ('AquaFlameCMS', 'v6', '180', 'v6', '0');
 
 /*Table structure for table `vote` */
 

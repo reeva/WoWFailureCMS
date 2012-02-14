@@ -78,7 +78,7 @@ if($error == 1){
 		$insert = mysql_query("INSERT INTO forum_replies (threadid,forumid,content,author,name,last_date) VALUES ('".$thread['id']."','".$forum['id']."','".mysql_real_escape_string($reply)."','".mysql_real_escape_string($account_information['id'])."','".mysql_real_escape_string($thread['name'])."','".$ndate."')")or print("Could not post the reply!");
 		$replies = mysql_fetch_assoc(mysql_query("SELECT * FROM forum_replies WHERE threadid = '".$thread['id']."' ORDER BY id DESC LIMIT 1"));
 		$insert = mysql_query("INSERT INTO forum_posts (type,postid) VALUES ('2','".$replies['id']."')");
-		$update = mysql_query("UPDATE forum_threads SET last_date = '".$ndate."' WHERE id = '".$thread['id']."'");
+		$update = mysql_query("UPDATE forum_threads SET last_date = '".$ndate."', replies = replies + 1 WHERE id = '".$thread['id']."'");
 		
 		if($userInfo['class'] == "blizz"){
 			$update = mysql_query("UPDATE forum_threads SET has_blizz = 1 WHERE id = '".$thread['id']."'");

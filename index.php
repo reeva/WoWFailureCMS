@@ -201,10 +201,15 @@ $page_cat = "home";
 					<div id="right" class="ajax-update">
 					<?php
 						include("panel/promo.php");
+						if(isset($_SESSION['username']))
+						{
+						include("panel/vote.php");
+						}else{
+						include("panel/sotd.php");
+						}
 						include("panel/server_information.php");
 						include("panel/services.php");
 						include("panel/popular_topics.php");
-						//include("panel/sotd.php");
 					?>
 					</div>
 					<span class="clear"><!-- --></span>
