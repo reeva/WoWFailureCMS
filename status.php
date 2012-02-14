@@ -195,91 +195,121 @@ _gaq.push(['_trackPageview']);
 				</tr>
 			</thead>
 			<tbody>
+				<?php
+					$icon = array(
+						0 => 'PvE',
+						1 => 'PvP',
+						4 => 'PvE',
+						6 => 'RP',
+						8 => 'RP-PVP',
+						16 => 'FFA_PVP',
+					);
+							
+					$timezone = array(
+						1 => 'Development',
+						2 => 'United States',
+						3 => 'Oceanic',
+						4 => 'Latin America',
+						5 => 'Tournament',
+						6 => 'Korea',
+						7 => 'Tournament',
+						8 => 'English',
+						9 => 'German',
+						10 => 'French',
+						11 => 'Spanish',
+						12 => 'Russian',
+						13 => 'Tournament',
+						14 => 'Taiwan',
+						15 => 'Tournament',
+						16 => 'China',
+						17 => 'CN1',
+						18 => 'CN2',
+						19 => 'CN3',
+						20 => 'CN4',
+						21 => 'CN5',
+						22 => 'CN6',
+						23 => 'CN7',
+						24 => 'CN8',
+						25 => 'Tournament',
+						26 => 'Test Server',
+						27 => 'Tournament',
+						28 => 'QA Server',
+						29 => 'CN9',
+					);
+							
+					$population = array(
+						0 => 'Low',
+						1 => 'Medium',
+						2 => 'High',
+						3 => 'NewPlayers',
+						4 => 'New'
+					);
+					$get_realms = mysql_query("SELECT * FROM $server_adb.realmlist ORDER BY `id` ASC");
+					while($realm = mysql_fetch_array($get_realms)){
+					
+					$host = $realm['address'];
+					$world_port = $realm['port']; 
+					$world = @fsockopen($host, $world_port, $err, $errstr, 2);
+					
+					echo'
 					<tr class="row1">
-						<td class="status" data-raw="up">
-							<div class="status-icon up"
-								 onmouseover="Tooltip.show(this, 'Online')">
-							</div>
+						<td class="status" data-raw="up">';	
+							if($world) echo '<div class="status-icon up" onmouseover="Tooltip.show(this, \'Online\')"></div>';
+							else echo '<div class="status-icon down" onmouseover="Tooltip.show(this, \'Offline\')"></div>';
+							echo'
 						</td>
 						<td class="name">
-							<a href="servername1.php"><?php
-						require_once("configs.php");
-						if(realm_status($serveraddress, $serverport) === false)
-						{
-						echo                      "<font color=red>Offline</font>";
-						}
-						elseif(realm_status($serveraddress, $serverport) === true)
-						{
-						echo "<img src='wow/static/images/services/status/online.png'/> ";
-						}
-						else
-						{
-						echo "<font color=#00FF00><img src='wow/static/images/services/status/offline.png'/> ";
-						}
-						function realm_status($host, $port)
-						{
-						error_reporting(0);
-						$etat = fsockopen($host,$port,$errno,$errstr,3);
-						if(!$etat)
-						{
-						return false;
-						}
-						else
-						{
-						return true;
-						}
-						}
-						?>
-							<?php echo $name_realm1['realm']; ?>
-									</a>
+							<a href="servername1.php">';
+							if($world) echo "<img src='wow/static/images/services/status/online.png'/> ";
+							else echo '<font color="#00FF00"><img src="wow/static/images/services/status/offline.png"/> ';
+							echo $realm['name'].'</font>';
+							echo'
+							</a>
 						</td>
+						
 						<td class="name">
-						<a href="statistics.php"><span class="icon-frame frame-18 " style="background-image: url(http://eu.media.blizzard.com/wow/icons/18/inv_scroll_12.jpg);">
-		</span> Statistics
-						</a>
+							<a href="statistics.php">
+								<span class="icon-frame frame-18 " style="background-image: url(http://eu.media.blizzard.com/wow/icons/18/inv_scroll_12.jpg);"></span>
+								Statistics
+							</a>
 						</td>
-						<td class="type" data-raw="pvp">
-							<span class="pvp">
-									(PvP & PvE)
-							</span>
-						</td>
-						<td class="population" data-raw="Low">
-							<span class="Low">
-									Low
-							</span>
-						</td>
-						<td class="locale">
-							Cataclysm
-						</td>
-						<td class="queue" data-raw="false">
-														<!--Bar Graph 1-->
-<?php 
-require_once("configs.php");
-if (!$connection_setup)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
-  @mysql_select_db($server_cdb,$connection_setup)or die(mysql_error());
+						
+						<td class="type" data-raw="'.$icon[$realm['icon']].'"><span class="'.$icon[$realm['icon']].'">('.$icon[$realm['icon']].')</span></td>
+						<td class="population" data-raw="'.$population[$realm['population']].'"><span class="'.$population[$realm['population']].'">'.$population[$realm['population']].'</span></td>
+						<td class="locale">'.$timezone[$realm['timezone']].'</td>
+						<td class="queue" data-raw="false">';
+							
+							$max_online="500";
+							
+							print'
+								<div style="width:100px; height:23px; position:relative;margin-left:5px;text-align:left; background-repeat:repeat-x;">
+								<div style="position:absolute; z-index:50; width:100%; height:21px; text-align:center;color:white;">
+								<div style="margin-top:1px;">
+							';
+							
+							$realm_extra = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_db.realms WHERE realmid = '".$realm['id']."'"));
+							$characters = $realm_extra['char_db'];
+							$world = $realm_extra['world_db'];
+							
+							@$sql = "SELECT SUM(online) FROM $characters.characters";
+							@$sqlquery = mysql_query($sql) or die(mysql_error());
+							@$memb = (int) mysql_result($sqlquery,0,0);
 
-$max_online="500";
-print'
-<div style="width:100px; height:23px; position:relative;margin-left:5px;text-align:left; background-repeat:repeat-x;">
-<div style="position:absolute; z-index:50; width:100%; height:21px; text-align:center;color:white;">
-<div style="margin-top:1px;">';
-@$sql = "SELECT SUM(online) FROM characters";
-@$sqlquery = mysql_query($sql) or die(mysql_error());
-@$memb = mysql_result($sqlquery,0,0);
-
-echo '<h3 class="Good"> '.$memb.' Characters</h3>';
-$number = $memb / $max_online;
-$total_number = $number * '100';
- ?>
-</div></div>
-<div style="width:<?php echo"$total_number"; ?>%; background:#10AA00; background-repeat:repeat-x; height:22px;border-right:1px solid #6cc02c;">
-</div></div>
-																<!--Bar Graph 1-->
+							echo '<h3 class="Good"> '.$memb.' Characters</h3>';
+							$number = $memb / $max_online;
+							$total_number = $number * '100';
+							
+							echo '</div></div>';
+							echo '<div style="width:' . $total_number . '%; background:#10AA00; background-repeat:repeat-x; height:22px;border-right:1px solid #6cc02c;">
+							</div></div>';
+							
+							echo'
 						</td>
-					</tr>
+					</tr>';
+					}
+					
+					?>
+					
 					<!-- Removed or add the ( --> <!-- ) Only if you know what they are doing -->
 					
 			<!-- Removed the ( --> <!-- ) Only if you know what they are doing -->
