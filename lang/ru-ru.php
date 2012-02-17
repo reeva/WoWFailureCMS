@@ -177,7 +177,7 @@ $Reg['Reg19'] = "Old Password:";
 $Reg['Reg20'] = "New Password:";
 $Reg['Reg21'] = "Password Rules";
 $Reg['Reg22'] = "Your password may only contain ";
-$Reg['Reg23'] = "alphabetic characters (A–Z), numeric characters (0–9), and punctuation.";
+$Reg['Reg23'] = "alphabetic characters (A\96Z), numeric characters (0\969), and punctuation.";
 $Reg['Reg24'] = "Your password ";
 $Reg['Reg25'] = "must";
 $Reg['Reg26'] = " contain at least one alphabetic character ";
@@ -187,7 +187,7 @@ $Reg['Reg29'] = "You cannot enter your account name as your password.";
 $Reg['Reg30'] = "Your password must be between ";
 $Reg['Reg31'] = "eight and sixteen characters";
 $Reg['Reg32'] = " in length.";
-$Reg['Reg33'] = "For your security, we highly recommend you choose a unique password that you don’t use for any other online account.";
+$Reg['Reg33'] = "For your security, we highly recommend you choose a unique password that you don\92t use for any other online account.";
 $Reg['Reg34'] = "Confirm New Password:";
 $Reg['Reg35'] = "Continue";
 $Reg['Reg36'] = "Cancel ";
@@ -338,9 +338,9 @@ $Uns['Uns4'] = "You should change your country to Korea, republic of and verify 
 $Uns['Uns5'] = "Game Region Warning";
 $Uns['Uns6'] = "The World of Warcraft account merge process is not yet available in your region.";
 $Uns['Uns7'] = "If you lost your authenticator, please detach it before proceeding. (Security card service ended 8/13/2010 and was automatically detached.) ";
-$Uns['Uns8'] = "If you use Phone Lock: please unlock your World of Warcraft account before merging.";
+$Uns['Uns8'] = "If you use Phone Lock: please unlock your World of Warcraft account before\A0merging.";
 $Uns['Uns9'] = "Taiwan: 0800-303-585";
-$Uns['Uns10'] = "(Not available 10–11AM every first Wed of the month)";
+$Uns['Uns10'] = "(Not available 10\9611AM every first Wed of the month)";
 $Uns['Uns11'] = "Hong Kong &amp; Macau: 396-54666";
 $Uns['Uns12'] = " Required";
 $Uns['Uns13'] = "Game Management";
@@ -477,4 +477,29 @@ $Forum['Forum53'] = "";
 $Forum['Forum54'] = "";
 
 // Finishing the Forum Translation
+
+
+//userplate
+$uplate['login'] = "<strong>Log in now</strong> to enhance and personalize your experience!";
+$uplate['profile'] = "Profile";
+$uplate['post'] = "View my posts";
+$uplate['auction'] = "View my auctions";
+$uplate['events'] = "View my events";
+$uplate['manage'] = "Manage your characters";
+$uplate['customize'] = "Personalize the characters that apear in this menu.";
+$uplate['r1'] = "Human";
+$uplate['r2'] = "Orc";
+$uplate['r3'] = "Dwarf";
+$uplate['r4'] = "Night Elf";
+$uplate['r5'] = "Undead";
+$uplate['r6'] = "Tauren";
+$uplate['r7'] = "Gnome";
+$uplate['r8'] = "Troll";
+$uplate['r9'] = "Goblin";
+$uplate['r10'] = "Blood elf";
+$uplate['r11'] = "Draenei";
+$uplate['r22'] = "Wargen";
+$uplate['r'] = "All Races";
+//finish userplate
+
 ?>

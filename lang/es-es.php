@@ -67,8 +67,8 @@ $Serbian['Europe'] = "Serbian";
 $Greek['gr_lang'] = "&Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&alpha; (EU)";
 $Romanian['RO'] = "Romania";
 $Romanian['ROEU'] = "Romanian (EU)";
-$copyright['copyright'] = "Copyright &copy; 2011 ";
-$copyright3['copyright3'] = "Hecho por AquaFlame CMS";
+$copyright['copyright'] = "Copyright &copy; 2011 - 2012 ";
+$copyright3['copyright3'] = "Hecho por AquaFlame CMS - Reinos Lokos &copy; 2011-2012 ";
 $copyright4['copyright4'] = "Todas las imágenes están en propiedad de Blizzard Entertainment.";
 
 
@@ -83,8 +83,8 @@ $website['explore'] = "Explorar";
 $More['More'] = "Más";
 $Retrieve['Retrieve'] = "Recuperar cuenta perdida";
 $Find['Find'] = "Encuentranos en el mapa!";
-$or['or'] = "or";
-$search['text_bar'] = "Search characters, items and more...";
+$or['or'] = "o";
+$search['text_bar'] = "Busca personajes, objetos, foros y más...";
 
 // Starting the voting translation
 
@@ -110,47 +110,49 @@ $Vote['Vote16'] = "Orden";
 // Finishing the voting translation
 
 // Starting the register.php translation
-$re['re'] = "Registration of";
-$re['re1'] = "Account Creation";
-$re['re2'] = "We value and respect your privacy.</b> Find out how ";
-$re['re3'] = " safeguards user information by reading our ";
-$re['re4'] = "Online Privacy Policy";
-$re['re5'] = "Country of Residence:";
-$re['re6'] = "Date of Birth:";
-$re['re7'] = "Title:";
-$re['re8'] = "First Name:";
-$re['re9'] = "Last Name:";
-$re['re10'] = "E-mail Address:";
-$re['re11'] = "Username:";
-$re['re12'] = "Password:";
-$re['re13'] = "For your security, we highly recommend that you choose a unique password that you don't use for any other online account.";
-$re['re14'] = "Password Strength:";
-$re['re15'] = "Your password must be between 8-16 characters in length.";
-$re['re16'] = "Your password must contain at least one alphabetic character and one numeric character.";
-$re['re17'] = "You cannot enter your account name as your password.";
-$re['re18'] = "Passwords must match.";
-$re['re19'] = "Secret Question &amp; Answer:";
-$re['re20'] = "Select a Question";
-$re['re21'] = "First elementary school I attended?";
-$re['re22'] = "The high school I graduated from?";
-$re['re23'] = "Mother's city of birth? ";
-$re['re24'] = "Father's city of birth?";
-$re['re25'] = "Your city of birth?";
-$re['re26'] = "Name of your first pet?";
-$re['re27'] = "Best friend in high school?";
-$re['re28'] = "Model of your first car?";
-$re['re29'] = "Your favorite sports team?";
-$re['re30'] = "Your first employer (company name)?";
-$re['re31'] = "This information is used for account security related issues such as resetting your password.";
-$re['re32'] = "Chat Agreement:";
-$re['re33'] = "In order to provide Free Gaming, we will monitor and/or review your text chat, including private, or 'whisper' chat, in the event of complaints from other users or violations of the rules. By clicking the check box below, you agree with the rule of allowing us to review your chat Conversations ingame, to investigate potential violations of the rules. We will not use the information for any reason other than pursuing such violations.";
-$re['re34'] = "I consent to ";
-$re['re35'] = " monitoring and/or reviewing my personal messages.";
-$re['re36'] = "I accept the ";
-$re['re37'] = "Terms of Use ";
-$re['re38'] = " applicable to my country of residence and if under 18 years old, agree and acknowledge that my parent or guardian has also reviewed and accepted the Terms of Use on my behalf.";
-$re['re39'] = "Create Free Account";
-$re['re40'] = "Cancel";
+
+$re['re'] = "El registro de";
+$re['re1'] = "Creación de la cuenta";
+$re['re2'] = "Valoramos y respetamos su privacidad </b> Para saber cómo hacerlo.";
+$re['re3'] = "protejemos información del usuario mediante la lectura de nuestra";
+$re['re4'] = "Política de Privacidad en línea";
+$re['Resident Evil 5'] = "País de residencia:"; //WTF is this? 'Resident Evil 5'?
+$re['re6'] = "Fecha de nacimiento:";
+$re['re7'] = "Título:";
+$re['Te8'] = "Nombre:";
+$re['re9'] = "Apellido:";
+$re['re10'] = "Dirección de correo electrónico:";
+$re['re11'] = "Nombre de usuario:";
+$re['re12'] = "Contraseña:";
+$re['re13'] = "Por su seguridad, le recomendamos que elija una contraseña única que no se utiliza para cualquier cuenta en línea.";
+$re['re14'] = "Fortaleza de la contraseña:";
+$re['re15'] = "Su contraseña debe tener entre 8-16 caracteres de longitud.";
+$re['re16'] = "Su contraseña debe contener al menos un carácter alfabético y un carácter numérico.";
+$re['re17'] = "No se puede introducir su nombre de cuenta como su contraseña.";
+$re['re18'] = "Las contraseñas deben coincidir.";
+$re['re19'] = "Pregunta secreta y Respuesta:";
+$re['re20'] = "Seleccione una pregunta";
+$re['re21'] = "¿La primera escuela de primaria al que asistí?";
+$re['re22'] = "¿El instituto en el que se graduó?";
+$re['re23'] = "¿La ciudad de nacimiento de su madre?";
+$re['re24'] = "¿La ciudad de nacimiento de su padre?";
+$re['re25'] = "¿Su ciudad de nacimiento?";
+$re['re26'] = "¿Nombre de su primera mascota?";
+$re['re27'] = "¿El mejor amigo en el instituto?";
+$re['re28'] = "¿Modelo de tu primer coche?";
+$re['re29'] = "Su equipo favorito?";
+$re['re30'] = "Su primer empleador (nombre de la empresa)?";
+$re['re31'] = "Esta información se utiliza para cuestiones de seguridad relacionadas con la cuenta como el restablecimiento de su contraseña.";
+$re['re32'] = "Acuerdo de Derecho:";
+$re['re33'] = "Con el fin de ofrecer juegos gratis, vamos a observar y/o revisar el chat de texto, incluyendo chat 'susurro' privado, o, en el caso de las quejas de otros usuarios o violaciones de las reglas. Al hacer clic en la casilla de verificación a continuación, usted está de acuerdo con la regla de lo que nos permite revisar las conversaciones de chat dentro del juego, para investigar posibles violaciónes de las normas que no utilizará la información por cualquier otro motivo que perseguir tales violaciónes. ";
+$re['re34'] = "Doy mi consentimiento para";
+$re['re35'] = "el seguimiento y/o revisar mis mensajes personales.";
+$re['re36'] = "Acepto las ";
+$re['re37'] = "Condiciones de uso ";
+$re['re38'] = "aplicable a mi país de residencia y si es menor de 18 años de edad, acepta y reconoce que mi padre, madre o tutor legal también ha revisado y aceptado los Términos de Uso a su favor.";
+$re['re39'] = "Crear una cuenta gratis";
+$re['re40'] = "Cancelar";
+
 //Finishing the register.php translation
 
 // Starting register
@@ -285,33 +287,33 @@ $Man['Man67'] = "Dona por SMS y Recibe Recompensas";
 // Finishing Account Man
 
 // Starting Header acount
-$ha['ha26'] ="Account";
-$ha['ha0'] = "Summary";
-$ha['ha1'] = "Settings";
-$ha['ha2'] = "Change E-mail Adress";
-$ha['ha3'] = "Change password";
-$ha['ha4'] = "Communication Preferences";
-$ha['ha5'] = "Parental Controls";
-$ha['ha6'] = "My Payment Options";
-$ha['ha7'] = "Contact &amp; General Info";
-$ha['ha8'] = "Codes &amp; Services";
-$ha['ha9'] = "Vote Panel";
-$ha['ha10'] = "Donation Panel";
-$ha['ha11'] = "SMS Donation Panel";
+$ha['ha26'] ="Cuenta";
+$ha['ha0'] = "Sumario";
+$ha['ha1'] = "Configuración";
+$ha['ha2'] = "Cambia la dirección de e-mail";
+$ha['ha3'] = "Cambia la contraseña";
+$ha['ha4'] = "Preferencias de configuración";
+$ha['ha5'] = "Control parental";
+$ha['ha6'] = "Mis opciones de pago";
+$ha['ha7'] = "Contacto e Información General";
+$ha['ha8'] = "Códigos y Servicios";
+$ha['ha9'] = "Panel de votos";
+$ha['ha10'] = "Panel de donaciones";
+$ha['ha11'] = "Panel de donaciones por SMS";
 $ha['ha12'] = "V.i.P Item Switch Panel";
 $ha['ha13'] = "Download Game Clients";
-$ha['ha14'] = "Beta Settings";
+$ha['ha14'] = "Confugarción Beta";
 $ha['ha15'] = "V.i.P Code Redemption";
-$ha['ha16'] = "Player Options";
-$ha['ha17'] = "Character Unstuck";
-$ha['ha18'] = "Name Change";
-$ha['ha19'] = "Faction Change";
-$ha['ha20'] = "Race Change";
-$ha['ha21'] = "Character Transfer";
-$ha['ha22'] = "Appearance Change";
+$ha['ha16'] = "Opciones del jugador";
+$ha['ha17'] = "Desbloquear personaje";
+$ha['ha18'] = "Cambio de nombre";
+$ha['ha19'] = "Cambio de facción";
+$ha['ha20'] = "Cambio de raza";
+$ha['ha21'] = "Transferidor de personajes";
+$ha['ha22'] = "Cambiar apariencia";
 $ha['ha23'] = "Refer an Account";
-$ha['ha24'] = "Recruit a Friend";
-$ha['ha25'] = "Return to Website";
+$ha['ha24'] = "Recluta un amigo";
+$ha['ha25'] = "Vuelve a la web";
 // Finishing Header Account
 
 // Starting Ban List
@@ -340,7 +342,7 @@ $Uns['Uns6'] = "El proceso de migrado de cuenta de World of Warcraft no esta dis
 $Uns['Uns7'] = "Si pierdes tu autentificador, por favor desvinculalo antes de proceder. (Servicio de seguridad de la targeta termino el 8/13/2010 y fue automaticamente desvinculado.) ";
 $Uns['Uns8'] = "Si usas el seguro de telefono: por favor desactiva el seguro antes de migrar tu cuenta World of Warcraft.";
 $Uns['Uns9'] = "Taiwan: 0800-303-585";
-$Uns['Uns10'] = "(Do disponible de 10 – 11AM todos los primeros miercoles del mes)";
+$Uns['Uns10'] = "(Disponible de 10 – 11AM todos los primeros miercoles del mes)";
 $Uns['Uns11'] = "Hong Kong &amp; Macau: 396-54666";
 $Uns['Uns12'] = " Requerido";
 $Uns['Uns13'] = "Gestor de Cuentas";
@@ -376,17 +378,17 @@ $Ind['Ind9'] = " Personajes: ";
 $Ind['Ind10'] = " Personajes Creados";
 $Ind['Ind11'] = "Servicios Recomendados";
 $Ind['Ind12'] = "Recluta a un Amigo";
-$Ind['Ind13'] = "Invita a tus amigos a jugar a Voragine-Gaming y juega con ellos gratuitamente!";
+$Ind['Ind13'] = "Invita a tus amigos a jugar al servidor y juega con ellos gratuitamente!";
 $Ind['Ind14'] = "Migración de Personajes";
-$Ind['Ind15'] = "Migra tu personaje de otro servidor a Voragine-Gaming, y te lo damos igual que en tu antiguo servidor(*)!";
+$Ind['Ind15'] = "¡Migra tu personaje de otro servidor al servidor y te lo damos igual que en tu antiguo servidor(*)!";
 $Ind['Ind16'] = "No olvides votar cada día";
 $Ind['Ind17'] = "Las votaciones están: ";
-$Ind['Ind18'] = "Online!";
+$Ind['Ind18'] = "¡Online!";
 $Ind['Ind19'] = "Vota ahora!";
-$Ind['Ind20'] = "GPS / Mapa de Visitantes";
-$Ind['Ind21'] = "Mapa / GPS is: ";
-$Ind['Ind22'] = "Online!";
-$Ind['Ind23'] = "Comprueba la gente que está online en la web!";
+$Ind['Ind20'] = "GPS/Mapa de Visitantes";
+$Ind['Ind21'] = "Mapa/GPS es: ";
+$Ind['Ind22'] = "¡Online!";
+$Ind['Ind23'] = "¡Comprueba la gente que está online en la web!";
 // Finishing Index
 // Starting Services
 $Serv['Serv'] = "Servicios";
@@ -472,5 +474,28 @@ $Forum['Forum46'] = "Siguiente &gt;";
 $Forum['Forum47'] = "No estás Logueado";
 $Forum['Forum48'] = "Título";
 $Forum['Forum49'] = "Autor";
+
+//userplate
+$uplate['login'] = "&#161;<strong>Inicia sesi&oacute;n</strong> para mejorar y personalizar tu experiencia!";
+$uplate['profile'] = "Pefil";
+$uplate['post'] = "Mirar mis posts";
+$uplate['auction'] = "Mirar mis subastas";
+$uplate['events'] = "Mirar mis eventos";
+$uplate['manage'] = "Gestiona tus personajes";
+$uplate['customize'] = "Personaliza los personajes que aparecen en este menú.";
+$uplate['r1'] = "Humano";
+$uplate['r2'] = "Orco";
+$uplate['r3'] = "Enano";
+$uplate['r4'] = "Elfo de noche";
+$uplate['r5'] = "No-Muerto";
+$uplate['r6'] = "Tauren";
+$uplate['r7'] = "Gnomo";
+$uplate['r8'] = "Troll";
+$uplate['r9'] = "Goblin";
+$uplate['r10'] = "Elfo de Sangre";
+$uplate['r11'] = "Draenei";
+$uplate['r22'] = "Huargen";
+$uplate['r'] = "Todas las razas";
+//finish userplate
 // Finishing the Forum Translation
 ?>
