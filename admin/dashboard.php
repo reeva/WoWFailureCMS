@@ -63,22 +63,21 @@ $('#checkall').toggleClass('clicked');
               <h1><img src="../wow/static/images/logos/wof-logo.png" height="21px" width="260px"/><br />
         <span>Admin Login Panel</span></h1>
               <ul id="menu">
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="">Styles</a></li>
-        <li><a href="forms.html">Forms</a></li>
-        <li><a href="#">Table Data</a></li>
-        <li class="ddm"><a>Multi-Level Menu</a>
-                  <ul class="ddl">
-            <li><a href="#">Multi-Level Menu</a></li>
-            <li><a href="#">Documentation</a></li>
-            <li><a href="#">FAQ'S</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-                </li>
+      <li><a href="dashboard.php">Home</a></li>
+      <li><a href="view.php">Users</a></li>
+      <li><a href="forms.php">Forums</a></li>
+      <li><a href="#">Information</a></li>
+      <li class="ddm"><a>News</a>
+      <ul class="ddl">
+      <li><a href="#">News</a></li>
+      <li><a href="#">View</a></li>
+      <li><a href="#">Edit</a></li>
+      <li><a href="#">Delete</a></li>
       </ul>
-              <ul id="tablist">
-        <li><a href="#a"><span>Dashboard Links</span></a></li>
-        <li><a href="#b"><span>Image Gallery</span></a></li>
+      </li>
+      </ul>
+      <ul id="tablist">
+      <li><a href="#a"><span>Server Functions</span></a></li>
       </ul>
               <div id="tabsPanel">
         <div id="a" class="tab_content">
@@ -86,37 +85,18 @@ $('#checkall').toggleClass('clicked');
             <div class='left_scroll'><img src='images/leftArrow.png' alt="" /></div>
             <div class='carousel_inner'>
                       <ul class='carousel_ul'>
-                <li><a class="ico1" href='#'></a></li>
-                <li><a class="ico2" href='#'></a></li>
-                <li><a class="ico3" href='#'></a></li>
-                <li><a class="ico4" href='#'></a></li>
-                <li><a class="ico5" href='#'></a></li>
-                <li><a class="ico6" href='#'></a></li>
-                <li><a class="ico7" href='#'></a></li>
-                <li><a class="ico8" href='#'></a></li>
-                <li><a class="ico9" href='#'></a></li>
-              </ul>
+					    <li><a class="ico2" href='#'></a></li>
+						<li><a class="ico1" href='editnews.php'></a></li>
+						<li><a class="ico3" href='viewnews.php'></a></li>
+						<li><a class="ico4" href='viewwebsite.php'></a></li>
+						<li><a class="ico5" href='users.php'></a></li>
+						<li><a class="ico6" href='calendarandnotes.php'></a></li>
+						<li><a class="ico7" href='editdb.php'></a></li>
+						<li><a class="ico8" href='deletedb.php'></a></li>
+						<li><a class="ico9" href='info.php'></a></li>
+					  </ul>
                     </div>
             <div class='right_scroll'><img src='images/rightArrow.png' alt="" /></div>
-          </div>
-                </div>
-        <div id="b" class="tab_content">
-                  <div class='carousel_container'>
-            <div class='left_scroll2'><img src='images/leftArrow.png' alt="" /></div>
-            <div class='carousel_inner'>
-                      <ul class='carousel_ul2'>
-                <li><a class="ico1" href='#'></a></li>
-                <li><a class="ico2" href='#'></a></li>
-                <li><a class="ico3" href='#'></a></li>
-                <li><a class="ico4" href='#'></a></li>
-                <li><a class="ico5" href='#'></a></li>
-                <li><a class="ico6" href='#'></a></li>
-                <li><a class="ico7" href='#'></a></li>
-                <li><a class="ico8" href='#'></a></li>
-                <li><a class="ico9" href='#'></a></li>
-              </ul>
-                    </div>
-            <div class='right_scroll2'><img src='images/rightArrow.png' alt="" /></div>
           </div>
                 </div>
         <!--Tab End--> 
@@ -126,7 +106,7 @@ $('#checkall').toggleClass('clicked');
     <div id="content">
               <div class="datalist">
         <div class="heading">
-                  <h2>Data Lists</h2>
+                  <h2>Latest <a href="forumposts.php">Forum</a> Posts</h2>
                   <select name="sort">
             <option>Sort By</option>
             <option>Option1</option>
@@ -135,65 +115,122 @@ $('#checkall').toggleClass('clicked');
                 </div>
         <ul id="lst">
                   <li>
-            <div class="chk"><a id="checkall"></a> </div>
+            <!--<div class="chk"><a id="checkall"></a> </div>-->
+			<p class="editHead"><strong>Edit/Delete</strong></p>
             <p class="title"><strong>Title</strong></p>
             <p class="descripHead">Description</p>
-            <p class="incHead">Increace by</p>
-            <p class="decHead">Decrease by</p>
-            <p class="editHead">Edit/Delete</p>
+            <p class="incHead">Replies</p>
           </li>
-                  <li class="odd">
-            <div class="chk">
+            <li class="odd">
+            <!--<div class="chk">
+            <label>
+            <input class="chkl" type="checkbox" name="chk" value="checkbox" />
+            </label>
+   </div>--><p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
+            <p class="title">Lorem ipsum</p>
+            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
+            <p class="inc">2</p>
+            </li>
+                  <li>
+            <!--<div class="chk">
                       <label>
                 <input class="chkl" type="checkbox" name="chk" value="checkbox" />
               </label>
-                    </div>
+                    </div>-->
+            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
             <p class="title">Lorem ipsum</p>
             <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
-            <p class="inc">0.02</p>
-            <p class="dec">9.98</p>
-            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
-          </li>
+            <p class="inc">2</p>
+            </li>
                   <li>
-            <div class="chk">
+            <!--<div class="chk">
                       <label>
-                <input class="chkl" type="checkbox" name="chk" value="checkbox"  />
+                <input class="chkl" type="checkbox" name="chk" value="checkbox" />
               </label>
-                    </div>
+                    </div>-->
+           <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
             <p class="title">Lorem ipsum</p>
             <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
-            <p class="inc">0.02</p>
-            <p class="dec">9.98</p>
-            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
-          </li>
-                  <li class="odd">
-            <div class="chk">
-                      <label>
-                <input class="chkl" type="checkbox" name="chk" value="checkbox"  />
-              </label>
-                    </div>
-            <p class="title">Lorem ipsum</p>
-            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
-            <p class="inc">0.02</p>
-            <p class="dec">9.98</p>
-            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
-          </li>
+            <p class="inc">2</p>
+            </li>
                   <li>
-            <div class="chk">
+            <!--<div class="chk">
                       <label>
-                <input class="chkl" type="checkbox" name="chk" value="checkbox"/>
+                <input class="chkl" type="checkbox" name="chk" value="checkbox" />
               </label>
-                    </div>
+                    </div>-->
+            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
             <p class="title">Lorem ipsum</p>
             <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
-            <p class="inc">0.02</p>
-            <p class="dec">9.98</p>
-            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
+            <p class="inc">2</p>
+            </li>
+                </ul>
+				</div>
+				<img src="images/sepLine.png" alt="" class="sepline" />
+				<div class="datalist">
+	   <div class="heading">
+                  <h2>Latest <a href="news.php">News</a> Posts</h2>
+                  <select name="sort">
+            <option>Sort By</option>
+            <option>Option1</option>
+            <option>Option2</option>
+          </select>
+                </div>
+        <ul id="lst">
+                  <li>
+            <!--<div class="chk"><a id="checkall"></a> </div>-->
+			<p class="editHead"><strong>Edit/Delete</strong></p>
+            <p class="title"><strong>Title</strong></p>
+            <p class="descripHead">Description</p>
+            <p class="incHead">Replies</p>
           </li>
+            <li class="odd">
+            <!--<div class="chk">
+            <label>
+            <input class="chkl" type="checkbox" name="chk" value="checkbox" />
+            </label>
+   </div>--><p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
+            <p class="title">Lorem ipsum</p>
+            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
+            <p class="inc">2</p>
+            </li>
+                  <li>
+            <!--<div class="chk">
+                      <label>
+                <input class="chkl" type="checkbox" name="chk" value="checkbox" />
+              </label>
+                    </div>-->
+            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
+            <p class="title">Lorem ipsum</p>
+            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
+            <p class="inc">2</p>
+            </li>
+                  <li>
+            <!--<div class="chk">
+                      <label>
+                <input class="chkl" type="checkbox" name="chk" value="checkbox" />
+              </label>
+                    </div>-->
+           <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
+            <p class="title">Lorem ipsum</p>
+            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
+            <p class="inc">2</p>
+            </li>
+                  <li>
+            <!--<div class="chk">
+                      <label>
+                <input class="chkl" type="checkbox" name="chk" value="checkbox" />
+              </label>
+                    </div>-->
+            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
+            <p class="title">Lorem ipsum</p>
+            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
+            <p class="inc">2</p>
+            </li>
                 </ul>
       </div>
               <img src="images/sepLine.png" alt="" class="sepline" />
-              <div class="messages">
+             <!--  <div class="messages">
         <div><img src="images/warningIco.png" alt="" />
                   <p>Warning Message, Lorem ipsum dolor sit amet, consectetur adipiscing elit Pellentesque quis.</p>
                 </div>
@@ -206,7 +243,7 @@ $('#checkall').toggleClass('clicked');
         <div><img src="images/errorIco.png" alt="" />
                   <p>Error Message, Lorem ipsum dolor sit amet, Nam bibendum sagittis lobortis.consectetur.</p>
                 </div>
-      </div>
+      </div> -->
               <div id="calen">
         <div id="yuicalendar1"></div>
         <script type="text/javascript">

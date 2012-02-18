@@ -93,7 +93,9 @@ if (isset($_GET['charname'])) {
 	</td>
 	<td>'.$name_realm1['realm'].'</td>
 	<td>Loading...</td>
-	</tr></tbody>';
+	</tr></tbody>
+	
+	';
     }
     
     mysql_end($conn);

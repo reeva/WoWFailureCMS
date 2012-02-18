@@ -546,6 +546,14 @@ body {
 	font-weight:bold;
 	line-height:23px
 }
+#content h2 a {
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:18px;
+	color:#627a8a;
+	font-weight:bold;
+	line-height:23px
+	
+}
 #content .datalist select {
 	width:180px;
 	float:right;

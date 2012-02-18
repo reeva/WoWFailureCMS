@@ -94,8 +94,39 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 	<div class="helpers">
 	<h3 class="subheader ">Summary of results for <span><?php echo @$_POST["search"];?></span></h3>
 	</div>
-    
-	<div class="view-table">
+	<!-- Ok here goes the Pages RESULTS must be 25 and then change page. -->
+    <div class="data-options ">
+	<div class="option">
+	<ul class="ui-pagination">
+	<li class="current">
+	<a href=""><span>1</span></a>
+	</li>
+	<li>
+	<a href=""><span>2</span></a>
+	</li>
+	<li>
+	<a href=""><span>3</span></a>
+	</li>
+	<li>
+	<a href=""><span>4</span></a>
+	</li>
+	<li>
+	<a href=""><span>5</span></a>
+	</li>
+	<li>
+	<a href=""><span>6</span></a>
+	</li>
+	<li class="cap-item">
+	<a href=""><span>Next</span></a>
+	</li>
+	</ul>
+	</div>
+	Showing <strong class="results-start">1</strong>-<strong class="results-end">25</strong> of <strong class="results-total">128</strong> results
+	<span class="clear"><!-- --></span>
+	</div>
+	<!-- RESULTS must be 25 and then change page. -->
+	<!-- And here it ends -->
+	
 	<div class="table ">
 	<table>
 	<thead>
@@ -141,13 +172,38 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 	</a>
 	</th>
 	</tr>
-	</thead></div></div>
-	<?php include("functions/armory_func.php"); ?>
-	</table>
+	</thead></div><div class="view-table">
+	<?php include("functions/armory_func.php"); ?></div>
+	</table><div class="data-options ">
+	<div class="option">
+	<ul class="ui-pagination">
+	<li class="current">
+	<a href=""><span>1</span></a>
+	</li>
+	<li>
+	<a href=""><span>2</span></a>
+	</li>
+	<li>
+	<a href=""><span>3</span></a>
+	</li>
+	<li>
+	<a href=""><span>4</span></a>
+	</li>
+	<li>
+	<a href=""><span>5</span></a>
+	</li>
+	<li>
+	<a href=""><span>6</span></a>
+	</li>
+	<li class="cap-item">
+	<a href=""><span>Next</span></a>
+	</li>
+	</ul>
 	</div>
-	</div>
-	</div>
-	</div></div></div></div>
+	Showing <strong class="results-start">1</strong>-<strong class="results-end">25</strong> of <strong class="results-total">128</strong> results
+	<span class="clear"><!-- --></span>
+	</div></div>
+	</div></div></div></div></div></div>
 	<?php include("footer.php"); ?>
 	<script type="text/javascript">
 //<![CDATA[

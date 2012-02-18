@@ -30,7 +30,7 @@
         <span>Admin Login Panel</span></h1>
           <div id="LogPannel">
         <h2>Administrator Login</h2>
-        <form method="post" action="dashboard.html">
+        <form method="post" action="dashboard.php">
               <input name="username" type="text" value="Username" onfocus="if(this.value=='Username')this.value=''" onblur="if(this.value=='')this.value='Username'" />
               <input name="password" type="password" value="password" onfocus="if(this.value=='password')this.value=''" onblur="if(this.value=='')this.value='password'" />
               <input name="submit" type="submit" value="LOGIN" />

@@ -52,9 +52,9 @@ DD_roundies.addRule('#tabsPanel', '5px 5px 5px 5px', true);
           <h1><img src="../wow/static/images/logos/wof-logo.png" height="21px" width="260px"/><br />
         <span>Admin Login Panel</span></h1>
           <ul id="menu">
-        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="dashboard.php">Dashboard</a></li>
         <li><a href="">Styles</a></li>
-        <li><a href="forms.html">Forms</a></li>
+        <li><a href="forms.php">Forms</a></li>
         <li><a href="#">Table Data</a></li>
         <li class="ddm"><a>Multi-Level Menu</a>
               <ul class="ddl">
