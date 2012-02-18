@@ -477,34 +477,34 @@ body {
 	background:url(../images/galleryImage.png) no-repeat
 }
 .carousel_ul2 li a.ico1 {
-	background-position: 0 0
+	background: url(../images/icon-1.png) no-repeat 0 0
 }
 .carousel_ul2 li a.ico2 {
-	background-position: -96px 0
+	background: url(../images/icon-2.png) no-repeat 0 0
 }
 .carousel_ul2 li a.ico3 {
-	background-position: -94px 0
+	background: url(../images/icon-3.png) no-repeat 0 0
 }
 .carousel_ul2 li a.ico4 {
-	background-position: -291px 0
+	background: url(../images/icon-4.png) no-repeat 0 0
 }
 .carousel_ul2 li a.ico5 {
-	background-position: -388px 0
+	background: url(../images/icon-5.png) no-repeat 0 0
 }
 .carousel_ul2 li a.ico6 {
-	background-position: -485px 0
+	background: url(../images/icon-6.png) no-repeat 0 0
 }
 .carousel_ul2 li a.ico7 {
-	background-position: -582px 0
+	background: url(../images/icon-7.png) no-repeat 0 0
 }
 .carousel_ul2 li a.ico8 {
-	background-position: -679px 0
+	background: url(../images/icon-8.png) no-repeat 0 0
 }
 .carousel_ul2 li a.ico9 {
-	background-position: -776px 0
+	background: url(../images/icon-9.png) no-repeat 0 0
 }
 .carousel_ul2 li a:hover {
-	background-position: inherit -64px
+	background-position: 0 -64px
 }
 .left_scroll2, .right_scroll2 {
 	float: left;

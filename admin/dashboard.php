@@ -78,6 +78,7 @@ $('#checkall').toggleClass('clicked');
       </ul>
       <ul id="tablist">
       <li><a href="#a"><span>Server Functions</span></a></li>
+	  <li><a href="#b"><span>Account Services</span></a></li>
       </ul>
               <div id="tabsPanel">
         <div id="a" class="tab_content">
@@ -94,6 +95,18 @@ $('#checkall').toggleClass('clicked');
 						<li><a class="ico7" href='editdb.php'></a></li>
 						<li><a class="ico8" href='deletedb.php'></a></li>
 						<li><a class="ico9" href='info.php'></a></li>
+					  </ul>
+                    </div>
+            <div class='right_scroll'><img src='images/rightArrow.png' alt="" /></div>
+          </div>
+                </div>
+				<div id="b" class="tab_content">
+                  <div class='carousel_container'>
+            <div class='left_scroll'><img src='images/leftArrow.png' alt="" /></div>
+            <div class='carousel_inner'>
+                      <ul class='carousel_ul2'>
+					   <li><a class="ico5" href='logout.php'></a></li>
+					   <li><a class="ico9" href='info.php'></a></li>
 					  </ul>
                     </div>
             <div class='right_scroll'><img src='images/rightArrow.png' alt="" /></div>
