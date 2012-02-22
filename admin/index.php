@@ -88,9 +88,10 @@ include("../configs.php");
             </form>
 			<div class="message">
             <p>Just click <strong>login</strong> to go forward.</p>
+			</div>
+			</div>
 	<?php } }else{
     ?>
-    <a id="embedded-close" href="javascript:;" onclick="updateParent('close')"> </a>
     <script>
     parent.postMessage("{\"action\":\"success\"}", "<?php echo $website['address']; ?>");
     </script>
@@ -112,8 +113,7 @@ include("../configs.php");
               <p>Just click <strong>login</strong> to go forward.</p>-->
         </div>
       </div>
-        </div>
-  </div>
+        
       <div class="push"></div>
     </div>
 <div id="foot">
