@@ -1,4 +1,4 @@
-= WoWFailure Project -- What has to be Done?! =
+= AquaFlame Project -- What has to be Done?! =
 
 1a) Make a Donation Panel.
 1b) Make the following: Character Transfer, Name Change, Faction Change, Appearance Change, Race Change.
@@ -8,33 +8,30 @@
    (Work Started - 70% DONE)
 
 3) Fix the submit options in the fan art, wallpapers and general media zone, 
-   and add a option to gm can accept the submission before they appear public
+   and add a option so gms can accept the submission before they appear to public.
    (That will take a Long Time)
 
 4) Conquest Criteria: Needs to be Scripted.
    (HTML is simple, need PHP Code)
 
-5) Build Up the Vote Shop
-   (Vote already Exists, needs a Shop)
-
-6) Work on Arena teams, Guild teams 
+5) Work on Arena teams, Guild teams 
    (Just HTML is ready)
 
-7) Work on Search.
+6) Work on Search.
    (Make 1 search for all Criterias)
 
-8) Make Admin panel 
-   (Already Exists, but easy to be hacked...)
+7) Make Admin panel 
+   (Work has Started.)
 
 
 # --------------------------------------------------------------
-# |CMS:                                  |    WOWFailureCMS    |
+# |CMS:                                  |     AquaFlameCMS    |
 # |Based on:                             |http://eu.battle.net |
 # --------------------------------------------------------------
 # |Database version:                             |    0.6.0    |
 # |Website Version:                              |    0.6.0    |
 # |Release Date:                                 | 2010-05-17  |
-# |Latest Update:                                | 2012-01-30  |
+# |Latest Update:                                | 2012-02-22  |
 # ----------------------------TEAM------------------------------
 # |Team: FailZorD, AwkwardDev, Axium, Fabian, hondacrx,Kitiara,|
 # |MrBillys, netcho, zze, Voragine(Roberto Roeschmann)         |

@@ -1,9 +1,9 @@
-= WoWFailure Project -- General information =
+= AquaFlame Project -- General information =
 
-Copyright (C) WoWFailure  (http://www.wowfailure.com)
-Copyright (C) Strawberry  (http://www.strawberry-pr0jcts.com/)
+Copyright (C) AquaFlameCMS (http://www.strawberry-pr0jcts.com/)
+Copyright (C) Strawberry   (http://www.strawberry-pr0jcts.com/)
 
-  WoWFailure Project is free website; you can redistribute it and/or modify
+  AquaFlame Project is free website; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
@@ -17,9 +17,9 @@ Copyright (C) Strawberry  (http://www.strawberry-pr0jcts.com/)
   along with this website; if not, write to the Free Software
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-WoWFailure is a World of Warcraft Website.
+AquaFlame is a World of Warcraft Website.
 
-For further information on the WoWFailure project, please visit the
+For further information on the AquaFlame project, please visit the
 project website at http://www.strawberry-pr0jcts.com/
 
 SQL files to create the database can be found in the sql directory. Files
@@ -31,15 +31,42 @@ This is an apache Working Website, also works on Linux.
 
 Our Bug Tracker is located here.
 http://www.strawberry-pr0jcts.com/board/index.php?/forum/30-wowfailurecms-support/
+TODO LIST:
+
+= AquaFlame Project -- What has to be Done?! =
+
+1a) Make a Donation Panel.
+1b) Make the following: Character Transfer, Name Change, Faction Change, Appearance Change, Race Change.
+   (They need the Donation Panel first)
+
+2) Try to work in armory. 
+   (Work Started - 70% DONE)
+
+3) Fix the submit options in the fan art, wallpapers and general media zone, 
+   and add a option so gms can accept the submission before they appear to public.
+   (That will take a Long Time)
+
+4) Conquest Criteria: Needs to be Scripted.
+   (HTML is simple, need PHP Code)
+
+5) Work on Arena teams, Guild teams 
+   (Just HTML is ready)
+
+6) Work on Search.
+   (Make 1 search for all Criterias)
+
+7) Make Admin panel 
+   (Work has Started.)
+
 
 # --------------------------------------------------------------
-# |CMS:                                  |    WOWFailureCMS    |
+# |CMS:                                  |     AquaFlameCMS    |
 # |Based on:                             |http://eu.battle.net |
 # --------------------------------------------------------------
 # |Database version:                             |    0.6.0    |
 # |Website Version:                              |    0.6.0    |
 # |Release Date:                                 | 2010-05-17  |
-# |Latest Update:                                | 2012-01-30  |
+# |Latest Update:                                | 2012-02-22  |
 # ----------------------------TEAM------------------------------
 # |Team: FailZorD, AwkwardDev, Axium, Fabian, hondacrx,Kitiara,|
 # |MrBillys, netcho, zze, Voragine(Roberto Roeschmann)         |
