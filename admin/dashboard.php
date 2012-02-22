@@ -7,15 +7,17 @@
 		<link href="font/stylesheet.css" rel="stylesheet" type="text/css" media="all" />
 		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.uniform.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tooltip.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/DD_roundies_0.0.2a-min.js"></script>
+		<script type="text/javascript" src="js/script-carasoul.js"></script>
+		<link href="css/tooltip.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="css/uniform.defaultstyle3.css" type="text/css" media="screen" />
 		<script type="text/javascript" charset="utf-8">
       $(function(){
         $("input, select").uniform();
       });
     </script>
-		<link rel="stylesheet" href="css/uniform.defaultstyle3.css" type="text/css" media="screen" />
-		<script src="YUI/2.6.0/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
-		<script src="YUI/2.6.0/build/calendar/calendar-min.js" type="text/javascript"></script>
-		<script type="text/javascript">
+	<script type="text/javascript">
  $(document).ready(function(){
      $('.ddm').hover(
 	   function(){
@@ -26,19 +28,13 @@
 	   }
 	 );
  });
-</script>
-		<script type="text/javascript" src="js/DD_roundies_0.0.2a-min.js"></script>
-		<script type="text/javascript">
+	</script>
+	<script type="text/javascript">
 DD_roundies.addRule('#tabsPanel', '5px 5px 5px 5px', true);
-
-</script>
-		<script type="text/javascript" src="js/script-carasoul.js"></script>
-		<link href="YUI/2.6.0/build/fonts/fonts-min.css" rel="stylesheet" type="text/css" />
-		<link href="YUI/2.6.0/build/calendar/assets/skins/sam/calendar.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript">
+	</script>
+	<script type="text/javascript">
 	$(document).ready(function()
 {
-
    $( '#checkall' ).live( 'click', function() {
 				
 				$( '.chkl' ).each( function() {
@@ -48,21 +44,20 @@ DD_roundies.addRule('#tabsPanel', '5px 5px 5px 5px', true);
 			});
   $('#checkall').click(function(){
 
-
  $('span').toggleClass('checked');
 $('#checkall').toggleClass('clicked');
 
  }); 
 	});
-		</script>
-		</head>
-		<body class="bgc">
-<div id="admin">
-          <div id="wrap">
+	</script>
+	</head>
+	<body class="bgc">
+	<div id="admin">
+    <div id="wrap">
     <div id="head">
-              <h1><img src="../wow/static/images/logos/wof-logo.png" height="21px" width="260px"/><br />
+        <h1><img src="../wow/static/images/logos/wof-logo.png" height="21px" width="260px"/><br />
         <span>Admin Login Panel</span></h1>
-              <ul id="menu">
+        <ul id="menu">
       <li><a href="dashboard.php">Home</a></li>
       <li><a href="view.php">Users</a></li>
       <li><a href="forms.php">Forums</a></li>
@@ -86,15 +81,15 @@ $('#checkall').toggleClass('clicked');
             <div class='left_scroll'><img src='images/leftArrow.png' alt="" /></div>
             <div class='carousel_inner'>
                       <ul class='carousel_ul'>
-					    <li><a class="ico2" href='#'></a></li>
-						<li><a class="ico1" href='editnews.php'></a></li>
-						<li><a class="ico3" href='viewnews.php'></a></li>
-						<li><a class="ico4" href='viewwebsite.php'></a></li>
-						<li><a class="ico5" href='users.php'></a></li>
-						<li><a class="ico6" href='calendarandnotes.php'></a></li>
-						<li><a class="ico7" href='editdb.php'></a></li>
-						<li><a class="ico8" href='deletedb.php'></a></li>
-						<li><a class="ico9" href='info.php'></a></li>
+					    <li><span rel="tooltip" title="<strong style='color:#00B6FF'>Connectivity</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico2" href='#'></a></span></li>
+						<li><span rel="tooltip" title="<strong style='color:#00B6FF'>Edit News</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico1" href='editnews.php'></a></span></li>
+						<li><span rel="tooltip" title="<strong style='color:#00B6FF'>View News</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico3" href='viewnews.php'></a></span></li>
+						<li><span rel="tooltip" title="<strong style='color:#00B6FF'>View the Website</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico4" href='viewwebsite.php'></a></span></li>
+						<li><span rel="tooltip" title="<strong style='color:#00B6FF'>Users Panel</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico5" href='users.php'></a></span></li>
+						<li><span rel="tooltip" title="<strong style='color:#00B6FF'>Notes and Dates</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico6" href='calendarandnotes.php'></a></span></li>
+						<li><span rel="tooltip" title="<strong style='color:#00B6FF'>Edit the DB</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico7" href='editdb.php'></a></span></li>
+						<li><span rel="tooltip" title="<strong style='color:#00B6FF'>Delete your DB</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico8" href='deletedb.php'></a></span></li>
+						<li><span rel="tooltip" title="<strong style='color:#00B6FF'>Information</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico9" href='info.php'></a></span></li>
 					  </ul>
                     </div>
             <div class='right_scroll'><img src='images/rightArrow.png' alt="" /></div>
@@ -105,8 +100,8 @@ $('#checkall').toggleClass('clicked');
             <div class='left_scroll'><img src='images/leftArrow.png' alt="" /></div>
             <div class='carousel_inner'>
                       <ul class='carousel_ul2'>
-					   <li><a class="ico5" href='logout.php'></a></li>
-					   <li><a class="ico9" href='info.php'></a></li>
+					   <li><span rel="tooltip" title="<strong style='color:red'>Log Out</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico5" href='logout.php'></a></span></li>
+					   <li><span rel="tooltip" title="<strong style='color:#00B6FF'>Account Information</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico9" href='info.php'></a></span></li>
 					  </ul>
                     </div>
             <div class='right_scroll'><img src='images/rightArrow.png' alt="" /></div>
@@ -119,7 +114,7 @@ $('#checkall').toggleClass('clicked');
     <div id="content">
               <div class="datalist">
         <div class="heading">
-                  <h2>Latest <a href="forumposts.php">Forum</a> Posts</h2>
+                  <h2>Latest <span rel="tooltip" title="<strong style='color:red'>Forum Posts</strong><br/><br/>Here you can see the latest 4 Posts of the Forum<br />Click on the <strong>Forum</strong> to redirect on the main page of the Forum Posts." style="color:#ff9200;font-weight:bold;font-size:14px;"><a href="forumposts.php">Forum</a></span> Posts</h2>
                   <select name="sort">
             <option>Sort By</option>
             <option>Option1</option>
@@ -182,7 +177,7 @@ $('#checkall').toggleClass('clicked');
 				<img src="images/sepLine.png" alt="" class="sepline" />
 				<div class="datalist">
 	   <div class="heading">
-                  <h2>Latest <a href="news.php">News</a> Posts</h2>
+                  <h2>Latest <span rel="tooltip" title="<strong style='color:red'>News Posts</strong><br/><br/>Here you can see the latest 4 Posts of the News<br />Click on the <strong>News</strong> to redirect on the main page of the News Posts." style="color:#ff9200;font-weight:bold;font-size:14px;"><a href="news.php">News</a></span> Posts</h2>
                   <select name="sort">
             <option>Sort By</option>
             <option>Option1</option>

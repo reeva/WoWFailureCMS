@@ -187,6 +187,116 @@ _gaq.push(['_trackPageview']);
 										}
 									}
 									?>
+<!-- Poll Style by Blizz-->									
+<!-- <table align="center" class="table-center"><tr><td>
+<div id="poll-container" class="results-only">
+<div class="poll-actions">
+<a href="javascript:;" class="v-btn" onmouseover="Tooltip.show(this,'ended')">
+<span>Vote</span>
+</a>
+<a href="javascript:;" class="r-btn selected" onclick="Cms.Topic.pollToggle(this,'results')">
+<span>Results</span>
+</a>
+</div>
+<div class="poll-interior">
+<h3>What’s Your Level of Secondary Profession Expertise?</h3>
+<div class="results verbose">
+<table>
+<tr>
+<td>I spend more time in-game doing archaeology, cooking, first aid, and/or fishing, than any other activity.</td>
+<td>
+<div class="result-container ">
+<div class="result" style="width: 12px; ">
+<span>6%</span>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>I’ve leveled three or four of the secondary professions to their maximum, and use them regularly.</td>
+<td>
+<div class="result-container max">
+<div class="result" style="width: 78px; ">
+<span>36%</span>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>I stick to the daily quests with cooking and/or fishing.</td>
+<td>
+<div class="result-container ">
+<div class="result" style="width: 25px; ">
+<span>12%</span>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>My main focus among the secondary professions is archaeology. I’m unearthing most of Azeroth.</td>
+<td>
+<div class="result-container ">
+<div class="result" style="width: 27px; ">
+<span>13%</span>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>Just fishing. I’m the master angler around here!</td>
+<td>
+<div class="result-container ">
+<div class="result" style="width: 7px; ">
+<span>3%</span>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>I use first aid, primarily. These wounds aren’t going to wrap themselves.</td>
+<td>
+<div class="result-container ">
+<div class="result" style="width: 27px; ">
+<span>12%</span>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>You’ll usually find me cooking in the kitchen. (ding) Order’s up!</td>
+<td>
+<div class="result-container ">
+<div class="result" style="width: 8px; ">
+<span>4%</span>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>I’ve missed out on all of the secondary professions, so far.</td>
+<td>
+<div class="result-container ">
+<div class="result" style="width: 33px; ">
+<span>15%</span>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+$(function(){Cms.Topic.pollRefresh(true);});
+//]]>
+</script>
+<span class="poll-stats">
+ended
+<span title="251 days, 10 hours ago">Jun 15, 2011</span>
+</span>
+</div>
+</div>
+<div id="poll-ajax-error"></div>
+</td></tr></table>-->
 								</div>
 								
 								<script type="text/javascript">
