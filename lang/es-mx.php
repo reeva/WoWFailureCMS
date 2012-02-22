@@ -472,4 +472,27 @@ $Forum['Forum47'] = "No estás Logueado";
 $Forum['Forum48'] = "Título";
 $Forum['Forum49'] = "Autor";
 // Finishing the Forum Translation
+
+//userplate
+$uplate['login'] = "&#161;<strong>Inicia sesi&oacute;n</strong> para mejorar y personalizar tu experiencia!";
+$uplate['profile'] = "Pefil";
+$uplate['post'] = "Mirar mis posts";
+$uplate['auction'] = "Mirar mis subastas";
+$uplate['events'] = "Mirar mis eventos";
+$uplate['manage'] = "Gestiona tus personajes";
+$uplate['customize'] = "Personaliza los personajes que aparecen en este menú.";
+$uplate['r1'] = "Humano";
+$uplate['r2'] = "Orco";
+$uplate['r3'] = "Enano";
+$uplate['r4'] = "Elfo de noche";
+$uplate['r5'] = "No-Muerto";
+$uplate['r6'] = "Tauren";
+$uplate['r7'] = "Gnomo";
+$uplate['r8'] = "Troll";
+$uplate['r9'] = "Goblin";
+$uplate['r10'] = "Elfo de Sangre";
+$uplate['r11'] = "Draenei";
+$uplate['r22'] = "Huargen";
+$uplate['r'] = "Todas las razas";
+//finish userplate
 ?>

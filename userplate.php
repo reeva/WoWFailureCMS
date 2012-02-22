@@ -1,7 +1,7 @@
 <?php if(!isset($_SESSION['username'])){ ?>
 <div class="user-plate">
 <a href="?login" onclick="return Login.open()" class="card-login" onclick="BnetAds.trackImpression('Battle.net Login', 'Character Card', 'New'); return Login.open('login.php');">
-<strong>Log in now</strong> to enhance and personalize your experience!
+<? echo $uplate['login']?>
 </a>
 <div class="card-overlay"></div>
 </div>
@@ -74,10 +74,10 @@
 			</div>
 		  
 			<div class="context-links">
-			<a href="<?php echo $website['root'];?>advanced.php?name=<?php echo $actualchar["name"]; ?>" title="Profile" class="icon-profile link-first">Profile</a>
-			<a href="#" title="View my posts" class="icon-posts"> </a>
-			<a href="#" title="View auctions" rel="np"class="icon-auctions"> </a>
-			<a href="#" title="View events" rel="np" class="icon-events link-last"> </a>
+			<a href="<?php echo $website['root'];?>advanced.php?name=<?php echo $actualchar["name"]; ?>" title="<? echo $uplate['profile']; ?>" class="icon-profile link-first"><? echo $uplate['profile']; ?></a>
+			<a href="#" title="<?php echo $uplate['post']; ?>" class="icon-posts"> </a>
+			<a href="#" title="<?php echo $uplate['auction']; ?>" rel="np"class="icon-auctions"> </a>
+			<a href="#" title="<?php echo $uplate['events']; ?>" rel="np" class="icon-events link-last"> </a>
 			</div>
 		  </div>
 		  <div class="character-list">
@@ -160,8 +160,8 @@
 			  </div>
 			  <a href="#" class="manage-chars" onclick=""><!--CharSelect.swipe('in', this); return false;-->
 			  <span class="plus"></span>
-			  Manage Characters<br />
-			  <span>Customize characters that appear in this menu.</span>
+			  <?php echo $uplate['manage']; ?><br />
+			  <span><?php echo $uplate['customize']; ?></span>
 			  </a>
 			</div>
 			<!--
