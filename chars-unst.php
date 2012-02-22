@@ -131,22 +131,7 @@ _gaq.push(['_trackPageLoadTime']);
 <div id="page-content">
 <form method="post" action="" class="account-merge" id="account-merge">
 <div id="wowLogin">
-<div class="input-row input-row-text">
-<span class="input-left">
-<label for="username">
-<span class="label-text">
-<?php echo $Uns['Uns16']; ?>
-</span>
-<span class="input-required">*</span>
-</label>
-</span>
-<span class="input-right">
-<span class="input-text input-text-small">
-<input type="text" name="username" value='<?php echo strtolower($_SESSION['username']); ?>' id="username" class="input border-5 glow-shadow-2 form-disabled" autocomplete="off" tabindex="1" required="required" disabled="disabled" />
-<span class="inline-message" id="username-message"></span>
-</span>
-</span>
-</div>
+
 <?php
 require_once("configs.php");
 function char_unstuck(){
@@ -177,73 +162,176 @@ $z = $home['zone'];//Zone
 $m = $home['map'];//Map
 //Unstuck Character
 $unstuck = mysql_query("UPDATE $server_cdb.characters SET position_x = '$px', position_y = '$py', position_z = '$pz', zone = '$z', map = '$m' WHERE name='$character'") or die('UnStuck Failed: ' . mysql_error());
-print''.$Uns['Uns28'].'';
+print'Your character is unlocked.';
+	
+//Success
+ 	 
+print'Your character is unlocked.';
+ 		
 }}}}}}}}
-print'
-<table align="center">
+ 	
+print'<table align="center">
+ 	
 <form action="" method="post">
+ 	
 <tr>
+ 
 <div id="wowLogin">
+ 		
 <div class="input-row input-row-text">
+ 	
 <span class="input-left">
+ 		
 <label for="username">
+ 		
 <span class="label-text">
-'.$Uns['Uns17'].'
+ 	
+World of Warcraft Account Name:
+ 	
 </span>
+ 	
 <span class="input-required">*</span>
+ 	
 </label>
+ 	
 </span>
+ 	 
 <span class="input-right">
+ 	
 <span class="input-text input-text-small">
-<input type="text" name="char" value="" id="char" class="small border-5 glow-shadow-2" autocomplete="off" tabindex="1" required="required" />
+ 		
+<input type="text" name="username" value="'.strtolower($_SESSION['username']).'" id="username" class="input border-5 glow-shadow-2 form-disabled" autocomplete="off" tabindex="1" required="required" disabled="disabled" />
+	
 <span class="inline-message" id="username-message"></span>
+ 		
 </span>
+ 	 	
 </span>
+ 		
 </div>
+ 		
+<div id="wowLogin">
+ 		
 <div class="input-row input-row-text">
+ 		
 <span class="input-left">
-<label for="password">
+ 	 	
+<label for="username">
+ 		
 <span class="label-text">
-'.$Uns['Uns18'].'
+ 		
+World of Warcraft Account Character:
+ 		
 </span>
+ 	
 <span class="input-required">*</span>
+ 	
 </label>
+ 	
 </span>
+ 	
 <span class="input-right">
+ 
 <span class="input-text input-text-small">
-<input type="password" id="password" name="password" value="" class="small border-5 glow-shadow-2" autocomplete="off" onpaste="return false;" maxlength="16" tabindex="1" required="required" />
-<span class="inline-message" id="password-message"><a id="pwLink" class="icon-external" href="" onclick="window.open(this.href);return false" tabindex="1">
-'.$Uns['Uns19'].'
-</a>
-<p id="pwLinkNo" style="display:none;">'.$Uns['Uns20'].'<a href="" target="_blank">'.$Uns['Uns21'].'</a>.</p>
+ 	
+<input type="text" name="char" value="" id="char" class="small border-5 glow-shadow-2" autocomplete="off" tabindex="1" required="required" />
+ 		
+<span class="inline-message" id="username-message"></span>
+ 		
 </span>
+ 	
 </span>
-</span>
+ 		
 </div>
-<fieldset class="ui-controls " >
-<button
-class="ui-button button1 "
-type="submit"
-name="unstuck"
-value="'.$Uns['Uns22'].'"
-id="merge-submit"
-tabindex="1">
-<span>
-<span>'.$Uns['Uns29'].'</span>
+ 	
+<div class="input-row input-row-text">
+ 
+<span class="input-left">
+ 	
+<label for="password">
+ 
+<span class="label-text">
+ 		
+World of Warcraft Account Password:
+ 	
 </span>
-</button>
-<a class="ui-cancel "
-href="/account/"
-tabindex="1">
-<span>
-'.$Uns['Uns23'].'</span>
+ 	
+<span class="input-required">*</span>
+ 		
+</label>
+ 	
+</span>
+ 	
+<span class="input-right">
+ 		
+<span class="input-text input-text-small">
+ 
+<input type="password" id="password" name="password" value="" class="small border-5 glow-shadow-2" autocomplete="off" onpaste="return false;" maxlength="16" tabindex="1" required="required" />
+ 		
+<span class="inline-message" id="password-message"><a id="pwLink" class="icon-external" href="" onclick="window.open(this.href);return false" tabindex="1">
+ 	
+Forgot your password?
+ 
 </a>
+ 
+<p id="pwLinkNo" style="display:none;">If you have forgotten your World of Warcraft password, please contact <a href="" target="_blank">Customer Support</a>.</p>
+ 	
+</span>
+	
+</span>
+ 		
+</span>
+ 		
+</div>
+ 	
+<fieldset class="ui-controls " >
+ 		
+<button
+ 	
+class="ui-button button1 "
+
+type="submit"
+	
+name="unstuck"
+ 		
+value="Unstuck!"
+ 	
+id="merge-submit"
+ 	
+tabindex="1">
+
+<span>
+
+<span>Continue</span>
+	
+</span>
+	
+</button>
+
+<a class="ui-cancel "
+	
+href="/account/"
+	
+tabindex="1">
+	
+<span>
+	
+Cancel </span>
+	
+</a>
+
 </fieldset>
+
 </form>
+
 </table>
+
 <center>';
+
 char_unstuck();
+
 print'</center>';
+	
 ?>
 </div>
 <script type="text/javascript">
@@ -251,7 +339,7 @@ print'</center>';
 (function() {
 var mergeSubmit = document.getElementById('merge-submit');
 mergeSubmit.disabled = 'disabled';
-mergeSubmit.className = mergeSubmit.className + ' disabled';
+mergeSubmit.className = mergeSubmit.className  ' disabled';
 })();
 //]]>
 </script>
