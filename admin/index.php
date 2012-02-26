@@ -43,9 +43,9 @@ include("../configs.php");
     $sha_pass_hash = sha1(strtoupper($accountName ) . ":" . strtoupper($accountPass));
 
     $db_setup = mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
-    $login_query = mysql_query("SELECT * FROM account WHERE username = UPPER('".$accountName."') AND sha_pass_hash = CONCAT('".$sha_pass_hash."')");
+    $login_query = mysql_query("select gmlevel,username,sha_pass_hash from account inner join account.id = account_access.id where username = '".strtoupper($accountName)."'");
     $login = mysql_fetch_assoc($login_query);
-    if($login){
+    if($login['sha_pass_hash'] === $sha_pass_hash && $login['gmlevel'] >= 3){
       ?>
       <div id="LogPannel">
       <center><h2>Logging In</h2></center>
