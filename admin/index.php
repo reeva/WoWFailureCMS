@@ -43,9 +43,10 @@ include("../configs.php");
     $sha_pass_hash = sha1(strtoupper($accountName ) . ":" . strtoupper($accountPass));
 
     $db_setup = mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
-    $login_query = mysql_query("SELECT * FROM account WHERE username = UPPER('".$accountName."') AND sha_pass_hash = CONCAT('".$sha_pass_hash."')");
+    $login_query = mysql_query("SELECT gmlevel,username,sha_pass_hash from account inner join account_access on account.id = account_access.id where username = '".strtoupper($accountName)."'");
     $login = mysql_fetch_assoc($login_query);
-    if($login){
+	//print_r($login);
+    if(strtoupper($login['sha_pass_hash']) === strtoupper($sha_pass_hash) && $login['gmlevel'] >= 3){
       ?>
       <div id="LogPannel">
       <center><h2>Logging In</h2></center>
@@ -91,6 +92,11 @@ include("../configs.php");
 			</div>
 			</div>
 	<?php } }else{
+	mysql_select_db('auth');
+	$check_query = mysql_query("SELECT gmlevel from account inner join account_access on account.id = account_access.id where username = '".strtoupper($_SESSION['username'])."'") or die(mysql_error());
+    $login = mysql_fetch_assoc($check_query);
+	if($login['gmlevel'] >= 3)
+	{
     ?>
     <script>
     parent.postMessage("{\"action\":\"success\"}", "<?php echo $website['address']; ?>");
@@ -102,7 +108,22 @@ include("../configs.php");
 	  </div>
       <!--<div class="loader"></div>-->';
     
-  } ?>
+  }else{
+  die('<div id="LogPannel">
+      <center><h2>You are not allowed to be here!</h2></center>
+	  <meta http-equiv="refresh" content="2;url=../index.php"/>
+	  </div></div>
+      </div>
+        
+      <div class="push"></div>
+    </div>
+<div id="foot">
+      <p> All rights reserved.  |  Powered by: <a href="" target="_blank"><font color="#15509E">AquaFlame CMS</font></a></p>
+    </div>
+</body>
+</html>');
+  }} 
+  mysql_select_db('website');?>
         <!--
             <input type="checkbox" />
           </label>

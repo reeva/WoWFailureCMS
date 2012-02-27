@@ -1,16 +1,3 @@
-<?php
-include("../configs.php");
-	mysql_select_db('auth');
-	$check_query = mysql_query("SELECT gmlevel from account inner join account_access on account.id = account_access.id where username = '".strtoupper($_SESSION['username'])."'") or die(mysql_error());
-    $login = mysql_fetch_assoc($check_query);
-	if($login['gmlevel'] < 3)
-	{
-		die('
-<meta http-equiv="refresh" content="2;url=GTFO.php"/>
-		');
-	}
-?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
     <head>
@@ -36,21 +23,43 @@ include("../configs.php");
 
     <body>
 <div id="login">
-      <div id="log-Sup">
-    <div id="logWrap">
+<div id="log-Sup">
+<div id="logWrap">
+<h1><img src="../wow/static/images/logos/wof-logo.png" height="21px" width="260px"/><br />
+<span>Admin Login Panel</span></h1>
 
-          <h1><img src="../wow/static/images/logos/wof-logo.png" height="21px" width="260px"/><br />
-        <span>Admin Redirection</span></h1>
-         <div id="LogPannel">
-      <center><h2>Redirecting</h2></center>
-	  <meta http-equiv="refresh" content="2;url='../index.php'"/>
-	  </div>
-        </div>
+      <br />
+      <div id="LogPannel">
+      <center><h2>What are you doing here? Bad Boy!</h2></center>
+            <meta http-equiv="refresh" content="2;url=../index.php"/>
+      </div>
+      
+    
+    <script type="text/javascript">
+      $(function() {
+        $("#ssl-trigger").click(function() {
+          updateParent('onload', 'height', $(document).height() + 76);
+          $("#thawteseal").show();
+        });
+        
+        $("#help-links a").click(function() {
+          updateParent('redirect', 'url', this.href);
+          return false;
+        });
+
+        $('#accountName').focus();
+
+        updateParent('onload', 'height', $(document).height());
+Uncaught ReferenceError: updateParent is not defined
+      });
+    </script>
+</div>
   </div>
-      <div class="push"></div>
     </div>
-<div id="foot">
+	<div id="foot">
       <p> All rights reserved.  |  Powered by: <a href="" target="_blank"><font color="#15509E">AquaFlame CMS</font></a></p>
     </div>
-</body>
-</html>
+  </body>
+  </html>
+
+
