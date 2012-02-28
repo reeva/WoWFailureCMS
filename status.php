@@ -19,7 +19,8 @@ require_once("configs.php");?>
 <script type="text/javascript" src="wow/static/local-common/js/core.js?v17"></script>
 <script type="text/javascript" src="wow/static/local-common/js/tooltip.js?v17"></script>
 <style type="text/css">
-.Good {text-shadow:1px 2px 6px #004; margin-top:3px;}	
+.Good {text-shadow: 0 1px 0 green, 0 0 3px green, 0 0 3px green, 0 0 8px green, 0 0 8px green; margin-top:3px;}
+.Chars {text-shadow: 1px 2px 6px #004;}
 .Shadow {text-shadow:0px 0px 10px #444;}	  	
 -</style>
 <!--[if IE 6]> <script type="text/javascript">
@@ -259,10 +260,8 @@ _gaq.push(['_trackPageview']);
 							echo'
 						</td>
 						<td class="name">
-							<a href="servername1.php">';
-							if($world) echo "<img src='wow/static/images/services/status/online.png'/> ";
-							else echo '<font color="#00FF00"><img src="wow/static/images/services/status/offline.png"/> ';
-							echo $realm['name'].'</font>';
+							<a data-tooltip="Click to view the Online Players" href="servername1.php">
+							<font size="2"><h3 class="Chars">'.$realm['name'].'</h3></font>';
 							echo'
 							</a>
 						</td>
@@ -295,7 +294,7 @@ _gaq.push(['_trackPageview']);
 							@$sqlquery = mysql_query($sql) or die(mysql_error());
 							@$memb = (int) mysql_result($sqlquery,0,0);
 
-							echo '<h3 class="Good"> '.$memb.' Characters</h3>';
+							echo '<h3 class="Good">'.$memb.' Players</h3>';
 							$number = $memb / $max_online;
 							$total_number = $number * '100';
 							
