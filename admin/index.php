@@ -123,7 +123,7 @@ include("../configs.php");
 </body>
 </html>');
   }} 
-  mysql_select_db('website');?>
+  mysql_select_db($server_db);?>
         <!--
             <input type="checkbox" />
           </label>
