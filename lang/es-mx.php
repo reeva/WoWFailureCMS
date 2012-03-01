@@ -657,4 +657,17 @@ $status['population']="Población";
 $status['newP']="Nuevos jugadores";
 $status['new']="Nuevo";
 $status['noResults']="No se han encontrado resultados con esos parámetros.";
+$guild['Guilds'] = "Hermandades";
+$arena['Teams'] = "Equipos de Arena";
+$search['Name'] = "Nombre";
+$search['Level'] = "Nivel";
+$search['Race'] = "Raza";
+$search['Class'] = "Clase";
+$search['Faction'] = "Faczión";
+$search['Guild'] = "Hermandad";
+$search['Realm'] = "Reino";
+$search['Battlegroup'] = "Equipo de Batalla";
+$search['Show'] = "Mostrando";
+$search['Results'] = "resultados";
+$search['Of'] = "de";
 ?>

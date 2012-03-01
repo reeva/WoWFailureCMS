@@ -661,4 +661,17 @@ $status['population']="Population";
 $status['newP']="New Players";
 $status['new']="New";
 $status['noResults']="There is not match founds for this parameters.";
+$guild['Guilds'] = "Guilds";
+$arena['Teams'] = "Arena teams";
+$search['Name'] = "Name";
+$search['Level'] = "Level";
+$search['Race'] = "Race";
+$search['Class'] = "Class";
+$search['Faction'] = "Faction";
+$search['Guild'] = "Guild";
+$search['Realm'] = "Realm";
+$search['Battlegroup'] = "Battlegroup";
+$search['Show'] = "Showing";
+$search['Results'] = "results";
+$search['Of'] = "of";
 ?>
