@@ -75,6 +75,15 @@ _gaq.push(['_trackPageLoadTime']);
 <?php
 			?>
 			<?php
+			
+          function valid_email($email) {         //Small function to validate the email
+                $result = TRUE;
+                if(!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$", $email)) {
+                              $result = FALSE;
+                }
+                return $result;
+          }
+          
 						  if(!isset($_SESSION['username'])){
 						  if(isset($_POST['reg'])){
 						  $accountName = mysql_real_escape_string($_POST['accountName']);
@@ -84,14 +93,16 @@ _gaq.push(['_trackPageLoadTime']);
 						  mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
 						  $check_query = mysql_query("SELECT * FROM account WHERE username = '".$accountName."'");
 						  $check = mysql_fetch_assoc($check_query);
-						  $firstName = mysql_real_escape_string(ucfirst($_POST['firstName']));
+						  $firstName = mysql_real_escape_string(ucfirst(strtolower($_POST['firstName'])));
 						  $lastName = mysql_real_escape_string(ucfirst($_POST['lastName']));
 						  
-						  $dobD=$_POST['dobDay'];
-						  $dobM=$_POST['dobMonth'];
-						  $dobY=$_POST['dobYear'];
-							$question=$_POST['question1'];
-							$answer=$_POST['answer1'];
+						  $country= $_POST['country'];
+						  $dobD= $_POST['dobDay'];
+						  $dobM= $_POST['dobMonth'];
+						  $dobY= $_POST['dobYear'];
+						  $dob= date ("Y-m-d", $dobM."-".$dobD."-".$dobY);  //YYYY/MM/DD
+							$question= $_POST['question1'];
+							$answer= mysql_real_escape_string($_POST['answer1']);
 							
 						  if(!$check){
 
@@ -102,7 +113,7 @@ _gaq.push(['_trackPageLoadTime']);
 							if(empty($firstName)) $error[] = $re['error3'];
 							if(empty($lastName)) $error[] = $re['error4'];
 							
-							if(empty($accountEmail)){
+							if(empty($accountEmail) || !valid_email($accountEmail)){
 							  $error[]=$re['error5'];
 							}
 							
@@ -124,7 +135,7 @@ _gaq.push(['_trackPageLoadTime']);
 							
 							if(strlen($_POST['accountPass']) < 5 || strlen($_POST['accountPass']) > 15 ){
                 $chars = strlen($accountPass);
-                die("<p align='center'>".$Reg['Reg6']."<br><br>".$Reg['Reg9']."<br><br>".$Reg['Reg10']."".$chars." ".$Reg['Reg11']."<br><br>".$Reg['Reg12']."<br><br>".$Reg['Reg13']."</p><p align='center'><a href='change-password.php'><button class='ui-button button1' type='submit' value='Volver' tabindex='1'><span><span>Volver</span></span></button></a></p>");
+                die("<p align='center'>".$Reg['Reg6']."<br><br>".$Reg['Reg9']."<br><br>".$Reg['Reg10']."".$chars." ".$Reg['Reg11']."<br><br>".$Reg['Reg12']."<br><br>".$Reg['Reg13']."</p><p align='center'><a href='register.php'><button class='ui-button button1' type='submit' value='back' tabindex='1'><span><span>".$back['back']."</span></span></button></a></p>");
               }
 							
 						  }else{
@@ -154,13 +165,13 @@ _gaq.push(['_trackPageLoadTime']);
                 if ($accinfo == 0)
                 {
                     $sha_pass_hash= sha1(strtoupper($accountName ) . ":" . strtoupper($accountPass));
-                    $register_logon = mysql_query("INSERT INTO account (username,sha_pass_hash,email,last_ip,register_ip,expansion) VALUES (UPPER('".$accountName."'),  CONCAT('".$sha_pass_hash."'),'".$accountEmail."','".$ip."','".$ip."','3')")or die(mysql_error());
+                    $register_logon = mysql_query("INSERT INTO account (username,sha_pass_hash,email,last_ip,expansion) VALUES (UPPER('".$accountName."'),  CONCAT('".$sha_pass_hash."'),'".$accountEmail."','".$ip."','3')")or die(mysql_error());
               
                     mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
 					          $accountinfo = mysql_fetch_assoc(mysql_query("SELECT * FROM account WHERE username = UPPER('".$accountName."')"));
                     mysql_select_db($server_db,$connection_setup)or die(mysql_error());
-                    $register_cms = mysql_query("INSERT INTO users (id,class,firstName,lastName) VALUES ('".mysql_real_escape_string($accountinfo['id'])."',0,'".$firstName."','".$lastName."')");
-//IMPORTANTE VER PARA QUE SIRVE CLASS               
+                    $register_cms = mysql_query("INSERT INTO users (id,class,firstName,lastName,registerIp,country,birth,quest1,ans1) VALUES ('".mysql_real_escape_string($accountinfo['id'])."','0','".$firstName."','".$lastName."','".$ip."','".$country."','".$dob."','".$question."','".$answer."')");
+             
                     if ($register_logon == true && $register_cms == true)
                     {
                         echo '<div class="alert-page" align="center">';
@@ -173,7 +184,7 @@ _gaq.push(['_trackPageLoadTime']);
                         $_SESSION['username'] = $accountName;
                         echo '<meta http-equiv="refresh" content="3;url=index.php"/>';
                     }
-                    else{ //MODIFICADO PARA BORRAR CUENTA CUANDO DA FALLO DESPUES DE HABERLA GUARDADO EN LA DB
+                    else{ //MODIFIED TO DELETE THE ACCOUNT IF SOMETHING IS WRONG DURING THE REGISTRATION
                         mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
                         $accdel= mysql_query("DELETE FROM account WHERE username = '".$accountName."'");
                         echo '<div class="errors" align="center"><font color="red">'.$re['error1'].'</font><br><br />';
@@ -937,7 +948,7 @@ function pop(action){
 <span class="inline-message" id="question1-message"> </span>
 </span>
 <span class="input-text input-text-small">
-<input type="text" name="answer1" value="" id="answer1" class="small border-5 glow-shadow-2" autocomplete="off" maxlength="100" tabindex="1" required="required" placeholder="<?php echo $re['re48']; ?>" />
+<input type="text" name="answer1" value="" id="answer1" class="small border-5 glow-shadow-2" autocomplete="off" maxlength="50" tabindex="1" required="required" placeholder="<?php echo $re['re48']; ?>" />
 <span class="inline-message" id="answer1-message"> </span>
 </span>
 </span>
