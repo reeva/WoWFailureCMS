@@ -657,4 +657,4 @@ $status['population']="Población";
 $status['newP']="Nuevos jugadores";
 $status['new']="Nuevo";
 $status['noResults']="No se han encontrado resultados con esos parámetros.";
-?>  
+?>
