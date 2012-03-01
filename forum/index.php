@@ -52,7 +52,7 @@ Flash.ratingImage = 'http://eu.media.blizzard.com/wow/player/rating-pegi.jpg';
 					<ol class="ui-breadcrumb">
 					<li>
 					<a href="../index.php" rel="np"><?php echo $website['title']; ?></a></li>
-					<li class="last"><a href="/forum" rel="np">Forums</a></li>
+					<li class="last"><a href="../forum" rel="np"><?php echo $Forums['Forums']; ?></a></li>
 					</ol>
 				</div>
 				

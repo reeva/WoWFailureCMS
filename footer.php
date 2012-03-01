@@ -42,7 +42,14 @@
 <span class="clear"><!-- --></span>
 </div>
 <div id="copyright">
-<a href="javascript:;" tabindex="100" id="change-language">
+<?php
+function curPageName() {
+ return substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
+}
+echo '<a tabindex="100" id="change-language" ';
+if (strtoupper(curPageName())<>'ADVANCED.PHP' && strtoupper(curPageName())<>'THREED.PHP'){ echo ' href="javascript:;"';}
+echo '>'
+?>
 <span><?php echo $website['title'];  echo $Wow3['Wow3']; ?></span>
 </a>
 <span class="clear"><!-- --></span>
@@ -81,7 +88,7 @@
 			</a>
 			</li>
 			<li>
-			<a href="?Local=se-sr" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to es-es'); return true;">
+			<a href="?Local=se-sr" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to se-sr'); return true;">
 			<?php echo $Serbian['Europe']; ?>
 			</a>
 			</li>
@@ -180,7 +187,7 @@
 <ul class="service-bar">
 <li class="service-cell service-home"><a href="<?php echo $website['address']; ?>" tabindex="50" accesskey="1" title="Home"><div style="width:45px;">&nbsp;</div></a></li>
 <?php if(isset($_SESSION['username'])){ ?>
-<li class="service-cell service-welcome"><?php echo $Welcome['Welcome']; ?><?php echo $userInfo['firstName']; ?> | <a href="<?php echo $website['root'];?>logout.php"><?php echo $logout['logout']; ?></a></li>
+<li class="service-cell service-welcome"><?php echo $Welcome['Welcome']; ?><?php if ($userInfo['firstName']==""){ echo $globalInfoVar['Anonymous'];} else{echo $userInfo['firstName']; }?> | <a href="<?php echo $website['root'];?>logout.php"><?php echo $logout['logout']; ?></a></li>
 <?php }else{ ?>
 <li class="service-cell service-welcome"><a href="?login" onclick="return Login.open()"><?php echo $login['login']; ?></a> <?php echo $or['or']; ?> <a href="<?php echo $website['root'];?>register.php"><?php echo $Account3['Account3']; ?></a></li>
 <?php } ?>
@@ -239,7 +246,7 @@ shim.style.display = 'block';
 </a>
 </li>
 <li>
-<a href="#" tabindex="55">
+<a href="<?php echo $website['root'];?>account_log.php" tabindex="55">
 <strong class="explore-caption"><?php echo $Account['Account']; ?></strong>
 <?php echo $Account6['Account6']; ?>
 </a>

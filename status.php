@@ -19,8 +19,7 @@ require_once("configs.php");?>
 <script type="text/javascript" src="wow/static/local-common/js/core.js?v17"></script>
 <script type="text/javascript" src="wow/static/local-common/js/tooltip.js?v17"></script>
 <style type="text/css">
-.Good {text-shadow: 0 1px 0 green, 0 0 3px green, 0 0 3px green, 0 0 8px green, 0 0 8px green; margin-top:3px;}
-.Chars {text-shadow: 1px 2px 6px #004;}
+.Good {text-shadow:1px 2px 6px #004; margin-top:3px;}	
 .Shadow {text-shadow:0px 0px 10px #444;}	  	
 -</style>
 <!--[if IE 6]> <script type="text/javascript">
@@ -121,14 +120,14 @@ _gaq.push(['_trackPageview']);
 				</div>
 
 				<div class="filter">
-					<label for="filter-population">Population</label>
+					<label for="filter-population"><?php echo $status['population']; ?></label>
 
 					<select id="filter-population" class="input select" data-filter="column" data-column="3">
 						<option value="">All</option>
-							<option value="high">High</option>
-							<option value="medium">Medium</option>
+							<option value="high"><?php echo $status['high']; ?></option>
+							<option value="medium"><?php echo $status['medium']; ?></option>
 							<option value="n/a">N/A</option>
-							<option value="low">Low</option>
+							<option value="low"><?php echo $status['low']; ?></option>
 					</select>
 				</div>
 
@@ -239,11 +238,11 @@ _gaq.push(['_trackPageview']);
 					);
 							
 					$population = array(
-						0 => 'Low',
-						1 => 'Medium',
-						2 => 'High',
-						3 => 'NewPlayers',
-						4 => 'New'
+						0 => $status['low'],
+						1 => $status['medium'],
+						2 => $status['high'],
+						3 => $status['newP'],
+						4 => $status['new']
 					);
 					$get_realms = mysql_query("SELECT * FROM $server_adb.realmlist ORDER BY `id` ASC");
 					while($realm = mysql_fetch_array($get_realms)){
@@ -260,8 +259,10 @@ _gaq.push(['_trackPageview']);
 							echo'
 						</td>
 						<td class="name">
-							<a data-tooltip="Click to view the Online Players" href="servername1.php">
-							<font size="2"><h3 class="Chars">'.$realm['name'].'</h3></font>';
+							<a href="servername1.php">';
+							if($world) echo "<img src='wow/static/images/services/status/online.png'/> ";
+							else echo '<font color="#00FF00"><img src="wow/static/images/services/status/offline.png"/> ';
+							echo $realm['name'].'</font>';
 							echo'
 							</a>
 						</td>
@@ -294,13 +295,14 @@ _gaq.push(['_trackPageview']);
 							@$sqlquery = mysql_query($sql) or die(mysql_error());
 							@$memb = (int) mysql_result($sqlquery,0,0);
 
-							echo '<h3 class="Good">'.$memb.' Players</h3>';
+							echo '<h3 class="Good"> '.$memb.' '.$status['chars'].'</h3>';
 							$number = $memb / $max_online;
 							$total_number = $number * '100';
 							
 							echo '</div></div>';
-							echo '<div style="width:' . $total_number . '%; background:#10AA00; background-repeat:repeat-x; height:22px;border-right:1px solid #6cc02c;">
-							</div></div>';
+							echo '<div style="width:100%; height:22px; border:1px solid #6CC02C;">'; 
+							echo '<div style="width:' . $total_number . '%; background:#10AA00; background-repeat:repeat-x; height:22px;">
+							</div></div></div>';
 							
 							echo'
 						</td>
@@ -342,7 +344,7 @@ _gaq.push(['_trackPageview']);
 																<!--Server No.3-->
 															
 				<tr class="no-results" style="display: none">
-					<td colspan="6">No results match the selected filters.</td>
+					<td colspan="6"><?php echo $status['noResults']; ?></td>
 				</tr>
 			</tbody>
 		</table>

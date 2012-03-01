@@ -101,4 +101,29 @@ if (isset($_GET['charname'])) {
     mysql_end($conn);
 }
 
+//Get Base stats
+function baseStats($charName){
+  include ('configs.php');
+  
+  mysql_select_db($server_cdb,$connection_setup)or die(mysql_error());
+  $sql = "SELECT guid,name,class,level,race FROM characters WHERE name='".$charName."'";
+  $result = mysql_query($sql) or die(mysql_error());
+  $row = mysql_fetch_array($result);
+  
+  mysql_select_db($server_wdb,$connection_setup)or die(mysql_error());
+  $wSql= "SELECT str,agi,sta,inte,spi,basehp as hp, basemana as mana FROM player_levelstats level,
+  player_classlevelstats class WHERE level.race='".$row['race']."' AND level.class='".$row['class']."' AND 
+  level.level='".$row['level']."' AND class.class='".$row['class']."' AND class.level='".$row['level']."'";
+  $result = mysql_query($wSql) or die(mysql_error());
+  $baseStats = mysql_fetch_array($result);
+
+  /*Here you have the bases stats, I have tried it with an recient create character and the hp was incorrect, I don'w know...
+  echo $baseStats['str']; 
+  echo $baseStats['agi']; 
+  echo $baseStats['sta']; 
+  echo $baseStats['inte']; 
+  echo $baseStats['spi']; 
+  echo $baseStats['hp']; 
+  echo $baseStats['mana']; */
+}
 ?>

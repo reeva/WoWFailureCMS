@@ -68,7 +68,7 @@ include("configs.php");
        }
       </style>
       <center>
-      <h3>Logging In</h3><br />
+      <h3>Accediendo</h3><br />
       <div class="loader"></div>
       
       <?php
@@ -88,7 +88,7 @@ include("configs.php");
        }
       </style>
       <center>
-      <h3>Wrong Password or Account Name</h3><br />
+      <h3>Contrase&ntilde;a o Nombre de cuenta incorrectos.</h3><br />
       <div class="loader"></div>
       <meta http-equiv="refresh" content="2"/>
       </center>
@@ -97,31 +97,29 @@ include("configs.php");
     
     ?>
     
-    
-    
   <?php }else{ ?>
   <form action="?SSID:<?php echo $sessionid; ?>" method="post">
-    <a id="embedded-close" href="javascript:;" onclick="updateParent('close')"> </a>
+    <a id="embedded-close" href="javascript:;" onclick="updateParent('close')"></a>
     <div>
-      <p><label for="accountName" class="label">Account Name</label>
+      <p><label for="accountName" class="label"><?php echo $Log['Log6']; ?></label>
       <input id="accountName" value="" name="accountName" maxlength="320" type="text" tabindex="1" class="input" /></p>
 
-      <p><label for="password" class="label">Password</label>
+      <p><label for="password" class="label"><?php echo $Log['Log7']; ?></label>
       <input id="password" name="password" maxlength="16" type="password" tabindex="2" autocomplete="off" class="input"/></p>
 
       <p>
         <span id="remember-me">
           <label for="persistLogin">
             <input type="checkbox" checked="checked" name="persistLogin" value="true" id="persistLogin" />
-            Keep me logged in
+            <?php echo $Log['Log8']; ?>
           </label>
         </span>
 
         <input type="hidden" name="app" value="com-sc2"/>
 
-        <button class="ui-button button1" type="submit" data-text="Processing...">
+        <button class="ui-button button1" type="submit" data-text="<?php echo $Log['Log3']; ?>">
           <span>
-            <span>Log In</span>
+            <span><?php echo $Log['Log9']; ?></span>
           </span>
         </button>
       </p>
@@ -129,23 +127,23 @@ include("configs.php");
   </form>
   <?php } }else{
     ?>
-    <a id="embedded-close" href="javascript:;" onclick="updateParent('close')"> </a>
+    <a id="embedded-close" href="javascript:;" onclick="updateParent('close')"></a>
     <script>
     parent.postMessage("{\"action\":\"success\"}", "<?php echo $website['address']; ?>");
     </script>
     <?php
-    echo "<h3><font color='green'>You're Logged In</font></h3>";
+    echo "<h3><font color='green'>".$Log['Log10']."</font></h3>";
     
   } ?>
 	  <ul id="help-links">
 		  <li class="icon-pass">
-			<a href="#"><?php echo $Log['Log11']; ?></a>?
+			<a href="#"><?php echo $Log['Log11']; ?></a>
 		  </li>
 			<li class="icon-signup">
 			  <?php echo $Log['Log12']; ?><a href="register.php"><?php echo $Log['Log13']; ?></a>!
 			</li>
 		  <li class="icon-secure">
-			<?php echo $Log['Log14']; ?><a href="#"><?php echo $Log['Log15']; ?></a>!
+			<?php echo $Log['Log14']; ?><a href="#"><?php echo $Log['Log15']; ?></a>
 		  </li>
 	  </ul>
         <script type="text/javascript">

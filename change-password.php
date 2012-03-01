@@ -62,6 +62,8 @@ _gaq.push(['_trackPageLoadTime']);
 <?php include("functions/header_account.php"); ?>
 <?php include("functions/footer_man_nav.php"); ?>
 </div>
+</div>
+</div>
 <div id="layout-middle">
 <div class="wrapper">
 <div id="content">
@@ -77,44 +79,44 @@ _gaq.push(['_trackPageLoadTime']);
 <?php 
 if(isset($_POST['submit']))
 {
-        $account = $_POST['account'];
-        $passwordOld = $_POST['passwordOld'];
-        $passwordNew = $_POST['passwordNew'];
-        $passwordNew1 = $_POST['passwordNew1'];
+        $account = mysql_real_escape_string($_POST['account']);
+        $passwordOld = mysql_real_escape_string($_POST['passwordOld']);
+        $passwordNew = mysql_real_escape_string($_POST['passwordNew']);
+        $passwordNew1 = mysql_real_escape_string($_POST['passwordNew1']);
         $passwordolde = sha1(strtoupper($account) . ":" . strtoupper($passwordOld));
         $passwordnewe = sha1(strtoupper($account) . ":" . strtoupper($passwordNew));
         $passwordNew1e = sha1(strtoupper($account) . ":" . strtoupper($passwordNew1));
 
-        $account = /*mysql_real_escape_string*/($account);
+        $eaccount = strtoupper($account);
         $eoldpass = strtoupper($passwordolde);
         $enewpass = strtoupper($passwordnewe);
         $enewpass1 = strtoupper($passwordNew1e);
         
-        $con = mysql_connect("$serveraddress", "$serveruser", "$serverpass") or die(mysql_error());
-        mysql_select_db("$server_adb", $con) or die(mysql_error());
-        $query = "SELECT id FROM account WHERE username = '".$account."' AND sha_pass_hash = '".$eoldpass."'";
+        $con = mysql_connect($serveraddress, $serveruser, $serverpass) or die(mysql_error());
+        mysql_select_db($server_adb, $con) or die(mysql_error());
+        $query = "SELECT id FROM account WHERE username = '".$eaccount."' AND sha_pass_hash = '".$eoldpass."'";
 
         $result = mysql_query($query) or die(mysql_error());
         $numrows = mysql_num_rows($result);
 
-        if($enewpass != $enewpass1) { die("<p align='center'>".$Reg['Reg6']."<br><br>".$Reg['Reg7']."<br><br>".$Reg['Reg8']."</p>"); }
+        if($enewpass != $enewpass1) { die("<p align='center'>".$Reg['Reg6']."<br><br>".$Reg['Reg7']."<br><br>".$Reg['Reg8']."</p><p align='center'><a href='change-password.php'><button class='ui-button button1' type='submit' value='back' tabindex='1'><span><span>".$re['back']."</span></span></button></a></p>"); }
 
-        if(strlen($_POST['passwordNew']) < 5){
+        if(strlen($_POST['passwordNew']) < 5 || strlen($_POST['passwordNew']) > 15 ){
                 $chars = strlen($passwordNew);
-                die("<p align='center'>".$Reg['Reg6']."<br><br>".$Reg['Reg9']."<br><br>".$Reg['Reg10']."".$chars." ".$Reg['Reg11']."<br><br>".$Reg['Reg12']."<br><br>".$Reg['Reg13']."</p>");
+                die("<p align='center'>".$Reg['Reg6']."<br><br>".$Reg['Reg9']."<br><br>".$Reg['Reg10']."".$chars." ".$Reg['Reg11']."<br><br>".$Reg['Reg12']."<br><br>".$Reg['Reg13']."</p><p align='center'><a href='change-password.php'><button class='ui-button button1' type='submit' value='back' tabindex='1'><span><span>".$re['back']."</span></span></button></a></p>");
         }
 
-        if($numrows == 0) { die("<p align='center'>".$Reg['Reg6']."<br><br>".$Reg['Reg14']."<br><br>".$Reg['Reg15']."</p>"); }
+        if($numrows == 0) { die("<p align='center'>".$Reg['Reg6']."<br><br>".$Reg['Reg14']."<br><br>".$Reg['Reg15']."</p><p align='center'><a href='change-password.php'><button class='ui-button button1' type='submit' value='back' tabindex='1'><span><span>".$re['back']."</span></span></button></a></p>"); }
 
-        $query = "UPDATE account SET sha_pass_hash = '".$enewpass."' WHERE username = '".$account."'";
-		$query = "UPDATE account SET v = '0' WHERE username = '".$account."'";
+        $query = "UPDATE account SET sha_pass_hash = '".$enewpass."' WHERE username = '".$eaccount."'";
         $result = mysql_query($query) or die(mysql_error());
-        $query = "UPDATE account SET s = '0' WHERE username = '".$account."'";
+		    $query = "UPDATE account SET v = '0' WHERE username = '".$eaccount."'";
+        $result = mysql_query($query) or die(mysql_error());
+        $query = "UPDATE account SET s = '0' WHERE username = '".$eaccount."'";
         $result = mysql_query($query) or die(mysql_error());
         
 
-        echo "<p align='center'>".$Reg['Reg16']."<br><br>'<b>".$account."</b>'<br><br>".$Reg['Reg17']."";
-
+        echo "<p align='center'>".$Reg['Reg16']."<br><br>'<b>".$account."</b>'<br><br>".$Reg['Reg17']."<p align='center'><a href='account_man.php'><button class='ui-button button1' type='submit' value='back' tabindex='1'><span><span>".$re['back']."</span></span></button></a></p>";
         //close mysql connection
         mysql_close($con);
 }
@@ -126,8 +128,7 @@ else{
 </strong>
 <span class="form-required">*</span>
 </label>
-<input type="text" id="firstname" disabled="disabled" name="account" value="<?php echo strtolower($_SESSION['username']); ?>" class=" input border-5 glow-shadow-2 form-disabled
-" maxlength="16" tabindex="1" />
+<input type="text" id="firstname" name="account" value="<?php echo strtolower($_SESSION['username']); ?>" class=" input border-5 glow-shadow-2 form-disabled" maxlength="16" tabindex="1" />
 </div>
 <div class="form-row required">
 <label for="oldPassword" class="label-full ">
@@ -135,8 +136,7 @@ else{
 </strong>
 <span class="form-required">*</span>
 </label>
-<input type="password" id="oldPassword" name="passwordOld" value="" class=" input border-5 glow-shadow-2
-" maxlength="16" tabindex="1" />
+<input type="password" id="oldPassword" name="passwordOld" value="" class=" input border-5 glow-shadow-2" maxlength="16" tabindex="1" />
 </div>
 <div class="form-row required">
 <label for="newPassword" class="label-full ">
@@ -144,17 +144,30 @@ else{
 </strong>
 <span class="form-required">*</span>
 </label>
-<input type="password" id="newPassword" name="passwordNew" value="" class=" input border-5 glow-shadow-2
-" maxlength="16" tabindex="1" />
+<input type="password" id="newPassword" name="passwordNew" value="" class=" input border-5 glow-shadow-2" maxlength="16" tabindex="1" />
+<script type="text/javascript">  
+function pop(action){
+  var frm_element = document.getElementById('newPassword-note11');
+  var vis = frm_element.style;
+  if (action=='open')
+  {
+    vis.display = 'block';
+  }
+  else
+  {
+    vis.display = 'none';
+  }
+}
+</script>
 <div class="ui-note">
-<div class="form-note toggle-note border-5 glow-shadow" id="newPassword-note">
+<div class="form-note toggle-note border-5 glow-shadow" id="newPassword-note11">
 <div class="note">
 <h5><?php echo $Reg['Reg21']; ?></h5><ul><li><?php echo $Reg['Reg22']; ?><strong><?php echo $Reg['Reg23']; ?></strong></li><li><?php echo $Reg['Reg24']; ?><strong><?php echo $Reg['Reg25']; ?></strong><?php echo $Reg['Reg26']; ?><strong><?php echo $Reg['Reg27']; ?></strong><?php echo $Reg['Reg28']; ?></li><li><?php echo $Reg['Reg29']; ?></li><li><?php echo $Reg['Reg30']; ?><strong><?php echo $Reg['Reg31']; ?></strong><?php echo $Reg['Reg32']; ?></li><li><?php echo $Reg['Reg33']; ?></li></ul>
-<a href="#" class="close-note" rel="newPassword-note"></a>
+<a href="javascript:;" class="close-note" rel="newPassword-note" onclick="pop('close');"></a>
 </div>
-<div class="note-arrow"></div>
+<div class="note-arrow"></div> 
 </div>
-<a href="#" class="note-toggler" rel="newPassword-note">
+<a href="javascript:;" class="note-toggler" rel="newPassword-note" onclick="pop('open');">
 <img src="wow/static/images/icons/tooltip-help.gif" alt="?" width="16" height="16" />
 </a>
 </div>
@@ -170,12 +183,12 @@ else{
 </div>
 <fieldset class="ui-controls " >
 <button
-class="ui-button button1 disabled"
+class="ui-button button1 "
 type="submit"
 name="submit"
-disabled="disabled"
+
 id="settings-submit"
-value="Change my password!"
+value="Cambiar Contrase&ntilde;a"
 tabindex="1">
 <span>
 <span><?php echo $Reg['Reg35']; ?></span>
@@ -189,11 +202,11 @@ tabindex="1">
 </a>
 </fieldset>
 </form>
-</div>
-</div>
 <?php
 }
 ?>
+</div>
+</div>
 </div>
 </div>
 <div id="layout-bottom">

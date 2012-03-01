@@ -13,11 +13,11 @@
 <span></span>
 <div class="flyout-menu" id="settings-menu" style="display: none">
 <ul>
-<li><a href=""><?php echo $ha['ha2']; ?></a></li>
+<li><a href="#"><?php echo $ha['ha2']; ?></a></li>
 <li><a href="change-password.php"><?php echo $ha['ha3']; ?></a></li>
-<li><a href=""><?php echo $ha['ha4']; ?></a></li>
-<li><a href=""><?php echo $ha['ha5']; ?></a></li>
-<li><a href=""><?php echo $ha['ha6']; ?></a></li>
+<li><a href="#"><?php echo $ha['ha4']; ?></a></li>
+<li><a href="#"><?php echo $ha['ha5']; ?></a></li>
+<li><a href="#"><?php echo $ha['ha6']; ?></a></li>
 <li><a href="contact_info.php"><?php echo $ha['ha7']; ?></a></li>
 </ul>
 </div>

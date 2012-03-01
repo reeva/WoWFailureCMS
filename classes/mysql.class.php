@@ -257,6 +257,18 @@ class Character_Database extends MySQL
         $stats->execute();
         return $this->fetchResult($stats);
     }
+    
+    public function getTalents($Guid)
+    {
+        $talents0= $this->prepareStatement("SELECT branchSpec as branchP FROM `character_branchspec` WHERE spec = 0 AND guid=?",$Guid);
+        $talents1= $this->prepareStatement("SELECT branchSpec as branchS FROM `character_branchspec` WHERE spec = 1 AND guid=?",$Guid);
+        $talents0->execute();
+        $talents1->execute();
+        //$talents = $this->prepareStatement("SELECT branchSpec FROM `character_branchspec` WHERE guid=?",$Guid);
+        //$talents = $this->execute();
+        //$talents = $talents0 + $talents1;
+        return $this->fetchResult($talents0,$talents1);
+    }
 }
 class World_Database extends MySQL
 {

@@ -87,7 +87,7 @@ h3.blog-title { font-size:24px; color:#fdeea4; font-weight:bold; }
 /*Station*/
 .station-home #content .content-top { background:url(../images/layout/cms/bt-lite-bg.jpg) no-repeat; }
 #station-view { padding-bottom:0; }
-#station-view .readmore { font-size:12px; text-transform:uppercase; color:#f0e29a; padding-top:3px; border-bottom-width:2px; background:url(../images/icons/subsection_bg.gif) 100% 56% no-repeat; }
+#station-view .readmore { font-size:12px; text-transform:uppercase; color:#f0e29a; padding-top:3px; border-bottom-width:2px; /*background:url(../images/icons/subsection_bg.gif) 100% 56% no-repeat;*/ }
 #station-view .bt-link.readmore { margin-top:43px; }
 #station-view .bt-lite { padding-top:58px; padding-bottom:32px;  }
 #station-view .bt-mask-l, #station-view .bt-mask-r { background-image:url(../images/layout/cms/bt_mask_bg.png); background-position:0 -58px }

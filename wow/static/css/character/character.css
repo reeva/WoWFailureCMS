@@ -72,7 +72,7 @@ a.summary-link-tools { display: block; width: 21px; height: 21px; background: ur
 	.summary-inventory .slot-1  a.empty { background-position: 1px 1px;    } /* Head */
 	.summary-inventory .slot-2  a.empty { background-position: 1px -46px;  } /* Neck */
 	.summary-inventory .slot-3  a.empty { background-position: 1px -93px;  } /* Shoulder */
-	.summary-inventory .slot-16 a.empty,                                     /* Back */
+	.summary-inventory .slot-16 a.empty, /* Back, shirt */
 	.summary-inventory .slot-5  a.empty { background-position: 1px -140px; } /* Chest */
 	.summary-inventory .slot-19 a.empty { background-position: 1px -187px; } /* Tabard */
 	.summary-inventory .slot-4  a.empty { background-position: 1px -234px; } /* Shirt */

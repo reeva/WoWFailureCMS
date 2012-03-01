@@ -95,7 +95,7 @@ _gaq.push(['_trackPageLoadTime']);
 <?php
 $con = mysql_connect($serveraddress, $serveruser, $serverpass, $serverport) or die(mysql_error());
 mysql_select_db($server_db, $con) or die (mysql_error());
-$sql = mysql_query("SELECT * FROM player_vote, vote ORDER BY RAND() LIMIT 49") or die(mysql_error());
+$sql = mysql_query("SELECT * FROM votes, vote ORDER BY RAND() LIMIT 49") or die(mysql_error());
 $numrows = mysql_num_rows($sql);
 if($numrows > 0)
 {

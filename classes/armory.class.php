@@ -12,6 +12,8 @@ abstract class Armory
 {
 	protected $_objectId;
 	protected $_objectInfo;
+	protected $_statInfo;
+	protected $_talentInfo;
 	protected $_charDb;
 	protected $_worldDb;
 	abstract function run();
@@ -40,6 +42,28 @@ abstract class Armory
 	public function setObjectInfo($info)
 	{
 		$this->_objectInfo = $info;
+		return $this;
+	}
+	
+	public function getStatInfo()
+	{
+		return $this->_statInfo;
+	}
+	
+	public function setStatInfo($info)
+	{
+		$this->_statInfo = $info;
+		return $this;
+	}
+
+  	public function getTalentInfo()
+	{
+		return $this->_talentInfo;
+	}
+	
+	public function setTalentInfo($info)
+	{
+		$this->_talentInfo = $info;
 		return $this;
 	}
 	
@@ -72,10 +96,12 @@ class Armory_Character extends Armory
     	
 	public function __construct($name)
 	{
-		$this->setCharDb(new Character_Database(array('host' => 'localhost','username' => 'root','password'=>'password',ucfirst('character') => 'characters')));
-		$this->setWorldDb(new World_Database(array('host' => 'localhost','username' => 'root','password'=>'password',ucfirst('world') => 'world')));
+		$this->setCharDb(new Character_Database(array('host' => '190.209.198.127','username' => 'root','password'=>'piscola69',ucfirst('character') => 'characters')));
+		$this->setWorldDb(new World_Database(array('host' => '190.209.198.127','username' => 'root','password'=>'piscola69',ucfirst('world') => 'world')));
 		$this->setObjectId($this->getCharDb()->getGuidByName($name));
 		$this->setObjectInfo($this->getCharDb()->getInfoFor($this->getObjectId()));
+		$this->setStatInfo($this->getCharDb()->getStats($this->getObjectId())); //Add to get stats for armory
+		$this->setTalentInfo($this->getCharDb()->getTalents($this->getObjectId())); //Add to get talent infor for armory
 	}
     
     private function _getEquipedItems()
@@ -297,11 +323,11 @@ class Armory_Character extends Armory
         //print_r($result);
 	}
     
-    public function runStats()
+/*    public function runStats()
     {
         $stats = $this->getCharDb()->getStats($this->getObjectId());
         print_r($stats);
-    }
-}
+    } Not needed now I think*/
+}   
 
 ?>

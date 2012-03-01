@@ -81,16 +81,30 @@ Services
 
 	<span class="clear"><!-- --></span>
 	<div class="under-name color-c<?php echo $character->getObjectInfo()->class; ?>"><!-- class="under-name color-c1 is warrior, to be paladin it has to be class="under-name color-c2, so what we change here is the number of the class c2, c3, c4, ... -->
-	<span class="level"><strong><?php echo $character->getObjectInfo()->level; ?></strong></span> <a href="" class="race"><?php echo $character->getObjectInfo()->race; ?></a> <a id="profile-info-spec" href="" class="spec tip">TALENT</a> <a href="" class="class"><?php echo $character->getObjectInfo()->class; ?></a><span class="comma">,</span>
+	<a href="" class="race">
+  <?php
+  $raceNum= $character->getObjectInfo()->race;
+  echo $armory['race'.$raceNum];
+  ?></a>
+  <a href="" class="class">
+  <?php
+  $classNum=$character->getObjectInfo()->class;   //Show the name of the class and not de number
+  echo $armory['class'.$classNum];
+  $talentP = $character->getTalentInfo()->branchP;
+  $talentS = $character->getTalentInfo()->branchS;
+  if ($talentP==""){$talentP='0';}
+  if ($talentS==""){$talentS='0';}
+  ?></a> 
+  <a id="profile-info-spec" href="" class="spec tip"><?php if ($talentP<>'0'){echo $armory['branch'.$talentP];} ?></a><?php echo $armory['oflvl']; ?><span class="level"><strong><?php echo $character->getObjectInfo()->level; ?></strong></span><span class="comma">,</span>
 	<span class="realm tip" id="profile-info-realm" data-battlegroup=""><?php echo $name_realm1['realm']; ?></span>
 	</div>
-	<div class="achievements"><a href="">A.Points</a></div>
+	<div class="achievements"><a href=""><?php echo $armory['APoints']; ?></a></div>
 	</div>
 	</div>
 	<ul class="profile-sidebar-menu" id="profile-sidebar-menu">
 	<li class=" active">
 	<a href="" class="" rel="np">
-	<span class="arrow"><span class="icon">Summary</span></span></a>
+	<span class="arrow"><span class="icon"><?php echo $armory['summary']; ?></span></span></a>
 	</li>
 	<!--<li class="">
 	<a href="" class="" rel="np">
@@ -118,7 +132,7 @@ Services
 	</li>-->
 	<li class="">
 	<a href="reputation.php" class="" rel="np">
-	<span class="arrow"><span class="icon">Reputation</span></span></a>
+	<span class="arrow"><span class="icon"><?php echo $armory['reputation']; ?></span></span></a>
 	</li><!--
 	<li class="">
 	<a href="" class="" rel="np">
@@ -140,12 +154,12 @@ Services
 	<div class="summary-top-right">
 	<ul class="profile-view-options" id="profile-view-options-summary">
 	<li>
-	<a href="threed.php?name=<?php echo $character->getObjectInfo()->name;?>" rel="np" class="threed">3D Model</a></li>
+	<a href="threed.php?name=<?php echo $character->getObjectInfo()->name;?>" rel="np" class="threed"><?php echo $armory['3d']; ?></a></li>
 	<li class="current">
-	<a href="advanced.php?name=<?php echo $character->getObjectInfo()->name;?>" rel="np" class="advanced">Advanced</a></li>
+	<a href="advanced.php?name=<?php echo $character->getObjectInfo()->name;?>" rel="np" class="advanced"><?php echo $armory['advanced']; ?></a></li>
 	</ul>
 	<div class="summary-averageilvl">
-	<div class="rest">Average item level<br/>(<span class="equipped">20</span> Equipped)
+	<div class="rest"><?php echo $armory['itemlevel']; ?><br/>(<span class="equipped">20</span> <?php echo $armory['equipped']; ?>)
 	</div>
 	<div id="summary-averageilvl-best" class="best tip" data-id="averageilvl">20</div>
 	</div>
@@ -266,18 +280,18 @@ Services
 
 					<div class="summary-middle-right">
 						<div class="summary-audit" id="summary-audit">
-							<div class="category-right"><span class="tip" id="summary-audit-whatisthis">What is this?</span></div>
-								<h3 class="category ">Character Audit</h3>
+							<div class="category-right"><span class="tip" id="summary-audit-whatisthis"><?php echo $armory['what']; ?></span></div>
+								<h3 class="category "><?php echo $armory['audit']; ?></h3>
 
 							<div class="profile-box-simple">
 
 	<ul class="summary-audit-list">
 	<li>
-				<span class="number">1</span> empty glyph slot
+				<span class="number">1</span> <?php echo $armory['emptyGlyph']; ?>
 	</li>
 	<li data-slots="2,15">
 				<span class="tip">
-					<span class="number">2</span> unenchanted items
+					<span class="number">2</span> <?php echo $armory['unenchanted']; ?>
 				</span>
 	</li>
 	</ul>
@@ -298,7 +312,7 @@ Services
 							</div>
 						</div>
 						<div id="summary-reforging" class="summary-reforging">
-								<h3 class="category ">Reforging</h3>
+								<h3 class="category "><?php echo $armory['reforging']; ?></h3>
 
 							<div class="profile-box-simple">
 
@@ -309,7 +323,7 @@ Services
 				
 					<div class="summary-middle-left">
 						<div class="summary-bonus-tally">
-								<h3 class="category ">Enchant/Gem Bonuses</h3>
+								<h3 class="category "><?php echo $armory['enchant']; ?></h3>
 
 							<div class="profile-box-simple">
 
@@ -317,13 +331,13 @@ Services
 		<div class="numerical">
 			<ul>
 					<li>
-						<span class="value">+0</span> Armour
+						<span class="value">+0</span> <?php echo $armory['armour']; ?>
 					</li>
 					<li>
-						<span class="value">+0</span> Stamina
+						<span class="value">+0</span> <?php echo $armory['stamina']; ?>
 					</li>
 					<li>
-						<span class="value">+0</span> Strength
+						<span class="value">+0</span> <?php echo $armory['strength']; ?>
 					</li>
 			</ul>
 		</div>
@@ -333,11 +347,11 @@ Services
 						</div>
 
 						<div class="summary-gems">
-								<h3 class="category ">Gems</h3>
+								<h3 class="category "><?php echo $armory['gems']; ?></h3>
 
 							<div class="profile-box-simple">
 
-		This character doesn't use any gems.
+		<?php echo $armory['noGems']; ?>
 							</div>
 						</div>
 
@@ -350,11 +364,11 @@ Services
 			<div class="summary-bottom">
 
 				<div class="profile-recentactivity">
-	<h3 class="category ">						Recent Activity
+	<h3 class="category ">						<?php echo $armory['activity']; ?>
 </h3>
 					<div class="profile-box-simple">
-					<p>There is no Recent Activity.</p>
-					This feature is Disabled.
+					<p><?php echo $armory['noActivity']; ?></p>
+					<?php echo $armory['disable']; ?>
 	<ul class="activity-feed">
 
 
@@ -464,7 +478,7 @@ Services
 	</li>
 	</ul>
 	<div class="profile-linktomore">	
-		<a href="" rel="np">View earlier activity</a>
+		<a href="" rel="np"><?php echo $armory['early']; ?></a>
 	</div>
 
 	<span class="clear"><!-- --></span>
@@ -479,9 +493,18 @@ Services
 
 	<li class="summary-talents-0">
 		<a href=""><span class="inner">
-			<span class="icon"><img src="http://eu.media.blizzard.com/wow/icons/36/inv_misc_questionmark.jpg" alt="" /><span class="frame"></span></span>
-			<span class="name-build">
-				<span class="name">Talents</span>
+			<span class="icon"><img src="wow/static/images/icons/talents/<?php echo $talentS; ?>.jpg" alt="" /><span class="frame"></span></span>
+				<span class="roles">
+            <?php if($talentS=='750'){echo '<span class="icon-tank"></span>';}?>
+						<?php                                                                   //Show roles based on the talent branch
+              if($talentS=='398' || $talentS=='839' || $talentS=='845'){echo '<span class="icon-tank"></span>';}
+              elseif ($talentS=='748' || $talentS=='831' || $talentS=='760' || $talentS=='813' || $talentS=='262'){echo '<span class="icon-heal"></span>';}
+              elseif ($talentS=='0'){echo '<span></span>';}
+              else {echo '<span class="icon-dps"></span>';}
+            ?>	
+         </span>		
+      <span class="name-build">
+				<span class="name"><?php echo $armory['branch'.$talentS]; ?></span>
 				<span class="build">0<ins>/</ins>0<ins>/</ins>0</span>
 			</span>
 		</span></a>
@@ -490,12 +513,18 @@ Services
 	<li class="summary-talents-1">
 		<a href="" class="active"><span class="inner">
 				<span class="checkmark"></span>
-			<span class="icon"><img src="wow/static/images/icons/talents/<?php echo @$talenimage ?>.jpg" alt="" /><span class="frame"></span></span>
+			<span class="icon"><img src="wow/static/images/icons/talents/<?php echo $talentP; ?>.jpg" alt="" /><span class="frame"></span></span>
 				<span class="roles">
-							<span class="icon-dps"></span>
-				</span>
+            <?php if($talentP=='750'){echo '<span class="icon-tank"></span>';}?>
+						<?php                                                                 //Show roles based on the talent branch
+              if($talentP=='398' || $talentP=='839' || $talentP=='845'){echo '<span class="icon-tank"></span>';}
+              elseif ($talentP=='748' || $talentP=='831' || $talentP=='760' || $talentP=='813' || $talentP=='262'){echo '<span class="icon-heal"></span>';}
+              elseif ($talentP=='0'){echo '<span></span>';}
+              else {echo '<span class="icon-dps"></span>';}
+            ?>
+				</span>       
 			<span class="name-build">
-				<span class="name"><?php echo @$talename ?></span>
+				<span class="name"><?php echo $armory['branch'.$talentP]; ?></span>
 				<span class="build">0<ins>/</ins>0<ins>/</ins>0</span>
 			</span>
 		</span></a>
@@ -505,34 +534,42 @@ Services
 
 					<div class="summary-health-resource">
 	<ul>
-		<li class="health" id="summary-health" data-id="health"><span class="name">Health</span><span class="value"><?php echo @$get["health"] ?></span></li>
-		<li class="resource-<?php echo @$power ?>" id="summary-power" data-id="power-<?php echo @$power ?>"><span class="name"><?php echo @$powname ?></span><span class="value">
+		<li class="health" id="summary-health" data-id="health">
+		<table width="100%">
+		  <tr>
+        <td><span class="name"><?php echo $armory['Health']; ?></span></td>
+        <td align="right"><span class="value"><?php echo $character->getStatInfo()->maxhealth; ?>&nbsp;&nbsp;&nbsp;</span></td>
+      </tr>
+    </table>
+    </li>
+    	
 		<?php 
-		/*if($cclass == 2 || $cclass == 7 || $cclass == 8 || $cclass == 9 || $cclass == 11 || $cclass == 5)
+		if($classNum == 2 || $classNum == 7 || $classNum == 8 || $classNum == 9 || $classNum == 11 || $classNum == 5 || $classNum == 7)
 		{
-		echo $get["power1"];
+		  echo '<li class="resource-0" id="summary-power" data-id="power-0">';
+      echo '<table width="100%"><tr><td><span class="name">'.$armory['Mana'].'</span></td><td align="right"><span class="value">'.$character->getStatInfo()->maxpower1.'&nbsp;&nbsp;&nbsp;</span></td></tr>';
 		}
-		elseif($cclass == 3)
+		elseif($classNum == 3)
 		{
-		echo '100';
+      echo '<li class="resource-2" id="summary-power" data-id="power-2">';
+      echo '<table width="100%"><tr><td><span class="name">'.$armory['Focus'].'</span></td><td align="right"><span class="value">'.$character->getStatInfo()->maxpower3.'&nbsp;&nbsp;&nbsp;</span></td></tr>';
 		}
-		elseif($cclass == 1)
+		elseif($classNum == 1)
 		{
-		echo '100';
+		echo '<li class="resource-1" id="summary-power" data-id="power-1">';
+      echo '<table width="100%"><tr><td><span class="name">'.$armory['Rage'].'</span></td><td align="right"><span class="value">'.$character->getStatInfo()->maxpower4.'&nbsp;&nbsp;&nbsp;</span></td></tr>';
 		}
-		elseif($cclass == 4)
+		elseif($classNum == 4)
 		{
-		echo '100';
+		  echo '<li class="resource-3" id="summary-power" data-id="power-3">';
+      echo '<table width="100%"><tr><td><span class="name">'.$armory['Energy'].'</span></td><td align="right"><span class="value">'.$character->getStatInfo()->maxpower1.'&nbsp;&nbsp;&nbsp;</span></td></tr>';
 		}
-		elseif($cclass == 7)
+		elseif($classNum == 6)
 		{
-		echo '100';
-		}
-		elseif($cclass == 6)
-		{
-		echo $get["power4"];
-		}*/
-		 ?></span></li>
+		  echo '<li class="resource-6" id="summary-power" data-id="power-6">';
+      echo '<table width="100%"><tr><td><span class="name">'.$armory['Runic'].'</span></td><td align="right"><span class="value">'.($character->getStatInfo()->maxpower7/10).'&nbsp;&nbsp;&nbsp;</span></td></tr>';
+		}                                                                                                                               //runic is 1000 in db
+		 ?></table></li>
 	</ul>
 					</div>
 
@@ -546,23 +583,23 @@ Services
 		<h4>Base</h4>
 		<ul>
 	<li data-id="strength" class="">
-		<span class="name">Strength</span>
-		<span class="value color-q2"><?php echo @$gets["strength"] ?></span>
+		<span class="name"><?php echo $armory['strength']; ?></span>
+		<span class="value color-q2"><?php echo $character->getStatInfo()->strength; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 	<li data-id="intellect" class="">
-		<span class="name">Intellect</span>
-		<span class="value color-q10"><?php echo @$gets["intellect"] ?></span>
+		<span class="name"><?php echo $armory['Agility']; ?></span>
+		<span class="value color-q2"><?php echo $character->getStatInfo()->agility; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 	<li data-id="stamina" class="">
-		<span class="name">Stamina</span>
-		<span class="value color-q2"><?php echo @$gets["stamina"] ?></span>
+		<span class="name"><?php echo $armory['stamina']; ?></span>
+		<span class="value color-q2"><?php echo $character->getStatInfo()->stamina; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 	<li data-id="mastery" class="">
-		<span class="name">Mastery</span>
-		<span class="value">0.00</span>
+		<span class="name"><?php echo $armory['Intellect']; ?></span>
+		<span class="value"><?php echo $character->getStatInfo()->intellect; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 		</ul>
@@ -570,7 +607,7 @@ Services
 				</div>
 				<div class="summary-stats-advanced-role">
 	<div class="summary-stats-column">
-		<h4>Other</h4>
+		<h4><?php echo $armory['Other']; ?></h4>
 		<ul>
 
 	 
@@ -579,8 +616,8 @@ Services
 
 
 	<li data-id="meleeattackpower" class="">
-		<span class="name">Attack Power</span>
-		<span class="value color-q2">0</span>
+		<span class="name"><?php echo $armory['AP']; ?></span>
+		<span class="value color-q2"><?php echo $character->getStatInfo()->attackPower; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -589,8 +626,8 @@ Services
 	
 
 	<li data-id="parry" class="">
-		<span class="name">Parry</span>
-		<span class="value"><?php echo @$gets["parryPct"] ?>%</span>
+		<span class="name"><?php echo $armory['Parry']; ?></span>
+		<span class="value"><?php echo number_format($character->getStatInfo()->parryPct,2,".",","); ?> %</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -601,8 +638,8 @@ Services
 
 
 	<li data-id="meleehaste" class="">
-		<span class="name">Haste</span>
-		<span class="value">0%</span>
+		<span class="name"><?php echo $armory['Haste']; ?></span>
+		<span class="value">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -613,8 +650,8 @@ Services
 
 
 	<li data-id="meleehit" class="">
-		<span class="name">Hit</span>
-		<span class="value">0%</span>
+		<span class="name"><?php echo $armory['Hit']; ?></span>
+		<span class="value">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -625,8 +662,8 @@ Services
 
 
 	<li data-id="meleecrit" class="">
-		<span class="name">Crit</span>
-		<span class="value"><?php echo @$gets["critPct"] ?>%</span>
+		<span class="name"><?php echo $armory['Crit']; ?></span>
+		<span class="value"><?php echo number_format($character->getStatInfo()->critPct,2,".",","); ?> %</span>
 	<span class="clear"><!-- --></span>
 	</li>
 		</ul>
@@ -640,7 +677,7 @@ Services
 
 
 	<div class="summary-stats-column">
-		<h4>Base</h4>
+		<h4><?php echo $armory['Base']; ?></h4>
 		<ul>
 
 	 
@@ -650,8 +687,8 @@ Services
 
 
 	<li data-id="strength" class="">
-		<span class="name">Strength</span>
-		<span class="value color-q2"><?php echo @$gets["strength"] ?></span>
+		<span class="name"><?php echo $armory['strength']; ?></span>
+		<span class="value color-q2"><?php echo $character->getStatInfo()->strength; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -662,8 +699,8 @@ Services
 
 
 	<li data-id="agility" class="">
-		<span class="name">Agility</span>
-		<span class="value">0</span>
+		<span class="name"><?php echo $armory['Agility']; ?></span>
+		<span class="value"><?php echo $character->getStatInfo()->agility; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -674,8 +711,8 @@ Services
 
 
 	<li data-id="stamina" class="">
-		<span class="name">Stamina</span>
-		<span class="value color-q2">0</span>
+		<span class="name"><?php echo $armory['stamina']; ?></span>
+		<span class="value color-q2"><?php echo $character->getStatInfo()->stamina; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -686,8 +723,8 @@ Services
 
 
 	<li data-id="intellect" class="">
-		<span class="name">Intellect</span>
-		<span class="value color-q2">0</span>
+		<span class="name"><?php echo $armory['Intellect']; ?></span>
+		<span class="value color-q2"><?php echo $character->getStatInfo()->intellect; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -698,8 +735,8 @@ Services
 
 
 	<li data-id="spirit" class="">
-		<span class="name">Spirit</span>
-		<span class="value">0</span>
+		<span class="name"><?php echo $armory['Spirit']; ?></span>
+		<span class="value"><?php echo $character->getStatInfo()->spirit; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -710,8 +747,8 @@ Services
 
 
 	<li data-id="mastery" class="">
-		<span class="name">Mastery</span>
-		<span class="value">0.00</span>
+		<span class="name"><?php echo $armory['Mastery']; ?></span>
+		<span class="value">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
 		</ul>
@@ -722,7 +759,7 @@ Services
 
 
 	<div class="summary-stats-column">
-		<h4>Melee</h4>
+		<h4><?php echo $armory['Melee']; ?></h4>
 		<ul>
 
 	 
@@ -730,8 +767,8 @@ Services
 	
 
 	<li data-id="meleedamage" class="">
-		<span class="name">Damage</span>
-		<span class="value">0–0</span>
+		<span class="name"><?php echo $armory['Damage'];?></span>
+		<span class="value">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -741,7 +778,7 @@ Services
 
 	<li data-id="meleedps" class="">
 		<span class="name">DPS</span>
-		<span class="value">0</span>
+		<span class="value">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -751,8 +788,8 @@ Services
 
 
 	<li data-id="meleeattackpower" class="">
-		<span class="name">Attack Power</span>
-		<span class="value color-q2">0</span>
+		<span class="name"><?php echo $armory['AP'];?></span>
+		<span class="value color-q2"><?php echo $character->getStatInfo()->attackPower; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -761,8 +798,8 @@ Services
 	
 
 	<li data-id="meleespeed" class="">
-		<span class="name">Speed</span>
-		<span class="value">0</span>
+		<span class="name"><?php echo $armory['Speed'];?></span>
+		<span class="value">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -773,8 +810,8 @@ Services
 
 
 	<li data-id="meleehaste" class="">
-		<span class="name">Haste</span>
-		<span class="value">0%</span>
+		<span class="name"><?php echo $armory['Haste'];?></span>
+		<span class="value">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -785,8 +822,8 @@ Services
 
 
 	<li data-id="meleehit" class="">
-		<span class="name">Hit</span>
-		<span class="value">0%</span>
+		<span class="name"><?php echo $armory['Hit'];?></span>
+		<span class="value">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -797,8 +834,8 @@ Services
 
 
 	<li data-id="meleecrit" class="">
-		<span class="name">Crit</span>
-		<span class="value"><?php echo @$get["critPct"] ?>%</span>
+		<span class="name"><?php echo $armory['Crit'];?></span>
+		<span class="value"><?php echo number_format($character->getStatInfo()->critPct,2,".",","); ?> %</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -807,8 +844,8 @@ Services
 	
 
 	<li data-id="expertise" class="">
-		<span class="name">Expertise</span>
-		<span class="value">0</span>
+		<span class="name"><?php echo $armory['Expertise'];?></span>
+		<span class="value">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
 		</ul>
@@ -816,7 +853,7 @@ Services
 
 
 	<div class="summary-stats-column" style="display: none">
-		<h4>Ranged</h4>
+		<h4><?php echo $armory['Ranged']; ?></h4>
 		<ul>
 
 	 
@@ -824,7 +861,7 @@ Services
 	
 
 	<li data-id="rangeddamage" class=" no-tooltip">
-		<span class="name">Damage</span>
+		<span class="name"><?php echo $armory['Damage'];?></span>
 		<span class="value color-q0">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
@@ -837,7 +874,7 @@ Services
 
 	<li data-id="rangeddps" class=" no-tooltip">
 		<span class="name">DPS</span>
-		<span class="value color-q0">--</span>
+		<span class="value color-q0"->-</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -847,8 +884,8 @@ Services
 
 
 	<li data-id="rangedattackpower" class="">
-		<span class="name">Attack Power</span>
-		<span class="value color-q2">0</span>
+		<span class="name"><?php echo $armory['AP'];?></span>
+		<span class="value color-q2"><?php echo $character->getStatInfo()->rangedAttackPower; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -859,7 +896,7 @@ Services
 
 
 	<li data-id="rangedspeed" class=" no-tooltip">
-		<span class="name">Speed</span>
+		<span class="name"><?php echo $armory['Speed'];?></span>
 		<span class="value color-q0">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
@@ -871,8 +908,8 @@ Services
 
 
 	<li data-id="rangedhaste" class="">
-		<span class="name">Haste</span>
-		<span class="value">0%</span>
+		<span class="name"><?php echo $armory['Haste'];?></span>
+		<span class="value">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -883,8 +920,8 @@ Services
 
 
 	<li data-id="rangedhit" class="">
-		<span class="name">Hit</span>
-		<span class="value">0%</span>
+		<span class="name"><?php echo $armory['Hit'];?></span>
+		<span class="value">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -895,8 +932,8 @@ Services
 
 
 	<li data-id="rangedcrit" class="">
-		<span class="name">Crit</span>
-		<span class="value">0%</span>
+		<span class="name"><?php echo $armory['Crit'];?></span>
+		<span class="value"><?php echo number_format($character->getStatInfo()->rangedCritPct,2,".",","); ?> %</span>
 	<span class="clear"><!-- --></span>
 	</li>
 		</ul>
@@ -904,7 +941,7 @@ Services
 
 
 	<div class="summary-stats-column" style="display: none">
-		<h4>Spell</h4>
+		<h4><?php echo $armory['Spell']; ?></h4>
 		<ul>
 
 	 
@@ -914,8 +951,8 @@ Services
 
 
 	<li data-id="spellpower" class="">
-		<span class="name">Spell Power</span>
-		<span class="value">0</span>
+		<span class="name"><?php echo $armory['AP'];?></span>
+		<span class="value"><?php echo $character->getStatInfo()->spellPower; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -926,8 +963,8 @@ Services
 
 
 	<li data-id="spellhaste" class="">
-		<span class="name">Haste</span>
-		<span class="value">0%</span>
+		<span class="name"><?php echo $armory['Haste'];?></span>
+		<span class="value">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -938,8 +975,8 @@ Services
 
 
 	<li data-id="spellhit" class="">
-		<span class="name">Hit</span>
-		<span class="value">0%</span>
+		<span class="name"><?php echo $armory['Hit'];?></span>
+		<span class="value">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -950,8 +987,8 @@ Services
 
 
 	<li data-id="spellcrit" class="">
-		<span class="name">Crit</span>
-		<span class="value">0%</span>
+		<span class="name"><?php echo $armory['Crit'];?></span>
+		<span class="value"><?php echo number_format($character->getStatInfo()->SpellCritPct,2,".",","); ?> %</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -962,8 +999,8 @@ Services
 
 
 	<li data-id="spellpenetration" class="">
-		<span class="name">Penetration</span>
-		<span class="value">0</span>
+		<span class="name"><?php echo $armory['Penetration'];?></span>
+		<span class="value">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -974,8 +1011,8 @@ Services
 
 
 	<li data-id="manaregen" class="">
-		<span class="name">Mana Regen</span>
-		<span class="value">0</span>
+		<span class="name"><?php echo $armory['manaReg'];?></span>
+		<span class="value">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -986,8 +1023,8 @@ Services
 
 
 	<li data-id="combatregen" class="">
-		<span class="name">Combat Regen</span>
-		<span class="value">0</span>
+		<span class="name"><?php echo $armory['combatReg'];?></span>
+		<span class="value">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
 		</ul>
@@ -995,7 +1032,7 @@ Services
 
 
 	<div class="summary-stats-column" style="display: none">
-		<h4>Defense</h4>
+		<h4><?php echo $armory['Defense'] ?></h4>
 		<ul>
 
 	 
@@ -1005,8 +1042,8 @@ Services
 
 
 	<li data-id="armor" class="">
-		<span class="name">Armour</span>
-		<span class="value color-q2">0</span>
+		<span class="name"><?php echo $armory['armour'];?></span>
+		<span class="value color-q2"><?php echo $character->getStatInfo()->armor; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -1017,8 +1054,8 @@ Services
 
 
 	<li data-id="dodge" class="">
-		<span class="name">Dodge</span>
-		<span class="value">0%</span>
+		<span class="name"><?php echo $armory['Dodge'];?></span>
+		<span class="value"><?php echo number_format($character->getStatInfo()->dodgePct,2,".",","); ?> %</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -1029,8 +1066,8 @@ Services
 
 
 	<li data-id="parry" class="">
-		<span class="name">Parry</span>
-		<span class="value">0%</span>
+		<span class="name"><?php echo $armory['Parry'];?></span>
+		<span class="value"><?php echo number_format($character->getStatInfo()->parryPct,2,".",","); ?> %</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -1041,8 +1078,8 @@ Services
 
 
 	<li data-id="block" class="">
-		<span class="name">Block</span>
-		<span class="value">0%</span>
+		<span class="name"><?php echo $armory['Block'];?></span>
+		<span class="value"><?php echo number_format($character->getStatInfo()->parryPct,2,".",","); ?> %</span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -1053,8 +1090,8 @@ Services
 
 
 	<li data-id="resilience" class="">
-		<span class="name">Resilience</span>
-		<span class="value">0</span>
+		<span class="name"><?php echo $armory['Resilience'];?></span>
+		<span class="value">--</span>
 	<span class="clear"><!-- --></span>
 	</li>
 		</ul>
@@ -1062,7 +1099,7 @@ Services
 
 
 	<div class="summary-stats-column" style="display: none">
-		<h4>Resistance</h4>
+		<h4><?php echo $armory['Resis']; ?></h4>
 		<ul>
 
 	 
@@ -1080,8 +1117,8 @@ Services
 			<img src="http://eu.media.blizzard.com/wow/icons/18/resist_arcane.jpg" alt="" width="12" height="12" />
 		</span>
 </span>
-		<span class="name">Arcane</span>
-		<span class="value">0</span>
+		<span class="name"><?php echo $armory['Arcane']; ?></span>
+		<span class="value"><?php echo $character->getStatInfo()->resArcane; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -1100,8 +1137,8 @@ Services
 			<img src="http://eu.media.blizzard.com/wow/icons/18/resist_fire.jpg" alt="" width="12" height="12" />
 		</span>
 </span>
-		<span class="name">Fire</span>
-		<span class="value">0</span>
+		<span class="name"><?php echo $armory['Fire']; ?></span>
+		<span class="value"><?php echo $character->getStatInfo()->resFire; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -1120,8 +1157,8 @@ Services
 			<img src="http://eu.media.blizzard.com/wow/icons/18/resist_frost.jpg" alt="" width="12" height="12" />
 		</span>
 </span>
-		<span class="name">Frost</span>
-		<span class="value">0</span>
+		<span class="name"><?php echo $armory['Frost']; ?></span>
+		<span class="value"><?php echo $character->getStatInfo()->resFrost; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -1140,8 +1177,8 @@ Services
 			<img src="http://eu.media.blizzard.com/wow/icons/18/resist_nature.jpg" alt="" width="12" height="12" />
 		</span>
 </span>
-		<span class="name">Nature</span>
-		<span class="value">0</span>
+		<span class="name"><?php echo $armory['Nature']; ?></span>
+		<span class="value"><?php echo $character->getStatInfo()->resNature; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 
@@ -1160,8 +1197,8 @@ Services
 			<img src="http://eu.media.blizzard.com/wow/icons/18/resist_shadow.jpg" alt="" width="12" height="12" />
 		</span>
 </span>
-		<span class="name">Shadow</span>
-		<span class="value">26</span>
+		<span class="name"><?php echo $armory['Shadow']; ?></span>
+		<span class="value"><?php echo $character->getStatInfo()->resShadow; ?></span>
 	<span class="clear"><!-- --></span>
 	</li>
 		</ul>
@@ -1170,7 +1207,7 @@ Services
 			<div class="summary-stats-end"></div>
 		</div>
 
-			<a href="javascript:;" id="summary-stats-toggler" class="summary-stats-toggler"><span class="inner"><span class="arrow">Show all stats</span></span></a>
+			<a href="javascript:;" id="summary-stats-toggler" class="summary-stats-toggler"><span class="inner"><span class="arrow"><?php echo $armory['showAll']; ?></span></span></a>
 	</div>
 
         <script type="text/javascript">
@@ -1513,8 +1550,8 @@ Services
 			},
 			stats: {
 				toggle: {
-					all: "Show all stats",
-					core: "Show core stats only"
+					all: <?php echo $armory["showAll"] ?>,
+					core: <?php echo $armory["showMain"] ?>,
 				},
 				increases: {
 					attackPower: "Increases Attack Power by {0}.",
@@ -1741,13 +1778,13 @@ var xsToken = '';
 var Msg = {
 support: {
 ticketNew: 'Ticket {0} was created.',
-ticketStatus: 'Ticket {0}’s status changed to {1}.',
+ticketStatus: 'Ticket {0}’s status changed to� {1}.',
 ticketOpen: 'Open',
 ticketAnswered: 'Answered',
 ticketResolved: 'Resolved',
 ticketCanceled: 'Cancelled',
 ticketArchived: 'Archived',
-ticketInfo: 'Need Info',
+ticketInfo: 'Need� Info',
 ticketAll: 'View All Tickets'
 },
 cms: {
@@ -1880,5 +1917,9 @@ s.parentNode.insertBefore(ga, s.nextSibling);
 })();
 //]]>
 </script>
+<?php         //GET THE BASE STATS
+require ("functions/armory_func.php");
+baseStats($character->getObjectInfo()->name);  
+?>
 </body>
 </html>

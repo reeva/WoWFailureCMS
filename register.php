@@ -80,42 +80,66 @@ _gaq.push(['_trackPageLoadTime']);
 						  $accountName = mysql_real_escape_string($_POST['accountName']);
 						  $accountPass = mysql_real_escape_string($_POST['accountPass']);
 						  $accountEmail = mysql_real_escape_string(stripslashes($_POST['accountEmail']));
+						  $accountEmail2 = mysql_real_escape_string(stripslashes($_POST['accountEmail2']));
 						  mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
 						  $check_query = mysql_query("SELECT * FROM account WHERE username = '".$accountName."'");
 						  $check = mysql_fetch_assoc($check_query);
-						  $firstName = mysql_real_escape_string($_POST['firstName']);
-						  $lastName = mysql_real_escape_string($_POST['lastName']);
+						  $firstName = mysql_real_escape_string(ucfirst($_POST['firstName']));
+						  $lastName = mysql_real_escape_string(ucfirst($_POST['lastName']));
+						  
+						  $dobD=$_POST['dobDay'];
+						  $dobM=$_POST['dobMonth'];
+						  $dobY=$_POST['dobYear'];
+							$question=$_POST['question1'];
+							$answer=$_POST['answer1'];
 							
 						  if(!$check){
 
 							if($accountPass != stripslashes($_POST['accountPassc'])){
-							  $error[]="Passwords does not match.";
+							  $error[]=$re['error2'];
 							}
 							
-							if(empty($firstName)) $error[] = "You need to enter your first name.";
-							if(empty($lastName)) $error[] = "You need to enter your last name.";
+							if(empty($firstName)) $error[] = $re['error3'];
+							if(empty($lastName)) $error[] = $re['error4'];
 							
 							if(empty($accountEmail)){
-							  $error[]="You need to enter your e-mail";
+							  $error[]=$re['error5'];
+							}
+							
+							if($accountEmail != $accountEmail2){
+							  $error[]=$re['error9'];
 							}
 
 							if(empty($accountPass)){
-							  $error[]="You need to enter a password";
+							  $error[]=$re['error6'];
 							}
-
+							
+              if($dobD == '0' || $dobY == '0' || $dobM == '0'){
+							  $error[]=$re['error8'];
+							}
+							
+							if($question == 0 || empty($answer)){
+							  $error[]=$re['error10'];
+							}
+							
+							if(strlen($_POST['accountPass']) < 5 || strlen($_POST['accountPass']) > 15 ){
+                $chars = strlen($accountPass);
+                die("<p align='center'>".$Reg['Reg6']."<br><br>".$Reg['Reg9']."<br><br>".$Reg['Reg10']."".$chars." ".$Reg['Reg11']."<br><br>".$Reg['Reg12']."<br><br>".$Reg['Reg13']."</p><p align='center'><a href='change-password.php'><button class='ui-button button1' type='submit' value='Volver' tabindex='1'><span><span>Volver</span></span></button></a></p>");
+              }
+							
 						  }else{
-							$error[]="The username has been already taken";
+							$error[]=$re['error7'];
 						  }
               
               ?>
 			  <?php
               if(isset($error) && count($error) > 0){
-                echo '<div class="errors">';
+                echo '<div class="errors" align="center">';
                 foreach($error as $errors){
                 echo "<font color='red'>*".$errors."</font><br />";
                 }
                 echo '</div>';
-                echo '<meta http-equiv="refresh" content="2"';
+                echo '<meta http-equiv="refresh" content="3"/>';
               }
               else
               {
@@ -123,30 +147,37 @@ _gaq.push(['_trackPageLoadTime']);
               $ip = getenv("REMOTE_ADDR");
                 
 				
-	         mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
+	              mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
                 $accinfoq = mysql_query("SELECT * FROM account WHERE username = '".$accountName."'");
                 $accinfo = mysql_num_rows($accinfoq);
           
                 if ($accinfo == 0)
                 {
                     $sha_pass_hash= sha1(strtoupper($accountName ) . ":" . strtoupper($accountPass));
-                    $register_logon = mysql_query("INSERT INTO account (username,sha_pass_hash,email,last_ip,expansion) VALUES (UPPER('".$accountName."'),  CONCAT('".$sha_pass_hash."'),'".$accountEmail."','".$ip."','3')")or die(mysql_error());
+                    $register_logon = mysql_query("INSERT INTO account (username,sha_pass_hash,email,last_ip,register_ip,expansion) VALUES (UPPER('".$accountName."'),  CONCAT('".$sha_pass_hash."'),'".$accountEmail."','".$ip."','".$ip."','3')")or die(mysql_error());
               
+                    mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
+					          $accountinfo = mysql_fetch_assoc(mysql_query("SELECT * FROM account WHERE username = UPPER('".$accountName."')"));
                     mysql_select_db($server_db,$connection_setup)or die(mysql_error());
-					$accountinfo = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_adb.account WHERE username = '".strtoupper($accountName)."'"));
-                    $register_cms = mysql_query("INSERT INTO users(id,firstName,lastName) VALUES ('".mysql_real_escape_string($accountinfo['id'])."','".$firstName."','".$lastName."')");
-                
+                    $register_cms = mysql_query("INSERT INTO users (id,class,firstName,lastName) VALUES ('".mysql_real_escape_string($accountinfo['id'])."',0,'".$firstName."','".$lastName."')");
+//IMPORTANTE VER PARA QUE SIRVE CLASS               
                     if ($register_logon == true && $register_cms == true)
                     {
-                        echo '<div class="alert-page">';
+                        echo '<div class="alert-page" align="center">';
                         echo '<div class="alert-page-message success-page">
-								<p class="text-green title"><strong>Success!</strong></p>
-								<p class="caption">Your preferences and your account have been successfully created.</p>
-								<p class="caption"><a href="account_man.php">Back to Account Management</a></p>
+								<p class="text-green title"><strong>'.$re['scc1'].'</strong></p>
+								<p class="caption">'.$re['scc2'].'</p>
+								<p class="caption"><a href="account_man.php">'.$re['goPanel'].'</a></p>
 								</div>';
                         echo '</div>';
                         $_SESSION['username'] = $accountName;
-                        echo '<meta http-equiv="refresh" content="3;url=index.php"';
+                        echo '<meta http-equiv="refresh" content="3;url=index.php"/>';
+                    }
+                    else{ //MODIFICADO PARA BORRAR CUENTA CUANDO DA FALLO DESPUES DE HABERLA GUARDADO EN LA DB
+                        mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
+                        $accdel= mysql_query("DELETE FROM account WHERE username = '".$accountName."'");
+                        echo '<div class="errors" align="center"><font color="red">'.$re['error1'].'</font><br><br />';
+                        echo'<a href="register.php"><button class="ui-button button1"  id="back" tabindex="1" /><span><span>'.$re['back'].'</span></span></button></a></div>'; 
                     }
                 }
               }
@@ -168,12 +199,13 @@ _gaq.push(['_trackPageLoadTime']);
 </span>
 <span class="input-right">
 <span class="input-select input-select-small">
-<select name="country" id="country" class="small border-5 glow-shadow-2 form-disabled" tabindex="1" disabled="disabled" >
+<select name="country" id="country" class="small border-5 glow-shadow-2 form-disabled" tabindex="1"  >
 <optgroup label="">
-<option value="GBR" selected="selected">United Kingdom</option>
+<option value="CHL" selected="selected">Chile</option>
+<option value="ESP">España</option>
+<option value="GBR">United Kingdom</option>
 <option value="FRA">France</option>
 <option value="DEU">Germany</option>
-<option value="ESP">Spain</option>
 <option value="RUS">Russian Federation</option>
 </optgroup>
 <option value="AFG">Afghanistan</option>
@@ -219,7 +251,6 @@ _gaq.push(['_trackPageLoadTime']);
 <option value="CYM">Cayman Islands</option>
 <option value="CAF">Central African Republic</option>
 <option value="TCD">Chad</option>
-<option value="CHL">Chile</option>
 <option value="CHINA">China</option>
 <option value="CXR">Christmas Island</option>
 <option value="CCK">Cocos (Keeling) Islands</option>
@@ -500,7 +531,7 @@ countrySubmit.style.display = 'none';
 <script type="text/javascript">
 //<![CDATA[
 var FormMsg = {
-emailMessage1: 'This will be the username you use to log in.',
+emailMessage1: 'This will be the username you use to log in.',                          //*************************************
 emailError1: '<span class="inline-error">Not a valid e-mail address.</span>',
 emailError2: '<span class="inline-error">E-mail addresses must match.</span>',
 passwordError1: '<span class="inline-error">Password does not meet the guidelines.</span>',
@@ -524,8 +555,8 @@ passwordStrength3: 'Strong'
 </span>
 <span class="input-right">
 <span class="input-select input-select-extra-extra-extra-small">
-<select name="dobDay" id="dobDay" class="extra-extra-extra-small border-5 glow-shadow-2" tabindex="1" required="required" disabled="disabled" >
-<option value="" selected="selected">Day</option>
+<select name="dobDay" id="dobDay" class="extra-extra-extra-small border-5 glow-shadow-2" tabindex="1" required="required" >
+<option value="0" selected="selected"><?php echo $re['day']; ?></option>    <?php //se podria generar con blucle por php ?>
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -561,8 +592,8 @@ passwordStrength3: 'Strong'
 <span class="inline-message" id="dobDay-message"> </span>
 </span>
 <span class="input-select input-select-extra-extra-small">
-<select name="dobMonth" id="dobMonth" class="extra-extra-small border-5 glow-shadow-2" tabindex="1" required="required" disabled="disabled" >
-<option value="" selected="selected">Month</option>
+<select name="dobMonth" id="dobMonth" class="extra-extra-small border-5 glow-shadow-2" tabindex="1" required="required">
+<option value="0" selected="selected"><?php echo $re['month']; ?></option>
 <option value="1">January</option>
 <option value="2">February</option>
 <option value="3">March</option>
@@ -579,8 +610,8 @@ passwordStrength3: 'Strong'
 <span class="inline-message" id="dobMonth-message"> </span>
 </span>
 <span class="input-select input-select-extra-extra-extra-small">
-<select name="dobYear" id="dobYear" class="extra-extra-extra-small border-5 glow-shadow-2" tabindex="1" required="required" disabled="disabled" >
-<option value="" selected="selected">Year</option>
+<select name="dobYear" id="dobYear" class="extra-extra-extra-small border-5 glow-shadow-2" tabindex="1" required="required">
+<option value="0" selected="selected"><?php echo $re['year']; ?></option>
 <option value="2012">2012</option>
 <option value="2011">2011</option>
 <option value="2010">2010</option>
@@ -711,10 +742,9 @@ passwordStrength3: 'Strong'
 <span class="input-right">
 <span class="input-select input-select-small">
 <select name="gender" id="gender" class="small border-5 glow-shadow-2" tabindex="1" required="required">
-<option value="1" selected="selected">Mr</option>
-<option value="2">Ms</option>
-<option value="3">Mrs</option>
-<option value="4">Miss</option>
+<option value="1" selected="selected"><?php echo $re['mr']; ?></option>
+<option value="2"><?php echo $re['miss']; ?></option>
+<option value="3"><?php echo $re['ms']; ?></option>
 </select>
 <span class="inline-message" id="gender-message"> </span>
 </span>
@@ -732,7 +762,7 @@ passwordStrength3: 'Strong'
 </span>
 <span class="input-right">
 <span class="input-text input-text-small">
-<input type="text" name="firstName" value="" id="firstname" class="small border-5 glow-shadow-2" autocomplete="off" maxlength="32" tabindex="1" required="required" placeholder="Enter First Name" />
+<input type="text" name="firstName" value="" id="firstname" class="small border-5 glow-shadow-2" autocomplete="off" maxlength="32" tabindex="1" required="required" placeholder="<?php echo $re['re41']; ?>" />
 <span class="inline-message" id="firstName-message"></span>
 </span>
 </span>
@@ -749,7 +779,7 @@ passwordStrength3: 'Strong'
 </span>
 <span class="input-right">
 <span class="input-text input-text-small">
-<input type="text" name="lastName" value="" id="lastname" class="small border-5 glow-shadow-2" autocomplete="off" maxlength="32" tabindex="1" required="required" placeholder="Enter Last Name" />
+<input type="text" name="lastName" value="" id="lastname" class="small border-5 glow-shadow-2" autocomplete="off" maxlength="32" tabindex="1" required="required" placeholder="<?php echo $re['re42']; ?>" />
 <span class="inline-message" id="lastName-message"></span>
 </span>
 </span>
@@ -766,11 +796,11 @@ passwordStrength3: 'Strong'
 </span>
 <span class="input-right">
 <span class="input-text input-text-small">
-<input type="text" name="accountEmail" value="" id="emailAddress" class="small border-5 glow-shadow-2" autocomplete="off" maxlength="32" tabindex="1" required="required" placeholder="Enter E-mail Address" />
+<input type="text" name="accountEmail" value="" id="emailAddress" class="small border-5 glow-shadow-2" autocomplete="off" maxlength="32" tabindex="1" required="required" placeholder="<?php echo $re['re43']; ?>" />
 <span class="inline-message" id="emailAddress-message"></span>
 </span>
 <span class="input-text input-text-small">
-<input type="text" name="emailAddressConfirmation" value="" id="lastname" class="small border-5 glow-shadow-2" autocomplete="off" maxlength="32" tabindex="1" required="required" placeholder="Re-enter E-mail Address" />
+<input type="text" name="accountEmail2" value="" id="lastname" class="small border-5 glow-shadow-2" autocomplete="off" maxlength="32" tabindex="1" required="required" placeholder="<?php echo $re['re44']; ?>" />
 <span class="inline-message" id="emailAddressConfirmation-message"></span>
 </span>
 </span>
@@ -787,7 +817,7 @@ passwordStrength3: 'Strong'
 </span>
 <span class="input-right">
 <span class="input-text input-text-small">
-<input type="text" name="accountName" value="" id="accountName" class="small border-5 glow-shadow-2" autocomplete="off" onpaste="return false;" maxlength="320" tabindex="1" required="required" placeholder="Enter your Username" />
+<input type="text" name="accountName" value="" id="accountName" class="small border-5 glow-shadow-2" autocomplete="off" onpaste="return false;" maxlength="320" tabindex="1" required="required" placeholder="<?php echo $re['re45']; ?>" />
 <span class="inline-message" id="emailAddress-message"></span>
 </span>
 </span>
@@ -803,11 +833,39 @@ passwordStrength3: 'Strong'
 </span>
 <span class="input-right">
 <span class="input-text input-text-small">
-<input type="password" id="password" name="accountPass" value="" class="small border-5 glow-shadow-2" autocomplete="off" onpaste="return false;" maxlength="16" tabindex="1" required="required" placeholder="Enter Password" />
+<input type="password" id="password" name="accountPass" value="" class="small border-5 glow-shadow-2" autocomplete="off" onpaste="return false;" maxlength="16" tabindex="1" required="required" placeholder="<?php echo $re['re46']; ?>" />
 <span class="inline-message" id="password-message"> </span>
 </span>
+
+<script type="text/javascript">  
+function pop(action){
+  var frm_element = document.getElementById('newPassword-note11');
+  var vis = frm_element.style;
+  if (action=='open')
+  {
+    vis.display = 'block';
+  }
+  else
+  {
+    vis.display = 'none';
+  }
+}
+</script>
+<div class="ui-note" style="top:7px;left:-5px;">
+<div class="form-note toggle-note border-5 glow-shadow" id="newPassword-note11">
+<div class="note">
+<h5><?php echo $Reg['Reg21']; ?></h5><ul><li><?php echo $Reg['Reg22']; ?><strong><?php echo $Reg['Reg23']; ?></strong></li><li><?php echo $Reg['Reg24']; ?><strong><?php echo $Reg['Reg25']; ?></strong><?php echo $Reg['Reg26']; ?><strong><?php echo $Reg['Reg27']; ?></strong><?php echo $Reg['Reg28']; ?></li><li><?php echo $Reg['Reg29']; ?></li><li><?php echo $Reg['Reg30']; ?><strong><?php echo $Reg['Reg31']; ?></strong><?php echo $Reg['Reg32']; ?></li><li><?php echo $Reg['Reg33']; ?></li></ul>
+<a href="javascript:;" class="close-note" rel="newPassword-note" onclick="pop('close');"></a>
+</div>
+<div class="note-arrow"></div> 
+</div>
+<a href="javascript:;" class="note-toggler" rel="newPassword-note" onclick="pop('open');">
+<img src="wow/static/images/icons/tooltip-help.gif" alt="?" width="16" height="16" />
+</a>
+</div><br>
+
 <span class="input-text input-text-small">
-<input type="password" id="rePassword" name="accountPassc" value="" class="small border-5 glow-shadow-2" autocomplete="off" onpaste="return false;" maxlength="16" tabindex="1" required="required" placeholder="Re-enter Password" />
+<input type="password" id="rePassword" name="accountPassc" value="" class="small border-5 glow-shadow-2" autocomplete="off" onpaste="return false;" maxlength="16" tabindex="1" required="required" placeholder="<?php echo $re['re47']; ?>" />
 <span class="inline-message" id="rePassword-message"> </span>
 </span>
 </span>
@@ -864,7 +922,7 @@ passwordStrength3: 'Strong'
 <span class="input-right">
 <span class="input-select input-select-small">
 <select name="question1" id="question1" class="small border-5 glow-shadow-2" tabindex="1" required="required">
-<option value="" selected="selected"><?php echo $re['re20']; ?></option>
+<option value="0" selected="selected"><?php echo $re['re20']; ?></option>
 <option value="1"><?php echo $re['re21']; ?></option>
 <option value="2"><?php echo $re['re22']; ?></option>
 <option value="3"><?php echo $re['re23']; ?></option>
@@ -879,7 +937,7 @@ passwordStrength3: 'Strong'
 <span class="inline-message" id="question1-message"> </span>
 </span>
 <span class="input-text input-text-small">
-<input type="text" name="answer1" value="" id="answer1" class="small border-5 glow-shadow-2" autocomplete="off" maxlength="100" tabindex="1" required="required" placeholder="Answer" />
+<input type="text" name="answer1" value="" id="answer1" class="small border-5 glow-shadow-2" autocomplete="off" maxlength="100" tabindex="1" required="required" placeholder="<?php echo $re['re48']; ?>" />
 <span class="inline-message" id="answer1-message"> </span>
 </span>
 </span>

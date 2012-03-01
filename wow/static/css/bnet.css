@@ -420,7 +420,7 @@ input.form-error, select.form-error, textarea.form-error { border-color: #730202
 .ui-note { display: inline-block; position: relative; }
 .ui-note .note { padding-right: 20px; }
 .ui-note .note-toggler {  padding-left: 6px; display: block; }
-.ui-note .form-note { position: absolute; left: 6px; top: -38px; width: 200px; z-index: 5; }
+.ui-note .form-note { position: absolute; left: 26px; top: -120px; width: 200px; z-index: 5; }
 .ui-note .form-note.toggle-note { display: none; }
 .ui-note .close-note { position: absolute; right: 5px; top: 5px; background: url("../images/icons/close-small.png") no-repeat 0 0; width: 10px; height: 10px; }
 .ui-note .note-arrow { width: 5px; height: 10px; background: url("../images/form/note-arrow-left.gif") no-repeat; display: block; position: absolute; left: -5px; top: 10px; }
