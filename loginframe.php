@@ -68,7 +68,7 @@ include("configs.php");
        }
       </style>
       <center>
-      <h3>Accediendo</h3><br />
+      <h3>Success</h3><br />
       <div class="loader"></div>
       
       <?php
