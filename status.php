@@ -290,7 +290,7 @@ _gaq.push(['_trackPageview']);
 							$characters = $realm_extra['char_db'];
 							$world = $realm_extra['world_db'];
 							
-							@$sql = "SELECT SUM(online) FROM $server_cdb.characters";
+							@$sql = "SELECT SUM(online) FROM $characters.characters";
 							@$sqlquery = mysql_query($sql) or die(mysql_error());
 							@$memb = (int) mysql_result($sqlquery,0,0);
 
