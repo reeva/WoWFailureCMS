@@ -1,27 +1,23 @@
-<?php
-
-function realm_status($host, $port){
-	error_reporting(0);
-	$etat = fsockopen($host,$port,$errno,$errstr,3);
-	if(!$etat) return false;
-	else return true;
-}
-
-?>
-
-
-<div id="sidebar-marketing" class="sidebar-module">
+	<?php
+	  $get_realms = mysql_query("SELECT * FROM $server_adb.realmlist ORDER BY `id` ASC");
+	  while($realm = mysql_fetch_array($get_realms)){
+		
+	  $host = $realm['address'];
+	  $world_port = $realm['port'];
+	  $world = @fsockopen($host, $world_port, $err, $errstr, 2);}
+	?>
+	<div id="sidebar-marketing" class="sidebar-module">
 	<div class="sidebar-title">
-		<h3 class="title-bnet-ads"><?php echo $Ind['Ind4']; ?>
+	  <h3 class="title-bnet-ads"><?php echo $Ind['Ind4']; ?>
 			<?php
-			if(realm_status($serveraddress, $serverport) === false)
-				echo"<font color=red>Offline</font>";
-			elseif(realm_status($serveraddress, $serverport) === true)
-				echo "<font color=#00FF00>Online</font>";
-			else
-				echo "<font color=yellow>Unavailable</font>";
-			?>
-		</h3>
+	  if (! $sock = @fsockopen($host, $world_port, $num, $error, 3))
+	   echo"<font color=red>Offline</font>";
+	  else{
+	   echo "<font color=#00FF00>Online</font>";
+	  fclose($sock);
+	  }
+	  ?>
+	  </h3>
 	</div>
 	
 	<span class="clear"><!-- --></span>

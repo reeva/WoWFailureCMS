@@ -182,7 +182,7 @@ _gaq.push(['_trackPageLoadTime']);
 								</div>';
                         echo '</div>';
                         $_SESSION['username'] = $accountName;
-                        echo '<meta http-equiv="refresh" content="3;url=index.php"/>';
+                        echo '<meta http-equiv="refresh" content="3;url=account_man.php"/>';
                     }
                     else{ //MODIFIED TO DELETE THE ACCOUNT IF SOMETHING IS WRONG DURING THE REGISTRATION
                         mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
@@ -212,9 +212,9 @@ _gaq.push(['_trackPageLoadTime']);
 <span class="input-select input-select-small">
 <select name="country" id="country" class="small border-5 glow-shadow-2 form-disabled" tabindex="1"  >
 <optgroup label="">
-<option value="CHL" selected="selected">Chile</option>
+<option value="CHL">Chile</option>
 <option value="ESP">España</option>
-<option value="GBR">United Kingdom</option>
+<option value="GBR" selected="selected">United Kingdom</option>
 <option value="FRA">France</option>
 <option value="DEU">Germany</option>
 <option value="RUS">Russian Federation</option>
@@ -761,8 +761,7 @@ passwordStrength3: 'Strong'
 </span>
 </span>
 </div>
-
-<div class="input-row input-row-text">
+<div  class="input-row input-row-text">
 <span class="input-left">
 <label for="firstname">
 <span class="label-text">
@@ -770,33 +769,20 @@ passwordStrength3: 'Strong'
 </span>
 <span class="input-required">*</span>
 </label>
-</span>
-<span class="input-right">
+</span><!--
+--><span class="input-right">
 <span class="input-text input-text-small">
 <input type="text" name="firstName" value="" id="firstname" class="small border-5 glow-shadow-2" autocomplete="off" maxlength="32" tabindex="1" required="required" placeholder="<?php echo $re['re41']; ?>" />
-<span class="inline-message" id="firstName-message"></span>
+<span class="inline-message" id="firstname-message"> </span>
 </span>
-</span>
-</div>
-
-<div class="input-row input-row-text">
-<span class="input-left">
-<label for="lastname">
-<span class="label-text">
-<?php echo $re['re9']; ?>
-</span>
-<span class="input-required">*</span>
-</label>
-</span>
-<span class="input-right">
 <span class="input-text input-text-small">
 <input type="text" name="lastName" value="" id="lastname" class="small border-5 glow-shadow-2" autocomplete="off" maxlength="32" tabindex="1" required="required" placeholder="<?php echo $re['re42']; ?>" />
-<span class="inline-message" id="lastName-message"></span>
+<span class="inline-message" id="lastname-message"> </span>
 </span>
 </span>
 </div>
 
-<div class="input-row input-row-text">
+<div  class="input-row input-row-text">
 <span class="input-left">
 <label for="emailAddress">
 <span class="label-text">
@@ -804,18 +790,17 @@ passwordStrength3: 'Strong'
 </span>
 <span class="input-required">*</span>
 </label>
-</span>
-<span class="input-right">
+</span><!--
+--><span class="input-right">
 <span class="input-text input-text-small">
 <input type="text" name="accountEmail" value="" id="emailAddress" class="small border-5 glow-shadow-2" autocomplete="off" maxlength="32" tabindex="1" required="required" placeholder="<?php echo $re['re43']; ?>" />
-<span class="inline-message" id="emailAddress-message"></span>
+<span class="inline-message" id="emailAddress-message"> </span>
 </span>
 <span class="input-text input-text-small">
 <input type="text" name="accountEmail2" value="" id="lastname" class="small border-5 glow-shadow-2" autocomplete="off" maxlength="32" tabindex="1" required="required" placeholder="<?php echo $re['re44']; ?>" />
-<span class="inline-message" id="emailAddressConfirmation-message"></span>
+<span class="inline-message" id="emailAddressConfirmation-message"> </span>
 </span>
 </span>
-
 </div>
 <div class="input-row input-row-text">
 <span class="input-left">
@@ -833,21 +818,8 @@ passwordStrength3: 'Strong'
 </span>
 </span>
 </div>
-<div class="input-row input-row-text">
-<span class="input-left">
-<label for="password">
-<span class="label-text">
-<?php echo $re['re12']; ?>
-</span>
-<span class="input-required">*</span>
-</label>
-</span>
-<span class="input-right">
-<span class="input-text input-text-small">
-<input type="password" id="password" name="accountPass" value="" class="small border-5 glow-shadow-2" autocomplete="off" onpaste="return false;" maxlength="16" tabindex="1" required="required" placeholder="<?php echo $re['re46']; ?>" />
-<span class="inline-message" id="password-message"> </span>
-</span>
-
+<div  class="input-row input-row-text">
+<div  class="notereg">
 <script type="text/javascript">  
 function pop(action){
   var frm_element = document.getElementById('newPassword-note11');
@@ -873,14 +845,27 @@ function pop(action){
 <a href="javascript:;" class="note-toggler" rel="newPassword-note" onclick="pop('open');">
 <img src="wow/static/images/icons/tooltip-help.gif" alt="?" width="16" height="16" />
 </a>
-</div><br>
-
+</div></div>
+<span class="input-left">
+<label for="password">
+<span class="label-text">
+<?php echo $re['re12']; ?>
+</span>
+<span class="input-required">*</span>
+</label>
+</span><!--
+--><span class="input-right">
+<span class="input-text input-text-small">
+<input type="password" id="password" name="accountPass" value="" class="small border-5 glow-shadow-2" autocomplete="off" onpaste="return false;" maxlength="16" tabindex="1" required="required" placeholder="<?php echo $re['re46']; ?>" />
+<span class="inline-message" id="password-message"> </span>
+</span>
 <span class="input-text input-text-small">
 <input type="password" id="rePassword" name="accountPassc" value="" class="small border-5 glow-shadow-2" autocomplete="off" onpaste="return false;" maxlength="16" tabindex="1" required="required" placeholder="<?php echo $re['re47']; ?>" />
-<span class="inline-message" id="rePassword-message"> </span>
+<span class="inline-message" id="rePassword-message"> </span>
 </span>
 </span>
 </div>
+
 <div class="input-row input-row-note" id="password-strength" style="display: none">
 <div class="input-note border-5 glow-shadow">
 <div class="input-note-left">
@@ -993,7 +978,7 @@ function pop(action){
 <label for="agreedToToU">
 <input type="checkbox" name="agreedToToU" value="true" id="agreedToToU" tabindex="1" required="required" />
 <span class="label-text">
-<?php echo $re['re36']; ?><a href="" onclick="window.open(this.href); return false;"><?php echo $re['re37']; ?><?php echo $re['re38']; ?></a>
+<?php echo $re['re36']; ?><a href="" onclick="window.open(this.href); return false;"><?php echo $re['re37']; ?></a><?php echo $re['re38']; ?></a>
 <span class="input-required">*</span>
 </span>
 </label>
