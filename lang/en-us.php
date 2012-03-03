@@ -646,5 +646,5 @@ $search['Battlegroup'] = "Battlegroup";
 $search['Show'] = "Showing";
 $search['Results'] = "results";
 $search['Of'] = "of";
-$search['sumResults'] = "Matchs found for: ";
+$search['sumResults'] = "Summary of results for: ";
 ?>
