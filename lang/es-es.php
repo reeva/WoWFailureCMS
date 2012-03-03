@@ -647,7 +647,7 @@ $armory['showAll']="Mostrar todos los atributos";
 $armory['showMain']="Mostrar solo los atributos principales";
 //Finish Armory
 
-//Others
+//More
 $globalInfoVar['Anonymous']="Anónimo";
 $status['chars']="Personajes";
 $status['low']="Baja";
