@@ -36,7 +36,21 @@ foreach($bomb AS $bombs)
 {
 	$new = explode(" /]",$bombs);
 	if(is_numeric($new[0])){
-	$xml = new SimpleXMLElement("http://www.wowhead.com/item=".$new[0]."&xml", NULL, TRUE);
+	
+    $url = "http://www.wowhead.com/item=".$new[0]."&xml";
+
+    if (ini_get('allow_url_fopen')) {
+      $xml = simplexml_load_file($url); 
+    }   
+    else {    
+      $ch = curl_init($url);    
+      curl_setopt  ($ch, CURLOPT_HEADER, false); 
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);    
+      $xml_raw = curl_exec($ch);    
+      $xml = simplexml_load_string($xml_raw);  
+    }
+		
+	//$xml = new SimpleXMLElement("http://www.wowhead.com/item=".$new[0]."&xml", NULL, TRUE);
 	$img = $xml->item->icon;
 	$name = $xml->item->name;
 	$q = $xml->item->quality;
