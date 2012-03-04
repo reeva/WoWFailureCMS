@@ -72,7 +72,7 @@ a.comments-link { background:-16px -8px; padding-left:17px; margin-left:8px; dis
 
 #content .rate-btn, #content .karma .rate-btn-holder.selected:hover .ratebtn { }
 #content .rate-btn-holder a.rate-btn:hover, #content .rate-btn-holder:hover a.rate-btn { }
-.karma-feedback, .prev-vote { 	border:7px solid transparent; clear:both; text-align:center;  width:88px; padding:5px 0; margin-top:3px;
+.karma-feedback, .prev-vote { 	border:7px solid transparent; clear:both; text-align:center;  width:138px; padding:5px 0; margin-top:3px;
 								-moz-border-radius:5px 0 3px 0; border-radius:5px 0 3px 0; }
 .karma-feedback { visibility:hidden; }
 .iehover .karma-feedback, .comment:hover .karma-feedback, .post:hover .karma-feedback { visibility:visible;}

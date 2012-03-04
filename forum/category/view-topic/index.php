@@ -105,7 +105,7 @@ if($error == 1){
 		$reply = addslashes($reply);
 		$reply = nl2br($reply);
 		
-		$insert = mysql_query("INSERT INTO forum_replies (threadid,forumid,content,author,name,last_date) VALUES ('".$thread['id']."','".$forum['id']."','".mysql_real_escape_string($reply)."','".mysql_real_escape_string($account_information['id'])."','".mysql_real_escape_string($thread['name'])."','".$ndate."')")or print("Could not post the reply!");
+		$insert = mysql_query("INSERT INTO forum_replies (threadid,forumid,content,author,name,last_date) VALUES ('".$thread['id']."','".$forum['id']."','".mysql_real_escape_string($reply)."','".mysql_real_escape_string($account_information['id'])."','".mysql_real_escape_string($thread['name'])."','".$ndate."')")or print(''.$Forum['Forum58'].'');
 		$replies = mysql_fetch_assoc(mysql_query("SELECT * FROM forum_replies WHERE threadid = '".$thread['id']."' ORDER BY id DESC LIMIT 1"));
 		$insert = mysql_query("INSERT INTO forum_posts (type,postid) VALUES ('2','".$replies['id']."')");
 		$update = mysql_query("UPDATE forum_threads SET last_date = '".$ndate."', replies = replies + 1 WHERE id = '".$thread['id']."'");
@@ -142,7 +142,7 @@ if($error == 1){
 				background: url("../wow/static/images/loaders/canvas-loader.gif") no-repeat;
 			   }
 			</style>
-			<center>Request thread does not exist...<br /><br /><div class="loader"> </div><br />Redirecting...</center>
+			<center>'.$Forum['Forum59'].'<br /><br /><div class="loader"> </div><br />'.$Forum['Forum37'].'</center>
 			<meta http-equiv="refresh" content="2;url=../index.php"/>
 			';
 			
@@ -155,8 +155,8 @@ if($error == 1){
 		echo
 			'
 			<div class="section-header">
-				<div class="blizzard_icon"><a class="nextBlizz" href="#" onmouseover="Tooltip.show(this,\'Jump to first Blizzard Post\');"></a></div>
-				<span class="topic">Topic</span>';
+				<div class="blizzard_icon"><a class="nextBlizz" href="#" onmouseover="Tooltip.show(this,\''.$Forum['Forum50'].'\');"></a></div>
+				<span class="topic">'.$Forum['Forum60'].'</span>';
 				
 				$posterAccount = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_adb.account WHERE id = '".$thread['author']."'"));
 				$posterInfo = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE id = '".$posterAccount['id']."'"));
@@ -185,11 +185,11 @@ if($error == 1){
 					if(isset($_SESSION['username']))
 					{
 						if($userInfo['class'] == "" && $thread['locked'] == 1)
-							echo '<a class="ui-button button1 disabled " href="javascript:;"><span><span>Add a reply</span></span></a>';
+							echo '<a class="ui-button button1 disabled " href="javascript:;"><span><span>'.$Forum['Forum61'].'</span></span></a>';
 						else
-							echo '<a class="ui-button button1" href="#new-post"><span><span>Add a reply</span></span></a>';
+							echo '<a class="ui-button button1" href="#new-post"><span><span>'.$Forum['Forum61'].'</span></span></a>';
 							
-					}else echo '<a class="ui-button button1 disabled " href="javascript:;"><span><span>Add a reply</span></span></a>';
+					}else echo '<a class="ui-button button1 disabled " href="javascript:;"><span><span>'.$Forum['Forum61'].'</span></span></a>';
 					echo '		
 					<span class="clear"><!-- --></span>
 				</div>
@@ -233,7 +233,7 @@ if($error == 1){
 											<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
 											<div class="context-user"><strong>'.$char['name'].'</strong></div>
 											<div class="context-links">
-											<a href="#" title="View posts" rel="np" class="icon-posts link-first link-last">View posts</a>
+											<a href="#" title="View posts" rel="np" class="icon-posts link-first link-last">'.$Forum['Forum62'].'</a>
 											</div>
 										</div>
 									</div>
@@ -243,18 +243,17 @@ if($error == 1){
 								';
 								
 								switch($posterInfo['class']){
-								case "blizz": echo '<div class="blizzard-title">Staff Member</div>'; break;
-								case "mvp": echo '<div class="mvp-title">Moderator</div>'; break;
+								case "blizz": echo '<div class="blizzard-title">'.$Forum['Forum63'].'</div>'; break;
+								case "mvp": echo '<div class="mvp-title">'.$Forum['Forum64'].'</div>'; break;
 								default: 
 									echo'<div>';
 										if($char['val'] == 1){
 										echo '
 										<div class="character-desc"><span class="color-c5">'.$char['level'].' '.race($char['race']).' '.classx($char['class']).'</span></div>
-										<div class="guild"><a href="#">No Guild</a></div>
+										<div class="guild"><a href="#">'.$Forum['Forum65'].'</a></div>
 										<div class="achievements">0</div>
 										';
-										} echo '<div class="character-desc"><span class="color-c5">No Characters</span></div>';
-									echo '</div>';
+										} 
 								break;
 								}
 								
@@ -268,7 +267,7 @@ if($error == 1){
 							if($thread['edited'] == 1)
 							{
 								$editorInfo = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE id = '".$thread['editedby']."'"));
-								echo '<div class="post-edited">Edited by '.$editorInfo['firstName'].' on '.$thread['last_date'].'</div>';
+								echo '<div class="post-edited">'.$Forum['Forum67'].' '.$editorInfo['firstName'].' '.$Forum['Forum68'].' '.$thread['last_date'].'</div>';
 							}
 							
 							$content=$thread['content'];
@@ -279,23 +278,23 @@ if($error == 1){
 							
 							
 							echo'
-							<div class="post-detail">'.$content.'</div>
+							<div class="post-detail">'.$content.'</br></br></div>
 						</td>
 						
 						<td class="post-info">
 								<div class="post-info-int">
 									<div class="postData">
 										<a href="#'.$i.'">#'.$i.'</a>
-										<div class="date" onmouseover="Tooltip.show(this,\'Posted Date : '.$thread['date'].'\')">'.ago(strtotime($thread['date'])).'</div>
+										<div class="date" onmouseover="Tooltip.show(this,\''.$Forum['Forum69'].''.$thread['date'].'\')">'.ago(strtotime($thread['date'])).'</div>
 									</div>
 									<div class="karma">
 									<div class="karma-feedback">
-									Rate is Disabled. 
+									'.$Forum['Forum70'].' 
 									</div>
 									<span class="clear"><!-- --></span>
 									</div>
 									
-									<!--<div class="blizzard_icon"><a class="nextBlizz" href="#" onmouseover="Tooltip.show(this,\'Next Blizzard Post\')"></a></div>-->
+									<!--<div class="blizzard_icon"><a class="nextBlizz" href="#" onmouseover="Tooltip.show(this,\''.$Forum['Forum71'].'\')"></a></div>-->
 								</div>
 						</td>
 					</tr>
@@ -336,16 +335,16 @@ if($error == 1){
 									echo '<div class="respond">';
 									
 										if($thread['author'] == $userInfo['id']){
-											echo'<a class="ui-button button2 " href="../edit-post/?p='.$postid['id'].'"><span><span>Edit</span></span></a>';
+											echo'<a class="ui-button button2 " href="../edit-post/?p='.$postid['id'].'"><span><span>'.$Forum['Forum22'].'</span></span></a>';
 										}
 										
 										echo '
 										<a class="ui-button button2 " href="#new-post">
-											<span><span>Reply</span></span>
+											<span><span>'.$reply['reply'].'</span></span>
 										</a>
 										
 										<a class="ui-button button2 " href="#new-post" onclick="Cms.Topic.quote('.$thread['id'].');">
-											<span><span><span class="icon-quote">Quote</span></span></span>
+											<span><span><span class="icon-quote">'.$Forum['Forum72'].'</span></span></span>
 										</a>
 										
 									</div>';
@@ -353,15 +352,15 @@ if($error == 1){
 							}else{
 								echo '
 								<div class="respond">';
-									if($thread['author'] == $userInfo['id']) echo'<a class="ui-button button2 " href="../edit-post/?p='.$postid['id'].'"><span><span>Edit</span></span></a>';
+									if($thread['author'] == $userInfo['id']) echo'<a class="ui-button button2 " href="../edit-post/?p='.$postid['id'].'"><span><span>'.$Forum['Forum22'].'</span></span></a>';
 									
 									echo '
 									<a class="ui-button button2 " href="#new-post">
-										<span><span>Reply</span></span>
+										<span><span>'.$reply['reply'].'</span></span>
 									</a>
 									
 									<a class="ui-button button2 " href="#new-post" onclick="Cms.Topic.quote('.$thread['id'].');">
-										<span><span><span class="icon-quote">Quote</span></span></span>
+										<span><span><span class="icon-quote">'.$Forum['Forum72'].'</span></span></span>
 									</a>
 								</div>';
 							}
@@ -441,19 +440,19 @@ if($error == 1){
 											
 											switch($posterInfo['class']){
 												case "blizz":
-												echo '<div class="blizzard-title">Staff Member</div>';
+												echo '<div class="blizzard-title">'.$Forum['Forum63'].'</div>';
 												break;
 												case "mvp":
-												echo '<div class="mvp-title">Moderator</div>';
+												echo '<div class="mvp-title">'.$Forum['Forum64'].'</div>';
 												break;
 												default:
 												echo'
 												<div>';
 												if($char['val'] == 1){ echo'
 												<div class="character-desc"><span class="color-c5">'.$char['level'].' '.race($char['race']).' '.classx($char['class']).'</span></div>
-												<div class="guild"><a href="#">No Guild</a></div>
+												<div class="guild"><a href="#">'.$Forum['Forum65'].'</a></div>
 												<div class="achievements">0</div>'; }else{
-												echo '<div class="character-desc"><span class="color-c5">No Characters</span></div>';
+												echo '<div class="character-desc"><span class="color-c5">'.$Forum['Forum66'].'</span></div>';
 												}
 												echo'
 												</div>';
@@ -468,7 +467,7 @@ if($error == 1){
 									if($reply['edited'] == 1)
 									{
 										$editorInfo = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE id = '".$reply['editedby']."'"));
-										echo '<div class="post-edited">Edited by '.$editorInfo['firstName'].' on '.$reply['last_date'].'</div>';
+										echo '<div class="post-edited">'.$Forum['Forum67'].' '.$editorInfo['firstName'].' '.$Forum['Forum68'].' '.$reply['last_date'].'</div>';
 									}
 									
 									$content=$reply['content'];
@@ -481,10 +480,10 @@ if($error == 1){
 									<div class="post-info-int">
 										<div class="postData">
 											<a href="#'.$i.'">#'.$i.'</a>
-											<div class="date" onmouseover="Tooltip.show(this,\'Posted Date : '.$reply['date'].'\')">'.ago(strtotime($reply['date'])).'</div>
+											<div class="date" onmouseover="Tooltip.show(this,\''.$Forum['Forum69'].''.$reply['date'].'\')">'.ago(strtotime($reply['date'])).'</div>
 										</div>
 										
-										<!--<div class="blizzard_icon"><a class="nextBlizz" href="#" onmouseover="Tooltip.show(this,\'Next Blizzard Post\')"></a></div>-->
+										<!--<div class="blizzard_icon"><a class="nextBlizz" href="#" onmouseover="Tooltip.show(this,\''.$Forum['Forum71'].'\')"></a></div>-->
 									</div>
 								</td>
 							</tr>
@@ -495,27 +494,27 @@ if($error == 1){
 								if($thread['locked'] == 1){
 									if($userInfo['class'] != ""){
 										echo '<div class="respond">';
-											if($reply['author'] == $userInfo['id']) echo'<a class="ui-button button2 " href="../edit-post/?p='.$postid['id'].'"><span><span>Edit</span></span></a>';
+											if($reply['author'] == $userInfo['id']) echo'<a class="ui-button button2 " href="../edit-post/?p='.$postid['id'].'"><span><span>'.$Forum['Forum22'].'</span></span></a>';
 											echo'									
 											<a class="ui-button button2 " href="#new-post">
-												<span><span>Reply</span></span>
+												<span><span>'.$reply['reply'].'</span></span>
 											</a>
 											
 											<a class="ui-button button2 " href="#new-post" onclick="Cms.Topic.quote('.$reply['id'].');">
-												<span><span><span class="icon-quote">Quote</span></span></span>
+												<span><span><span class="icon-quote">'.$Forum['Forum72'].'</span></span></span>
 											</a>
 										</div>';
 									}else echo '<div class="no-post-options"><!-- --></div>';
 								}else{
 									echo '
 									<div class="respond">';
-										if($reply['author'] == $userInfo['id']) echo'<a class="ui-button button2 " href="../edit-post/?p='.$postid['id'].'"><span><span>Edit</span></span></a>';
+										if($reply['author'] == $userInfo['id']) echo'<a class="ui-button button2 " href="../edit-post/?p='.$postid['id'].'"><span><span>'.$Forum['Forum22'].'</span></span></a>';
 										echo'
 										<a class="ui-button button2 " href="#new-post">
-											<span><span>Reply</span></span>
+											<span><span>'.$reply['reply'].'</span></span>
 										</a>
 										<a class="ui-button button2 " href="#new-post" onclick="Cms.Topic.quote('.$reply['id'].');">
-											<span><span><span class="icon-quote">Quote</span></span></span>
+											<span><span><span class="icon-quote">'.$Forum['Forum72'].'</span></span></span>
 										</a>
 									</div>';
 								}
@@ -551,12 +550,12 @@ if($error == 1){
 			}
 			?>
 				<a id="new-post"></a>
-				<form method="post" onsubmit="return Cms.Topic.postValidate(this);" action="#<?php echo $i++; ?>">
+				<form method="post" onSubmit="return Cms.Topic.postValidate(this);" action="#<?php echo $i++; ?>">
 					<div>
 						<input type="hidden" name="xstoken" value="272c2eb0-9252-4eae-b494-93fd89788702" />
 						<input type="hidden" name="sessionPersist" value="forum.topic.post" />
 						<div class="post general">
-							<div class="post-user-details"><h4>Reply to Thread</h4>
+							<div class="post-user-details"><h4><?php echo $Forum['Forum73'] ?></h4>
 							<div class="post-user ajax-update">
 							<div class="avatar">
 							<div class="avatar-interior">
@@ -590,8 +589,8 @@ if($error == 1){
 								<div id="post-errors"></div>
 
 								<div class="talkback-controls">
-									<a href="javascript:;" onclick="Cms.Topic.previewToggle(this, 'preview')" class="preview-btn"><span class="arr"></span><span class="r"></span><span class="c">Preview</span></a>
-									<a href="javascript:;" onclick="Cms.Topic.previewToggle(this, 'edit')" class="edit-btn selected"><span class="arr"></span><span class="r"></span><span class="c">Edit</span></a>
+									<a href="javascript:;" onClick="Cms.Topic.previewToggle(this, 'preview')" class="preview-btn"><span class="arr"></span><span class="r"></span><span class="c"><?php echo $Forum['Forum21']; ?></span></a>
+									<a href="javascript:;" onClick="Cms.Topic.previewToggle(this, 'edit')" class="edit-btn selected"><span class="arr"></span><span class="r"></span><span class="c"><?php echo $Forum['Forum22']; ?></span></a>
 								</div>
 								
 								<div class="editor1" id="post-edit">
@@ -617,7 +616,7 @@ if($error == 1){
 									<tr>
 									<td>
 										<div id="submitBtn">
-											<button class="ui-button button1 " type="submit"><span><span>Submit</span></span></button>
+											<button class="ui-button button1 " type="submit"><span><span><?php echo $Forum['Forum23']; ?></span></span></button>
 										</div>
 									</td>
 									</tr>
@@ -641,8 +640,8 @@ if($error == 1){
 						<tr>
 							<td>
 								<?php
-								if(isset($_SESSION['username'])) echo 'This thread is locked';
-								else echo 'In order to post you must to be logged in';
+								if(isset($_SESSION['username'])) echo ''.$Forum['Forum74'].'';
+								else echo ''.$Forum['Forum75'].'';
 								?>
 							</td>
 						</tr>
@@ -660,7 +659,7 @@ if($error == 1){
 			
 			$_POST['detail'] = "";
 			$link = '?t='.$threadid;
-			echo '<center><br /><br />Forum Post created...<br />';
+			echo '<center><br /><br />'.$Forum['Forum76'].'<br />';
 			echo '
 			<style type="text/css">
 			.loader {
@@ -676,11 +675,11 @@ if($error == 1){
 		<div class="talkback-code">
 			<div class="talkback-code-interior">
                 <div class="talkback-icon">
-                    <h4 class="code-header">Please report any Code of Conduct violations, including:</h4>
-                    <p>Threats of violence. <strong>We take these seriously and will alert the proper authorities.</strong></p>
-                    <p>Posts containing personal information about other players. <strong>This includes physical addresses, e-mail addresses, phone numbers, and inappropriate photos and/or videos.</strong></p>
-                    <p>Harassing or discriminatory language. <strong>This will not be tolerated.</strong></p>
-                    	<p>Click <a href="http://battle.net/community/conduct">here</a> to view the Forums Code of Conduct.</p>
+                    <h4 class="code-header"><?php echo $Forum['Forum24']; ?></h4>
+                                     <p><?php echo $Forum['Forum25']; ?> <strong><?php echo $Forum['Forum26']; ?></strong></p>
+                                     <p><?php echo $Forum['Forum27']; ?> <strong><?php echo $Forum['Forum28']; ?></strong></p>
+                                     <p><?php echo $Forum['Forum29']; ?> <strong><?php echo $Forum['Forum30']; ?></strong></p>
+                                     <p><?php echo $Forum['Forum31']; ?> <a href="http://battle.net/community/conduct"><?php echo $Forum['Forum32']; ?></a> <?php echo $Forum['Forum33']; ?></p>
                 </div>
 			</div>
         </div>

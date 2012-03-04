@@ -107,13 +107,13 @@ echo '
 			background: url("/wow/static/images/loaders/canvas-loader.gif") no-repeat;
 		   }
 		</style>
-		<center>Request forum does not exist...<br /><br /><div class="loader"> </div><br />Redirecting...</center>
+		<center>'.$Forum['Forum36'].'<br /><br /><div class="loader"> </div><br />'.$Forum['Forum37'].'</center>
 		<meta http-equiv="refresh" content="2;url='.$website['root'].'"/>
 		';
 		}else{ ?>
 		<div class="forum-options">
-            <a href="javascript:;" onclick="Cms.Forum.setView('advanced',this)">Advanced</a>
-        	<a href="javascript:;" class="active" onclick="Cms.Forum.setView('simple',this)">Simple</a>
+          	<a href="javascript:;" onClick="Cms.Forum.setView('simple',this)"><?php echo $Forum['Forum39'] ?></a>
+        	<a href="javascript:;" class="active" onClick="Cms.Forum.setView('advanced',this)"><?php echo $Forum['Forum38'] ?></a>
         </div>
 		
 		<div class="forum-actions top">
@@ -138,7 +138,7 @@ echo '
 		            	<a href="#">Next &gt;</a>-->
         </div>
 
-		<a class="ui-button button1 imgbutton " href="<?php echo $website['root'].'forum'; ?>"><span><span><span class="back-arrow"> </span></span></span></a>
+		<a class="ui-button button1 imgbutton " href="index.php"><span><span><span class="back-arrow"> </span></span></span></a>
 		<?php
 		if(isset($_SESSION['username'])){
 			if($forum['locked'] == 1){
@@ -147,22 +147,22 @@ echo '
 				$posterInfo = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE id = '".$account_information['id']."'"));
 					switch($posterInfo['class']){
 						case "blizz":
-							echo'<a class="ui-button button1" href="create-topic/?f='.$forumid.'"><span><span>Create Thread</span></span></a>';
+							echo'<a class="ui-button button1" href="create-topic/?f='.$forumid.'"><span><span>'.$Forum['Forum40'].'</span></span></a>';
 							break;
 							
 						case "mvp":
-							echo'<a class="ui-button button1" href="create-topic/?f='.$forumid.'"><span><span>Create Thread</span></span></a>';
+							echo'<a class="ui-button button1" href="create-topic/?f='.$forumid.'"><span><span>'.$Forum['Forum40'].'</span></span></a>';
 							break;
 							
 						default:
-							echo'<a class="ui-button button1 disabled" href="#"><span><span>Create Thread</span></span></a>';
+							echo'<a class="ui-button button1 disabled" href="#"><span><span>'.$Forum['Forum40'].'</span></span></a>';
 							break;
 					}
 			}else{
-				echo'<a class="ui-button button1" href="create-topic/?f='.$forumid.'"><span><span>Create Thread</span></span></a>';
+				echo'<a class="ui-button button1" href="create-topic/?f='.$forumid.'"><span><span>'.$Forum['Forum40'].'</span></span></a>';
 			}
 		}else{
-			echo '<a class="ui-button button1 disabled"><span><span>Create Thread</span></span></a>';
+			echo '<a class="ui-button button1 disabled"><span><span>'.$Forum['Forum40'].'</span></span></a>';
 		}
 		?>
 		<span class="clear"><!-- --></span>
@@ -170,21 +170,21 @@ echo '
 		</div>
 		
 		<div id="posts-container">
-			<table id="posts" cellspacing="0" class="simple">
+			<table id="posts" cellspacing="0" class="advanced">
 				<tr class="post-th">
 					<td></td>
-					<td colspan="2">Subject</td>
-					<td>Author</td>
-						<td class="replies">Replies</td>
-						<td class="views">Views</td>
-						<td class="poster">Last Poster</td>
+					<td colspan="2"><?php echo $Forum['Forum48'] ?></td>
+					<td><?php echo $Forum['Forum49'] ?></td>
+						<td class="replies"><?php echo $Forum['Forum41'] ?></td>
+						<td class="views"><?php echo $Forum['Forum42'] ?></td>
+						<td class="poster"><?php echo $Forum['Forum43'] ?></td>
 				</tr>
 				<?php
 				if(mysql_num_rows($get_threads) == 0){
 				echo '
 					<tr>
 					<td class="post-icon"><div class="forum-post-icon"></div></td>
-					<td class="post-title">No Threads in this forum.</td>
+					<td class="post-title">'.$Forum['Forum43'].'</td>
 					<td class="post-pageNav"></td>
 					<td class="post-author"></td>
 						<td class="post-replies"></td>
@@ -208,7 +208,7 @@ echo '
 						if($thread['has_blizz'] == 1 || $posterInfo['blizz'] == 1){
 							echo'
 								<div class="blizzard_icon">
-									<a href="" onmouseover="Tooltip.show(this,\'Jump to first Blizzard Post\');"></a>
+									<a href="" onmouseover="Tooltip.show(this,\''.$Forum['Forum50'].'\');"></a>
 								</div>';
 						}
 						echo'
@@ -222,12 +222,12 @@ echo '
 							echo'
 							<div id="thread_tt_'.$thread['id'].'" style="display:none">
 								<div class="tt_detail">
-										'.substr($thread['content'],0,80).'...
+										'.substr($thread['content'],0,75).'...
 								</div>
 								
 								<div class="tt_time">'.$thread['date'].'</div> 
 								<div class="tt_info">
-									'.$thread['views'].' Views / '.$thread['replies'].' Replies<br />';
+									'.$thread['views'].' '.$Forum['Forum42'].' / '.$thread['replies'].' '.$Forum['Forum41'].'<br />';
 									$get_last_reply = mysql_query("SELECT * FROM forum_replies WHERE threadid = '".$thread['id']."' ORDER BY id DESC");
 									if(mysql_num_rows($get_last_reply) == 0){
 										$get_user = mysql_query("SELECT * FROM users WHERE id = '".$thread['author']."'");
@@ -245,7 +245,7 @@ echo '
 									$posterCharacterx = mysql_fetch_assoc(mysql_query("SELECT name FROM $server_cdb.characters WHERE guid = '".$lp['character']."'"))or print(mysql_error());
 									}
 									echo'
-										Last Post by <i>'.strtolower($posterCharacterx['name']).'</i> on '.$date.'
+										'.$Forum['Forum51'].' <i>'.strtolower($posterCharacterx['name']).'</i> '.$Forum['Forum52'].' ('.$date.')
 								</div>
 							</div>
 							<a href="view-topic/?t='.$thread['id'].'" onmouseover="Tooltip.show(this, \'#thread_tt_'.$thread['id'].'\',{ location: \'mouse\' });">

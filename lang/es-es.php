@@ -9,7 +9,7 @@ $Media['Media'] = "Medios";
 $Forums['Forums'] = "Foro";
 $Services['Services'] = "Servicios";
 $Wow['Wow'] = "World Of Warcraft ";
-$Wow3['Wow3'] = " - Español AL";
+$Wow3['Wow3'] = " - Español EU";
 $Latest['Latest'] = "Ultimos posts escritos. ";
 $View_all['View_all'] = "Ver todo";
 $all['all'] = "Todos los posts";
@@ -45,7 +45,7 @@ $Games['Games'] = "Juegos";
 $Client_down['Client_down'] = "Descarga del Cliente";
 $Client_down3['Client_down3'] = "Descargar el Cliente de World of Warcraft";
 
-$Americas['Americas'] = "Americas";
+$Americas['Americas'] = "America";
 $English['English'] = "English (US)";
 $Spanish['Spanish'] = "Espa&ntilde;ol (AL)";
 $Europe['Europe'] = "Europe";
@@ -68,7 +68,7 @@ $Greek['gr_lang'] = "&Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&alpha; (EU)
 $Romanian['RO'] = "Romania";
 $Romanian['ROEU'] = "Romanian (EU)";
 $italy['europe'] = "Italian";
-$copyright['copyright'] = "Copyright &copy; 2011 - 2012 ";
+$copyright['copyright'] = "Copyright &copy; 2011 ";
 $copyright3['copyright3'] = "Hecho por AquaFlame CMS";
 $copyright4['copyright4'] = "Todas las imágenes están en propiedad de Blizzard Entertainment.";
 
@@ -315,7 +315,7 @@ $Man['Man67'] = "Dona por SMS y Recibe Recompensas";
 
 // Starting Header acount
 $ha['ha26'] ="Cuenta";
-$ha['ha0'] = "Sumario";
+$ha['ha0'] = "Resumen";
 $ha['ha1'] = "Configuración";
 $ha['ha2'] = "Cambia la dirección de e-mail";
 $ha['ha3'] = "Cambia la contraseña";
@@ -406,9 +406,9 @@ $Ind['Ind9'] = " Personajes: ";
 $Ind['Ind10'] = " Personajes Creados";
 $Ind['Ind11'] = "Servicios Recomendados";
 $Ind['Ind12'] = "Recluta a un Amigo";
-$Ind['Ind13'] = "·Invita a tus amigos  y juega con ellos gratuitamente!";
+$Ind['Ind13'] = "·Invita a tus amigos a jugar aquí y juega con ellos gratuitamente!";
 $Ind['Ind14'] = "Migración de Personajes";
-$Ind['Ind15'] = "·Migra tu personaje de otro servidor y te lo damos igual que en tu antiguo servidor(*)!";
+$Ind['Ind15'] = "·Migra tu personaje de otro servidor, y te lo damos igual que en tu antiguo servidor(*)!";
 $Ind['Ind16'] = "No olvides votar cada día";
 $Ind['Ind17'] = "Las votaciones están: ";
 $Ind['Ind18'] = "Online!";
@@ -473,7 +473,7 @@ $Forum['Forum17'] = "Crear Tema";
 $Forum['Forum18'] = "No hay Reino";
 $Forum['Forum19'] = "Perfil";
 $Forum['Forum20'] = "Nivel Raza Clase";
-$Forum['Forum21'] = "Vista Prévia";
+$Forum['Forum21'] = "Vista Previa";
 $Forum['Forum22'] = "Editar";
 $Forum['Forum23'] = "Enviar";
 $Forum['Forum24'] = "Por favor reporta cualquier violación del Código de Conducta, incluyendo:";
@@ -495,13 +495,41 @@ $Forum['Forum39'] = "Simple";
 $Forum['Forum40'] = "Crear Tema nuevo";
 $Forum['Forum41'] = "Respuestas";
 $Forum['Forum42'] = "Visitas";
-$Forum['Forum43'] = "Último Posteador";
+$Forum['Forum43'] = "Última persona en comentar";
 $Forum['Forum44'] = "No hay temas en este foro.";
 $Forum['Forum45'] = "Página Siguiente";
 $Forum['Forum46'] = "Siguiente &gt;";
 $Forum['Forum47'] = "No estás Logueado";
-$Forum['Forum48'] = "Título";
+$Forum['Forum48'] = "Asunto";
 $Forum['Forum49'] = "Autor";
+$Forum['Forum50'] = "Primer comentario Blizzard";
+$Forum['Forum51'] = "Último comentario de";
+$Forum['Forum52'] = " ";
+$Forum['Forum53'] = "Editando comentario...";
+$Forum['Forum54'] = "No se puede editar.";
+$Forum['Forum55'] = "El tema ha sido editado con éxito.";
+$Forum['Forum56'] = "Tema";
+$Forum['Forum57'] = "Comentario";
+$Forum['Forum58'] = "No se ha podido postear la respuesta!";
+$Forum['Forum59'] = "El tema no existe...";
+$Forum['Forum60'] = "Tema";
+$Forum['Forum61'] = "Responder";
+$Forum['Forum62'] = "Ver comentarios";
+$Forum['Forum63'] = "Miembro del Staff";
+$Forum['Forum64'] = "Moderador";
+$Forum['Forum65'] = "Sin hermandad";
+$Forum['Forum66'] = "Sin personajes";
+$Forum['Forum67'] = "Editado por";
+$Forum['Forum68'] = "el";
+$Forum['Forum69'] = "Fecha del comentario : ";
+$Forum['Forum70'] = "Valoraciones desactivadas.";
+$Forum['Forum71'] = "Siguiente comentario Blizzard";
+$Forum['Forum72'] = "Citar";
+$Forum['Forum73'] = "Responder el Tema";
+$Forum['Forum74'] = "Este hilo está cerrado.";
+$Forum['Forum75'] = "Para poder publicar debes estar registrado";
+$Forum['Forum76'] = "Comentario creado...";
+
 // Finishing the Forum Translation
 
 //userplate
@@ -647,7 +675,7 @@ $armory['showAll']="Mostrar todos los atributos";
 $armory['showMain']="Mostrar solo los atributos principales";
 //Finish Armory
 
-//More
+//Others
 $globalInfoVar['Anonymous']="Anónimo";
 $status['chars']="Personajes";
 $status['low']="Baja";
@@ -671,4 +699,21 @@ $search['Show'] = "Mostrando";
 $search['Results'] = "resultados";
 $search['Of'] = "de";
 $search['sumResults'] = "Coincidencias para: ";
-?>  
+//Finish Others
+
+//Styles
+$style['bold'] = "Negrita";
+$style['italics'] = "Cursiva";
+$style['underline'] = "Subrayado";
+$style['list'] = "Lista sin orden";
+$style['listItem'] = "Lista enumerada";
+$style['quote'] = "Citar";
+$style['quoteBy'] = "";
+$style['unformat'] = "";
+$style['cleanup'] = "";
+$style['code'] = "Bloques de código";
+$style['item'] = "Objeto de Wow";
+$style['itemPrompt'] = "";
+$style['url'] = "";
+$style['urlPrompt'] = "";
+?>

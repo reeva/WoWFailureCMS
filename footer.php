@@ -327,20 +327,21 @@ shortQuery: "Search requests must be at least three characters long."
 },
 
 bml: {
-bold: 'Bold',
-italics: 'Italics',
-underline: 'Underline',
-list: 'Unordered List',
-listItem: 'List Item',
-quote: 'Quote',
+bold: '<?php echo $style['bold']; ?>',
+italics: '<?php echo $style['italics']; ?>',
+underline: '<?php echo $style['underline']; ?>',
+list: '<?php echo $style['list']; ?>',
+listItem: '<?php echo $style['listItem']; ?>',
+quote: '<?php echo $style['quote']; ?>',
 quoteBy: 'Posted by {0}',
 unformat: 'Remove Formating',
 cleanup: 'Fix Linebreaks',
-code: 'Code Blocks',
-item: 'WoW Item',
+code: '<?php echo $style['code']; ?>',
+item: '<?php echo $style['item']; ?>',
 itemPrompt: 'Item ID:',
 url: 'URL',
 urlPrompt: 'URL Address:'
+
 },
 ui: {
 submit: 'Submit',

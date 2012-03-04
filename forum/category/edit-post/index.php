@@ -142,7 +142,7 @@ $page_cat = "forums";
 		<li><a href="'.$website['root'].'forum" rel="np">Forums</a></li>
 		<li><a href="'.$website['root'].'forum" rel="np">'.$category['name'].'</a></li>
 		<li><a href="'.$website['root'].'forum/category/?f='.$forum['id'].'" rel="np">'.$forum['name'].'</a></li>
-		<li class="last"><a href="create-topic/?f='.$forum['id'].'" rel="np">New Topic</a></li>
+		<li class="last"><a href="create-topic/?f='.$forum['id'].'" rel="np">'.$Forum['Forum8'].'</a></li>
 		</ol>';
 
 		$error=0;
@@ -164,11 +164,11 @@ $page_cat = "forums";
     <?php if(isset($_POST['edit'])){
 		$mode = $_POST['mode'];
 		
-		if($mode == "thread") if(empty($_POST['subject'])){ $errors[] = "Empty Thread Name"; }
-		if(empty($_POST['detail'])){ $errors[] = "Empty Content"; }
-		if($error == 1){ $errors[] = "Internal Error"; }
+		if($mode == "thread") if(empty($_POST['subject'])){ $errors[] = ''.$Forum['Forum11'].''; }
+		if(empty($_POST['detail'])){ $errors[] = ''.$Forum['Forum12'].''; }
+		if($error == 1){ $errors[] = ''.$Forum['Forum13'].''; }
 		echo '<center>
-		<h3>Editing Post...</h3><br />
+		<h3>'.$Forum['Forum53'].'</h3><br />
 		<div class="loader"></div><br />';
 		
 		if(isset($errors) && count($errors) > 0){
@@ -194,10 +194,10 @@ $page_cat = "forums";
 			if($userInfo['class'] == 'blizz'){$hb = 1; }else{ $hb = 0;}
 			
 			if($mode == "thread") $insert = mysql_query("UPDATE forum_threads SET name = '".$subject."', content = '".$content."', last_date = '".$ndate."', edited = '1', editedby = '".$userInfo['id']."' WHERE id = '".$post['id']."'")or print(mysql_error());
-			else $insert = mysql_query("UPDATE forum_replies SET content = '".$content."', last_date = '".$ndate."', edited = '1', editedby = '".$userInfo['id']."' WHERE id = '".$post['id']."'")or print("Could not edit.");		
+			else $insert = mysql_query("UPDATE forum_replies SET content = '".$content."', last_date = '".$ndate."', edited = '1', editedby = '".$userInfo['id']."' WHERE id = '".$post['id']."'")or print(''.$Forum['Forum54'].'');		
 			
 			echo '<div class="success">';
-			echo 'Thread has been successfully edited.';
+			echo ''.$Forum['Forum55'].'';
 			echo '</div>';
 			echo '<meta http-equiv="refresh" content="0;url=/forum/category/view-topic/?t='.$thread['id'].'"';
 		}
@@ -215,7 +215,7 @@ $page_cat = "forums";
 						if($error != 1){
 						?>
 						<div class="post-user-details ">
-							<h4>Edit <?php if($mode == "thread") echo 'Thread'; else echo 'Post'; ?></h4>
+							<h4><?php echo $Forum['Forum22']; ?> <?php if($mode == "thread") echo ''.$Forum['Forum56'].''; else echo ''.$Forum['Forum57'].''; ?></h4>
 							<div class="post-user ajax-update">
 								
 								<div class="avatar">
@@ -231,14 +231,14 @@ $page_cat = "forums";
 										<span class="char-name-code" style="display: none"><?php echo $charInfo['name']; ?></span>
 										<div id="context-2" class="ui-context character-select">
 											<div class="context">
-												<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+												<a href="javascript:;" class="close" onClick="return CharSelect.close(this);"></a>
 												<div class="context-user">
 													<strong><?php echo $charInfo['name']; ?></strong>
 														<br />
-														<span>No Realm</span>
+														<span><?php echo $Forum['Forum18']; ?></span>
 												</div>
 												<div class="context-links">
-														<a href="#" title="Profile" rel="np" class="icon-profile link-first">Profile</a>
+														<a href="#" title="Profile" rel="np" class="icon-profile link-first"><?php echo $Forum['Forum19']; ?></a>
 														<a href="#" title="View my posts" rel="np" class="icon-posts"> </a>
 														<a href="#" title="View auctions" rel="np" class="icon-auctions"> </a>
 														<a href="#" title="View events" rel="np" class="icon-events link-last"> </a>
@@ -262,8 +262,8 @@ $page_cat = "forums";
 						<div class="post-edit">
 							<div id="post-errors"></div>
 							<div class="talkback-controls">
-								<a href="javascript:;" onclick="Cms.Topic.previewToggle(this, 'preview')" class="preview-btn"><span class="arr"></span><span class="r"></span><span class="c">Preview</span></a>
-								<a href="javascript:;" onclick="Cms.Topic.previewToggle(this, 'edit')" class="edit-btn selected"><span class="arr"></span><span class="r"></span><span class="c">Edit</span></a>
+								<a href="javascript:;" onClick="Cms.Topic.previewToggle(this, 'preview')" class="preview-btn"><span class="arr"></span><span class="r"></span><span class="c"><?php echo $Forum['Forum21']; ?></span></a>
+								<a href="javascript:;" onClick="Cms.Topic.previewToggle(this, 'edit')" class="edit-btn selected"><span class="arr"></span><span class="r"></span><span class="c"><?php echo $Forum['Forum22']; ?></span></a>
 							</div>
 							<div class="editor1" id="post-edit"><div class="bml-toolbar"></div>
 								<a id="editorMax" rel="5000"></a>
@@ -290,7 +290,7 @@ $page_cat = "forums";
 									<div id="submitBtn">
 									<button class="ui-button button1 " type="submit" name="edit">
 										<span>
-											<span>Submit</span>
+											<span><?php echo $Forum['Forum23']; ?></span>  
 										</span>
 									</button>
 									</div>
@@ -300,7 +300,7 @@ $page_cat = "forums";
 						<span class="clear"><!-- --></span>
 						<?php
 						}else{
-						if(!isset($_SESSION['username'])){ echo '<div class="post-user-details "><center><h4>Not Logged In</h4></center><br /></div>'; }else{
+						if(!isset($_SESSION['username'])){ echo '<div class="post-user-details "><center><h4>'.$Forum['Forum47'].'</h4></center><br /></div>'; }else{
 						echo '<div class="post-user-details "><center><h4>Error...</h4></center><br /></div>'; }
 						}
 						?>
@@ -311,11 +311,11 @@ $page_cat = "forums";
 			<div class="talkback-code">
 				<div class="talkback-code-interior">
 					<div class="talkback-icon">
-						<h4 class="code-header">Please report any Code of Conduct violations, including:</h4>
-						<p>Threats of violence. <strong>We take these seriously and will alert the proper authorities.</strong></p>
-						<p>Posts containing personal information about other players. <strong>This includes physical addresses, e-mail addresses, phone numbers, and inappropriate photos and/or videos.</strong></p>
-						<p>Harassing or discriminatory language. <strong>This will not be tolerated.</strong></p>
-						<p>Click <a href="http://battle.net/community/conduct">here</a> to view the Forums Code of Conduct.</p>
+						<h4 class="code-header"><?php echo $Forum['Forum24']; ?></h4>
+						<p><?php echo $Forum['Forum25']; ?> <strong><?php echo $Forum['Forum26']; ?></strong></p>
+						<p><?php echo $Forum['Forum27']; ?> <strong><?php echo $Forum['Forum28']; ?></strong></p>
+						<p><?php echo $Forum['Forum29']; ?> <strong><?php echo $Forum['Forum30']; ?></strong></p>
+						<p><?php echo $Forum['Forum31']; ?> <a href="http://battle.net/community/conduct"><?php echo $Forum['Forum32']; ?></a> <?php echo $Forum['Forum33']; ?></p>
 					</div>
 				</div>
 			</div>
