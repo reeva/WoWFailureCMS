@@ -22,7 +22,7 @@ $code_forum['code_forum']= " to view the Forums Code of Conduct.";
 $here['here'] = "here";
 $Account['Account'] = "Account";
 $Account1['Account1'] = "Can't log in?";
-$Account3['Account3'] = "Create Account";
+$Account3['Account3'] = "Create an Account";
 $Account4['Account4'] = "Account Summary";
 $Account5['Account5'] = "Account Security"; 
 $Account6['Account6'] = "Manage your Account";
@@ -72,8 +72,8 @@ $copyright4['copyright4'] = "Resources are in Blizzard Entertainment Property.";
 
 
 $Welcome['Welcome'] ="Welcome, ";
-$logout['logout'] = "Log Out";
-$login['login'] = "Log In" ;
+$logout['logout'] = "Log out";
+$login['login'] = "Log in" ;
 
 $Donate1['Donate1'] = "Donate for"; 
 $Donate['Donate'] = "Donate";
@@ -84,6 +84,8 @@ $Retrieve['Retrieve'] = "Retrieve Lost Account";
 $Find['Find'] = "Find us on the Map!";
 $or['or'] = "or";
 $search['text_bar'] = "Search characters, items and more...";
+
+
 
 // Starting the voting translation
 
@@ -117,10 +119,11 @@ $re['re4'] = "Online Privacy Policy";
 $re['re5'] = "Country of Residence:";
 $re['re6'] = "Date of Birth:";
 $re['re7'] = "Title:";
-$re['re8'] = "Your Name:";
+$re['re8'] = "First Name:";
+$re['re9'] = "Last Name:";
 $re['re10'] = "E-mail Address:";
 $re['re11'] = "Username:";
-$re['re12'] = "Password: .";
+$re['re12'] = "Password:";
 $re['re13'] = "For your security, we highly recommend that you choose a unique password that you don't use for any other online account.";
 $re['re14'] = "Password Strength:";
 $re['re15'] = "Your password must be between 8-16 characters in length.";
@@ -149,34 +152,6 @@ $re['re37'] = "Terms of Use ";
 $re['re38'] = " applicable to my country of residence and if under 18 years old, agree and acknowledge that my parent or guardian has also reviewed and accepted the Terms of Use on my behalf.";
 $re['re39'] = "Create Free Account";
 $re['re40'] = "Cancel";
-$re['mr'] = "Mr";
-$re['miss'] = "Miss";
-$re['ms'] = "Ms.";
-$re['re41'] = "First Name";
-$re['re42'] = "Last Name";
-$re['re43'] = "Type an E-mail";
-$re['re44'] = "Confirm your E-mail";
-$re['re45'] = "Type the Account Name";
-$re['re46'] = "Type your Password";
-$re['re47'] = "Confirm your Password";
-$re['re48'] = "Answer";
-$re['error1'] = "An error has ocurred during your account registration, please try again and if the problem persists please contact with the adminsitration.";
-$re['error2']="The password doesn't match!";
-$re['error3']="You must type a FirstName";
-$re['error4']="You must type a Lastname";
-$re['error5']="You must type a valid E-Mail";
-$re['error6']="You must type a Password";
-$re['error7']="The Account Name has already taken!";
-$re['error8']="You must select a correct date of birth!";
-$re['error9']="The E-mail directions doesn't match!";
-$re['error10']="You must select a secret question and answer!";
-$re['scc1']="Succes!";
-$re['scc2']="Your account and preferences has been resgitrated succesfull";
-$re['goPanel']="Go back to the Account Management...";
-$re['back']="Back";
-$re['day']="Day";
-$re['month']="Month";
-$re['year']="Year";
 //Finishing the register.php translation
 
 // Starting register
@@ -202,8 +177,7 @@ $Reg['Reg18'] = "Account Name:";
 $Reg['Reg19'] = "Old Password:";
 $Reg['Reg20'] = "New Password:";
 $Reg['Reg21'] = "Password Rules";
-$Reg['Reg22'] = "Your password may only contain ";
-$Reg['Reg23'] = "alphabetic characters (A–Z), numeric characters (0–9), and punctuation.";
+$Reg['Reg22'] = "Your password may only contain alphabetic characters (A-Z), numeric characters (0-9), and punctuation.";
 $Reg['Reg24'] = "Your password ";
 $Reg['Reg25'] = "must";
 $Reg['Reg26'] = " contain at least one alphabetic character ";
@@ -213,11 +187,13 @@ $Reg['Reg29'] = "You cannot enter your account name as your password.";
 $Reg['Reg30'] = "Your password must be between ";
 $Reg['Reg31'] = "eight and sixteen characters";
 $Reg['Reg32'] = " in length.";
-$Reg['Reg33'] = "For your security, we highly recommend you choose a unique password that you don’t use for any other online account.";
+$Reg['Reg33'] = "For your security, we highly recommend you choose a unique password that you don\92t use for any other online account.";
 $Reg['Reg34'] = "Confirm New Password:";
 $Reg['Reg35'] = "Continue";
 $Reg['Reg36'] = "Cancel ";
+$Reg['Reg37'] = " - Change Password";
 // Finishing register
+
 // Starting Account Log
 $Log['Log'] = " - Login";
 $Log['Log1'] = "Battle.net";
@@ -250,6 +226,7 @@ $Man['Man7'] = "Active";
 $Man['Man8'] = "Banned";
 $Man['Man9'] = "Current Game Source";
 $Man['Man10'] = "100% Days";
+$Man2['Man10'] = "0% Days";
 $Man['Man11'] = "Expansion Pack";
 $Man['Man12'] = "Cataclysm";
 $Man['Man13'] = "Change";
@@ -362,9 +339,9 @@ $Uns['Uns4'] = "You should change your country to Korea, republic of and verify 
 $Uns['Uns5'] = "Game Region Warning";
 $Uns['Uns6'] = "The World of Warcraft account merge process is not yet available in your region.";
 $Uns['Uns7'] = "If you lost your authenticator, please detach it before proceeding. (Security card service ended 8/13/2010 and was automatically detached.) ";
-$Uns['Uns8'] = "If you use Phone Lock: please unlock your World of Warcraft account before merging.";
+$Uns['Uns8'] = "If you use Phone Lock: please unlock your World of Warcraft account before\A0merging.";
 $Uns['Uns9'] = "Taiwan: 0800-303-585";
-$Uns['Uns10'] = "(Not available 10–11AM every first Wed of the month)";
+$Uns['Uns10'] = "(Not available 10\9611AM every first Wed of the month)";
 $Uns['Uns11'] = "Hong Kong &amp; Macau: 396-54666";
 $Uns['Uns12'] = " Required";
 $Uns['Uns13'] = "Game Management";
@@ -521,12 +498,13 @@ $Forum['Forum73'] = "Reply to Thread";
 $Forum['Forum74'] = "This thread is locked";
 $Forum['Forum75'] = "In order to post you must to be logged in";
 $Forum['Forum76'] = "Forum Post created...";
-$Forum['Forum77'] = "";
-$Forum['Forum78'] = "";
-$Forum['Forum79'] = "";
-
+$Forum['Forum77'] = "Latest Blizzard Posts";
+$Forum['Forum78'] = "All Blizzard posts";
+$Forum['Forum79'] = "Popular Topics";
+$Forum['Forum80'] = "in";
 
 // Finishing the Forum Translation
+
 
 //userplate
 $uplate['login'] = "<strong>Log in now</strong> to enhance and personalize your experience!";
@@ -552,49 +530,49 @@ $uplate['r'] = "All Races";
 //finish userplate
 
 //Starting Armory
-$armory['talents'] = "TALENTS";
+$armory['talents'] = "TALENTOS";
 $armory['APoints'] = "Arena";
-$armory['summary'] = "Summary";
-$armory['reputation'] = "Reputation";
-$armory['3d'] = "3D Model";
-$armory['advanced'] = "Aadvanced";
-$armory['itemlevel'] = "Avareage item level";
-$armory['equipped'] = "Equipped";
-$armory['audit'] = "Character revision";
-$armory['what'] = "What is this?";
-$armory['emptyGlyph'] = "empty glyph slot";
-$armory['unenchanted'] = "Not enchanted objects";
-$armory['reforging'] = "Reforging";
-$armory['enchant'] = "Enchants and Bonusses";
-$armory['armour'] = "Armour";
-$armory['stamina'] = "Stamina";
-$armory['strength'] = "Strength";
-$armory['gems'] = "Gems";
-$armory['noGems'] = "This Character don't have gems.";
-$armory['activity'] = "Recent Activity";
-$armory['noActivity'] = "There is no recent activity.";
-$armory['disable'] = "This feature is disable.";
-$armory['early'] = "See previous activity.";
-$armory['race1'] = "Human";
-$armory['race2'] = "Orc";
-$armory['race3'] = "Dwarf";
-$armory['race4'] = "Nigth Elf";
-$armory['race5'] = "Undead";
+$armory['summary'] = "Resumen";
+$armory['reputation'] = "Reputación";
+$armory['3d'] = "Modelo 3D";
+$armory['advanced'] = "Avanzado";
+$armory['itemlevel'] = "Nivel medio de objeto";
+$armory['equipped'] = "Equipado";
+$armory['audit'] = "Revisión de Personaje";
+$armory['what'] = "¿Qué es esto?";
+$armory['emptyGlyph'] = "Ranura de Glifo vacía";
+$armory['unenchanted'] = "Objetos no encantados";
+$armory['reforging'] = "Reforjado";
+$armory['enchant'] = "Encantamientos y Bonus";
+$armory['armour'] = "Armadura";
+$armory['stamina'] = "Aguante";
+$armory['strength'] = "Fuerza";
+$armory['gems'] = "Gemas";
+$armory['noGems'] = "Este personaje no lleva gemas.";
+$armory['activity'] = "Actividad reciente";
+$armory['noActivity'] = "No hay actividad reciente.";
+$armory['disable'] = "Esta característica está deshabilitada.";
+$armory['early'] = "Ver Actividad Anterior";
+$armory['race1'] = "Humano";
+$armory['race2'] = "Orco";
+$armory['race3'] = "Enano";
+$armory['race4'] = "Elfo de la Noche";
+$armory['race5'] = "No-Muerto";
 $armory['race6'] = "Tauren";
-$armory['race7'] = "Gnome";
+$armory['race7'] = "Gnomo";
 $armory['race8'] = "Troll";
 $armory['race9'] = "Goblin";
-$armory['race10'] = "Blood Elf";
+$armory['race10'] = "Elfo de Sangre";
 $armory['race11'] = "Draenei";
-$armory['race22'] = "Wargen";
-$armory['oflvl'] = " of level ";
-$armory['class1'] = "Warraior";
-$armory['class2'] = "Paladin";
-$armory['class3'] = "Hunter";
-$armory['class4'] = "Rogue";
-$armory['class5'] = "Priest";
-$armory['class6'] = "Death Knigth";
-$armory['class7'] = "Shaman";
+$armory['race22'] = "Huarguen";
+$armory['oflvl'] = " de nivel ";
+$armory['class1'] = "Guerrero";
+$armory['class2'] = "Paladín";
+$armory['class3'] = "Cazador";
+$armory['class4'] = "Pícaro";
+$armory['class5'] = "Sacerdote";
+$armory['class6'] = "Caballero de la Muerte";
+$armory['class7'] = "Chamán";
 $armory['class8'] = "Mage";
 $armory['class9'] = "Warlock";
 $armory['class11'] = "Druid";

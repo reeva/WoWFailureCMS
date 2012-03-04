@@ -170,7 +170,7 @@ $page_cat = "forums";
 			$content = addslashes($content);
 			$content = nl2br($content);
 			$content = mysql_real_escape_string($content);
-			$ndate = date('Y-m-d H:i:s');	
+			$ndate = date('d-m-Y H:i:s');	
 			
 			//User Parameteres
 			$author = $account_information['id'];
@@ -216,7 +216,7 @@ $page_cat = "forums";
 										<span class="char-name-code" style="display: none"><?php echo $charInfo['name']; ?></span>
 										<div id="context-2" class="ui-context character-select">
 											<div class="context">
-												<a href="javascript:;" class="close" onClick="return CharSelect.close(this);"></a>
+												<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
 												<div class="context-user">
 													<strong><?php echo $charInfo['name']; ?></strong>
 														<br />
@@ -247,8 +247,8 @@ $page_cat = "forums";
 						<div class="post-edit">
 							<div id="post-errors"></div>
 							<div class="talkback-controls">
-								<a href="javascript:;" onClick="Cms.Topic.previewToggle(this, 'preview')" class="preview-btn"><span class="arr"></span><span class="r"></span><span class="c"><?php echo $Forum['Forum21']; ?></span></a>
-								<a href="javascript:;" onClick="Cms.Topic.previewToggle(this, 'edit')" class="edit-btn selected"><span class="arr"></span><span class="r"></span><span class="c"><?php echo $Forum['Forum22']; ?></span></a>
+								<a href="javascript:;" onclick="Cms.Topic.previewToggle(this, 'preview')" class="preview-btn"><span class="arr"></span><span class="r"></span><span class="c">Preview</span></a>
+								<a href="javascript:;" onclick="Cms.Topic.previewToggle(this, 'edit')" class="edit-btn selected"><span class="arr"></span><span class="r"></span><span class="c">Edit</span></a>
 							</div>
 							<div class="editor1" id="post-edit"><div class="bml-toolbar"></div>
 								<a id="editorMax" rel="5000"></a>

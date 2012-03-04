@@ -253,7 +253,8 @@ if($error == 1){
 										<div class="guild"><a href="#">'.$Forum['Forum65'].'</a></div>
 										<div class="achievements">0</div>
 										';
-										} 
+										} echo '<div class="character-desc"><span class="color-c5">No Characters</span></div>';
+									echo '</div>';
 								break;
 								}
 								
@@ -550,7 +551,7 @@ if($error == 1){
 			}
 			?>
 				<a id="new-post"></a>
-				<form method="post" onSubmit="return Cms.Topic.postValidate(this);" action="#<?php echo $i++; ?>">
+				<form method="post" onsubmit="return Cms.Topic.postValidate(this);" action="#<?php echo $i++; ?>">
 					<div>
 						<input type="hidden" name="xstoken" value="272c2eb0-9252-4eae-b494-93fd89788702" />
 						<input type="hidden" name="sessionPersist" value="forum.topic.post" />
@@ -589,8 +590,8 @@ if($error == 1){
 								<div id="post-errors"></div>
 
 								<div class="talkback-controls">
-									<a href="javascript:;" onClick="Cms.Topic.previewToggle(this, 'preview')" class="preview-btn"><span class="arr"></span><span class="r"></span><span class="c"><?php echo $Forum['Forum21']; ?></span></a>
-									<a href="javascript:;" onClick="Cms.Topic.previewToggle(this, 'edit')" class="edit-btn selected"><span class="arr"></span><span class="r"></span><span class="c"><?php echo $Forum['Forum22']; ?></span></a>
+									<a href="javascript:;" onclick="Cms.Topic.previewToggle(this, 'preview')" class="preview-btn"><span class="arr"></span><span class="r"></span><span class="c">Preview</span></a>
+									<a href="javascript:;" onclick="Cms.Topic.previewToggle(this, 'edit')" class="edit-btn selected"><span class="arr"></span><span class="r"></span><span class="c">Edit</span></a>
 								</div>
 								
 								<div class="editor1" id="post-edit">

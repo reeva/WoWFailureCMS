@@ -502,6 +502,37 @@ $Forum['Forum46'] = "Siguiente &gt;";
 $Forum['Forum47'] = "No estás Logueado";
 $Forum['Forum48'] = "Título";
 $Forum['Forum49'] = "Autor";
+$Forum['Forum50'] = "Primer comentario Blizzard";
+$Forum['Forum51'] = "Último comentario de";
+$Forum['Forum52'] = " ";
+$Forum['Forum53'] = "Editando comentario...";
+$Forum['Forum54'] = "No se puede editar.";
+$Forum['Forum55'] = "El tema ha sido editado con éxito.";
+$Forum['Forum56'] = "Tema";
+$Forum['Forum57'] = "Comentario";
+$Forum['Forum58'] = "No se ha podido postear la respuesta!";
+$Forum['Forum59'] = "El tema no existe...";
+$Forum['Forum60'] = "Tema";
+$Forum['Forum61'] = "Responder";
+$Forum['Forum62'] = "Ver comentarios";
+$Forum['Forum63'] = "Miembro del Staff";
+$Forum['Forum64'] = "Moderador";
+$Forum['Forum65'] = "Sin hermandad";
+$Forum['Forum66'] = "Sin personajes";
+$Forum['Forum67'] = "Editado por";
+$Forum['Forum68'] = "el";
+$Forum['Forum69'] = "Fecha del comentario : ";
+$Forum['Forum70'] = "Valoraciones desactivadas.";
+$Forum['Forum71'] = "Siguiente comentario Blizzard";
+$Forum['Forum72'] = "Citar";
+$Forum['Forum73'] = "Responder el Tema";
+$Forum['Forum74'] = "Este hilo está cerrado.";
+$Forum['Forum75'] = "Para poder publicar debes estar registrado";
+$Forum['Forum76'] = "Comentario creado...";
+$Forum['Forum77'] = "Últimas publicaciones de Blizzard";
+$Forum['Forum78'] = "mensajes oficiales de Blizzard";
+$Forum['Forum79'] = "Temas Comunes";
+$Forum['Forum80'] = "en";
 // Finishing the Forum Translation
 
 //userplate
@@ -671,4 +702,21 @@ $search['Show'] = "Mostrando";
 $search['Results'] = "resultados";
 $search['Of'] = "de";
 $search['sumResults'] = "Coincidencias para: ";
-?>  
+//Finish Others
+
+//Styles
+$style['bold'] = "Negrita";
+$style['italics'] = "Cursiva";
+$style['underline'] = "Subrayado";
+$style['list'] = "Lista sin orden";
+$style['listItem'] = "Lista enumerada";
+$style['quote'] = "Citar";
+$style['quoteBy'] = "";
+$style['unformat'] = "";
+$style['cleanup'] = "";
+$style['code'] = "Bloques de código";
+$style['item'] = "Objeto de Wow";
+$style['itemPrompt'] = "";
+$style['url'] = "";
+$style['urlPrompt'] = "";
+?>

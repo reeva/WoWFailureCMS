@@ -138,7 +138,7 @@ echo '
 		            	<a href="#">Next &gt;</a>-->
         </div>
 
-		<a class="ui-button button1 imgbutton " href="index.php"><span><span><span class="back-arrow"> </span></span></span></a>
+		<a class="ui-button button1 imgbutton " href="<?php echo $website['root'].'forum'; ?>"><span><span><span class="back-arrow"> </span></span></span></a>
 		<?php
 		if(isset($_SESSION['username'])){
 			if($forum['locked'] == 1){

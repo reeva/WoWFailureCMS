@@ -467,11 +467,37 @@ $Forum['Forum46'] = "Next &gt;";
 $Forum['Forum47'] = "Not Logged In";
 $Forum['Forum48'] = "Subject";
 $Forum['Forum49'] = "Author";
-$Forum['Forum50'] = "";
-$Forum['Forum51'] = "";
-$Forum['Forum52'] = "";
-$Forum['Forum53'] = "";
-$Forum['Forum54'] = "";
+$Forum['Forum50'] = "Jump to first Blizzard Post";
+$Forum['Forum51'] = "Last Post by";
+$Forum['Forum52'] = "on";
+$Forum['Forum53'] = "Editing Post";
+$Forum['Forum54'] = "Could not edit.";
+$Forum['Forum55'] = "Thread has been successfully edited.";
+$Forum['Forum56'] = "Thread";
+$Forum['Forum57'] = "Post";
+$Forum['Forum58'] = "Could not post the reply!";
+$Forum['Forum59'] = "Request thread does not exist...";
+$Forum['Forum60'] = "Topic";
+$Forum['Forum61'] = "Add a reply";
+$Forum['Forum62'] = "View posts";
+$Forum['Forum63'] = "Staff Member";
+$Forum['Forum64'] = "Moderator";
+$Forum['Forum65'] = "No Guild";
+$Forum['Forum66'] = "No Characters";
+$Forum['Forum67'] = "Edited by";
+$Forum['Forum68'] = "on";
+$Forum['Forum69'] = "Posted Date : ";
+$Forum['Forum70'] = "Rate is Disabled.";
+$Forum['Forum71'] = "Next Blizzard Post";
+$Forum['Forum72'] = "Quote";
+$Forum['Forum73'] = "Reply to Thread";
+$Forum['Forum74'] = "This thread is locked";
+$Forum['Forum75'] = "In order to post you must to be logged in";
+$Forum['Forum76'] = "Forum Post created...";
+$Forum['Forum77'] = "Latest Blizzard Posts";
+$Forum['Forum78'] = "All Blizzard posts";
+$Forum['Forum79'] = "Popular Topics";
+$Forum['Forum80'] = "in";
 
 // Finishing the Forum Translation
 
@@ -643,4 +669,21 @@ $search['Show'] = "Showing";
 $search['Results'] = "results";
 $search['Of'] = "of";
 $search['sumResults'] = "Matchs found for: ";
+//Finish Others
+
+//Styles
+$style['bold'] = "Bold";
+$style['italics'] = "Italics";
+$style['underline'] = "Underline";
+$style['list'] = "Unordered List";
+$style['listItem'] = "List Item";
+$style['quote'] = "Quote";
+$style['quoteBy'] = "";
+$style['unformat'] = "";
+$style['cleanup'] = "";
+$style['code'] = "Code Blocks";
+$style['item'] = "Wow Item";
+$style['itemPrompt'] = "";
+$style['url'] = "";
+$style['urlPrompt'] = "";
 ?>

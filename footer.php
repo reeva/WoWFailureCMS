@@ -174,7 +174,7 @@ echo '>'
 <br />
 <center>
 <br>
-<small><?php echo $copyright3['copyright3']; ?>.<br /><?php echo $copyright['copyright'];  echo $website['title']; ?>.<br /><?php echo $copyright4['copyright4']; ?></small>
+<small><?php echo $copyright3['copyright3']; ?>.<br /><?php echo $copyright['copyright']; ?> - <?php echo date('Y'); ?> <?php echo $website['title']; ?>.<br /><?php echo $copyright4['copyright4']; ?></small>
 </center>
 </div>
 <center><a href="http://www.strawberry-pr0jcts.com/forum/index.php?/forum/27-wowfailurecms/" height="46" width="190"><img src="<?php echo $website['root'];?>wow/static/images/logos/wof-logo-small.png" height="21px" width="190px"/></center></a>
@@ -327,21 +327,20 @@ shortQuery: "Search requests must be at least three characters long."
 },
 
 bml: {
-bold: '<?php echo $style['bold']; ?>',
-italics: '<?php echo $style['italics']; ?>',
-underline: '<?php echo $style['underline']; ?>',
-list: '<?php echo $style['list']; ?>',
-listItem: '<?php echo $style['listItem']; ?>',
-quote: '<?php echo $style['quote']; ?>',
+bold: 'Bold',
+italics: 'Italics',
+underline: 'Underline',
+list: 'Unordered List',
+listItem: 'List Item',
+quote: 'Quote',
 quoteBy: 'Posted by {0}',
 unformat: 'Remove Formating',
 cleanup: 'Fix Linebreaks',
-code: '<?php echo $style['code']; ?>',
-item: '<?php echo $style['item']; ?>',
+code: 'Code Blocks',
+item: 'WoW Item',
 itemPrompt: 'Item ID:',
 url: 'URL',
 urlPrompt: 'URL Address:'
-
 },
 ui: {
 submit: 'Submit',

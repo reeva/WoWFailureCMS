@@ -60,9 +60,9 @@ Flash.ratingImage = 'http://eu.media.blizzard.com/wow/player/rating-pegi.jpg';
 				<script type="text/javascript">$(function(){Cms.Station.init();});</script>
 					<div id="station-view">
 						<div class="bt-lite">
-							<div class="bt-link readmore">Latest Blizzard Posts <span><a href="#">(View all)</a></span></div>
-								<a href="javascript:;" onclick="Cms.Station.btLiteScroll(1)" class="bt-left"></a>
-								<a href="javascript:;" onclick="Cms.Station.btLiteScroll(-1)" class="bt-right"></a>
+							<div class="bt-link readmore"><?php echo $Forum['Forum77']; ?> <span><a href="#">(<?php echo $View_all['View_all']; ?>)</a></span></div>
+								<a href="javascript:;" onClick="Cms.Station.btLiteScroll(1)" class="bt-left"></a>
+								<a href="javascript:;" onClick="Cms.Station.btLiteScroll(-1)" class="bt-right"></a>
 					
 							<div class="bt-adjust">
 								<div class="bt-mask">
@@ -84,7 +84,7 @@ Flash.ratingImage = 'http://eu.media.blizzard.com/wow/player/rating-pegi.jpg';
 											echo'<a href="category/view-topic/?t='.$threadId.'">
 												<span class="desc">
 													<span class="int">';
-														$content = substr($post['content'],0,45);
+														$content = substr($post['content'],0,120);
 														$content=str_replace("[quote", "",$content);
 														$content=str_replace("[/quote]", "",$content);
 														$content=str_replace("[b]", "",$content);
@@ -101,7 +101,7 @@ Flash.ratingImage = 'http://eu.media.blizzard.com/wow/player/rating-pegi.jpg';
 														$content=str_replace("[/code]", "",$content);
 														$content=str_replace("]", "",$content);
 														$content=stripslashes($content);
-														echo $content.'
+														echo '"'.$content.' ..."
 														
 												</span>
 												</span>
@@ -116,7 +116,7 @@ Flash.ratingImage = 'http://eu.media.blizzard.com/wow/player/rating-pegi.jpg';
 														
 														echo $char['name'].'</span>
 														 '.$post['date'].'
-														 in <strong>'.$forum['name'].'</strong>:
+														 '.$Forum['Forum80'].' <strong>'.$forum['name'].'</strong>:
 														 '.$post['name'].'
 												 </span>
 											</a>';
@@ -129,7 +129,7 @@ Flash.ratingImage = 'http://eu.media.blizzard.com/wow/player/rating-pegi.jpg';
 										<div class="bt-set">
 											<a href="#">
 												<span class="desc">
-												<span class="int">All Blizzard posts</span>
+												<span class="int"><?php echo $Forum['Forum78']; ?></span>
 												</span>
 												<span class="info">
 												 </span>
@@ -184,7 +184,7 @@ Flash.ratingImage = 'http://eu.media.blizzard.com/wow/player/rating-pegi.jpg';
 
 
 									<div id="popular-topics">
-										<div class="readmore">Popular Topics</div>
+										<div class="readmore"><?php echo $P_topics['P_topics']; ?></div>
 											<div class="sidebar-module" id="sidebar-forums">
 							<div class="sidebar-title">
 							<h3 class="category title-forums"><a href="#"><?php echo $P_topics['P_topics']; ?></a></h3>
@@ -211,7 +211,7 @@ Flash.ratingImage = 'http://eu.media.blizzard.com/wow/player/rating-pegi.jpg';
 							</div>
 						</div>
 											
-											<div class="coc"> Click <a href="http://battle.net/community/conduct">here</a> to view the Forums Code of Conduct.</div>
+											<div class="coc"> <?php echo $click['click']; ?> <a href="http://battle.net/community/conduct"><?php echo $here['here']; ?></a><?php echo $Forum['Forum33']; ?></div>
 									</div>
 									<span class="clear"><!-- --></span>
 								</div>
@@ -220,7 +220,6 @@ Flash.ratingImage = 'http://eu.media.blizzard.com/wow/player/rating-pegi.jpg';
 					</div>
 				</div>
 			</div>
-		</div>
 		</div>
 <?php include("../footer.php"); ?>
 </body>
