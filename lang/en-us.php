@@ -152,6 +152,34 @@ $re['re37'] = "Terms of Use ";
 $re['re38'] = " applicable to my country of residence and if under 18 years old, agree and acknowledge that my parent or guardian has also reviewed and accepted the Terms of Use on my behalf.";
 $re['re39'] = "Create Free Account";
 $re['re40'] = "Cancel";
+$re['mr'] = "Mr";
+$re['miss'] = "Miss";
+$re['ms'] = "Ms.";
+$re['re41'] = "Type your firstname";
+$re['re42'] = "Type your lastname";
+$re['re43'] = "Type your E-mail";
+$re['re44'] = "Confirm your E-mail";
+$re['re45'] = "Type the Account Name";
+$re['re46'] = "Type your Password";
+$re['re47'] = "Confirm your Password";
+$re['re48'] = "Answer";
+$re['error1'] = "An error has ocurred during your account registration, please try again and if the problem persists please contact with the adminsitration.";
+$re['error2']="The password doesn't match!";
+$re['error3']="You must type a FirstName";
+$re['error4']="You must type a Lastname";
+$re['error5']="You must type an E-Mail";
+$re['error6']="You must type a Password";
+$re['error7']="The Account Name has already taken!";
+$re['error8']="You must select a correct date of birth!";
+$re['error9']="The E-mail directions doesn't match!";
+$re['error10']="You must select a secret question and answer!";
+$re['scc1']="Succes!";
+$re['scc2']="Your account and preferences has been resgitrated succesfull";
+$re['goPanel']="Comeback to Admin Panel";
+$re['back']="Back";
+$re['day']="Day";
+$re['month']="Month";
+$re['year']="Year";
 //Finishing the register.php translation
 
 // Starting register
