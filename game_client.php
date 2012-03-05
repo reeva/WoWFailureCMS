@@ -6,7 +6,7 @@ $page_cat = "gamesncodes";
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
 <head>
-<title><?php echo $website['title']; ?> - Download Games</title>
+<title><?php echo $website['title']; ?> - <?php echo $GameCli['Game1']; ?></title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
@@ -65,35 +65,35 @@ _gaq.push(['_trackPageLoadTime']);
 <div class="wrapper">
 <div id="content">
 <div id="page-header">
-<h2 class="subcategory">Game Management</h2>
-<h3 class="headline">Download Games</h3>
+<h2 class="subcategory"><?php echo $GameCli['Game2']; ?></h2>
+<h3 class="headline"><?php echo $GameCli['Game1']; ?></h3>
 </div>
 <p class="download-filter">
 <a href="" class="active">World of Warcraft</a>
 </p>
 <div class="category" id="wow">
 <div class="header">
-<h2 class="subcategory">Game Client Downloads</h2>
+<h2 class="subcategory"><?php echo $GameCli['Game3']; ?></h2>
 <h3 class="headline">World of Warcraft</h3>
 <img src="wow/static/local-common/images/game-icons/wow.png" alt="World of Warcraft" width="48" height="48" />
 </div>
 <table>
 <thead>
 <tr>
-<th scope="col" class="details">File Details</th>
-<th scope="col" class="language">Language</th>
-<th scope="col" class="download win">Windows Link</th>
-<th scope="col" class="download mac">Mac Link</th>
+<th scope="col" class="details"><?php echo $GameCli['Game4']; ?></th>
+<th scope="col" class="language"><?php echo $GameCli['Game5']; ?></th>
+<th scope="col" class="download win"><?php echo $GameCli['Game6']; ?></th>
+<th scope="col" class="download mac"><?php echo $GameCli['Game7']; ?></th>
 </tr>
 </thead>
 <tbody>
 <tr class="full wow localized" id="wow-full-EU">
 <th scope="row" colspan="2" class="details">
-<h4>Full Game Client</h4>
+<h4><?php echo $GameCli['Game8']; ?>*</h4>
 <p class="language-selection">
-<span class="active-region">Europe</span> /
+<span class="active-region"><?php echo $GameCli['Game9']; ?></span> /
 <span class="active-language">English (EU)</span>
-<a href="" class="change-language" rel="region-wow-full">(Change)</a>
+<a href="" class="change-language" rel="region-wow-full"><?php echo $GameCli['Game10']; ?></a>
 </p>
 <div id="region-wow-full" class="region-selection hidden border-3">
 <p><strong>Available Regions</strong></p>
@@ -167,7 +167,7 @@ _gaq.push(['_trackPageLoadTime']);
 </tr>
 <tr class="beta wow localized" id="wow-beta-EU">
 <th scope="row" colspan="2" class="details">
-<h4>Public Test Realm Client</h4>
+<h4><?php echo $GameCli['Game11']; ?></h4>
 <p class="language-selection">
 <span class="active-region">Europe</span> /
 <span class="active-language">English (EU)</span>
@@ -229,7 +229,7 @@ _gaq.push(['_trackPageLoadTime']);
 </tr>
 <tr class="starter wow localized" id="wow-starter-EU">
 <th scope="row" colspan="2" class="details">
-<h4>Free Starter Edition</h4>
+<h4><?php echo $GameCli['Game12']; ?></h4>
 <p class="language-selection">
 <span class="active-region">Europe</span> /
 <span class="active-language">English (EU)</span>
@@ -307,7 +307,7 @@ _gaq.push(['_trackPageLoadTime']);
 </tr>
 <tr class="guide wow localized" id="wow-guide-NA">
 <th scope="row" colspan="2" class="details">
-<h4>Beginner's Guide</h4>
+<h4><?php echo $GameCli['Game13']; ?></h4>
 <p class="language-selection">
 <span class="active-region">Americas &amp; Oceania</span> /
 <span class="active-language">English (US)</span>
@@ -321,7 +321,7 @@ _gaq.push(['_trackPageLoadTime']);
 <tr class="language-pack language-pack-wow-full language-pack-wow-full-NA hidden">
 <th scope="row" class="details" rowspan="2">
 <h4>American Language Packs</h4>
-<p>Used for patching a game client with a different language.<br />(Requires the American full game client.)</p>
+<p><?php echo $GameCli['Game15']; ?><br /><?php echo $GameCli['Game16']; ?></p>
 </th>
 <td class="language">English (US)</td>
 <td class="download win"><a href=""><span class="icon"></span> Windows</a></td>
@@ -334,8 +334,8 @@ _gaq.push(['_trackPageLoadTime']);
 </tr>
 <tr class="language-pack language-pack-wow-full language-pack-wow-full-EU">
 <th scope="row" class="details" rowspan="5">
-<h4>European Language Packs</h4>
-<p>Used for patching a game client with a different language.<br />(Requires the European full game client.)</p>
+<h4><?php echo $GameCli['Game14']; ?></h4>
+<p><?php echo $GameCli['Game15']; ?><br /><?php echo $GameCli['Game16']; ?></p>
 </th>
 <td class="language">English (EU)</td>
 <td class="download win"><a href=""><span class="icon"></span> Windows</a></td>

@@ -5,7 +5,7 @@ $page_cat = "gamesncodes";
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
 <head>
-<title>Vote History - <?php echo $website['title']; ?></title>
+<title><?php echo $BanL['BanL11']; ?> - <?php echo $website['title']; ?></title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
@@ -74,13 +74,13 @@ _gaq.push(['_trackPageLoadTime']);
 <div class="wrapper">
 <div id="content">
 <div id="page-header">
-<h2 class="subcategory">Ban List</h2>
-<h3 class="headline">Check if your Account is Banned</h3>
+<h2 class="subcategory"><?php echo $BanL['BanL7']; ?></h2>
+<h3 class="headline"><?php echo $BanL['BanL8']; ?></h3>
 </div>
 <div id="page-content" class="page-content">
 <div class="service-wrapper">
     <p class="service-nav">
-            <a href="ban-list.php" class="active">Ban List</a>
+            <a href="ban-list.php" class="active"><?php echo $BanL['BanL7']; ?></a>
     </p>
 	</div>
 	<br>
@@ -100,11 +100,11 @@ echo '
 		<table id="order-history">
 			<thead>
 				<tr>
-					<th align="center"><a href="#" class="sort-link numeric"><span class="arrow">Account ID</span></a></th>
-					<th align="center"><a href="#" class="sort-link numeric"><span class="arrow">Banned By</span></a></th>
-					<th align="center"><span class="arrow">Unban Date</span></th>
-					<th align="center"><span class="arrow">Duration</span></th>
-					<th align="center"><span class="arrow">Reason</span></th>
+					<th align="center"><a href="#" class="sort-link numeric"><span class="arrow">'.$BanL['BanL9'].'</span></a></th>
+					<th align="center"><a href="#" class="sort-link numeric"><span class="arrow">'.$BanL['BanL1'].'</span></a></th>
+					<th align="center"><span class="arrow">'.$BanL['BanL2'].'</span></th>
+					<th align="center"><span class="arrow">'.$BanL['BanL3'].'</span></th>
+					<th align="center"><span class="arrow">'.$BanL['BanL4'].'</span></th>
 					</tr>
 				</thead>';
 while($raw = mysql_fetch_array($response)) {
@@ -133,7 +133,7 @@ echo"</table><br />";
 }
 else
 {
-echo "<b>There are no banned users right now.</b>";
+echo "<b>".$BanL['BanL10']."</b>";
 }
 ?>
 <script type="text/javascript">

@@ -22,12 +22,12 @@ $code_forum['code_forum']= " to view the Forums Code of Conduct.";
 $here['here'] = "here";
 $Account['Account'] = "Account";
 $Account1['Account1'] = "Can't log in?";
-$Account3['Account3'] = "Create an Account";
+$Account3['Account3'] = "Create Account";
 $Account4['Account4'] = "Account Summary";
 $Account5['Account5'] = "Account Security"; 
 $Account6['Account6'] = "Manage your Account";
+$Account7['Account7'] = "Ban list";
 $Friends['Keepthem'] = "Keep your friends in game.";
-
 
 $Support['Support'] = "Support";
 $Support3['Support3'] = "Support Articles";
@@ -66,10 +66,10 @@ $Serbian['Europe'] = "Serbian";
 $Greek['gr_lang'] = "&Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&alpha; (EU)";
 $Romanian['RO'] = "Romania";
 $Romanian['ROEU'] = "Romanian (EU)";
+$italy['europe'] = "Italian";
 $copyright['copyright'] = "Copyright &copy; 2011 ";
 $copyright3['copyright3'] = "Powered by AquaFlame CMS";
 $copyright4['copyright4'] = "Resources are in Blizzard Entertainment Property.";
-
 
 $Welcome['Welcome'] ="Welcome, ";
 $logout['logout'] = "Log out";
@@ -85,10 +85,7 @@ $Find['Find'] = "Find us on the Map!";
 $or['or'] = "or";
 $search['text_bar'] = "Search characters, items and more...";
 
-
-
 // Starting the voting translation
-
 $Vote['Vote'] = "Vote System &amp; Simple";
 $Vote['Vote1'] = "Vote System for ";
 $Vote['Vote2'] = "Spend Points";
@@ -107,6 +104,27 @@ $Vote['Vote13'] = "Time";
 $Vote['Vote14'] = "V.Points Spend";
 $Vote['Vote15'] = "V.Points Earned";
 $Vote['Vote16'] = "Site";
+$Vote['Vote17'] = " Vote Points";
+$Vote['Vote18'] = "You have ";
+$Vote['Vote19'] = "The vote id entered is NULL.";
+$Vote['Vote20'] = "The vote option does not exist";
+$Vote['Vote21'] = "Voting...";
+$Vote['Vote22'] = "Thank you for voting.";
+$Vote['Vote23'] = "You have already voted in the last 24 hours";
+$Vote['Vote24'] = " hours";
+$Vote['Vote25'] = " minutes";
+$Vote['Vote26'] = " seconds";
+$Vote['Vote27'] = " second";
+$Vote['Vote28'] = " (click to vote)";
+$Vote['Vote29'] = "You can vote now";
+$Vote['Vote30'] = "In order to vote you must click the vote option's title.";
+$Vote['Vote31'] = "If the vote option has a red X image on its left that means you cannot vote otherwise you can.";
+$Vote['Vote32'] = "Every vote option displays the time when you can vote.";
+$Vote['Vote33'] = "Vote Links";
+$Vote['Vote34'] = " hour";
+$Vote['Vote35'] = " minute";
+$Vote['Vote36'] = "You can vote in ";
+$Vote['Vote37'] = "Earned";
 // Finishing the voting translation
 
 // Starting the register.php translation
@@ -181,7 +199,6 @@ $re['month']="Month";
 $re['year']="Year";
 //Finishing the register.php translation
 
-
 // Starting register
 $Reg['Reg'] = "Required";
 $Reg['Reg1'] = "Account Settings";
@@ -242,7 +259,9 @@ $Log['Log15'] = "protect your account";
 $Log['Log16'] = "Already Logged in?";
 $Log['Log17'] = "If you are already logged but ths page does not redirect you to the account then press the following button: ";
 $Log['Log18'] = "Account Management";
+$Log['Log19'] = "Processing...";
 // Finishing Account Log
+
 // Starting Acccount Man
 $Man['Man1'] = " - Account Management";
 $Man['Man2'] = "JavaScript must be enabled to use this site.";
@@ -311,6 +330,18 @@ $Man['Man63'] = "Add ";
 $Man['Man64'] = " Donation Title to your account and unlock illuminative Rewards.";
 $Man['Man65'] = " Remote";
 $Man['Man66'] = "Use all the features of the Remote Auction House of ";
+$Man['Man67'] = "Donate by SMS and Get Rewards";
+$Man['Man68'] = "Send Invitations";
+$Man['Man69'] = "History/Status";
+$Man['Man70'] = "How It Works";
+$Man['Man71'] = "Instructions For Recipient";
+$Man['Man72'] = "You have ";
+$Man['Man73'] = "friends";
+$Man['Man74'] = " linked to your account and";
+$Man['Man75'] = "referrals remaining.";
+$Man['Man76'] = "Level together and faster";
+$Man['Man77'] = "Gain rewards if your friend subscribes";
+$Man['Man78'] = "Get a unique two-person mount";
 // Finishing Account Man
 
 // Starting Header acount
@@ -350,7 +381,13 @@ $BanL['BanL3'] = "Duration:";
 $BanL['BanL4'] = "Reason";
 $BanL['BanL5'] = "Permanent";
 $BanL['BanL6'] = "Never";
+$BanL['BanL7'] = "Ban List";
+$BanL['BanL8'] = "Check if your Account is Banned";
+$BanL['BanL9'] = "Account ID";
+$BanL['BanL10'] = "There are no banned users right now.";
+$BanL['BanL11'] = "Banned List";
 // Finishing Ban List
+
 //Starting Chatbox
 $ChatB['ChatB1'] = "Shout was empty.";
 $ChatB['ChatB2'] = "You Must Login To Shout.";
@@ -358,6 +395,7 @@ $ChatB['ChatB3'] = "Page:";
 $ChatB['ChatB4'] = "Previous";
 $ChatB['ChatB5'] = "Next";
 //Finishing Chatbox
+
 // Starting the Char Unstuck translation
 $Uns['Uns'] = " - Character Unstuck";
 $Uns['Uns1'] = "Progress 100%";
@@ -387,8 +425,10 @@ $Uns['Uns24'] = "Read more";
 $Uns['Uns25'] = "Invalid Account.";
 $Uns['Uns26'] = "Invalid Character.";
 $Uns['Uns27'] = "That Character Is Not Yours.";
-$Uns['Uns28'] = "Your Character Is Fixed.";
+$Uns['Uns28'] = "Your Character Is unlocked.";
+$Uns['Uns29'] = "Continue"
 // Finishing the Char Unstuck translation
+
 // Starting Index
 $Ind['Ind'] = "Next";
 $Ind['Ind1'] = "Search Bar";
@@ -415,6 +455,7 @@ $Ind['Ind21'] = "Map / GPS is: ";
 $Ind['Ind22'] = "Online!";
 $Ind['Ind23'] = "Check Online Now!";
 // Finishing Index
+
 // Starting Services
 $Serv['Serv'] = "Services";
 $Serv['Serv1'] = " Account Services";
@@ -447,7 +488,15 @@ $Serv['Serv27'] = "Change Avatar";
 $Serv['Serv28'] = "Request GM Application";
 $Serv['Serv29'] = "Request GM Trial";
 $Serv['Serv30'] = "Download WoW Client";
+$Serv['Serv31'] = "Change your avatar";
+$Serv['Serv32'] = "You can change your avatar.";
+$Serv['Serv33'] = "Changing Avatar";
+$Serv['Serv34'] = "Error";
+$Serv['Serv35'] = "Your avatar has been changed.";
+$Serv['Serv36'] = "Submit";
+$Serv['Serv37'] = "You need to be logged in to use this service.";
 // Finishing Services
+
 // Starting the Forum Translation
 $Forum['Forum'] = "AquaFlame CMS";
 $Forum['Forum1'] = "AquaFlame CMS - Redirection";
@@ -530,9 +579,7 @@ $Forum['Forum77'] = "Latest Blizzard Posts";
 $Forum['Forum78'] = "All Blizzard posts";
 $Forum['Forum79'] = "Popular Topics";
 $Forum['Forum80'] = "in";
-
 // Finishing the Forum Translation
-
 
 //userplate
 $uplate['login'] = "<strong>Log in now</strong> to enhance and personalize your experience!";
@@ -558,49 +605,49 @@ $uplate['r'] = "All Races";
 //finish userplate
 
 //Starting Armory
-$armory['talents'] = "TALENTOS";
+$armory['talents'] = "TALENTS";
 $armory['APoints'] = "Arena";
-$armory['summary'] = "Resumen";
-$armory['reputation'] = "Reputación";
-$armory['3d'] = "Modelo 3D";
-$armory['advanced'] = "Avanzado";
-$armory['itemlevel'] = "Nivel medio de objeto";
-$armory['equipped'] = "Equipado";
-$armory['audit'] = "Revisión de Personaje";
-$armory['what'] = "¿Qué es esto?";
-$armory['emptyGlyph'] = "Ranura de Glifo vacía";
-$armory['unenchanted'] = "Objetos no encantados";
-$armory['reforging'] = "Reforjado";
-$armory['enchant'] = "Encantamientos y Bonus";
-$armory['armour'] = "Armadura";
-$armory['stamina'] = "Aguante";
-$armory['strength'] = "Fuerza";
-$armory['gems'] = "Gemas";
-$armory['noGems'] = "Este personaje no lleva gemas.";
-$armory['activity'] = "Actividad reciente";
-$armory['noActivity'] = "No hay actividad reciente.";
-$armory['disable'] = "Esta característica está deshabilitada.";
-$armory['early'] = "Ver Actividad Anterior";
-$armory['race1'] = "Humano";
-$armory['race2'] = "Orco";
-$armory['race3'] = "Enano";
-$armory['race4'] = "Elfo de la Noche";
-$armory['race5'] = "No-Muerto";
+$armory['summary'] = "Summary";
+$armory['reputation'] = "Reputation";
+$armory['3d'] = "3D Model";
+$armory['advanced'] = "Aadvanced";
+$armory['itemlevel'] = "Avareage item level";
+$armory['equipped'] = "Equipped";
+$armory['audit'] = "Character revision";
+$armory['what'] = "What is this?";
+$armory['emptyGlyph'] = "empty glyph slot";
+$armory['unenchanted'] = "Not enchanted objects";
+$armory['reforging'] = "Reforging";
+$armory['enchant'] = "Enchants and Bonusses";
+$armory['armour'] = "Armour";
+$armory['stamina'] = "Stamina";
+$armory['strength'] = "Strength";
+$armory['gems'] = "Gems";
+$armory['noGems'] = "This Character don't have gems.";
+$armory['activity'] = "Recent Activity";
+$armory['noActivity'] = "There is no recent activity.";
+$armory['disable'] = "This feature is disable.";
+$armory['early'] = "See previous activity.";
+$armory['race1'] = "Human";
+$armory['race2'] = "Orc";
+$armory['race3'] = "Dwarf";
+$armory['race4'] = "Nigth Elf";
+$armory['race5'] = "Undead";
 $armory['race6'] = "Tauren";
-$armory['race7'] = "Gnomo";
+$armory['race7'] = "Gnome";
 $armory['race8'] = "Troll";
 $armory['race9'] = "Goblin";
-$armory['race10'] = "Elfo de Sangre";
+$armory['race10'] = "Blood Elf";
 $armory['race11'] = "Draenei";
-$armory['race22'] = "Huarguen";
-$armory['oflvl'] = " de nivel ";
-$armory['class1'] = "Guerrero";
-$armory['class2'] = "Paladín";
-$armory['class3'] = "Cazador";
-$armory['class4'] = "Pícaro";
-$armory['class5'] = "Sacerdote";
-$armory['class6'] = "Caballero de la Muerte";
-$armory['class7'] = "Chamán";
+$armory['race22'] = "Wargen";
+$armory['oflvl'] = " of level ";
+$armory['class1'] = "Warraior";
+$armory['class2'] = "Paladin";
+$armory['class3'] = "Hunter";
+$armory['class4'] = "Rogue";
+$armory['class5'] = "Priest";
+$armory['class6'] = "Death Knigth";
+$armory['class7'] = "Shaman";
 $armory['class8'] = "Mage";
 $armory['class9'] = "Warlock";
 $armory['class11'] = "Druid";
@@ -701,6 +748,9 @@ $search['Show'] = "Showing";
 $search['Results'] = "results";
 $search['Of'] = "of";
 $search['sumResults'] = "Some results: ";
+$search['SumOfRe'] = "Summary of results for ";
+$search['Mode'] = "Mode";
+$search['Rating'] = "Rating";
 //Finish Others
 
 //Styles
@@ -718,4 +768,24 @@ $style['item'] = "Wow Item";
 $style['itemPrompt'] = "";
 $style['url'] = "";
 $style['urlPrompt'] = "";
+//Finish Styles
+
+//Game Client
+$GameCli['Game1'] = "Download Games";
+$GameCli['Game2'] = "Game Management";
+$GameCli['Game3'] = "Game Client Downloads";
+$GameCli['Game4'] = "File Details";
+$GameCli['Game5'] = "Language";
+$GameCli['Game6'] = "Windows Link";
+$GameCli['Game7'] = "Mac Link";
+$GameCli['Game8'] = "Full Game Client";
+$GameCli['Game9'] = "Europe";
+$GameCli['Game10'] = "(Change)";
+$GameCli['Game11'] = "Public Test Realm Client";
+$GameCli['Game12'] = "Free Starter Edition";
+$GameCli['Game13'] = "Beginner's Guide";
+$GameCli['Game14'] = "European Language Packs";
+$GameCli['Game15'] = "Used for patching a game client with a different language.";
+$GameCli['Game16'] = "(Requires the European full game client.)";
+//Finish Game Client
 ?>

@@ -5,7 +5,7 @@ $page_cat = "services";
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
 <head>
-<title>Search - <?php echo $website['title']; ?></title>
+<title><?php echo $Ind['Ind2']; ?> - <?php echo $website['title']; ?></title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
@@ -68,10 +68,10 @@ _gaq.push(['_trackPageLoadTime']);
 	<a href="index.php" rel="np">World of Warcraft</a>
 	</li>
 	<li>
-	<a href="services.php" rel="np">Services</a>
+	<a href="services.php" rel="np"><?php echo $Serv['Serv']; ?></a>
 	</li>
 	<li class="last">
-	<a href="search.php" rel="np">Search</a>
+	<a href="search.php" rel="np"><?php echo $Ind['Ind2']; ?></a>
 	</li>
 	</ol>
 	</div>
@@ -79,27 +79,27 @@ _gaq.push(['_trackPageLoadTime']);
 	<div class="search">
 	<div class="search-left">
 	<div class="search-header">
-	<h2 class="header ">Search</h2>
+	<h2 class="header "><?php echo $Ind['Ind2']; ?></h2>
 	</div>
 	<ul class="dynamic-menu" id="menu-search">
 	<li class="">
 	<a href="">
-	<span class="arrow">Summary</span>
+	<span class="arrow"><?php echo $armory['summary']; ?></span>
 	</a>
 	</li>
 	<li>
-	<a href="search.php"><span class="arrow">Characters<span>
+	<a href="search.php"><span class="arrow"><?php echo $status['chars']; ?><span>
 	</span></span>
 	</a>
 	</li>
 	<li class="item-active">
 	<a href="search_g.php">
-	<span class="arrow">Guilds<span></span></span>
+	<span class="arrow"><?php echo $guild['Guilds']; ?><span></span></span>
 	</a>
 	</li>
 	<li>
 	<a href="search_a.php">
-	<span class="arrow">Arena Teams<span></span></span>
+	<span class="arrow"><?php echo $arena['Teams']; ?><span></span></span>
 	</a>
 	</li>
 	</ul>
@@ -113,14 +113,14 @@ _gaq.push(['_trackPageLoadTime']);
 	class="ui-button button1 "
 	type="submit">
 	<span>
-	<span>Search</span>
+	<span><?php echo $Ind['Ind2']; ?></span>
 	</span>
 	</button>
 	</div>
 	</form>
 	</div>
 	<div class="helpers">
-	<h3 class="subheader ">Summary of results for <span><?php echo @$_POST["search"];?></span></h3>
+	<h3 class="subheader "><?php echo $search['SumOfRe']; ?><span><?php echo @$_POST["search"];?></span></h3>
 	</div>
     
 	<div class="view-table">
@@ -130,27 +130,27 @@ _gaq.push(['_trackPageLoadTime']);
 	<tr>
 	<th width="15%" class=" first-child">
 	<a href="" class="sort-link" >
-	<span class="arrow">Name</span>
+	<span class="arrow"><?php echo $search['Name']; ?></span>
 	</a>
 	</th>
 	<th width="6%">
 	<a href="" class="sort-link" >
-	<span class="arrow">Realm</span>
+	<span class="arrow"><?php echo $search['Realm']; ?></span>
 	</a>
 	</th>
 	<th width="6%">
 	<a href="" class="sort-link" >
-	<span class="arrow">Battlegroup</span>
+	<span class="arrow"><?php echo $search['Battlegroup']; ?></span>
 	</a>
 	</th>
 	<th width="6%">
 	<a href="" class="sort-link" >
-	<span class="arrow">Faction</span>
+	<span class="arrow"><?php echo $search['Faction']; ?></span>
 	</a>
 	</th>
 	<th width="6%">
 	<a href="" class="sort-link" >
-	<span class="arrow">Level</span>
+	<span class="arrow"><?php echo $search['Level']; ?></span>
 	</a>
 	</th>
 	</tr>
