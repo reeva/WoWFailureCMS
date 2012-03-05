@@ -100,7 +100,7 @@ _gaq.push(['_trackPageLoadTime']);
 						  $dobD= $_POST['dobDay'];
 						  $dobM= $_POST['dobMonth'];
 						  $dobY= $_POST['dobYear'];
-						  $dob= date ("Y-m-d", $dobM."-".$dobD."-".$dobY);  //YYYY/MM/DD
+						  $dob= date ("Y-m-d", strtotime($dobY."-".$dobM."-".$dobD));  //YYYY-MM-DD
 							$question= $_POST['question1'];
 							$answer= mysql_real_escape_string($_POST['answer1']);
 							
@@ -145,6 +145,8 @@ _gaq.push(['_trackPageLoadTime']);
               ?>
 			  <?php
               if(isset($error) && count($error) > 0){
+                echo $dob.'<br>';
+                echo $dobY.'-'.$dobM.'-'.$dobD;
                 echo '<div class="errors" align="center">';
                 foreach($error as $errors){
                 echo "<font color='red'>*".$errors."</font><br />";
@@ -170,7 +172,7 @@ _gaq.push(['_trackPageLoadTime']);
                     mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
 					          $accountinfo = mysql_fetch_assoc(mysql_query("SELECT * FROM account WHERE username = UPPER('".$accountName."')"));
                     mysql_select_db($server_db,$connection_setup)or die(mysql_error());
-                    $register_cms = mysql_query("INSERT INTO users (id,class,firstName,lastName,registerIp,country,birth,quest1,ans1) VALUES ('".mysql_real_escape_string($accountinfo['id'])."','0','".$firstName."','".$lastName."','".$ip."','".$country."','".$dob."','".$question."','".$answer."')");
+                    $register_cms = mysql_query("INSERT INTO users (id,class,firstName,lastName,registerIp,country,birth,quest1,ans1) VALUES ('".mysql_real_escape_string($accountinfo['id'])."','0','".$firstName."','".$lastName."','".$ip."','".$country."','".$dob."','".$question."',UPPER('".$answer."'))");
              
                     if ($register_logon == true && $register_cms == true)
                     {
