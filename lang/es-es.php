@@ -116,15 +116,16 @@ $Vote['Vote25'] = " minutos";
 $Vote['Vote26'] = " segundos";
 $Vote['Vote27'] = " segundo";
 $Vote['Vote28'] = " (click para votar)";
-$Vote['Vote29'] = "Ahora puedes votar";
+$Vote['CanVoteNow'] = "Ahora puedes votar";
 $Vote['Vote30'] = "Para poder votar debes hacer clic en el título de la opción.";
 $Vote['Vote31'] = "Si la opción de voto tiene una imagen de una X roja en la izquierda significa que usted no puede votar esa opción.";
 $Vote['Vote32'] = "Todas las opciones de voto muestran el momento en que usted puede votar.";
-$Vote['Vote33'] = "Enlaces de Votos";
+$Vote['VoteLinks'] = "Enlaces de Votos";
 $Vote['Vote34'] = " hora";
 $Vote['Vote35'] = " minuto";
-$Vote['Vote36'] = "Puedes votar en ";
-$Vote['Vote37'] = "Ganados";
+$Vote['CanVoteIn'] = "Puedes votar en ";
+$Vote['Earned'] = "Ganados";
+$Vote['VotePanel'] = "Panel de votos";
 // Finishing the voting translation
 
 // Starting the register.php translation
@@ -751,6 +752,9 @@ $search['sumResults'] = "Coincidencias para: ";
 $search['SumOfRe'] = "Resumen de los resultados de ";
 $search['Mode'] = "Modo";
 $search['Rating'] = "Índice";
+$statNav['AllRealms'] = "Todos los Reinos";
+$statNav['TopHonor'] = "Top Honor";
+$statNav['TopConquest'] = "Top Conquista";
 //Finish Others
 
 //Styles
@@ -787,4 +791,49 @@ $GameCli['Game13'] = "Manual de principiantes";
 $GameCli['Game14'] = "Paquetes de idiomas Europa";
 $GameCli['Game15'] = "Sirve para incorporar un idioma distinto a un cliente de juego.";
 $GameCli['Game16'] = "(Requiere el cliente de juego de Europea completo.)";
+//Finish Game Client
+
+//Community
+$Community['comm1'] = "Contests";
+$Community['comm2'] = "Concursos pasados y presentes para que puedas dar un vistazo y participar. Compruébalo!";
+$Community['comm3'] = "Póngase en contacto con otros jugadores de ";
+$Community['comm4'] = " a través de los foros.";
+$Community['comm5'] = "Enviar Fan Art";
+$Community['comm6'] = "Enviar Media";
+$Community['comm7'] = "Enviar Screenshots";
+$Community['comm8'] = "Enviar Wallpapers";
+$Community['comm9'] = "Comunidades sociales";
+$Community['comm10'] = "Síguenos en Facebook.";
+$Community['comm11'] = "Tweetea en Twitter.";
+$Community['comm12'] = "Contribuye en Youtube.";
+$Community['comm13'] = "Enlaces de la comunidad.";
+$Community['comm14'] = "Únete a nuestra comunidad.";
+//Finish Community
+
+//Status
+$Status['RealmStat'] = "Estado de los reinos";
+$Status['Stat1'] = "Esta página muestra todos los reinos de World of Warcraft disponibles, así como el estado de cada uno. Los reinos se pueden mostrar On Line o Off Line. Los mensajes relacionados con el estado de los reinos y el mantenimiento programado se publicarán en el foro ";
+$Status['Stat2'] = " Pedimos disculpas por adelantado si su reino está en la lista como Off Line. Lo más probable es que estemos trabajando para ponerlo de nuevo en línea tan pronto como sea posible.";
+$Status['ServStat'] = "Service Status forum.";
+$Status['Status'] = "Estado";
+$Status['All'] = "Todos";
+$Status['Up'] = "On Line";
+$Status['Down'] = "Off Line";
+$Status['RealmName'] = "Nombre del reino";
+$Status['Type'] = "Tipo";
+$Status['Locale'] = "Idioma";
+$Status['spanish'] = "Español";
+$Status['german'] = "Alemán";
+$Status['french'] = "Francés";
+$Status['tournament'] = "Torneos";
+$Status['russian'] = "Ruso";
+$Status['english'] = "Inglés";
+$Status['Queue'] = "Lleno";
+$Status['Reset'] = "Reset";
+$Status['Information'] = "Información";
+$Status['Population'] = "Población";
+$Status['OnNow'] = "Conectados ahora";
+$Status['ClickOnline'] = "Haz click para ver los jugadores conectados";
+$Status['Statistics'] = "Estadísticas";
+//Finish Status
 ?>

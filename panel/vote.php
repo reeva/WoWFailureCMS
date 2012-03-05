@@ -2,13 +2,13 @@
 	<div class="bnet-offer">
 		<div class="sidebar-title">
 			<h3 class="title-bnet-ads">
-				Vote Panel
+				<?php echo $Vote['VotePanel']; ?>
 			</h3>
 		</div>
 		
 		<div class="sidebar-content">
 			<div class="sidebar-events">
-				<h4>Vote Links</h4>
+				<h4><?php echo $Vote['VoteLinks']; ?></h4>
 
 				<ul class="sidebar-list today">
 					<?php
@@ -74,8 +74,8 @@
 									<span class="info-wrapper clear-after">
 										<span class="date date-status">'.date('H:i:s d/m',$whenIcanvote).'</span>
 										<span class="title">'.$vote['Name'].'</span>';
-										if($voteable == 1) echo '<span class="date">You can vote now</span>';
-										else echo '<span class="date">You can vote in '.$in_time.'</span>';
+										if($voteable == 1) echo '<span class="date">'.$Vote['CanVoteNow'].'</span>';
+										else echo '<span class="date">'.$Vote['CanVoteIn'].''.$in_time.'</span>';
 										echo'
 									</span>
 									
@@ -96,7 +96,7 @@
 					<span class="float-right">
 						<span class="icon-gold"><?php echo $account_extra['vote_points']; ?> VP</span>
 					</span>
-					Earned
+					<?php echo $Vote['Earned']; ?>
 				</li>
 			</ul>
 	

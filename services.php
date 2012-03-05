@@ -1,7 +1,7 @@
 <?php require_once("configs.php"); ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" xmlns:xml="http://www.w3.org/XML/1998/namespace">
 <head>
-<title><?php echo $website['title']; ?></title>
+<title><?php echo $website['title']; ?> - <?php echo $Services['Services']; ?></title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
@@ -118,7 +118,7 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 								<ul>
 										<li><a href="javascript:;" class="c4-l1"><span><?php echo $Friends['Keepthem']; ?></span></a></li>
 										<!--<li><a href="javascript:;" class="c4-l2"><span>World of Warcraft Magazine</span></a></li>-->
-										<li><a href="javascript:;" class="c4-l3"><span><?php echo $Serv['Serv18']; ?></span></a></li>
+										<li><a href="raf-invite.php" class="c4-l3"><span><?php echo $Serv['Serv18']; ?></span></a></li>
 								</ul>					
 							</div>
 							<div class="sub-services-section">
