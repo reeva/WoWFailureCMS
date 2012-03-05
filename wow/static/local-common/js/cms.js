@@ -371,18 +371,23 @@ var Cms = {
 
 			if (type == 'preview') {
 				var postTitle = '';
+				var postContent= '';
 
 				if ($('#subject').length > 0)
 					postTitle = '<h3>'+ BML.encode($('#subject').val()) +'</h3><br />';
 
-				edit.hide();
-				preview.html("").html(postTitle);
+        if ($('.post-editor').length>0 )
+          postContent= BML.toHtml($('.post-editor').val());
 
-				BML.preview(edit.find('textarea').val(), preview, function() {
+				edit.hide();
+				preview.html("").html(postTitle+postContent);
+				
+        preview.show();
+				/*BML.preview(edit.find('textarea').val(), preview, function() {
 					preview.show();
-				});
+				});     */
 	
-			} else {
+			}else {
 				preview.hide();
 				edit.show();
 			}
