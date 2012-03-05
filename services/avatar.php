@@ -1,6 +1,6 @@
 
-<span>Change your avatar</span>
-<p>You can change your avatar.</p>
+<span><?php echo $Serv['Serv31']; ?></span>
+<p><?php echo $Serv['Serv32']; ?></p>
 </div>
 <br />
 <style type="text/css">
@@ -43,10 +43,10 @@ if($_POST['avatar'] != ""){
         echo '
     	<div class="service" align="left">
     	<center>
-        <h3>Changing Avatar</h3><br />
+        <h3>'.$Serv['Serv33'].'</h3><br />
         <div class="loader"></div>
     	<br />
-    	<font color="red">Error</font>
+    	<font color="red">'.$Serv['Serv34'].'</font>
         <meta http-equiv="refresh" content="2;url=services.php"/>
         </center>
     	</div>';
@@ -55,10 +55,10 @@ if($_POST['avatar'] != ""){
 	echo '
 	<div class="service" align="left">
 	<center>
-    <h3>Changing Avatar</h3><br />
+    <h3>'.$Serv['Serv33'].'</h3><br />
     <div class="loader"></div>
 	<br />
-	<font color="aqua">Your avatar has been changed.</font>
+	<font color="aqua">'.$Serv['Serv35'].'</font>
     <meta http-equiv="refresh" content="2;url=services.php"/>
     </center>
 	</div>';
@@ -74,39 +74,39 @@ function colors (color){
 }
 </script>
 
-<table border="0" width="500">
+<table border="0" width="400">
 <tr>
 <form method="POST">
 <td class="avatar">
 <center>
 <div class="avatar portrait-b"><img id="image" src="images/avatars/2d/1-0.jpg" /></div>
 <select onchange="colors(this.options[this.selectedIndex].value)" name="avatar">
-    <option value="1-0.jpg" selected>Human</option>
-    <option value="2-0.jpg">Orc</option>
-	<option value="3-0.jpg">Dwarf</option>
-	<option value="4-0.jpg">Night Elf</option>
-	<option value="5-0.jpg">Undead</option>
-	<option value="6-0.jpg">Tauren</option>
-	<option value="7-0.jpg">Gnome</option>
-	<option value="8-0.jpg">Troll</option>
-	<option value="9-0.jpg">Goblin</option>
-	<option value="10-0.jpg">Blood Elf</option>
-	<option value="11-0.jpg">Draenei</option>
-	<option value="22-0.jpg">Worgen</option>
+    <option value="1-0.jpg" selected><?php echo $uplate['r1']; ?></option>
+    <option value="2-0.jpg"><?php echo $uplate['r2']; ?></option>
+	<option value="3-0.jpg"><?php echo $uplate['r3']; ?></option>
+	<option value="4-0.jpg"><?php echo $uplate['r4']; ?></option>
+	<option value="5-0.jpg"><?php echo $uplate['r5']; ?></option>
+	<option value="6-0.jpg"><?php echo $uplate['r6']; ?></option>
+	<option value="7-0.jpg"><?php echo $uplate['r7']; ?></option>
+	<option value="8-0.jpg"><?php echo $uplate['r8']; ?></option>
+	<option value="9-0.jpg"><?php echo $uplate['r9']; ?></option>
+	<option value="10-0.jpg"><?php echo $uplate['r10']; ?></option>
+	<option value="11-0.jpg"><?php echo $uplate['r11']; ?></option>
+	<option value="22-0.jpg"><?php echo $uplate['r22']; ?></option>
 </select>
 </center>
 </td>
 </tr>
 </table>
 <br />
-<input type="submit" class="submit" name="submit" value="Submit"/>
+<input type="submit" class="submit" name="submit" value="<?php echo $Serv['Serv36']; ?>"/>
 </form>
 <?php }
 }else{
 echo '
 	<div class="service" align="left">
 	<center>
-	<h3>You need to be logged in to use this service.</h3>
+	<h3>'.$Serv['Serv37'].'</h3>
 	<br />
 	<div class="loader"></div>
 	<br />

@@ -5,7 +5,7 @@ $page_cat = "services";
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
 <head>
-<title>Search - <?php echo $website['title']; ?></title>
+<title><?php echo $Ind['Ind2']; ?> - <?php echo $website['title']; ?></title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
@@ -40,10 +40,10 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 	<a href="index.php" rel="np">World of Warcraft</a>
 	</li>
 	<li>
-	<a href="services.php" rel="np">Services</a>
+	<a href="services.php" rel="np"><?php echo $Serv['Serv']; ?></a>
 	</li>
 	<li class="last">
-	<a href="search.php" rel="np">Search</a>
+	<a href="search.php" rel="np"><?php echo $Ind['Ind2']; ?></a>
 	</li>
 	</ol>
 	</div>
@@ -51,27 +51,27 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 	<div class="search">
 	<div class="search-left">
 	<div class="search-header">
-	<h2 class="header ">Search</h2>
+	<h2 class="header "><?php echo $Ind['Ind2']; ?></h2>
 	</div>
 	<ul class="dynamic-menu" id="menu-search">
 	<li class="">
 	<a href="">
-	<span class="arrow">Summary</span>
+	<span class="arrow"><?php echo $ha['ha0']; ?></span>
 	</a>
 	</li>
 	<li class="item-active">
-	<a href="search.php"><span class="arrow">Characters<span>
+	<a href="search.php"><span class="arrow"><?php echo $status['chars']; ?><span>
 	</span></span>
 	</a>
 	</li>
 	<li>
 	<a href="search_g.php">
-	<span class="arrow">Guilds<span></span></span>
+	<span class="arrow"><?php echo $guild['Guilds']; ?><span></span></span>
 	</a>
 	</li>
 	<li>
 	<a href="search_a.php">
-	<span class="arrow">Arena Teams<span></span></span>
+	<span class="arrow"><?php echo $arena['Teams']; ?><span></span></span>
 	</a>
 	</li>
 	</ul>
@@ -85,14 +85,14 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 	class="ui-button button1 "
 	type="submit">
 	<span>
-	<span>Search</span>
+	<span><?php echo $Ind['Ind2']; ?></span>
 	</span>
 	</button>
 	</div>
 	</form>
 	</div>
 	<div class="helpers">
-	<h3 class="subheader ">Summary of results for <span><?php echo @$_POST["search"];?></span></h3>
+	<h3 class="subheader "><?php echo $search['SumOfRe']; ?><span><?php echo @$_POST["search"];?></span></h3>
 	</div>
 	<!-- Ok here goes the Pages RESULTS must be 25 and then change page. -->
     <div class="data-options ">
@@ -117,11 +117,11 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 	<a href=""><span>6</span></a>
 	</li>
 	<li class="cap-item">
-	<a href=""><span>Next</span></a>
+	<a href=""><span><?php echo $Ind['Ind']; ?></span></a>
 	</li>
 	</ul>
 	</div>
-	Showing <strong class="results-start">1</strong>-<strong class="results-end">25</strong> of <strong class="results-total">128</strong> results
+	<?php echo $search['Show']; ?> <strong class="results-start">1</strong>-<strong class="results-end">25</strong> <?php echo $search['Of']; ?> <strong class="results-total">128</strong> <?php echo $search['Results']; ?>
 	<span class="clear"><!-- --></span>
 	</div>
 	<!-- RESULTS must be 25 and then change page. -->
@@ -133,42 +133,42 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 	<tr>
 	<th width="15%" class=" first-child">
 	<a href="" class="sort-link" >
-	<span class="arrow">Name</span>
+	<span class="arrow"><?php echo $search['Name']; ?></span>
 	</a>
 	</th>
 	<th width="6%">
 	<a href="" class="sort-link" >
-	<span class="arrow">Level</span>
+	<span class="arrow"><?php echo $search['Level']; ?></span>
 	</a>
 	</th>
 	<th width="6%">
 	<a href="" class="sort-link" >
-	<span class="arrow">Race</span>
+	<span class="arrow"><?php echo $search['Race']; ?></span>
 	</a>
 	</th>
 	<th width="6%">
 	<a href="" class="sort-link" >
-	<span class="arrow">Class</span>
+	<span class="arrow"><?php echo $search['Class']; ?></span>
 	</a>
 	</th>
 	<th width="6%">
 	<a href="" class="sort-link" >
-	<span class="arrow">Faction</span>
+	<span class="arrow"><?php echo $search['Faction']; ?></span>
 	</a>
 	</th>
 	<th width="15%">
 	<a href="" class="sort-link" >
-	<span class="arrow">Guild</span>
+	<span class="arrow"><?php echo $search['Guild']; ?></span>
 	</a>
 	</th>
 	<th>
 	<a href="" class="sort-link" >
-	<span class="arrow">Realm</span>
+	<span class="arrow"><?php echo $search['Realm']; ?></span>
 	</a>
 	</th>
 	<th class=" last-child">
 	<a href="" class="sort-link" >
-	<span class="arrow">Battlegroup</span>
+	<span class="arrow"><?php echo $search['Battlegroup']; ?></span>
 	</a>
 	</th>
 	</tr>
@@ -196,11 +196,11 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 	<a href=""><span>6</span></a>
 	</li>
 	<li class="cap-item">
-	<a href=""><span>Next</span></a>
+	<a href=""><span><?php echo $Ind['Ind']; ?></span></a>
 	</li>
 	</ul>
 	</div>
-	Showing <strong class="results-start">1</strong>-<strong class="results-end">25</strong> of <strong class="results-total">128</strong> results
+	<?php echo $search['Show']; ?> <strong class="results-start">1</strong>-<strong class="results-end">25</strong> of <strong class="results-total">128</strong> <?php echo $search['Results']; ?>
 	<span class="clear"><!-- --></span>
 	</div></div>
 	</div></div></div></div></div></div>

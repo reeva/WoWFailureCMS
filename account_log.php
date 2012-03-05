@@ -23,7 +23,7 @@ Core.baseUrl = '/login/en/';
 </head>
 <body class="en-gb">
 <div id="wrapper">
-<h1 id="logo"><a href="http://eu.battle.net/"><?php echo $Log['Log1']; ?></a></h1>
+<h1 id="logo"><a href="./"><?php echo $Log['Log1']; ?></a></h1>
 <div id="content" class="login">
 <div id="left">
 <script>
@@ -106,22 +106,22 @@ Core.baseUrl = '/login/en/';
   <form action="?SSID:<?php echo $sessionid; ?>" method="post">
     <a id="embedded-close" href="javascript:;" onclick="updateParent('close')"> </a>
     <div>
-      <p><label for="accountName" class="label">Account Name</label>
+      <p><label for="accountName" class="label"><?php echo $Log['Log6']; ?></label>
       <input id="accountName" value="" name="accountName" maxlength="320" type="text" tabindex="1" class="input" /></p>
 
-      <p><label for="password" class="label">Password</label>
+      <p><label for="password" class="label"><?php echo $Log['Log7']; ?></label>
       <input id="password" name="password" maxlength="16" type="password" tabindex="2" autocomplete="off" class="input"/></p>
 
       <p>
         <span id="remember-me">
           <label for="persistLogin">
             <input type="checkbox" checked="checked" name="persistLogin" value="true" id="persistLogin" />
-            Keep me logged in
+            <?php echo $Log['Log8']; ?>
           </label>
         </span>
-        <button class="ui-button button1" type="submit" data-text="Processing...">
+        <button class="ui-button button1" type="submit" data-text="<?php echo $Log['Log19']; ?>">
           <span>
-            <span>Log In</span>
+            <span><?php echo $Log['Log9']; ?></span>
           </span>
         </button>
       </p>
@@ -134,7 +134,7 @@ Core.baseUrl = '/login/en/';
     parent.postMessage("{\"action\":\"success\"}", "<?php echo $website['address']; ?>");
     </script>
     <?php
-    echo "<h3><font color='green'>You're Logged In</font></h3>";
+    echo "<h3><font color='green'>".$Log['Log10']."</font></h3>";
     echo '<meta http-equiv="refresh" content="8;url=account_man.php"';
   } ?>
   <ul id="help-links">

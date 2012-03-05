@@ -29,7 +29,6 @@ $Account5['Account5'] = "Seguridad de la cuenta";
 $Account6['Account6'] = "Gestiona tu cuenta";
 $Friends['Keepthem'] = "Manten a tus Amigos en el Juego.";
 
-
 $Support['Support'] = "ASISTENCIA";
 $Support3['Support3'] = "Artículos de Asistencia";
 $Support4['Support4'] = "·Ayuda, me han pirateado!";
@@ -72,7 +71,6 @@ $copyright['copyright'] = "Copyright &copy; 2011 - 2012 ";
 $copyright3['copyright3'] = "Hecho por AquaFlame CMS";
 $copyright4['copyright4'] = "Todas las imágenes están en propiedad de Blizzard Entertainment.";
 
-
 $Welcome['Welcome'] ="Te damos la bienvenida, ";
 $logout['logout'] = "Cerrar Sesión";
 $login['login'] = "Inicia Sesión" ;
@@ -88,7 +86,6 @@ $or['or'] = "o";
 $search['text_bar'] = "Busca personajes, objetos, foros y más...";
 
 // Starting the voting translation
-
 $Vote['Vote'] = "Sistema de Votación";
 $Vote['Vote1'] = "Sistema de Votación de ";
 $Vote['Vote2'] = "Puntos Gastados";
@@ -107,7 +104,26 @@ $Vote['Vote13'] = "Hora";
 $Vote['Vote14'] = "Cantidad de Puntos Gastados";
 $Vote['Vote15'] = "Cantidad de Puntos Ganados";
 $Vote['Vote16'] = "Site";
-
+$Vote['Vote17'] = " puntos de votos";
+$Vote['Vote18'] = "Tienes ";
+$Vote['Vote19'] = "La ID de voto introducida es erronea.";
+$Vote['Vote19'] = "La ID de voto introducido no es un valor correcto.";
+$Vote['Vote20'] = "Esta opción de voto no existe";
+$Vote['Vote21'] = "Votando...";
+$Vote['Vote22'] = "Gracias por votar.";
+$Vote['Vote23'] = "Ya has votado en las últimas 24 horas";
+$Vote['Vote24'] = " horas";
+$Vote['Vote25'] = " minutos";
+$Vote['Vote26'] = " segundos";
+$Vote['Vote27'] = " segundo";
+$Vote['Vote28'] = " (click para votar)";
+$Vote['Vote29'] = "Ahora puedes votar";
+$Vote['Vote30'] = "Para poder votar debes hacer clic en el título de la opción.";
+$Vote['Vote31'] = "Si la opción de voto tiene una imagen de una X roja en la izquierda significa que usted no puede votar esa opción.";
+$Vote['Vote32'] = "Todas las opciones de voto muestran el momento en que usted puede votar.";
+$Vote['Vote33'] = "Enlaces de Votos";
+$Vote['Vote36'] = "Puedes votar en ";
+$Vote['Vote37'] = "Ganados";
 // Finishing the voting translation
 
 // Starting the register.php translation
@@ -222,6 +238,7 @@ $Reg['Reg35'] = "Continuar";
 $Reg['Reg36'] = "Cancelar ";
 $Reg['Reg37'] = " - Cambia tu contraseña";
 // Finishing register
+
 // Starting Account Log
 $Log['Log'] = " - Iniciar Sesión";
 $Log['Log1'] = "Battle.net";
@@ -242,7 +259,9 @@ $Log['Log15'] = "proteger tu cuenta";
 $Log['Log16'] = "¿Ya estás conectado?";
 $Log['Log17'] = "Si ya estás conectado y esta página no te redirige a el Gestor de Cuentas entonces pulsa este botón: ";
 $Log['Log18'] = "Gestor de Cuentas";
+$Log['Log19'] = "Procesando...";
 // Finishing Account Log
+
 // Starting Acccount Man
 $Man['Man1'] = " - Gestor de Cuentas";
 $Man['Man2'] = "JavaScript tienes que estar activado para utilizar este sitio.";
@@ -311,6 +330,17 @@ $Man['Man64'] = " Consigue el Título de Donación en tu cuenta y desbloquea Ilimi
 $Man['Man65'] = " Casa de Subastas Remota";
 $Man['Man66'] = "Usa todas las características de la Casa de Subastastas Remota de ";
 $Man['Man67'] = "Dona por SMS y Recibe Recompensas";
+$Man['Man68'] = "Envía invitaciones";
+$Man['Man69'] = "Historial/Estado";
+$Man['Man70'] = "¿Cómo Funciona?";
+$Man['Man71'] = "Instrucciones para el destinatario";
+$Man['Man72'] = "Tienes ";
+$Man['Man73'] = "amigos";
+$Man['Man74'] = " vinculados a su cuenta y";
+$Man['Man75'] = "referencias restantes.";
+$Man['Man76'] = "Levead juntos y más rápido";
+$Man['Man77'] = "Gana premios si tu amigo adquiere una versión completa";
+$Man['Man78'] = "Obten una montura exclusiva de dos plazas";
 // Finishing Account Man
 
 // Starting Header acount
@@ -350,7 +380,13 @@ $BanL['BanL3'] = "Duración:";
 $BanL['BanL4'] = "Razón";
 $BanL['BanL5'] = "Permanente";
 $BanL['BanL6'] = "Nunca";
+$BanL['BanL7'] = "Lista de baneos";
+$BanL['BanL8'] = "Comprueba si tu cuenta está baneada";
+$BanL['BanL9'] = "ID de la cuenta";
+$BanL['BanL10'] = "No hay usuarios baneados en estos momentos.";
+$BanL['BanL11'] = "Lista de Baneados";
 // Finishing Ban List
+
 // Starting Chatbox
 $ChatB['ChatB1'] = "El chat está vacío.";
 $ChatB['ChatB2'] = "Debes ingresar para chatear.";
@@ -358,6 +394,7 @@ $ChatB['ChatB3'] = "Página:";
 $ChatB['ChatB4'] = "Anterior";
 $ChatB['ChatB5'] = "Siguiente";
 // Finishing Chatbox
+
 // Starting the Char Unstuck translation
 $Uns['Uns'] = " - Desbloquear Personajes";
 $Uns['Uns1'] = "Progreso 100%";
@@ -390,8 +427,7 @@ $Uns['Uns27'] = "El personaje no es tuyo.";
 $Uns['Uns28'] = "Tu personaje se ha desbloqueado.";
 $Uns['Uns29'] = "Continuar";
 // Finishing the Char Unstuck translation
-// Finishing the Char Unstuck translation
-// Finishing the Char Unstuck translation
+
 // Starting Index
 $Ind['Ind'] = "Siguiente";
 $Ind['Ind1'] = "Buscador";
@@ -418,6 +454,7 @@ $Ind['Ind21'] = "Mapa / GPS is: ";
 $Ind['Ind22'] = "Online!";
 $Ind['Ind23'] = "·Comprueba la gente que está online en la web!";
 // Finishing Index
+
 // Starting Services
 $Serv['Serv'] = "Servicios";
 $Serv['Serv1'] = " Servicios de cuentas de World of Warcraft";
@@ -427,7 +464,7 @@ $Serv['Serv4'] = "Revisa y cambia tus opciones de seguridad, utiliza servicios d
 $Serv['Serv5'] = "Lista de Baneados";
 $Serv['Serv6'] = "Encuentra los players que han estado baneados del servidor.";
 $Serv['Serv7'] = "Armería";
-$Serv['Serv8'] = "Estás buscando tu peronajes, o un el de un amigo? Busca en la Armeria de Trying to find your Character, or a friend's? Browse the ";
+$Serv['Serv8'] = "Estás buscando tu peronajes, o un el de un amigo? Busca en la Armeria";
 $Serv['Serv9'] = ".";
 $Serv['Serv10'] = "Recluta a un Amigo";
 $Serv['Serv11'] = "Gana recompensas épicas por cada player que invites al servidor ";
@@ -450,7 +487,15 @@ $Serv['Serv27'] = "Cambiar el Avatar";
 $Serv['Serv28'] = "Aplicación para GM";
 $Serv['Serv29'] = "Pide una prueba de GM";
 $Serv['Serv30'] = "Descarga del Cliente";
+$Serv['Serv31'] = "Cambia tu avatar";
+$Serv['Serv32'] = "Puedes cambiar tu avatar.";
+$Serv['Serv33'] = "Cambiando el Avatar";
+$Serv['Serv34'] = "Fallo";
+$Serv['Serv35'] = "Tu avatar se ha cambiado correctamente.";
+$Serv['Serv36'] = "Enviar";
+$Serv['Serv37'] = "Necesitas estar logeado para usar este servicio.";
 // Finishing Services
+
 // Starting the Forum Translation
 $Forum['Forum'] = "AquaFlame CMS";
 $Forum['Forum1'] = "AquaFlame CMS - Redirección";
@@ -694,7 +739,7 @@ $search['Name'] = "Nombre";
 $search['Level'] = "Nivel";
 $search['Race'] = "Raza";
 $search['Class'] = "Clase";
-$search['Faction'] = "Faczión";
+$search['Faction'] = "Facción";
 $search['Guild'] = "Hermandad";
 $search['Realm'] = "Reino";
 $search['Battlegroup'] = "Equipo de Batalla";
@@ -702,6 +747,9 @@ $search['Show'] = "Mostrando";
 $search['Results'] = "resultados";
 $search['Of'] = "de";
 $search['sumResults'] = "Coincidencias para: ";
+$search['SumOfRe'] = "Resumen de los resultados de ";
+$search['Mode'] = "Modo";
+$search['Rating'] = "Índice";
 //Finish Others
 
 //Styles
@@ -719,4 +767,23 @@ $style['item'] = "Objeto de Wow";
 $style['itemPrompt'] = "";
 $style['url'] = "";
 $style['urlPrompt'] = "";
+//Finish Styles
+
+//Game Client
+$GameCli['Game1'] = "Descarga el juego";
+$GameCli['Game2'] = "Gestión de Juegos";
+$GameCli['Game3'] = "Descarga del Cliente";
+$GameCli['Game4'] = "Detalles del archivo";
+$GameCli['Game5'] = "Idioma";
+$GameCli['Game6'] = "Enlace Windows";
+$GameCli['Game7'] = "Enlace Mac";
+$GameCli['Game8'] = "Cliente de juego completo";
+$GameCli['Game9'] = "Europa";
+$GameCli['Game10'] = "(Cambiar)";
+$GameCli['Game11'] = "Cliente de Reino Público de Pruebas";
+$GameCli['Game12'] = "Starter Edition Gratuita**";
+$GameCli['Game13'] = "Manual de principiantes";
+$GameCli['Game14'] = "Paquetes de idiomas Europa";
+$GameCli['Game15'] = "Sirve para incorporar un idioma distinto a un cliente de juego.";
+$GameCli['Game16'] = "(Requiere el cliente de juego de Europea completo.)";
 ?>
