@@ -4,19 +4,19 @@
 					<a href="status.php"
 					   
 					    class="tab-active">
-					   All Realms
+					   <?php echo $statNav['AllRealms']; ?>
 					</a>
 					 
 					<a 
 					   
 					    class="tab-inactive">
-					   Top Honor
+					   <?php echo $statNav['TopHonor']; ?>
 					</a>
 					 
 					<a
 					   
 					    class="tab-inactive">
-					   Top Conquest
+					   <?php echo $statNav['TopConquest']; ?>
 					</a>
 					 
 					<a href="2vs2.php"

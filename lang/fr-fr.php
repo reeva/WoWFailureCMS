@@ -115,15 +115,16 @@ $Vote['Vote25'] = " minutes";
 $Vote['Vote26'] = " seconds";
 $Vote['Vote27'] = " second";
 $Vote['Vote28'] = " (click to vote)";
-$Vote['Vote29'] = "You can vote now";
+$Vote['CanVoteNow'] = "You can vote now";
 $Vote['Vote30'] = "In order to vote you must click the vote option's title.";
 $Vote['Vote31'] = "If the vote option has a red X image on its left that means you cannot vote otherwise you can.";
 $Vote['Vote32'] = "Every vote option displays the time when you can vote.";
-$Vote['Vote33'] = "Vote Links";
+$Vote['VoteLinks'] = "Vote Links";
 $Vote['Vote34'] = " hour";
 $Vote['Vote35'] = " minute";
-$Vote['Vote36'] = "You can vote in ";
-$Vote['Vote37'] = "Earned";
+$Vote['CanVoteIn'] = "You can vote in ";
+$Vote['Earned'] = "Earned";
+$Vote['VotePanel'] = "Vote Panel";
 // Finishing the voting translation
 
 // Starting the register.php translation
@@ -168,6 +169,34 @@ $re['re37'] = "conditions d'utilisations ";
 $re['re38'] = " applicable dans mon pays de r&eacute;sidence";
 $re['re39'] = "Cr&eacute;er votre compte gratuitement";
 $re['re40'] = "Retour";
+$re['mr'] = "Mr";
+$re['miss'] = "Miss";
+$re['ms'] = "Ms.";
+$re['re41'] = "Type your firstname";
+$re['re42'] = "Type your lastname";
+$re['re43'] = "Type your E-mail";
+$re['re44'] = "Confirm your E-mail";
+$re['re45'] = "Type the Account Name";
+$re['re46'] = "Type your Password";
+$re['re47'] = "Confirm your Password";
+$re['re48'] = "Answer";
+$re['error1'] = "An error has ocurred during your account registration, please try again and if the problem persists please contact with the adminsitration.";
+$re['error2']="The password doesn't match!";
+$re['error3']="You must type a FirstName";
+$re['error4']="You must type a Lastname";
+$re['error5']="You must type an E-Mail";
+$re['error6']="You must type a Password";
+$re['error7']="The Account Name has already taken!";
+$re['error8']="You must select a correct date of birth!";
+$re['error9']="The E-mail directions doesn't match!";
+$re['error10']="You must select a secret question and answer!";
+$re['scc1']="Succes!";
+$re['scc2']="Your account and preferences has been resgitrated succesfull";
+$re['goPanel']="Comeback to Admin Panel";
+$re['back']="Back";
+$re['day']="Day";
+$re['month']="Month";
+$re['year']="Year";
 //Finishing the register.php translation
 
 // Starting register
@@ -386,7 +415,7 @@ $Uns['Uns25'] = "Compte invalide";
 $Uns['Uns26'] = "Personnage invalide";
 $Uns['Uns27'] = "Ce personnage n'est pas le votre.";
 $Uns['Uns28'] = "Votre personnage est d&eacute;bloqu&eacute;.";
-$Uns['Uns29'] = "Continue"
+$Uns['Uns29'] = "Continue";
 // Finishing the Char Unstuck translation
 
 // Starting Index
@@ -711,6 +740,21 @@ $search['sumResults'] = "Some results: ";
 $search['SumOfRe'] = "Summary of results for ";
 $search['Mode'] = "Mode";
 $search['Rating'] = "Rating";
+$statNav['AllRealms'] = "All Realms";
+$statNav['TopHonor'] = "Top Honor";
+$statNav['TopConquest'] = "Top Conquest";
+$Index['NoArticles'] = "No Articles";
+$Index['By'] = "by";
+$Custom['second'] = "second";
+$Custom['minute'] = "minute";
+$Custom['hour'] = "hour";
+$Custom['day'] = "day";
+$Custom['week'] = "week";
+$Custom['month'] = "month";
+$Custom['year'] = "year";
+$Custom['decade'] = "decade";
+$Custom['ago'] = "ago";
+$Custom['Hace'] = "";
 //Finish Others
 
 //Styles
@@ -748,4 +792,48 @@ $GameCli['Game14'] = "European Language Packs";
 $GameCli['Game15'] = "Used for patching a game client with a different language.";
 $GameCli['Game16'] = "(Requires the European full game client.)";
 //Finish Game Client
+
+//Community
+$Community['comm1'] = "Contests";
+$Community['comm2'] = "Past and present contests for you to check out and participate in. Check it out now!";
+$Community['comm3'] = "Get in touch with other ";
+$Community['comm4'] = " gamers via the official World of Warcraft forums.";
+$Community['comm5'] = "Submit Fan Art";
+$Community['comm6'] = "Submit Media";
+$Community['comm7'] = "Submit Screenshots";
+$Community['comm8'] = "Submit Wallpapers";
+$Community['comm9'] = "Social Media";
+$Community['comm10'] = "Follow us on Facebook.";
+$Community['comm11'] = "Tweet us on Twitter.";
+$Community['comm12'] = "Subscribe on Youtube.";
+$Community['comm13'] = "Community Links";
+$Community['comm14'] = "Join our community.";
+//Finish Community
+
+//Status
+$Status['RealmStat'] = "Realm Status";
+$Status['Stat1'] = "This page lists all available World of Warcraft realms as well as the status of each. A realm can be listed as either Up or Down. Messages related to realm status and scheduled maintenance will be posted in the ";
+$Status['Stat2'] = " Let us apologize in advance if your Realm is listed as down. Chances are we are working diligently to bring it back online as quickly as possible.";
+$Status['ServStat'] = "Service Status forum.";
+$Status['Status'] = "Status";
+$Status['All'] = "All";
+$Status['Up'] = "Up";
+$Status['Down'] = "Down";
+$Status['RealmName'] = "Realm Name";
+$Status['Type'] = "Type";
+$Status['Locale'] = "Locale";
+$Status['spanish'] = "spanish";
+$Status['german'] = "german";
+$Status['french'] = "french";
+$Status['tournament'] = "tournament";
+$Status['russian'] = "russian";
+$Status['english'] = "english";
+$Status['Queue'] = "Queue";
+$Status['Reset'] = "Reset";
+$Status['Information'] = "Information";
+$Status['Population'] = "Population";
+$Status['OnNow'] = "Online Now";
+$Status['ClickOnline'] = "Click to view the Online Players";
+$Status['Statistics'] = "Statistics";
+//Finish Status
 ?>
