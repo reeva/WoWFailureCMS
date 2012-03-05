@@ -115,16 +115,15 @@ $Vote['Vote25'] = " minutes";
 $Vote['Vote26'] = " seconds";
 $Vote['Vote27'] = " second";
 $Vote['Vote28'] = " (click to vote)";
-$Vote['CanVoteNow'] = "You can vote now";
+$Vote['Vote29'] = "You can vote now";
 $Vote['Vote30'] = "In order to vote you must click the vote option's title.";
 $Vote['Vote31'] = "If the vote option has a red X image on its left that means you cannot vote otherwise you can.";
 $Vote['Vote32'] = "Every vote option displays the time when you can vote.";
-$Vote['VoteLinks'] = "Vote Links";
+$Vote['Vote33'] = "Vote Links";
 $Vote['Vote34'] = " hour";
 $Vote['Vote35'] = " minute";
-$Vote['CanVoteIn'] = "You can vote in ";
-$Vote['Earned'] = "Earned";
-$Vote['VotePanel'] = "Vote Panel";
+$Vote['Vote36'] = "You can vote in ";
+$Vote['Vote37'] = "Earned";
 // Finishing the voting translation
 
 // Starting the register.php translation
@@ -387,7 +386,7 @@ $Uns['Uns25'] = "Compte invalide";
 $Uns['Uns26'] = "Personnage invalide";
 $Uns['Uns27'] = "Ce personnage n'est pas le votre.";
 $Uns['Uns28'] = "Votre personnage est d&eacute;bloqu&eacute;.";
-$Uns['Uns29'] = "Continue"
+$Uns['Uns29'] = "Continue";
 // Finishing the Char Unstuck translation
 
 // Starting Index
@@ -712,9 +711,6 @@ $search['sumResults'] = "Some results: ";
 $search['SumOfRe'] = "Summary of results for ";
 $search['Mode'] = "Mode";
 $search['Rating'] = "Rating";
-$statNav['AllRealms'] = "All Realms";
-$statNav['TopHonor'] = "Top Honor";
-$statNav['TopConquest'] = "Top Conquest";
 //Finish Others
 
 //Styles
@@ -752,48 +748,4 @@ $GameCli['Game14'] = "European Language Packs";
 $GameCli['Game15'] = "Used for patching a game client with a different language.";
 $GameCli['Game16'] = "(Requires the European full game client.)";
 //Finish Game Client
-
-//Community
-$Community['comm1'] = "Contests";
-$Community['comm2'] = "Past and present contests for you to check out and participate in. Check it out now!";
-$Community['comm3'] = "Get in touch with other ";
-$Community['comm4'] = " gamers via the official World of Warcraft forums.";
-$Community['comm5'] = "Submit Fan Art";
-$Community['comm6'] = "Submit Media";
-$Community['comm7'] = "Submit Screenshots";
-$Community['comm8'] = "Submit Wallpapers";
-$Community['comm9'] = "Social Media";
-$Community['comm10'] = "Follow us on Facebook.";
-$Community['comm11'] = "Tweet us on Twitter.";
-$Community['comm12'] = "Subscribe on Youtube.";
-$Community['comm13'] = "Community Links";
-$Community['comm14'] = "Join our community.";
-//Finish Community
-
-//Status
-$Status['RealmStat'] = "Realm Status";
-$Status['Stat1'] = "This page lists all available World of Warcraft realms as well as the status of each. A realm can be listed as either Up or Down. Messages related to realm status and scheduled maintenance will be posted in the ";
-$Status['Stat2'] = " Let us apologize in advance if your Realm is listed as down. Chances are we are working diligently to bring it back online as quickly as possible.";
-$Status['ServStat'] = "Service Status forum.";
-$Status['Status'] = "Status";
-$Status['All'] = "All";
-$Status['Up'] = "Up";
-$Status['Down'] = "Down";
-$Status['RealmName'] = "Realm Name";
-$Status['Type'] = "Type";
-$Status['Locale'] = "Locale";
-$Status['spanish'] = "spanish";
-$Status['german'] = "german";
-$Status['french'] = "french";
-$Status['tournament'] = "tournament";
-$Status['russian'] = "russian";
-$Status['english'] = "english";
-$Status['Queue'] = "Queue";
-$Status['Reset'] = "Reset";
-$Status['Information'] = "Information";
-$Status['Population'] = "Population";
-$Status['OnNow'] = "Online Now";
-$Status['ClickOnline'] = "Click to view the Online Players";
-$Status['Statistics'] = "Statistics";
-//Finish Status
 ?>
