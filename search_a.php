@@ -1,6 +1,63 @@
 <?php
 require_once("configs.php");
+require("functions/armory_func.php");
 $page_cat = "services";
+
+if (isset($_GET['search']) && !empty($_GET['search'])) {    //Here starts the search
+    $error=false;
+    //Limit of results per page 
+    $size_page=25; 
+    $max_pages=7;
+    //Look for the number page, if not then first
+    $page = $_GET["page"]; 
+    if (!$page) { 
+   	    $start = 0; //the first result to show, 1, 26... 
+   	    $page=1; //If no page found then first page
+    } 
+    else { 
+   	    $start = ($page - 1) * $size_page;   //Calculate the first result to show
+    }
+    
+    $term = $_GET['search'];  //Get the term search
+    
+    $conn = mysql_open($serveraddress, $serveruser, $serverpass);              //connect to DB
+    $sqlc = "SELECT guid FROM `" . $server_cdb .
+        "`.`characters` WHERE name LIKE '%" . mysql_real_escape_string($term) . "%'";    //Get searchs for characters    
+    $sqlg = "SELECT guildid FROM `" . $server_cdb .
+        "`.`guild` WHERE name LIKE '%" . mysql_real_escape_string($term) . "%'";       //Searchs for guilds    
+    $sqla = "SELECT arenaTeamId FROM `" . $server_cdb .
+        "`.`arena_team` WHERE name LIKE '%" . mysql_real_escape_string($term) . "%'";  //Searchs for arena
+    $sqlf = "SELECT id FROM `" . $server_db .                                                      
+        "`.`forum_threads` WHERE name LIKE '% " . mysql_real_escape_string($term) . " %'
+        OR name LIKE '" . mysql_real_escape_string($term) . " %' OR name LIKE '% " . mysql_real_escape_string($term) . "'";  
+        //Searchs for forum threads, search the exactly word, at begining, at end or in the middle
+    $num_char = mysql_num_rows(mysql_query($sqlc,$conn));    //Get number of matchs for the menu
+    $num_guild = mysql_num_rows(mysql_query($sqlg,$conn));
+    $num_arena = mysql_num_rows(mysql_query($sqla,$conn));
+    $num_forum = mysql_num_rows(mysql_query($sqlf,$conn));
+    $total = $num_char+$num_guild+$num_arena+$num_forum; //To know is show no results found
+        
+    $num_pages = ceil($num_arena / $size_page);   //calculate number of pages, now works just with characters
+    $sql = "SELECT arenaTeamId,T.name,type,rating,race FROM `" . $server_cdb .
+        "`.`arena_team` T, `" . $server_cdb ."`.`characters` WHERE T.name LIKE '%" . mysql_real_escape_string($term) . "%' AND
+        guid = (SELECT guid FROM `" . $server_cdb ."`.`arena_team_member` M, `" . $server_cdb ."`.`arena_team` WHERE T.arenaTeamId=M.arenaTeamId LIMIT 0,1)";
+    $result = mysql_query($sql, $conn) or die(mysql_error());
+    $num_result = mysql_num_rows($result);   //Number of results in current page
+    
+    mysql_end($conn);
+}
+if (empty($_GET['search'])){
+  $error=true;
+$no_results='<div class="no-results"><h3 class="subheader">'.$search['again'].'</h3>           
+  <h3 class="category">'.$search['sugg'].'</h3>
+  <ul><li>'.$search['sugg1'].'</li><li>'.$search['sugg2'].'</li><li>'.$search['sugg3'].'</li></ul></div>';     //Echo for empty search
+}
+elseif ($total < 1){
+  $error=true;
+$no_results='<div class="no-results"><h3 class="subheader">'.$search['noResults1'].'<span>'.$term.'</span>'.$search['noResults2'].'</h3>           
+  <h3 class="category">'.$search['sugg'].'</h3>
+  <ul><li>'.$search['sugg1'].'</li><li>'.$search['sugg2'].'</li><li>'.$search['sugg3'].'</li></ul></div>';     //Echo for no results found
+}
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
@@ -57,116 +114,148 @@ _gaq.push(['_trackPageLoadTime']);
 //]]>
 </script>
 </head>
-	<body class="en-gb search-win">
+<body class="en-gb search-win">
 	<div id="wrapper">
-	<?php include("header.php"); ?>
-	<div id="content">
-	<div class="content-top">
-	<div class="content-trail">
-	<ol class="ui-breadcrumb">
-	<li>
-	<a href="index.php" rel="np">World of Warcraft</a>
-	</li>
-	<li>
-	<a href="services.php" rel="np">Services</a>
-	</li>
-	<li class="last">
-	<a href="search.php" rel="np">Search</a>
-	</li>
-	</ol>
-	</div>
-	<div class="content-bot">
-	<div class="search">
-	<div class="search-left">
-	<div class="search-header">
-	<h2 class="header ">Search</h2>
-	</div>
-	<ul class="dynamic-menu" id="menu-search">
-	<li class="">
-	<a href="">
-	<span class="arrow">Summary</span>
-	</a>
-	</li>
-	<li>
-	<a href="search.php"><span class="arrow">Characters<span>
-	</span></span>
-	</a>
-	</li>
-	<li>
-	<a href="search_g.php">
-	<span class="arrow">Guilds<span></span></span>
-	</a>
-	</li>
-	<li class="item-active">
-	<a href="search_a.php">
-	<span class="arrow">Arena Teams<span></span></span>
-	</a>
-	</li>
-	</ul>
-    </div> 
-	<div class="search-right">
-	<div class="search-header">
-	<form action="" method="post" class="search-form">
-	<div>
-	<input id="search-page-field" type="text" name="search" maxlength="200" tabindex="2" value="" />
-	<button
-	class="ui-button button1 "
-	type="submit">
-	<span>
-	<span>Search</span>
-	</span>
-	</button>
-	</div>
-	</form>
-	</div>
-	<div class="helpers">
-	<h3 class="subheader ">Summary of results for <span><?php echo @$_POST["search"];?></span></h3>
-	</div>
-    
-	<div class="view-table">
-	<div class="table ">
-	<table>
-	<thead>
-	<tr>
-	<th width="15%" class=" first-child">
-	<a href="" class="sort-link" >
-	<span class="arrow">Name</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Mode</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Realm</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Battlegroup</span>
-	</a>
-	</th>
-	<th width="6%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Faction</span>
-	</a>
-	</th>
-	<th width="15%">
-	<a href="" class="sort-link" >
-	<span class="arrow">Rating</span>
-	</a>
-	</th>
-	</tr>
-	</thead></div></div>
-	<?php include("functions/arena_func.php"); ?>
-	</table>
-	</div>
-	</div>
-	</div>
-	</div></div></div></div>
-	<?php include("footer.php"); ?>
+  	<?php include("header.php"); ?>
+  	<div id="content">
+      <div class="content-top">
+      	<div class="content-trail">
+        	<ol class="ui-breadcrumb">
+          	<li>
+            	<a href="index.php" rel="np">World of Warcraft</a>
+          	</li>
+          	<li>
+            	<a href="services.php" rel="np"><?php echo $Services['Services']; ?></a>
+          	</li>
+          	<li class="last">
+            	<a href="search.php" rel="np"><?php echo $Ind['Ind2']; ?></a>
+          	</li>
+        	</ol>
+      	</div>
+      	<div class="content-bot">
+        	<div class="search">
+          	<div class="search-left">
+            	<div class="search-header">
+              	<h2 class="header "><?php echo $Ind['Ind2']; ?></h2>
+            	</div>
+            	<?php 
+            	if (!$error){
+            	 echo '<ul class="dynamic-menu" id="menu-search">
+              	<li class=""><a href=""><span class="arrow">'.$search['summ'].'</span></a></li>';
+              	if ($num_char>0){ echo '<li><a href="search.php?search='.$term.'"><span class="arrow">'.$status['chars'].' ('.$num_char.')'.'<span></span></span></a></li>';}
+	              if ($num_guild>0){ echo '<li><a href="search_g.php?search='.$term.'"><span class="arrow">'.$guild['Guilds'].' ('.$num_guild.')'.'<span></span></span></a></li>';}
+               	if ($num_arena>0){ echo '<li class="item-active"><a href="search_a.php?search='.$term.'"><span class="arrow">'.$arena['Teams'].' ('.$num_arena.')'.'<span></span></span></a></li>';}
+               	if ($num_forum>0){ echo '<li><a href="search_f.php?search='.$term.'"><span class="arrow">'.$Forums['Forums'].' ('.$num_forum.')'.'<span></span></span></a></li>';}
+            	 echo '</ul>';} ?>
+            </div>  
+          	<div class="search-right">
+            	<div class="search-header">
+              	<form action="" method="get" class="search-form">
+              	<div>
+                	<input id="search-page-field" type="text" name="search" maxlength="200" tabindex="2" value="" />
+                	<button class="ui-button button1" type="submit"><span><span><?php echo $Ind['Ind2']; ?></span></span></button>
+               	</div>
+              	</form>
+            	</div>
+            	<?php if ($error){echo $no_results; } ?>
+            	<div class="helpers">
+              	<h3 class="subheader ">
+                <?php if (!$error){echo $search['arenaResults'].'<span>'.$term.'</span>';} ?>
+                </h3>
+            	</div>
+	<!-- Here goes the pagination code. -->
+              <div class="data-options ">
+              	<div class="option">
+                	<ul class="ui-pagination">
+                	<?php
+                	if (!$error){
+                	  if($page > 1){ echo '<li class="cap-item"><a href="search_a.php?page='.($page-1).'&search='.$term.'"><span>'.$search['prev'].'</span></a></li>';}
+                	  $i=1;
+                    while($i<=$num_pages && $i<$max_pages){
+                      if ($i == $page){ echo '<li class="current"><a><span>'.$i.'</span></a></li>';}
+                      else { echo '<li><a href="search_a.php?page='.$i.'&search='.$term.'"><span>'.$i.'</span></a></li>';}
+                      $i++;
+                    }
+                    if($num_pages>$page){ echo '<li class="cap-item"><a href="search_a.php?page='.($page+1).'&search='.$term.'"><span>'.$ChatB['ChatB5'].'</span></a></li>';}
+                  }
+                  ?>
+                	</ul>
+               	</div>
+              	<?php 
+                if (!$error){
+                echo $search['Show'].'<strong class="results-start"> '.($start+1).' </strong>-<strong class="results-end"> '.($start+$num_result).'</strong> '.$search['Of'].' <strong class="results-total"> '.($num_char).' </strong>'.$search['Results']; }?>
+              	<span class="clear"><!-- --></span>
+              </div>
+	<!-- And here it ends. -->
+	            <?php if (!$error){ echo'
+              <div class="table ">
+                <table>
+                  <thead>
+                    <tr>
+                      <th width="15%" class=" first-child"><a href="" class="sort-link" ><span class="arrow">'.$search['Name'].'</span></a></th>
+                      <th width="6%"><a href="" class="sort-link" ><span class="arrow">'.$search['Mode'].'</span></a></th>
+                      <th><a href="" class="sort-link" ><span class="arrow">'.$search['Realm'].'</span></a></th>
+                      <th class=" last-child"><a href="" class="sort-link" ><span class="arrow">'.$search['Battlegroup'].'</span></a>
+                      <th width="6%"><a href="" class="sort-link" ><span class="arrow">'.$search['Faction'].'</span></a></th>
+                      <th width="15%"><a href="" class="sort-link" ><span class="arrow">'.$search['Rating'].'</span></a></th></th>
+                    </tr>
+                  </thead>
+                  <div class="view-table">
+	<!-- Here start the list of characters. -->';     //Echo first row of table
+                   if ($num_arena>0){
+                    echo '<tbody>';
+                      while ($row = mysql_fetch_array($result)) {        //Echo list of characters
+                        echo '<tr class="row1">
+                        	<td><strong><a href="">'.$row["name"].'</a></strong></td>
+                         	<td class="align-center">'.$row["type"].'</td>
+                         	<td>'.$name_realm1['realm'].'</td>
+                         	<td align="center">-</td>
+                         	<td class="align-center"><span class="icon-frame frame-14 " data-tooltip=""><img src="wow/static/images/icons/faction/'.translate($row["race"]).'" alt="" width="14" height="14" /></span></td>
+                       	  <td align="center">'.$row['rating'].'</td>
+                         </tr>';
+                      }  
+                     echo '</tbody>';                 
+                   }  
+                   echo'                         
+  <!-- Here ends the found character list. -->                    
+                  </div>
+                </table>
+              </div>';        //Close table, that's big echo is for hide everything when no results found
+              }               
+            ?>
+	<!-- Here goes the pagination code. -->
+              <div class="data-options ">
+              	<div class="option">
+                	<ul class="ui-pagination">
+                	<?php
+                	if (!$error){
+                	  if($page>1){ echo '<li class="cap-item"><a href="search_g.php?page='.($page-1).'&search='.$term.'"><span>'.$search['prev'].'</span></a></li>';}
+                	  $i=1;
+                    while($i<=$num_pages && $i<$max_pages){
+                      if ($i == $page){ echo '<li class="current"><a><span>'.$i.'</span></a></li>';}
+                      else { echo '<li><a href="search_g.php?page='.$i.'&search='.$term.'"><span>'.$i.'</span></a></li>';}
+                      $i++;
+                    }
+                    if($num_pages>$page){ echo '<li class="cap-item"><a href="search_g.php?page='.($page+1).'&search='.$term.'"><span>'.$ChatB['ChatB5'].'</span></a></li>';}
+                  }
+                  ?>
+                	</ul>
+               	</div>
+              	<?php 
+                if (!$error){
+                  echo $search['Show'].'<strong class="results-start"> '.($start+1).' </strong>-<strong class="results-end"> '.($start+$num_result).'</strong> '.$search['Of'].' <strong class="results-total"> '.($num_char).' </strong>'.$search['Results'];} ?>
+              	<span class="clear"><!-- --></span>                                                                                                                                                                                                     
+              </div>
+	<!-- And here it ends. -->
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <?php include("footer.php"); ?>
+  </div>
+
 	<script type="text/javascript">
 //<![CDATA[
 var xsToken = '';
