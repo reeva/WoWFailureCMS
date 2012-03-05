@@ -690,19 +690,38 @@ $status['new']="Nuevo";
 $status['noResults']="No se han encontrado resultados con esos parámetros.";
 $guild['Guilds'] = "Hermandades";
 $arena['Teams'] = "Equipos de Arena";
+//Finish Others
+
+//Search
 $search['Name'] = "Nombre";
 $search['Level'] = "Nivel";
 $search['Race'] = "Raza";
 $search['Class'] = "Clase";
-$search['Faction'] = "Faczión";
+$search['Faction'] = "Facción";
 $search['Guild'] = "Hermandad";
 $search['Realm'] = "Reino";
 $search['Battlegroup'] = "Equipo de Batalla";
 $search['Show'] = "Mostrando";
 $search['Results'] = "resultados";
 $search['Of'] = "de";
-$search['sumResults'] = "Coincidencias para: ";
-//Finish Others
+$search['sumResults'] = "Resultados de búsqueda para ";
+$search['charResults'] = "Resultados por personaje para ";
+$search['guildResults'] = "Resultados por hermandad para ";
+$search['arenaResults'] = "Resultados por equipo de Arenas para  ";
+$search['forumResults'] = "Resultados por foros para  ";
+$search['again'] = "Volver a buscar";
+$search['noResults1'] = "La búsqueda de ";
+$search['noResults2'] = " no ha dado resultados.";
+$search['sugg'] = "Sugerencias: ";
+$search['sugg1'] = "Asegúrate de escribir correctamente todas las palabras";
+$search['sugg2'] = "Utiliza palabras clave más generales";
+$search['sugg3'] = "Si conoces el nombre del personaje y reino que buscas, utiliza el formato character@realm";
+$search['summ'] = "Todos";
+$search['prev'] = "Ant";
+$search['articles'] = "Artículos";
+$search['Mode'] = "Modo";
+$search['Rating'] = "Índice";
+//Search
 
 //Styles
 $style['bold'] = "Negrita";

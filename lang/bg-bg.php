@@ -660,6 +660,9 @@ $status['newP']="New Players";
 $status['new']="New";
 $status['noResults']="There is not match founds for this parameters.";
 $guild['Guilds'] = "Guilds";
+//Finish Others
+
+//Search
 $arena['Teams'] = "Arena teams";
 $search['Name'] = "Name";
 $search['Level'] = "Level";
@@ -672,8 +675,24 @@ $search['Battlegroup'] = "Battlegroup";
 $search['Show'] = "Showing";
 $search['Results'] = "results";
 $search['Of'] = "of";
-$search['sumResults'] = "Matchs found for: ";
-//Finish Others
+$search['sumResults'] = "Summary of results for ";
+$search['charResults'] = "Character results for ";
+$search['guildResults'] = "Guild results for ";
+$search['arenaResults'] = "Arena Team results for ";
+$search['forumResults'] = "Forum results for ";
+$search['again'] = "Please search again…";
+$search['noResults1'] = "Your search for ";
+$search['noResults2'] = " has no matches.";
+$search['sugg'] = "Suggestions for searching: ";
+$search['sugg1'] = "Make sure all words are spelled correctly";
+$search['sugg2'] = "Try using more general keywords";
+$search['sugg3'] = "If you know a character’s name and realm, use the format character@realm";
+$search['summ'] = "Summary";
+$search['prev'] = "Prev";
+$search['articles'] = "Articles";
+$search['Mode'] = "Mode";
+$search['Rating'] = "Rating";
+//Finish Search
 
 //Styles
 $style['bold'] = "Bold";
