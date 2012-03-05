@@ -169,6 +169,34 @@ $re['re37'] = "conditions d'utilisations ";
 $re['re38'] = " applicable dans mon pays de r&eacute;sidence";
 $re['re39'] = "Cr&eacute;er votre compte gratuitement";
 $re['re40'] = "Retour";
+$re['mr'] = "Mr";
+$re['miss'] = "Miss";
+$re['ms'] = "Ms.";
+$re['re41'] = "Type your firstname";
+$re['re42'] = "Type your lastname";
+$re['re43'] = "Type your E-mail";
+$re['re44'] = "Confirm your E-mail";
+$re['re45'] = "Type the Account Name";
+$re['re46'] = "Type your Password";
+$re['re47'] = "Confirm your Password";
+$re['re48'] = "Answer";
+$re['error1'] = "An error has ocurred during your account registration, please try again and if the problem persists please contact with the adminsitration.";
+$re['error2']="The password doesn't match!";
+$re['error3']="You must type a FirstName";
+$re['error4']="You must type a Lastname";
+$re['error5']="You must type an E-Mail";
+$re['error6']="You must type a Password";
+$re['error7']="The Account Name has already taken!";
+$re['error8']="You must select a correct date of birth!";
+$re['error9']="The E-mail directions doesn't match!";
+$re['error10']="You must select a secret question and answer!";
+$re['scc1']="Succes!";
+$re['scc2']="Your account and preferences has been resgitrated succesfull";
+$re['goPanel']="Comeback to Admin Panel";
+$re['back']="Back";
+$re['day']="Day";
+$re['month']="Month";
+$re['year']="Year";
 //Finishing the register.php translation
 
 // Starting register
@@ -387,7 +415,7 @@ $Uns['Uns25'] = "Compte invalide";
 $Uns['Uns26'] = "Personnage invalide";
 $Uns['Uns27'] = "Ce personnage n'est pas le votre.";
 $Uns['Uns28'] = "Votre personnage est d&eacute;bloqu&eacute;.";
-$Uns['Uns29'] = "Continue"
+$Uns['Uns29'] = "Continue";
 // Finishing the Char Unstuck translation
 
 // Starting Index
@@ -715,6 +743,18 @@ $search['Rating'] = "Rating";
 $statNav['AllRealms'] = "All Realms";
 $statNav['TopHonor'] = "Top Honor";
 $statNav['TopConquest'] = "Top Conquest";
+$Index['NoArticles'] = "No Articles";
+$Index['By'] = "by";
+$Custom['second'] = "second";
+$Custom['minute'] = "minute";
+$Custom['hour'] = "hour";
+$Custom['day'] = "day";
+$Custom['week'] = "week";
+$Custom['month'] = "month";
+$Custom['year'] = "year";
+$Custom['decade'] = "decade";
+$Custom['ago'] = "ago";
+$Custom['Hace'] = "";
 //Finish Others
 
 //Styles

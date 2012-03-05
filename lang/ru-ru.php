@@ -427,7 +427,7 @@ $Uns['Uns25'] = "Invalid Account.";
 $Uns['Uns26'] = "Invalid Character.";
 $Uns['Uns27'] = "That Character Is Not Yours.";
 $Uns['Uns28'] = "Your Character Is unlocked.";
-$Uns['Uns29'] = "Continue"
+$Uns['Uns29'] = "Continue";
 // Finishing the Char Unstuck translation
 
 // Starting Index
