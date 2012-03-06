@@ -170,7 +170,7 @@ $page_cat = "forums";
 			$content = addslashes($content);
 			$content = nl2br($content);
 			$content = mysql_real_escape_string($content);
-			$ndate = date('d-m-Y H:i:s');	
+			$ndate = date('Y-m-d H:i:s');	
 			
 			//User Parameteres
 			$author = $account_information['id'];
