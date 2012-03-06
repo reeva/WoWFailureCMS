@@ -5,7 +5,7 @@ $page_cat = "services";
 
 if (isset($_GET['search']) && !empty($_GET['search'])) {    //Here starts the search
     $error=false;
-    
+        
     $term = $_GET['search'];  //Get the term search
     
     $conn = mysql_open($serveraddress, $serveruser, $serverpass);              //connect to DB
