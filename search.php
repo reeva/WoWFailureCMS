@@ -6,7 +6,7 @@ $page_cat = "services";
 if (isset($_GET['search']) && !empty($_GET['search'])) {    //Here starts the search
     $error=false;
     //Limit of results per page 
-    $size_page=25; 
+    $size_page=13; 
     $max_pages=7;
     //Look for the number page, if not then first
     $page = $_GET["page"]; 
