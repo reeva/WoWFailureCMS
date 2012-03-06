@@ -116,7 +116,6 @@ _gaq.push(['_trackPageLoadTime']);
 </head>
 <body class="en-gb search-win">
 	<div id="wrapper">
-<<<<<<< HEAD
   	<?php include("header.php"); ?>
   	<div id="content">
       <div class="content-top">

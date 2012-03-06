@@ -117,7 +117,6 @@ _gaq.push(['_trackPageLoadTime']);
 	<body class="en-gb search-win">
 	<div id="wrapper">
 	<?php include("header.php"); ?>
-<<<<<<< HEAD
   	<div id="content">
       <div class="content-top">
       	<div class="content-trail">
@@ -252,7 +251,6 @@ _gaq.push(['_trackPageLoadTime']);
     </div>
 	<?php include("footer.php"); ?>
   </div>
-
 	<script type="text/javascript">
 //<![CDATA[
 var xsToken = '';
