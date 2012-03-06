@@ -748,7 +748,6 @@ $search['Battlegroup'] = "Battlegroup";
 $search['Show'] = "Showing";
 $search['Results'] = "results";
 $search['Of'] = "of";
-<<<<<<< HEAD
 $search['sumResults'] = "Summary of results for ";
 $search['charResults'] = "Character results for ";
 $search['guildResults'] = "Guild results for ";
@@ -767,16 +766,11 @@ $search['articles'] = "Articles";
 $search['Mode'] = "Mode";
 $search['Rating'] = "Rating";
 //Finish Search
-=======
-$search['sumResults'] = "Some results: ";
-$search['SumOfRe'] = "Summary of results for ";
-$search['Mode'] = "Mode";
-$search['Rating'] = "Rating";
+
 $statNav['AllRealms'] = "All Realms";
 $statNav['TopHonor'] = "Top Honor";
 $statNav['TopConquest'] = "Top Conquest";
 //Finish Others
->>>>>>> c22be05f9ae86b8698cab8e803729790470b250d
 
 //Styles
 $style['bold'] = "Bold";

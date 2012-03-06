@@ -751,7 +751,6 @@ $search['Battlegroup'] = "Equipo de Batalla";
 $search['Show'] = "Mostrando";
 $search['Results'] = "resultados";
 $search['Of'] = "de";
-<<<<<<< HEAD
 $search['sumResults'] = "Resultados de búsqueda para ";
 $search['charResults'] = "Resultados por personaje para ";
 $search['guildResults'] = "Resultados por hermandad para ";
@@ -769,17 +768,13 @@ $search['prev'] = "Ant";
 $search['articles'] = "Artículos";
 $search['Mode'] = "Modo";
 $search['Rating'] = "Índice";
-//Search
-=======
-$search['sumResults'] = "Coincidencias para: ";
-$search['SumOfRe'] = "Resumen de los resultados de ";
-$search['Mode'] = "Modo";
-$search['Rating'] = "Índice";
+//Finish Search
+
 $statNav['AllRealms'] = "Todos los Reinos";
 $statNav['TopHonor'] = "Top Honor";
 $statNav['TopConquest'] = "Top Conquista";
 //Finish Others
->>>>>>> c22be05f9ae86b8698cab8e803729790470b250d
+
 
 //Styles
 $style['bold'] = "Negrita";
