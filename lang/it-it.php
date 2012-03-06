@@ -720,6 +720,8 @@ $armory['Holy']="Holy";
 $armory['Shadow']="Shadow";
 $armory['showAll']="Show all the stats";
 $armory['showMain']="Show just the main stats";
+$armory['Faction1'] = "Horde";
+$armory['Faction0'] = "Aliance";
 //Finish Armory
 
 //Others

@@ -723,6 +723,8 @@ $armory['Holy']="Sagrado";
 $armory['Shadow']="Sombras";
 $armory['showAll']="Mostrar todos los atributos";
 $armory['showMain']="Mostrar solo los atributos principales";
+$armory['Faction1'] = "Horda";
+$armory['Faction0'] = "Alianza";
 //Finish Armory
 
 //Others

@@ -5,11 +5,22 @@ $page_cat = "services";
 
 if (isset($_GET['search']) && !empty($_GET['search'])) {    //Here starts the search
     $error=false;
+    //Limit of results per page 
+    $size_page=25; 
+    //Look for the number page, if not then first
+    $page = $_GET["page"]; 
+    if (!$page) { 
+   	    $start = 0; //the first result to show, 1, 26... 
+   	    $page=1; //If no page found then first page
+    } 
+    else { 
+   	    $start = ($page - 1) * $size_page;   //Calculate the first result to show
+    }
     
     $term = $_GET['search'];  //Get the term search
     
     $conn = mysql_open($serveraddress, $serveruser, $serverpass);              //connect to DB
-    $sqlc = "SELECT guid,level,name,race,class,gender FROM `" . $server_cdb .
+    $sqlc = "SELECT guid FROM `" . $server_cdb .
         "`.`characters` WHERE name LIKE '%" . mysql_real_escape_string($term) . "%'";    //Get searchs for characters    
     $sqlg = "SELECT guildid FROM `" . $server_cdb .
         "`.`guild` WHERE name LIKE '%" . mysql_real_escape_string($term) . "%'";       //Searchs for guilds    
@@ -23,8 +34,15 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {    //Here starts the se
     $num_guild = mysql_num_rows(mysql_query($sqlg,$conn));
     $num_arena = mysql_num_rows(mysql_query($sqla,$conn));
     $num_forum = mysql_num_rows(mysql_query($sqlf,$conn));
-    $total = $num_char+$num_guild+$num_arena+$num_forum; //To know if show no results found
-      
+    $total = $num_char+$num_guild+$num_arena+$num_forum; //To know is show no results found
+        
+    $num_pages = ceil($num_char / $size_page);   //calculate number of pages, now works just with characters
+    $sql = "SELECT guid,name,class,level,race,gender FROM `" . $server_cdb .
+        "`.`characters` WHERE name LIKE '%" . mysql_real_escape_string($term) . "%' ORDER BY level DESC LIMIT $start,$size_page"; //Now the search for current page
+    $result = mysql_query($sql, $conn) or die(mysql_error());
+    $num_result = mysql_num_rows($result);   //Number of results in current page
+    
+    mysql_end($conn);
 }
 if (empty($_GET['search'])){
   $error=true;
@@ -42,55 +60,29 @@ $no_results='<div class="no-results"><h3 class="subheader">'.$search['noResults1
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
 <head>
-<title>Search - <?php echo $website['title']; ?></title>
+<title><?php echo $Ind['Ind2']; ?> - <?php echo $website['title']; ?></title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common.css" />
-<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie.css?v35" /><![endif]-->
-<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie6.css?v35" /><![endif]-->
-<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie7.css?v35" /><![endif]-->
+<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie.css" /><![endif]-->
+<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie6.css" /><![endif]-->
+<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/local-common/css/common-ie7.css" /><![endif]-->
 <link title="World of Warcraft - News" href="feed/newshtml.html" type="application/atom+xml" rel="alternate"/>
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/css/wow.css" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/cms/search.css" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/css/search.css" />
-<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie.css?v18" /><![endif]--><!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie6.css?v18" /><![endif]-->
-<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie7.css?v18" /><![endif]-->
+<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie.css" /><![endif]--><!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie6.css" /><![endif]-->
+<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="/wow/static/css/wow-ie7.css" /><![endif]-->
 <script type="text/javascript" src="wow/static/local-common/js/third-party/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="wow/static/local-common/js/core.js"></script>
 <script type="text/javascript" src="wow/static/local-common/js/tooltip.js"></script>
 <!--[if IE 6]> <script type="text/javascript">
-//<![CDATA[try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}//]]>
-</script>
-<![endif]-->
-<script type="text/javascript">
 //<![CDATA[
-Core.staticUrl = '/wow/static';
-Core.sharedStaticUrl= '/wow/static/local-common';
-Core.baseUrl = '/wow/en';
-Core.projectUrl = '/wow';
-Core.cdnUrl = 'http://eu.media.blizzard.com';
-Core.supportUrl = 'http://eu.battle.net/support/';
-Core.secureSupportUrl= 'https://eu.battle.net/support/';
-Core.project = 'wow';
-Core.locale = 'en-gb';
-Core.language = 'en';
-Core.buildRegion = 'eu';
-Core.region = 'eu';
-Core.shortDateFormat= 'dd/MM/yyyy';
-Core.dateTimeFormat = 'dd/MM/yyyy HH:mm';
-Core.loggedIn = false;
-Flash.videoPlayer = 'http://eu.media.blizzard.com/global-video-player/themes/wow/video-player.swf';
-Flash.videoBase = 'http://eu.media.blizzard.com/wow/media/videos';
-Flash.ratingImage = 'http://eu.media.blizzard.com/global-video-player/ratings/wow/rating-pegi.jpg';
-Flash.expressInstall= 'http://eu.media.blizzard.com/global-video-player/expressInstall.swf';
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-544112-16']);
-_gaq.push(['_setDomainName', '.battle.net']);
-_gaq.push(['_trackPageview']);
-_gaq.push(['_trackPageLoadTime']);
+try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 //]]>
 </script>
+<![endif]-->
 </head>
 <body class="en-gb search-win">
 	<div id="wrapper">
@@ -119,8 +111,8 @@ _gaq.push(['_trackPageLoadTime']);
             	<?php 
             	if (!$error){
             	 echo '<ul class="dynamic-menu" id="menu-search">
-              	<li class="item-active"><a href=""><span class="arrow">'.$search['summ'].'</span></a></li>';
-              	if ($num_char>0){ echo '<li><a href="search_c.php?search='.$term.'"><span class="arrow">'.$status['chars'].' ('.$num_char.')'.'<span></span></span></a></li>';}
+              	<li class=""><a href="search.php?search='.$term.'"><span class="arrow">'.$search['summ'].'</span></a></li>';
+              	if ($num_char>0){ echo '<li class="item-active"><a href="search_c.php?search='.$term.'"><span class="arrow">'.$status['chars'].' ('.$num_char.')'.'<span></span></span></a></li>';}
 	              if ($num_guild>0){ echo '<li><a href="search_g.php?search='.$term.'"><span class="arrow">'.$guild['Guilds'].' ('.$num_guild.')'.'<span></span></span></a></li>';}
                	if ($num_arena>0){ echo '<li><a href="search_a.php?search='.$term.'"><span class="arrow">'.$arena['Teams'].' ('.$num_arena.')'.'<span></span></span></a></li>';}
                	if ($num_forum>0){ echo '<li><a href="search_f.php?search='.$term.'"><span class="arrow">'.$Forums['Forums'].' ('.$num_forum.')'.'<span></span></span></a></li>';}
@@ -128,7 +120,7 @@ _gaq.push(['_trackPageLoadTime']);
             </div>  
           	<div class="search-right">
             	<div class="search-header">
-              	<form action="" method="get" class="search-form">
+              	<form action="<?php echo 'search.php?search='.$term ?>" method="get" class="search-form">
               	<div>
                 	<input id="search-page-field" type="text" name="search" maxlength="200" tabindex="2" value="" />
                 	<button class="ui-button button1" type="submit"><span><span><?php echo $Ind['Ind2']; ?></span></span></button>
@@ -138,73 +130,90 @@ _gaq.push(['_trackPageLoadTime']);
             	<?php if ($error){echo $no_results; } ?>
             	<div class="helpers">
               	<h3 class="subheader ">
-                <?php if (!$error){echo $search['sumResults'].'<span>'.$term.'</span>';} ?>
+                <?php if (!$error){echo $search['charResults'].'<span>'.$term.'</span>';} ?>
                 </h3>
             	</div>
-	<!-- No pagination code. -->
-	            <div class="summary">
-	            <?php 
-              if (!$error && $num_char > 0){
-                $sql = $sqlc." LIMIT 3";
-                $result = mysql_query($sql,$conn) or die(mysql_error());
-                echo '<div class="results results-grid wow-results">
-	                   <h3 class="category "><a href="search_c.php?search='.$term.'">'.$status['chars'].'</a> ('.$num_char.')</h3>';
-                while ($row = mysql_fetch_array($result)) {
-                  echo'
-                    <div class="grid">
-	                    <div class="wowcharacter">
-	                      <a href="threed.php?name='.$row['name'].'" class="icon-frame frame-56 thumbnail">
-	                      <img src="/images/avatars/2d/'.$row['race'].'-'.$row['gender'].'.jpg" alt="" width="56" height="56" /></a>
-	                      <a href="threed.php?name='.$row['name'].'" class="color-c'.$row['class'].'">
-	                      <strong>'.$row['name'].'</strong></a><br />'.$row['level'].'&nbsp;'.$armory['race'.$row['race']].'&nbsp;'.$armory['class'.$row['class']].'<br />'.$name_realm1['realm'].'
-	                      <span class="clear"><!-- --></span>
-	                     </div>
-	                   </div>';
-	               }
-	               echo '<span class="clear"><!-- --></span></div>'; 
-               }?>
-               <?php
-               if (!$error && ($num_arena || $num_guild)){
-                  echo '<div class="results results-grid wow-results">';
-                  if ($num_arena > 0){
-                      $sql = "SELECT arenaTeamId,name,type FROM `" . $server_cdb .
-                      "`.`arena_team` WHERE name LIKE '%" . mysql_real_escape_string($term) . "%' LIMIT 1";
-                      $result = mysql_query($sql, $conn) or die(mysql_error());
-                      $row = mysql_fetch_array($result);
-                      echo'<div class="grid">
-	                     <h4 class="subcategory "><a href="?q=primo&amp;f=wowguild">'.$arena['Teams'].'</a> ('.$num_arena.')</h4>
-	                     <div class="wowguild"><canvas id="tabard-3125133" class="thumbnail" width="32" height="32"></canvas>
-	                     <a href="" class="sublink"><strong>'.$row['name'].'</strong></a> - '.$row['type'].'<br />
-	                     <span data-tooltip="REALM NAME">'.$name_realm1['realm'].'</span>
-	                     <span class="clear"><!-- --></span></div></div>';
-                  }
-	                  if ($num_guild > 0){
-	                    $sql = "SELECT guildid,G.name,C.race FROM `" . $server_cdb .
-                      "`.`guild` G,`" . $server_cdb ."`.`characters` C WHERE leaderguid=C.guid AND
-                      G.name LIKE '%" . mysql_real_escape_string($term) . "%' LIMIT 1";
-                      $result = mysql_query($sql, $conn) or die(mysql_error());
-                      $row = mysql_fetch_array($result);
-                      echo'<div class="grid">
-	                     <h4 class="subcategory "><a href="search_g.php?search='.$term.'">'.$guild['Guilds'].'</a> ('.$num_guild.')</h4>
-	                     <div class="wowguild"><canvas id="tabard-3125133" class="thumbnail" width="32" height="32"></canvas>
-	                     <a href="" class="sublink"><strong>'.$row['name'].'</strong></a> - '.$armory['Faction'.translateLet($row['race'])].'<br />
-	                     <span data-tooltip="REALM NAME">'.$name_realm1['realm'].'</span><span class="clear"><!-- --></span></div></div>';
-                    }
-	                echo '<span class="clear"><!-- --></span>
-	             </div>';
-               }?>
-	           </div>
-	         </div>
-		       <span class="clear"><!-- --></span>
-	       </div>
-	     </div>
-	   </div>
-	</div>
-  <?php 
-  mysql_end($conn);
-  include("footer.php"); ?>
-</div>
-<script type="text/javascript">
+	<!-- Here goes the pagination code. -->
+              <div class="data-options ">
+              	<div class="option">
+                	<ul class="ui-pagination">
+                	<?php
+                	if (!$error){
+                  pagination($page,$num_pages,$term,'search_c.php',$ChatB['ChatB5'],$search['prev']);}
+                  ?>
+                	</ul>
+               	</div>
+              	<?php 
+                if (!$error){
+                echo $search['Show'].'<strong class="results-start"> '.($start+1).' </strong>-<strong class="results-end"> '.($start+$num_result).'</strong> '.$search['Of'].' <strong class="results-total"> '.($num_char).' </strong>'.$search['Results']; }?>
+              	<span class="clear"><!-- --></span>
+              </div>
+	<!-- And here it ends. -->
+	            <?php if (!$error){ echo'
+	          <div class="view-table">
+              <div class="table ">
+                <table>
+                  <thead>
+                    <tr>
+                      <th width="15%" class=" first-child"><a href="" class="sort-link" ><span class="arrow">'.$search['Name'].'</span></a></th>
+                      <th width="6%"><a href="" class="sort-link" ><span class="arrow">'.$search['Level'].'</span></a></th>
+                      <th width="6%"><a href="" class="sort-link" ><span class="arrow">'.$search['Race'].'</span></a></th>
+                      <th width="6%"><a href="" class="sort-link" ><span class="arrow">'.$search['Class'].'</span></a></th>
+                      <th width="6%"><a href="" class="sort-link" ><span class="arrow">'.$search['Faction'].'</span></a></th>
+                      <th width="15%"><a href="" class="sort-link" ><span class="arrow">'.$search['Guild'].'</span></a></th>
+                      <th><a href="" class="sort-link" ><span class="arrow">'.$search['Realm'].'</span></a></th>
+                      <th class=" last-child"><a href="" class="sort-link" ><span class="arrow">'.$search['Battlegroup'].'</span></a></th>
+                    </tr>
+                  </thead>
+	<!-- Here start the list of characters. -->';     //Echo first row of table
+                   if ($num_char>0){
+                    echo '<tbody>';
+                      while ($row = mysql_fetch_array($result)) {        //Echo list of characters
+                        echo '<tr class="row1">
+                        	<td><a href="" class="item-link color-c9"><span class="icon-frame frame-18"><img src="images/postavatar.jpg" alt="" width="18" height="18" /></span><strong><a href="threed.php?name='.$row["name"].'">'.$row["name"].'</a></strong></a></td>
+                         	<td class="align-center">'.$row["level"].'</td>
+                        	<td class="align-center"><span class="icon-frame frame-14 " data-tooltip="'.$row['race'].'"><img src="wow/static/images/icons/race/'.$row['race'].'-'.$row['gender'].'.gif" alt="" width="14" height="14" /></span></td>
+                        	<td class="align-center"><span class="icon-frame frame-14 " data-tooltip=""><img src="wow/static/images/icons/class/'.$row["class"].'.gif" alt="" width="14" height="14" /></span></td>
+                        	<td class="align-center"><span class="icon-frame frame-14 " data-tooltip=""><img src="wow/static/images/icons/faction/'.translate($row["race"]).'" alt="" width="14" height="14" /></span></td>
+                        	<td></td>
+                        	<td>'.$name_realm1['realm'].'</td>
+                        	<td align="center">-</td>
+                       	</tr>';
+                      }  
+                     echo '</tbody>';                 
+                   }  
+                   echo'                         
+  <!-- Here ends the found character list. -->                    
+                </table>
+              </div>
+            </div>';        //Close table, that's big echo is for hide everything when no results found
+              }               
+            ?>
+	<!-- Here goes the pagination code. -->
+              <div class="data-options ">
+              	<div class="option">
+                	<ul class="ui-pagination">
+                	<?php
+                	if (!$error){
+                  pagination($page,$num_pages,$term,'search_c.php',$ChatB['ChatB5'],$search['prev']);}
+                  ?>
+                	</ul>
+               	</div>
+              	<?php 
+                if (!$error){
+                  echo $search['Show'].'<strong class="results-start"> '.($start+1).' </strong>-<strong class="results-end"> '.($start+$num_result).'</strong> '.$search['Of'].' <strong class="results-total"> '.($num_char).' </strong>'.$search['Results'];} ?>
+              	<span class="clear"><!-- --></span>                                                                                                                                                                                                     
+              </div>
+	<!-- And here it ends. -->
+            </div>
+            <span class="clear"><!-- --></span> 
+          </div>
+        </div>
+      </div>
+    </div>
+    <?php include("footer.php"); ?>
+  </div>
+	<script type="text/javascript">
 //<![CDATA[
 var xsToken = '';
 var Msg = {
@@ -303,8 +312,8 @@ other: 'Other'
 };
 //]]>
 </script>
-<script type="text/javascript" src="/wow/static/local-common/js/menu.js?v35"></script>
-<script type="text/javascript" src="/wow/static/js/wow.js?v18"></script>
+<script type="text/javascript" src="wow/static/local-common/js/menu.js"></script>
+<script type="text/javascript" src="wow/static/js/wow.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $(function(){
@@ -313,21 +322,21 @@ Search.initialize('/ta/lookup');
 });
 //]]>
 </script>
-<script type="text/javascript" src="/wow/static/local-common/js/utility/dynamic-menu.js?v35"></script>
-<script type="text/javascript" src="/wow/static/js/character/guild-tabard.js?v18"></script>
-<script type="text/javascript" src="/wow/static/js/character/arena-flag.js?v18"></script>
+<script type="text/javascript" src="wow/static/local-common/js/utility/dynamic-menu.js"></script>
+<script type="text/javascript" src="wow/static/js/character/guild-tabard.js"></script>
+<script type="text/javascript" src="wow/static/js/character/arena-flag.js"></script>
 <script type="text/javascript">
 //<![CDATA[
-Core.load("/wow/static/local-common/js/third-party/jquery-ui-1.8.6.custom.min.js?v35");
-Core.load("/wow/static/local-common/js/search.js?v35");
-Core.load("/wow/static/local-common/js/login.js?v35", false, function() {
+Core.load("wow/static/local-common/js/third-party/jquery-ui-1.8.6.custom.min.js");
+Core.load("wow/static/local-common/js/search.js");
+Core.load("wow/static/local-common/js/login.js", false, function() {
 if (typeof Login !== 'undefined') {
 Login.embeddedUrl = '<?php echo $website['root'];?>loginframe.php';
 }
 });
 //]]>
 </script>
-<!--[if lt IE 8]> <script type="text/javascript" src="/wow/static/local-common/js/third-party/jquery.pngFix.pack.js?v35"></script>
+<!--[if lt IE 8]> <script type="text/javascript" src="/wow/static/local-common/js/third-party/jquery.pngFix.pack.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $('.png-fix').pngFix(); //]]>
@@ -337,9 +346,9 @@ $('.png-fix').pngFix(); //]]>
 //<![CDATA[
 (function() {
 var ga = document.createElement('script');
-var src = "https://ssl.google-analytics.com/ga.js";
+var src = "../../../ssl.google-analytics.com/ga.js";
 if ('http:' == document.location.protocol) {
-src = "http://www.google-analytics.com/ga.js";
+src = "../../../www.google-analytics.com/ga.js";
 }
 ga.type = 'text/javascript';
 ga.setAttribute('async', 'true');

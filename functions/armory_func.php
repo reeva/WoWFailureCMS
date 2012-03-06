@@ -78,4 +78,55 @@ function baseStats($charName){
   echo $baseStats['hp']; 
   echo $baseStats['mana']; */
 }
+
+//More complex function to make it works better
+function pagination($current,$num,$term,$type,$next,$prev){
+if ($num>1){
+  if($current > 1){ echo '<li class="cap-item"><a href="'.$type.'?page='.($current-1).'&search='.$term.'"><span>'.$prev.'</span></a></li>';}
+  if ($current==1){ echo '<li class="current"><a><span>1</span></a></li>';}
+  else { echo '<li><a href="'.$type.'?page=1&search='.$term.'"><span>1</span></a></li>';}     
+  $i=$current-3;
+  if ($current+4>$num ){$i=$current+($num-$current)-7;}
+  if ($i>2){echo '<li class="expander"><span>...</span></li>';}  
+  $count=1;           
+  while($count<8 && $i<$num){
+    if ($i>1){
+      if ($i == $current){ echo '<li class="current"><a><span>'.$i.'</span></a></li>';}
+      else { echo '<li><a href="'.$type.'?page='.$i.'&search='.$term.'"><span>'.$i.'</span></a></li>';}
+      $count++;
+    }
+    $i++;
+  }
+  if ($i < $num ){echo '<li class="expander"><span>...</span></li>';}    
+  if ($current==$num){ echo '<li class="current"><a><span>'.$num.'</span></a></li>';}
+  else { echo '<li><a href="'.$type.'?page='.$num.'&search='.$term.'"><span>'.$num.'</span></a></li>';}
+  if($num>$current){ echo '<li class="cap-item"><a href="'.$type.'?page='.($current+1).'&search='.$term.'"><span>'.$next.'</span></a></li>';}
+  }
+}
+
+function translateLet($race)
+{
+    $faction = "";
+    switch ($race) {
+        case "1":
+        case "3":
+        case "4":
+        case "7":
+        case "11":
+        case "22":
+            global $faction;
+            $faction = "0";
+            break;
+        case "2":
+        case "5":
+        case "6":
+        case "8":
+        case "9":
+        case "10":
+            global $faction;
+            $faction = "1";
+            break;
+    }
+    return $faction;
+}
 ?>

@@ -7,7 +7,6 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {    //Here starts the se
     $error=false;
     //Limit of results per page 
     $size_page=25; 
-    $max_pages=7;
     //Look for the number page, if not then first
     $page = $_GET["page"]; 
     if (!$page) { 
@@ -141,8 +140,8 @@ _gaq.push(['_trackPageLoadTime']);
             	<?php 
             	if (!$error){
             	 echo '<ul class="dynamic-menu" id="menu-search">
-              	<li class=""><a href=""><span class="arrow">'.$search['summ'].'</span></a></li>';
-              	if ($num_char>0){ echo '<li><a href="search.php?search='.$term.'"><span class="arrow">'.$status['chars'].' ('.$num_char.')'.'<span></span></span></a></li>';}
+              	<li class=""><a href="search.php?search='.$term.'"><span class="arrow">'.$search['summ'].'</span></a></li>';
+              	if ($num_char>0){ echo '<li><a href="search_c.php?search='.$term.'"><span class="arrow">'.$status['chars'].' ('.$num_char.')'.'<span></span></span></a></li>';}
 	              if ($num_guild>0){ echo '<li><a href="search_g.php?search='.$term.'"><span class="arrow">'.$guild['Guilds'].' ('.$num_guild.')'.'<span></span></span></a></li>';}
                	if ($num_arena>0){ echo '<li class="item-active"><a href="search_a.php?search='.$term.'"><span class="arrow">'.$arena['Teams'].' ('.$num_arena.')'.'<span></span></span></a></li>';}
                	if ($num_forum>0){ echo '<li><a href="search_f.php?search='.$term.'"><span class="arrow">'.$Forums['Forums'].' ('.$num_forum.')'.'<span></span></span></a></li>';}
@@ -150,7 +149,7 @@ _gaq.push(['_trackPageLoadTime']);
             </div>  
           	<div class="search-right">
             	<div class="search-header">
-              	<form action="" method="get" class="search-form">
+              	<form action="<?php echo 'search.php?search='.$term; ?>" method="get" class="search-form">
               	<div>
                 	<input id="search-page-field" type="text" name="search" maxlength="200" tabindex="2" value="" />
                 	<button class="ui-button button1" type="submit"><span><span><?php echo $Ind['Ind2']; ?></span></span></button>
@@ -169,25 +168,18 @@ _gaq.push(['_trackPageLoadTime']);
                 	<ul class="ui-pagination">
                 	<?php
                 	if (!$error){
-                	  if($page > 1){ echo '<li class="cap-item"><a href="search_a.php?page='.($page-1).'&search='.$term.'"><span>'.$search['prev'].'</span></a></li>';}
-                	  $i=1;
-                    while($i<=$num_pages && $i<$max_pages){
-                      if ($i == $page){ echo '<li class="current"><a><span>'.$i.'</span></a></li>';}
-                      else { echo '<li><a href="search_a.php?page='.$i.'&search='.$term.'"><span>'.$i.'</span></a></li>';}
-                      $i++;
-                    }
-                    if($num_pages>$page){ echo '<li class="cap-item"><a href="search_a.php?page='.($page+1).'&search='.$term.'"><span>'.$ChatB['ChatB5'].'</span></a></li>';}
-                  }
+                  pagination($page,$num_pages,$term,'search_a.php',$ChatB['ChatB5'],$search['prev']);}
                   ?>
                 	</ul>
                	</div>
               	<?php 
                 if (!$error){
-                echo $search['Show'].'<strong class="results-start"> '.($start+1).' </strong>-<strong class="results-end"> '.($start+$num_result).'</strong> '.$search['Of'].' <strong class="results-total"> '.($num_char).' </strong>'.$search['Results']; }?>
+                echo $search['Show'].'<strong class="results-start"> '.($start+1).' </strong>-<strong class="results-end"> '.($start+$num_result).'</strong> '.$search['Of'].' <strong class="results-total"> '.($num_arena).' </strong>'.$search['Results']; }?>
               	<span class="clear"><!-- --></span>
               </div>
 	<!-- And here it ends. -->
 	            <?php if (!$error){ echo'
+	          <div class="view-table">
               <div class="table ">
                 <table>
                   <thead>
@@ -200,7 +192,6 @@ _gaq.push(['_trackPageLoadTime']);
                       <th width="15%"><a href="" class="sort-link" ><span class="arrow">'.$search['Rating'].'</span></a></th></th>
                     </tr>
                   </thead>
-                  <div class="view-table">
 	<!-- Here start the list of characters. -->';     //Echo first row of table
                    if ($num_arena>0){
                     echo '<tbody>';
@@ -218,9 +209,9 @@ _gaq.push(['_trackPageLoadTime']);
                    }  
                    echo'                         
   <!-- Here ends the found character list. -->                    
-                  </div>
                 </table>
-              </div>';        //Close table, that's big echo is for hide everything when no results found
+              </div>
+            </div>';        //Close table, that's big echo is for hide everything when no results found
               }               
             ?>
 	<!-- Here goes the pagination code. -->
@@ -229,26 +220,18 @@ _gaq.push(['_trackPageLoadTime']);
                 	<ul class="ui-pagination">
                 	<?php
                 	if (!$error){
-                	  if($page>1){ echo '<li class="cap-item"><a href="search_g.php?page='.($page-1).'&search='.$term.'"><span>'.$search['prev'].'</span></a></li>';}
-                	  $i=1;
-                    while($i<=$num_pages && $i<$max_pages){
-                      if ($i == $page){ echo '<li class="current"><a><span>'.$i.'</span></a></li>';}
-                      else { echo '<li><a href="search_g.php?page='.$i.'&search='.$term.'"><span>'.$i.'</span></a></li>';}
-                      $i++;
-                    }
-                    if($num_pages>$page){ echo '<li class="cap-item"><a href="search_g.php?page='.($page+1).'&search='.$term.'"><span>'.$ChatB['ChatB5'].'</span></a></li>';}
-                  }
+                  pagination($page,$num_pages,$term,'search_a.php',$ChatB['ChatB5'],$search['prev']);}
                   ?>
                 	</ul>
                	</div>
               	<?php 
                 if (!$error){
-                  echo $search['Show'].'<strong class="results-start"> '.($start+1).' </strong>-<strong class="results-end"> '.($start+$num_result).'</strong> '.$search['Of'].' <strong class="results-total"> '.($num_char).' </strong>'.$search['Results'];} ?>
+                  echo $search['Show'].'<strong class="results-start"> '.($start+1).' </strong>-<strong class="results-end"> '.($start+$num_result).'</strong> '.$search['Of'].' <strong class="results-total"> '.($num_arena).' </strong>'.$search['Results'];} ?>
               	<span class="clear"><!-- --></span>                                                                                                                                                                                                     
               </div>
 	<!-- And here it ends. -->
             </div>
-            
+            <span class="clear"><!-- --></span> 
           </div>
         </div>
       </div>
