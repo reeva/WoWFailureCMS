@@ -5,7 +5,7 @@ $page_cat = "services";
 
 if (isset($_GET['search']) && !empty($_GET['search'])) {    //Here starts the search
     $error=false;
-        
+    
     $term = $_GET['search'];  //Get the term search
     
     $conn = mysql_open($serveraddress, $serveruser, $serverpass);              //connect to DB
@@ -154,7 +154,7 @@ _gaq.push(['_trackPageLoadTime']);
                     <div class="grid">
 	                    <div class="wowcharacter">
 	                      <a href="threed.php?name='.$row['name'].'" class="icon-frame frame-56 thumbnail">
-	                      <img src="/images/avatars/2d/'.$row['race'].'-'.$row['gender'].'.jpg" alt="" width="56" height="56" /></a>
+	                      <img src="images/avatars/2d/'.$row['race'].'-'.$row['gender'].'.jpg" alt="" width="56" height="56" /></a>
 	                      <a href="threed.php?name='.$row['name'].'" class="color-c'.$row['class'].'">
 	                      <strong>'.$row['name'].'</strong></a><br />'.$row['level'].'&nbsp;'.$armory['race'.$row['race']].'&nbsp;'.$armory['class'.$row['class']].'<br />'.$name_realm1['realm'].'
 	                      <span class="clear"><!-- --></span>
