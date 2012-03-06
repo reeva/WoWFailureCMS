@@ -28,7 +28,6 @@ $Account6['Account6'] = "G&eacute;rer son compte";
 $Account7['Account7'] = "Liste des bannis";
 $Friends['Keepthem'] = "Faites venir vos ami(e)s en jeu.";
 
-
 $Support['Support'] = "Support";
 $Support3['Support3'] = "Articles de support";
 $Support4['Support4'] = "Au secours! je me suis fais Hack!";
@@ -71,7 +70,6 @@ $copyright['copyright'] = "Copyright &copy; 2011 ";
 $copyright3['copyright3'] = "D&eacute;velopp&eacute; par AquaFlame CMS";
 $copyright4['copyright4'] = "Les ressources sont la propri&eacute;t&eacute;e de Blizzard Entertainment.";
 
-
 $Welcome['Welcome'] ="Bienvenue, ";
 $logout['logout'] = "D&eacute;connexion";
 $login['login'] = "Connexion" ;
@@ -85,7 +83,6 @@ $Retrieve['Retrieve'] = "R&eacute;cup&eacute;rer un compte perdu";
 $Find['Find'] = "Retrouvez-nous sur la carte!";
 $or['or'] = "ou";
 $search['text_bar'] = "Rechercher des persos, items...";
-
 
 // Starting the voting translation
 $Vote['Vote'] = "Syst&egrave;me de vote";
@@ -106,6 +103,28 @@ $Vote['Vote13'] = "Hora";
 $Vote['Vote14'] = "Points total d&eacute;pens&eacute;s";
 $Vote['Vote15'] = "Points total d&eacute;pens&eacute;s";
 $Vote['Vote16'] = "Commander";
+$Vote['Vote17'] = " Vote Points";
+$Vote['Vote18'] = "You have ";
+$Vote['Vote19'] = "The vote id entered is NULL.";
+$Vote['Vote20'] = "The vote option does not exist";
+$Vote['Vote21'] = "Voting...";
+$Vote['Vote22'] = "Thank you for voting.";
+$Vote['Vote23'] = "You have already voted in the last 24 hours";
+$Vote['Vote24'] = " hours";
+$Vote['Vote25'] = " minutes";
+$Vote['Vote26'] = " seconds";
+$Vote['Vote27'] = " second";
+$Vote['Vote28'] = " (click to vote)";
+$Vote['CanVoteNow'] = "You can vote now";
+$Vote['Vote30'] = "In order to vote you must click the vote option's title.";
+$Vote['Vote31'] = "If the vote option has a red X image on its left that means you cannot vote otherwise you can.";
+$Vote['Vote32'] = "Every vote option displays the time when you can vote.";
+$Vote['VoteLinks'] = "Vote Links";
+$Vote['Vote34'] = " hour";
+$Vote['Vote35'] = " minute";
+$Vote['CanVoteIn'] = "You can vote in ";
+$Vote['Earned'] = "Earned";
+$Vote['VotePanel'] = "Vote Panel";
 // Finishing the voting translation
 
 // Starting the register.php translation
@@ -150,6 +169,34 @@ $re['re37'] = "conditions d'utilisations ";
 $re['re38'] = " applicable dans mon pays de r&eacute;sidence";
 $re['re39'] = "Cr&eacute;er votre compte gratuitement";
 $re['re40'] = "Retour";
+$re['mr'] = "Mr";
+$re['miss'] = "Miss";
+$re['ms'] = "Ms.";
+$re['re41'] = "Type your firstname";
+$re['re42'] = "Type your lastname";
+$re['re43'] = "Type your E-mail";
+$re['re44'] = "Confirm your E-mail";
+$re['re45'] = "Type the Account Name";
+$re['re46'] = "Type your Password";
+$re['re47'] = "Confirm your Password";
+$re['re48'] = "Answer";
+$re['error1'] = "An error has ocurred during your account registration, please try again and if the problem persists please contact with the adminsitration.";
+$re['error2']="The password doesn't match!";
+$re['error3']="You must type a FirstName";
+$re['error4']="You must type a Lastname";
+$re['error5']="You must type an E-Mail";
+$re['error6']="You must type a Password";
+$re['error7']="The Account Name has already taken!";
+$re['error8']="You must select a correct date of birth!";
+$re['error9']="The E-mail directions doesn't match!";
+$re['error10']="You must select a secret question and answer!";
+$re['scc1']="Succes!";
+$re['scc2']="Your account and preferences has been resgitrated succesfull";
+$re['goPanel']="Comeback to Admin Panel";
+$re['back']="Back";
+$re['day']="Day";
+$re['month']="Month";
+$re['year']="Year";
 //Finishing the register.php translation
 
 // Starting register
@@ -213,7 +260,9 @@ $Log['Log15'] = "prot&eacute;ger votre compte.";
 $Log['Log16'] = "D&eacute;ja connect&eacute;e ?";
 $Log['Log17'] = "Si vous &ecirc;tes d&eacute;ja connect&eacute;e mais que cette page ne vous redirige pas vers votre compte, appuyez sur le boutton suivant: ";
 $Log['Log18'] = "Gestion de compte";
+$Log['Log19'] = "Processing...";
 // Finishing Account Log
+
 // Starting Acccount Man
 $Man['Man1'] = " - Gestion de compte";
 $Man['Man2'] = "JavaScript doit &ecirc;tre activ&eacute;e pour utiliser ce site.";
@@ -320,8 +369,14 @@ $BanL['BanL2'] = "Date de d&eacute;banissement:";
 $BanL['BanL3'] = "Dur&eacute;e:";
 $BanL['BanL4'] = "Raison";
 $BanL['BanL5'] = "Permanent";
-$BanL['BanL6'] = "Jamais";
+$BanL['BanL6'] = "Never";
+$BanL['BanL7'] = "Ban List";
+$BanL['BanL8'] = "Check if your Account is Banned";
+$BanL['BanL9'] = "Account ID";
+$BanL['BanL10'] = "There are no banned users right now.";
+$BanL['BanL11'] = "Banned List";
 // Finishing Ban List
+
 //Starting Chatbox
 $ChatB['ChatB1'] = "Shoutbox remplie.";
 $ChatB['ChatB2'] = "Vous devez &ecirc;tre connect&eacutee pour discuter";
@@ -329,6 +384,7 @@ $ChatB['ChatB3'] = "Page:";
 $ChatB['ChatB4'] = "Pr&eacute;c&eacute;dent";
 $ChatB['ChatB5'] = "Suivant";
 //Finishing Chatbox
+
 // Starting the Char Unstuck translation
 $Uns['Uns'] = " - D&eacute;bloquage de personnages";
 $Uns['Uns1'] = "Progression 100%";
@@ -359,7 +415,9 @@ $Uns['Uns25'] = "Compte invalide";
 $Uns['Uns26'] = "Personnage invalide";
 $Uns['Uns27'] = "Ce personnage n'est pas le votre.";
 $Uns['Uns28'] = "Votre personnage est d&eacute;bloqu&eacute;.";
+$Uns['Uns29'] = "Continue";
 // Finishing the Char Unstuck translation
+
 // Starting Index
 $Ind['Ind'] = "Suivant";
 $Ind['Ind1'] = "Barre de recherche";
@@ -386,6 +444,7 @@ $Ind['Ind21'] = "Carte / GPS est: ";
 $Ind['Ind22'] = "En ligne !";
 $Ind['Ind23'] = "V&eacute;rifier ceux qui sont en ligne maintenant !";
 // Finishing Index
+
 // Starting Services
 $Serv['Serv'] = "Services";
 $Serv['Serv1'] = " Services sur le compte";
@@ -417,8 +476,16 @@ $Serv['Serv26'] = "Changer le th&ecirc;me du site";
 $Serv['Serv27'] = "Changer d'avatar";
 $Serv['Serv28'] = "Application de requ&ecirc;te MJ";
 $Serv['Serv29'] = "Request GM Trial";
-$Serv['Serv30'] = "T&eacute;l&eacute;charger le client de jeu WoW";
+$Serv['Serv30'] = "Download WoW Client";
+$Serv['Serv31'] = "Change your avatar";
+$Serv['Serv32'] = "You can change your avatar.";
+$Serv['Serv33'] = "Changing Avatar";
+$Serv['Serv34'] = "Error";
+$Serv['Serv35'] = "Your avatar has been changed.";
+$Serv['Serv36'] = "Submit";
+$Serv['Serv37'] = "You need to be logged in to use this service.";
 // Finishing Services
+
 // Starting the Forum Translation
 $Forum['Forum'] = "AquaFlame CMS";
 $Forum['Forum1'] = "AquaFlame CMS - Redirection";
@@ -501,9 +568,7 @@ $Forum['Forum77'] = "Latest Blizzard Posts";
 $Forum['Forum78'] = "All Blizzard posts";
 $Forum['Forum79'] = "Popular Topics";
 $Forum['Forum80'] = "in";
-
 // Finishing the Forum Translation
-
 
 //userplate
 $uplate['login'] = "<strong>Log in now</strong> to enhance and personalize your experience!";
@@ -674,6 +739,7 @@ $search['Battlegroup'] = "Battlegroup";
 $search['Show'] = "Showing";
 $search['Results'] = "results";
 $search['Of'] = "of";
+<<<<<<< HEAD
 $search['sumResults'] = "Summary of results for ";
 $search['charResults'] = "Character results for ";
 $search['guildResults'] = "Guild results for ";
@@ -692,6 +758,28 @@ $search['articles'] = "Articles";
 $search['Mode'] = "Mode";
 $search['Rating'] = "Rating";
 //Finish Search
+=======
+$search['sumResults'] = "Some results: ";
+$search['SumOfRe'] = "Summary of results for ";
+$search['Mode'] = "Mode";
+$search['Rating'] = "Rating";
+$statNav['AllRealms'] = "All Realms";
+$statNav['TopHonor'] = "Top Honor";
+$statNav['TopConquest'] = "Top Conquest";
+$Index['NoArticles'] = "No Articles";
+$Index['By'] = "by";
+$Custom['second'] = "second";
+$Custom['minute'] = "minute";
+$Custom['hour'] = "hour";
+$Custom['day'] = "day";
+$Custom['week'] = "week";
+$Custom['month'] = "month";
+$Custom['year'] = "year";
+$Custom['decade'] = "decade";
+$Custom['ago'] = "ago";
+$Custom['Hace'] = "";
+//Finish Others
+>>>>>>> c22be05f9ae86b8698cab8e803729790470b250d
 
 //Styles
 $style['bold'] = "Bold";
@@ -708,4 +796,68 @@ $style['item'] = "Wow Item";
 $style['itemPrompt'] = "";
 $style['url'] = "";
 $style['urlPrompt'] = "";
+//Finish Styles
+
+//Game Client
+$GameCli['Game1'] = "Download Games";
+$GameCli['Game2'] = "Game Management";
+$GameCli['Game3'] = "Game Client Downloads";
+$GameCli['Game4'] = "File Details";
+$GameCli['Game5'] = "Language";
+$GameCli['Game6'] = "Windows Link";
+$GameCli['Game7'] = "Mac Link";
+$GameCli['Game8'] = "Full Game Client";
+$GameCli['Game9'] = "Europe";
+$GameCli['Game10'] = "(Change)";
+$GameCli['Game11'] = "Public Test Realm Client";
+$GameCli['Game12'] = "Free Starter Edition";
+$GameCli['Game13'] = "Beginner's Guide";
+$GameCli['Game14'] = "European Language Packs";
+$GameCli['Game15'] = "Used for patching a game client with a different language.";
+$GameCli['Game16'] = "(Requires the European full game client.)";
+//Finish Game Client
+
+//Community
+$Community['comm1'] = "Contests";
+$Community['comm2'] = "Past and present contests for you to check out and participate in. Check it out now!";
+$Community['comm3'] = "Get in touch with other ";
+$Community['comm4'] = " gamers via the official World of Warcraft forums.";
+$Community['comm5'] = "Submit Fan Art";
+$Community['comm6'] = "Submit Media";
+$Community['comm7'] = "Submit Screenshots";
+$Community['comm8'] = "Submit Wallpapers";
+$Community['comm9'] = "Social Media";
+$Community['comm10'] = "Follow us on Facebook.";
+$Community['comm11'] = "Tweet us on Twitter.";
+$Community['comm12'] = "Subscribe on Youtube.";
+$Community['comm13'] = "Community Links";
+$Community['comm14'] = "Join our community.";
+//Finish Community
+
+//Status
+$Status['RealmStat'] = "Realm Status";
+$Status['Stat1'] = "This page lists all available World of Warcraft realms as well as the status of each. A realm can be listed as either Up or Down. Messages related to realm status and scheduled maintenance will be posted in the ";
+$Status['Stat2'] = " Let us apologize in advance if your Realm is listed as down. Chances are we are working diligently to bring it back online as quickly as possible.";
+$Status['ServStat'] = "Service Status forum.";
+$Status['Status'] = "Status";
+$Status['All'] = "All";
+$Status['Up'] = "Up";
+$Status['Down'] = "Down";
+$Status['RealmName'] = "Realm Name";
+$Status['Type'] = "Type";
+$Status['Locale'] = "Locale";
+$Status['spanish'] = "spanish";
+$Status['german'] = "german";
+$Status['french'] = "french";
+$Status['tournament'] = "tournament";
+$Status['russian'] = "russian";
+$Status['english'] = "english";
+$Status['Queue'] = "Queue";
+$Status['Reset'] = "Reset";
+$Status['Information'] = "Information";
+$Status['Population'] = "Population";
+$Status['OnNow'] = "Online Now";
+$Status['ClickOnline'] = "Click to view the Online Players";
+$Status['Statistics'] = "Statistics";
+//Finish Status
 ?>
