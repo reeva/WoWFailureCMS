@@ -51,54 +51,6 @@ if (isset($_GET['charname'])) {
         $html->load('armory',$all);
     }
     mysql_end($conn);
-} elseif (empty($_POST['search'])) {
-    
-} elseif (isset($_POST['search'])) {
-    
-    $term = $_POST['search'];
-    $conn = mysql_open($serveraddress, $serveruser, $serverpass);
-    $sql = "SELECT guid,name,class,level,race,gender FROM `" . $server_cdb .
-        "`.`characters` WHERE name LIKE '%" . mysql_real_escape_string($term) . "%'";
-    $result = mysql_query($sql, $conn) or die(mysql_error());
-    while ($row = mysql_fetch_array($result)) {
-        //echo $row['name'];
-        echo '
-		<tbody>
-	<tr class="row1">
-	<td>
-	<a href="" class="item-link color-c9">
-	<span class="icon-frame frame-18">
-	<img src="images/postavatar.jpg" alt="" width="18" height="18" />
-	</span>
-	<strong><a href="advanced.php?name='.$row["name"].'">'.$row["name"].'</a></strong>
-	</a>
-	</td>
-	<td class="align-center">'.$row["level"].'</td>
-	<td class="align-center">
-	<span class="icon-frame frame-14 " data-tooltip="'.$row['race'].'">
-	<img src="wow/static/images/icons/race/'.$row['race'].'-'.$row['gender'].'.gif" alt="" width="14" height="14" />
-	</span>
-	</td>
-	<td class="align-center">
-	<span class="icon-frame frame-14 " data-tooltip="">
-	<img src="wow/static/images/icons/class/'.$row["class"].'.gif" alt="" width="14" height="14" />
-	</span>
-	</td>
-	<td class="align-center">
-	<span class="icon-frame frame-14 " data-tooltip="">
-	<img src="wow/static/images/icons/faction/'.translate($row["race"]).'" alt="" width="14" height="14" />
-	</span>
-	</td>
-	<td>
-	</td>
-	<td>'.$name_realm1['realm'].'</td>
-	<td>Loading...</td>
-	</tr></tbody>
-	
-	';
-    }
-    
-    mysql_end($conn);
 }
 
 //Get Base stats
@@ -117,7 +69,7 @@ function baseStats($charName){
   $result = mysql_query($wSql) or die(mysql_error());
   $baseStats = mysql_fetch_array($result);
 
-  /*Here you have the bases stats, I have tried it with an recient create character and the hp was incorrect, I don'w know...
+  /*Here you have the bases stats
   echo $baseStats['str']; 
   echo $baseStats['agi']; 
   echo $baseStats['sta']; 
