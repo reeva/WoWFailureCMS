@@ -1,3 +1,4 @@
+<? if( $realm_count == "3") { ?>
 <div class="realm-cuadro">
 	<?php
 	  $get_realms = mysql_query("SELECT * FROM $server_adb.realmlist WHERE `id` = 3");
@@ -88,10 +89,6 @@
 			$alliance = array("1","3","4","7","11","22");
 			$horde = array("2","5","6","8","9","10");
 
-			define("QFAIL","Unable to run query.");
-			define("CFAIL","Database connection failed! Check your settings!");
-			define("DFAIL","Unable to select database.");
-
 			$connection_setup = mysql_connect($serveraddress . ':' . $serverport,$serveruser,$serverpass)or die(mysql_error());
 			if(!$connection_setup)
 				die(CFAIL);
@@ -169,4 +166,4 @@
 		</center>
 		</div>
 	</div>
-</div>
+</div> <? } ?>
