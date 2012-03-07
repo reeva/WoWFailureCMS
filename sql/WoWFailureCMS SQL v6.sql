@@ -283,6 +283,9 @@ CREATE TABLE `slideshows` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
+/* Example Lines */
+INSERT INTO `slideshows` (`title`, `description`, `image`, `link`) VALUES ('Title1','Description1','community01.png','#');
+INSERT INTO `slideshows` (`title`, `description`, `image`, `link`) VALUES ('Title2','Description2','draenei.jpg','#');
 /*Table structure for table `users` */
 
 DROP TABLE IF EXISTS `users`;

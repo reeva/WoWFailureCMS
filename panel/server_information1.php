@@ -1,11 +1,11 @@
 <div id="sidebar-marketing" class="sidebar-module">
 	<div class="sidebar-title">
 		<h3 class="title-bnet-ads">
-			</br><?php echo $Status['StatRealms']; ?>
+			<?php echo $Status['StatRealms']; ?>
 		</h3>
 	</div>
     <div style="font-size:12px">
-		<?php echo $Ind['Ind5']; ?><font color='#FF0000'><?php echo $website['realm']; ?></font><br />
+		<?php echo $Ind['Ind5']; ?><font color='#FF0000'><?php echo $website['realm']; ?></font>
 	</div>
     	<?php echo $Ind['Ind7']; ?><span class="date">
 		<?php

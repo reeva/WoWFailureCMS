@@ -46,16 +46,13 @@ TODO LIST:
    and add a option so gms can accept the submission before they appear to public.
    (That will take a Long Time)
 
-4) Conquest Criteria: Needs to be Scripted.
+4) Conquest Criteria + Honor: Needs to be Scripted.
    (HTML is simple, need PHP Code)
 
 5) Work on Arena teams, Guild teams 
    (Just HTML is ready)
 
-6) Work on Search.
-   (Make 1 search for all Criterias)
-
-7) Make Admin panel 
+6) Make Admin panel 
    (Work has Started.)
 
 
@@ -66,7 +63,7 @@ TODO LIST:
 # |Database version:                             |    0.6.0    |
 # |Website Version:                              |    0.6.0    |
 # |Release Date:                                 | 2010-05-17  |
-# |Latest Update:                                | 2012-02-22  |
+# |Latest Update:                                | 2012-03-07  |
 # ----------------------------TEAM------------------------------
 # |Team: FailZorD, AwkwardDev, Axium, Fabian, hondacrx,Kitiara,|
 # |MrBillys, netcho, zze, Voragine(Roberto Roeschmann)         |
