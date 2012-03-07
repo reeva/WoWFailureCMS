@@ -767,6 +767,7 @@ $search['prev'] = "Prev";
 $search['articles'] = "Articles";
 $search['Mode'] = "Mode";
 $search['Rating'] = "Rating";
+$search['forumResults'] = "Forum results for ";
 //Finish Search
 
 $statNav['AllRealms'] = "All Realms";

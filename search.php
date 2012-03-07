@@ -1,43 +1,9 @@
 <?php
 require_once("configs.php");
 require("functions/armory_func.php");
+require_once("forum/functions.php");
+require_once("forum/functions/post_toHtml.php");
 $page_cat = "services";
-
-if (isset($_GET['search']) && !empty($_GET['search'])) {    //Here starts the search
-    $error=false;
-    
-    $term = $_GET['search'];  //Get the term search
-    
-    $conn = mysql_open($serveraddress, $serveruser, $serverpass);              //connect to DB
-    $sqlc = "SELECT guid,level,name,race,class,gender FROM `" . $server_cdb .
-        "`.`characters` WHERE name LIKE '%" . mysql_real_escape_string($term) . "%'";    //Get searchs for characters    
-    $sqlg = "SELECT guildid FROM `" . $server_cdb .
-        "`.`guild` WHERE name LIKE '%" . mysql_real_escape_string($term) . "%'";       //Searchs for guilds    
-    $sqla = "SELECT arenaTeamId FROM `" . $server_cdb .
-        "`.`arena_team` WHERE name LIKE '%" . mysql_real_escape_string($term) . "%'";  //Searchs for arena
-    $sqlf = "SELECT id FROM `" . $server_db .                                                      
-        "`.`forum_threads` WHERE name LIKE '% " . mysql_real_escape_string($term) . " %'
-        OR name LIKE '" . mysql_real_escape_string($term) . " %' OR name LIKE '% " . mysql_real_escape_string($term) . "'";  
-        //Searchs for forum threads, search the exactly word, at begining, at end or in the middle
-    $num_char = mysql_num_rows(mysql_query($sqlc,$conn));    //Get number of matchs for the menu
-    $num_guild = mysql_num_rows(mysql_query($sqlg,$conn));
-    $num_arena = mysql_num_rows(mysql_query($sqla,$conn));
-    $num_forum = mysql_num_rows(mysql_query($sqlf,$conn));
-    $total = $num_char+$num_guild+$num_arena+$num_forum; //To know if show no results found
-      
-}
-if (empty($_GET['search'])){
-  $error=true;
-$no_results='<div class="no-results"><h3 class="subheader">'.$search['again'].'</h3>           
-  <h3 class="category">'.$search['sugg'].'</h3>
-  <ul><li>'.$search['sugg1'].'</li><li>'.$search['sugg2'].'</li><li>'.$search['sugg3'].'</li></ul></div>';     //Echo for empty search
-}
-elseif ($total < 1){
-  $error=true;
-$no_results='<div class="no-results"><h3 class="subheader">'.$search['noResults1'].'<span>'.$term.'</span>'.$search['noResults2'].'</h3>           
-  <h3 class="category">'.$search['sugg'].'</h3>
-  <ul><li>'.$search['sugg1'].'</li><li>'.$search['sugg2'].'</li><li>'.$search['sugg3'].'</li></ul></div>';     //Echo for no results found
-}
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
@@ -94,7 +60,8 @@ _gaq.push(['_trackPageLoadTime']);
 </head>
 <body class="en-gb search-win">
 	<div id="wrapper">
-  	<?php include("header.php"); ?>
+  	<?php include("header.php"); 
+    include("functions/search/summary.php");?>
   	<div id="content">
       <div class="content-top">
       	<div class="content-trail">
@@ -172,7 +139,7 @@ _gaq.push(['_trackPageLoadTime']);
                       $result = mysql_query($sql, $conn) or die(mysql_error());
                       $row = mysql_fetch_array($result);
                       echo'<div class="grid">
-	                     <h4 class="subcategory "><a href="?q=primo&amp;f=wowguild">'.$arena['Teams'].'</a> ('.$num_arena.')</h4>
+	                     <h4 class="subcategory "><a href="search_a.php?search='.$term.'">'.$arena['Teams'].'</a> ('.$num_arena.')</h4>
 	                     <div class="wowguild"><canvas id="tabard-3125133" class="thumbnail" width="32" height="32"></canvas>
 	                     <a href="" class="sublink"><strong>'.$row['name'].'</strong></a> - '.$row['type'].'<br />
 	                     <span data-tooltip="REALM NAME">'.$name_realm1['realm'].'</span>
@@ -192,6 +159,35 @@ _gaq.push(['_trackPageLoadTime']);
                     }
 	                echo '<span class="clear"><!-- --></span>
 	             </div>';
+               }?>
+               <?php
+               if (!$error && $num_forum > 0){
+                  $sql = "SELECT T.id,forumid,T.name,author,replies,date,content,F.name as forum,F.id as fid,firstName
+                  FROM `" .$server_db."`.`forum_threads` T, `" .$server_db."`.`forum_forums` F, `" .$server_db."`.`users` U  
+                  WHERE forumid=F.id AND U.id=author AND (T.name LIKE '" . mysql_real_escape_string($term) . "' OR 
+                  T.name LIKE '% " . mysql_real_escape_string($term) . " %' OR T.name LIKE '" . mysql_real_escape_string($term) . " %' OR 
+                  T.name LIKE '% " . mysql_real_escape_string($term) . "') LIMIT 10";
+                  $result= mysql_query($sql,$conn) or die (mysql_error());
+                  echo '<div class="results results-grid wow-results">
+                  <h4 class="subcategory "><a href="search_f.php?search='.$term.'">'.$search['forumResults'].$term.'</a> ('.$num_forum.')</h4>
+                  <div class="view-list">';
+                    while ($row = mysql_fetch_array($result)){
+                      $content=$row['content'];
+                      $content=stripslashes($content);
+							        $content=postX($content,'');
+							        $content=str_replace("<br>", "\n", $content);
+							        $content=trim(substr($content,0,300));
+                      echo'<div class="result">
+                      <h4 class="subcategory"><a href="forum/category/view-topic/?t='.$row['id'].'">'.$row['name'].'</a><span class="small"> ('.$row['replies'].' respuestas)</span></h4>
+                      <div>
+                      <a href="forum/category/?f='.$row['fid'].'" class="sublink">'.$row['forum'].'</a> - 
+                      Publicado por <a href="threed?name='.$row['charac'].'" class="author"> '.$row['charac'].'</a>, el '.$row['date'].'
+                      </div>
+                      <div >'.$content.'...</div>
+                      <span class="clear"><!-- --></span>
+                      </div>';
+                    }
+                  echo '</div></div>';
                }?>
 	           </div>
 	         </div>
