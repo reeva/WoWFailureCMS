@@ -67,7 +67,7 @@ Services
 </ol>
 </div>
 <div class="content-bot">
-	<div id="profile-wrapper" class="profile-wrapper profile-wrapper-advanced profile-wrapper-<?php echo @$bg ?>">
+	<div id="profile-wrapper" class="profile-wrapper profile-wrapper-advanced profile-wrapper-"><!-- Faction -->
 	<div class="profile-sidebar-anchor">
 	<div class="profile-sidebar-outer">
 	<div class="profile-sidebar-inner">
@@ -76,27 +76,33 @@ Services
 	<div class="profile-info">
 	<div class="name"><a href="" rel="np"><?php echo $character->getObjectInfo()->name;?></a></div>
 	<div class="title-guild">
-	<div class="title">&#160;</div>
+	<div class="title"> <!-- Title Here--></div>
+	<div class="guild">
+	<a href="#"><!-- Guild Here--></a>
+	</div>
 	</div>
 
 	<span class="clear"><!-- --></span>
-	<div class="under-name color-c<?php echo $character->getObjectInfo()->class; ?>"><!-- class="under-name color-c1 is warrior, to be paladin it has to be class="under-name color-c2, so what we change here is the number of the class c2, c3, c4, ... -->
-	<a href="" class="race">
-  <?php
+	<div class="under-name color-c<?php echo $character->getObjectInfo()->class; ?>">
+	<span class="level"><strong><?php echo $character->getObjectInfo()->level; ?></strong></span> <a href="#" class="race"><?php
   $raceNum= $character->getObjectInfo()->race;
   echo $armory['race'.$raceNum];
-  ?></a>
-  <a href="" class="class">
-  <?php
+  ?></a> <a id="profile-info-spec" href="#" class="spec tip"><?php
+  $talentP = $character->getTalentInfo()->branchP;
+  $talentS = $character->getTalentInfo()->branchS;
+  if ($talentP==""){$talentP='0';}
+  if ($talentS==""){$talentS='0';}
+  ?><?php if ($talentP<>'0'){echo $armory['branch'.$talentP];} ?></a> <a href="#" class="class"><?php
   $classNum=$character->getObjectInfo()->class;   //Show the name of the class and not de number
   echo $armory['class'.$classNum];
   $talentP = $character->getTalentInfo()->branchP;
   $talentS = $character->getTalentInfo()->branchS;
   if ($talentP==""){$talentP='0';}
   if ($talentS==""){$talentS='0';}
-  ?></a> 
-  <a id="profile-info-spec" href="" class="spec tip"><?php if ($talentP<>'0'){echo $armory['branch'.$talentP];} ?></a><?php echo $armory['oflvl']; ?><span class="level"><strong><?php echo $character->getObjectInfo()->level; ?></strong></span><span class="comma">,</span>
-	<span class="realm tip" id="profile-info-realm" data-battlegroup=""><?php echo $name_realm1['realm']; ?></span>
+  ?></a><span class="comma">,</span>
+	<span class="realm tip" id="profile-info-realm" data-battlegroup="Raserei / Frenzy">
+	<?php echo $name_realm1['realm']; ?>
+	</span>
 	</div>
 	<div class="achievements"><a href=""><?php echo $armory['APoints']; ?></a></div>
 	</div>
