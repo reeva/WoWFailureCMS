@@ -608,11 +608,11 @@ $uplate['r'] = "All Races";
 
 //Starting Armory
 $armory['talents'] = "TALENTS";
-$armory['APoints'] = "Arena";
+$armory['APoints'] = "Achievement";
 $armory['summary'] = "Summary";
 $armory['reputation'] = "Reputation";
 $armory['3d'] = "3D Model";
-$armory['advanced'] = "Aadvanced";
+$armory['advanced'] = "Advanced";
 $armory['itemlevel'] = "Avareage item level";
 $armory['equipped'] = "Equipped";
 $armory['audit'] = "Character revision";
