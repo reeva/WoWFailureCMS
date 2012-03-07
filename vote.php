@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])) {
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
 <head>
-<title>Vote Panel - <?php echo $website['title']; ?></title>
+<title><?php echo $Vote['Vote'];?> - <?php echo $website['title']; ?></title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
@@ -101,7 +101,7 @@ _gaq.push(['_trackPageLoadTime']);
 				<a href="vote.php" class="active"><?php echo $Vote['Vote5']; ?></a>
 			</p>
             <p><?php echo $Vote['Vote6']; ?><?php echo $website['title']; ?><?php echo $Vote2['Vote6']; ?></p><br />
-			<p>You have <?php echo $account_extra['vote_points']; ?> Vote Points</p>
+			<p><?php echo $Vote['Vote18'];?><?php echo $account_extra['vote_points']; ?><?php echo $Vote['Vote17'];?></p>
 			<br><br>
 			<?php include("functions/vote_func.php"); ?>
 			<div style="position:relative;">
@@ -111,13 +111,13 @@ _gaq.push(['_trackPageLoadTime']);
 					
 						$errors = Array();
 					
-						if(empty($_GET['id'])) $errors[] = "The vote id entered is NULL.";
-						if($_GET['id'] != (int)$_GET['id']) $errors[] = "The vote id entered is not an integer.";
+						if(empty($_GET['id'])) $errors[] = "".$Vote['Vote19']."";
+						if($_GET['id'] != (int)$_GET['id']) $errors[] = "".$Vote['Vote19']."";
 						
 						$id = (int)$_GET['id'];
 						
 						$check = mysql_query("SELECT * FROM $server_db.vote WHERE id = '".$id."'");
-						if(mysql_num_rows($check) < 1) $errors[] = "The vote option does not exist";					
+						if(mysql_num_rows($check) < 1) $errors[] = "".$Vote['Vote20']."";					
 						
 						
 						if(count($errors) > 0)
@@ -126,7 +126,7 @@ _gaq.push(['_trackPageLoadTime']);
 							<div class="subsection">
 								<div class="middle">??!</div>
 								<div class="right">
-									<h2 class="caption">Voting...</h2>
+									<h2 class="caption">'.$Vote['Vote21'].'</h2>
 									<meta http-equiv="refresh" content="3;url=vote.php"/>
 									';
 									
@@ -134,7 +134,7 @@ _gaq.push(['_trackPageLoadTime']);
 									$error = 1;
 									
 									echo '
-									<small>Redirecting...</small>
+									<small>'.$Forum['Forum37'].'</small>
 								</div>
 							</div>
 							';
@@ -176,9 +176,9 @@ _gaq.push(['_trackPageLoadTime']);
 									echo'
 									</div>
 									<div class="right">
-										<h2 class="caption">Voting...</h2>';
-											if($voted == 1) echo 'Thank you for voting.';
-											else echo 'You have already voted in the last 12 hours';
+										<h2 class="caption">'.$Vote['Vote21'].'</h2>';
+											if($voted == 1) echo ''.$Vote['Vote22'].'';
+											else echo ''.$Vote['Vote23'].'';
 										echo'
 									</div>
 								</div>
@@ -226,14 +226,14 @@ _gaq.push(['_trackPageLoadTime']);
 										$voteable = 0;
 										
 										if($timp['ore'] > 0)
-											if($timp['ore'] > 1) $in_time = 'in '.$timp['ore'].' hours';
-											else $in_time = 'in '.$timp['ore'].' hour';
+											if($timp['ore'] > 1) $in_time = 'in '.$timp['ore'].''.$Vote['Vote24'].'';
+											else $in_time = 'in '.$timp['ore'].''.$Vote['Vote34'].'';
 										else if($timp['min'] > 0)
-											if($timp['min'] > 1) $in_time = 'in '.$timp['min'].' minutes';
-											else $in_time = 'in '.$timp['min'].' minute';
+											if($timp['min'] > 1) $in_time = 'in '.$timp['min'].''.$Vote['Vote25'].'';
+											else $in_time = 'in '.$timp['min'].''.$Vote['Vote35'].'';
 										else if($timp['sec'] > 0)
-											if($timp['sec'] > 1) $in_time = 'in '.$timp['sec'].' seconds';
-											else $in_time = 'in '.$timp['sec'].' second';
+											if($timp['sec'] > 1) $in_time = 'in '.$timp['sec'].''.$Vote['Vote26'].'';
+											else $in_time = 'in '.$timp['sec'].''.$Vote['Vote27'].'';
 										else $voteable = 1;
 									}
 									
@@ -252,10 +252,10 @@ _gaq.push(['_trackPageLoadTime']);
 									</div>
 									<div class="middle">'.$i.'</div>
 									<div class="right">
-										<h2 class="caption"><a target="_blank" href="'.$vote['Link'].'" onclick="window.location = \'vote.php?id='.$vote['ID'].'\'">'.$vote['Name'].'</a> (click to vote)</h2>
+										<h2 class="caption"><a target="_blank" href="'.$vote['Link'].'" onclick="window.location = \'vote.php?id='.$vote['ID'].'\'">'.$vote['Name'].'</a>'.$Vote['Vote28'].'</h2>
 										<p>'.$vote['Description'].'</p>';
 										echo '<br><br><br>';
-										if($voteable == 1) echo '<small>You can vote now</small>';
+										if($voteable == 1) echo '<small>'.$Vote['Vote29'].'</small>';
 										else echo '<small>You can vote ' . $in_time . '</small>';
 										echo '
 									</div>
@@ -271,10 +271,10 @@ _gaq.push(['_trackPageLoadTime']);
 				<div class="subsection">
 					<div class="middle">?</div>
 					<div class="right">
-						<h2 class="caption" id="howitworks"><a href="#">How it works</a></h2>
-						<p>In order to vote you must click the vote option's title.</p>
-						<P>If the vote option has a red X image on its left that means you cannot vote otherwise you can.</p>
-						<p>Every vote option displays the time when you can vote.</p>
+						<h2 class="caption" id="howitworks"><a href="#"><?php echo $Vote['Vote4']; ?></a></h2>
+						<p><?php echo $Vote['Vote30']; ?></p>
+						<P><?php echo $Vote['Vote31']; ?></p>
+						<p><?php echo $Vote['Vote32']; ?></p>
 					</div>
 				</div>
             <div class="raf-step3-arrow"></div>

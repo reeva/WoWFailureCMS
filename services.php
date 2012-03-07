@@ -1,7 +1,7 @@
 <?php require_once("configs.php"); ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" xmlns:xml="http://www.w3.org/XML/1998/namespace">
 <head>
-<title><?php echo $website['title']; ?></title>
+<title><?php echo $website['title']; ?> - <?php echo $Services['Services']; ?></title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />

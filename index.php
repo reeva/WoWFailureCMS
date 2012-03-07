@@ -34,7 +34,7 @@ $page_cat = "home";
 	<![endif]-->
 </head>
 
-<body class="en-us homepage" onunload="opener.location=('index.php')">
+<body class="en-us homepage" onUnload="opener.location=('index.php')">
 
 <div id="wrapper">
 	<?php include("header.php"); ?>
@@ -62,11 +62,11 @@ $page_cat = "home";
 							?>
 
 							<div class="paging">
-									<a href="javascript:;" id="paging-0" onclick="Slideshow.jump(0, this);" onmouseover="Slideshow.preview(0);" class="current"></a>
-									<a href="javascript:;" id="paging-1" onclick="Slideshow.jump(1, this);" onmouseover="Slideshow.preview(1);"></a>
-									<a href="javascript:;" id="paging-2" onclick="Slideshow.jump(2, this);" onmouseover="Slideshow.preview(2);"></a>
-									<a href="javascript:;" id="paging-3" onclick="Slideshow.jump(3, this);" onmouseover="Slideshow.preview(3);"></a>
-									<a href="javascript:;" id="paging-4" onclick="Slideshow.jump(4, this);" onmouseover="Slideshow.preview(4);" class=" last-slide"></a>
+									<a href="javascript:;" id="paging-0" onClick="Slideshow.jump(0, this);" onMouseOver="Slideshow.preview(0);" class="current"></a>
+									<a href="javascript:;" id="paging-1" onClick="Slideshow.jump(1, this);" onMouseOver="Slideshow.preview(1);"></a>
+									<a href="javascript:;" id="paging-2" onClick="Slideshow.jump(2, this);" onMouseOver="Slideshow.preview(2);"></a>
+									<a href="javascript:;" id="paging-3" onClick="Slideshow.jump(3, this);" onMouseOver="Slideshow.preview(3);"></a>
+									<a href="javascript:;" id="paging-4" onClick="Slideshow.jump(4, this);" onMouseOver="Slideshow.preview(4);" class=" last-slide"></a>
 							</div>
 			
 							<?php
@@ -158,7 +158,7 @@ $page_cat = "home";
 								
 								echo'
 									<div class="by-line">
-									by <a href="#">'.$posterInfo['firstName'].'</a><span class="spacer"> // </span> '.ago(strtotime($news['date'])).'
+									'.$Index['By'].' <a href="#">'.$posterInfo['firstName'].'</a><span class="spacer"> // </span> '.ago(strtotime($news['date'])).'
 									<a href="news.php?id='.$news['id'].'#comments" class="comments-link">'.$news['comments'].'</a>
 									</div>
 									
@@ -171,9 +171,9 @@ $page_cat = "home";
 										<p>'.substr($news['content'],0,310)."...".'</p>';
 										
 										if($news['contentlnk'] != NULL)
-											echo '<a href="'.$news['contentlnk'].'" class="more">More</a>';
+											echo '<a href="'.$news['contentlnk'].'" class="more">'.$More['More'].'</a>';
 										else
-											echo '<a href="news.php?id='.$news['id'].'" class="more">More</a>';
+											echo '<a href="news.php?id='.$news['id'].'" class="more">'.$More['More'].'</a>';
 											
 										echo'
 										</div>
@@ -198,6 +198,7 @@ $page_cat = "home";
 					</div>
 				
 					<!-- Right Panel -->
+
 					<div id="right" class="ajax-update">
 					<?php
 						include("panel/promo.php");
@@ -206,7 +207,17 @@ $page_cat = "home";
 							echo '<br><br>';
 							include("panel/vote.php");
 						}
-						include("panel/server_information.php");
+						include("panel/server_information1.php");
+						$get_realms2 = mysql_query("SELECT * FROM $server_adb.realmlist WHERE `id` = 2");
+							if(mysql_num_rows($get_realms2)!=0)
+							{
+							include("panel/server_information2.php");
+							}
+						$get_realms3 = mysql_query("SELECT * FROM $server_adb.realmlist WHERE `id` = 3"); 
+							if(mysql_num_rows($get_realms3)!=0)
+							{
+							include("panel/server_information3.php");
+							}
 						include("panel/services.php");
 						include("panel/popular_topics.php");
 					?>

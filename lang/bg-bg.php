@@ -29,7 +29,6 @@ $Account6['Account6'] = "Manage your Account";
 $Account7['Account7'] = "Ban list";
 $Friends['Keepthem'] = "Keep your friends in game.";
 
-
 $Support['Support'] = "Support";
 $Support3['Support3'] = "Support Articles";
 $Support4['Support4'] = "Help! I got hacked!";
@@ -72,7 +71,6 @@ $copyright['copyright'] = "Copyright &copy; 2011 ";
 $copyright3['copyright3'] = "Powered by AquaFlame CMS";
 $copyright4['copyright4'] = "Resources are in Blizzard Entertainment Property.";
 
-
 $Welcome['Welcome'] ="Welcome, ";
 $logout['logout'] = "Log Out";
 $login['login'] = "Log In" ;
@@ -86,27 +84,26 @@ $Retrieve['Retrieve'] = "Retrieve Lost Account";
 $Find['Find'] = "Find us on the Map!";
 $or['or'] = "or";
 $search['text_bar'] = "Search characters, items and more...";
-  
-// Starting the voting translation
 
-$Vote['Vote'] = "Sistema de Votación";
-$Vote['Vote1'] = "Sistema de Votación de ";
-$Vote['Vote2'] = "Puntos Gastados";
-$Vote['Vote3'] = "Historial";
-$Vote['Vote4'] = "¿Cómo Funciona?";
-$Vote['Vote5'] = "Vota Ahora";
-$Vote['Vote6'] = "Después de haber votado tienes que esperar como mínimo 12 horas para poder volver a votar. Recuerda gastar tus Puntos de Votación con prudencia. No hagas ningún fallo, ";
-$Vote2['Vote6'] = " no devolverá ningún punto de votación.";
-$Vote['Vote7'] = "Votaciones/Recompensas";
-$Vote['Vote8'] = "Tu historial de Votaciones/Recompensas";
-$Vote['Vote9'] = "No hay registros de sus acciones en estos momentos.";
-$Vote['Vote10'] = "ID de la Cuenta";
-$Vote['Vote11'] = "ID del Item";
-$Vote['Vote12'] = "Fecha";
-$Vote['Vote13'] = "Hora";
-$Vote['Vote14'] = "Cantidad de Puntos Gastados";
-$Vote['Vote15'] = "Cantidad de Puntos Ganados";
-$Vote['Vote16'] = "Orden";
+// Starting the voting translation
+$Vote['Vote'] = "Vote System &amp; Simple";
+$Vote['Vote1'] = "Vote System for ";
+$Vote['Vote2'] = "Spend Points";
+$Vote['Vote3'] = "History";
+$Vote['Vote4'] = "How It Works";
+$Vote['Vote5'] = "Vote Now";
+$Vote['Vote6'] = "After you vote you need to wait atleast 12 hours to reset your IP from revoting. Remember to spend your Points wisely. Do not make any mistakes, ";
+$Vote2['Vote6'] = " will not return any Points back..";
+$Vote['Vote7'] = "Vote/Reward History";
+$Vote['Vote8'] = "Your Vote and Reward History";
+$Vote['Vote9'] = "There are no logs from your actions right now.";
+$Vote['Vote10'] = "Account ID";
+$Vote['Vote11'] = "Item ID";
+$Vote['Vote12'] = "Date";
+$Vote['Vote13'] = "Time";
+$Vote['Vote14'] = "V.Points Spend";
+$Vote['Vote15'] = "V.Points Earned";
+$Vote['Vote16'] = "Site";
 $Vote['Vote17'] = " Vote Points";
 $Vote['Vote18'] = "You have ";
 $Vote['Vote19'] = "The vote id entered is NULL.";
@@ -410,7 +407,7 @@ $Uns['Uns4'] = "You should change your country to Korea, republic of and verify 
 $Uns['Uns5'] = "Game Region Warning";
 $Uns['Uns6'] = "The World of Warcraft account merge process is not yet available in your region.";
 $Uns['Uns7'] = "If you lost your authenticator, please detach it before proceeding. (Security card service ended 8/13/2010 and was automatically detached.) ";
-$Uns['Uns8'] = "If you use Phone Lock: please unlock your World of Warcraft account before merging.";
+$Uns['Uns8'] = "If you use Phone Lock: please unlock your World of Warcraft account before merging.";
 $Uns['Uns9'] = "Taiwan: 0800-303-585";
 $Uns['Uns10'] = "(Not available 10–11AM every first Wed of the month)";
 $Uns['Uns11'] = "Hong Kong &amp; Macau: 396-54666";
@@ -584,9 +581,7 @@ $Forum['Forum77'] = "Latest Blizzard Posts";
 $Forum['Forum78'] = "All Blizzard posts";
 $Forum['Forum79'] = "Popular Topics";
 $Forum['Forum80'] = "in";
-
 // Finishing the Forum Translation
-
 
 //userplate
 $uplate['login'] = "<strong>Log in now</strong> to enhance and personalize your experience!";
@@ -744,10 +739,15 @@ $status['newP']="New Players";
 $status['new']="New";
 $status['noResults']="There is not match founds for this parameters.";
 $guild['Guilds'] = "Guilds";
+$arena['Teams'] = "Arena Teams";
+$statNav['AllRealms'] = "All Realms";
+$statNav['TopHonor'] = "Top Honor";
+$statNav['TopConquest'] = "Top Conquest";
+$Index['NoArticles'] = "No Articles";
+$Index['By'] = "By";
 //Finish Others
 
 //Search
-$arena['Teams'] = "Arena teams";
 $search['Name'] = "Name";
 $search['Level'] = "Level";
 $search['Race'] = "Race";
@@ -778,11 +778,6 @@ $search['Mode'] = "Mode";
 $search['Rating'] = "Rating";
 $search['forumResults'] = "Forum results for ";
 //Finish Search
-
-$statNav['AllRealms'] = "All Realms";
-$statNav['TopHonor'] = "Top Honor";
-$statNav['TopConquest'] = "Top Conquest";
-//Finish Others
 
 //Styles
 $style['bold'] = "Bold";
@@ -862,5 +857,74 @@ $Status['Population'] = "Population";
 $Status['OnNow'] = "Online Now";
 $Status['ClickOnline'] = "Click to view the Online Players";
 $Status['Statistics'] = "Statistics";
+$Status['StatRealms'] = "Realm Status";
+$Status['Months'] = " Months";
+$Status['Days'] = " Days";
+$Status['Hours'] = " Hours";
+$Status['Min'] = " Min";
+$Status['Uptime:'] = "Uptime:";
+$Status['Tipe'] = "Type: ";
+$Status['PjCreat'] = "Created Characters: ";
+$Status['Drop'] = "Drop: ";
+$Status['PjConect'] = "Conected characters: ";
+$Status['Exp'] = "Experiencie: ";
+$Status['Ali'] = "Aliance";
+$Status['Horde'] = "Horde";
+$Status['PlOnLine'] = "Online.";
+$Status['Stat3'] = "This page lists all available World of Failure Players inside the ";
+$Status['Stat4'] = " Realm as well as the stats of each. The Character can be listed as either Horde or Alliance. Let us apologize in advance if you find any player that is not listed, it takes 5 seconds to refresh the list.";
+$Status['Faction'] = "Faction";
+$Status['Name'] = "Name";
+$Status['Race'] = "Race";
+$Status['Human'] = "Human";
+$Status['Dwarf'] = "Dwarf";
+$Status['NightElf'] = "Night Elf";
+$Status['Gnome'] = "Gnome";
+$Status['Draenei'] = "Draenei";
+$Status['Worgen'] = "Worgen";
+$Status['Orc'] = "Orc";
+$Status['Troll'] = "Troll";
+$Status['Tauren'] = "Tauren";
+$Status['Undead'] = "Undead";
+$Status['BloodElf'] = "Blood Elf";
+$Status['Goblin'] = "Goblin";
+$Status['Class'] = "Class";
+$Status['Warrior'] = "Warrior";
+$Status['Paladin'] = "Paladin";
+$Status['Rogue'] = "Rogue";
+$Status['Mage'] = "Mage";
+$Status['Druid'] = "Druid";
+$Status['Warlock'] = "Warlock";
+$Status['Hunter'] = "Hunter";
+$Status['Shaman'] = "Shaman";
+$Status['Priest'] = "Priest";
+$Status['DeathKnight'] = "Death Knight.";
+$Status['Level'] = "Level";
+$Status['CataLev'] = "Cataclysm Levels";
+$Status['WoTLKLev'] = "WoTLK Levels";
+$Status['BCLev'] = "Burning Crusade Levels";
+$Status['VanLev'] = "Vanilla Levels";
+$Status['Location'] = "Location";
+$Status['Male'] = "Male";
+$Status['Female'] = "Female";
+$Status['EastKingd'] = "Eastern Kingdoms";
+$Status['LostIsle'] = "Lost Isles / Kezan";
+$Status['Gilneas'] = "Gilneas City";
+$Status['Kalimdor'] = "Kalimdor";
+$Status['Outland'] = "Outland";
+$Status['Northrend'] = "Northrend";
+$Status['NotConected'] = "There are now players connected right now on.";
+$Status['RlmStat'] = "Realm Statistics";
+$Status['Stat5'] = "This page lists all available Information for the Players - Characters that are created on ";
+$Status['Stat6'] = " realm as well as the status of each. A realm can have unlimited characters and can host more that 5000 players. Messages related to realm status and scheduled maintenance will be posted in the ";
+$Status['Stat7'] = "Service Status.";
+$Status['Stat8'] = " Let us apologize in advance if the Statistics have crashed or are counted wrong. Chances are we are working diligently to fix the problem, if there is one, so please leave a comment on the forums, and we will fix it as soon as possible.";
+$Status['CharCreat'] = " Characters Created - ";
+$Status['CharOn'] = " Players Online - ";
+$Status['StatClass'] = "Statistics by Class";
+$Status['StatRace'] = "Statistics by Race";
+$Status['Pandaren'] = "Pandaren";
+$Status['ReqMistPand'] = "Requires Mists of Pandaria";
+$Status['PandNoAval'] = "Pandaren are NOT available.";
 //Finish Status
 ?>
