@@ -121,13 +121,13 @@ ul.profile-view-options a.tip { cursor: help; border-bottom: 0; }
 	.profile-wrapper-alliance .realm, .profile-wrapper-alliance .realm a { color: #0078ff; }
 	.profile-wrapper-alliance .profile-sidebar-info .name a:hover,
 	.profile-wrapper-alliance .profile-info .achievements a:hover { text-decoration:underline; }
-	.profile-wrapper-alliance .profile-info-anchor { background-image: url("../images/character/summary/sidebar-bg-alliance.png"); }
+	.profile-wrapper-alliance .profile-info-anchor { background-image: url("../images/character/sidebar-bg-alliance.gif"); }
 
 	/* horde */
 	.profile-wrapper-horde .realm, .profile-wrapper-horde .realm a { color: #b30000; }
 	.profile-wrapper-horde .profile-sidebar-info .name a:hover,
 	.profile-wrapper-horde .profile-info .achievements a:hover { text-decoration: underline; }
-	.profile-wrapper-horde .profile-info-anchor { background-image: url("../images/character/summary/sidebar-bg-horde.png"); }
+	.profile-wrapper-horde .profile-info-anchor { background-image: url("../images/character/sidebar-bg-horde.gif"); }
 
 /* character-specific stuff */
 

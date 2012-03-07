@@ -1,5 +1,6 @@
 <?php
 require_once("configs.php");
+require_once('functions/armory_func.php');  
 $page_cat = "services";
 include("classes/armory.class.php");
 $character = Factory_Armory::createCharacter($_GET['name']);
@@ -61,7 +62,13 @@ Services
 </ol>
 </div>
 <div class="content-bot">
-	<div id="profile-wrapper" class="profile-wrapper profile-wrapper-advanced profile-wrapper-"><!-- Faction -->
+	  <?php       
+  $raceNum= $character->getObjectInfo()->race;               //Numbre race for all armory references
+  echo'<div id="profile-wrapper" class="profile-wrapper profile-wrapper-advanced profile-wrapper-';  //Show horde/ally back image
+  if (translateLet($raceNum) == 0){
+    echo'alliance">';}
+  else{
+    echo'horde">';}?>
 	<div class="profile-sidebar-anchor">
 	<div class="profile-sidebar-outer">
 	<div class="profile-sidebar-inner">
@@ -70,16 +77,34 @@ Services
 	<div class="profile-info">
 	<div class="name"><a href="" rel="np"><?php echo $character->getObjectInfo()->name;?></a></div>
 	<div class="title-guild">
-	<div class="title"> <!-- Title Here--></div>
+	<div class="title">
+  <?php
+    /*if ($raceNum == 0){$col='title_A';}
+    else {$col = 'title_H';}
+    $conn = mysql_open($serveraddress, $serveruser, $serverpass);   //Gets title, have to make website title table
+    $sql="SELECT $col as title FROM $server_db.titles WHERE guid = 
+      (SELECT chosenTitle FROM $server_cdb.characters WHERE name = '".$character->getObjectInfo()->name."')";
+    $row = mysql_fetch_assoc(mysql_query($sql,$conn));
+    mysql_end($conn);
+    echo $row['title']; */
+  ?> &nbsp;
+  </div>
 	<div class="guild">
-	<a href="#"><!-- Guild Here--></a>
+	<a href="#">
+  <?php
+    mysql_select_db($server_cdb,$connection_setup)or die(mysql_error());   //Gets guild name, connection have to change to title
+    $sql="SELECT name FROM guild WHERE guildid =           
+      (SELECT guildid FROM guild_member G, characters C WHERE G.guid = C.guid)";
+    $row = mysql_fetch_assoc(mysql_query($sql));
+    echo $row['name'];
+  ?>
+  </a>
 	</div>
 	</div>
 
 	<span class="clear"><!-- --></span>
 	<div class="under-name color-c<?php echo $character->getObjectInfo()->class; ?>">
 	<span class="level"><strong><?php echo $character->getObjectInfo()->level; ?></strong></span> <a href="#" class="race"><?php
-  $raceNum= $character->getObjectInfo()->race;
   echo $armory['race'.$raceNum];
   ?></a> <a id="profile-info-spec" href="#" class="spec tip"><?php
   $talentP = $character->getTalentInfo()->branchP;
@@ -171,7 +196,7 @@ Services
 	<?php
     $errors = 0;
 
-    mysql_select_db($server_cdb,$connection_setup)or die(mysql_error());
+    mysql_select_db($server_cdb)or die(mysql_error());
     $query_select_character = "SELECT guid, race, gender, playerBytes, playerBytes2 FROM characters WHERE name = '".@$name = $_GET['name']."' LIMIT 1";
     $result_select_character = mysql_query($query_select_character);
 
