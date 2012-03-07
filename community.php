@@ -3,7 +3,7 @@ require_once("configs.php");
 ?>
 <html>
 <head>
-<title><?php echo $website['title']; ?></title>
+<title><?php echo $website['title']; ?> - <?php $Community['Community']; ?></title>
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
 <link rel="search" type="application/opensearchdescription+xml" href="http://eu.battle.net/en-gb/data/opensearch" title="Battle.net Search" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common.css?v15" />
@@ -56,7 +56,7 @@ include("header.php");
 <div class="content-trail">
 <ol class="ui-breadcrumb">
 <li><a href="index.php" rel="np"><?php echo $website['title']; ?></a></li>
-<li class="last"><a href="community.php" rel="np">Community</a></li>
+<li class="last"><a href="community.php" rel="np"><?php $Community['Community']; ?></a></li>
 </ol>
 </div>
 <div class="content-bot">			
@@ -158,8 +158,8 @@ include("header.php");
 							<a href="javascript:;" target="_blank" class="main-link" style="background-image:url('wow/static/images/community/thumbnails/thumb-contests.jpg');">
 								<span>
 									<span class="wrapper">
-										<span class="banner-title">Contests </span>
-										<span class="banner-desc">Past and present contests for you to check out and participate in. Check it out now!</span>
+										<span class="banner-title"><?php echo $Community['comm1']; ?></span>
+										<span class="banner-desc"><?php echo $Community['comm2']; ?></span>
 									</span>
 								</span>
 							</a>
@@ -169,8 +169,8 @@ include("header.php");
 							<a href="javascript:;" class="main-link" style="background-image:url('wow/static/images/community/thumbnails/thumb-forum.jpg');">
 								<span>
 									<span class="wrapper">
-										<span class="banner-title">Forums </span>
-										<span class="banner-desc">Get in touch with other <?php echo $website['title']; ?> gamers via the official World of Warcraft forums.</span>
+										<span class="banner-title"><?php echo $Forums['Forums']; ?> </span>
+										<span class="banner-desc"><?php echo $Community['comm3']; ?><?php echo $website['title']; ?><?php echo $Community['comm4']; ?></span>
 									</span>
 								</span>
 							</a>
@@ -187,7 +187,7 @@ include("header.php");
 									</span>
 								</span>
 							</a>
-								<a href="#" class="tosubmit external">Submit Fan Art</a>
+								<a href="#" class="tosubmit external">S<?php echo $Community['comm5']; ?></a>
 						</div>
 						
 						<div class="inside-section comics">
@@ -199,7 +199,7 @@ include("header.php");
 									</span>
 								</span>
 							</a>
-								<a href="media.php" class="tosubmit external">Submit Media</a>
+								<a href="media.php" class="tosubmit external"><?php echo $Community['comm6']; ?></a>
 						</div>
 						
 						<span class="clear"><!-- --></span>
@@ -213,7 +213,7 @@ include("header.php");
 									</span>
 								</span>
 							</a>
-								<a href="javascript:;" class="tosubmit external">Submit Screenshots</a>
+								<a href="javascript:;" class="tosubmit external"><?php echo $Community['comm7']; ?></a>
 						</div>
 						
 						<div class="inside-section wallpaper">
@@ -225,7 +225,7 @@ include("header.php");
 									</span>
 								</span>
 							</a>
-								<a href="javascript:;" class="tosubmit external">Submit Wallpapers</a>
+								<a href="javascript:;" class="tosubmit external"><?php echo $Community['comm8']; ?></a>
 						</div>
 						
 						<span class="clear"><!-- --></span>
@@ -236,7 +236,7 @@ include("header.php");
 										
 					<div class="outside-section social-media">
 						<div class="title-block">
-							<span class="title">Social Media</span>
+							<span class="title"><?php echo $Community['comm9']; ?></span>
 						<span class="clear"><!-- --></span>
 						</div>
 						<div class="content-block">
@@ -246,16 +246,16 @@ include("header.php");
     background: url("wow/static/images/community/001.png") no-repeat;
 }
 							</style>
-								<li><a href="#" class="facebook" target="_blank"><span class="content-title"><?php echo $website['title']; ?> Facebook</span><span class="content-desc">Follow us on Facebook.</span></a></li>
-								<li><a href="#" class="Twitter" target="_blank"><span class="content-title"><?php echo $website['title']; ?> Twitter</span><span class="content-desc">Tweet us on Twitter.</span></a></li>
-								<li><a href="#" class="Youtube" target="_blank"><span class="content-title"><?php echo $website['title']; ?> Youtube</span><span class="content-desc">Subscribe on Youtube.</span></a></li>
+								<li><a href="#" class="facebook" target="_blank"><span class="content-title"><?php echo $website['title']; ?> Facebook</span><span class="content-desc"><?php echo $Community['comm10']; ?></span></a></li>
+								<li><a href="#" class="Twitter" target="_blank"><span class="content-title"><?php echo $website['title']; ?> Twitter</span><span class="content-desc"><?php echo $Community['comm11']; ?></span></a></li>
+								<li><a href="#" class="Youtube" target="_blank"><span class="content-title"><?php echo $website['title']; ?> Youtube</span><span class="content-desc"><?php echo $Community['comm12']; ?></span></a></li>
 								
 								
 						</div>
 						<span class="clear"><!-- --></span>
 						<br></br>
 						<div class="title-block">
-							<span class="title">Community Links</span>
+							<span class="title"><?php echo $Community['comm13']; ?></span>
 						<span class="clear"><!-- --></span>
 						</div>
 						<div class="content-block">
@@ -265,7 +265,7 @@ include("header.php");
     background: url("wow/static/images/community/001.png") no-repeat;
 }
 							</style>
-								<li><a href="http://www.strawberry-pr0jcts.com/forum/" id="wow" target="_blank"><span class="content-title">AquaFlame CMS</span><span class="content-desc">Join our community.</span></a></li></ul>
+								<li><a href="http://www.strawberry-pr0jcts.com/forum/" id="wow" target="_blank"><span class="content-title">AquaFlame CMS</span><span class="content-desc"><?php echo $Community['comm14']; ?></span></a></li></ul>
 								
 								
 						</div>

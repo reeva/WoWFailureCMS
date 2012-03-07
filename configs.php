@@ -9,7 +9,7 @@ if(empty($lang)) $lang = 'en-us';
 
 
 $language = $lang;
-$langs = Array("en-us" => null, "ro-ro" => null, "en-db" => null, "it-it" => null, "de-de" => null, "es-es" => null, "bu-bg" => null , "es-mx" => null, "gr-gr" => null, "ru-ru" => null, "zh-cn" => null, "zh-tw" => null, "fr-fr" => null);
+$langs = Array("en-us" => null, "ro-ro" => null, "en-gb" => null, "it-it" => null, "de-de" => null, "es-es" => null, "bu-bg" => null , "es-mx" => null, "gr-gr" => null, "ru-ru" => null, "zh-cn" => null, "zh-tw" => null, "fr-fr" => null);
 if(array_key_exists($lang,$langs))require_once("lang/".$lang.".php");
 else require_once("/lang/en-us.php");
 $_SESSION['Local'] = $language;
@@ -32,6 +32,9 @@ $server_wdb = "world";
 $server_cdb_2 = "characters";
 $server_wdb_2 = "world";
 
+$server_cdb_3 = "characters";
+$server_wdb_3 = "pworld";
+
 ######################
 
 
@@ -41,8 +44,20 @@ $website['realm'] = "Set Realmlist Your_Realmlist";
 $charTable = 'characters';
 $name_realm1['realm'] = "Server_Name_1";
 $name_realm2['realm'] = "Server_Name_2";
+$name_realm3['realm'] = "Server_Name_3";
 $website['version'] = "4.0.6a";
-$realm_count = '1';
+$website_2['version'] = "3.3.5a";
+$website_3['version'] = "4.0.6a";
+$TypeServ = "PVE";
+$TypeServ_2 = "PVE";
+$TypeServ_3 = "PVP";
+$DropServ = "x3";
+$DropServ_2 = "x3";
+$DropServ_3 = "x3";
+$ExpServ = "x3";
+$ExpServ_2 = "x3";
+$ExpServ_3 = "x3";
+$realm_count = '3';
 $charLimit = '10';
 $mysql_cod = 'cp1251';
 

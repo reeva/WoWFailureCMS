@@ -166,7 +166,7 @@ print'Your character is unlocked.';
 	
 //Success
  	 
-print'Your character is unlocked.';
+print''.$Uns['Uns28'].'';
  		
 }}}}}}}}
  	
@@ -186,7 +186,7 @@ print'<table align="center">
  		
 <span class="label-text">
  	
-World of Warcraft Account Name:
+'.$Uns['Uns16'].'
  	
 </span>
  	
@@ -220,7 +220,7 @@ World of Warcraft Account Name:
  		
 <span class="label-text">
  		
-World of Warcraft Account Character:
+'.$Uns['Uns17'].'
  		
 </span>
  	
@@ -252,7 +252,7 @@ World of Warcraft Account Character:
  
 <span class="label-text">
  		
-World of Warcraft Account Password:
+'.$Uns['Uns18'].'
  	
 </span>
  	
@@ -270,11 +270,11 @@ World of Warcraft Account Password:
  		
 <span class="inline-message" id="password-message"><a id="pwLink" class="icon-external" href="" onclick="window.open(this.href);return false" tabindex="1">
  	
-Forgot your password?
+'.$Uns['Uns19'].'
  
 </a>
  
-<p id="pwLinkNo" style="display:none;">If you have forgotten your World of Warcraft password, please contact <a href="" target="_blank">Customer Support</a>.</p>
+<p id="pwLinkNo" style="display:none;">'.$Uns['Uns20'].' <a href="" target="_blank">'.$Uns['Uns21'].'</a>.</p>
  	
 </span>
 	
@@ -302,7 +302,7 @@ tabindex="1">
 
 <span>
 
-<span>Continue</span>
+<span>'.$Uns['Uns29'].'</span>
 	
 </span>
 	
@@ -314,9 +314,7 @@ href="/account/"
 	
 tabindex="1">
 	
-<span>
-	
-Cancel </span>
+<span>'.$Uns['Uns23'].'</span>
 	
 </a>
 

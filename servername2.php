@@ -4,7 +4,7 @@ require_once("configs.php");
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" xmlns:xml="http://www.w3.org/XML/1998/namespace" class="chrome chrome8">
 <head>
-<title><?php echo $website['title']; ?> - Status</title>
+<title><?php echo $website['title']; ?> - <?php echo $status['status']; ?></title>
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common.css?v15" />
@@ -54,8 +54,8 @@ _gaq.push(['_trackPageview']);
 <div class="content-trail">
 <ol class="ui-breadcrumb">
 <li><a href="../index.php" rel="np"><?php echo $website['title']; ?></a></li>
-<li><a href="../status.php" rel="np">Status</a></li>
-<li><a href="status.php" rel="np">Realm Status</a></li>
+<li><a href="../status.php" rel="np"><?php echo $status['status']; ?></a></li>
+<li><a href="status.php" rel="np"><?php echo $Status['RealmStat']; ?></a></li>
 <li class="last"><a href="servername2.php" rel="np"><?php 	require_once("configs.php");
 									echo $name_realm2['realm']; 
 									?></a></li>
@@ -65,17 +65,17 @@ _gaq.push(['_trackPageview']);
 	<div class="content-header">
 				<h2 class="header "><?php 	require_once("configs.php");
 									echo $name_realm2['realm']; 
-									?> Status</h2>
+									?><?php echo $status['status']; ?></h2>
 
-		<div class="desc">This page lists all available World of Failure Players inside the <?php 	require_once("configs.php");
+		<div class="desc"><?php echo $Status['Stat3']; ?><?php 	require_once("configs.php");
 									echo $name_realm2['realm']; 
-									?> Realm as well as the stats of each. The Character can be listed as either Horde or Alliance. Let us apologize in advance if you find any player that is not listed, it takes 5 seconds to refresh the list.</div>
+									?><?php echo $Status['Stat4']; ?></div>
 <span class="clear"><!-- --></span>
 	</div>
 
 	<div id="realm-status">
 		<div class="filter-toggle">
-			<a href="javascript:;" class="selected" onclick="RealmStatus.filterToggle(this)">
+			<a href="javascript:;" class="selected" onClick="RealmStatus.filterToggle(this)">
 				
 			</a>
 		</div>
@@ -85,62 +85,62 @@ _gaq.push(['_trackPageview']);
 		<div id="realm-filters" class="table-filters">
 			<form action="#">
 				<div class="filter">
-					<label for="filter-status">Faction</label>
+					<label for="filter-status"><?php echo $Status['Faction']; ?></label>
 					
 					<select id="filter-status" class="input select" data-filter="column" data-column="0">
-						<option value="">All</option>
-						<option value="up">Alliance</option>
-						<option value="down">Horde</option>
+						<option value=""><?php echo $Status['All']; ?></option>
+						<option value="up"><?php echo $Status['Ali']; ?></option>
+						<option value="down"><?php echo $Status['Horde']; ?></option>
 					</select>
 				</div>
 
 				<div class="filter">
-					<label for="filter-name">Name</label>
+					<label for="filter-name"><?php echo $Status['Name']; ?></label>
 
 					<input type="text" class="input" id="filter-name" 
 						   data-filter="column" data-column="1" />
 				</div>
 
 				<div class="filter">
-					<label for="filter-type">Race</label>
+					<label for="filter-type"><?php echo $Status['Race']; ?></label>
 
 					<select id="filter-type" class="input select" data-filter="column" data-column="2">
-						<option value="">All</option>
+						<option value=""><?php echo $Status['All']; ?></option>
 							<option value="pve">
-								Human
+								<?php echo $Status['Human']; ?>
 							</option>
 							<option value="rppvp">
-								Dwarf
+								<?php echo $Status['Dwarf']; ?>
 							</option>
 							<option value="pvp">
-								Night Elf
+								<?php echo $Status['NightElf']; ?>
 							</option>
 							<option value="rp">
-								Gnome
+								<?php echo $Status['Gnome']; ?>
 							</option>
 							<option value="rp">
-								Draenei
+								<?php echo $Status['Draenei']; ?>
 							</option>
 							<option value="rp">
-								Worgen
+								<?php echo $Status['Worgen']; ?>
 							</option>
 							<option value="rp">
-								Orc
+								<?php echo $Status['Orc']; ?>
 							</option>
 							<option value="rp">
-								Troll
+								<?php echo $Status['Troll']; ?>
 							</option>
 							<option value="rp">
-								Tauren
+								<?php echo $Status['Tauren']; ?>
 							</option>
 							<option value="rp">
-								Undead
+								<?php echo $Status['Undead']; ?>
 							</option>
 							<option value="rp">
-								Blood Elf
+								<?php echo $Status['BloodElf']; ?>
 							</option>
 							<option value="rp">
-								Goblin
+								<?php echo $Status['Goblin']; ?>
 							</option>
 					</select>
 				</div>
@@ -150,34 +150,34 @@ _gaq.push(['_trackPageview']);
 
 					<select id="filter-population" class="input select" data-filter="column" data-column="3">
 						<option value="">All</option>
-							<option value="high">Warrior</option>
-							<option value="medium">Paladin</option>
-							<option value="n/a">Rogue</option>
-							<option value="low">Mage</option>
-							<option value="low">Druid</option>
-							<option value="low">Warlock</option>
-							<option value="low">Hunter</option>
-							<option value="low">Shaman</option>
-							<option value="low">Priest</option>
-							<option value="low">Death Knight</option>
+							<option value="high"><?php echo $Status['Warrior']; ?></option>
+							<option value="medium"><?php echo $Status['Paladin']; ?></option>
+							<option value="n/a"><?php echo $Status['Rogue']; ?></option>
+							<option value="low"><?php echo $Status['Mage']; ?></option>
+							<option value="low"><?php echo $Status['Druid']; ?></option>
+							<option value="low"><?php echo $Status['Warlock']; ?></option>
+							<option value="low"><?php echo $Status['Hunter']; ?></option>
+							<option value="low"><?php echo $Status['Shaman']; ?></option>
+							<option value="low"><?php echo $Status['Priest']; ?></option>
+							<option value="low"><?php echo $Status['DeathKnight']; ?></option>
 					</select>
 				</div>
 
 				<div class="filter">
-					<label for="filter-locale">Level</label>
+					<label for="filter-locale"><?php echo $Status['Level']; ?></label>
 
 					<select id="filter-locale" class="input select" data-column="4" data-filter="column">
-						<option value="">All</option>
-							<option value="spanish">Cataclysm Levels</option>
-							<option value="german">WoTLK Levels</option>
-							<option value="french">Burning Crusade Levels</option>
-							<option value="tournament">Vanilla Levels</option>
+						<option value=""><?php echo $Status['All']; ?></option>
+							<option value="spanish"><?php echo $Status['CataLev']; ?></option>
+							<option value="german"><?php echo $Status['WoTLKLev']; ?></option>
+							<option value="french"><?php echo $Status['BCLev']; ?></option>
+							<option value="tournament"><?php echo $Status['VanLev']; ?></option>
 							
 					</select>
 				</div>
 
 				<div class="filter">
-					<label for="filter-queue">Location</label>
+					<label for="filter-queue"><?php echo $Status['Location']; ?></label>
 
 					<input type="checkbox" id="filter-queue" class="input" value="true" data-column="5" data-filter="column" />
 				</div>
@@ -197,7 +197,7 @@ _gaq.push(['_trackPageview']);
 		
 		>
 		<span>
-			<span>Reset</span>
+			<span><?php echo $Status['Reset']; ?></span>
 		</span>
 	</button>
 
@@ -230,12 +230,12 @@ echo '<br /><table border="1" width="100%" style="border: 1px solid #c0c0c0;bord
 		<table>
 			<thead>
 				<tr>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Name</span></a></th>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Race</span></a></th>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Class</span></a></th>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Level</span></a></th>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Location</span></a></th>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Faction</span></a></th>
+<th><a href="javascript:;" class="sort-link"><span class="arrow">'.$Status['Name'].'</span></a></th>
+<th><a href="javascript:;" class="sort-link"><span class="arrow">'.$Status['Race'].'</span></a></th>
+<th><a href="javascript:;" class="sort-link"><span class="arrow">'.$Status['Class'].'</span></a></th>
+<th><a href="javascript:;" class="sort-link"><span class="arrow">'.$Status['Level'].'</span></a></th>
+<th><a href="javascript:;" class="sort-link"><span class="arrow">'.$Status['Location'].'</span></a></th>
+<th><a href="javascript:;" class="sort-link"><span class="arrow">'.$Status['Faction'].'</span></a></th>
 					</tr>
 				</thead>';
 while($raw = mysql_fetch_array($sql)){
@@ -286,79 +286,88 @@ $rrace = $raw['race'];
 $gender = $raw['gender'];
 if ($rrace == 1)
 {
-$race = "Human";
+$race = "".$Status['Human']."";
 }
 elseif ($rrace == 2)
 {
-$race = "Orc";
+$race = "".$Status['Orc']."";
 }
 if ($rrace == 3)
 {
-$race = "Dwarf";
+$race = "".$Status['Dwarf']."";
 }
 elseif ($rrace == 4)
 {
-$race = "Night Elf";
+$race = "".$Status['NightElf']."";
 }
 elseif ($rrace == 5)
 {
-$race = "Undead";
+$race = "".$Status['Undead']."";
 }
 elseif ($rrace == 6)
 {
-$race = "Tauren";
+$race = "".$Status['Tauren']."";
 }
 elseif ($rrace == 7)
 {
-$race = "Gnome";
+$race = "".$Status['Gnome']."";
 }
 elseif ($rrace == 8)
 {
-$race = "Troll";
+$race = "".$Status['Troll']."";
+}
+elseif ($rrace == 9)
+{
+$race = "".$Status['Goblin']."";
 }
 elseif ($rrace == 10)
 {
-$race = "Blood Elf";
+$race = "".$Status['BloodElf']."";
 }
 elseif ($rrace == 11)
 {
-$race = "Draenei";
+$race = "".$Status['Draenei']."";
+}
+elseif ($rrace == 22)
+{
+$race = "".$Status['Worgen']."";
 }
 //Character Gender
 $ggender = $raw['gender'];
 if($ggender == 1)
 {
-$gender = "Female";
+$gender = "".$Status['Female']."";
 }
-elseif($ggender == 0)
+else
+if($ggender == 0)
 {
-$gender = "Male";
+$gender = "".$Status['Male']."";
 }
 //Location Map
 $map = $raw['map'];
 if($map == 0)
 {
-$location = "<b>Eastern Kingdoms</b>";
+$location = "<b>".$Status['EastKingd']."</b>";
 }
 elseif($map == 648)
 {
-$location = "<b>Lost Isles / Kezan</b>";
+$location = "<b>".$Status['LostIsle']."</b>";
 }
 elseif($map == 638)
 {
-$location = "<b>Gilneas City</b>";
+$location = "<b>".$Status['Gilneas']."</b>";
 }
 elseif($map == 1)
 {
-$location = "<b>Kalimdor</b>";
+$location = "<b>".$Status['Kalimdor']."</b>";
 }
 elseif($map == 530)
 {
-$location = "<b>Outland</b>";
+$location = "<b>".$Status['Outland']."</b>";
 }
 elseif($map == 571)
 {
-$location = "<b>Northrend</b>";
+$location = "<b>".$Status['Northrend']."</b>";
 }
  // Alliance or Horde FLAG
 if($rrace == 1 || $rrace == 3 || $rrace == 4 || $rrace == 7 || $rrace == 11 || $rrace == 22)
@@ -384,7 +393,7 @@ echo"</table><br />";
 }
 else
 {
-echo "<b>There are now players connected right now on.</b>";
+echo "<b>".$Status['NotConected']."</b>";
 }
 ?>
 					

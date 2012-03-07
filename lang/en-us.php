@@ -737,11 +737,17 @@ $status['medium']="Medium";
 $status['population']="Population";
 $status['newP']="New Players";
 $status['new']="New";
+$status['noResults']="There is not match founds for this parameters.";
 $guild['Guilds'] = "Guilds";
+$arena['Teams'] = "Arena Teams";
+$statNav['AllRealms'] = "All Realms";
+$statNav['TopHonor'] = "Top Honor";
+$statNav['TopConquest'] = "Top Conquest";
+$Index['NoArticles'] = "No Articles";
+$Index['By'] = "By";
 //Finish Others
 
 //Search
-$arena['Teams'] = "Arena teams";
 $search['Name'] = "Name";
 $search['Level'] = "Level";
 $search['Race'] = "Race";
@@ -770,12 +776,8 @@ $search['prev'] = "Prev";
 $search['articles'] = "Articles";
 $search['Mode'] = "Mode";
 $search['Rating'] = "Rating";
+$search['forumResults'] = "Forum results for ";
 //Finish Search
-
-$statNav['AllRealms'] = "All Realms";
-$statNav['TopHonor'] = "Top Honor";
-$statNav['TopConquest'] = "Top Conquest";
-//Finish Others
 
 //Styles
 $style['bold'] = "Bold";
@@ -855,5 +857,74 @@ $Status['Population'] = "Population";
 $Status['OnNow'] = "Online Now";
 $Status['ClickOnline'] = "Click to view the Online Players";
 $Status['Statistics'] = "Statistics";
+$Status['StatRealms'] = "Realm Status";
+$Status['Months'] = " Months";
+$Status['Days'] = " Days";
+$Status['Hours'] = " Hours";
+$Status['Min'] = " Min";
+$Status['Uptime:'] = "Uptime:";
+$Status['Tipe'] = "Type: ";
+$Status['PjCreat'] = "Created Characters: ";
+$Status['Drop'] = "Drop: ";
+$Status['PjConect'] = "Conected characters: ";
+$Status['Exp'] = "Experiencie: ";
+$Status['Ali'] = "Aliance";
+$Status['Horde'] = "Horde";
+$Status['PlOnLine'] = "Online.";
+$Status['Stat3'] = "This page lists all available World of Failure Players inside the ";
+$Status['Stat4'] = " Realm as well as the stats of each. The Character can be listed as either Horde or Alliance. Let us apologize in advance if you find any player that is not listed, it takes 5 seconds to refresh the list.";
+$Status['Faction'] = "Faction";
+$Status['Name'] = "Name";
+$Status['Race'] = "Race";
+$Status['Human'] = "Human";
+$Status['Dwarf'] = "Dwarf";
+$Status['NightElf'] = "Night Elf";
+$Status['Gnome'] = "Gnome";
+$Status['Draenei'] = "Draenei";
+$Status['Worgen'] = "Worgen";
+$Status['Orc'] = "Orc";
+$Status['Troll'] = "Troll";
+$Status['Tauren'] = "Tauren";
+$Status['Undead'] = "Undead";
+$Status['BloodElf'] = "Blood Elf";
+$Status['Goblin'] = "Goblin";
+$Status['Class'] = "Class";
+$Status['Warrior'] = "Warrior";
+$Status['Paladin'] = "Paladin";
+$Status['Rogue'] = "Rogue";
+$Status['Mage'] = "Mage";
+$Status['Druid'] = "Druid";
+$Status['Warlock'] = "Warlock";
+$Status['Hunter'] = "Hunter";
+$Status['Shaman'] = "Shaman";
+$Status['Priest'] = "Priest";
+$Status['DeathKnight'] = "Death Knight.";
+$Status['Level'] = "Level";
+$Status['CataLev'] = "Cataclysm Levels";
+$Status['WoTLKLev'] = "WoTLK Levels";
+$Status['BCLev'] = "Burning Crusade Levels";
+$Status['VanLev'] = "Vanilla Levels";
+$Status['Location'] = "Location";
+$Status['Male'] = "Male";
+$Status['Female'] = "Female";
+$Status['EastKingd'] = "Eastern Kingdoms";
+$Status['LostIsle'] = "Lost Isles / Kezan";
+$Status['Gilneas'] = "Gilneas City";
+$Status['Kalimdor'] = "Kalimdor";
+$Status['Outland'] = "Outland";
+$Status['Northrend'] = "Northrend";
+$Status['NotConected'] = "There are now players connected right now on.";
+$Status['RlmStat'] = "Realm Statistics";
+$Status['Stat5'] = "This page lists all available Information for the Players - Characters that are created on ";
+$Status['Stat6'] = " realm as well as the status of each. A realm can have unlimited characters and can host more that 5000 players. Messages related to realm status and scheduled maintenance will be posted in the ";
+$Status['Stat7'] = "Service Status.";
+$Status['Stat8'] = " Let us apologize in advance if the Statistics have crashed or are counted wrong. Chances are we are working diligently to fix the problem, if there is one, so please leave a comment on the forums, and we will fix it as soon as possible.";
+$Status['CharCreat'] = " Characters Created - ";
+$Status['CharOn'] = " Players Online - ";
+$Status['StatClass'] = "Statistics by Class";
+$Status['StatRace'] = "Statistics by Race";
+$Status['Pandaren'] = "Pandaren";
+$Status['ReqMistPand'] = "Requires Mists of Pandaria";
+$Status['PandNoAval'] = "Pandaren are NOT available.";
 //Finish Status
 ?>

@@ -107,6 +107,16 @@ echo '>'
 			<?php echo @$italy['europe']; ?>
 			</a>
 			</li>
+            <li>
+			<a href="?Local=ro-ro" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to ro-ro'); return true;">
+			<?php echo $Romanian['ROEU']; ?>
+			</a>
+			</li>
+            <li>
+			<a href="?Local=bg-bg" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to bu-bu'); return true;">
+			<?php echo $Bulgarian['Bulgarian_lang']; ?>
+			</a>
+			</li>
 			</ul>
 			</div>
 			<div class="column">
@@ -145,26 +155,6 @@ echo '>'
 			<li>
 			<a href="?Local=gr-gr" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to gr-gr'); return true;">
 			<?php echo $Greek['gr_lang']; ?>
-			</a>
-			</li>
-			</ul>
-			</div>
-			<div class="column">
-			<h3 style="padding-left:12px;" ><?php echo $Bulgarian['Bulgarian']; ?></h3>
-			<ul>
-			<li>
-			<a href="?Local=bg-bg" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to bu-bu'); return true;">
-			<?php echo $Bulgarian['Bulgarian_lang']; ?>
-			</a>
-			</li>
-			</ul>
-			</div>
-			<div class="column">
-			<h3 style="padding-left:12px;" ><?php echo $Romanian['RO']; ?></h3>
-			<ul>
-			<li>
-			<a href="?Local=ro-ro" tabindex="100" onclick="Locale.trackEvent('Change Language', 'en-gb to ro-ro'); return true;">
-			<?php echo $Romanian['ROEU']; ?>
 			</a>
 			</li>
 			</ul>

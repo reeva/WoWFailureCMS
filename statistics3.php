@@ -224,7 +224,7 @@ _gaq.push(['_trackPageview']);
 <div class="content-bot">
 <span class="clear"><!-- --></span><div class="content-header">
 <h2 class="header "><?php echo $Status['RlmStat']; ?></h2></div>
-<div class="desc"><?php echo $Status['Stat5']; ?><?php echo $name_realm2['realm']; ?><?php echo $Status['Stat6']; ?><a href="forum/category/?f=27"><?php echo $Status['Stat7']; ?></a><?php echo $Status['Stat8']; ?></div>
+<div class="desc"><?php echo $Status['Stat5']; ?><?php echo $name_realm3['realm']; ?><?php echo $Status['Stat6']; ?><a href="forum/category/?f=27"><?php echo $Status['Stat7']; ?></a><?php echo $Status['Stat8']; ?></div>
 	
 
 
@@ -299,7 +299,7 @@ _gaq.push(['_trackPageview']);
 			$i++;
 		}
 		
-		$online_user_db = @mysql_query("SELECT * FROM `".$server_cdb_2."`.`characters` WHERE online = 1", $ConnectDB[$realm_num]);
+		$online_user_db = @mysql_query("SELECT * FROM `".$server_cdb_3."`.`characters` WHERE online = 1", $ConnectDB[$realm_num]);
 		if ($online_user_db) {
 			while($result = mysql_fetch_array($online_user_db)){
 				if ($result['race'] == 1 || $result['race'] == 3 || $result['race'] == 4 || $result['race'] == 7 || $result['race'] == 11 || $result['race'] == 22) { 
@@ -310,7 +310,7 @@ _gaq.push(['_trackPageview']);
 			}
 		}
 		
-		$statistics_user_db = @mysql_query("SELECT * FROM `".$server_cdb_2."`.`characters`", $ConnectDB[$realm_num]);
+		$statistics_user_db = @mysql_query("SELECT * FROM `".$server_cdb_3."`.`characters`", $ConnectDB[$realm_num]);
 		if ($statistics_user_db) {
 			while($result = mysql_fetch_array($statistics_user_db)){
 				if ($result['race'] == 1 || $result['race'] == 3 || $result['race'] == 4 || $result['race'] == 7 || $result['race'] == 11 || $result['race'] == 22) { 

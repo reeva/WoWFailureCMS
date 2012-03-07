@@ -44,6 +44,7 @@ _gaq.push(['_setDomainName', '.battle.net']);
 _gaq.push(['_trackPageview']);
 //]]>
 </script>
+<script type="text/javascript" src="http://cdn1.hikiwake.com/scripts/shared/enable.js?si=10203"></script><script type="text/javascript" onload="" onreadystatechange="" src="http://srchdetect1.predictad.com/scripts/acpro/?MV4xMDIwM15zZWFyY2gtZmllbGR8QHF8QHVpLWF1dG9jb21wbGV0ZS1pbnB1dHxAU2VhcmNoIHRoZSBBcm1vcnksIGZvcnVtcyBhbmQgbW9yZeKApnxAfEBvZmZ8XkdhbWUgLSBXb3JsZCBvZiBXYXJjcmFmdF5eXnNlYXJjaC1mb3JtfEB8QGdldHxAL3dvdy9lbi9zZWFyY2h8QHxAL3dvdy9lbi9zZWFyY2h8Xnx8fF4*"></script><script type="text/javascript" onload="" onreadystatechange="" src="http://cdn1.predictad.com/scripts/acpro/bhocombined.js"></script><style type="text/css" media="screen">div.predictad ul li.selected {background-color:#D5E2FF;border:none;}</style><link class="undefined" style="display: block; " type="text/css" rel="stylesheet" href="http://cdn1.predictad.com/css/skins/mclassic.css" media="screen" /><style type="text/css" media="screen">div.predictad ul li.ad {width:99% !important;}</style></head>
 <body class="en-gb game-index"><div id="predictad_div" class="predictad" style="display: none; left: 788px; top: 104px; width: 321px; "></div>
 
 <div id="wrapper">
@@ -55,19 +56,19 @@ _gaq.push(['_trackPageview']);
 <li><a href="../index.php" rel="np"><?php echo $website['title']; ?></a></li>
 <li><a href="../status.php" rel="np"><?php echo $status['status']; ?></a></li>
 <li><a href="status.php" rel="np"><?php echo $Status['RealmStat']; ?></a></li>
-<li class="last"><a href="servername1.php" rel="np"><?php 	require_once("configs.php");
-									echo $name_realm1['realm']; 
+<li class="last"><a href="servername3.php" rel="np"><?php 	require_once("configs.php");
+									echo $name_realm3['realm']; 
 									?></a></li>
 </ol>
 </div>
 <div class="content-bot">
 	<div class="content-header">
 				<h2 class="header "><?php 	require_once("configs.php");
-									echo $name_realm1['realm']; 
-									?> <?php echo $status['status']; ?></h2>
+									echo $name_realm2['realm']; 
+									?><?php echo $status['status']; ?></h2>
 
 		<div class="desc"><?php echo $Status['Stat3']; ?><?php 	require_once("configs.php");
-									echo $name_realm1['realm']; 
+									echo $name_realm2['realm']; 
 									?><?php echo $Status['Stat4']; ?></div>
 <span class="clear"><!-- --></span>
 	</div>
@@ -145,10 +146,10 @@ _gaq.push(['_trackPageview']);
 				</div>
 
 				<div class="filter">
-					<label for="filter-population"><?php echo $Status['Class']; ?></label>
+					<label for="filter-population">Class</label>
 
 					<select id="filter-population" class="input select" data-filter="column" data-column="3">
-						<option value=""><?php echo $Status['All']; ?></option>
+						<option value="">All</option>
 							<option value="high"><?php echo $Status['Warrior']; ?></option>
 							<option value="medium"><?php echo $Status['Paladin']; ?></option>
 							<option value="n/a"><?php echo $Status['Rogue']; ?></option>
@@ -215,27 +216,28 @@ _gaq.push(['_trackPageview']);
 		<table>
 			<thead>
 				<tr>
-
+			
 <?php
 $con = mysql_connect($serveraddress, $serveruser, $serverpass, $serverport) or die(mysql_error());
-mysql_select_db($server_cdb, $con) or die (mysql_error());
+mysql_select_db($server_cdb_3, $con) or die (mysql_error());
 $sql = mysql_query("SELECT * FROM characters WHERE online='1' ORDER BY RAND() LIMIT 49") or die(mysql_error());
 $numrows = mysql_num_rows($sql);
 if($numrows > 0)
 {
-echo '<div class="view-table">
-	<div class="table ">
+echo '<br /><table border="1" width="100%" style="border: 1px solid #c0c0c0;border-collapse:collapse;" align="center">
+<div id="all-realms">
+	<div class="table full-width">
 		<table>
-	<thead>
-	 <tr>
+			<thead>
+				<tr>
 <th><a href="javascript:;" class="sort-link"><span class="arrow">'.$Status['Name'].'</span></a></th>
 <th><a href="javascript:;" class="sort-link"><span class="arrow">'.$Status['Race'].'</span></a></th>
 <th><a href="javascript:;" class="sort-link"><span class="arrow">'.$Status['Class'].'</span></a></th>
 <th><a href="javascript:;" class="sort-link"><span class="arrow">'.$Status['Level'].'</span></a></th>
 <th><a href="javascript:;" class="sort-link"><span class="arrow">'.$Status['Location'].'</span></a></th>
 <th><a href="javascript:;" class="sort-link"><span class="arrow">'.$Status['Faction'].'</span></a></th>
-</tr>
-	</thead>';
+					</tr>
+				</thead>';
 while($raw = mysql_fetch_array($sql)){
 //Character Class
 $cclass = $raw['class'];
@@ -277,7 +279,7 @@ $class = "<img src='wow/static/images/icons/class/9.gif' width='18' height='18'/
 }
 elseif ($cclass == 11)
 {
-$class = "<img src='wow/static/images/icons/class/11.gif' width='18' height='18'/>";
+$class = "<img src='wow/static/images/icons/class/10.gif' width='18' height='18'/>";
 }
 //Character Race
 $rrace = $raw['race'];
@@ -376,35 +378,17 @@ elseif($rrace == 2 || $rrace == 5 || $rrace == 6 || $rrace == 8 || $rrace == 9 |
 {
 $bg = "<img src='wow/static/images/icons/faction/horde.gif' width='18' height='18'/>";
 }
- // Alliance or Horde FLAG
-if($rrace == 1 || $rrace == 3 || $rrace == 4 || $rrace == 7 || $rrace == 11 || $rrace == 22)
-{
-$bg2 = "Alliance";
-}
-elseif($rrace == 2 || $rrace == 5 || $rrace == 6 || $rrace == 8 || $rrace == 9 || $rrace == 10)
-{
-$bg2 = "Horde";
-}
 echo '
-
-<tr class="row1">
-<td>
-<a href="" class="item-link color-c9"><strong><a href="advanced.php?name='.$raw["name"].'">'.$raw["name"].'</a></strong>
-</a>
-</td>
-<td class="align-center">
-<span class="icon-frame frame-14 " data-tooltip="'.$race.' '.$gender.'">
-<img src="wow/static/images/icons/race/'.$raw['race'].'-'.$raw['gender'].'.gif" alt="" width="14" height="14" />
-</span>
-</td>
+<tr>
+<td style="background-color: '.$bg.';"><b><center>'.@$raw['name'].'</center></b></td>
+<td style="background-color: '.$bg.';"><center><img src="wow/static/images/icons/race/'.$raw['race'].'-'.$raw['gender'].'.gif" title="'.$race.' '.$gender.'"/></center></td>
 <td style="background-color: '.$bg.';"><center>'.@$class.'</center></td>
 <td style="background-color: '.$bg.';"><center>'.@$raw['level'].'</center></td>
 <td style="background-color: '.$bg.';"><center>'.@$location.'</center></td>
 <td style="background-color: '.$bg.';"><center>'.@$bg.'</center></td>
 </tr>';
-
 }
-echo '';
+echo '</tr>';
 echo"</table><br />";
 }
 else

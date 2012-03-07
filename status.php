@@ -3,7 +3,7 @@ require_once("configs.php");?>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" xmlns:xml="http://www.w3.org/XML/1998/namespace" class="chrome chrome8">
 <head>
-<title><?php echo $website['title']; ?> - Status</title>
+<title><?php echo $website['title']; ?> - <?php echo $status['status']; ?></title>
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common.css?v17" />
@@ -58,16 +58,15 @@ _gaq.push(['_trackPageview']);
 <div class="content-trail">
 <ol class="ui-breadcrumb">
 <li><a href="index.php" rel="np"><?php echo $website['title']; ?></a></li>
-<li><a href="game.php" rel="np">Game</a></li>
-<li class="last"><a href="" rel="np">Realm Status</a></li>
+<li class="last"><a href="" rel="np"><?php echo $Status['RealmStat']; ?></a></li>
 </ol>
 </div>
 <div class="content-bot">
 	<div class="content-header">
-				<h2 class="header ">Realm Status</h2>
+				<h2 class="header "><?php echo $Status['RealmStat']; ?></h2>
 
 
-		<div class="desc">This page lists all available World of Warcraft realms as well as the status of each. A realm can be listed as either Up or Down. Messages related to realm status and scheduled maintenance will be posted in the <a href="forum/1028280/index.html">Service Status forum</a>. Let us apologize in advance if your Realm is listed as down. Chances are we are working diligently to bring it back online as quickly as possible. </div>
+		<div class="desc"><?php echo $Status['Stat1']; ?><a href="forum/category/?f=27"><?php echo $Status['ServStat']; ?></a><?php echo $Status['Stat2']; ?></div>
 	<span class="clear"><!-- --></span>
 	</div>
 
@@ -84,27 +83,27 @@ _gaq.push(['_trackPageview']);
 		<div id="realm-filters" class="table-filters">
 			<form action="#">
 				<div class="filter">
-					<label for="filter-status">Status</label>
+					<label for="filter-status"><?php echo $Status['Status']; ?></label>
 					
 					<select id="filter-status" class="input select" data-filter="column" data-column="0">
-						<option value="">All</option>
-						<option value="up">Up</option>
-						<option value="down">Down</option>
+						<option value=""><?php echo $Status['All']; ?></option>
+						<option value="up"><?php echo $Status['Up']; ?></option>
+						<option value="down"><?php echo $Status['Down']; ?></option>
 					</select>
 				</div>
 
 				<div class="filter">
-					<label for="filter-name">Realm Name</label>
+					<label for="filter-name"><?php echo $Status['RealmName']; ?></label>
 
 					<input type="text" class="input" id="filter-name" 
 						   data-filter="column" data-column="1" />
 				</div>
 
 				<div class="filter">
-					<label for="filter-type">Type</label>
+					<label for="filter-type"><?php echo $Status['Type']; ?></label>
 
 					<select id="filter-type" class="input select" data-filter="column" data-column="2">
-						<option value="">All</option>
+						<option value=""><?php echo $Status['All']; ?></option>
 							<option value="pve">
 								PvE
 							</option>
@@ -124,7 +123,7 @@ _gaq.push(['_trackPageview']);
 					<label for="filter-population"><?php echo $status['population']; ?></label>
 
 					<select id="filter-population" class="input select" data-filter="column" data-column="3">
-						<option value="">All</option>
+						<option value=""><?php echo $Status['All']; ?></option>
 							<option value="high"><?php echo $status['high']; ?></option>
 							<option value="medium"><?php echo $status['medium']; ?></option>
 							<option value="n/a">N/A</option>
@@ -136,18 +135,18 @@ _gaq.push(['_trackPageview']);
 					<label for="filter-locale">Locale</label>
 
 					<select id="filter-locale" class="input select" data-column="4" data-filter="column">
-						<option value="">All</option>
-							<option value="spanish">Cataclysm</option>
-							<option value="german">WoTLK</option>
-							<option value="french">Burning Crusade</option>
-							<option value="tournament">Original</option>
-							<option value="russian">Tournament</option>
-							<option value="english">Test</option>
+						<option value=""><?php echo $Status['Locale']; ?></option>
+							<option value="spanish"><?php echo $Status['spanish']; ?></option>
+							<option value="german"><?php echo $Status['german']; ?></option>
+							<option value="french"><?php echo $Status['french']; ?></option>
+							<option value="tournament"><?php echo $Status['tournament']; ?></option>
+							<option value="russian"><?php echo $Status['russian']; ?></option>
+							<option value="english"><?php echo $Status['english']; ?></option>
 					</select>
 				</div>
 
 				<div class="filter">
-					<label for="filter-queue">Queue</label>
+					<label for="filter-queue"><?php echo $Status['Queue']; ?></label>
 
 					<input type="checkbox" id="filter-queue" class="input" value="true" data-column="5" data-filter="column" />
 				</div>
@@ -167,7 +166,7 @@ _gaq.push(['_trackPageview']);
 		
 		>
 		<span>
-			<span>Reset</span>
+			<span><?php echo $Status['Reset']; ?></span>
 		</span>
 	</button>
 
@@ -186,13 +185,13 @@ _gaq.push(['_trackPageview']);
 		<table>
 			<thead>
 				<tr>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Status</span></a></th>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Realm Name</span></a></th>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Information</span></a></th>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Type</span></a></th>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Population</span></a></th>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Locale</span></a></th>
-					<th><a href="javascript:;" class="sort-link"><span class="arrow">Online Now</span></a></th>
+					<th><a href="javascript:;" class="sort-link"><span class="arrow"><?php echo $Status['Status']; ?></span></a></th>
+					<th><a href="javascript:;" class="sort-link"><span class="arrow"><?php echo $Status['RealmName']; ?></span></a></th>
+					<th><a href="javascript:;" class="sort-link"><span class="arrow"><?php echo $Status['Information']; ?></span></a></th>
+					<th><a href="javascript:;" class="sort-link"><span class="arrow"><?php echo $Status['Type']; ?></span></a></th>
+					<th><a href="javascript:;" class="sort-link"><span class="arrow"><?php echo $Status['Population']; ?></span></a></th>
+					<th><a href="javascript:;" class="sort-link"><span class="arrow"><?php echo $Status['Locale']; ?></span></a></th>
+					<th><a href="javascript:;" class="sort-link"><span class="arrow"><?php echo $Status['OnNow']; ?></span></a></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -260,16 +259,16 @@ _gaq.push(['_trackPageview']);
 							echo'
 						</td>
 						<td class="name">
-							<a data-tooltip="Click to view the Online Players" href="servername1.php">	 	
+							<a data-tooltip="'.$Status['ClickOnline'].'" href="servername'.$realm['id'].'.php">	 	
 							<font size="2"><h3 class="Chars">'.$realm['name'].'</h3></font>';
 							echo'
 							</a>
 						</td>
 						
 						<td class="name">
-							<a href="statistics.php">
+							<a href="statistics'.$realm['id'].'.php">
 								<span class="icon-frame frame-18 " style="background-image: url(http://eu.media.blizzard.com/wow/icons/18/inv_scroll_12.jpg);"></span>
-								Statistics
+								'.$Status['Statistics'].'
 							</a>
 						</td>
 						

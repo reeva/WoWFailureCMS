@@ -224,7 +224,7 @@ _gaq.push(['_trackPageview']);
 <div class="content-bot">
 <span class="clear"><!-- --></span><div class="content-header">
 <h2 class="header "><?php echo $Status['RlmStat']; ?></h2></div>
-<div class="desc"><?php echo $Status['Stat5']; ?><?php echo $name_realm2['realm']; ?><?php echo $Status['Stat6']; ?><a href="forum/category/?f=27"><?php echo $Status['Stat7']; ?></a><?php echo $Status['Stat8']; ?></div>
+<div class="desc"><?php echo $Status['Stat5']; ?><?php echo $name_realm1['realm']; ?><?php echo $Status['Stat6']; ?><a href="forum/category/?f=27"><?php echo $Status['Stat7']; ?></a><?php echo $Status['Stat8']; ?></div>
 	
 
 
@@ -299,7 +299,7 @@ _gaq.push(['_trackPageview']);
 			$i++;
 		}
 		
-		$online_user_db = @mysql_query("SELECT * FROM `".$server_cdb_2."`.`characters` WHERE online = 1", $ConnectDB[$realm_num]);
+		$online_user_db = @mysql_query("SELECT * FROM `".$server_cdb."`.`characters` WHERE online = 1", $ConnectDB[$realm_num]);
 		if ($online_user_db) {
 			while($result = mysql_fetch_array($online_user_db)){
 				if ($result['race'] == 1 || $result['race'] == 3 || $result['race'] == 4 || $result['race'] == 7 || $result['race'] == 11 || $result['race'] == 22) { 
@@ -310,7 +310,7 @@ _gaq.push(['_trackPageview']);
 			}
 		}
 		
-		$statistics_user_db = @mysql_query("SELECT * FROM `".$server_cdb_2."`.`characters`", $ConnectDB[$realm_num]);
+		$statistics_user_db = @mysql_query("SELECT * FROM `".$server_cdb."`.`characters`", $ConnectDB[$realm_num]);
 		if ($statistics_user_db) {
 			while($result = mysql_fetch_array($statistics_user_db)){
 				if ($result['race'] == 1 || $result['race'] == 3 || $result['race'] == 4 || $result['race'] == 7 || $result['race'] == 11 || $result['race'] == 22) { 
@@ -338,7 +338,7 @@ _gaq.push(['_trackPageview']);
 						<img src=\"wow/static/images/character/summary/sidebar-bg-alliance.png\" onmouseover=\"Tip('".@$str[$lang]['40'][0]."', WIDTH, 150, OFFSETX, 10, OFFSETY, -40, STICKY, false);\"><br>
 						<br>
 						<font color=\"2062A3\">".$Status['Ali']."</font>".$Status['CharCreat']."$statistics_chars_count_a<br>
-						<font color=\"2062A3\">".$Status['Ali']."</font>".$Status['CharOn']."$online_chars_count_a
+						<font color=\"2062A3\">".$Status['Ali']."</font>".$Status['CharOn']." $online_chars_count_a
 					</td>
 					<td align=\"center\">
 					<div class=\"content-header\">
@@ -408,7 +408,7 @@ _gaq.push(['_trackPageview']);
 								<td width=\"100\" align=\"center\"><span class=/'icon-frame frame-14/' data-tooltip='".$Status['NightElf']."'><img src=\"wow/static/images/icons/big/4-0.gif\" height=\"32\" width=\"32\" ><br>".$statistics_race_count[4]."</td></span>
 								<td width=\"100\" align=\"center\"><span class=/'icon-frame frame-14/' data-tooltip='".$Status['Gnome']."'><img src=\"wow/static/images/icons/big/7-0.gif\" height=\"32\" width=\"32\" ><br>".$statistics_race_count[7]."</td></span>
 								<td width=\"100\" align=\"center\"><span class=/'icon-frame frame-14/' data-tooltip='".$Status['Draenei']."'><img src=\"wow/static/images/icons/big/11-0.gif\" height=\"32\" width=\"32\"><br>".$statistics_race_count[11]."</td></span>
-								<td width=\"100\" align=\"center\"><span class=/'icon-frame frame-14/' data-tooltip='".$Status['Worgen']."'><img src=\"wow/static/images/icons/big/22-0.gif\" height=\"32\" width=\"32\"><br>".$statistics_race_count[22]."</td>
+								<td width=\"100\" align=\"center\"><span class=/'icon-frame frame-14/' data-tooltip='".$Status['Worgen']."'><img src=\"wow/static/images/icons/big/22-0.gif\" height=\"32\" width=\"32\" ><br>".$statistics_race_count[22]."</td></span>
 								<td width=\"100\" align=\"center\"><span class=/'icon-frame frame-14/' data-tooltip='".$Status['Pandaren']."'><img src=\"wow/static/images/icons/big/26-0.gif\" height=\"32\" width=\"32\"><br>0</td>
 							</tr>
 						</table>

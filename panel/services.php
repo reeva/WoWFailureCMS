@@ -1,5 +1,5 @@
 <div class="sidebar-module" id="sidebar-bnet-ads">
-	<div class="sidebar-title"><h3 class="title-bnet-ads"><?php echo $Ind['Ind11']; ?></h3></div>
+	<div class="sidebar-title"><h3 class="title-bnet-ads"></br></br></br><?php echo $Ind['Ind11']; ?></h3></div>
 	<div class="sidebar-content">
 	<div class="bnet-offer">
 	<!-- Sidebar No.1 of Services-->
