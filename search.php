@@ -105,10 +105,10 @@ _gaq.push(['_trackPageLoadTime']);
             	<?php if ($error){echo $no_results; } ?>
             	<div class="helpers">
               	<h3 class="subheader ">
-                <?php if (!$error){echo $search['sumResults'].'<span>'.$term.'</span>';} ?>
+                <?php if (!$error){echo $search['sumResults'].' <span>'.$term.'</span>';} ?>
                 </h3>
             	</div>
-	<!-- No pagination code. -->
+				<!-- No pagination code. -->
 	            <div class="summary">
 	            <?php 
               if (!$error && $num_char > 0){
@@ -151,11 +151,17 @@ _gaq.push(['_trackPageLoadTime']);
                       G.name LIKE '%" . mysql_real_escape_string($term) . "%' LIMIT 1";
                       $result = mysql_query($sql, $conn) or die(mysql_error());
                       $row = mysql_fetch_array($result);
-                      echo'<div class="grid">
-	                     <h4 class="subcategory "><a href="search_g.php?search='.$term.'">'.$guild['Guilds'].'</a> ('.$num_guild.')</h4>
-	                     <div class="wowguild"><canvas id="tabard-3125133" class="thumbnail" width="32" height="32"></canvas>
-	                     <a href="" class="sublink"><strong>'.$row['name'].'</strong></a> - '.$armory['Faction'.translateLet($row['race'])].'<br />
-	                     <span data-tooltip="REALM NAME">'.$name_realm1['realm'].'</span><span class="clear"><!-- --></span></div></div>';
+					  echo'
+					<div class="grid">
+					<h4 class="subcategory "><a href="search_g.php?search='.$term.'">'.$guild['Guilds'].'</a>('.$num_guild.')</h4>
+					<div class="wowguild">
+					<img src="wow/static/images/icons/guild-flag.png" id="tabard-19804025" class="thumbnail" width="32" height="32" style="display: block; " />
+					<a href="#" class="sublink">
+					<strong>'.$row['name'].'</strong>
+					</a>- '.$armory['Faction'.translateLet($row['race'])].'<br /><span data-tooltip="'.$armory['Faction'.translateLet($row['race'])].' Guild">'.$name_realm1['realm'].'</span>
+					<span class="clear"><!-- --></span>
+					</div>
+					</div>';
                     }
 	                echo '<span class="clear"><!-- --></span>
 	             </div>';
