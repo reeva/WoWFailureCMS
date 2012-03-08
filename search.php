@@ -184,10 +184,10 @@ _gaq.push(['_trackPageLoadTime']);
 							        $content=str_replace("<br>", "\n", $content);
 							        $content=trim(substr($content,0,300));
                       echo'<div class="result">
-                      <h4 class="subcategory"><a href="forum/category/view-topic/?t='.$row['id'].'">'.$row['name'].'</a><span class="small"> ('.$row['replies'].' '.$Forum['Forum41'] ')</span></h4>
+                      <h4 class="subcategory"><a href="forum/category/view-topic/?t='.$row['id'].'">'.$row['name'].'</a><span class="small"> ('.$row['replies'].' '.$Forum['Forum41'].')</span></h4>
                       <div>
                       <a href="forum/category/?f='.$row['fid'].'" class="sublink">'.$row['forum'].'</a> - 
-                      '$search['publi'].$row['charac'].', on '.$row['date'].'
+                      '.$search['publi'].$row['charac'].', on '.$row['date'].'
                       </div>
                       <div >'.$content.'...</div>
                       <span class="clear"><!-- --></span>
