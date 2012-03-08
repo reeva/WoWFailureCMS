@@ -12,3 +12,10 @@ max-width:200px;
 #tooltip strong{
 color:#1583d3;
 }
+
+/*This is for the pop-up image select in news */
+.folder { display: inline-block; position: relative; }
+.folder .pop-image { display: none; border: 2px solid #BDBCBD; position: absolute; left: 150px; top: -75px; width: 200px; height:150px; z-index: 5; overflow-y: scroll;}
+.pop-image { position: relative; margin: 1.5em 0 -10px 40.6%; clear: both; width: 36.4%; background: #EDEDED; color: #c4d2db; }
+.folder .note { padding-right: 20px; }
+.note { padding: 9px; }

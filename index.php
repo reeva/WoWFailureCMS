@@ -168,7 +168,7 @@ $page_cat = "home";
 
 									<div class="article-right">
 										<div class="article-summary">
-										<p>'.substr($news['content'],0,310)."...".'</p>';
+										<p>'. strip_tags(substr($news['content'],0,310))."...".'</p>'; //Needed stripslash for not closed tags
 										
 										if($news['contentlnk'] != NULL)
 											echo '<a href="'.$news['contentlnk'].'" class="more">'.$More['More'].'</a>';
