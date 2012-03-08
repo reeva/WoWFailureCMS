@@ -608,11 +608,11 @@ $uplate['r'] = "All Races";
 
 //Starting Armory
 $armory['talents'] = "TALENTS";
-$armory['APoints'] = "Achievement";
+$armory['APoints'] = "Arena";
 $armory['summary'] = "Summary";
 $armory['reputation'] = "Reputation";
 $armory['3d'] = "3D Model";
-$armory['advanced'] = "Advanced";
+$armory['advanced'] = "Aadvanced";
 $armory['itemlevel'] = "Avareage item level";
 $armory['equipped'] = "Equipped";
 $armory['audit'] = "Character revision";
@@ -777,6 +777,7 @@ $search['articles'] = "Articles";
 $search['Mode'] = "Mode";
 $search['Rating'] = "Rating";
 $search['forumResults'] = "Forum results for ";
+$search['publi'] = "Published by ";
 //Finish Search
 
 //Styles

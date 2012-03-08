@@ -777,6 +777,7 @@ $search['articles'] = "Artículos";
 $search['Mode'] = "Modo";
 $search['Rating'] = "Índice";
 $search['forumResults'] = "Resultados del Foro de ";
+$search['publi'] = "Publicado por ";
 //Finish Search
 
 //Styles

@@ -168,7 +168,7 @@ _gaq.push(['_trackPageLoadTime']);
                }?>
                <?php
                if (!$error && $num_forum > 0){
-                  $sql = "SELECT T.id,forumid,T.name,author,replies,date,content,F.name as forum,F.id as fid,firstName
+                  $sql = "SELECT T.id,forumid,T.name,author,replies,date,content,F.name as forum,F.id as fid,firstName as charac 
                   FROM `" .$server_db."`.`forum_threads` T, `" .$server_db."`.`forum_forums` F, `" .$server_db."`.`users` U  
                   WHERE forumid=F.id AND U.id=author AND (T.name LIKE '" . mysql_real_escape_string($term) . "' OR 
                   T.name LIKE '% " . mysql_real_escape_string($term) . " %' OR T.name LIKE '" . mysql_real_escape_string($term) . " %' OR 
@@ -184,10 +184,10 @@ _gaq.push(['_trackPageLoadTime']);
 							        $content=str_replace("<br>", "\n", $content);
 							        $content=trim(substr($content,0,300));
                       echo'<div class="result">
-                      <h4 class="subcategory"><a href="forum/category/view-topic/?t='.$row['id'].'">'.$row['name'].'</a><span class="small"> ('.$row['replies'].' respuestas)</span></h4>
+                      <h4 class="subcategory"><a href="forum/category/view-topic/?t='.$row['id'].'">'.$row['name'].'</a><span class="small"> ('.$row['replies'].' '.$Forum['Forum41'] ')</span></h4>
                       <div>
                       <a href="forum/category/?f='.$row['fid'].'" class="sublink">'.$row['forum'].'</a> - 
-                      Publicado por <a href="threed?name='.$row['charac'].'" class="author"> '.$row['charac'].'</a>, el '.$row['date'].'
+                      '$search['publi'].$row['charac'].', on '.$row['date'].'
                       </div>
                       <div >'.$content.'...</div>
                       <span class="clear"><!-- --></span>

@@ -33,7 +33,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {    //Here starts the se
     $total = $num_char+$num_guild+$num_arena+$num_forum; //To know if show no results found
     
     $num_pages = ceil($num_forum / $size_page);   //calculate number of pages, now works just with characters
-    $sql = "SELECT T.id,forumid,T.name,author,replies,date,content,F.name as forum,F.id as fid,firstName
+    $sql = "SELECT T.id,forumid,T.name,author,replies,date,content,F.name as forum,F.id as fid,firstName as charac
         FROM `" .$server_db."`.`forum_threads` T, `" .$server_db."`.`forum_forums` F, `" .$server_db."`.`users` U  
         WHERE forumid=F.id AND U.id=author AND (T.name LIKE '" . mysql_real_escape_string($term) . "' OR 
         T.name LIKE '% " . mysql_real_escape_string($term) . " %' OR T.name LIKE '" . mysql_real_escape_string($term) . " %' OR 
