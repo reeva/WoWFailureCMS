@@ -224,7 +224,7 @@ $Reg['Reg19'] = "Old Password:";
 $Reg['Reg20'] = "New Password:";
 $Reg['Reg21'] = "Password Rules";
 $Reg['Reg22'] = "Your password may only contain ";
-$Reg['Reg23'] = "alphabetic characters (A–Z), numeric characters (0–9), and punctuation.";
+$Reg['Reg23'] = "alphabetic characters (Aï¿½Z), numeric characters (0ï¿½9), and punctuation.";
 $Reg['Reg24'] = "Your password ";
 $Reg['Reg25'] = "must";
 $Reg['Reg26'] = " contain at least one alphabetic character ";
@@ -234,7 +234,7 @@ $Reg['Reg29'] = "You cannot enter your account name as your password.";
 $Reg['Reg30'] = "Your password must be between ";
 $Reg['Reg31'] = "eight and sixteen characters";
 $Reg['Reg32'] = " in length.";
-$Reg['Reg33'] = "For your security, we highly recommend you choose a unique password that you don’t use for any other online account.";
+$Reg['Reg33'] = "For your security, we highly recommend you choose a unique password that you donï¿½t use for any other online account.";
 $Reg['Reg34'] = "Confirm New Password:";
 $Reg['Reg35'] = "Continue";
 $Reg['Reg36'] = "Cancel ";
@@ -409,7 +409,7 @@ $Uns['Uns6'] = "The World of Warcraft account merge process is not yet available
 $Uns['Uns7'] = "If you lost your authenticator, please detach it before proceeding. (Security card service ended 8/13/2010 and was automatically detached.) ";
 $Uns['Uns8'] = "If you use Phone Lock: please unlock your World of Warcraft account before merging.";
 $Uns['Uns9'] = "Taiwan: 0800-303-585";
-$Uns['Uns10'] = "(Not available 10–11AM every first Wed of the month)";
+$Uns['Uns10'] = "(Not available 10ï¿½11AM every first Wed of the month)";
 $Uns['Uns11'] = "Hong Kong &amp; Macau: 396-54666";
 $Uns['Uns12'] = " Required";
 $Uns['Uns13'] = "Game Management";
@@ -729,7 +729,10 @@ $armory['Faction0'] = "Aliance";
 //Finish Armory
 
 //Others
-$globalInfoVar['Anonymous']="Anonymous";
+if(isset($_SESSION['username']))
+$globalInfoVar['Anonymous']=$_SESSION['username'];
+else
+$globalInfoVar['Anonymous']='Anonymous';
 $status['chars']="Characters";
 $status['low']="Low";
 $status['high']="High";
@@ -764,13 +767,13 @@ $search['charResults'] = "Character results for ";
 $search['guildResults'] = "Guild results for ";
 $search['arenaResults'] = "Arena Team results for ";
 $search['forumResults'] = "Forum results for ";
-$search['again'] = "Please search again…";
+$search['again'] = "Please search againï¿½";
 $search['noResults1'] = "Your search for ";
 $search['noResults2'] = " has no matches.";
 $search['sugg'] = "Suggestions for searching: ";
 $search['sugg1'] = "Make sure all words are spelled correctly";
 $search['sugg2'] = "Try using more general keywords";
-$search['sugg3'] = "If you know a character’s name and realm, use the format character@realm";
+$search['sugg3'] = "If you know a characterï¿½s name and realm, use the format character@realm";
 $search['summ'] = "Summary";
 $search['prev'] = "Prev";
 $search['articles'] = "Articles";
