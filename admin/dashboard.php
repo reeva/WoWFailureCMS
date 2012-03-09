@@ -193,7 +193,7 @@ $('#checkall').toggleClass('clicked');
 				<img src="images/sepLine.png" alt="" class="sepline" />
 				<div class="datalist">
 	   <div class="heading">
-                  <h2>Latest <span rel="tooltip" title="<strong style='color:red'>News Posts</strong><br/><br/>Here you can see the latest 4 Posts of the News<br />Click on the <strong>News</strong> to redirect on the main page of the News Posts." style="color:#ff9200;font-weight:bold;font-size:14px;"><a href="news.php">News</a></span> Posts</h2>
+                  <h2>Latest <span rel="tooltip" title="<strong style='color:red'>News Posts</strong><br/><br/>Here you can see the latest 4 Posts of the News<br />Click on the <strong>News</strong> to redirect on the main page of the News Posts." style="color:#ff9200;font-weight:bold;font-size:14px;"><a href="viewnews.php">News</a></span> Posts</h2>
                   <select name="sort">
             <option>Sort By</option>
             <option>Option1</option>
