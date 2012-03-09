@@ -60,15 +60,15 @@ $page_cat = "home";
 							}
 							echo '</div>';
 							?>
-
 							<div class="paging">
 									<a href="javascript:;" id="paging-0" onClick="Slideshow.jump(0, this);" onMouseOver="Slideshow.preview(0);" class="current"></a>
-									<a href="javascript:;" id="paging-1" onClick="Slideshow.jump(1, this);" onMouseOver="Slideshow.preview(1);"></a>
-									<a href="javascript:;" id="paging-2" onClick="Slideshow.jump(2, this);" onMouseOver="Slideshow.preview(2);"></a>
-									<a href="javascript:;" id="paging-3" onClick="Slideshow.jump(3, this);" onMouseOver="Slideshow.preview(3);"></a>
-									<a href="javascript:;" id="paging-4" onClick="Slideshow.jump(4, this);" onMouseOver="Slideshow.preview(4);" class=" last-slide"></a>
+							<?php
+              $a = 1;
+              while ($a<$i){ 
+                echo '<a href="javascript:;" id="paging-'.$a.'" onClick="Slideshow.jump('.$a.', this);" onMouseOver="Slideshow.preview('.$a.');"></a>';
+                $a++;}
+              ?>
 							</div>
-			
 							<?php
 							$slideshows = mysql_query("SELECT * FROM slideshows ORDER BY id DESC LIMIT 1");
 							$slideshow = mysql_fetch_assoc($slideshows);
@@ -168,7 +168,7 @@ $page_cat = "home";
 
 									<div class="article-right">
 										<div class="article-summary">
-										<p>'. strip_tags(substr($news['content'],0,310))."...".'</p>'; //Needed stripslash for not closed tags
+										<p>'. substr(strip_tags($news['content']),0,310)."...".'</p>'; //Needed striptags for not closed tags
 										
 										if($news['contentlnk'] != NULL)
 											echo '<a href="'.$news['contentlnk'].'" class="more">'.$More['More'].'</a>';
