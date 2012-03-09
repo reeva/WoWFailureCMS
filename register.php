@@ -145,8 +145,6 @@ _gaq.push(['_trackPageLoadTime']);
               ?>
 			  <?php
               if(isset($error) && count($error) > 0){
-                echo $dob.'<br>';
-                echo $dobY.'-'.$dobM.'-'.$dobD;
                 echo '<div class="errors" align="center">';
                 foreach($error as $errors){
                 echo "<font color='red'>*".$errors."</font><br />";
@@ -200,7 +198,7 @@ _gaq.push(['_trackPageLoadTime']);
 						  ?>
 <p class="privacy-message"><b><?php echo $re['re2']; ?><?php echo $website['title']; ?> <?php echo $re['re3']; ?><a href="" onclick="window.open(this.href); return false;"><?php echo $re['re4']; ?></a>.</p>
 </div>
-<form action="" method="get" class="country-select">
+<form action="" method="post" id="creation">
 <div class="input-row input-row-select">
 <span class="input-left">
 <label for="country">
@@ -526,7 +524,6 @@ Cancel </span>
 <div class="input-note-arrow"></div>
 </div>
 </div>
-</form>
 <script type="text/javascript">
 //<![CDATA[
 (function() {
@@ -536,10 +533,8 @@ countrySubmit.style.display = 'none';
 //]]>
 </script>
 <div id="page-content">
-<form action="" method="post" id="creation">
 <div class="input-hidden">
 <input type="hidden" id="csrftoken" name="csrftoken" value="6693641e-fbf5-4e6a-af8b-00d8d853a45e" />
-<input type="hidden" name="country" value="GBR" />
 </div>
 <script type="text/javascript">
 //<![CDATA[
