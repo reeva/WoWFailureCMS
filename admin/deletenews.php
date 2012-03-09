@@ -1,6 +1,5 @@
 <?php
 include("../configs.php");
-ini_set("default_charset", "iso-8859-1" );    //For special chars
 
 	mysql_select_db($server_adb);
 	$check_query = mysql_query("SELECT account.id,gmlevel from account  inner join account_access on account.id = account_access.id where username = '".strtoupper($_SESSION['username'])."'") or die(mysql_error());
@@ -11,34 +10,16 @@ ini_set("default_charset", "iso-8859-1" );    //For special chars
 <meta http-equiv="refresh" content="2;url=GTFO.php"/>
 		');
 	}
-  //To show the images pop-up
-  $path = "../news/";       //The images path
-  $dir = opendir($path);   //Open path
-  $img_total=0;
-  while ($elemento = readdir($dir))   //read content
-  {
-    if (substr($elemento, strlen($elemento)-11,11)=='_header.jpg') //if a valid picture then show it
-    {
-      $img_array[$img_total]=$elemento;    //Save the pictures in array
-      $img_total++;
-    }
-  } 
-  //End image pop-up
   
-  if (isset($_POST['save'])){
-    $title = $_POST['title'];
-    $image = $_POST['image'];
-    $content = $_POST['content'];
-    $date = date ("Y-m-d H:i:s", time()); 
-    
+  if (isset($_POST['delete'])){
     mysql_select_db($server_db);
-    $save_new = mysql_query("INSERT INTO news (author, date, content, title, image) VALUES ('".$login['id']."','".$date."','".$content."','".$title."','".$image."');") or die(mysql_error());
-    if ($save_new == true){
-      echo '<div class="alert-page" align="center"> The new has been created successfully!</div>';
+    $delete_new = mysql_query("DELETE FROM news WHERE id = '".$_POST['id']."';");
+    if ($delete_new == true){
+      echo '<div class="alert-page" align="center"> The article has been deleted successfully!</div>';
       echo '<meta http-equiv="refresh" content="3;url=dashboard.php"/>';
     }
     else{
-      echo '<div class="errors" align="center"><font color="red"> An ERROR has occured while saving the post in the database!</font></div>';
+      echo '<div class="errors" align="center"><font color="red"> An ERROR has occured while deleting the article!</font></div>';
     }
   }
 ?>      
@@ -94,23 +75,6 @@ DD_roundies.addRule('#tabsPanel', '5px 5px 5px 5px', true);
 			}
 							 );
       });
-//This functions to work the pop-up image select
-function pop(action){
-  var frm_element = document.getElementById('pop');
-  var vis = frm_element.style;
-  if (action=='open')
-  {
-    vis.display = 'block';
-  }
-  else
-  {
-    vis.display = 'none';
-  }
-}
-function changeVal(val){
-  var  frm_element = document.getElementById('image');
-  frm_element.value = val;
-}
 </script>
 </head>
 <body class="bgc">
@@ -178,46 +142,45 @@ function changeVal(val){
     <div id="content">
       <div class="forms">
         <div class="heading">
-          <h2>Write News</h2>
+          <h2>Delete News</h2>
           <form class="search" method="get" action="#">
             <input name="search" type="text" value="search" onfocus="if(this.value=='search')this.value=''" onblur="if(this.value=='')this.value='search'" />
             <input name="" type="submit" value="" />
           </form>
         </div>
-        <h3>Head</h3>
+        <h3>Article Information</h3>
         <form method="post" action="" class="styleForm">
-          <p>Title<br />
-            <input name="title" type="text" value="Enter Title" class="reg" onfocus="if(this.value=='Enter Title')this.value=''" onblur="if(this.value=='')this.value='Enter Title'" />
-          </p> 
-          <div class="folder">
-            <p>Image<br />
-            <input id="image" name="image" type="text" value="" class="reg" onfocus="pop('open');" />
-            </p>
-            <div  class="pop-image" id="pop">
-              <div class="note">
-                <table border=0>
-                <?php
-                for ($i=0;$i<$img_total; $i++)      //show images in table
-                {
-                  $imagen = $img_array[$i];
-                  $pathimagen=$path.$imagen;
-                  $nombre = substr($imagen,0,strlen($imagen)-11); //get the name for the db
-                  echo "<tr>"; // para empezar una nueva linea
-                  echo "<td><a href='javascript:;' onclick=changeVal('".$nombre."');pop('close');>
-                  <img src='$pathimagen' width='160px' border=0 ></a></td>";  //Clik on it and the name appear on the textbox
-                  echo "</tr>";
-                }
-                ?>
-                </table>
-              </div>
-            </div>
-          </div>          
-          <h3>Content</h3>
-          <div class="txt">
-            <textarea id="input" name="content"></textarea>
-          </div>
-          <input name="save" type="submit" value="Save Changes" />
-          <input name="reset" type="reset" value="Cancel" />
+        <table>
+        <?php
+          if (isset($_GET['id'])){
+            mysql_select_db($server_db);
+            $new = mysql_fetch_assoc(mysql_query("SELECT id,title,author,date,comments,content FROM news WHERE id = '".$_GET['id']."'"));
+            if (!$new['id']){
+              $error = true;
+            }
+          }else{
+            $error = true;
+          }
+          if (!$error) {
+          echo'
+          <tr>
+            <td width="65%"><p><strong>Title: </strong>'.$new['title'].'</p></td>
+            <td rowspan="4" style="vertical-align:middle;">
+              <p align="center"><strong>Are you sure you want to delete this article?</strong></p>
+              <input type="hidden" name="id" value="'.$new['id'].'" />
+              <p align="center"><button type="submit" name="delete" onclick="Form.submit(this)"><span>Delete</span></button>
+              <a href="dashboard.php"><button name="reset" type="reset" value="Cancel"><span>Cancel</span></button</a></p> 
+            </td>
+          </tr>
+          <tr><td><p><strong>Author: </strong>'.$new['author'].'</p></td></tr>
+          <tr><td><p><strong>Date: </strong>'.$new['date'].'</p></td></tr>
+          <tr><td><p><strong>Replies: </strong>'.$new['comments'].'</p></td></tr>
+          <tr><td colspan="2"><h3>Content:</h3><p>'.$new['content'].'</p></td></tr>';
+          }elseif ($delete_new == false){
+            echo '<tr><td width="100%"><p align="center"><font color="red"><strong>You have to select an article!</strong></font></p></td></tr>
+            <meta http-equiv="refresh" content="2;url=dashboard.php"/>';
+          }?>
+        </table>
         </form>
       </div>
     </div>

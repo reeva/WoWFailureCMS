@@ -575,16 +575,16 @@ body {
 	background:#f5f5f5
 }
 #content .datalist ul li div.chk {
-	width:60px;
+	width:30px;
 	height:43px;
 	float:left;
-	padding-left:25px;
+	padding-left:10px;
 }
 #content .datalist ul li div.chk input {
 	margin-top:15px;
 }
 #content .datalist ul li p.title {
-	width:161px;
+	width:120px;
 	height:43px;
 	float:left;
 	font-family:Tahoma, Geneva, sans-serif;
@@ -593,7 +593,7 @@ body {
 	line-height:40px
 }
 #content .datalist ul li p.descrip {
-	width:480px;
+	width:550px;
 	height:43px;
 	float:left;
 	font-family:Tahoma, Geneva, sans-serif;
@@ -602,7 +602,7 @@ body {
 	line-height:40px
 }
 #content .datalist ul li p.descripHead {
-	width:480px;
+	width:550px;
 	height:43px;
 	float:left;
 	font-family:Tahoma, Geneva, sans-serif;
@@ -615,12 +615,12 @@ body {
 	width:80px;
 	height:43px;
 	float:left;
-	margin-right:50px;
+	margin-left:20px;
 	font-family:Tahoma, Geneva, sans-serif;
 	font-size:12px;
 	color:#67832c;
 	line-height:40px;
-	text-align:center
+	/*text-align:center*/
 }
 #content .datalist ul li p.incHead {
 	width:80px;
@@ -656,7 +656,7 @@ body {
 	font-weight:bold
 }
 #content .datalist ul li p.edit {
-	width:90px;
+	width:60px;
 	height:43px;
 	float:left;
 	margin-right:30px;
@@ -666,7 +666,7 @@ body {
 	line-height:40px
 }
 #content .datalist ul li p.editHead {
-	width:90px;
+	width:60px;
 	height:43px;
 	float:left;
 	margin-right:30px;
@@ -865,7 +865,7 @@ body {
 	cursor:pointer;
 	border:0;
 	background:url(../images/submit-bg.png) no-repeat
-}
+}           
 #content .forms .styleForm input[type="reset"] {
 	width:142px;
 	height:42px;

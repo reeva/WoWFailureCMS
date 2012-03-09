@@ -14,7 +14,7 @@ include("../configs.php");
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 		<title>AquaFlame CMS Admin Panel</title>
 		<link href="css/styles.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="font/stylesheet.css" rel="stylesheet" type="text/css" media="all" />
@@ -137,56 +137,58 @@ $('#checkall').toggleClass('clicked');
                 </div>
         <ul id="lst">
                   <li>
-            <!--<div class="chk"><a id="checkall"></a> </div>-->
+            <div class="chk"><a id="checkall"></a> </div>
 			<p class="editHead"><strong>Edit/Delete</strong></p>
             <p class="title"><strong>Title</strong></p>
             <p class="descripHead">Description</p>
             <p class="incHead">Replies</p>
           </li>
+
             <li class="odd">
-            <!--<div class="chk">
+            <div class="chk">
             <label>
             <input class="chkl" type="checkbox" name="chk" value="checkbox" />
             </label>
-   </div>--><p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
-            <p class="title">Lorem ipsum</p>
-            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
-            <p class="inc">2</p>
-            </li>
-                  <li>
-            <!--<div class="chk">
-                      <label>
-                <input class="chkl" type="checkbox" name="chk" value="checkbox" />
-              </label>
-                    </div>-->
+            </div>
             <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
             <p class="title">Lorem ipsum</p>
             <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
             <p class="inc">2</p>
             </li>
                   <li>
-            <!--<div class="chk">
+            <div class="chk">
                       <label>
                 <input class="chkl" type="checkbox" name="chk" value="checkbox" />
               </label>
-                    </div>-->
+            </div>
+            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
+            <p class="title">Lorem ipsum</p>
+            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
+            <p class="inc">2</p>
+            </li>
+                  <li>
+            <div class="chk">
+                      <label>
+                <input class="chkl" type="checkbox" name="chk" value="checkbox" />
+              </label>
+           </div>
            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
             <p class="title">Lorem ipsum</p>
             <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
             <p class="inc">2</p>
             </li>
                   <li>
-            <!--<div class="chk">
+            <div class="chk">
                       <label>
                 <input class="chkl" type="checkbox" name="chk" value="checkbox" />
               </label>
-                    </div>-->
+            </div>
             <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
             <p class="title">Lorem ipsum</p>
             <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
             <p class="inc">2</p>
             </li>
-                </ul>
+                </ul> 
 				</div>
 				<img src="images/sepLine.png" alt="" class="sepline" />
 				<div class="datalist">
@@ -199,56 +201,30 @@ $('#checkall').toggleClass('clicked');
           </select>
                 </div>
         <ul id="lst">
-                  <li>
-            <!--<div class="chk"><a id="checkall"></a> </div>-->
+        <li>
+      <div class="chk"><a id="checkall"></a> </div>
 			<p class="editHead"><strong>Edit/Delete</strong></p>
             <p class="title"><strong>Title</strong></p>
             <p class="descripHead">Description</p>
             <p class="incHead">Replies</p>
           </li>
-            <li class="odd">
-            <!--<div class="chk">
-            <label>
-            <input class="chkl" type="checkbox" name="chk" value="checkbox" />
-            </label>
-   </div>--><p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
-            <p class="title">Lorem ipsum</p>
-            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
-            <p class="inc">2</p>
-            </li>
-                  <li>
-            <!--<div class="chk">
-                      <label>
+           <?php
+            mysql_select_db($server_db) or die (mysql_error());
+            $result = mysql_query("SELECT id,title,content,comments FROM news ORDER BY date DESC LIMIT 4");
+            while ($new = mysql_fetch_assoc($result)){
+              echo'
+            <li>
+            <div class="chk">
+              <label>
                 <input class="chkl" type="checkbox" name="chk" value="checkbox" />
               </label>
-                    </div>-->
-            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
-            <p class="title">Lorem ipsum</p>
-            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
-            <p class="inc">2</p>
-            </li>
-                  <li>
-            <!--<div class="chk">
-                      <label>
-                <input class="chkl" type="checkbox" name="chk" value="checkbox" />
-              </label>
-                    </div>-->
-           <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
-            <p class="title">Lorem ipsum</p>
-            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
-            <p class="inc">2</p>
-            </li>
-                  <li>
-            <!--<div class="chk">
-                      <label>
-                <input class="chkl" type="checkbox" name="chk" value="checkbox" />
-              </label>
-                    </div>-->
-            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
-            <p class="title">Lorem ipsum</p>
-            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
-            <p class="inc">2</p>
-            </li>
+            </div>
+            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="deletenews.php?id='.$new['id'].'"><img src="images/deletIco.png" alt="" /></a></p>
+            <p class="title">'.$new['title'].'</p>
+            <p class="descrip">'.substr(strip_tags($new['content']),0,90).'</p>
+            <p class="inc">'.$new['comments'].'</p>
+            </li>';
+            }?>
                 </ul>
       </div>
               <img src="images/sepLine.png" alt="" class="sepline" />
