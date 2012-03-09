@@ -4,12 +4,12 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {    //Here starts the se
     //Limit of results per page 
     $size_page=25; 
     //Look for the number page, if not then first
-    $page = $_GET["page"]; 
-    if (!$page) { 
+    if (!isset($_GET["page"])) { 
    	    $start = 0; //the first result to show, 1, 26... 
    	    $page=1; //If no page found then first page
     } 
     else { 
+        $page = $_GET["page"]; 
    	    $start = ($page - 1) * $size_page;   //Calculate the first result to show
     }
     
