@@ -93,10 +93,11 @@ Services
 	<a href="#">
   <?php
     mysql_select_db($server_cdb,$connection_setup)or die(mysql_error());   //Gets guild name, connection have to change to title
-    $sql="SELECT name FROM guild WHERE guildid =           
-      (SELECT guildid FROM guild_member G, characters C WHERE G.guid = C.guid)";
-    $row = mysql_fetch_assoc(mysql_query($sql));
-    echo $row['name'];
+    $sql = mysql_query("SELECT name FROM guild WHERE guildid =(SELECT guildid FROM guild_member G, characters C WHERE G.guid = C.guid)");
+    if (mysql_num_rows($sql)>0){
+      $row = mysql_fetch_assoc($sql);
+      echo $row['name'];
+    }
   ?>
   </a>
 	</div>
@@ -114,10 +115,6 @@ Services
   ?><?php if ($talentP<>'0'){echo $armory['branch'.$talentP];} ?></a> <a href="#" class="class"><?php
   $classNum=$character->getObjectInfo()->class;   //Show the name of the class and not de number
   echo $armory['class'.$classNum];
-  $talentP = $character->getTalentInfo()->branchP;
-  $talentS = $character->getTalentInfo()->branchS;
-  if ($talentP==""){$talentP='0';}
-  if ($talentS==""){$talentS='0';}
   ?></a><span class="comma">,</span>
 	<span class="realm tip" id="profile-info-realm" data-battlegroup="Raserei / Frenzy">
 	<?php echo $name_realm1['realm']; ?>
