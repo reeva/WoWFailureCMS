@@ -9,7 +9,7 @@
 <ul class="service-bar">
 <li class="service-cell service-home"><a href="<?php echo $website['root']; ?>index.php" tabindex="50" accesskey="1" title="Home"><div style="width:45px;">&nbsp;</div></a></li>
 <?php if(isset($_SESSION['username'])){ ?>
-<li class="service-cell service-welcome"><?php echo $Welcome['Welcome']; ?><?php echo $userInfo['firstName']; ?> | <a href="<?php echo $website['root'];?>logout.php"><?php echo $logout['logout']; ?></a></li>
+<li class="service-cell service-welcome"><?php echo $Welcome['Welcome']; ?><?php echo $globalInfoVar['Anonymous']; ?> | <a href="<?php echo $website['root'];?>logout.php"><?php echo $logout['logout']; ?></a></li>
 <?php }else{ ?>
 <li class="service-cell service-welcome"><a href="?login" onclick="return Login.open('<?php echo $website['root'];?>login.php?<?php echo $_SESSION['sessionid']; ?>')"><?php echo $login['login']; ?></a> or <a href="<?php echo $website['root']; ?>register.php"><?php echo $Account3['Account3']; ?></a></li>
 <?php } ?>
