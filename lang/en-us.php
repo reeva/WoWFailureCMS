@@ -725,7 +725,7 @@ $armory['Shadow']="Shadow";
 $armory['showAll']="Show all the stats";
 $armory['showMain']="Show just the main stats";
 $armory['Faction1'] = "Horde";
-$armory['Faction0'] = "Aliance";
+$armory['Faction0'] = "Alliance";
 //Finish Armory
 
 //Others
@@ -870,8 +870,8 @@ $Status['Uptime:'] = "Uptime:";
 $Status['Tipe'] = "Type: ";
 $Status['PjCreat'] = "Created Characters: ";
 $Status['Drop'] = "Drop: ";
-$Status['PjConect'] = "Conected characters: ";
-$Status['Exp'] = "Experiencie: ";
+$Status['PjConect'] = "Connected characters: ";
+$Status['Exp'] = "Experience: ";
 $Status['Ali'] = "Aliance";
 $Status['Horde'] = "Horde";
 $Status['PlOnLine'] = "Online.";
