@@ -1679,6 +1679,7 @@ var Blackout = {
         }
 
         // Show blackout
+		Blackout.element.html('<div><div style="background:url(wow/static/images/close.png)no-repeat;height:32px;width:32px;margin-top:190px;margin-left:800px;cursor:pointer;"></div>');
         Blackout.element.show();
 
         // Call optional functions
