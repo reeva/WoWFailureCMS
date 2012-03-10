@@ -573,8 +573,8 @@ var Cms = {
 				cfr.hide().insertAfter(target).show();
 					cmtTextarea.val(commentText).focus();
 			} else
-				cfr.hide();
-
+				
+      cfr.toggle();
 			$('#replyTo').val(parent);
 		},
 		validateComment:function(target){

@@ -160,7 +160,7 @@ function preview(img,event){
         <span>Admin Login Panel</span></h1>
         <ul id="menu">
           <li><a href="dashboard.php">Dashboard</a></li>
-          <li><a href="view.php">News</a></li>
+          <li><a href="viewnews.php">News</a></li>
           <li><a href="forms.php">Forums</a></li>
           <li><a href="#">Users</a></li>
           <li class="ddm"><a>Account</a>

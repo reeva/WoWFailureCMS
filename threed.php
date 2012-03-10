@@ -93,7 +93,9 @@ Services
 	<a href="#">
   <?php
     mysql_select_db($server_cdb,$connection_setup)or die(mysql_error());   //Gets guild name, connection have to change to title
-    $sql = mysql_query("SELECT name FROM guild WHERE guildid =(SELECT guildid FROM guild_member G, characters C WHERE G.guid = C.guid)");
+    $sql =  mysql_query("SELECT guid FROM characters WHERE name = '".$character->getObjectInfo()->name."'");
+    $guid = mysql_fetch_array($sql);
+    $sql = mysql_query("SELECT name FROM guild WHERE guildid =(SELECT guildid FROM guild_member WHERE guid = '".$guid['guid']."')");
     if (mysql_num_rows($sql)>0){
       $row = mysql_fetch_assoc($sql);
       echo $row['name'];

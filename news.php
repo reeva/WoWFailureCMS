@@ -116,7 +116,7 @@ _gaq.push(['_trackPageview']);
 									
 										$posted = 0;
 										
-										if(isset($_POST['vali'])){
+										if(isset($_POST['vali']) || isset($_POST['replyTo'])){      //That's for post new comment or new reply comment
 											mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
 											$get_accountinfo = mysql_query("SELECT * FROM account WHERE username = '".mysql_real_escape_string($_SESSION['username'])."'");
 											$accountinfo = mysql_fetch_assoc($get_accountinfo);
@@ -130,7 +130,12 @@ _gaq.push(['_trackPageview']);
 											/* End of Replacing */
 											$comment = addslashes($comment);
 											$comment = nl2br($comment);
-											$insert = mysql_query("INSERT INTO comments (newsid,comment,accountid) VALUES ('".$news['id']."','".$comment."','".$author."')")or print("Could not post the comment!");
+											if (isset($_POST['replyTo'])){
+                        $replyTo = $_POST['replyTo']; 
+                      }else{
+                        $replyTo = 0;
+                      }
+											$insert = mysql_query("INSERT INTO comments (newsid,comment,accountid,reply) VALUES ('".$news['id']."','".$comment."','".$author."','".$replyTo."')")or print("Could not post the comment!");
 
 											//Fixed that bugging bug + DATE =)) :)) =)) :D
 											$update = mysql_query("UPDATE news SET comments = comments + 1 WHERE id = '".$news['id']."'");
@@ -374,7 +379,14 @@ ended
 												var textAreaFocused = false;
 											//]]>
 										</script>
-
+										<?php
+										if(isset($_SESSION['username'])){
+											if($posted == 1){
+											}else{
+											$user_query = mysql_query("SELECT * FROM users WHERE id = '".mysql_real_escape_string($account_information['id'])."'");
+											$user = mysql_fetch_assoc($user_query);
+										?>
+										<!-- FORM REPLY COMMENT -->
 										<form action="" method="post" onsubmit="return Cms.Comments.validateComment(this);" id="comment-form-reply" class="nested">
 											<fieldset>
 												<input type="hidden" id="replyTo" name="replyTo" value="" />
@@ -386,7 +398,7 @@ ended
 												
 													<div class="portrait-c ajax-update">
 														<div class="avatar-interior">
-															<a href="#"><img height="64" src="http://eu.battle.net/static-render/eu/burning-steppes/203/36178379-avatar.jpg?alt=/wow/static/images/2d/avatar/10-0.jpg" alt="" /></a>
+															<a href="#"><img height="64" width="64" src="images/avatars/2d/<?php echo $user['avatar']; ?>" alt="" /></a>
 														</div>
 													</div>
 													
@@ -394,15 +406,15 @@ ended
 														<div class="character-info user ajax-update">
 														<!--commentThrottle[]-->
 															<div class="user-name">
-																<span class="char-name-code" style="display: none">TheAdriann</span>
+																<span class="char-name-code" style="display: none"><?php echo ucfirst($user['firstName']); ?></span>
 
 																<div id="context-2" class="ui-context character-select">
 																	<div class="context">
 																		<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
 
 																		<div class="context-user">
-																			<strong>TheAdriann</strong><br />
-																			<span>Realm Name</span>
+																			<strong><?php echo ucfirst($user['firstName']); ?></strong><br />
+																			<span></span>
 																		</div>
 																		
 																		<div class="context-links">
@@ -410,7 +422,7 @@ ended
 																	</div>
 																</div>
 																
-																<a href="#" class="context-link" rel="np">TheAdriann</a>
+																<a href="#" class="context-link" rel="np"><?php echo ucfirst($user['firstName']); ?></a>
 																
 															</div>
 														</div>
@@ -441,20 +453,13 @@ ended
 												</div>
 											</div>
 										</form>
-
+                    <!-- END FORM REPLY COMMENT -->
 										<script type="text/javascript">
 											//<![CDATA[
 												var textAreaFocused = false;
 											//]]>
 										</script>
-
-										<?php
-										if(isset($_SESSION['username'])){
-											if($posted == 1){
-											}else{
-											$user_query = mysql_query("SELECT * FROM users WHERE id = '".mysql_real_escape_string($account_information['id'])."'");
-											$user = mysql_fetch_assoc($user_query);
-											?>
+                    <!-- FORM POST TOP -->
 											<form action="" method="post" onsubmit="return Cms.Comments.validateComment(this);" id="comment-form">
 												<fieldset>
 													<input type="hidden" name="ref" value="" />
@@ -465,7 +470,7 @@ ended
 													<div class="comment">
 														<div class="portrait-b ajax-update">
 															<div class="avatar-interior">
-															<a href="#"><img height="64" src="images/avatars/2d/<?php echo $user['avatar']; ?>" alt="" /></a>
+															<a href="#"><img height="64" width="64" src="images/avatars/2d/<?php echo $user['avatar']; ?>" alt="" /></a>
 															</div>
 														</div>
 														
@@ -473,7 +478,7 @@ ended
 															<div class="character-info user ajax-update">
 																<!--commentThrottle[]-->
 																<div class="user-name">
-																<a href="#" class="context-link" rel="np"><?php echo strtolower($_SESSION['username']); ?></a>
+																<a href="#" class="context-link" rel="np"><?php echo ucfirst($user['firstName']); ?></a>
 																</div>
 															</div>
 															
@@ -482,12 +487,10 @@ ended
 																	<textarea id="comment-ta" cols="78" rows="3" name="detail" onfocus="textAreaFocused = true;" onblur="textAreaFocused = false;"></textarea>
 																</div>
 																<div class="action">
-																
 																	<div class="cancel">
 																				<span class="spacer">|</span>
 																				<a href="javascript:;" onclick="$('#comment-form-reply').slideUp();">Cancel</a>
 																	</div>
-																	
 																	<div class="submit">
 																		<button class="ui-button button1 comment-submit" type="submit">
 																			<span>
@@ -502,51 +505,94 @@ ended
 													</div>
 												</div>
 											</form>
+											<!-- END FORM POST TOP -->
 											<?php
 											}
-										}
-										
-										$get_comments = mysql_query("SELECT * FROM comments WHERE newsid = '".$news['id']."' ORDER BY DATE desc");
-										if(mysql_num_rows($get_comments) > 0){
+										}else{  //Butto add reply to open login frame (if not session)
+											echo'
+											<table class="dynamic-center"><tr><td>
+											<a class="ui-button button1 " href="?login" onclick="return Login.open(\'loginframe.php\')"><span><span>Add a reply</span></span></a>
+											</td></tr></table>
+											';
+										}   //SHOW COMMENTS
+										$get_comments = mysql_query("SELECT * FROM comments WHERE newsid = '".$news['id']."' AND reply = '0' ORDER BY DATE desc");
+										//Get just the comments of the post (not reply comments)
+                    if(mysql_num_rows($get_comments) > 0){
 										while($comment = mysql_fetch_array($get_comments)){
-											mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
-											$accountInfo_query = mysql_query("SELECT * FROM account WHERE id = '".$comment['accountId']."'");
-											$accountInfo = mysql_fetch_assoc($accountInfo_query);
 											
 											mysql_select_db($server_db,$connection_setup)or die(mysql_error());
-											$userInfo_query = mysql_query("SELECT * FROM users WHERE id = '".$accountInfo['id']."'");
+											$userInfo_query = mysql_query("SELECT * FROM users WHERE id = '".$comment['accountId']."'");
 											$userInfo = mysql_fetch_assoc($userInfo_query);
+											if ($userInfo['class']=='blizz'){ $type='blizzard';}    //Show styles mvp and blizz
+											elseif ($userInfo['class']=='mvp'){ $type='mvp';}
+											else {$type = '';}
 											?>
-											<div class="comment" id="">
+											<div class="comment <?php echo $type; ?>" id="c-<?php echo $comment['id']; ?>">
 												<div class="avatar portrait-b">
 												<a href="#">
-												<img height="64" src="images/avatars/2d/<?php echo $userInfo['avatar']; ?>" alt="" />
+												<img height="64" width="64" src="images/avatars/2d/<?php echo $userInfo['avatar']; ?>" alt="" />
 												</a>
-												</div>
+												</div>                       
 
 												<div class="comment-interior">
 												  <div class="character-info user">
+												    <!-- IMAGE BLIZZ -->
+												    <?php if ($type == 'blizzard'){echo '<img src="wow/static/local-common/images/icons/employee.gif" alt="employee" />';} ?>
 													<div class="user-name">
 													  <a href="#" class="context-link" rel="np">
-														<?php echo strtolower($accountInfo['username']); ?>
+														<?php echo ucfirst($userInfo['firstName']); ?>
 													  </a>
 													</div>
 													
 													<span class="time"><a href="#"><?php echo $comment['date']; ?></a></span>
 												  </div>
 												  <div class="content"><?php echo html_entity_decode($comment['comment']); ?></div>
-												  <div class="comment-actions"><a class="reply-link" href="#" onclick=""><?php echo $reply['reply']; ?></a></div>
+												  <div class="comment-actions"><a class="reply-link" href="#c-<?php echo $comment['id']; ?>" onclick="Cms.Comments.replyTo('<?php echo $comment['id']; ?>','<?php echo $comment['id']; ?>','<?php echo ucfirst($userInfo['firstName']); ?>'); return false;"><?php echo $reply['reply']; ?></a></div>
 												</div>
 											</div>
 											<?php
-											}
-										}else{
-											echo'
-											<table class="dynamic-center"><tr><td>
-											<a class="ui-button button1 " href="?login" onclick="return Login.open(\'loginframe.php\')"><span><span>Add a reply</span></span></a>
-											</td></tr></table>
-											';
-											}
+											  //Get reply comments
+                        $get_reply = mysql_query("SELECT * FROM comments WHERE newsid = '".$news['id']."' AND reply = '".$comment['id']."' ORDER BY DATE ASC");
+                        //Order it by date ASC!
+                        if(mysql_num_rows($get_reply) > 0){
+										      while($replyQ = mysql_fetch_array($get_reply)){
+                         
+											         mysql_select_db($server_db,$connection_setup)or die(mysql_error());
+											         $userInfo_query = mysql_query("SELECT * FROM users WHERE id = '".$replyQ['accountId']."'");
+											         $userInfo = mysql_fetch_assoc($userInfo_query);
+											         if ($userInfo['class']=='blizz'){ $type='blizzard';}    //Show styles mvp and blizz
+											         elseif ($userInfo['class']=='mvp'){ $type='mvp';}
+											         else {$type = '';}
+											         //SHOW REPLY COMMENTS
+                        ?>
+										    <div class="nested">
+											    <div class="comment <?php echo $type; ?>" id="c-<?php echo $replyQ['id'];?>">
+												  <div class="avatar portrait-b">
+												    <a href="#">
+												      <img height="64" width="64" src="images/avatars/2d/<?php echo $userInfo['avatar']; ?>" alt="" />
+												    </a>
+												  </div>                       
+												  <div class="comment-interior">
+												    <div class="character-info user">
+												      <!-- IMAGE BLIZZ -->
+												      <?php if ($type == 'blizzard'){echo '<img src="wow/static/local-common/images/icons/employee.gif" alt="employee" />';} ?>
+													    <div class="user-name">
+													      <a href="#" class="context-link" rel="np">
+														    <?php echo ucfirst($userInfo['firstName']); ?>
+													       </a>
+													    </div>
+													<span class="time"><a href="#"><?php echo $replyQ['date']; ?></a></span>
+												  </div>
+												  <div class="content"><?php echo html_entity_decode($replyQ['comment']); ?></div>
+												  <div class="comment-actions"><a class="reply-link" href="#c-<?php echo $comment['id']; ?>" onclick="Cms.Comments.replyTo('<?php echo $replyQ['id']; ?>','<?php echo $comment['id']; ?>','<?php echo ucfirst($userInfo['firstName']); ?>'); return false;"><?php echo $reply['reply']; ?></a></div>
+												</div>
+											</div>
+										</div>
+											<?php  
+										      } //CLOSE WHILE REPLYS
+										    } //CLOSE IF REPLYS
+											} //CLOSE WHILE COMMENTS
+										} //CLOSE IF COMMENTS
 											mysql_select_db($server_db,$connection_setup)or die(mysql_error());
 											?>
 											

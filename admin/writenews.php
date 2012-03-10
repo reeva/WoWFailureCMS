@@ -117,6 +117,7 @@ function changeVal(val){
   var  frm_element = document.getElementById('image'); //change the image input box value
   frm_element.value = val;                            //And the preview image
   var imgL = document.getElementById('imgLoad');
+  imgL.style.display = '';
   imgL.src = '../news/' + val + '.jpg';
 }
 
@@ -142,7 +143,7 @@ function preview(img,event){
         <span>Admin Login Panel</span></h1>
         <ul id="menu">
           <li><a href="dashboard.php">Dashboard</a></li>
-          <li><a href="view.php">News</a></li>
+          <li><a href="viewnews.php">News</a></li>
           <li><a href="forms.php">Forums</a></li>
           <li><a href="#">Users</a></li>
           <li class="ddm"><a>Account</a>
@@ -214,7 +215,7 @@ function preview(img,event){
             <p>Image<br />
             <input id="image" name="image" type="text" value="" class="reg" onfocus="pop('open');" />
             </p>
-            <img src="" id="imgLoad" />
+            <img src="" id="imgLoad" style="display:none;"/>
             <div  class="pop-image" id="pop">
               <div class="note">
                 <table border=0>
