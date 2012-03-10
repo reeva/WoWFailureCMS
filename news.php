@@ -508,8 +508,13 @@ ended
 											<!-- END FORM POST TOP -->
 											<?php
 											}
-										}else{  //Butto add reply to open login frame (if not session)
+										}else{  //Button add reply to open login frame (if not session)
 											echo'
+                      <form action="" method="" id="comment-form-reply" class="nested">
+                        <table class="dynamic-center"><tr><td>
+                          <a class="ui-button button1 " href="?login" onclick="return Login.open(\'loginframe.php\')"><span><span>Add a reply</span></span></a>	
+                        </td></tr></table>
+                      </form>
 											<table class="dynamic-center"><tr><td>
 											<a class="ui-button button1 " href="?login" onclick="return Login.open(\'loginframe.php\')"><span><span>Add a reply</span></span></a>
 											</td></tr></table>
