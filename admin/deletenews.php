@@ -13,8 +13,9 @@ include("../configs.php");
   
   if (isset($_POST['delete'])){
     mysql_select_db($server_db);
-    $delete_new = mysql_query("DELETE FROM news WHERE id = '".$_POST['id']."';");
-    if ($delete_new == true){
+    $delete_new = mysql_query("DELETE FROM news WHERE id = '".$_POST['id']."'");
+    $delete_com = mysql_query("DELETE FROM comments WHERE newsid = '".$_POST['id']."'");
+    if ($delete_new == true && $delete_com == true){
       echo '<div class="alert-page" align="center"> The article has been deleted successfully!</div>';
       echo '<meta http-equiv="refresh" content="3;url=dashboard.php"/>';
     }
@@ -148,9 +149,6 @@ DD_roundies.addRule('#tabsPanel', '5px 5px 5px 5px', true);
             <input name="" type="submit" value="" />
           </form>
         </div>
-        <h3>Article Information</h3>
-        <form method="post" action="" class="styleForm">
-        <table>
         <?php
           if (isset($_GET['id'])){
             mysql_select_db($server_db);
@@ -163,26 +161,32 @@ DD_roundies.addRule('#tabsPanel', '5px 5px 5px 5px', true);
           }
           if (!$error) {
           echo'
+        <h3>Article Information</h3>
+        <form method="post" action="" class="styleForm">
+        <table>
           <tr>
             <td width="65%"><p><strong>Title: </strong>'.$new['title'].'</p></td>
             <td rowspan="4" style="vertical-align:middle;">
               <p align="center"><strong>Are you sure you want to delete this article?</strong></p>
               <input type="hidden" name="id" value="'.$new['id'].'" />
               <p align="center"><button type="submit" name="delete" onclick="Form.submit(this)"><span>Delete</span></button>
-              <a href="dashboard.php"><button name="reset" type="reset" value="Cancel"><span>Cancel</span></button</a></p> 
+              <a href="dashboard.php"><button name="reset" type="reset" value="Cancel"><span>Cancel</span></button></a></p>
+              <p align="center">(You will lose all the comments too)</p> 
             </td>
           </tr>
           <tr><td><p><strong>Author: </strong>'.$new['author'].'</p></td></tr>
           <tr><td><p><strong>Date: </strong>'.$new['date'].'</p></td></tr>
-          <tr><td><p><strong>Replies: </strong>'.$new['comments'].'</p></td></tr>
-          <tr><td colspan="2"><h3>Content:</h3><p>'.$new['content'].'</p></td></tr>';
-          }elseif ($delete_new == false){
-            echo '<tr><td width="100%"><p align="center"><font color="red"><strong>You have to select an article!</strong></font></p></td></tr>
-            <meta http-equiv="refresh" content="2;url=dashboard.php"/>';
-          }?>
+          <tr><td><p><strong>Replies: </strong>'.$new['comments'].'</p></td></tr> 
+          <tr><td colspan="2"><h3>Content:</h3><p>'.$new['content'].'</p></td></tr>
         </table>
-        </form>
-      </div>
+        </form></div>';
+          }elseif ($delete_new == false){ //just show error if we have not deleted am article
+            echo '</div><div class="messages"><div><img src="images/warningIco.png" alt="" />
+            <p>You have to select an article!</p>
+            </div></div>
+            <meta http-equiv="refresh" content="2;url=dashboard.php"/>';
+          }
+          ?>
     </div>
   </div>
   <div class="push"></div>

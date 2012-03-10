@@ -12,12 +12,12 @@ include("../configs.php");
   //Limit of results per page 
   $size=10; 
   //Look for the number page, if not then first
-  $page = $_GET["page"]; 
-  if (!$page) { 
+  if (!isset($_GET["page"])) { 
     $start = 0; //the first result to show, 1, 26... 
     $page=1; //If no page found then first page
   } 
-  else { 
+  else {
+      $page = $_GET["page"];  
     $start = ($page - 1) * $size;   //Calculate the first result to show
   }
   mysql_select_db($server_db) or die (mysql_error());
@@ -180,7 +180,7 @@ $('#checkall').toggleClass('clicked');
                 <input class="chkl" type="checkbox" name="chk" value="checkbox" />
               </label>
             </div>
-            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="deletenews.php?id='.$new['id'].'"><img src="images/deletIco.png" alt="" /></a></p>
+            <p class="edit"><a href="editnews.php?id='.$new['id'].'"><img src="images/editIco.png" alt="" /></a> <a href="deletenews.php?id='.$new['id'].'"><img src="images/deletIco.png" alt="" /></a></p>
             <p class="title">'.$new['title'].'</p>
             <p class="descrip">'.substr(strip_tags($new['content']),0,90).'</p>
             <p class="inc">'.$new['comments'].'</p>

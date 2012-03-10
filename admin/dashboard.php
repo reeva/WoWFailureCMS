@@ -219,7 +219,7 @@ $('#checkall').toggleClass('clicked');
                 <input class="chkl" type="checkbox" name="chk" value="checkbox" />
               </label>
             </div>
-            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="deletenews.php?id='.$new['id'].'"><img src="images/deletIco.png" alt="" /></a></p>
+            <p class="edit"><a href="editnews.php?id='.$new['id'].'"><img src="images/editIco.png" alt="" /></a> <a href="deletenews.php?id='.$new['id'].'"><img src="images/deletIco.png" alt="" /></a></p>
             <p class="title">'.$new['title'].'</p>
             <p class="descrip">'.substr(strip_tags($new['content']),0,90).'</p>
             <p class="inc">'.$new['comments'].'</p>

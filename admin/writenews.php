@@ -26,19 +26,25 @@ ini_set("default_charset", "iso-8859-1" );    //For special chars
   //End image pop-up
   
   if (isset($_POST['save'])){
-    $title = $_POST['title'];
-    $image = $_POST['image'];
+    $title = mysql_real_escape_string($_POST['title']);
+    $image = mysql_real_escape_string($_POST['image']);
     $content = $_POST['content'];
+    $content = trim($content);
     $date = date ("Y-m-d H:i:s", time()); 
-    
-    mysql_select_db($server_db);
-    $save_new = mysql_query("INSERT INTO news (author, date, content, title, image) VALUES ('".$login['id']."','".$date."','".$content."','".$title."','".$image."');") or die(mysql_error());
-    if ($save_new == true){
-      echo '<div class="alert-page" align="center"> The new has been created successfully!</div>';
-      echo '<meta http-equiv="refresh" content="3;url=dashboard.php"/>';
-    }
-    else{
-      echo '<div class="errors" align="center"><font color="red"> An ERROR has occured while saving the post in the database!</font></div>';
+
+    $emptyContent = strip_tags($content);
+    if (empty($emptyContent)){                          //Check if content is empty, title will never be empty
+      echo '<font color="red">You have to write something!</font>';
+    }else{
+      mysql_select_db($server_db);
+      $save_new = mysql_query("INSERT INTO news (author, date, content, title, image) VALUES ('".$login['id']."','".$date."','".$content."','".$title."','".$image."');") or die(mysql_error());
+      if ($save_new == true){
+        echo '<div class="alert-page" align="center"> The new has been created successfully!</div>';
+        echo '<meta http-equiv="refresh" content="3;url=dashboard.php"/>';
+      }
+      else{
+        echo '<div class="errors" align="center"><font color="red"> An ERROR has occured while saving the post in the database!</font></div>';
+      }
     }
   }
 ?>      
@@ -100,7 +106,7 @@ function pop(action){
   var vis = frm_element.style;
   if (action=='open')
   {
-    vis.display = 'block';
+    vis.display = 'block';               //show/hidde the image select pop-up
   }
   else
   {
@@ -108,9 +114,24 @@ function pop(action){
   }
 }
 function changeVal(val){
-  var  frm_element = document.getElementById('image');
-  frm_element.value = val;
+  var  frm_element = document.getElementById('image'); //change the image input box value
+  frm_element.value = val;                            //And the preview image
+  var imgL = document.getElementById('imgLoad');
+  imgL.src = '../news/' + val + '.jpg';
 }
+
+function preview(img,event){
+  var div = document.getElementById('preview');      //To show preview image
+  div = div.style;
+  var imgP = document.getElementById('imgP');
+  if (event == 'on'){
+    div.display = 'block';
+    imgP.src= img;
+  }
+  else{
+    div.display = 'none';
+  }
+  }
 </script>
 </head>
 <body class="bgc">
@@ -193,6 +214,7 @@ function changeVal(val){
             <p>Image<br />
             <input id="image" name="image" type="text" value="" class="reg" onfocus="pop('open');" />
             </p>
+            <img src="" id="imgLoad" />
             <div  class="pop-image" id="pop">
               <div class="note">
                 <table border=0>
@@ -204,14 +226,18 @@ function changeVal(val){
                   $nombre = substr($imagen,0,strlen($imagen)-11); //get the name for the db
                   echo "<tr>"; // para empezar una nueva linea
                   echo "<td><a href='javascript:;' onclick=changeVal('".$nombre."');pop('close');>
-                  <img src='$pathimagen' width='160px' border=0 ></a></td>";  //Clik on it and the name appear on the textbox
+                  <img src='$pathimagen' width='160px' border=0 onmouseover=preview('".$pathimagen."','on'); onmouseout=preview('".$pathiamgen."','out');></a></td>";  //Clik on it and the name appear on the textbox
                   echo "</tr>";
                 }
                 ?>
                 </table>
               </div>
             </div>
-          </div>          
+            <div  id="preview" style="display:none; float:right; position:absolute;left:450px;top:-50px;">
+              <img src="../news/staff.jpg" alt="img" id="imgP" />   
+            </div>   
+          </div>
+          
           <h3>Content</h3>
           <div class="txt">
             <textarea id="input" name="content"></textarea>

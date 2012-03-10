@@ -773,7 +773,7 @@ body {
 }
 #content .forms .styleForm p {
 	width:100%;
-	float:left;
+	/*float:left;*/
 	margin-top:20px;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:13px;
