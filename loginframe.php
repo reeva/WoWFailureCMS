@@ -99,7 +99,6 @@ include("configs.php");
     
   <?php }else{ ?>
   <form action="?SSID:<?php echo $sessionid; ?>" method="post">
-    <a id="embedded-close" href="javascript:;" onclick="updateParent('close')"></a>
     <div>
       <p><label for="accountName" class="label"><?php echo $Log['Log6']; ?></label>
       <input id="accountName" value="" name="accountName" maxlength="320" type="text" tabindex="1" class="input" /></p>
@@ -127,7 +126,6 @@ include("configs.php");
   </form>
   <?php } }else{
     ?>
-    <a id="embedded-close" href="javascript:;" onclick="updateParent('close')"></a>
     <script>
     parent.postMessage("{\"action\":\"success\"}", "<?php echo $website['address']; ?>");
     </script>
