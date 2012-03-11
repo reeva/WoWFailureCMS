@@ -67,7 +67,7 @@
 									
 									echo'
 									<span class="icon-frame ">
-										<img src="http://eu.battle.net/wow-assets/static/images/calendar/ui-calendar-event-pvp02start.png" alt="" width="27" height="27" />
+										<img src="wow-assets/static/images/calendar/ui-calendar-event-pvp02start.png" alt="" width="27" height="27" />
 										<span class="frame"></span>
 									</span>
 
