@@ -146,7 +146,7 @@ $('#checkall').toggleClass('clicked');
 
             <?php
             mysql_select_db($server_db) or die (mysql_error());
-            $forum = mysql_query("SELECT id,name,content,replies FROM forum_threads ORDER BY date DESC LIMIT 4");
+            $forum = mysql_query("SELECT id,name,content,replies FROM forum_threads ORDER BY date DESC LIMIT 5");
             while ($fcheck = mysql_fetch_assoc($forum)){
 			echo'
             <li class="odd" >
@@ -156,7 +156,7 @@ $('#checkall').toggleClass('clicked');
               </label>
             </div>
             <p class="edit"><a href="editfor.php?id='.$fcheck['id'].'"><img src="images/editIco.png" alt="" /></a> <a href="deletefor.php?id='.$fcheck['id'].'"><img src="images/deletIco.png" alt="" /></a></p>
-            <p class="title">'.$fcheck['name'].'</p>
+            <p class="title">'.substr(strip_tags($fcheck['name']),0,15).'...</p>
             <p class="descrip">'.substr(strip_tags($fcheck['content']),0,90).'</p>
             <p class="inc">'.$fcheck['replies'].'</p>
             </li>';
@@ -183,7 +183,7 @@ $('#checkall').toggleClass('clicked');
           </li>
            <?php
             mysql_select_db($server_db) or die (mysql_error());
-            $result = mysql_query("SELECT id,title,content,comments FROM news ORDER BY date DESC LIMIT 4");
+            $result = mysql_query("SELECT id,title,content,comments FROM news ORDER BY date DESC LIMIT 5");
             while ($new = mysql_fetch_assoc($result)){
               echo'
             <li>
@@ -193,7 +193,7 @@ $('#checkall').toggleClass('clicked');
               </label>
             </div>
             <p class="edit"><a href="editnews.php?id='.$new['id'].'"><img src="images/editIco.png" alt="" /></a> <a href="deletenews.php?id='.$new['id'].'"><img src="images/deletIco.png" alt="" /></a></p>
-            <p class="title">'.$new['title'].'</p>
+            <p class="title">'.substr(strip_tags($new['title']),0,15).'...</p>
             <p class="descrip">'.substr(strip_tags($new['content']),0,90).'</p>
             <p class="inc">'.$new['comments'].'</p>
             </li>';
@@ -212,12 +212,34 @@ $('#checkall').toggleClass('clicked');
         <ul id="lst">
         <li>
       <div class="chk"><a id="checkall"></a> </div>
-			<p class="editHead"><strong>Edit/Delete</strong></p>
-            <p class="title"><strong>Title</strong></p>
-            <p class="descripHead">Description</p>
-            <p class="incHead">Replies</p>
+			<p class="editHead"><strong>Birth</strong></p>
+            <p class="title"><strong>First Name</strong></p>
+            <p class="descripHead">Characters</p>
+            <p class="incHead">Username</p>
           </li>
-		  </ul>
+		   <?php
+            mysql_select_db($server_db) or die (mysql_error());
+            $users = mysql_query("SELECT id,firstName,birth FROM users ORDER BY id DESC LIMIT 5");
+            while ($usercheck = mysql_fetch_assoc($users)){
+			echo'
+            <li>
+            <div class="chk">
+              <label>
+                <input class="chkl" type="checkbox" name="chk" value="checkbox" />
+              </label>
+            </div>
+            <p class="title">'.$usercheck['birth'].'</p>
+			<p class="title">'.$usercheck['firstName'].'</p>
+            <p class="descrip">'.$usercheck['character'].'</p>';}?>
+			 <?php
+            mysql_select_db($server_adb) or die (mysql_error());
+			$user = mysql_query("SELECT username FROM account WHERE id = '".$usercheck['id']."'");
+            $username = mysql_result($user);
+			echo'
+            <p class="inc">'.$username['username'].'</p>
+            </li>';
+            ?>
+			</ul>
       </div>
 	  
               <img src="images/sepLine.png" alt="" class="sepline" />
