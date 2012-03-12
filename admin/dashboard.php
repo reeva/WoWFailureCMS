@@ -144,50 +144,23 @@ $('#checkall').toggleClass('clicked');
             <p class="incHead">Replies</p>
           </li>
 
-            <li class="odd">
-            <div class="chk">
-            <label>
-            <input class="chkl" type="checkbox" name="chk" value="checkbox" />
-            </label>
-            </div>
-            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
-            <p class="title">Lorem ipsum</p>
-            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
-            <p class="inc">2</p>
-            </li>
-                  <li>
+            <?php
+            mysql_select_db($server_db) or die (mysql_error());
+            $forum = mysql_query("SELECT id,name,content,replies FROM forum_threads ORDER BY date DESC LIMIT 4");
+            while ($fcheck = mysql_fetch_assoc($forum)){
+			echo'
+            <li class="odd" >
             <div class="chk">
                       <label>
                 <input class="chkl" type="checkbox" name="chk" value="checkbox" />
               </label>
             </div>
-            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
-            <p class="title">Lorem ipsum</p>
-            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
-            <p class="inc">2</p>
-            </li>
-                  <li>
-            <div class="chk">
-                      <label>
-                <input class="chkl" type="checkbox" name="chk" value="checkbox" />
-              </label>
-           </div>
-           <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
-            <p class="title">Lorem ipsum</p>
-            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
-            <p class="inc">2</p>
-            </li>
-                  <li>
-            <div class="chk">
-                      <label>
-                <input class="chkl" type="checkbox" name="chk" value="checkbox" />
-              </label>
-            </div>
-            <p class="edit"><a href="#"><img src="images/editIco.png" alt="" /></a> <a href="#"><img src="images/deletIco.png" alt="" /></a></p>
-            <p class="title">Lorem ipsum</p>
-            <p class="descrip">Donec vel nunc lacus, non sodales lacus.</p>
-            <p class="inc">2</p>
-            </li>
+            <p class="edit"><a href="editfor.php?id='.$fcheck['id'].'"><img src="images/editIco.png" alt="" /></a> <a href="deletefor.php?id='.$fcheck['id'].'"><img src="images/deletIco.png" alt="" /></a></p>
+            <p class="title">'.$fcheck['name'].'</p>
+            <p class="descrip">'.substr(strip_tags($fcheck['content']),0,90).'</p>
+            <p class="inc">'.$fcheck['replies'].'</p>
+            </li>';
+			}?>
                 </ul> 
 				</div>
 				<img src="images/sepLine.png" alt="" class="sepline" />
@@ -225,8 +198,28 @@ $('#checkall').toggleClass('clicked');
             <p class="inc">'.$new['comments'].'</p>
             </li>';
             }?>
-                </ul>
+                </ul></div>
+				<img src="images/sepLine.png" alt="" class="sepline" />
+				<div class="datalist">
+	   <div class="heading">
+                  <h2>Latest <span rel="tooltip" title="<strong style='color:red'>Users Registered</strong><br/><br/>Here you can see the latest 5 Users that rigistered lately.<br />Click on the <strong>Users</strong> to redirect on the main page of the Registered Users." style="color:#ff9200;font-weight:bold;font-size:14px;"><a href="viewnews.php">Users</a></span> Registered</h2>
+                  <select name="sort">
+            <option>Sort By</option>
+            <option>Option1</option>
+            <option>Option2</option>
+          </select>
+                </div>
+        <ul id="lst">
+        <li>
+      <div class="chk"><a id="checkall"></a> </div>
+			<p class="editHead"><strong>Edit/Delete</strong></p>
+            <p class="title"><strong>Title</strong></p>
+            <p class="descripHead">Description</p>
+            <p class="incHead">Replies</p>
+          </li>
+		  </ul>
       </div>
+	  
               <img src="images/sepLine.png" alt="" class="sepline" />
              <!--  <div class="messages">
         <div><img src="images/warningIco.png" alt="" />
