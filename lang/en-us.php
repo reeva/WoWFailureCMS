@@ -729,9 +729,7 @@ $armory['Faction0'] = "Alliance";
 //Finish Armory
 
 //Others
-if(isset($userInfo['firstName']))
-$globalInfoVar['Anonymous']=$userInfo['firstName'];
-elseif(empty($userInfo['firstName']) && isset($_SESSION['username']))
+if(isset($_SESSION['username']))
 $globalInfoVar['Anonymous']=$_SESSION['username'];
 else
 $globalInfoVar['Anonymous']='Anonymous';
