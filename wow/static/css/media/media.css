@@ -23,7 +23,7 @@
 .media-content .filter-dropdown .apply-filters .button3 span { color:#FFB100; background-image:none; text-transform:none }
 
 /* film-strip container */
-.media-content .film-strip-wrapper { background-image:url(../../images/media/vertical-bg.jpg) }
+.media-content .film-strip-wrapper { background-image:url(../../images/media/horizontal-bg.jpg) }
 .media-content .film-strip-thumb-wrapper.film-strip-thumbnail-loader { background-image:url(../../images/loaders/thumbnail-loader.gif); background-color:#362015; background-position:50px 28px }
 
 /* film-strip ajax target */
@@ -79,3 +79,19 @@
 .media-content  .sub-gallery-list .thumb-wrapper:hover .thumb-title { color:#FFF }
 .media-content  .sub-gallery-list .thumb-wrapper:hover .thumb-frame { background-position:-388px -236px }
 .media-content  .sub-gallery-list .sub-gallery-frame:hover .thumb-frame { background-position:-388px -118px }
+
+.media-comments { padding-top:11px }
+.media-comments .film-comments { background: url(../../images/layout/cms/comments_bg.jpg) 50% 0 repeat-x; padding: 15px; margin-top: 0; }
+
+#media-comments .comment-ta { padding:4px; width:60%; background:white; -moz-border-radius:4px; border-radius:4px;  }
+#media-comments textarea, #media-comments .auto-expand { font:12px/20px Verdana, Helvetica, Arial; width:98%;  margin:0; border:none; resize: none; }
+#media-comments .comment-interior { padding: 15px 15px 15px 95px;   }
+
+.media-comments-container { background: url("../images/layout/cms/comments_bg.jpg") 50% 0 repeat-x; padding: 15px; margin-top: 0; }
+.media-comments-container .ui-pagination { margin-top:20px }
+.icon-frame img, #media-comments .portrait-b img, #media-comments .portrait-c img { -moz-box-shadow:0 0 10px #000; -webkit-box-shadow:0 0 10px #000; box-shadow:0 0 10px #000;  }
+#media-comments .avatar-interior { background: none repeat scroll 0 0 transparent; }
+
+.post-user .avatar-interior, #media-comments .avatar-interior {  background: no-repeat; height:64px; width:64px; }
+#media-comments .new-post {	background: repeat-x; padding:4px; margin-bottom:12px;
+							-moz-border-radius:4px; border-radius:4px }

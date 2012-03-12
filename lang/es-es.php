@@ -11,7 +11,7 @@ $Services['Services'] = "Servicios";
 $Wow['Wow'] = "World Of Warcraft ";
 $Wow3['Wow3'] = " - Español";
 $Latest['Latest'] = "Ultimos posts escritos. ";
-$View_all['View_all'] = "Ver todo";
+$View_all['View_all'] = "Ver todo ";
 $all['all'] = "Todos los posts";
 $P_topics['P_topics'] = "LO MÁS VISTO EN LOS FOROS";
 $comments['comments'] = "Comentarios";
@@ -817,7 +817,7 @@ $GameCli['Game16'] = "(Requiere el cliente de juego de Europea completo.)";
 //Finish Game Client
 
 //Community
-$Community['comm1'] = "Contests";
+$Community['comm1'] = "Concursos";
 $Community['comm2'] = "Concursos pasados y presentes para que puedas dar un vistazo y participar. Compruébalo!";
 $Community['comm3'] = "Póngase en contacto con otros jugadores de ";
 $Community['comm4'] = " a través de los foros.";
@@ -826,11 +826,15 @@ $Community['comm6'] = "Enviar Media";
 $Community['comm7'] = "Enviar Screenshots";
 $Community['comm8'] = "Enviar Wallpapers";
 $Community['comm9'] = "Comunidades sociales";
-$Community['comm10'] = "Síguenos en Facebook.";
-$Community['comm11'] = "Tweetea en Twitter.";
-$Community['comm12'] = "Contribuye en Youtube.";
-$Community['comm13'] = "Enlaces de la comunidad.";
-$Community['comm14'] = "Únete a nuestra comunidad.";
+$Community['comm10'] = "Síguenos en Facebook";
+$Community['comm11'] = "Tweetea en Twitter";
+$Community['comm12'] = "Contribuye en Youtube";
+$Community['comm13'] = "Enlaces de la comunidad";
+$Community['comm14'] = "Únete a nuestra comunidad";
+$Community['FanArt'] = "Fan Art";
+$Community['Screenshots'] = "Screenshots";
+$Community['Wallpap'] = "Wallpapers";
+$Community['Media'] = "Media";
 //Finish Community
 
 //Status
@@ -927,4 +931,34 @@ $Status['Pandaren'] = "Pandaren";
 $Status['ReqMistPand'] = "Requiere Mists of Pandaria";
 $Status['PandNoAval'] = "Los Pandaren NO están disponibles.";
 //Finish Status
+
+//Media
+$Media['SendMedia'] = "Enviar Multimedia";
+$Media['SendWallp'] = "Enviar Wallpapers";
+$Media['SendScreensh'] = "Enviar Screenshots";
+$Media['SendArt'] = "Enviar Artwork";
+$Media['SendComic'] = "Enviar Comics";
+$Media['SendVideo'] = "Enviar Vídeos";
+$Media['Media'] = "Media";
+$Media['AllVideos'] = "Todos los Videos";
+$Media['VidSendSuccse'] = " El vídeo ha sido enviado con éxito! Ahora un moderador debe aprobarlo. Puede demorarse hasta 24 horas";
+$Media['ErrorSendVid'] = "Ha ocurrido un ERROR. El vídeo no ha sido enviado correctamente!";
+$Media['SendVideo2'] = "Envia tus vídeos relacionados con World of Warcraft!";
+$Media['ChooseMediaSend'] = "Escoge el contenido a enviar:";
+$Media['Videos'] = "Vídeos";
+$Media['Wallpapers'] = "Wallpapers";
+$Media['Screenshots'] = "Screenshots";
+$Media['Artwork'] = "Artwork";
+$Media['Comics'] = "Comics";
+$Media['AllFildRequiered'] = "Todos los campos son obligatorios.";
+$Media['LargeText'] = "Para poder enviar un vídeo debes estar logeado a la web. Después de enviar el vídeo, un moderador lo revisará y en unas horas si su contenido es adecuado, será publicado.";
+$Media['TitleVideo'] = "Título del vídeo: ";
+$Media['LinkVideo'] = "Link completo de Youtube: ";
+$Media['Description'] = "Descripción: ";
+$Media['SendVideo2'] = "Enviar";
+$Media['DelFields'] = "Borrar campos";
+$Media['Previous'] = "Anterior";
+$Media['Next'] = "Siguiente";
+$Media['Cancel'] = "Cancelar";
+//Finish Media
 ?>

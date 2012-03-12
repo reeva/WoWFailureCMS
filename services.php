@@ -146,7 +146,20 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 								<li><a href="javascript:;" class="c2-l3"><span><?php echo $Serv['Serv29']; ?></span></a></li>
 								<li><a href="game_client.php" class="c2-l4"><span><?php echo $Serv['Serv30']; ?></span></a></li>
 										<!--<li><a href="javascript:;" class="c2-l5"><span>Download Language Pack</span></a></li>-->
+								</ul>
+                            </div>
+							<div class="sub-services-section">
+								<div class="sub-title">
+									<span>Enviar Multimedia</span>
+								</div>
+								<ul>
+										<li><a href="<?php echo $website['root']; ?>media/send_video.php" class="c1-l3"><span><?php echo $Media['SendVideo']; ?></span></a></li>
+										<li><a href="javascript:;" class="c3-l7"><span><?php echo $Media['SendWallp']; ?></span></a></li>
+										<li><a href="javascript:;" class="c4-l2"><span><?php echo $Media['SendScreensh']; ?></span></a></li>
+										<li><a href="javascript:;" class="c3-l4"><span><?php echo $Media['SendArt']; ?></span></a></li>
+										<li><a href="javascript:;" class="c3-l2"><span><?php echo $Media['SendComic']; ?></span></a></li>
 								</ul>					
+							</div>                                					
 							</div>
 					</div>	
 				</div>
