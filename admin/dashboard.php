@@ -234,7 +234,7 @@ $('#checkall').toggleClass('clicked');
 			 <?php
             mysql_select_db($server_adb) or die (mysql_error());
 			$user = mysql_query("SELECT username FROM account WHERE id = '".$usercheck['id']."'");
-            $username = mysql_result($user);
+            $username = mysql_result($user,0);
 			echo'
             <p class="inc">'.$username['username'].'</p>
             </li>';
