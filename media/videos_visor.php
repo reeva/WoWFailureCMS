@@ -314,7 +314,8 @@ _gaq.push(['_trackPageview']);
 					</div>
 				</div>
 			</div>
-		</div>
+
+		
 	<script type="text/javascript" src="wow/static/local-common/js/cms.js"></script>
 	<script type="text/javascript" src="wow/static/local-common/js/menu.js"></script>
 	<script type="text/javascript" src="wow/static/js/wow.js"></script>
