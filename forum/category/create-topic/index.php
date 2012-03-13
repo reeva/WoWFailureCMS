@@ -170,15 +170,15 @@ $page_cat = "forums";
 			$content = addslashes($content);
 			$content = nl2br($content);
 			$content = mysql_real_escape_string($content);
-			$ndate = date('d-m-Y H:i:s');	
+			$ndate = date('Y-m-d H:i:s');	
 			
 			//User Parameteres
 			$author = $account_information['id'];
 			if($userInfo['class'] == 'blizz'){$hb = 1; }else{ $hb = 0;}
 			
-			$insert = mysql_query("INSERT INTO forum_threads (forumid,name,author,views,date,content,has_blizz,last_date) VALUES ('".$forumid."','".$subject."','".$author."','0','".$ndate."','".$content."','".$hb."','".$ndate."')")or print(''.$Forum['Forum15'].'');
+			$insert = mysql_query("INSERT INTO forum_threads (forumid,name,author,views,date,content,has_blizz,last_date) VALUES ('".$forumid."','".$subject."','".$author."','0','".$ndate."','".$content."','".$hb."','".$ndate."')")or die(''.$Forum['Forum15'].'');
 			$replies = mysql_fetch_assoc(mysql_query("SELECT * FROM forum_threads WHERE forumid = '".$forumid."' ORDER BY id DESC LIMIT 1"));
-			$insert = mysql_query("INSERT INTO forum_posts (type,postid) VALUES ('1','".$replies['id']."')")or die(mysql_error());
+      $insert = mysql_query("INSERT INTO forum_posts (type,postid) VALUES ('1','".$replies['id']."')")or die(''.$Forum['Forum15'].'');
 			
 			if($hb == 1) $insert = mysql_query("INSERT INTO forum_blizzposts (type,author,postid) VALUES ('thread','".$userInfo['id']."','".$replies['id']."')");
 			
