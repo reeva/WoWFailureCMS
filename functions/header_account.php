@@ -14,7 +14,7 @@
 <div class="flyout-menu" id="settings-menu" style="display: none">
 <ul>
 <li><a href="#"><?php echo $ha['ha2']; ?></a></li>
-<li><a href="change-password.php"><?php echo $ha['ha3']; ?></a></li>
+<li><a href="<?php echo $website['root']; ?>change-password.php"><?php echo $ha['ha3']; ?></a></li>
 <li><a href="#"><?php echo $ha['ha4']; ?></a></li>
 <li><a href="#"><?php echo $ha['ha5']; ?></a></li>
 <li><a href="#"><?php echo $ha['ha6']; ?></a></li>
@@ -27,11 +27,11 @@
 <span></span>
 <div class="flyout-menu" id="games-menu" style="display: none">
 <ul>
-<li><a href="vote.php"><?php echo $ha['ha9']; ?></a></li>
+<li><a href="<?php echo $website['root']; ?>vote.php"><?php echo $ha['ha9']; ?></a></li>
 <li><a href=""><?php echo $ha['ha10']; ?></a></li>
-<li><a href="sms.php"><?php echo $ha['ha11']; ?></a></li>
+<li><a href="<?php echo $website['root']; ?>sms.php"><?php echo $ha['ha11']; ?></a></li>
 <li><a href=""><?php echo $ha['ha12']; ?></a></li>
-<li><a href="game_client.php"><?php echo $ha['ha13']; ?></a></li>
+<li><a href="<?php echo $website['root']; ?>game_client.php"><?php echo $ha['ha13']; ?></a></li>
 <li><a href=""><?php echo $ha['ha14']; ?></a></li>
 <li><a href=""><?php echo $ha['ha15']; ?></a></li>
 </ul>
@@ -43,18 +43,34 @@
 <span></span>
 <div class="flyout-menu" id="player-menu" style="display: none">
 <ul>
-<li><a href="chars-unst.php"><?php echo $ha['ha17']; ?></a></li>
+<li><a href="<?php echo $website['root']; ?>chars-unst.php"><?php echo $ha['ha17']; ?></a></li>
 <li><a href=""><?php echo $ha['ha18']; ?></a></li>
 <li><a href=""><?php echo $ha['ha19']; ?></a></li>
 <li><a href=""><?php echo $ha['ha20']; ?></a></li>
 <li><a href=""><?php echo $ha['ha21']; ?></a></li>
 <li><a href=""><?php echo $ha['ha22']; ?></a></li>
-<li><a href="raf-invite.php"><?php echo $ha['ha23']; ?></a></li>
+<li><a href="<?php echo $website['root']; ?>raf-invite.php"><?php echo $ha['ha23']; ?></a></li>
 <li><a href=""><?php echo $ha['ha24']; ?></a></li>
 </ul>
+</div>
 </li>
+
+<li <?php if($page_cat=='media') echo'class="active"';?>>
+<a href="" class="border-3 menu-arrow" onclick="openAccountDropdown(this, 'media'); return false;"><?php echo $Media['SendMedia']; ?></a>
+<span></span>
+<div class="flyout-menu" id="media-menu" style="display: none">
+<ul>
+<li><a href="<?php echo $website['root']; ?>media/send_video.php"><?php echo $Media['SendVideo']; ?></a></li>
+<li><a href=""><?php echo $Media['SendWallp']; ?></a></li>
+<li><a href=""><?php echo $Media['SendScreensh']; ?></a></li>
+<li><a href=""><?php echo $Media['SendArt']; ?></a></li>
+<li><a href=""><?php echo $Media['SendComic']; ?></a></li>
+</ul>
+</div>
+</li>
+
 <li <?php if($page_cat=='transaction') echo'class="active"';?>>
-<a href="index.php" class="border-3"><?php echo $ha['ha25']; ?></a>
+<a href="<?php echo $website['root']; ?>index.php" class="border-3"><?php echo $ha['ha25']; ?></a>
 <span></span>
 </li>
 </ul>

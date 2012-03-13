@@ -831,6 +831,10 @@ $Community['comm11'] = "Tweet us on Twitter.";
 $Community['comm12'] = "Subscribe on Youtube.";
 $Community['comm13'] = "Community Links";
 $Community['comm14'] = "Join our community.";
+$Community['FanArt'] = "Fan Art";
+$Community['Screenshots'] = "Screenshots";
+$Community['Wallpap'] = "Wallpapers";
+$Community['Media'] = "Media";
 //Finish Community
 
 //Status
@@ -928,4 +932,34 @@ $Status['Pandaren'] = "Pandaren";
 $Status['ReqMistPand'] = "Requires Mists of Pandaria";
 $Status['PandNoAval'] = "Pandaren are NOT available.";
 //Finish Status
+
+//Media
+$Media['SendMedia'] = "Send Multimedia";
+$Media['SendWallp'] = "Send Wallpapers";
+$Media['SendScreensh'] = "Send Screenshots";
+$Media['SendArt'] = "Send Artwork";
+$Media['SendComic'] = "Send Comics";
+$Media['SendVideo'] = "Send Vídeos";
+$Media['Media'] = "Media";
+$Media['AllVideos'] = "All Videos";
+$Media['VidSendSuccse'] = " The video has been send successfully! Now a moderator must approve it. It may take up to 24 hours.";
+$Media['ErrorSendVid'] = "An ERROR has occured while saving the video in the database!";
+$Media['SendVideo2'] = "Send your videos related to World of Warcraft!";
+$Media['ChooseMediaSend'] = "Select content to send:";
+$Media['Videos'] = "Videos";
+$Media['Wallpapers'] = "Wallpapers";
+$Media['Screenshots'] = "Screenshots";
+$Media['Artwork'] = "Artwork";
+$Media['Comics'] = "Comics";
+$Media['AllFildRequiered'] = "All fields are required.";
+$Media['LargeText'] = "To send a video you must be logged in to the web. After sending the video, a moderator will review it and within hours if their content is suitable, will be published.";
+$Media['TitleVideo'] = "Video title:";
+$Media['LinkVideo'] = "Full Youtube Link: ";
+$Media['Description'] = "Descriptionn: ";
+$Media['SendVideo'] = "Send";
+$Media['DelFields'] = "Clear fields";
+$Media['Previous'] = "Anterior";
+$Media['Next'] = "Siguiente";
+$Media['Cancel'] = "Cancel";
+//Finish Media
 ?>

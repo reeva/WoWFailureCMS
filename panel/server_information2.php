@@ -1,4 +1,3 @@
-<? if( $realm_count == "2") { ?>
 <div class="realm-cuadro">
 	<?php
 	  $get_realms = mysql_query("SELECT * FROM $server_adb.realmlist WHERE `id` = 2");
@@ -166,4 +165,4 @@
 		</center>
 		</div>
 	</div>
-</div> <? } ?>
+</div>

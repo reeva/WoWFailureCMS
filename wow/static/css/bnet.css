@@ -219,7 +219,7 @@ img { -moz-user-select: none; -webkit-user-select: none; user-select: none; }
 #navigation #page-menu h2 a:hover {color: #fff; }
 #navigation #page-menu h3 { color: #393939; font-weight: bold; font-size: 32px; color:#BDC4D0; float:left; font-size:26px; font-weight:normal; padding-top:7px; }
 #navigation #page-menu ul { list-style: none; padding: 5px 0 0 0; font-size: 13px; font-family: "Lucida Sans Unicode", "Lucida Grande", "Arial", sans-serif; }
-#navigation #page-menu li { float: left; position: relative; margin-right: 10px; }
+#navigation #page-menu li { float: left; position: relative; margin-right: 3px; }
 #navigation #page-menu li a { height: 36px; display: block; float: left; padding: 10px 15px; }
 #navigation #page-menu li a:hover { color: #fff; }
 #navigation #page-menu li span { display: none; position: absolute; top: 42px; left: 50%; margin: 0 -13px; background: url("../images/layout/menu-arrow.png") no-repeat; width: 27px; height: 18px; }

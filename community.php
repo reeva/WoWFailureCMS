@@ -182,20 +182,20 @@ include("header.php");
 							<a href="javascript:;" class="main-link" style="background-image:url('wow/static/images/community/thumbnails/thumb-fanart.jpg');">
 								<span class="panel">
 									<span class="wrapper">
-										<span class="banner-title">Fan Art </span>
-										<span class="view-all"><?php echo $View_all['View_all']; ?> Fan Art</span>
+										<span class="banner-title"><?php echo $Community['FanArt']; ?></span>
+										<span class="view-all"><?php echo $View_all['View_all']; ?><?php echo $Community['FanArt']; ?></span>
 									</span>
 								</span>
 							</a>
-								<a href="#" class="tosubmit external">S<?php echo $Community['comm5']; ?></a>
+								<a href="#" class="tosubmit external"><?php echo $Community['comm5']; ?></a>
 						</div>
 						
 						<div class="inside-section comics">
 							<a href="media.php" class="main-link" style="background-image:url('wow/static/images/community/thumbnails/thumb-comics.jpg');">
 								<span class="panel">
 									<span class="wrapper">
-										<span class="banner-title">Media <em>(0)</em></span>
-										<span class="view-all"><?php echo $View_all['View_all']; ?> Media</span>
+										<span class="banner-title"><?php echo $Community['Media']; ?> <em>(0)</em></span>
+										<span class="view-all"><?php echo $View_all['View_all']; ?><?php echo $Community['Media']; ?></span>
 									</span>
 								</span>
 							</a>
@@ -208,8 +208,8 @@ include("header.php");
 							<a href="javascript:;" class="main-link" style="background-image:url('wow/static/images/community/thumbnails/thumb-screenshot.jpg');">
 								<span class="panel">
 									<span class="wrapper">
-										<span class="banner-title">Screenshots <em>(1)</em></span>
-										<span class="view-all"><?php echo $View_all['View_all']; ?> Screenshots</span>
+										<span class="banner-title"><?php echo $Community['Screenshots']; ?> <em>(1)</em></span>
+										<span class="view-all"><?php echo $View_all['View_all']; ?><?php echo $Community['Screenshots']; ?></span>
 									</span>
 								</span>
 							</a>
@@ -220,8 +220,8 @@ include("header.php");
 							<a href="javascript:;" class="main-link" style="background-image:url('wow/static/images/community/thumbnails/thumb-wallpaper.jpg');">
 								<span class="panel">
 									<span class="wrapper">
-										<span class="banner-title">Fan Wallpapers <em>(0)</em></span>
-										<span class="view-all"><?php echo $View_all['View_all']; ?> Wallpapers</span>
+										<span class="banner-title"><?php echo $Community['Wallpap']; ?> <em>(0)</em></span>
+										<span class="view-all"><?php echo $View_all['View_all']; ?><?php echo $Community['Wallpap']; ?></span>
 									</span>
 								</span>
 							</a>
@@ -246,9 +246,9 @@ include("header.php");
     background: url("wow/static/images/community/001.png") no-repeat;
 }
 							</style>
-								<li><a href="#" class="facebook" target="_blank"><span class="content-title"><?php echo $website['title']; ?> Facebook</span><span class="content-desc"><?php echo $Community['comm10']; ?></span></a></li>
-								<li><a href="#" class="Twitter" target="_blank"><span class="content-title"><?php echo $website['title']; ?> Twitter</span><span class="content-desc"><?php echo $Community['comm11']; ?></span></a></li>
-								<li><a href="#" class="Youtube" target="_blank"><span class="content-title"><?php echo $website['title']; ?> Youtube</span><span class="content-desc"><?php echo $Community['comm12']; ?></span></a></li>
+								<li><a href="<?php echo $comun_link['Facebook']; ?>" class="facebook" target="_blank"><span class="content-title"><?php echo $website['title']; ?> Facebook</span><span class="content-desc"><?php echo $Community['comm10']; ?></span></a></li>
+								<li><a href="<?php echo $comun_link['Twitter']; ?>" class="Twitter" target="_blank"><span class="content-title"><?php echo $website['title']; ?> Twitter</span><span class="content-desc"><?php echo $Community['comm11']; ?></span></a></li>
+								<li><a href="<?php echo $comun_link['Youtube']; ?>" class="Youtube" target="_blank"><span class="content-title"><?php echo $website['title']; ?> Youtube</span><span class="content-desc"><?php echo $Community['comm12']; ?></span></a></li>
 								
 								
 						</div>

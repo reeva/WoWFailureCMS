@@ -58,7 +58,7 @@ _gaq.push(['_trackPageview']);
 				<div class="content-trail">
 					<ol class="ui-breadcrumb">
 						<li><a href="index.php" rel="np"><?php echo $website['title']; ?></a></li>
-						<li class="last"><a href="media.php" rel="np">Media</a></li>
+						<li class="last"><a href="media.php" rel="np"><?php echo $Media['Media']; ?></a></li>
 					</ol>
 				</div>
 				
@@ -66,34 +66,48 @@ _gaq.push(['_trackPageview']);
 					<div class="media-content">
 						<div id="media-index">
 							<div class="media-index-section float-left">
-								<a class="gallery-title videos" href="#">
-								<span class="view-all"><span class="arrow"></span>All Videos</span>
+								<a class="gallery-title videos" href="./media/videos_index.php">
+								<span class="view-all"><span class="arrow"></span><?php echo $Media['AllVideos']; ?></span>
 								<span class="gallery-icon"></span>
-
-								Videos <span class="total">(2)</span>
+                                <?php
+								$consulta0 = mysql_query(" SELECT * FROM videos WHERE visible = 1");
+								$totalSql = mysql_num_rows($consulta0);
+								?>
+								Videos <span class="total">(<?php echo $totalSql; ?>)</span>
 								</a>
-								
-								<div class="section-content">
-									<a href="#" class="thumb-wrapper video-thumb-wrapper first-video">
-									<span class="video-info">
-									<span class="video-title">WoWFailureCMS</span>
-									<span class="video-desc">A simple entry in videos database.</span>
-									<span class="date-added">Date Added: 20/04/2011</span>
-									</span>
-									<span class="thumb-bg" style="background:#222;">
-									<span class="thumb-frame"></span>
-									</span>
 
-									</a>
-									<a href="#" class="thumb-wrapper video-thumb-wrapper">
+								<?php					
+								$consulta1 = mysql_query("SELECT * FROM videos WHERE visible = 1 ORDER BY date DESC LIMIT 0,1");
+								while($video1 = mysql_fetch_assoc($consulta1)) {
+								?>
+                        				
+                              	<div class="section-content">
+									<a href="./media/videos_visor.php?id=<?php echo $video1['id']; ?>" class="thumb-wrapper video-thumb-wrapper first-video">
 									<span class="video-info">
-									<span class="video-title">Coming Soon</span>
-									<span class="video-desc">Coming Soon a new video.</span>
-									<span class="date-added">Date Added: 15/04/2011</span>
+									<span class="video-title"><?php echo substr($video1['title'],0,50); ?></span>
+									<span class="video-desc"><?php echo substr($video1['description'],0,50); ?></span>
+									<span class="date-added">Fecha: <?php echo $video1['date']; ?></span>
 									</span>
-									<span class="thumb-bg" style="background:#222;)">
+									<span class="thumb-bg"; style="background-image: url('http://img.youtube.com/vi/<?php echo $video1['id_url']; ?>/0.jpg'); background-size: 188px 118px">
 									<span class="thumb-frame"></span>
 									</span>
+									<?php } ?>
+									</a>
+                                    
+									<?php					
+									$consulta2 = mysql_query("SELECT * FROM videos WHERE visible = 1 ORDER BY date DESC LIMIT 1,1");
+									while($video2 = mysql_fetch_assoc($consulta2)) {
+									?>                                    									
+									<a href="./media/videos_visor.php?id=<?php echo $video2['id']; ?>" class="thumb-wrapper video-thumb-wrapper first-video">
+									<span class="video-info">
+									<span class="video-title"><?php echo substr($video2['title'],0,50); ?></span>
+									<span class="video-desc"><?php echo substr($video2['description'],0,50); ?></span>
+									<span class="date-added">Fecha: <?php echo $video2['date']; ?></span>
+									</span>
+									<span class="thumb-bg"; style="background-image: url('http://img.youtube.com/vi/<?php echo $video2['id_url']; ?>/0.jpg'); background-size: 188px 118px">
+									<span class="thumb-frame"></span>
+									</span>
+									<?php } ?>
 									</a>
 									
 									<span class="clear"><!-- --></span>

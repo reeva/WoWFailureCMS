@@ -61,6 +61,12 @@ $realm_count = '3';
 $charLimit = '10';
 $mysql_cod = 'cp1251';
 
+# Comunity Links ############
+
+$comun_link['Facebook'] = "http://www.facebook.com/";          // Your adress of Facebook comunity
+$comun_link['Twitter'] = "http://twitter.com//";               // Your adress of Twitter comunity
+$comun_link['Youtube'] = "http://www.youtube.com/";            // Your adress of Youtube comunity
+
 ######################
 
 # Important #############
