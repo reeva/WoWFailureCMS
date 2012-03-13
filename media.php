@@ -70,14 +70,14 @@ _gaq.push(['_trackPageview']);
 								<span class="view-all"><span class="arrow"></span><?php echo $Media['AllVideos']; ?></span>
 								<span class="gallery-icon"></span>
                                 <?php
-								$consulta0 = mysql_query(" SELECT * FROM videos WHERE visible = 1");
+								$consulta0 = mysql_query(" SELECT * FROM media WHERE visible = 1");
 								$totalSql = mysql_num_rows($consulta0);
 								?>
 								Videos <span class="total">(<?php echo $totalSql; ?>)</span>
 								</a>
 
 								<?php					
-								$consulta1 = mysql_query("SELECT * FROM videos WHERE visible = 1 ORDER BY date DESC LIMIT 0,1");
+								$consulta1 = mysql_query("SELECT * FROM media WHERE visible = 1 ORDER BY date DESC LIMIT 0,1");
 								while($video1 = mysql_fetch_assoc($consulta1)) {
 								?>
                         				
@@ -95,7 +95,7 @@ _gaq.push(['_trackPageview']);
 									</a>
                                     
 									<?php					
-									$consulta2 = mysql_query("SELECT * FROM videos WHERE visible = 1 ORDER BY date DESC LIMIT 1,1");
+									$consulta2 = mysql_query("SELECT * FROM media WHERE visible = 1 ORDER BY date DESC LIMIT 1,1");
 									while($video2 = mysql_fetch_assoc($consulta2)) {
 									?>                                    									
 									<a href="./media/videos_visor.php?id=<?php echo $video2['id']; ?>" class="thumb-wrapper video-thumb-wrapper first-video">

@@ -119,11 +119,10 @@ else{
 <h3 class="headline"><?php echo $Media['SendVideo2']; ?></h3>
 </div>
 <div id="page-content">
-<form action="" method="post">    <!-- Aqui le qitamos la url para q envie esta misma pagina, lo subimos para incluir el select -->    
+<form action="" method="post">
 <div class="filter">
 	<label for="filter-status"><?php echo $Media['ChooseMediaSend']; ?></label>
-  <!-- Este select le damos nombre y valor a los campos (no confundir value con lo q aparece en el select) 
-    de momento: type 0 videos, 1 walls, 2 screens, 3 art y 4 comic. Si quieres cambialo-->       
+  <!-- type 0 videos, 1 walls, 2 screens, 3 art y 4 comic. Si quieres cambialo-->       
 	<select name="type" id="filter-status" class="input border-5 glow-shadow-2 form-disabled" style="width:150px" data-filter="column" data-column="0">
 		<option value="0"><?php echo $Media['Videos']; ?></option>
 		<!-- <option value="1"><?php echo $Media['Wallpapers']; ?></option>
