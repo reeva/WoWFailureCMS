@@ -77,60 +77,97 @@ _gaq.push(['_trackPageLoadTime']);
 <div class="wrapper">
 <div id="content">
 <div id="page-header">
+<?php
+if (isset($_POST['send'])){ 
+
+  $title = mysql_real_escape_string($_POST['title_form']); 
+  $description = mysql_real_escape_string($_POST['description_form']);
+  $url = $_POST['url_form'];
+  $type = $_POST['type']; 
+  //types: 0 videos, 1 wallpapers, 2 screenshots, 3 artwork, 4 comic
+
+  $exp="/v\/?=?([0-9A-Za-z-_]{11})/is";
+  preg_match_all( $exp , $url , $matches );
+  $id = $matches[1][0];
+
+  mysql_select_db($server_adb);
+  $check_query = mysql_query("SELECT account.id,gmlevel from account  inner join account_access on account.id = account_access.id where username = '".strtoupper($_SESSION['username'])."'");
+  $login = mysql_fetch_assoc($check_query);
+
+  mysql_select_db($server_db);
+  $save_video = mysql_query("INSERT INTO media (author, id_url, title, description, link,type) VALUES ('".$login['id']."','".$id."','".$title."','".$description."','".$url."','".$type."');") or die(mysql_error());
+  mysql_close($connection_setup);
+ 
+  if ($save_video == true && $check_query == true){ 
+    echo '<div class="alert-page" align="center">';
+    echo '<div class="alert-page-message success-page">
+      <p class="text-green title"><strong>'.$re['scc1'].'</strong></p>
+      <p class="caption">'.$Media['VidSendSuccse'].'</p>
+      <p class="caption"><a href="account_man.php">'.$re['goPanel'].'</a></p>
+      </div>';
+    echo '</div>';
+    echo '<meta http-equiv="refresh" content="6;url=../account_man.php"/>';
+  }
+  else{
+    echo '<div class="errors" align="center"><font color="red">'.$Media['ErrorSendVid'].'</font><br><br />';
+    echo'<a href="send_video.php"><button class="ui-button button1"  id="back" tabindex="1" /><span><span>'.$re['back'].'</span></span></button></a></div>'; 
+  }
+}
+else{
+?>                    
 <h2 class="subcategory"><?php echo $Media['SendMedia']; ?></h2>
 <h3 class="headline"><?php echo $Media['SendVideo2']; ?></h3>
 </div>
 <div id="page-content">
+<form action="" method="post">    <!-- Aqui le qitamos la url para q envie esta misma pagina, lo subimos para incluir el select -->    
 <div class="filter">
 	<label for="filter-status"><?php echo $Media['ChooseMediaSend']; ?></label>
-	<form>
-	<select id="filter-status" class="input border-5 glow-shadow-2 form-disabled" style="width:150px" data-filter="column" data-column="0">
-		<option value="videos"><?php echo $Media['Videos']; ?></option>
-		<option value="wallpapers"><?php echo $Media['Wallpapers']; ?></option>
-		<option value="screenshots"><?php echo $Media['Screenshots']; ?></option>
-        <option value="artwork"><?php echo $Media['Artwork']; ?></option>
-        <option value="comics"><?php echo $Media['Comics']; ?></option>
+  <!-- Este select le damos nombre y valor a los campos (no confundir value con lo q aparece en el select) 
+    de momento: type 0 videos, 1 walls, 2 screens, 3 art y 4 comic. Si quieres cambialo-->       
+	<select name="type" id="filter-status" class="input border-5 glow-shadow-2 form-disabled" style="width:150px" data-filter="column" data-column="0">
+		<option value="0"><?php echo $Media['Videos']; ?></option>
+		<!-- <option value="1"><?php echo $Media['Wallpapers']; ?></option>
+		<option value="2"><?php echo $Media['Screenshots']; ?></option>
+    <option value="3"><?php echo $Media['Artwork']; ?></option>
+    <option value="4"><?php echo $Media['Comics']; ?></option> -->
 	</select>
-    </form>
 </div>
 <p>&nbsp;</p>
 <p><?php echo $Media['AllFildRequiered']; ?></p>
 <p><?php echo $Media['LargeText']; ?></p>
 
-<p>&nbsp;</p><p>&nbsp;</p>        
-        
+<p>&nbsp;</p><p>&nbsp;</p>          
 <table width="550" height="330">
-	<form action="envia_video.php" method="post">
-	<tr><td valign="top">
-	<label><?php echo $Media['TitleVideo']; ?></label></td>
-	<td width="367" valign="top"><div align="right">
-  	<input type="text" maxlength="40" name="title_form" class="input border-5 glow-shadow-2 form-disabled" size="40" required="required">
-	</div></td></tr>
-	<tr><td valign="top">
-	<label><?php echo $Media['LinkVideo']; ?></label></td>
-	<td valign="top"><div align="right">
-  	<input type="url" name="url_form"  class="input border-5 glow-shadow-2 form-disabled" size="40" required="required" >
+	<tr>
+    <td valign="top"><label><?php echo $Media['TitleVideo']; ?></label></td>
+	  <td width="367" valign="top"><div align="right">
+  	 <input type="text" maxlength="40" name="title_form" class="input border-5 glow-shadow-2 form-disabled" size="40" required="required">
+	  </div></td>
+  </tr>
+	<tr>
+    <td valign="top"><label><?php echo $Media['LinkVideo']; ?></label></td>
+	  <td valign="top"><div align="right">
+  	 <input type="url" name="url_form"  class="input border-5 glow-shadow-2 form-disabled" size="40" required="required" >
     </div></td></tr>
-	<tr><td valign="top">
-	<label><?php echo $Media['Description']; ?></label></td>
-	<td valign="top"><div align="right"> 
-  	<textarea type="text" name="description_form"  class="input border-5 glow-shadow-2 form-disabled" cols="38" rows="8" required="required" ></textarea>
-	</div></td></tr>
-	<tr><td>
-	<button type="submit" class="ui-button button1 "  name="enviar">
-	<span>
-	<span><?php echo $Media['SendVideo']; ?></span></span></button>
-	</td><td>
-  	<div align="right">
-    <button class="ui-cancel "  type="reset">
-    <span><?php echo $Media['DelFields']; ?></span>    </button>
-  	</div>
-</form>
-</td></tr>
+	<tr>
+    <td valign="top"><label><?php echo $Media['Description']; ?></label></td>
+	  <td valign="top"><div align="right"> 
+  	   <textarea type="text" name="description_form"  class="input border-5 glow-shadow-2 form-disabled" cols="38" rows="8" required="required" ></textarea>
+	  </div></td>
+  </tr>
+  <!-- Here will be have to add a catpcha recognition to prevent spam -->
+	<tr>
+    <td><button type="submit" class="ui-button button1 "  name="send"><span><span><?php echo $Media['SendVideo']; ?></span></span></button></td>
+    <td><div align="right"><button class="ui-cancel "  type="reset"><span><?php echo $Media['DelFields']; ?></span></button></div></td>
+  </tr>
 </table>
+</form>
 
 
 </div>
+<?php
+  }
+?>
 </div>
 </div>
 </div>
