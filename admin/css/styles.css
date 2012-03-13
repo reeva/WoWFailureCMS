@@ -429,6 +429,9 @@ body {
 .carousel_ul li a.ico9 {
 	background: url(../images/icon-9.png) no-repeat 0 0
 }
+.carousel_ul li a.ico10 {
+	background: url(../images/icon-10.png) no-repeat 0 0
+}
 .carousel_ul li a.icom {
 	background: url(../images/icon-m.png) no-repeat 0 0
 }
@@ -509,6 +512,9 @@ body {
 .carousel_ul2 li a.ico9 {
 	background: url(../images/icon-9.png) no-repeat 0 0
 }
+.carousel_ul2 li a.ico10 {
+	background: url(../images/icon-10.png) no-repeat 0 0
+}
 .carousel_ul2 li a:hover {
 	background-position: 0 -64px
 }
@@ -576,6 +582,9 @@ body {
 }
 .carousel_ul3 li a.ico9 {
 	background: url(../images/icon-9.png) no-repeat 0 0
+}
+.carousel_ul3 li a.ico10 {
+	background: url(../images/icon-10.png) no-repeat 0 0
 }
 .carousel_ul3 li a:hover {
 	background-position: 0 -64px
