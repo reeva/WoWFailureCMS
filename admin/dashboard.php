@@ -68,62 +68,8 @@ $('#checkall').toggleClass('clicked');
 	<div id="admin">
     <div id="wrap">
       <div id="head">
-        <h1><img src="../wow/static/images/logos/wof-logo.png" height="21px" width="260px"/><br />
-        <span>Admin Login Panel</span></h1>
-        <ul id="menu">
-          <li><a href="dashboard.php">Dashboard</a></li>
-          <li><a href="viewnews.php">News</a></li>
-          <li><a href="forms.php">Forums</a></li>
-          <li><a href="#">Users</a></li>
-          <li class="ddm"><a>Account</a>
-            <ul class="ddl">
-              <li><a href="#">Account</a></li>
-              <li><a href="#">Information</a></li>
-              <li><a href="#">Edit</a></li>
-              <li><a href="#">Log Out</a></li>
-            </ul>
-          </li>
-        </ul>
-        <ul id="tablist">
-          <li><a href="#a"><span>Server Functions</span></a></li>
-	        <li><a href="#b"><span>Account Services</span></a></li>
-        </ul>
-        <div id="tabsPanel">
-          <div id="a" class="tab_content">
-            <div class='carousel_container'>
-              <div class='left_scroll'><img src='images/leftArrow.png' alt="" /></div>
-              <div class='carousel_inner'>
-              <ul class='carousel_ul'>
-                <li><span rel="tooltip" title="<strong style='color:#00B6FF'>Write News</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico1" href='writenews.php'></a></span></li>
-					      <li><span rel="tooltip" title="<strong style='color:#00B6FF'>View/Edit News</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico3" href='viewnews.php'></a></span></li>
-						    
-                <li><span rel="tooltip" title="<strong style='color:#00B6FF'>Connectivity</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico2" href='#'></a></span></li>
-						    <li><span rel="tooltip" title="<strong style='color:#00B6FF'>View the Website</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico4" href='viewwebsite.php'></a></span></li>
-						    <li><span rel="tooltip" title="<strong style='color:#00B6FF'>Users Panel</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico5" href='users.php'></a></span></li>
-						    <li><span rel="tooltip" title="<strong style='color:#00B6FF'>Notes and Dates</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico6" href='calendarandnotes.php'></a></span></li>
-						    <li><span rel="tooltip" title="<strong style='color:#00B6FF'>Edit the DB</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico7" href='editdb.php'></a></span></li>
-						    <li><span rel="tooltip" title="<strong style='color:#00B6FF'>Delete your DB</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico8" href='deletedb.php'></a></span></li>
-						    <li><span rel="tooltip" title="<strong style='color:#00B6FF'>Information</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico9" href='info.php'></a></span></li>
-              </ul>
-              </div>
-              <div class='right_scroll'><img src='images/rightArrow.png' alt="" /></div>
-            </div>
-          </div>
-				  <div id="b" class="tab_content">
-            <div class='carousel_container'>
-              <div class='left_scroll'><img src='images/leftArrow.png' alt="" /></div>
-              <div class='carousel_inner'>
-                <ul class='carousel_ul2'>
-                  <li><span rel="tooltip" title="<strong style='color:red'>Log Out</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico5" href='logout.php'></a></span></li>
-                  <li><span rel="tooltip" title="<strong style='color:#00B6FF'>Account Information</strong>" style="color:#ff9200;font-weight:bold;font-size:14px;"><a class="ico9" href='info.php'></a></span></li>
-                </ul>
-              </div>
-              <div class='right_scroll'><img src='images/rightArrow.png' alt="" /></div>
-            </div>
-          </div>
-        <!--Tab End-->  
+        <?php include('header.php'); ?>
       </div>
-              <img src="images/shadow.png" class="shadow" alt="" /> </div>
     <!--Content Start-->
     <div id="content">
               <div class="datalist">
@@ -200,45 +146,47 @@ $('#checkall').toggleClass('clicked');
             }?>
                 </ul></div>
 				<img src="images/sepLine.png" alt="" class="sepline" />
-				<div class="datalist">
-	   <div class="heading">
-                  <h2>Latest <span rel="tooltip" title="<strong style='color:red'>Users Registered</strong><br/><br/>Here you can see the latest 5 Users that rigistered lately.<br />Click on the <strong>Users</strong> to redirect on the main page of the Registered Users." style="color:#ff9200;font-weight:bold;font-size:14px;"><a href="viewnews.php">Users</a></span> Registered</h2>
-                  <select name="sort">
+			<div class="datalist">
+	      <div class="heading">
+          <h2>Latest <span rel="tooltip" title="<strong style='color:red'>Users Registered</strong><br/><br/>Here you can see the latest 5 Users that rigistered lately.<br />Click on the <strong>Users</strong> to redirect on the main page of the Registered Users." style="color:#ff9200;font-weight:bold;font-size:14px;"><a href="viewnews.php">Users</a></span> Registered</h2>
+          <select name="sort">
             <option>Sort By</option>
             <option>Option1</option>
             <option>Option2</option>
           </select>
-                </div>
+        </div>
         <ul id="lst">
-        <li>
-      <div class="chk"><a id="checkall"></a> </div>
-			<p class="editHead"><strong>Birth</strong></p>
+          <li><div class="chk"><a id="checkall"></a> </div>
+			      <p class="editHead"><strong>Username</strong></p>
             <p class="title"><strong>First Name</strong></p>
             <p class="descripHead">Characters</p>
-            <p class="incHead">Username</p>
+            <p class="incHead">Birth</p>
           </li>
 		   <?php
-            mysql_select_db($server_db) or die (mysql_error());
-            $users = mysql_query("SELECT id,firstName,birth FROM users ORDER BY id DESC LIMIT 5");
-            while ($usercheck = mysql_fetch_assoc($users)){
-			echo'
-            <li>
-            <div class="chk">
-              <label>
-                <input class="chkl" type="checkbox" name="chk" value="checkbox" />
-              </label>
-            </div>
-            <p class="title">'.$usercheck['birth'].'</p>
-			<p class="title">'.$usercheck['firstName'].'</p>
-            <p class="descrip">'.$usercheck['character'].'</p>';}?>
-			 <?php
-            mysql_select_db($server_adb) or die (mysql_error());
-			$user = mysql_query("SELECT username FROM account WHERE id = '".$usercheck['id']."'");
-            $username = mysql_result($user,0);
-			echo'
-            <p class="inc">'.$username['username'].'</p>
-            </li>';
-            ?>
+          mysql_select_db($server_db) or die (mysql_error());
+          $users = mysql_query("SELECT U.id,U.firstName,U.birth,username FROM users U, $server_adb.account A 
+            WHERE A.id = U.id ORDER BY id DESC LIMIT 5");
+          while ($usercheck = mysql_fetch_assoc($users)){
+            mysql_select_db($server_cdb) or die (mysql_error());
+            $chars = mysql_query("SELECT name FROM characters WHERE account = '".$usercheck['id']."'");
+			      echo '
+              <li>
+              <div class="chk">
+                <label>
+                  <input class="chkl" type="checkbox" name="chk" value="checkbox" />
+                </label>
+              </div>
+              <p class="edit">'.$usercheck['username'].'</p>
+			        <p class="title">'.$usercheck['firstName'].'</p>
+              <p class="descrip">';
+                while ($charcheck = mysql_fetch_assoc($chars)){
+                  echo $charcheck['name'].', ';
+                }
+              echo '</p>
+              <p class="inc">'.$usercheck['birth'].'</p>
+              </li>';
+          }
+        ?>
 			</ul>
       </div>
 	  

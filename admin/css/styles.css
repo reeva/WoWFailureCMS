@@ -429,6 +429,12 @@ body {
 .carousel_ul li a.ico9 {
 	background: url(../images/icon-9.png) no-repeat 0 0
 }
+.carousel_ul li a.icom {
+	background: url(../images/icon-m.png) no-repeat 0 0
+}
+.carousel_ul li a.icom2 {
+	background: url(../images/icon-m2.png) no-repeat 0 0
+}
 .carousel_ul li a:hover {
 	background-position: 0 -64px
 }
@@ -515,6 +521,64 @@ body {
 .left_scroll2 img, .right_scroll2 img {
 	cursor: pointer;
 	cursor: hand;
+}
+.carousel_ul3 {
+	position: relative;
+	left: -210px;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	width: 9999px;
+	padding-bottom: 10px;
+}
+.carousel_ul3 li:first-child {
+	margin-left: 211px
+}
+.carousel_ul3 li {
+	float: left;
+	width: 63px;
+	height: 64px;
+	padding: 0px;
+	margin-top: 24px;
+	margin-bottom: 10px;
+	margin-left: 16px;
+	margin-right: 16px;
+}
+.carousel_ul3 li a {
+	width: 63px;
+	height: 64px;
+	float: left;
+	background:url(../images/galleryImage.png) no-repeat
+}
+.carousel_ul3 li a.ico1 {
+	background: url(../images/icon-1.png) no-repeat 0 0
+}
+.carousel_ul3 li a.ico2 {
+	background: url(../images/icon-2.png) no-repeat 0 0
+}
+.carousel_ul3 li a.ico3 {
+	background: url(../images/icon-3.png) no-repeat 0 0
+}
+.carousel_ul3 li a.ico4 {
+	background: url(../images/icon-4.png) no-repeat 0 0
+}
+.carousel_ul3 li a.ico5 {
+	background: url(../images/icon-5.png) no-repeat 0 0
+}
+.carousel_ul3 li a.ico6 {
+	background: url(../images/icon-6.png) no-repeat 0 0
+}
+.carousel_ul3 li a.ico7 {
+	background: url(../images/icon-7.png) no-repeat 0 0
+}
+.carousel_ul3 li a.ico8 {
+	background: url(../images/icon-8.png) no-repeat 0 0
+}
+.carousel_ul3 li a.ico9 {
+	background: url(../images/icon-9.png) no-repeat 0 0
+}
+.carousel_ul3 li a:hover {
+	background-position: 0 -64px
 }
 #content {
 	width:100%;
