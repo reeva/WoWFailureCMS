@@ -623,6 +623,56 @@ body {
 	float:right;
 	margin:0 0 0 3px
 }
+
+/*TABLE FOR CONTENT*/
+#content .datalist table {
+  background:#E8E8E8; 
+  border-collapse: collapse;
+	width:940px;
+	float:left;
+	margin:16px 0 0 20px;
+  text-align:center; 
+}
+#content .datalist table tr{
+  border-bottom-color:#FFFFFF;
+  border-bottom-width:2px;
+  border-bottom-style:solid;
+}
+#content .datalist table thead th {
+	height:43px;
+	vertical-align:middle;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:12px;
+	color:#464646;
+}
+#content .datalist table tbody td {
+	height:43px;
+	vertical-align:middle;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:12px;
+	color:#464646;
+}
+#content .datalist table .chk {
+  vertical-align:top;
+  width:40px;
+}
+#content .datalist table .edit {
+  width:125px;
+}
+#content .datalist table .title {
+	width:120px;
+}
+#content .datalist table .desc {
+  width:550px;
+}
+#content .datalist table .inc {
+  width:80px;
+}
+#content .datalist table .edit > a + a { /*delete icon*/
+	margin: 0 0 0 20px
+}
+/*TABLE FOR CONTENT END*/
+
 #content .datalist ul {
 	width:940px;
 	float:left;

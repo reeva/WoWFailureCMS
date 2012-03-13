@@ -23,6 +23,28 @@ include("../configs.php");
   mysql_select_db($server_db) or die (mysql_error());
   $num_r = mysql_num_rows(mysql_query("SELECT id FROM news"));
   $num_p = ceil($num / $size);
+
+  //MEDIA TYPES VIEW **** Types: 0-video, 1-screen,2-wall,3-art  I have to confirm with the media updates
+  if (!isset($_GET['type']) || $_GET['type'] == 'all' || $_GET['type'] == 'video'){
+    //mysql_select_db($server_db);
+    //$sql = mysql_query("SELECT title,link,type FROM media ORDER BY date DESC LIMIT 5");
+    echo 'video';
+  }
+  if (!isset($_GET['type']) || $_GET['type'] == 'all' || $_GET['type'] == 'screen'){
+    //mysql_select_db($server_db);
+    //$sql = mysql_query("SELECT title,link,type FROM media ORDER BY date DESC LIMIT 5");
+    echo 'screen';
+  }
+  if (!isset($_GET['type']) || $_GET['type'] == 'all' || $_GET['type'] == 'wall'){
+    //mysql_select_db($server_db);
+    //$sql = mysql_query("SELECT title,link,type FROM media ORDER BY date DESC LIMIT 5");
+    echo 'wall';
+  }
+  if (!isset($_GET['type']) || $_GET['type'] == 'all' || $_GET['type'] == 'art'){
+    //mysql_select_db($server_db);
+    //$sql = mysql_query("SELECT title,link,type FROM media ORDER BY date DESC LIMIT 5");
+    echo 'art';
+  }
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -86,15 +108,23 @@ $('#checkall').toggleClass('clicked');
       </div>
     <!--Content Start-->
     <div id="content">
-		  <img src="images/sepLine.png" alt="" class="sepline" />
 			<div class="datalist">
 	     <div class="heading">
-        <h2>News Posts</h2>
+        <h2>Approved Media</h2>
         <select name="sort">
           <option>Sort By</option>
           <option>Option1</option>
           <option>Option2</option>
         </select>
+        <form method="get" action="">
+        <select name="type" onchange="submit(this.form)">
+          <option value="all" <?php if(!isset($_GET['type']) || $_GET['type']=='all'){echo 'selected="selected"';} ?>>All</option>
+          <option value="video" <?php if($_GET['type']=='video'){echo 'selected="selected"';} ?>>Videos</option>
+          <option value="screen" <?php if($_GET['type']=='screen'){echo 'selected="selected"';} ?>>Screen</option>
+          <option value="wall" <?php if($_GET['type']=='wall'){echo 'selected="selected"';} ?>>Wallpapers</option>
+          <option value="art" <?php if($_GET['type']=='art'){echo 'selected="selected"';} ?>>Art</option>
+        </select>
+        </form>
       </div>
       <div style="text-align:right;margin-right:30px;">
         <?php
@@ -107,10 +137,33 @@ $('#checkall').toggleClass('clicked');
          }
         ?>
       </div>
+      <table>
+        <thead>
+        <tr>
+          <th class="chk"><input type="checkbox" /></th>
+          <th class="edit"><strong>UnApprove/Delete</strong></th>
+          <th class="title"><strong>Title</strong></th>
+          <th class="desc"><strong>Link</strong></th>
+          <th class="inc"><strong>Type</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="chk"><input type="checkbox" /></td>
+          <td class="edit">
+            <a href="media_man.php?id=<?php echo $media['id']; ?>&action=add&orig=mediaall"><img src="images/unIco.png" alt="" /></a>
+            <a href="mediadelete.php?id=<?php echo $media['id']; ?>&orig=mediaall"><img src="images/deletIco.png" alt="" /></a>
+          </td>
+          <td class="title">Title</td>
+          <td class="desc">Link</td>
+          <td class="inc">Type</td>         
+        </tr>
+        </tbody>
+      </table>
       <ul id="lst">
         <li>
           <div class="chk"><a id="checkall"></a> </div>
-			    <p class="editHead"><strong>Edit/Delete</strong></p>
+			    <p class="editHead"><strong>UnApprove/Delete</strong></p>
           <p class="title"><strong>Title</strong></p>
           <p class="descripHead">Description</p>
           <p class="incHead">Replies</p>
