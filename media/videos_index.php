@@ -71,7 +71,7 @@ _gaq.push(['_trackPageview']);
 
 						<?php
 						$CantIndex = 12;
-						$consulta0 = mysql_query(" SELECT * FROM videos WHERE visible = 1");
+						$consulta0 = mysql_query(" SELECT * FROM media WHERE visible = 1 AND type = '0'");
 						$totalSql = mysql_num_rows($consulta0);
 						$pagTotal = ceil($totalSql/$CantIndex);
 						if (!isset($_GET['pag'])) {$pagActual=1;} else {$pagActual=$_GET['pag'];}
@@ -121,7 +121,7 @@ _gaq.push(['_trackPageview']);
 
 						<?php
 
-						$consulta1 = mysql_query(" SELECT * FROM videos WHERE visible = 1 ORDER BY date DESC LIMIT ".(($pagActual-1)*$CantIndex).",".$CantIndex."");
+						$consulta1 = mysql_query(" SELECT * FROM media WHERE visible = 1 AND type = '0' ORDER BY date DESC LIMIT ".(($pagActual-1)*$CantIndex).",".$CantIndex."");
 						while($videos = mysql_fetch_assoc($consulta1)) {
 						?>
 						<a href="videos_visor.php?id=<?php echo $videos['id']; ?>" class="thumb-wrapper">

@@ -73,7 +73,7 @@ _gaq.push(['_trackPageview']);
                 	<?php
 					$videos_id = intval($_GET['id']);
 					if($videos_id != 0) $error=0; else $error=1;
-					$videos_query = mysql_query("SELECT * FROM videos WHERE id = '".$videos_id."'")or $error=1;
+					$videos_query = mysql_query("SELECT * FROM media WHERE id = '".$videos_id."'")or $error=1;
 					$videos = mysql_fetch_assoc($videos_query)or $error=1;
 					$date = $videos['date'];
 					?>
@@ -117,9 +117,9 @@ _gaq.push(['_trackPageview']);
 											$comment = nl2br($comment);
 											$insert = mysql_query("INSERT INTO video_comments (videoid,comment,accountid) VALUES ('".$news['id']."','".$comment."','".$author."')")or print("Could not post the comment!");
 
-											//Fixed that bugging bug + DATE =)) :)) =)) :D
-											$update = mysql_query("UPDATE videos SET comments = comments + 1 WHERE id = '".$videos['id']."'");
-											$update = mysql_query("UPDATE date SET date = '".$date."' WHERE id = '".$videos['id']."'");
+											//Fixed that bugging bug + DATE
+											$update = mysql_query("UPDATE media SET comments = comments + 1 WHERE id = '".$videos['id']."'");
+											//$update = mysql_query("UPDATE date SET date = '".$date."' WHERE id = '".$videos['id']."'");
 											$posted = 1;
 											
 											echo '<center><br /><br />Comment Posted<br />';
