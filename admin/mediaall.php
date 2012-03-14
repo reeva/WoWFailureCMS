@@ -21,29 +21,25 @@ include("../configs.php");
     $start = ($page - 1) * $size;   //Calculate the first result to show
   }
   mysql_select_db($server_db) or die (mysql_error());
-  $num_r = mysql_num_rows(mysql_query("SELECT id FROM news"));
+  $num_r = mysql_num_rows(mysql_query("SELECT id FROM media"));
   $num_p = ceil($num / $size);
 
   //MEDIA TYPES VIEW **** Types: 0-video, 1-screen,2-wall,3-art  I have to confirm with the media updates
   if (!isset($_GET['type']) || $_GET['type'] == 'all' || $_GET['type'] == 'video'){
     //mysql_select_db($server_db);
     //$sql = mysql_query("SELECT title,link,type FROM media ORDER BY date DESC LIMIT 5");
-    echo 'video';
   }
   if (!isset($_GET['type']) || $_GET['type'] == 'all' || $_GET['type'] == 'screen'){
     //mysql_select_db($server_db);
     //$sql = mysql_query("SELECT title,link,type FROM media ORDER BY date DESC LIMIT 5");
-    echo 'screen';
   }
   if (!isset($_GET['type']) || $_GET['type'] == 'all' || $_GET['type'] == 'wall'){
     //mysql_select_db($server_db);
     //$sql = mysql_query("SELECT title,link,type FROM media ORDER BY date DESC LIMIT 5");
-    echo 'wall';
   }
   if (!isset($_GET['type']) || $_GET['type'] == 'all' || $_GET['type'] == 'art'){
     //mysql_select_db($server_db);
     //$sql = mysql_query("SELECT title,link,type FROM media ORDER BY date DESC LIMIT 5");
-    echo 'art';
   }
 ?>
 
@@ -111,11 +107,6 @@ $('#checkall').toggleClass('clicked');
 			<div class="datalist">
 	     <div class="heading">
         <h2>Approved Media</h2>
-        <select name="sort">
-          <option>Sort By</option>
-          <option>Option1</option>
-          <option>Option2</option>
-        </select>
         <form method="get" action="">
         <select name="type" onchange="submit(this.form)">
           <option value="all" <?php if(!isset($_GET['type']) || $_GET['type']=='all'){echo 'selected="selected"';} ?>>All</option>
@@ -141,51 +132,32 @@ $('#checkall').toggleClass('clicked');
         <thead>
         <tr>
           <th class="chk"><input type="checkbox" /></th>
-          <th class="edit"><strong>UnApprove/Delete</strong></th>
+          <th class="edit"><strong>Recycle</strong></th>
           <th class="title"><strong>Title</strong></th>
-          <th class="desc"><strong>Link</strong></th>
-          <th class="inc"><strong>Type</strong></th>
+          <th class="desc"><strong>Description</strong></th>
+          <th class="inc"><strong>Comments</strong></th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-          <td class="chk"><input type="checkbox" /></td>
-          <td class="edit">
-            <a href="media_man.php?id=<?php echo $media['id']; ?>&action=add&orig=mediaall"><img src="images/unIco.png" alt="" /></a>
-            <a href="mediadelete.php?id=<?php echo $media['id']; ?>&orig=mediaall"><img src="images/deletIco.png" alt="" /></a>
-          </td>
-          <td class="title">Title</td>
-          <td class="desc">Link</td>
-          <td class="inc">Type</td>         
-        </tr>
-        </tbody>
-      </table>
-      <ul id="lst">
-        <li>
-          <div class="chk"><a id="checkall"></a> </div>
-			    <p class="editHead"><strong>UnApprove/Delete</strong></p>
-          <p class="title"><strong>Title</strong></p>
-          <p class="descripHead">Description</p>
-          <p class="incHead">Replies</p>
-        </li>
+        
+     
            <?php
             mysql_select_db($server_db) or die (mysql_error());
-            $result = mysql_query("SELECT id,title,content,comments FROM news ORDER BY date DESC LIMIT $start,$size");
+            $result = mysql_query("SELECT id,title,description,comments,type FROM media ORDER BY date DESC LIMIT $start,$size");
             while ($new = mysql_fetch_assoc($result)){
-              echo'
-            <li>
-            <div class="chk">
-              <label>
-                <input class="chkl" type="checkbox" name="chk" value="checkbox" />
-              </label>
-            </div>
-            <p class="edit"><a href="editnews.php?id='.$new['id'].'"><img src="images/editIco.png" alt="" /></a> <a href="deletenews.php?id='.$new['id'].'"><img src="images/deletIco.png" alt="" /></a></p>
-            <p class="title">'.$new['title'].'</p>
-            <p class="descrip">'.substr(strip_tags($new['content']),0,90).'</p>
-            <p class="inc">'.$new['comments'].'</p>
-            </li>';
+              echo'<tbody>
+			<tr>
+			<th class="chk"><input type="checkbox" /></th>
+			<td class="edit">
+			<a href="#"><span rel="tooltip" title="&lt;strong style=&quot;color:#00B6FF&quot;&gt;Unapprove&lt;/strong&gt;" style="color:#ff9200;font-weight:bold;font-size:14px;"><img src="images/unIco.png" alt=""></span></a>
+			<a href="#"><span rel="tooltip" title="&lt;strong style=&quot;color:#00B6FF&quot;&gt;Delete&lt;/strong&gt;" style="color:#ff9200;font-weight:bold;font-size:14px;"><img src="images/deletIco.png" alt=""></span></a>
+			</td>
+			<td class="title">'.$new['title'].'</td>
+			<td class="desc">'.$new['description'].'</td>
+			<td class="inc">'.$new['comments'].'</td>         
+			</tr>
+			</tbody>';
             }?>
-      </ul>
+ </table>
     </div>
     <img src="images/sepLine.png" alt="" class="sepline" />
              <!--  <div class="messages">
