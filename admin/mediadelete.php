@@ -74,11 +74,11 @@ $('#checkall').toggleClass('clicked');
 		  
       <div class="messages">
       <?php
-        if(isset($_GET['id']) && isset($_GET['orig'])){
+        if(isset($_GET['id'])){
           mysql_select_db($server_db);
           $del = mysql_query("DELETE FROM media WHERE id = '".mysql_real_escape_string($_GET['id'])."'");
           //add delete file if updated
-          //add delete comments
+          //$del_c = mysql_query("DELETE FROM media_comments WHERE id = '".mysql_real_escape_string($_GET['id'])."'");
         }
         if($del == true){
           echo '
@@ -92,7 +92,7 @@ $('#checkall').toggleClass('clicked');
               <p>An error has ocurred while deleting the media file</p>
             </div>';
         }
-        echo '<meta http-equiv="refresh" content="4;url='.$_GET['orig'].'.php"/>';
+        echo '<meta http-equiv="refresh" content="3;url='.$_SERVER['HTTP_REFERER'].'"/>';
       ?>
       </div>
     </div>

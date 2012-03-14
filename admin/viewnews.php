@@ -9,20 +9,25 @@ include("../configs.php");
 <meta http-equiv="refresh" content="2;url=GTFO.php"/>
 		');
 	}
-  //Limit of results per page 
-  $size=10; 
-  //Look for the number page, if not then first
-  if (!isset($_GET["page"])) { 
-    $start = 0; //the first result to show, 1, 26... 
-    $page=1; //If no page found then first page
-  } 
-  else {
-      $page = $_GET["page"];  
-    $start = ($page - 1) * $size;   //Calculate the first result to show
-  }
+	
   mysql_select_db($server_db) or die (mysql_error());
-  $num_r = mysql_num_rows(mysql_query("SELECT id FROM news"));
-  $num_p = ceil($num / $size);
+  $sql = mysql_query("SELECT id FROM news");
+  //PAGINATION BEGIN
+  $size=10; 
+  $num_r = mysql_num_rows($sql);
+  $num_p = ceil($num_r / $size);
+  //Look for the number page, if not then first
+  if (!isset($_GET['page']) || empty($_GET['page']) || $_GET['page'] < 1) {   //More control for 'go to' textbox
+    $page=1;
+  } 
+  elseif ($_GET['page'] > $num_p){ //If overflow the show last page
+    $page = $num_p;
+  } 
+  else{
+    $page = $_GET['page'];  
+  }
+  $start = ($page - 1) * $size;  //the first result to show
+  //PAGINATION END
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -87,25 +92,32 @@ $('#checkall').toggleClass('clicked');
     <!--Content Start-->
     <div id="content">
 		  <img src="images/sepLine.png" alt="" class="sepline" />
-			<div class="datalist">
+    <div class="datalist"> 
 	     <div class="heading">
         <h2>News Posts</h2>
         <select name="sort">
           <option>Sort By</option>
           <option>Option1</option>
           <option>Option2</option>
-        </select>
+        </select> 
       </div>
-      <div style="text-align:right;margin-right:30px;">
+      <div class="pagination">
         <?php
           if ($num_p > 1){
-         if ($page > 1){echo '<a href="news.php?page='.($page-1).'" style="color:#43ACFB;text-decoration:none;">Prev. </a>|';}
-         if ($page > 2){echo '<a href="news.php?page=1" style="color:#43ACFB;text-decoration:none;"> 1 </a>...';}
-         echo '<a href="news.php?page=1" style="color:#43ACFB;text-decoration:none;"> '.$page.' </a>';
-         if ($page < $num_p-1){echo '...<a href="news.php?page='.$num_p.'" style="color:#43ACFB;text-decoration:none;"> '.$num_p.' </a>';}
-         if ($page < $num_p){echo '|<a href="news.php?page='.($page+1).'" style="color:#43ACFB;text-decoration:none;"> Next</a>';}
+         if ($page > 1){echo '<a href="viewnews.php?page='.($page-1).'" style="color:#43ACFB;text-decoration:none;">Prev. </a>|';}
+         if ($page > 2){echo '<a href="viewnews.php?page=1" style="color:#43ACFB;text-decoration:none;"> 1 </a>...';}
+         echo $page;
+         if ($page < $num_p-1){echo '...<a href="viewnews.php?page='.$num_p.'" style="color:#43ACFB;text-decoration:none;"> '.$num_p.' </a>';}
+         if ($page < $num_p){echo '|<a href="viewnews.php?page='.($page+1).'" style="color:#43ACFB;text-decoration:none;"> Next</a>';}
+         echo'
+          <form method="get" action="">
+            <input type="hidden" name="sort" value="'.$_GET['sort'].'">
+            <input type="hidden" name="type" value="'.$_GET['type'].'">
+            <input type="text" name="page" maxlength="4" class="pag"/>
+            <input type="submit" value="Go">
+          </form>'; 
          }
-        ?>
+        ?> 
       </div>
       <ul id="lst">
         <li>

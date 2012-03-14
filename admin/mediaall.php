@@ -8,27 +8,16 @@ include("../configs.php");
 		die('
 <meta http-equiv="refresh" content="2;url=GTFO.php"/>
 		');
-	} /*
-  //Limit of results per page 
-  $size=10; 
-  //Look for the number page, if not then first
-  if (!isset($_GET["page"])) { 
-    $start = 0; //the first result to show, 1, 26... 
-    $page=1; //If no page found then first page
-  } 
-  else {
-    $page = $_GET["page"];  
-    $start = ($page - 1) * $size;   //Calculate the first result to show
-  }
-  mysql_select_db($server_db) or die (mysql_error());
-  $num_r = mysql_num_rows(mysql_query("SELECT id FROM news"));
-  $num_p = ceil($num / $size);  Coming soon pagination*/
-  
-  if ($_GET['sort'] == 'type'){
+	} 
+    
+  if ($_GET['sort'] == 'type'){    //Order by...
     $order = ' type ASC, ';
   }
   elseif($_GET['sort'] == 'title'){
     $order = ' title ASC, ';
+  }
+  elseif($_GET['sort'] == 'author'){
+    $order = ' author ASC, ';
   }
   else{
     $order = '';
@@ -41,7 +30,26 @@ include("../configs.php");
   }
   
   mysql_select_db($server_db) or die (mysql_error());
-  $sql_string = "SELECT * FROM media WHERE visible = '1' ".$type." ORDER BY ".$order." date DESC";  
+  $sql = mysql_query("SELECT * FROM media WHERE visible = '1' ".$type);
+
+  //PAGINATION BEGIN
+  $size=10; 
+  $num_r = mysql_num_rows($sql);
+  $num_p = ceil($num_r / $size);
+  //Look for the number page, if not then first
+  if (!isset($_GET['page']) || empty($_GET['page']) || $_GET['page'] < 1) {   //More control for 'go to' textbox
+    $page=1;
+  } 
+  elseif ($_GET['page'] > $num_p){ //If overflow the show last page
+    $page = $num_p;
+  } 
+  else{
+    $page = $_GET['page'];  
+  }
+  $start = ($page - 1) * $size;  //the first result to show
+  //PAGINATION END
+  
+  $sql_string = "SELECT * FROM media WHERE visible = '1' ".$type." ORDER BY ".$order." date DESC LIMIT $start,$size";  
   $sql_query = mysql_query($sql_string); //add limit for pagination work
 ?>
 
@@ -111,37 +119,48 @@ $('#checkall').toggleClass('clicked');
         <h2>Manage Media</h2>
         <form method="get" action="">
           <select name="sort" onchange="submit(this.form)">
-            <option value="type">Type</option>
-            <option value="title">Title</option>
+            <option value="" <?php if(!isset($_GET['sort'])){echo 'selected="selected"';} ?>>Sort by</option>
+            <option value="date" <?php if($_GET['sort']=='date'){echo 'selected="selected"';} ?>>Date</option>
+            <option value="type" <?php if($_GET['sort']=='type'){echo 'selected="selected"';} ?>>Type</option>
+            <option value="title" <?php if($_GET['sort']=='title'){echo 'selected="selected"';} ?>>Title</option>
+            <option value="author" <?php if($_GET['sort']=='author'){echo 'selected="selected"';} ?>>Author</option>
           </select>
           <select name="type" onchange="submit(this.form)">
             <option value="all" <?php if(!isset($_GET['type']) || $_GET['type']=='all'){echo 'selected="selected"';} ?>>All</option>
             <option value="0" <?php if($_GET['type']=='0'){echo 'selected="selected"';} ?>>Videos</option>
-            <option value="1" <?php if($_GET['type']=='1'){echo 'selected="selected"';} ?>>Screen</option>
-            <option value="2" <?php if($_GET['type']=='2'){echo 'selected="selected"';} ?>>Wallpapers</option>
+            <option value="1" <?php if($_GET['type']=='1'){echo 'selected="selected"';} ?>>Wallpapers</option>
+            <option value="2" <?php if($_GET['type']=='2'){echo 'selected="selected"';} ?>>Screen</option>
             <option value="3" <?php if($_GET['type']=='3'){echo 'selected="selected"';} ?>>Art</option>
             <option value="3" <?php if($_GET['type']=='4'){echo 'selected="selected"';} ?>>Comic</option>
           </select>
         </form>
       </div>
-      <div style="text-align:right;margin-right:30px;">
-        <?php
-          if ($num_p > 1){
-         if ($page > 1){echo '<a href="news.php?page='.($page-1).'" style="color:#43ACFB;text-decoration:none;">Prev. </a>|';}
-         if ($page > 2){echo '<a href="news.php?page=1" style="color:#43ACFB;text-decoration:none;"> 1 </a>...';}
-         echo '<a href="news.php?page=1" style="color:#43ACFB;text-decoration:none;"> '.$page.' </a>';
-         if ($page < $num_p-1){echo '...<a href="news.php?page='.$num_p.'" style="color:#43ACFB;text-decoration:none;"> '.$num_p.' </a>';}
-         if ($page < $num_p){echo '|<a href="news.php?page='.($page+1).'" style="color:#43ACFB;text-decoration:none;"> Next</a>';}
-         }
-        ?>
+      <div class="pagination">
+      <?php
+      if ($num_p > 1){
+         if ($page > 1){echo '<a href="mediaall.php?page='.($page-1).'" style="color:#43ACFB;text-decoration:none;">Prev. </a>|';}
+         if ($page > 2){echo '<a href="mediaall.php?page=1" style="color:#43ACFB;text-decoration:none;"> 1 </a>...';}
+         echo $page;
+         if ($page < $num_p-1){echo '...<a href="mediaall.php?page='.$num_p.'" style="color:#43ACFB;text-decoration:none;"> '.$num_p.' </a>';}
+         if ($page < $num_p){echo '|<a href="mediaall.php?page='.($page+1).'" style="color:#43ACFB;text-decoration:none;"> Next</a>';}
+         echo'
+        <form method="get" action="">
+          <input type="hidden" name="sort" value="'.$_GET['sort'].'">
+          <input type="hidden" name="type" value="'.$_GET['type'].'">
+          <input type="text" name="page" maxlength="4" class="pag"/>
+          <input type="submit" value="Go">
+        </form>'; 
+      }
+      ?> 
       </div>
       <table>
         <thead>
-        <tr>
-          <th class="chk"><input type="checkbox" /></th>
-          <th class="edit"><strong>Unapprove/Delete</strong></th>
+        <tr>  
+          <th class="chk"><input type="checkbox" /></th>   
+          <th class="edit"><strong>Unapprove/Delete</strong></th>   
           <th class="title"><strong>Title</strong></th>
           <th class="desc"><strong>Description</strong></th>
+          <th class="inc"><strong>Author</strong></th>
           <th class="inc"><strong>Date</strong></th>
           <th class="inc"><strong>Type</strong></th>
         </tr>
@@ -149,21 +168,29 @@ $('#checkall').toggleClass('clicked');
         <tbody>
       <?php
       while ($row = mysql_fetch_assoc($sql_query)){
+      $author = mysql_fetch_assoc(mysql_query("SELECT username FROM auth.account WHERE id = '".$row['author']."'"));
       echo'
         <tr>
-          <td class="chk"><input type="checkbox" /></td>
+          <td class="chk"><input type="checkbox" /></td>   
           <td class="edit">
-            <a href="media_man.php?id='.$row['id'].'&action=un&orig=mediaall"><img src="images/unIco.png" alt="" /></a>
-            <a href="mediadelete.php?id='.$row['id'].'&orig=mediaall"><img src="images/deletIco.png" alt="" /></a>
+            <a href="media_man.php?id='.$row['id'].'&action=un"><img src="images/unIco.png" alt="" /></a>
+            <a href="mediadelete.php?id='.$row['id'].'"><img src="images/deletIco.png" alt="" /></a>
           </td>
           <td class="title"><a href="'.$row['link'].'" target="_blank">'.$row['title'].'</a></td>
           <td class="desc">';
-              if (strlen($row['description']) > 80){
-                echo'<span rel="tooltip" title="<strong>'.$row['description'].'</strong>">'.strip_tags(substr($row['description'],0,80)).'...</span>';}
+              if (strlen($row['description']) > 60){
+                echo'<span rel="tooltip" title="<strong>'.$row['description'].'</strong>">'.strip_tags(substr($row['description'],0,60)).'...</span>';}
               else{ echo strip_tags($row['description']);}
       echo'</td>
-          <td class="inc">Date</td> 
-          <td class="inc">Type</td>         
+          <td class="inc">'.$author['username'].' ('.$row['author'].')</td> 
+          <td class="inc">'.date('d-m-Y', strtotime($row['date'])).'</td> 
+          <td class="inc">';
+      if ($row['type'] == '0'){echo 'Video';}
+      elseif ($row['type'] == '1'){echo 'Wallpaper';}
+      elseif ($row['type'] == '2'){echo 'Screenshot';}
+      elseif ($row['type'] == '3'){echo 'ArtWork';}
+      elseif ($row['type'] == '4'){echo 'Comic';}    
+      echo' </td>         
         </tr>';  
       }       
         

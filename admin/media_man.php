@@ -74,7 +74,7 @@ $('#checkall').toggleClass('clicked');
 		  
       <div class="messages">
       <?php
-        if(isset($_GET['id']) && isset($_GET['orig']) && isset($_GET['action'])){
+        if(isset($_GET['id']) && isset($_GET['action'])){
           mysql_select_db($server_db);
           if ($_GET['action'] == 'add'){
             $sql = mysql_query("UPDATE media SET visible='1' WHERE id = '".mysql_real_escape_string($_GET['id'])."'");
@@ -101,7 +101,7 @@ $('#checkall').toggleClass('clicked');
               <p>An error has ocurred while approving/unpproving the media file</p>
             </div>';
         }
-        echo '<meta http-equiv="refresh" content="4;url='.$_GET['orig'].'.php"/>';
+        echo '<meta http-equiv="refresh" content="3;url='.$_SERVER['HTTP_REFERER'].'"/>';
       ?>
       </div>
     </div>

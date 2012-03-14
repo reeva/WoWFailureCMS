@@ -892,6 +892,40 @@ body {
 	border:0;
 	background:url(../images/searchBg.png) no-repeat right top
 }
+
+/*Pagination BEGIN*/
+#content .datalist .pagination{
+  text-align:right;
+  margin-right:20px;
+}
+#content .datalist .pagination form {
+  display: inline-block;
+}
+#content .datalist .pagination input[type="text"] {
+	width: 30px;
+	height: 20px;
+	background-color: #E8E8E8;
+  border: 2px solid;
+  border-radius: 5px;
+	margin: 10px 10px 0 10px;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:12px;
+	color:#43ACFC;
+	border:0;
+}
+#content .datalist .pagination input[type="submit"] {
+	width:35px;
+	height:24px;
+	background-color: #E8E8E8;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:13px;
+	font-weight: bold;
+  color:#43ACFC;
+	cursor:pointer;
+	border: 3px inset #E8E8E8;
+}
+/*PAGINATION ENDS*/
+
 #content .forms h3 {
 	width:940px;
 	float:left;
