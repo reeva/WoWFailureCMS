@@ -392,6 +392,19 @@ a.ui-button.imgbutton span span span { padding: 0 5px; }
 #i18n-warning .warning-inner2 { background: url("../images/service-bar/globe.png") 12px 17px no-repeat; }
 
 /* footer */
+.powered {
+	display: block;
+	width: 44px;
+	height: 66px;
+	background: url('../images/layout/cms/copyright/aqua.png') bottom;
+	text-indent: -99999px;
+	text-align:center;
+}
+.powered:hover {
+	background-position: 0 0;
+	background: url('../images/layout/cms/copyright/aqua_hover.png') bottom;
+	text-align:center;
+}
 #footer { font: normal 12px "Lucida Sans Unicode", Arial, Helvetica, sans-serif; padding: 25px 0; }
 #footer a { color: #697489; }
 #footer a:hover { color: #dcdcdc; }
