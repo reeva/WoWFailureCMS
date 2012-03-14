@@ -8,7 +8,7 @@ include("../configs.php");
 		die('
 <meta http-equiv="refresh" content="2;url=GTFO.php"/>
 		');
-	}
+	} /*
   //Limit of results per page 
   $size=10; 
   //Look for the number page, if not then first
@@ -17,34 +17,32 @@ include("../configs.php");
     $page=1; //If no page found then first page
   } 
   else {
-      $page = $_GET["page"];  
+    $page = $_GET["page"];  
     $start = ($page - 1) * $size;   //Calculate the first result to show
   }
   mysql_select_db($server_db) or die (mysql_error());
   $num_r = mysql_num_rows(mysql_query("SELECT id FROM news"));
-  $num_p = ceil($num / $size);
-
-  //MEDIA TYPES VIEW **** Types: 0-video, 1-screen,2-wall,3-art  I have to confirm with the media updates
-  if (!isset($_GET['type']) || $_GET['type'] == 'all' || $_GET['type'] == 'video'){
-    //mysql_select_db($server_db);
-    //$sql = mysql_query("SELECT title,link,type FROM media ORDER BY date DESC LIMIT 5");
-    echo 'video';
+  $num_p = ceil($num / $size);  Coming soon pagination*/
+  
+  if ($_GET['sort'] == 'type'){
+    $order = ' type ASC, ';
   }
-  if (!isset($_GET['type']) || $_GET['type'] == 'all' || $_GET['type'] == 'screen'){
-    //mysql_select_db($server_db);
-    //$sql = mysql_query("SELECT title,link,type FROM media ORDER BY date DESC LIMIT 5");
-    echo 'screen';
+  elseif($_GET['sort'] == 'title'){
+    $order = ' title ASC, ';
   }
-  if (!isset($_GET['type']) || $_GET['type'] == 'all' || $_GET['type'] == 'wall'){
-    //mysql_select_db($server_db);
-    //$sql = mysql_query("SELECT title,link,type FROM media ORDER BY date DESC LIMIT 5");
-    echo 'wall';
+  else{
+    $order = '';
   }
-  if (!isset($_GET['type']) || $_GET['type'] == 'all' || $_GET['type'] == 'art'){
-    //mysql_select_db($server_db);
-    //$sql = mysql_query("SELECT title,link,type FROM media ORDER BY date DESC LIMIT 5");
-    echo 'art';
+  //MEDIA TYPES VIEW **** Types: 0-video, 1-screen,2-wall,3-art,4-comic
+  if ($_GET['type']=='0' || $_GET['type']=='1' || $_GET['type']=='2' || $_GET['type']=='3' || $_GET['type']=='4'){
+    $type = " AND type = '".$_GET['type']."' ";
+  }else{
+    $type = ''; //If not defined type or type all then show all media types
   }
+  
+  mysql_select_db($server_db) or die (mysql_error());
+  $sql_string = "SELECT * FROM media WHERE visible = '1' ".$type." ORDER BY ".$order." date DESC";  
+  $sql_query = mysql_query($sql_string); //add limit for pagination work
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -111,19 +109,19 @@ $('#checkall').toggleClass('clicked');
 			<div class="datalist">
 	     <div class="heading">
         <h2>Approved Media</h2>
-        <select name="sort">
-          <option>Sort By</option>
-          <option>Option1</option>
-          <option>Option2</option>
-        </select>
         <form method="get" action="">
-        <select name="type" onchange="submit(this.form)">
-          <option value="all" <?php if(!isset($_GET['type']) || $_GET['type']=='all'){echo 'selected="selected"';} ?>>All</option>
-          <option value="video" <?php if($_GET['type']=='video'){echo 'selected="selected"';} ?>>Videos</option>
-          <option value="screen" <?php if($_GET['type']=='screen'){echo 'selected="selected"';} ?>>Screen</option>
-          <option value="wall" <?php if($_GET['type']=='wall'){echo 'selected="selected"';} ?>>Wallpapers</option>
-          <option value="art" <?php if($_GET['type']=='art'){echo 'selected="selected"';} ?>>Art</option>
-        </select>
+          <select name="sort" onchange="submit(this.form)">
+            <option value="type">Type</option>
+            <option value="title">Title</option>
+          </select>
+          <select name="type" onchange="submit(this.form)">
+            <option value="all" <?php if(!isset($_GET['type']) || $_GET['type']=='all'){echo 'selected="selected"';} ?>>All</option>
+            <option value="0" <?php if($_GET['type']=='0'){echo 'selected="selected"';} ?>>Videos</option>
+            <option value="1" <?php if($_GET['type']=='1'){echo 'selected="selected"';} ?>>Screen</option>
+            <option value="2" <?php if($_GET['type']=='2'){echo 'selected="selected"';} ?>>Wallpapers</option>
+            <option value="3" <?php if($_GET['type']=='3'){echo 'selected="selected"';} ?>>Art</option>
+            <option value="3" <?php if($_GET['type']=='4'){echo 'selected="selected"';} ?>>Comic</option>
+          </select>
         </form>
       </div>
       <div style="text-align:right;margin-right:30px;">
@@ -143,49 +141,35 @@ $('#checkall').toggleClass('clicked');
           <th class="chk"><input type="checkbox" /></th>
           <th class="edit"><strong>UnApprove/Delete</strong></th>
           <th class="title"><strong>Title</strong></th>
-          <th class="desc"><strong>Link</strong></th>
+          <th class="desc"><strong>Description</strong></th>
+          <th class="inc"><strong>Date</strong></th>
           <th class="inc"><strong>Type</strong></th>
         </tr>
         </thead>
         <tbody>
+      <?php
+      while ($row = mysql_fetch_assoc($sql_query)){
+      echo'
         <tr>
           <td class="chk"><input type="checkbox" /></td>
           <td class="edit">
-            <a href="media_man.php?id=<?php echo $media['id']; ?>&action=add&orig=mediaall"><img src="images/unIco.png" alt="" /></a>
-            <a href="mediadelete.php?id=<?php echo $media['id']; ?>&orig=mediaall"><img src="images/deletIco.png" alt="" /></a>
+            <a href="media_man.php?id='.$row['id'].'&action=un&orig=mediaall"><img src="images/unIco.png" alt="" /></a>
+            <a href="mediadelete.php?id='.$row['id'].'&orig=mediaall"><img src="images/deletIco.png" alt="" /></a>
           </td>
-          <td class="title">Title</td>
-          <td class="desc">Link</td>
+          <td class="title"><a href="'.$row['link'].'" target="_blank">'.$row['title'].'</a></td>
+          <td class="desc">';
+              if (strlen($row['description']) > 80){
+                echo'<span rel="tooltip" title="<strong>'.$row['description'].'</strong>">'.strip_tags(substr($row['description'],0,80)).'...</span>';}
+              else{ echo strip_tags($row['description']);}
+      echo'</td>
+          <td class="inc">Date</td> 
           <td class="inc">Type</td>         
-        </tr>
+        </tr>';  
+      }       
+        
+      ?>
         </tbody>
       </table>
-      <ul id="lst">
-        <li>
-          <div class="chk"><a id="checkall"></a> </div>
-			    <p class="editHead"><strong>UnApprove/Delete</strong></p>
-          <p class="title"><strong>Title</strong></p>
-          <p class="descripHead">Description</p>
-          <p class="incHead">Replies</p>
-        </li>
-           <?php
-            mysql_select_db($server_db) or die (mysql_error());
-            $result = mysql_query("SELECT id,title,content,comments FROM news ORDER BY date DESC LIMIT $start,$size");
-            while ($new = mysql_fetch_assoc($result)){
-              echo'
-            <li>
-            <div class="chk">
-              <label>
-                <input class="chkl" type="checkbox" name="chk" value="checkbox" />
-              </label>
-            </div>
-            <p class="edit"><a href="editnews.php?id='.$new['id'].'"><img src="images/editIco.png" alt="" /></a> <a href="deletenews.php?id='.$new['id'].'"><img src="images/deletIco.png" alt="" /></a></p>
-            <p class="title">'.$new['title'].'</p>
-            <p class="descrip">'.substr(strip_tags($new['content']),0,90).'</p>
-            <p class="inc">'.$new['comments'].'</p>
-            </li>';
-            }?>
-      </ul>
     </div>
     <img src="images/sepLine.png" alt="" class="sepline" />
              <!--  <div class="messages">
