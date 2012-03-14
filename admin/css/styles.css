@@ -832,8 +832,19 @@ body {
 #content .messages {
 	width:640px;
 	float:left;
-	margin-top:36px
+	margin-top:6px;
+	margin-left:80px;
 }
+#content .warningtext {
+	width:auto;
+	float:left;
+	margin-top:6px;
+	margin-left:80px;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:14px;
+	color:#464646;
+	line-height:16px
+	}
 #content .messages div {
 	width:642px;
 	height:60px;

@@ -71,7 +71,6 @@ $('#checkall').toggleClass('clicked');
       </div>
     <!--Content Start-->
     <div id="content">
-		  
       <div class="messages">
       <?php
         if(isset($_GET['id'])){
@@ -81,16 +80,22 @@ $('#checkall').toggleClass('clicked');
           //$del_c = mysql_query("DELETE FROM media_comments WHERE id = '".mysql_real_escape_string($_GET['id'])."'");
         }
         if($del == true){
-          echo '
-            <div><img src="images/success.png" alt="" />
-              <p>The media file has been deleted succesfully!</p>
-            </div>';
+          echo '<div class="messages">
+		  <div><img src="images/success.png" alt="" />
+                  <p>Success! The media file has been deleted succesfully!</p>
+                </div></div>
+            ';
         }
         else{
-          echo'
-            <div align="center"><img src="images/errorIco.png" alt="" />
-              <p>An error has ocurred while deleting the media file</p>
-            </div>';
+          echo'<div class="messages">
+		  <center><div><img src="images/errorIco.png" alt="" />
+                  <p>Error! An error has ocurred while deleting the Selected Media File.</p>
+                </div><center>
+				<div class="2"><center><img src="images/infoIcon.png" alt="" /></center>
+                <ul><li><p>We apologise for the inconvinience but something has gone Wrong!</p></li> <li><p>Please recheck your Options that you have done lately and the changes.</p></li> <li><p>Also please re-view the Version of the website and the SQL version that you are using.</p></li></ul>
+                </div></div>
+				
+            ';
         }
         echo '<meta http-equiv="refresh" content="3;url='.$_SERVER['HTTP_REFERER'].'"/>';
       ?>
