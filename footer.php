@@ -167,7 +167,7 @@ echo '>'
 <small><?php echo $copyright3['copyright3']; ?>.<br /><?php echo $copyright['copyright']; ?> - <?php echo date('Y'); ?> <?php echo $website['title']; ?>.<br /><?php echo $copyright4['copyright4']; ?></small>
 </center>
 </div>
-<center><a href="http://www.strawberry-pr0jcts.com/forum/index.php?/forum/27-wowfailurecms/" height="46" width="190"><img src="<?php echo $website['root'];?>wow/static/images/logos/wof-logo-small.png" height="21px" width="190px"/></center></a>
+<center><a class="powered" href="http://www.strawberry-pr0jcts.com/" ></a></center>
 </div>
 <span class="clear"><!-- --></span>
 </div>

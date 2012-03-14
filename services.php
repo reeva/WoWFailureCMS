@@ -162,7 +162,7 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 							</div>                                					
 							</div>
 					</div>	
-				</div>
+				
 				<br />
 				<span class="clear"><!-- --></span>
 				<span class="clear"><!-- --></span>
