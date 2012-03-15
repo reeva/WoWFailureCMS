@@ -4,69 +4,6 @@ $page_cat = "media";
 if (!isset($_SESSION['username'])) {
         header('Location: ../account_log.php');		
 }
-
-//*************BEGIN IMAGESHACK CODE****************
-class ImageShackUpload {
-        private $values = array();
-        private $filename;
-        private $returnFromImageShack;
-        function __construct($values, $postFilename) {       
-      $this->values = $values;
-      $this->filename = $postFilename;
-        }
-        function __destruct() {
-                unset($values);
-                unset($filename);
-                unset($returnFromImageShack);
-        }
-        function setPostFilename($filename) {
-                $this->filename = $filename;    
-        }
-        function &getPostFilename() {
-                return $this->filename;
-        }
-        function setValues($values) {
-                $this->values = $values;
-        }
-        function &getValues() {
-                return $this->values;
-        }
-        function upload() {
-                if (isset($_FILES[$this->filename])) {
-                        $this->values['fileupload'] =  '@'.$_FILES[$this->filename]['tmp_name'].";type=".$_FILES[$this->filename]['type'];
-                        $header = array("Content-type: multipart/form-data");
-                        $ch = curl_init();
-                        curl_setopt($ch, CURLOPT_URL, "http://www.imageshack.us/upload_api.php");
-                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                        curl_setopt($ch, CURLOPT_POST, true);
-                        curl_setopt($ch, CURLOPT_POSTFIELDS, $this->values);
-                        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-                        curl_setopt($ch, CURLOPT_HEADER, false);
-                        curl_setopt($ch, CURLOPT_TIMEOUT, 6000);
-                        $this->returnFromImageShack = curl_exec($ch);
-                        curl_close($ch);
-                }
-        }
-        function &getXML() {
-                if (isset($this->returnFromImageShack))
-                        return new SimpleXMLElement($this->returnFromImageShack);
-        }
-        function &getDirectLink() {
-                $xml = $this->getXML(); 
-                if ($xml->error)
-                return $xml->error;
-                else
-                return $xml->links->image_link;
-        }        
-}
-$data = array(
-        "key" => $apikey, 
-        "public" => "yes",
-        "a_username" => $apiuser,
-        "a_password" => $apipass,
-        "xml" => "yes"
-);
-//*********************END IMAGESHACK CODE***************
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
 <head>
@@ -175,20 +112,51 @@ if (isset($_POST['send'])){
     preg_match_all( $exp , $url , $matches );
     $id = $matches[1][0];
   }
-  else{  //Image sent, upload to imageshack
+  else{  //Image sent and upload to host
     $id = 0;
-    $imageshack = new ImageShackUpload($data, "fileupload");
-    $imageshack->upload();
-    $xml = $imageshack->getXML();
-    $url = $imageshack->getDirectLink();
+    
+    $ext = date('dmYHis',time());
+    $url = $website['address'].$website['root'].'images/';
+    $path = '../images/';
+    
+    if ((($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg") 
+        || ($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "image/bmp")
+        || ($_FILES["file"]["type"] == "image/png")) && ($_FILES["file"]["size"] < $_POST['MAX_SIZE'])){
+        //allowed extensions: jpg,jpeg,bmp,png,gif
+      if ($_FILES["file"]["error"] > 0){
+        echo "Error: " . $_FILES["file"]["error"] . ". File couldn't be sent.<br />";
+      }
+      else{                                                      
+        $fileName = str_replace(' ','_',$_FILES["file"]["name"]);
+        $fileName = stripslashes($fileName);
+        $fileName = $_POST['type'].$ext.$fileName; //An unique media name for file storage
+        $url = $url.$fileName; //absolute route for file, to show/link in webpage and save in db                                        
+                                                                    
+        if(move_uploaded_file($_FILES["file"]["tmp_name"],$path.$fileName)){
+          $error = false;
+        }
+      }
+    }
+    elseif (!($_FILES["file"]["size"] < $_POST['MAX_SIZE'])){
+      echo '<div class="errors" align="center"><font color="red" size="6"><strong>Error</strong></font></p>';
+      echo '<p class="caption">The file size must be less than 2MB</p>';
+      echo'<a href="send_media.php"><button class="ui-button button1"  id="back" tabindex="1" /><span><span>'.$re['back'].'</span></span></button></a></div>'; 
+      $error = true;
+    }
+    else{
+      echo '<div class="errors" align="center"><font color="red" size="6"><strong>Error</strong></font></p>';
+      echo '<p class="caption">Invalid File Extension!</p>';
+      echo'<a href="send_media.php"><button class="ui-button button1"  id="back" tabindex="1" /><span><span>'.$re['back'].'</span></span></button></a></div>'; 
+      $error = true;
+    } 
   }
-
+ if (!$error){
   mysql_select_db($server_adb);
   $check_query = mysql_query("SELECT account.id,gmlevel from account  inner join account_access on account.id = account_access.id where username = '".strtoupper($_SESSION['username'])."'");
   $login = mysql_fetch_assoc($check_query);
 
   mysql_select_db($server_db);
-  $save_media = mysql_query("INSERT INTO media (author, id_url, title, description, link, type) VALUES ('".$login['id']."','".$id."','".$title."','".$description."','".$url."','".$_POST['type']."');") or die(mysql_error());
+  $save_media = mysql_query("INSERT INTO media (author, id_url, title, description, link, type) VALUES ('".$login['id']."','".$id."','".$title."','".$description."','".$url."','".$_POST['type']."');");
   mysql_close($connection_setup);
   
   if ($save_media == true && $check_query == true){ 
@@ -202,9 +170,11 @@ if (isset($_POST['send'])){
     echo '<meta http-equiv="refresh" content="6;url=../account_man.php"/>';
   }
   else{
-    echo '<div class="errors" align="center"><font color="red">'.$Media['ErrorSendVid'].'</font><br><br />';
+    echo '<div class="errors" align="center"><font color="red" size="6"><strong>Error</strong></font></p>';
+    echo '<p class="caption">An error has ocurred, the media file could not be sent!</p>';
     echo'<a href="send_media.php"><button class="ui-button button1"  id="back" tabindex="1" /><span><span>'.$re['back'].'</span></span></button></a></div>'; 
   }
+ }
 }
 else{
 ?>
@@ -214,7 +184,7 @@ else{
                 <div class="filter">
 	               <label for="filter-status"><?php echo $Media['ChooseMediaSend']; ?></label>   
                 </div>                 
-<form action="" enctype="multipart/form-data" method="post">  
+<form action="" enctype="multipart/form-data" method="post">
 <select name="type" id="type" class="input border-5 glow-shadow-2 form-disabled" style="width:150px" data-filter="column" data-column="0" onchange="changeType(this.selectedIndex)">
   <option value="0" selected="selected"><?php echo $Media['Videos']; ?></option>
   <option value="1"><?php echo $Media['Wallpapers']; ?></option>
@@ -240,7 +210,10 @@ else{
   </tr>
 	<tr id="uploadImg" style="display:none;">
     <td valign="top"><label><?php echo $Media['File']; ?></label></td>
-	  <td valign="top"><div align="right"><input id="fieldUpload" type="file" name="fileupload"  class="bluefile border-5 glow-shadow-2 " size="30"><br> Powered by Imageshack.com</div></td>
+	  <td valign="top">
+	    <input type="hidden" name="MAX_SIZE" value="2000000" />
+      <div align="right"><input id="fieldUpload" type="file" name="file"  class="bluefile border-5 glow-shadow-2 " size="30" /></div>
+    </td>
   </tr>
 	<tr>
     <td valign="top"><label><?php echo $Media['Description']; ?></label></td>

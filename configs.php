@@ -67,12 +67,6 @@ $comun_link['Facebook'] = "http://www.facebook.com/";          // Your adress of
 $comun_link['Twitter'] = "http://twitter.com//";               // Your adress of Twitter comunity
 $comun_link['Youtube'] = "http://www.youtube.com/";            // Your adress of Youtube comunity
 
-# ImageShack connection #############
-
-$apikey = "";													// Your API key ImageShack
-$apiuser = "";													// Your API user ImageShack
-$apipass = "";													// Your API password ImageShack
-
 # Important #############
 
 $website['title'] = "WoWFailureCMS";
