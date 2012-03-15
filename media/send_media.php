@@ -116,8 +116,8 @@ if (isset($_POST['send'])){
     $id = 0;
     
     $ext = date('dmYHis',time());
-    $url = $website['address'].$website['root'].'images/';
-    $path = '../images/';
+    $url = $website['address'].$website['root'].'images/wallpapers/';
+    $path = '../images/wallpapers/';
     
     if ((($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg") 
         || ($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "image/bmp")
