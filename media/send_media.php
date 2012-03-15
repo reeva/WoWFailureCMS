@@ -59,11 +59,11 @@ class ImageShackUpload {
                 return $xml->links->image_link;
         }        
 }
-$data = array(       //The imageshack data of the api and your account, that will be added to config.php
-        "key" => '',  
+$data = array(
+        "key" => $apikey, 
         "public" => "yes",
-        "a_username" => '',
-        "a_password" => '',
+        "a_username" => $apiuser,
+        "a_password" => $apipass,
         "xml" => "yes"
 );
 //*********************END IMAGESHACK CODE***************
@@ -71,7 +71,7 @@ $data = array(       //The imageshack data of the api and your account, that wil
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title><?php echo $Media['SendVideo']; ?> - <?php echo $website['title']; ?></title>
+<title><?php echo $Media['SendMedia']; ?> - <?php echo $website['title']; ?></title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="../wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
@@ -194,8 +194,8 @@ if (isset($_POST['send'])){
   if ($save_media == true && $check_query == true){ 
     echo '<div class="alert-page" align="center">';
     echo '<div class="alert-page-message success-page">
-      <p class="text-green title"><strong>'.$re['scc1'].'</strong></p>
-      <p class="caption">'.$Media['VidSendSuccse'].'</p>
+      <p class="text-green title"><strong>'.$Media['SendCorrect'].'</strong></p>
+      <p class="caption">'.$Media['SendSuccse'].'</p>
       <p class="caption"><a href="account_man.php">'.$re['goPanel'].'</a></p>
       </div>';
     echo '</div>';
@@ -216,11 +216,11 @@ else{
                 </div>                 
 <form action="" enctype="multipart/form-data" method="post">  
 <select name="type" id="type" class="input border-5 glow-shadow-2 form-disabled" style="width:150px" data-filter="column" data-column="0" onchange="changeType(this.selectedIndex)">
-  <option value="0" selected="selected">Videos</option>
-  <option value="1">Wallpapers</option>
-  <option value="2">Screenshots</option>
-  <option value="3">Artwork</option>
-  <option value="4">Comics</option>
+  <option value="0" selected="selected"><?php echo $Media['Videos']; ?></option>
+  <option value="1"><?php echo $Media['Wallpapers']; ?></option>
+  <option value="2"><?php echo $Media['Screenshots']; ?></option>
+  <option value="3"><?php echo $Media['Artwork']; ?></option>
+  <option value="4"><?php echo $Media['Comics']; ?></option>
 </select>
 
 <p>&nbsp;</p>
@@ -231,7 +231,7 @@ else{
      
 <table width="550" height="330">
 	<tr>
-    <td valign="top"><label>Tittle</label></td>
+    <td valign="top"><label><?php echo $Media['Title']; ?></label></td>
 	  <td width="367" valign="top"><div align="right"><input type="text" maxlength="40" name="title_form" class="input border-5 glow-shadow-2 form-disabled" size="40" required="required"></div></td>
   </tr>
 	<tr id="videoLnk">
@@ -239,7 +239,7 @@ else{
 	  <td valign="top"><div align="right"><input id="fieldVideo" type="url" name="url_form"  class="input border-5 glow-shadow-2 form-disabled" size="40" required="required" ></div></td>
   </tr>
 	<tr id="uploadImg" style="display:none;">
-    <td valign="top"><label>File</label></td>
+    <td valign="top"><label><?php echo $Media['File']; ?></label></td>
 	  <td valign="top"><div align="right"><input id="fieldUpload" type="file" name="fileupload"  class="bluefile border-5 glow-shadow-2 " size="30"><br> Powered by Imageshack.com</div></td>
   </tr>
 	<tr>
@@ -248,7 +248,7 @@ else{
   </tr>
   <!-- Here will be have to add a catpcha recognition to prevent spam -->
 	<tr>
-    <td><button type="submit" class="ui-button button1 "  name="send"><span><span><?php echo $Media['SendVideo']; ?></span></span></button></td>
+    <td><button type="submit" class="ui-button button1 "  name="send"><span><span><?php echo $Media['SendVideo2']; ?></span></span></button></td>
     <td><div align="right"><button class="ui-cancel "  type="reset"><span><?php echo $Media['DelFields']; ?></span></button></div></td>
   </tr>
 </table>

@@ -150,14 +150,11 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
                             </div>
 							<div class="sub-services-section">
 								<div class="sub-title">
-									<span>Enviar Multimedia</span>
+									<span><?php echo $Media['Multimedia']; ?></span>
 								</div>
 								<ul>
-										<li><a href="<?php echo $website['root']; ?>media/send_video.php" class="c1-l3"><span><?php echo $Media['SendVideo']; ?></span></a></li>
-										<li><a href="javascript:;" class="c3-l7"><span><?php echo $Media['SendWallp']; ?></span></a></li>
-										<li><a href="javascript:;" class="c4-l2"><span><?php echo $Media['SendScreensh']; ?></span></a></li>
-										<li><a href="javascript:;" class="c3-l4"><span><?php echo $Media['SendArt']; ?></span></a></li>
-										<li><a href="javascript:;" class="c3-l2"><span><?php echo $Media['SendComic']; ?></span></a></li>
+										<li><a href="<?php echo $website['root']; ?>media/send_media.php" class="c1-l3"><span><?php echo $Media['SendMedia']; ?></span></a></li>
+										
 								</ul>					
 							</div>                                					
 							</div>
