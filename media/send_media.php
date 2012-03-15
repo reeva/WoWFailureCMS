@@ -4,6 +4,69 @@ $page_cat = "media";
 if (!isset($_SESSION['username'])) {
         header('Location: ../account_log.php');		
 }
+
+//*************BEGIN IMAGESHACK CODE****************
+class ImageShackUpload {
+        private $values = array();
+        private $filename;
+        private $returnFromImageShack;
+        function __construct($values, $postFilename) {       
+      $this->values = $values;
+      $this->filename = $postFilename;
+        }
+        function __destruct() {
+                unset($values);
+                unset($filename);
+                unset($returnFromImageShack);
+        }
+        function setPostFilename($filename) {
+                $this->filename = $filename;    
+        }
+        function &getPostFilename() {
+                return $this->filename;
+        }
+        function setValues($values) {
+                $this->values = $values;
+        }
+        function &getValues() {
+                return $this->values;
+        }
+        function upload() {
+                if (isset($_FILES[$this->filename])) {
+                        $this->values['fileupload'] =  '@'.$_FILES[$this->filename]['tmp_name'].";type=".$_FILES[$this->filename]['type'];
+                        $header = array("Content-type: multipart/form-data");
+                        $ch = curl_init();
+                        curl_setopt($ch, CURLOPT_URL, "http://www.imageshack.us/upload_api.php");
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                        curl_setopt($ch, CURLOPT_POST, true);
+                        curl_setopt($ch, CURLOPT_POSTFIELDS, $this->values);
+                        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+                        curl_setopt($ch, CURLOPT_HEADER, false);
+                        curl_setopt($ch, CURLOPT_TIMEOUT, 6000);
+                        $this->returnFromImageShack = curl_exec($ch);
+                        curl_close($ch);
+                }
+        }
+        function &getXML() {
+                if (isset($this->returnFromImageShack))
+                        return new SimpleXMLElement($this->returnFromImageShack);
+        }
+        function &getDirectLink() {
+                $xml = $this->getXML(); 
+                if ($xml->error)
+                return $xml->error;
+                else
+                return $xml->links->image_link;
+        }        
+}
+$data = array(       //The imageshack data of the api and your account, that will be added to config.php
+        "key" => '',  
+        "public" => "yes",
+        "a_username" => '',
+        "a_password" => '',
+        "xml" => "yes"
+);
+//*********************END IMAGESHACK CODE***************
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
 <head>
@@ -65,40 +128,70 @@ _gaq.push(['_trackPageview']);
 _gaq.push(['_trackPageLoadTime']);
 //]]>
 </script>
+
+<script type="text/javascript">
+function changeType(num) {
+  objVid = document.getElementById('videoLnk');
+  objImg = document.getElementById('uploadImg');
+  objFieldVid = document.getElementById('fieldVideo');
+  objFieldImg = document.getElementById('fieldUpload');
+  if (num == '0'){
+    objVid.style.display= '';
+    objFieldVid.required= 'required';
+    objImg.style.display= 'none'; 
+    objFieldImg.required= ''; 
+  }
+  else{
+    objVid.style.display= 'none';
+    objFieldVid.required= '';
+    objImg.style.display= '';
+    objFieldImg.required= 'required';
+  }
+}
+</script>
+
 </head>
 <body class="es-es logged-in">
-<div id="layout-top">
-<div class="wrapper">
-<div id="header">
-<?php include("../functions/header_account.php"); ?>
-<?php include("../functions/footer_man_nav.php"); ?>
-</div>
-<div id="layout-middle">
-<div class="wrapper">
-<div id="content">
-<div id="page-header">
+  <div id="layout-top">
+    <div class="wrapper">
+      <div id="header">
+        <?php include("../functions/header_account.php"); ?>
+        <?php include("../functions/footer_man_nav.php"); ?>
+      </div>
+      <div id="layout-middle">
+        <div class="wrapper">
+          <div id="content">
+            <div id="page-header">
 <?php
 if (isset($_POST['send'])){ 
 
   $title = mysql_real_escape_string($_POST['title_form']); 
   $description = mysql_real_escape_string($_POST['description_form']);
-  $url = $_POST['url_form'];
-  $type = $_POST['type']; 
   //types: 0 videos, 1 wallpapers, 2 screenshots, 3 artwork, 4 comic
-
-  $exp="/v\/?=?([0-9A-Za-z-_]{11})/is";
-  preg_match_all( $exp , $url , $matches );
-  $id = $matches[1][0];
+  if ($_POST['type'] == '0'){ //Youtube video sent  
+  
+    $url = $_POST['url_form']; 
+    $exp="/v\/?=?([0-9A-Za-z-_]{11})/is";
+    preg_match_all( $exp , $url , $matches );
+    $id = $matches[1][0];
+  }
+  else{  //Image sent, upload to imageshack
+    $id = 0;
+    $imageshack = new ImageShackUpload($data, "fileupload");
+    $imageshack->upload();
+    $xml = $imageshack->getXML();
+    $url = $imageshack->getDirectLink();
+  }
 
   mysql_select_db($server_adb);
   $check_query = mysql_query("SELECT account.id,gmlevel from account  inner join account_access on account.id = account_access.id where username = '".strtoupper($_SESSION['username'])."'");
   $login = mysql_fetch_assoc($check_query);
 
   mysql_select_db($server_db);
-  $save_video = mysql_query("INSERT INTO media (author, id_url, title, description, link,type) VALUES ('".$login['id']."','".$id."','".$title."','".$description."','".$url."','".$type."');") or die(mysql_error());
+  $save_media = mysql_query("INSERT INTO media (author, id_url, title, description, link, type) VALUES ('".$login['id']."','".$id."','".$title."','".$description."','".$url."','".$_POST['type']."');") or die(mysql_error());
   mysql_close($connection_setup);
- 
-  if ($save_video == true && $check_query == true){ 
+  
+  if ($save_media == true && $check_query == true){ 
     echo '<div class="alert-page" align="center">';
     echo '<div class="alert-page-message success-page">
       <p class="text-green title"><strong>'.$re['scc1'].'</strong></p>
@@ -110,49 +203,48 @@ if (isset($_POST['send'])){
   }
   else{
     echo '<div class="errors" align="center"><font color="red">'.$Media['ErrorSendVid'].'</font><br><br />';
-    echo'<a href="send_video.php"><button class="ui-button button1"  id="back" tabindex="1" /><span><span>'.$re['back'].'</span></span></button></a></div>'; 
+    echo'<a href="send_media.php"><button class="ui-button button1"  id="back" tabindex="1" /><span><span>'.$re['back'].'</span></span></button></a></div>'; 
   }
 }
 else{
-?>                    
-<h2 class="subcategory"><?php echo $Media['SendMedia']; ?></h2>
-<h3 class="headline"><?php echo $Media['SendVideo2']; ?></h3>
-</div>
-<div id="page-content">
-<form action="" method="post">
-<div class="filter">
-	<label for="filter-status"><?php echo $Media['ChooseMediaSend']; ?></label>
-  <!-- type 0 videos, 1 walls, 2 screens, 3 art y 4 comic. Si quieres cambialo-->       
-	<select name="type" id="filter-status" class="input border-5 glow-shadow-2 form-disabled" style="width:150px" data-filter="column" data-column="0">
-		<option value="0"><?php echo $Media['Videos']; ?></option>
-		<!-- <option value="1"><?php echo $Media['Wallpapers']; ?></option>
-		<option value="2"><?php echo $Media['Screenshots']; ?></option>
-    <option value="3"><?php echo $Media['Artwork']; ?></option>
-    <option value="4"><?php echo $Media['Comics']; ?></option> -->
-	</select>
-</div>
+?>
+              <h3 class="headline"><?php echo $Media['SendMedia']; ?></h3>
+              <p>&nbsp;</p>
+              <div id="page-content">
+                <div class="filter">
+	               <label for="filter-status"><?php echo $Media['ChooseMediaSend']; ?></label>   
+                </div>                 
+<form action="" enctype="multipart/form-data" method="post">  
+<select name="type" id="type" class="input border-5 glow-shadow-2 form-disabled" style="width:150px" data-filter="column" data-column="0" onchange="changeType(this.selectedIndex)">
+  <option value="0" selected="selected">Videos</option>
+  <option value="1">Wallpapers</option>
+  <option value="2">Screenshots</option>
+  <option value="3">Artwork</option>
+  <option value="4">Comics</option>
+</select>
+
 <p>&nbsp;</p>
 <p><?php echo $Media['AllFildRequiered']; ?></p>
 <p><?php echo $Media['LargeText']; ?></p>
 
-<p>&nbsp;</p><p>&nbsp;</p>          
+<p>&nbsp;</p><p>&nbsp;</p> 
+     
 <table width="550" height="330">
 	<tr>
-    <td valign="top"><label><?php echo $Media['TitleVideo']; ?></label></td>
-	  <td width="367" valign="top"><div align="right">
-  	 <input type="text" maxlength="40" name="title_form" class="input border-5 glow-shadow-2 form-disabled" size="40" required="required">
-	  </div></td>
+    <td valign="top"><label>Tittle</label></td>
+	  <td width="367" valign="top"><div align="right"><input type="text" maxlength="40" name="title_form" class="input border-5 glow-shadow-2 form-disabled" size="40" required="required"></div></td>
+  </tr>
+	<tr id="videoLnk">
+    <td valign="top"><label><?php echo $Media['LinkVideo']; ?></label></td>
+	  <td valign="top"><div align="right"><input id="fieldVideo" type="url" name="url_form"  class="input border-5 glow-shadow-2 form-disabled" size="40" required="required" ></div></td>
+  </tr>
+	<tr id="uploadImg" style="display:none;">
+    <td valign="top"><label>File</label></td>
+	  <td valign="top"><div align="right"><input id="fieldUpload" type="file" name="fileupload"  class="bluefile border-5 glow-shadow-2 " size="30"><br> Powered by Imageshack.com</div></td>
   </tr>
 	<tr>
-    <td valign="top"><label><?php echo $Media['LinkVideo']; ?></label></td>
-	  <td valign="top"><div align="right">
-  	 <input type="url" name="url_form"  class="input border-5 glow-shadow-2 form-disabled" size="40" required="required" >
-    </div></td></tr>
-	<tr>
     <td valign="top"><label><?php echo $Media['Description']; ?></label></td>
-	  <td valign="top"><div align="right"> 
-  	   <textarea type="text" name="description_form"  class="input border-5 glow-shadow-2 form-disabled" cols="38" rows="8" required="required" ></textarea>
-	  </div></td>
+	  <td valign="top"><div align="right"><textarea type="text" name="description_form"  class="input border-5 glow-shadow-2 form-disabled" cols="38" rows="8" required="required" ></textarea></div></td>
   </tr>
   <!-- Here will be have to add a catpcha recognition to prevent spam -->
 	<tr>
@@ -161,12 +253,13 @@ else{
   </tr>
 </table>
 </form>
-
-
 </div>
+</div>     
 <?php
   }
 ?>
+</div>
+
 </div>
 </div>
 </div>
@@ -174,6 +267,7 @@ else{
 <div id="layout-bottom">
 <?php include("../functions/footer_man.php"); ?>
 </div>
+</body>
 <script type="text/javascript">
 //<![CDATA[
 var xsToken = '1719af93-c8ae-4514-b0ba-68fbf28147b5';
@@ -323,5 +417,4 @@ s.parentNode.insertBefore(ga, s.nextSibling);
 })();
 //]]>
 </script>
-</body>
 </html>

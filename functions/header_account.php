@@ -56,17 +56,8 @@
 </li>
 
 <li <?php if($page_cat=='media') echo'class="active"';?>>
-<a href="" class="border-3 menu-arrow" onclick="openAccountDropdown(this, 'media'); return false;"><?php echo $Media['SendMedia']; ?></a>
+<a href="<?php echo $website['root']; ?>media/send_media.php"><?php echo $Media['SendMedia']; ?></a>
 <span></span>
-<div class="flyout-menu" id="media-menu" style="display: none">
-<ul>
-<li><a href="<?php echo $website['root']; ?>media/send_video.php"><?php echo $Media['SendVideo']; ?></a></li>
-<li><a href=""><?php echo $Media['SendWallp']; ?></a></li>
-<li><a href=""><?php echo $Media['SendScreensh']; ?></a></li>
-<li><a href=""><?php echo $Media['SendArt']; ?></a></li>
-<li><a href=""><?php echo $Media['SendComic']; ?></a></li>
-</ul>
-</div>
 </li>
 
 <li <?php if($page_cat=='transaction') echo'class="active"';?>>
