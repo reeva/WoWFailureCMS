@@ -135,7 +135,7 @@ _gaq.push(['_trackPageview']);
 					<table width="940" height="546">
 					<tr><td width="40"></td><td width="860"><span style="font-size:16px; color:#F9EFA2";><?php echo $videos['title']; ?></span></td><td width="40"></td></tr>
 					<tr><td height="500" colspan="3" align="center" valign="middle">
-					<iframe width="767" height="420" src="http://www.youtube.com/embed/<?php echo $videos['id_url']; ?>" frameborder="0" allowfullscreen></iframe></td></tr></table>
+					<iframe width="767" height="420" src="http://www.youtube.com/embed/<?php echo $videos['id_url']; ?>?wmode=transparent" frameborder="0" allowfullscreen></iframe></td></tr></table>
 					</div>
           <table width="940">
             <tr><td width="40"></td><td width="860" height="40">by <a href="#"><?php echo $posterInfo['firstName']; ?></a><span> // </span><?php echo $videos['date']; ?></td><td width="40"></td></tr>
@@ -226,7 +226,7 @@ _gaq.push(['_trackPageview']);
 						}else{
 							echo'
 							 <table class="dynamic-center"><tr><td>
-							 <a class="ui-button button1 " href="?login" onclick="return Login.open(\'loginframe.php\')"><span><span>Add a reply</span></span></a>
+							 <a class="ui-button button1 " href="?login" onclick="return Login.open(\'../loginframe.php\')"><span><span>Add a reply</span></span></a>
 							 </td></tr></table>';
 						}
 						$get_comments = mysql_query("SELECT * FROM media_comments WHERE mediaid = '".$videos['id']."' ORDER BY DATE DESC");
