@@ -8,7 +8,7 @@ if (!isset($_SESSION['username'])) {
 ?>
 
 <head>
-<title><?php echo $website['title']; ?> - Race Change</title>
+<title><?php echo $website['title']; ?> - Name Change</title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/bam.ico" type="image/x-icon"/>
@@ -53,7 +53,7 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 <div class="primary">
 <div class="header">
 <h2 class="subcategory">Character Services</h2>
-<h3 class="headline">Race Change</h3>
+<h3 class="headline">Name Change</h3>
 <a href=""><img src="wow/static/local-common/images/game-icons/wow.png" alt="World of Warcraft" width="48" height="48" /></a>
 </div>
 <div class="service-wrapper">
@@ -74,9 +74,9 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 </div>
 </div>
 <div class="service-summary">
-<p class="service-price headline">Cost: 20.00 $
+<p class="service-price headline">Cost: 300VP
 </p>
-<a href="" target="_blank">Race Change table of equivalences</a>
+<a href="" target="_blank">Name Change table of equivalences</a>
 </div>
 </div>
 <div class="service-form">
@@ -85,28 +85,23 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 <a href="#" class="realm opened border-2" id="active-realm" rel="character-list-hellscream">
 <span class="realm-name"><?php echo $name_realm1['realm'] ?></span>
 </a>
-<ul id="character-list-hellscream">
+<ul xmlns="http://www.w3.org/1999/xhtml" id="character-list-hellscream">
+
+<!-- todo handle character static errors -->
+<li class="character border-1" id="username:EU:ID-NUMBER">
+<div class="character-icon wow-portrait-64-80 wow-0-4-6 glow-shadow-3">
+<img src="https://eu.battle.net/static-render/eu/hellscream/182/32353974-avatar.jpg?alt=/account/images/2d/avatar/4-0.jpg" width="64" height="64" alt="" />
+</div>
+<div class="character-description">
+<span class="character-name caption"><a href="#" class="character-link">Simitis - <em>Option</em></a></span>
+<span class="character-class">
+level 85 Night Elf Death Knight
+</span>
+</div>
+</li>
+</ul>
 <!-- Recheck whats Wrong -->
-<?php	include("functions/userplate.inc.php");
-      $chars = $Userplate->getChars();
-	  for($i = 0; $i < count($chars); $i++)
-	  {
-	  	$character = $chars[$i];
-	  	echo '
-		<li class="character border-4" id="">
-		<div class="character-icon wow-portrait-64-80 wow-0-4-11 glow-shadow-3">
-		<img src="wow/static/images/2d/avatar/'.$character->getRace().'-'.$character->getGender().'.jpg" width="64" height="64" alt="" />
-		</div>
-		<div class="character-description">
-		<span class="character-name caption"><a href="" class="character-link">'.$character->getName().' - <em>Guild</em></a></span>
-		<span class="character-class">
-		Level '.$character->getLevel().' '.checkRace($character->getRace()).' '.checkClass($character->getClass()).'
-		</span>
-		</div>
-		</li>';
-         //echo $key;
-	  }
-	  ?>
+
 </center>
 <div id="error-container" style="display: none;"></div>
 <script type="text/javascript">
