@@ -185,7 +185,7 @@ $page_cat = "forums";
 			echo '<div class="success">';
 			echo ''.$Forum['Forum16'].'';
 			echo '</div>';
-			echo '<meta http-equiv="refresh" content="2;url=/forum/category/?f='.$forumid.'"';
+			echo '<meta http-equiv="refresh" content="2;url='.$website['root'].'forum/category/?f='.$forumid.'"';
 		}
 		echo '<div id="forum-content"></div>';
 	}else{
