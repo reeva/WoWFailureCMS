@@ -113,7 +113,6 @@ if (isset($_POST['send'])){
     $id = $matches[1][0];
   }
   else{  //Image sent and upload to host
-    $id = 0;
     
     $ext = date('dmYHis',time());
     $url = $website['address'].$website['root'].'images/wallpapers/';
@@ -130,7 +129,8 @@ if (isset($_POST['send'])){
         $fileName = str_replace(' ','_',$_FILES["file"]["name"]);
         $fileName = stripslashes($fileName);
         $fileName = $_POST['type'].$ext.$fileName; //An unique media name for file storage
-        $url = $url.$fileName; //absolute route for file, to show/link in webpage and save in db                                        
+        $url = $url.$fileName;  //The absolute route for links
+        $id = $fileName;       //The filename for php refers, unlink(), etc.                                 
                                                                     
         if(move_uploaded_file($_FILES["file"]["tmp_name"],$path.$fileName)){
           $error = false;
@@ -164,10 +164,10 @@ if (isset($_POST['send'])){
     echo '<div class="alert-page-message success-page">
       <p class="text-green title"><strong>'.$Media['SendCorrect'].'</strong></p>
       <p class="caption">'.$Media['SendSuccse'].'</p>
-      <p class="caption"><a href="account_man.php">'.$re['goPanel'].'</a></p>
+      <p class="caption"><a href="../account_man.php">'.$re['goPanel'].'</a></p>
       </div>';
     echo '</div>';
-    echo '<meta http-equiv="refresh" content="6;url=../account_man.php"/>';
+    echo '<meta http-equiv="refresh" content="4;url=../account_man.php"/>';
   }
   else{
     echo '<div class="errors" align="center"><font color="red" size="6"><strong>Error</strong></font></p>';

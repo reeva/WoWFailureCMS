@@ -75,9 +75,13 @@ $('#checkall').toggleClass('clicked');
       <?php
         if(isset($_GET['id'])){
           mysql_select_db($server_db);
+          $media = mysql_fetch_assoc(mysql_query("SELECT * FROM media WHERE id = '".mysql_real_escape_string($_GET['id'])."'"));
           $del = mysql_query("DELETE FROM media WHERE id = '".mysql_real_escape_string($_GET['id'])."'");
-          //add delete file if updated
-          //$del_c = mysql_query("DELETE FROM media_comments WHERE id = '".mysql_real_escape_string($_GET['id'])."'");
+          $del_c = mysql_query("DELETE FROM media_comments WHERE id = '".mysql_real_escape_string($_GET['id'])."'");
+          if ($del == true && $del_c == true && $media['type'] != '0'){
+          //If not a video delete file, overwrite $del var for detect errors
+            $del = unlink('../images/wallpapers/'.$media['id_url']);
+          }
         }
         if($del == true){
           echo '<div class="messages">
