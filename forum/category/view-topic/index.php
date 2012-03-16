@@ -182,13 +182,11 @@ if($error == 1){
 			<div class="forum-actions top">
 				<div class="actions-panel">
 					<a class="ui-button button1 imgbutton " href="../?f='.$thread['forumid'].'"><span><span><span class="back-arrow"> </span></span></span></a>';
-					if(isset($_SESSION['username']))
+					if(isset($_SESSION['username']) && ($thread['locked'] == 0 || $userInfo['class'] != ""))
+					//If session startef and (active thread or blizz/mvp claas) show reply button
 					{
-						if($userInfo['class'] == "" && $thread['locked'] == 1)
-							echo '<a class="ui-button button1 disabled " href="javascript:;"><span><span>'.$Forum['Forum61'].'</span></span></a>';
-						else
 							echo '<a class="ui-button button1" href="#new-post"><span><span>'.$Forum['Forum61'].'</span></span></a>';
-							
+              	
 					}else echo '<a class="ui-button button1 disabled " href="javascript:;"><span><span>'.$Forum['Forum61'].'</span></span></a>';
 					echo '		
 					<span class="clear"><!-- --></span>
@@ -267,8 +265,14 @@ if($error == 1){
 						<td>';
 							if($thread['edited'] == 1)
 							{
-								$editorInfo = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE id = '".$thread['editedby']."'"));
-								echo '<div class="post-edited">'.$Forum['Forum67'].' '.$editorInfo['firstName'].' '.$Forum['Forum68'].' '.$thread['last_date'].'</div>';
+                $editorInfo = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE id = '".$thread['editedby']."'"));						
+				
+				        if($editorInfo['character'] == 0){
+					       $charEdit['name'] = $editorInfo['firstName'];
+				        }else{
+					        $charEdit = mysql_fetch_assoc(mysql_query("SELECT name FROM $server_cdb.characters WHERE guid = '".$editorInfo['character']."'"));
+				        }
+								echo '<div class="post-edited">'.$Forum['Forum67'].' '.$charEdit['name'].' '.$Forum['Forum68'].' '.$thread['last_date'].'</div>';
 							}
 							
 							$content=$thread['content'];
@@ -340,9 +344,6 @@ if($error == 1){
 										}
 										
 										echo '
-										<a class="ui-button button2 " href="#new-post">
-											<span><span>'.$reply['reply'].'</span></span>
-										</a>
 										
 										<a class="ui-button button2 " href="#new-post" onclick="Cms.Topic.quote('.$thread['id'].');">
 											<span><span><span class="icon-quote">'.$Forum['Forum72'].'</span></span></span>
@@ -467,8 +468,14 @@ if($error == 1){
 								<td>';
 									if($reply['edited'] == 1)
 									{
-										$editorInfo = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE id = '".$reply['editedby']."'"));
-										echo '<div class="post-edited">'.$Forum['Forum67'].' '.$editorInfo['firstName'].' '.$Forum['Forum68'].' '.$reply['last_date'].'</div>';
+                    $editorInfo = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE id = '".$reply['editedby']."'"));						
+				
+				            if($editorInfo['character'] == 0){
+					           $charEdit['name'] = $editorInfo['firstName'];
+				            }else{
+					           $charEdit = mysql_fetch_assoc(mysql_query("SELECT name FROM $server_cdb.characters WHERE guid = '".$editorInfo['character']."'"));
+				            }
+										echo '<div class="post-edited">'.$Forum['Forum67'].' '.$charEdit['name'].' '.$Forum['Forum68'].' '.$reply['last_date'].'</div>';
 									}
 									
 									$content=$reply['content'];
@@ -495,11 +502,10 @@ if($error == 1){
 								if($thread['locked'] == 1){
 									if($userInfo['class'] != ""){
 										echo '<div class="respond">';
-											if($reply['author'] == $userInfo['id']) echo'<a class="ui-button button2 " href="../edit-post/?p='.$postid['id'].'"><span><span>'.$Forum['Forum22'].'</span></span></a>';
+											if($reply['author'] == $userInfo['id']){
+                        echo'<a class="ui-button button2 " href="../edit-post/?p='.$postid['id'].'"><span><span>'.$Forum['Forum22'].'</span></span></a>';
+                      }
 											echo'									
-											<a class="ui-button button2 " href="#new-post">
-												<span><span>'.$reply['reply'].'</span></span>
-											</a>
 											
 											<a class="ui-button button2 " href="#new-post" onclick="Cms.Topic.quote('.$reply['id'].');">
 												<span><span><span class="icon-quote">'.$Forum['Forum72'].'</span></span></span>
@@ -509,11 +515,13 @@ if($error == 1){
 								}else{
 									echo '
 									<div class="respond">';
-										if($reply['author'] == $userInfo['id']) echo'<a class="ui-button button2 " href="../edit-post/?p='.$postid['id'].'"><span><span>'.$Forum['Forum22'].'</span></span></a>';
-										echo'
-										<a class="ui-button button2 " href="#new-post">
-											<span><span>'.$reply['reply'].'</span></span>
-										</a>
+										if($reply['author'] == $userInfo['id']){
+                      echo'<a class="ui-button button2 " href="../edit-post/?p='.$postid['id'].'"><span><span>'.$Forum['Forum22'].'</span></span></a>';
+                    }
+									  echo '
+									  <a class="ui-button button2 " href="#new-post">
+										  <span><span>Reply</span></span>
+									  </a>
 										<a class="ui-button button2 " href="#new-post" onclick="Cms.Topic.quote('.$reply['id'].');">
 											<span><span><span class="icon-quote">'.$Forum['Forum72'].'</span></span></span>
 										</a>
@@ -555,7 +563,7 @@ if($error == 1){
 					<div>
 						<input type="hidden" name="xstoken" value="272c2eb0-9252-4eae-b494-93fd89788702" />
 						<input type="hidden" name="sessionPersist" value="forum.topic.post" />
-						<div class="post general">
+						<div class="post general"> 
 							<div class="post-user-details"><h4><?php echo $Forum['Forum73'] ?></h4>
 							<div class="post-user ajax-update">
 							<div class="avatar">
