@@ -1,51 +1,146 @@
-<?php if(!isset($_SESSION['username'])){ ?>
-<div class="user-plate">
-<a href="?login" onclick="return Login.open()" class="card-login" onclick="BnetAds.trackImpression('Battle.net Login', 'Character Card', 'New'); return Login.open('login.php');">
-<? echo $uplate['login']?>
-</a>
-<div class="card-overlay"></div>
-</div>
-<?php }else{
-  $side = rand(1,2);
-  switch($side){
-    case 1:
-      $side = "alliance";
-    break;
-    case 2:
-      $side = "horde";
-    break;
-  } 
-  	mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
+<?php
+if(!isset($_SESSION['username'])){
+    ?>
+    <div class="user-plate">
+        <a href="?login" onclick="return Login.open()" class="card-login" onclick="BnetAds.trackImpression('Battle.net Login', 'Character Card', 'New'); return Login.open('login.php');">
+        <? echo $uplate['login']?>
+        </a>
+        
+        <div class="card-overlay"></div>
+    </div>
+    <?php 
+}else{
+    $side = rand(1,2);
+    switch($side){
+        case 1:
+          $side = "alliance";
+        break;
+        case 2:
+          $side = "horde";
+        break;
+    }
+    
+    if(isset($_GET['cc'])){
+        $character_id = intval($_GET['cc']);
+        $realm_id = intval($_GET['r']);
+        
+        $realm = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_adb.realmlist WHERE id = '".$realm_id."'"));
+        $realm_extra = mysql_fetch_assoc(mysql_query("SELECT * FROM realms WHERE realmid = '".$realm_id."'"));
+        
+        $server_cdb = $realm_extra['char_db'];
+        
+        $select = mysql_fetch_assoc(mysql_query("SELECT guid,race,gender FROM $server_cdb.characters WHERE guid = '".$character_id."' AND account = '".$account_information['id']."'"));
+        
+        if($select){
+            $avatar = $select['race']."-".$select['gender'].".jpg";	
+            $update = mysql_query("UPDATE users SET `avatar` = '".$avatar."', `character` ='".$character_id."', `char_realm` = '".$realm_extra['id']."' WHERE id = '".$account_extra['id']."'");
+            echo '<meta http-equiv="refresh" content="0;url=index.php"/>';
+        }else{
+            echo '<meta http-equiv="refresh" content="0;url=index.php"/>';
+        }
+    }
+      
     $login_query = mysql_query("SELECT * FROM $server_adb.account WHERE username = '".mysql_real_escape_string($_SESSION["username"])."'");
     $login2 = mysql_fetch_assoc($login_query);	
+    
 	$uI = mysql_query("SELECT * FROM $server_db.users WHERE id = '".$login2['id']."'");
 	@$userInfo = mysql_fetch_assoc($uI);
-	mysql_select_db($server_cdb ,$connection_setup)or die(mysql_error());
-	$chars_query = mysql_query("SELECT name, class, race, level, gender FROM characters WHERE account = ". $login2['id'] ." ORDER BY guid ASC LIMIT 1");
-	if(mysql_num_rows($chars_query) > 0){
-		if($userInfo['character'] == 0){
-			$chars_query2 = mysql_query("SELECT name, class, race, level, gender, guid FROM $server_cdb.characters WHERE account = ". $login2['id'] ." ORDER BY guid ASC LIMIT 1");
-			$actualchar = mysql_fetch_assoc($chars_query2);
-			$character_id = $actualchar['guid'];
-			$avatar = $actualchar['race']."-0.jpg";	
-			$update = mysql_query("UPDATE $server_db.users SET `avatar` = '".$avatar."', `character` ='".$character_id."' WHERE id = '".$userInfo['id']."'");
-			
-		}else{
-			$chars_query2 = mysql_query("SELECT name, class, race, level, gender, guid FROM $server_cdb.characters WHERE guid = ".$userInfo['character']."");
-			$actualchar = mysql_fetch_assoc($chars_query2);
-		}
-		$numchars = mysql_num_rows($chars_query);
+    
+    $numchars = 0;
+    
+    if($account_extra['character'] != 0){
+        $realm_extra = mysql_fetch_assoc(mysql_query("SELECT * FROM realms WHERE realmid = '".$account_extra['char_realm']."'"));
+        $realm = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_adb.realmlist WHERE id = '".$realm_extra['realmid']."'"));
+        
+        $server_cdb = $realm_extra['char_db'];
+        $server_wdb = $realm_extra['world_db'];
+        
+        $query001 = mysql_query("SELECT * FROM $server_cdb.characters WHERE account = '".$account_information['id']."' AND guid = '".$account_extra['character']."'");
+        if($query001){
+            $actualchar = mysql_fetch_assoc($query001);
+            $numchars++;
+        } else {
+            $delete_char = mysql_query("UPDATE users SET character = 0 WHERE id = '".$account_extra['id']."'");
+            header("Location : index.php");
+        }
+        
+    }else{
+        
+        $get_realms = mysql_query("SELECT * FROM $server_adb.realmlist ORDER BY `id` DESC");
+        if($get_realms){
+            while($realm = mysql_fetch_array($get_realms)){
+                $realm_extra = mysql_fetch_assoc(mysql_query("SELECT * FROM realms WHERE realmid = '".$realm['id']."'"));
+                
+                $server_cdb = $realm_extra['char_db'];
+                $server_wdb = $realm_extra['world_db'];
+                                   
+                $check_chars = mysql_query("SELECT * FROM $server_cdb.characters WHERE account = '".$account_information['id']."' ORDER BY `guid` DESC");
+                if($check_chars){
+                    
+                    //Re-Check
+                    $account_extra = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_db.users WHERE id = '".$account_information['id']."'"));
+                    
+                    if($account_extra['character'] == 0){
+                        $actualchar = mysql_fetch_assoc($check_chars);
+                        $avatar = $actualchar['race']."-".$actualchar['gender'].".jpg";
+                        
+                        $set_character = mysql_query("UPDATE users SET `avatar` = '".$avatar."', `character` = '".$actualchar['id']."', `char_realm` = '".$realm_extra['id']."' WHERE id = '".$account_extra['id']."'");
+                   }
+                }
+                
+                $numchars = $numchars + mysql_num_rows($check_chars); 
+            }
+        }
+                
+    }
+    
+    if($numchars != 0){
+    
 	switch( $actualchar["race"] )
 	{
 		case 2:
 		case 5:
 		case 6:
 		case 8:
+        case 9:
 		case 10: $side = "horde";
 		break;
 		default: $side = "alliance";
 	}
-	mysql_select_db($server_db,$connection_setup)or die(mysql_error());
+    
+    function racetxt($race){
+        switch($race){
+            case 1: return "Human"; break;
+            case 2: return "Orc"; break;
+            case 3: return "Dwarf"; break;
+            case 4: return "Night Elf"; break;
+            case 5: return "Undead"; break;
+            case 6: return "Tauren"; break;
+            case 7: return "Gnome"; break;
+            case 8: return "Troll"; break;
+            case 9: return "Goblin"; break;
+            case 10: return "Blood Elf"; break;
+            case 11: return "Draenei"; break;
+            case 22: return "Worgen"; break;
+            
+        }
+    }
+            
+    function classtxt($class){
+        switch($class){
+            case 1: return "Warrior"; break;
+            case 2: return "Paladin"; break;
+            case 3: return "Hunter"; break;
+            case 4: return "Rogue"; break;
+            case 5: return "Priest"; break;
+            case 6: return "Death Knight"; break;
+            case 7: return "Shaman"; break;
+            case 8: return "Mage"; break;
+            case 9: return "Warlock"; break;
+            case 10: return "Druid"; break;                
+        }
+    }
+    
 	?>
 <div class="user-plate">
 <div id="user-plate" class="card-character plate-<?php echo $side; ?> ajax-update" style="background: url(<?php echo $website['root']; ?>wow/static/images/2d/card/<?php echo $actualchar["race"] . "-" . $actualchar["gender"];?>.jpg) 0 100% no-repeat;">
@@ -53,13 +148,13 @@
 <span class="hover"></span>
 </a>
 <div class="meta">
-<div class="player-name"><?php echo $userInfo['firstName'].' '.$userInfo['lastName']; ?></div>
+<div class="player-name"><?php echo $account_extra['firstName'].' '.$account_extra['lastName']; ?></div>
 	  
 	  <div class="character">
 	  <a class="character-name context-link" href="#" rel="np" data-tooltip="Change character"><?php echo $actualchar["name"]; ?><span class="arrow"></span></a>
 	  <div class="guild">
 <a class="guild-name" href="#">
-<?php echo $name_realm1['realm'] ?>
+<?php echo $realm['name'] ?>
 </a>
 </div>
 		<div id="context-1" class="ui-context character-select">
@@ -70,7 +165,7 @@
 			<div class="context-user">
 			<strong><?php echo $actualchar["name"]; ?></strong>
 			<br />
-			<span class="realm up"><?php echo $name_realm1['realm'] ?></span>
+			<span class="realm up"><?php echo $realm['name'] ?></span>
 			</div>
 		  
 			<div class="context-links">
@@ -80,89 +175,56 @@
 			<a href="#" title="<?php echo $uplate['events']; ?>" rel="np" class="icon-events link-last"> </a>
 			</div>
 		  </div>
+          
 		  <div class="character-list">
 			<div class="primary chars-pane">
-			  <div class="char-wrapper">
-	<?php	
-		mysql_select_db($server_cdb ,$connection_setup)or die(mysql_error());
-		$chars_query = mysql_query("SELECT * FROM characters WHERE account = ". $login2['id'] ." ORDER BY guid ASC");
-		$numchars = mysql_num_rows($chars_query);
-		mysql_select_db($server_db,$connection_setup)or die(mysql_error());
-			while( $char = mysql_fetch_array($chars_query) ){
-				switch($char["race"]){
-					case '1': $_race = "Human";
-						break;
-					case '2': $_race = "Orc";
-						break;
-					case '3': $_race = "Dwarf";
-						break;
-					case '4': $_race = "Night Elf";
-						break;
-					case '5': $_race = "Undead";
-						break;
-					case '6': $_race = "Tauren";
-						break;
-					case '7': $_race = "Gnome";
-						break;
-					case '8': $_race = "Troll";
-						break;
-					case '9': $_race = "Goblin";
-						break;
-					case '10': $_race = "Blood Elf";
-						break;
-					case '11': $_race = "Draenei";
-						break;
-					case '22': $_race = "Worgen";
-						break;
-					default: $_race = "All Races";
-				}
-				
-				switch($char["class"]){
-					case '1': $_class = "Warrior";
-						break;
-					case '2': $_class = "Paladin";
-						break;
-					case '3': $_class = "Hunter";
-						break;
-					case '4': $_class = "Rogue";
-						break;
-					case '5': $_class = "Priest";
-						break;
-					case '6': $_class = "Death Knight";
-						break;
-					case '7': $_class = "Shaman";
-						break;
-					case '8': $_class = "Mage";
-						break;
-					case '9': $_class = "Warlock";
-						break;
-					case '11': $_class = "Druid";
-						break;
-					default: $_class = "All Class";
-				}			
-				?>
-			  <a href="?cc=<?php echo $char['guid']; ?>" class="char <?php echo ( $char["guid"] == $actualchar["guid"] ? 'pinned' : ''); ?>" rel="np">
-			  <span class="pin"></span>
-			  <span class="name"><?php echo $char["name"]; ?></span>
-			  <span class="class color-c<?php echo $char["class"] ?>"><?php echo $char["level"] . " " . $_race . " " . $_class; ?></span>
-			  <span class="realm"><?php echo $name_realm1['realm'] ?></span>
-			  </a>
-			  <?php
-			  }
-			  if(isset($_GET['cc'])){
-				$character_id = intval($_GET['cc']);
-				$select = mysql_fetch_assoc(mysql_query("SELECT guid,race,gender FROM $server_cdb.characters WHERE guid = '".$character_id."'"));
-				$avatar = $select['race']."-".$select['gender'].".jpg";	
-				$update = mysql_query("UPDATE users SET `avatar` = '".$avatar."', `character` ='".$character_id."' WHERE id = '".$userInfo['id']."'");
-				echo '<meta http-equiv="refresh" content="1;url=index.php"/>';
-			  }
-			   ?>
-			  </div>
-			  <a href="#" class="manage-chars" onclick=""><!--CharSelect.swipe('in', this); return false;-->
-			  <span class="plus"></span>
-			  <?php echo $uplate['manage']; ?><br />
-			  <span><?php echo $uplate['customize']; ?></span>
-			  </a>
+                <div class="char-wrapper">
+                    <?php
+                   	
+                    
+                    $get_realms = mysql_query("SELECT * FROM $server_adb.realmlist ORDER BY `id` DESC");
+                    if($get_realms){
+                        while($realm = mysql_fetch_array($get_realms)){
+                            $realm_extra = mysql_fetch_assoc(mysql_query("SELECT * FROM realms WHERE realmid = '".$realm['id']."'"));
+                            
+                            $server_cdb = $realm_extra['char_db'];                                               
+                            $check_chars = mysql_query("SELECT * FROM $server_cdb.characters WHERE account = '".$account_information['id']."' ORDER BY `guid` DESC");
+                            
+                            $current_realm = mysql_fetch_assoc(mysql_query("SELECT * FROM realms WHERE id = '".$account_extra['char_realm']."'"));
+                            
+                            if($check_chars){
+                                while($char = mysql_fetch_array($check_chars)){
+                                    
+                                    echo '
+                                    <a href="?cc='.$char['guid'].'&r='.$realm['id'].'" class="char ';
+                                    if($char['guid'] == $actualchar['guid'] && $realm['id'] == $current_realm['realmid']) echo 'pinned';
+                                    echo '" rel="np">
+                                        <span class="pin"></span>
+                                        <span class="name">'.$char["name"].'</span>
+                                        <span class="class color-c'.$char["class"].'">'.$char["level"] . ' ' . racetxt($char['race']) . ' ' . classtxt($char['class']).'</span>
+                                        <span class="realm';
+                                        
+                                        $host = $realm['address'];
+                                        $world_port = $realm['port'];
+                                        $world = @fsockopen($host, $world_port, $err, $errstr, 2);
+                                        
+                                        if(!$world) echo ' down';
+                                        
+                                        echo '">'.$realm['name'].'</span>
+                                    </a>
+                                    ';
+                                }
+                            }
+                        }
+                    }
+                    ?>
+                </div>
+                
+                <a href="#" class="manage-chars" onclick=""><!--CharSelect.swipe('in', this); return false;-->
+                    <span class="plus"></span>
+                    <?php echo $uplate['manage']; ?><br />
+                    <span><?php echo $uplate['customize']; ?></span>
+                </a>
 			</div>
 			<!--
 			<div class="secondary chars-pane" style="display: none">
