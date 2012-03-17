@@ -758,6 +758,7 @@ passwordStrength3: 'Strong'
 </span>
 </span>
 </div>
+<br />
 <div  class="input-row input-row-text">
 <span class="input-left">
 <label for="firstname">
