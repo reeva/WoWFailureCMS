@@ -1,6 +1,8 @@
 <?php
 include("configs.php");
 $page_cat = "security";
+if(!isset($_SESSION['username'])) header('Location: account_log.php');
+if(!isset($_GET['character'])) header('Location: account_log.php');
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
@@ -78,74 +80,136 @@ _gaq.push(['_trackPageLoadTime']);
 <a href=""><img src="wow/static/local-common/images/game-icons/wow.png" alt="World of Warcraft" width="48" height="48" /></a>
 </div>
 <div class="service-wrapper">
+
 <p class="service-nav">
-<a href="" class="active">Service</a>
-<a href="">History/Status</a>
-<a href="">Return to dashboard</a>
+    <a href="" class="active">Service</a>
+    <!--<a href="">History/Status</a>-->
+    <a href="account_man.php">Return to dashboard</a>
 </p>
+
+<?php
+$guid = intval($_GET['character']);
+$character = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_cdb.characters WHERE guid = '".$guid."'"));
+
+function racetxt($race){
+    switch($race){
+        case 1: return "Human"; break;
+        case 2: return "Orc"; break;
+        case 3: return "Dwarf"; break;
+        case 4: return "Night Elf"; break;
+        case 5: return "Undead"; break;
+        case 6: return "Tauren"; break;
+        case 7: return "Gnome"; break;
+        case 8: return "Troll"; break;
+        case 9: return "Goblin"; break;
+        case 10: return "Blood Elf"; break;
+        case 11: return "Draenei"; break;
+        case 22: return "Worgen"; break;
+        
+    }
+}
+
+function classtxt($class){
+    switch($class){
+        case 1: return "Warrior"; break;
+        case 2: return "Paladin"; break;
+        case 3: return "Hunter"; break;
+        case 4: return "Rogue"; break;
+        case 5: return "Priest"; break;
+        case 6: return "Death Knight"; break;
+        case 7: return "Shaman"; break;
+        case 8: return "Mage"; break;
+        case 9: return "Warlock"; break;
+        case 10: return "Druid"; break;                
+    }
+}
+?>
+
 <div class="service-info">
-<div class="service-tag">
-<div class="service-tag-contents border-3">
-<div class="character-icon wow-portrait-64-80 wow-0-4-6 glow-shadow-3">
-<img src="https://eu.battle.net/static-render/eu/hellscream/182/32353974-avatar.jpg?alt=wow/static/images/2d/avatar/4-0.jpg" width="64" height="64" alt="" />
+    <div class="service-tag">
+        <div class="service-tag-contents border-3">
+            <div class="character-icon wow-portrait-64-80 wow-0-4-6 glow-shadow-3">
+                <?php
+                    if($character) echo '<img src="'.$website['root'].'images/avatars/2d/'.$character['race'].'-'.$character['gender'].'.jpg" width="64" height="64" alt="" />';
+                    else echo '<img src="'.$website['root'].'images/avatars/2d/0-0.jpg" width="64" height="64" alt="" />';
+                ?>
+            </div>
+            
+            <div class="service-tag-description">
+                <span class="character-name caption"><?php echo $character['name']; ?></span>
+                <span class="character-class"> <?php echo $character['level'] . ' ' . racetxt($character['race']) . ' ' . classtxt($character['class']); ?></span>
+                <span class="character-realm"> <?php echo $name_realm1['realm']; ?></span>
+            </div>
+            
+            <span class="clear"><!-- --></span>
+        </div>
+    </div>
+    
+    <div class="service-summary">
+        <p class="service-price headline">
+        <?php
+            $price = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_db.prices WHERE service = 'name-change'"));
+            if($price['type'] == "vote") echo $price['vp'] . "VP";
+            else if($price['type'] == "donate") echo $price['dp'] . "DP";
+            else echo "FREE";
+        ?>
+        </p>
+    </div>
 </div>
-<div class="service-tag-description">
-<span class="character-name caption">NAME</span>
-<span class="character-class"> LEVEL_NO RACE CLASS
-</span>
-<span class="character-realm">REALM_SERVER_NAME</span>
-</div>
-<span class="clear"><!-- --></span>
-</div>
-</div>
-<div class="service-summary">
-<p class="service-price headline">20.00 $</p>
-<a href="" target="_blank">Race Change table of equivalences</a>
-</div>
-</div>
+
 <div class="service-form">
-<div class="service-interior">
-<h2 class="caption">CONDITIONS AND DISCLAIMERS</h2>
-<div class="tos-left full-width">
-<ul>
-<li>The race change process is immediate, your character will be only become available as a new Race to play, only if you are not online. Under normal conditions the process should take less than a minute, but please remember to be offline while you are doing customization.</li>
-<li>You can select a new character race only from those in the same faction that have the character's class available. You cannot change a characters class.</li>
-<li>A character's current home city reputation level will switch values with their new home city and their home city racial mounts will convert to those of their new race.</li>
-<li>A realm transfer is not included in a race change.</li>
-<li>A character can only change races once every 12 hours.</li>
-</ul>
-</div>
-<span class="clear"><!-- --></span>
-<form method="POST" action="">
-<fieldset class="ui-controls section-stacked" >
-<button
-class="ui-button button1 "
-type="submit"
-id="tos-submit"
-tabindex="1"
->
-<span>
-<span>Agree &amp; Continue</span>
-</span>
-</button>
-<a class="ui-cancel "
-href=""
-tabindex="1">
-<span>
-Back </span>
-</a>
-</fieldset>
-<script type="text/javascript">
-//<![CDATA[
-(function() {
-var tosSubmit = document.getElementById('tos-submit');
-tosSubmit.removeAttribute('disabled');
-tosSubmit.className = 'ui-button button1';
-})();
-//]]>
-</script>
-</form>
-</div>
+    <div class="service-interior">
+        <h2 class="caption">Name Change</h2>
+        
+        <div class="tos-left full-width">
+            <ul>
+                <?php
+                    if(!$character){ echo '<li>This character does not exist.</li>'; $disabled = 1;}
+                    if($character['account'] != $account_information['id']){ echo '<li>This character does not belong to you.</li>'; $disabled = 1;}
+                ?>
+                <li>Please read the conditions and disclaimers below, thank you.</li>
+            </ul>
+        </div>
+        
+        <span class="clear"><!-- --></span>
+    </div>
+    
+    <br />
+    
+    <div class="service-interior">
+        <h2 class="caption">CONDITIONS AND DISCLAIMERS</h2>
+        
+        <div class="tos-left full-width">
+            <ul>
+                <li>The race change process is immediate, your character will be only become available as a new Race to play, only if you are not online. Under normal conditions the process should take less than a minute, but please remember to be offline while you are doing customization.</li>
+                <li>You can select a new character race only from those in the same faction that have the character's class available. You cannot change a characters class.</li>
+                <li>A character's current home city reputation level will switch values with their new home city and their home city racial mounts will convert to those of their new race.</li>
+                <li>A realm transfer is not included in a race change.</li>
+                <li>A character can only change races once every 12 hours.</li>
+            </ul>
+        </div>
+        
+        <span class="clear"><!-- --></span>
+        
+        <form method="POST" action="name-confirm.php">
+            <input type="hidden" name="character" value="<?php echo $character['guid'] ?>"/>
+            <fieldset class="ui-controls section-stacked" >
+                <?php if(isset($disabled)) echo '<button class="ui-button button1 disabled" type="submit" id="tos-submit" tabindex="1" disabled="disabled"><span><span>Agree &amp; Continue</span></span></button>';
+                else echo '<button class="ui-button button1" type="submit" id="tos-submit" tabindex="1"><span><span>Agree &amp; Continue</span></span></button>'; ?>
+                <a class="ui-cancel" href="" tabindex="1"><span>Back </span></a>
+            </fieldset>
+            
+            <script type="text/javascript">
+            //<![CDATA[
+            (function() {
+            var tosSubmit = document.getElementById('tos-submit');
+            tosSubmit.removeAttribute('disabled');
+            tosSubmit.className = 'ui-button button1';
+            })();
+            //]]>
+            </script>
+        </form>
+    </div>
 </div>
 <span class="clear"><!-- --></span>
 </div>

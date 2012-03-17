@@ -29,36 +29,12 @@ $server_adb = "auth";
 $server_cdb = "characters";
 $server_wdb = "world";
 
-$server_cdb_2 = "characters";
-$server_wdb_2 = "world";
-
-$server_cdb_3 = "characters";
-$server_wdb_3 = "pworld";
-
 ######################
 
 
 # Extra ################
 
 $website['realm'] = "Set Realmlist Your_Realmlist";
-$charTable = 'characters';
-$name_realm1['realm'] = "Server_Name_1";
-$name_realm2['realm'] = "Server_Name_2";
-$name_realm3['realm'] = "Server_Name_3";
-$website['version'] = "4.0.6a";
-$website_2['version'] = "3.3.5a";
-$website_3['version'] = "4.0.6a";
-$TypeServ = "PVE";
-$TypeServ_2 = "PVE";
-$TypeServ_3 = "PVP";
-$DropServ = "x3";
-$DropServ_2 = "x3";
-$DropServ_3 = "x3";
-$ExpServ = "x3";
-$ExpServ_2 = "x3";
-$ExpServ_3 = "x3";
-$realm_count = '3';
-$charLimit = '10';
 $mysql_cod = 'cp1251';
 
 # Comunity Links ############

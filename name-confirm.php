@@ -1,6 +1,8 @@
 <?php
 include("configs.php");
 $page_cat = "security";
+if(!isset($_SESSION['username'])) header('Location: account_log.php');
+if(!isset($_POST['character'])) header('Location: account_log.php');
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
@@ -80,71 +82,114 @@ _gaq.push(['_trackPageLoadTime']);
 <div class="primary">
 <div class="header">
 <h2 class="subcategory">Character Services</h2>
-<h3 class="headline">Race Change</h3>
+<h3 class="headline">Name Change</h3>
 <a href="wow/static/management/wow/dashboard.html?region=EU&amp;accountName=PAP123"><img src="wow/static/local-common/images/game-icons/wow.png" alt="World of Warcraft" width="48" height="48" /></a>
 </div>
 <div class="service-wrapper">
+
 <p class="service-nav">
-<a href="wow/static/management/wow/services/prc-select.html?l=PAP123&amp;r=EU" class="active">Service</a>
-<a href="prc-history.html?l=PAP123&amp;r=EU&amp;s=PRC">History/Status</a>
-<a href="wow/static/management/wow/dashboard.html?accountName=PAP123&amp;region=EU">Return to dashboard</a>
+    <a href="" class="active">Service</a>
+    <!--<a href="">History/Status</a>-->
+    <a href="account_man.php">Return to dashboard</a>
 </p>
+
+<?php
+$guid = intval($_POST['character']);
+$character = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_cdb.characters WHERE guid = '".$guid."'"));
+
+function racetxt($race){
+    switch($race){
+        case 1: return "Human"; break;
+        case 2: return "Orc"; break;
+        case 3: return "Dwarf"; break;
+        case 4: return "Night Elf"; break;
+        case 5: return "Undead"; break;
+        case 6: return "Tauren"; break;
+        case 7: return "Gnome"; break;
+        case 8: return "Troll"; break;
+        case 9: return "Goblin"; break;
+        case 10: return "Blood Elf"; break;
+        case 11: return "Draenei"; break;
+        case 22: return "Worgen"; break;
+        
+    }
+}
+
+function classtxt($class){
+    switch($class){
+        case 1: return "Warrior"; break;
+        case 2: return "Paladin"; break;
+        case 3: return "Hunter"; break;
+        case 4: return "Rogue"; break;
+        case 5: return "Priest"; break;
+        case 6: return "Death Knight"; break;
+        case 7: return "Shaman"; break;
+        case 8: return "Mage"; break;
+        case 9: return "Warlock"; break;
+        case 10: return "Druid"; break;                
+    }
+}
+?>
+
 <div class="service-info">
-<div class="service-tag">
-<div class="service-tag-contents border-3">
-<div class="character-icon wow-portrait-64-80 wow-0-4-6 glow-shadow-3">
-<img src="https://eu.battle.net/static-render/eu/hellscream/182/32353974-avatar.jpg?alt=wow/static/images/2d/avatar/4-0.jpg" width="64" height="64" alt="" />
+    <div class="service-tag">
+        <div class="service-tag-contents border-3">
+            <div class="character-icon wow-portrait-64-80 wow-0-4-6 glow-shadow-3">
+                <?php
+                    if($character) echo '<img src="'.$website['root'].'images/avatars/2d/'.$character['race'].'-'.$character['gender'].'.jpg" width="64" height="64" alt="" />';
+                    else echo '<img src="'.$website['root'].'images/avatars/2d/0-0.jpg" width="64" height="64" alt="" />';
+                ?>
+            </div>
+            
+            <div class="service-tag-description">
+                <span class="character-name caption"><?php echo $character['name']; ?></span>
+                <span class="character-class"> <?php echo $character['level'] . ' ' . racetxt($character['race']) . ' ' . classtxt($character['class']); ?></span>
+                <span class="character-realm"> <?php echo $name_realm1['realm']; ?></span>
+            </div>
+            
+            <span class="clear"><!-- --></span>
+        </div>
+    </div>
+    
+    <div class="service-summary">
+        <p class="service-price headline">
+        <?php
+            $price = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_db.prices WHERE service = 'name-change'"));
+            if($price['type'] == "vote") echo $price['vp'] . "VP";
+            else if($price['type'] == "donate") echo $price['dp'] . "DP";
+            else echo "FREE";
+        ?>
+        </p>
+    </div>
 </div>
-<div class="service-tag-description">
-<span class="character-name caption">Simitis</span>
-<span class="character-class"> level 85 Night Elf Death Knight
-</span>
-<span class="character-realm">Hellscream</span>
-</div>
-<span class="clear"><!-- --></span>
-</div>
-</div>
-<div class="service-summary">
-<p class="service-price headline">20.00 €</p>
-<a href="http://www.worldofwarcraft.com/info/race-change/index.xml" target="_blank">Race Change table of equivalences</a>
-</div>
-</div>
+
 <div class="service-form">
-<div class="service-interior light">
-<h3 class="headline">Confirm the changes for this character:</h3>
-<div class="confirm-service">
-<span class="confirm-service-label pad-bottom">New Race:</span>
-<span class="confirm-service-details">
-Please select the Race and Gender Change that you want to do.<br />
-<em>
-You will select a new character race from the FACTION races that can be CLASS.
-</em>
-</span>
+    <div class="service-interior light">
+        <h3 class="headline">Confirm the changes for this character:</h3>
+        <div class="confirm-service">
+            <span class="confirm-service-label pad-bottom">New Name:</span>
+            <span class="confirm-service-details">
+                Please write down your new character name.<br /><br />
+                <em>
+                    <input type="text" id="newname" name="newname" value="" class=" input border-5 glow-shadow-2" maxlength="20" tabindex="1" />
+                </em>
+            </span>
+        </div>
+        <span class="clear"><!-- --></span>
+        <form method="POST" action="#">
+            <div class="service-interior light">
+                <fieldset class="ui-controls section-stacked override" >
+                    <button class="ui-button button1" type="submit" tabindex="1"><span><span>Continue to Payment</span></span></button>
+                    
+                    <a class="ui-cancel" href="#" tabindex="1">
+                        <span>Back</span>
+                    </a>
+                </fieldset>
+            </div>
+        </form>
+    </div>
 </div>
-<span class="clear"><!-- --></span>
-<form method="POST" action="prc-confirm.html?l=PAP123&amp;sr=619&amp;r=EU&amp;c=32353974">
-<div class="service-interior light">
-<fieldset class="ui-controls section-stacked override" >
-<button
-class="ui-button button1 "
-type="submit"
-tabindex="1"
->
-<span>
-<span>Continue to Payment</span>
-</span>
-</button>
-<a class="ui-cancel "
-href="wow/static/management/wow/services/prc-tos.html?l=PAP123&amp;r=EU&amp;sr=619&amp;c=32353974"
-tabindex="1">
-<span>
-Back </span>
-</a>
-</fieldset>
-</div>
-</form>
-</div>
-</div>
+
 <span class="clear"><!-- --></span>
 </div>
 </div>

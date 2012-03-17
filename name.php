@@ -58,50 +58,98 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 </div>
 <div class="service-wrapper">
 <p class="service-nav">
-<a href="" class="active">Service</a>
-<a href="">History/Status</a>
-<a href="">Return to dashboard</a>
+    <a href="" class="active">Service</a>
+    <!--<a href="">History/Status</a>-->
+    <a href="account_man.php">Return to dashboard</a>
 </p>
+
 <div class="service-info">
-<div class="service-tag">
-<div class="service-tag-contents border-3">
-<div class="character-icon wow-portrait-64 no-character">
+    <div class="service-tag">
+        <div class="service-tag-contents border-3">
+            <div class="character-icon wow-portrait-64 no-character"></div>
+            
+            <div class="service-tag-description">
+                <span class="character-message caption">Select a character to continue</span>
+            </div>
+            
+            <span class="clear"><!-- --></span>
+        </div>
+    </div>
+    
+    <div class="service-summary">
+        <p class="service-price headline">Cost: 
+        <?php
+            $price = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_db.prices WHERE service = 'name-change'"));
+            if($price['type'] == "vote") echo $price['vp'] . "VP";
+            else if($price['type'] == "donate") echo $price['dp'] . "DP";
+            else echo "FREE";
+        ?>
+        </p>
+        <a href="" target="_blank">Name Change table of equivalences</a>
+    </div>
 </div>
-<div class="service-tag-description">
-<span class="character-message caption">Select a character to continue</span>
-</div>
-<span class="clear"><!-- --></span>
-</div>
-</div>
-<div class="service-summary">
-<p class="service-price headline">Cost: 300VP
-</p>
-<a href="" target="_blank">Name Change table of equivalences</a>
-</div>
-</div>
+
 <div class="service-form">
 <div class="character-list">
 
-<a href="#" class="realm opened border-2" id="active-realm" rel="character-list-hellscream">
-<span class="realm-name"><?php echo $name_realm1['realm'] ?></span>
-</a>
-<ul xmlns="http://www.w3.org/1999/xhtml" id="character-list-hellscream">
-
-<!-- todo handle character static errors -->
-<li class="character border-1" id="username:EU:ID-NUMBER">
-<div class="character-icon wow-portrait-64-80 wow-0-4-6 glow-shadow-3">
-<img src="https://eu.battle.net/static-render/eu/hellscream/182/32353974-avatar.jpg?alt=/account/images/2d/avatar/4-0.jpg" width="64" height="64" alt="" />
-</div>
-<div class="character-description">
-<span class="character-name caption"><a href="#" class="character-link">Simitis - <em>Option</em></a></span>
-<span class="character-class">
-level 85 Night Elf Death Knight
-</span>
-</div>
-</li>
+<a href="#" class="realm opened border-2" id="active-realm" rel="character-list"><span class="realm-name"><?php echo $name_realm1['realm'] ?></span></a>
+<ul id="character-list-hellscream">
+    <?php
+        function racetxt($race){
+            switch($race){
+                case 1: return "Human"; break;
+                case 2: return "Orc"; break;
+                case 3: return "Dwarf"; break;
+                case 4: return "Night Elf"; break;
+                case 5: return "Undead"; break;
+                case 6: return "Tauren"; break;
+                case 7: return "Gnome"; break;
+                case 8: return "Troll"; break;
+                case 9: return "Goblin"; break;
+                case 10: return "Blood Elf"; break;
+                case 11: return "Draenei"; break;
+                case 22: return "Worgen"; break;
+                
+            }
+        }
+        
+        function classtxt($class){
+            switch($class){
+                case 1: return "Warrior"; break;
+                case 2: return "Paladin"; break;
+                case 3: return "Hunter"; break;
+                case 4: return "Rogue"; break;
+                case 5: return "Priest"; break;
+                case 6: return "Death Knight"; break;
+                case 7: return "Shaman"; break;
+                case 8: return "Mage"; break;
+                case 9: return "Warlock"; break;
+                case 10: return "Druid"; break;                
+            }
+        }
+        
+        $get_characters = mysql_query("SELECT * FROM $server_cdb.characters WHERE account = '".$account_information['id']."'");
+        while($character = mysql_fetch_array($get_characters))
+        {
+            echo'
+            <!-- todo handle character static errors -->
+            <a href="name-next.php?character='.$character['guid'].'">
+            <li class="character border-1" id="username:EU:ID-NUMBER">
+                <div class="character-icon wow-portrait-64-80 wow-0-4-6 glow-shadow-3">
+                    <img src="'.$website['root'].'images/avatars/2d/'.$character['race'].'-'.$character['gender'].'.jpg" width="64" height="64" alt="" />
+                </div>
+                <div class="character-description">
+                    <span class="character-name caption"><a href="name-next.php?character='.$character['guid'].'" class="character-link">'.$character['name'].'</a></span>
+                    <span class="character-class">
+                    Level '.$character['level'].' '.racetxt($character['race']).' '.classtxt($character['class']).'
+                    </span>
+                </div>
+            </li>
+            </a>';
+        }
+    ?>
 </ul>
-<!-- Recheck whats Wrong -->
-
+    <!-- Recheck whats Wrong -->
 </center>
 <div id="error-container" style="display: none;"></div>
 <script type="text/javascript">
@@ -139,7 +187,6 @@ viewingRealm: '619'
 };
 //]]>
 </script>
-<a href="#" class="help-link" id="realm-selector-link" rel="realm-selector">Can't find your realm?</a>
 <div class="service-interior realm-selector" id="realm-selector" style="display: none;">
 <p class="caption">If you have characters on a realm not shown above, please enter the realm name and we'll try to retrieve a character list for that realm.</p>
 <form method="post">

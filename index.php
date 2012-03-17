@@ -207,17 +207,7 @@ $page_cat = "home";
 							echo '<br><br>';
 							include("panel/vote.php");
 						}
-						include("panel/server_information1.php");
-						$get_realms2 = mysql_query("SELECT * FROM $server_adb.realmlist WHERE `id` = 2");
-							if(mysql_num_rows($get_realms2)!=0)
-							{
-							include("panel/server_information2.php");
-							}
-						$get_realms3 = mysql_query("SELECT * FROM $server_adb.realmlist WHERE `id` = 3"); 
-							if(mysql_num_rows($get_realms3)!=0)
-							{
-							include("panel/server_information3.php");
-							}
+						include("panel/server_information.php");
 						include("panel/services.php");
 						include("panel/popular_topics.php");
 					?>
