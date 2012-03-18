@@ -4,7 +4,7 @@ $page_cat = "security";
 if(!isset($_SESSION['username'])) header('Location: account_log.php');
 if(!isset($_POST['character'])) header('Location: account_log.php');
 if(!isset($_POST['realm'])) header('Location: account_log.php');
-if(!isset($_POST['newname'])) header('Location: account_log.php');
+if(!isset($_POST['newname'])) header('Location: account_log.php'); else if(!ctype_alpha($_POST['newname'])) header('Location: name.php');
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
@@ -17,12 +17,13 @@ if(!isset($_POST['newname'])) header('Location: account_log.php');
 <!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common-ie.css" /><![endif]-->
 <!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common-ie6.css" /><![endif]-->
 <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="wow/static/local-common/css/common-ie7.css" /><![endif]-->
-<link rel="stylesheet" type="text/css" media="all" href="wow/static/css/bnet.css" />
+<link rel="stylesheet" type="text/css" media="all" href="account/css/bnet.css" />
 <link rel="stylesheet" type="text/css" media="print" href="wow/static/css/bnet-print.css" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/css/management/dashboard.css" />
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/css/management/services.css" />
 <!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="wow/static/css/management/services-ie6.css" /><![endif]-->
 <link rel="stylesheet" type="text/css" media="all" href="wow/static/css/ui.css" />
+<link rel="stylesheet" type="text/css" media="all" href="account/css/management/payment.css" />
 <!--[if IE]><link rel="stylesheet" type="text/css" media="all" href="wow/static/css/bnet-ie.css" /><![endif]-->
 <!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="wow/static/css/bnet-ie6.css" /><![endif]-->
 <!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="wow/static/css/bnet-ie7.css" /><![endif]-->
@@ -83,187 +84,243 @@ _gaq.push(['_trackPageLoadTime']);
 <div class="dashboard service">
 <div class="primary">
 <div class="header">
-<h2 class="subcategory">Character Services</h2>
-<h3 class="headline">Name Change</h3>
-<a href="wow/static/management/wow/dashboard.html?region=EU&amp;accountName=PAP123"><img src="wow/static/local-common/images/game-icons/wow.png" alt="World of Warcraft" width="48" height="48" /></a>
+    <h2 class="subcategory">Character Services</h2>
+    <h3 class="headline">Name Change</h3>
+    <a href="#"><img src="wow/static/local-common/images/game-icons/wow.png" alt="World of Warcraft" width="48" height="48" /></a>
 </div>
-<div class="service-wrapper">
-
-<p class="service-nav">
-    <a href="" class="active">Service</a>
-    <!--<a href="">History/Status</a>-->
-    <a href="account_man.php">Return to dashboard</a>
-</p>
 
 <?php
-$guid = intval($_POST['character']);
-$character = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_cdb.characters WHERE guid = '".$guid."'"));
-
-$realmid = $_POST['realm'];
-$realm_extra = mysql_fetch_assoc(mysql_query("SELECT * FROM realms WHERE id = '".$realmid."'"));
-
-if(!$realm_extra){ echo '<meta http-equiv="refresh" content="0;url=account_log.php"/>'; die(); }
-
-$realm = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_adb.realmlist WHERE id = '".$realm_extra['realmid']."'"));
-$server_cdb = $realm_extra['char_db'];
-
-$newname = mysql_real_escape_string($_POST['newname']);
-
-function racetxt($race){
-    switch($race){
-        case 1: return "Human"; break;
-        case 2: return "Orc"; break;
-        case 3: return "Dwarf"; break;
-        case 4: return "Night Elf"; break;
-        case 5: return "Undead"; break;
-        case 6: return "Tauren"; break;
-        case 7: return "Gnome"; break;
-        case 8: return "Troll"; break;
-        case 9: return "Goblin"; break;
-        case 10: return "Blood Elf"; break;
-        case 11: return "Draenei"; break;
-        case 22: return "Worgen"; break;
-        
-    }
-}
-
-function classtxt($class){
-    switch($class){
-        case 1: return "Warrior"; break;
-        case 2: return "Paladin"; break;
-        case 3: return "Hunter"; break;
-        case 4: return "Rogue"; break;
-        case 5: return "Priest"; break;
-        case 6: return "Death Knight"; break;
-        case 7: return "Shaman"; break;
-        case 8: return "Mage"; break;
-        case 9: return "Warlock"; break;
-        case 10: return "Druid"; break;                
-    }
-}
+    $charid = intval($_POST['character']);
+    $realmid = intval($_POST['realm']);
+    $newname = mysql_real_escape_string($_POST['newname']);
+    
+    $errors =  Array();
+    
+    $realm_check = mysql_query("SELECT * FROM realms WHERE id = '".$realmid."'");
+    if(mysql_num_rows($realm_check) > 0) $realm_extra = mysql_fetch_assoc($realm_check); else $errors[] = "The selected realm is unavailable.";
+    
+    $realm = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_adb.realmlist WHERE id = '".$realm_extra['realmid']."'"));
+    $server_cdb = $realm_extra['char_db'];
+    
+    $char_check = mysql_query("SELECT * FROM $server_cdb.characters WHERE guid = '".$charid."'");
+    if(mysql_num_rows($char_check) > 0) $character = mysql_fetch_assoc($char_check); else $errors[] = "The selected character is unavailable.";
+    
+    if($character['online'] == 1) $errors[] = "The selected character is online.";
+    if($character['account'] != $account_information['id']) $errors[] = "The selected character does not belong to you.";
+    
+    
 ?>
 
-<div class="service-info">
-    <div class="service-tag">
-        <div class="service-tag-contents border-3">
-            <div class="character-icon wow-portrait-64-80 wow-0-4-6 glow-shadow-3">
-                <?php
-                    if($character) echo '<img src="'.$website['root'].'images/avatars/2d/'.$character['race'].'-'.$character['gender'].'.jpg" width="64" height="64" alt="" />';
-                    else echo '<img src="'.$website['root'].'images/avatars/2d/0-0.jpg" width="64" height="64" alt="" />';
-                ?>
+<div id="payment-wrapper" class="clear-after">
+<div class="purchase-overview">
+    <h3>Summary</h3>
+    <div class="content">
+        <div class="item last-item">
+            <span class="thumb">
+                <img src="/account/images/products/marketplace/wow-pnc/name-change-small.png" alt="Name Change" title="" />
+            </span>
+            <div class="product-detail clear-after">
+                <h4>Name Change</h4>
+                <p class="description">This service lets you change the names of your characters.</p>
+                <p class="description"></p>
             </div>
-            
-            <div class="service-tag-description">
-                <span class="character-name caption"><?php echo $character['name']; ?></span>
-                <span class="character-class"> <?php echo $character['level'] . ' ' . racetxt($character['race']) . ' ' . classtxt($character['class']); ?></span>
-                <span class="character-realm"> <?php echo $realm['name']; ?></span>
-            </div>
-            
+            <div class="clear" style="margin-bottom: 12px;"></div>
+            <div class="detail">Character<strong><?php echo $character['name']; ?></strong></div>
             <span class="clear"><!-- --></span>
+            <div class="detail">New Character Name:<strong><?php echo $newname; ?></strong></div>
+            <div class="detail">Realm <strong><?php echo $realm['name']; ?></strong></div>
         </div>
     </div>
-    
-    <div class="service-summary">
-        <p class="service-price headline">
-        <?php
-            $price = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_db.prices WHERE service = 'name-change'"));
+    <div class="total-price">
+        <div class="total-due">
+        Total:
+        <strong>
+            <?php
+            $price = mysql_fetch_assoc(mysql_query("SELECT * FROM prices WHERE service = 'name-change'"));
             if($price['type'] == "vote") echo $price['vp'] . "VP";
             else if($price['type'] == "donate") echo $price['dp'] . "DP";
             else echo "FREE";
-        ?>
-        </p>
+            ?>
+        </strong>
+        </div>
     </div>
 </div>
 
-<div class="service-form">
-    <div class="service-interior">
-        <h2 class="caption">Name Change</h2>
-        
-        <div class="tos-left full-width">
-            <ul>
-                <?php
-                    $string = "";
-                    if(!$character){ $string += '<li>This character does not exist.</li>'; $disabled = 1;}
-                    if($character['account'] != $account_information['id']){ $string += '<li>This character does not belong to you.</li>'; $disabled = 1;}
-                    if($character['online'] == 1){ $string += '<li>This character is online.</li>'; $disabled = 1;}
+
+<div class="payment-overview">
+    
+    <div id="payment-toggle">
+        <div>
+            <div class="section-header drop-shadow border-4">Name Change </div>
+            
+            
+            <?php
+            if(isset($_POST['payment'])){
+                if($_POST['payment'] == "pay"){
                     
-                    if(!isset($disabled)){
-                        echo '<div class="service-tag-contents border-3">
-                                <div class="character-icon wow-portrait-64-80 wow-0-4-6 glow-shadow-3">
-                                    <img src="'.$website['root'].'images/avatars/2d/'.$character['race'].'-'.$character['gender'].'.jpg" width="64" height="64" alt="" />
-                                </div>
-                                
-                                <div class="service-tag-description">
-                                    <span class="character-name caption">'.$character['name'].' -> '.$newname.'</span>
-                                    <span class="character-class"> '.$character['level'] . ' ' . racetxt($character['race']) . ' ' . classtxt($character['class']).'</span>
-                                    <span class="character-realm"> '.$realm['name'].'</span>
-                                </div>
-                                
-                                <span class="clear"><!-- --></span>
-                            </div>';
+                    if($price['type'] == "vote"){
+                        if($account_extra['vote_points'] < $price['vp']) $errors[] = "You don't have enough vote points.";
+                        else $buy = mysql_query("UPDATE users SET vote_points = vote_points - '".$price['vp']."' WHERE id = '".$account_extra['id']."'");
+                    }else if($price['type'] == "donate"){
+                        if($account_extra['donation_points'] < $price['dp']) $errors[] = "You don't have enough donation points.";
+                        else $buy = mysql_query("UPDATE users SET donation_points = donation_points - '".$price['dp']."' WHERE id = '".$account_extra['id']."'");
                     }
-                ?>
-                <li>Settings are being applied...</li>
-            </ul>
-        </div>
-        
-        <span class="clear"><!-- --></span>
-    </div>
-    
-    <br />
-    
-    <div class="service-interior">
-        <h2 class="caption">Reports</h2>
-        
-        <div class="tos-left full-width">
-            <ul>
-                <?php
-                echo $string;
-                $checkNew = mysql_query("SELECT * FROM $server_cdb.characters WHERE name = '".$newname."'");
-                if($checkNew && mysql_num_rows($checkNew) > 0) echo '<li>There\'s another character with this name in-game.</li>';
-                else if(!isset($disabled)) {
-                    switch($price['type']){
-                        case "vote" : 
-                            if($account_extra['vote_points'] < $price['vp']) echo '<li>You don\'t have enough vote points.</li>';
-                            else {
-                                $buy = mysql_query("UPDATE users SET vote_points = vote_points - '".$price['vp']."' WHERE id = '".$account_extra['id']."'");
-                                $setchar = mysql_query("UPDATE $server_cdb.characters SET name = '".$newname."' WHERE guid = '".$character['guid']."'");
-                                echo '<li>Your character\'s name has been successfuly changed to '.$newname.'!</li>';
-                            }
-                            break;
-                            
-                        case "donate" : 
-                            if($account_extra['donation_points'] < $price['dp']) echo '<li>You don\'t have enough donation points.</li>';
-                            else {
-                                $buy = mysql_query("UPDATE users SET donation_points = vote_points - '".$price['dp']."' WHERE id = '".$account_extra['id']."'");
-                                $setchar = mysql_query("UPDATE $server_cdb.characters SET name = '".$newname."' WHERE guid = '".$character['guid']."'");
-                                echo '<li>Your character\'s name has been successfuly changed to '.$newname.'!</li>';
-                            }
-                            break;
-                            
-                        case "free" :
-                                $setchar = mysql_query("UPDATE $server_cdb.characters SET name = '".$newname."' WHERE guid = '".$character['guid']."'");
-                                echo '<li>Your character\'s name has been successfuly changed to '.$newname.'!</li>';
-                            break;
-                    }
-                }
                 
-                if(isset($disabled) && $disabled == 0){
-                    $buy = mysql_query("UPDATE users SET vote_points");
                 }else{
-                    echo '<meta http-equiv="refresh" content="3;url=name.php"/>';
+                    
+                    if(empty($_POST['giftcode'])) $errors[] = "You haven't written your gift code.";
+                    else $errors[] = "The gift code provided is invalid.";
+                    
                 }
-                
-                ?>
-            </ul>
+                    
+                    ?>
+                    
+                    <div id="payment-details">
+                        <div>
+                            <div class="section-box border-4">
+                                <p style="margin: 10px 0 1em 0;">
+                                    <?php
+                                    if(count($errors) > 0){
+                                        foreach($errors AS $error){
+                                            echo '<span style="color:red">'. $error . '</font><br />';
+                                        }
+                                        
+                                        echo '<meta http-equiv="refresh" content="3;url=name.php"/>';
+                                    }else{
+                                        $name = strtoupper(substr($newname,0,1)) . strtolower(substr($newname,1,(strlen($newname)-1)));
+                                        
+                                        $changeName = mysql_query("UPDATE $server_cdb.characters SET name = '".$name."' WHERE guid = '".$character['guid']."'");
+                                        echo '<span style="color:green">'.$character['name'].' has changed his name into '. $name . '</font><br />';
+                                        echo '<meta http-equiv="refresh" content="3;url=name.php"/>';
+                                    }
+                                    ?>
+                                </p>
+                                <span class="clear"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <?php 
+            }else{
+            ?>
+            
+            <form method="POST">
+            <div class="section-box2 border-4">
+                <div id="payment-types" class="border-5">
+                    <ul class="clear-after">
+                        <li class="active">
+                            <label>
+                                <input name="payment" id="PAYPAL" type="radio" value="pay" checked="checked" />
+                                <span class="logo type-giftcode png-fix">Pay</span>
+                            </label>
+                        </li>
+                        <li class="last-on-row">
+                            <label>
+                                <input name="payment" id="VISA_EU" type="radio" value="gift" />
+                                <span class="logo type-giftcode png-fix">Gift Code</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <span class="clear"></span>
+            </div>
+            
+            <div id="payment-details">
+                <div>
+                    <input type="hidden" name="character" value="<?php echo $character['guid']; ?>"/>
+                    <input type="hidden" name="realm" value="<?php echo $realm_extra['id']; ?>"/>
+                    <input type="hidden" name="newname" value="<?php echo $newname; ?>"/>
+                    <div class="section-box border-4">
+                        <p style="margin: 10px 0 1em 0;">
+                            If you have a gift code please select the option and enter your gift code.
+                            <br /><br />
+                            <div class="form-row required">
+    							<label for="giftcode" class="label-full ">
+                                    <strong>Gift Code</strong>
+                                    <span class="form-required"></span>
+                                </label>
+                                <input type="text" name="giftcode" id="giftcode" value="" class="input border-5 glow-shadow-2" maxlength="26" tabindex="1" /> <small>(not required)</small>	
+                            </div>
+                            <br />
+                            <?php
+                            if(count($errors) > 0){
+                                foreach($errors AS $error){
+                                    echo '<span style="color:red">'. $error . '</font><br />';
+                                }
+                                
+                                echo '<meta http-equiv="refresh" content="3;url=name.php"/>';
+                            }
+                            ?>
+                        </p>
+                        <span class="clear"></span>
+                    </div>
+                    
+                    <fieldset class="ui-controls section-buttons">
+                    
+                        <?php if(count($errors) > 0) echo '<button class="ui-button button1 disabled" type="submit" id="tos-submit" tabindex="1" disabled="disabled"><span><span>Continue</span></span></button>';
+                        else  echo '<button class="ui-button button1" type="submit" id="tos-submit" tabindex="1"><span><span>Continue</span></span></button>'; ?>
+                        <a class="ui-cancel " href="name.php" tabindex="1">
+                            <span>Cancel </span>
+                        </a>
+                    </fieldset>
+                    <script type="text/javascript">
+                    //<![CDATA[
+                    $(function() {
+                    getTax.flagPaymentMethod = 'otherPayment';
+                    });
+                    //]]>
+                    </script>
+                </div>
+            </div>
+            </form>
+            
+            <?php } ?>
+            
         </div>
-        
-        <span class="clear"><!-- --></span>
     </div>
+    <div id="payment-toggle-loading">
+    <img src="/account/images/icons/loading-light-large.gif" alt="loading" />
+    </div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+var taxFormating = "@ €";
+
+var deficit, minBackupAmount;
+
+$(function () {
+
+getTax.productPriceNumber = getTax.currencyNumber(8);
+
+getTax.accountBalance = getTax.currencyNumber("0.00");
+
+FormHandler.pngFix();
+
+$(".thumb").pngFix();
+
+FormHandler.highlight($("#payment-types").find("input:checked:first"));
+
+$('.ui-dropdown').dropdown({
+
+callback: function(dropdown, selected) {
+
+FormHandler.paymentSelect(selected)
+
+},
+
+updateText: true
+
+});
+
+getTax.initialize();
+
+});
+
+//]]>
+</script>
 </div>
 
-<span class="clear"><!-- --></span>
-</div>
 </div>
 </div>
 </div>

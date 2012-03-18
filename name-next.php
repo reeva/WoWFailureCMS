@@ -91,11 +91,14 @@ _gaq.push(['_trackPageLoadTime']);
 <?php
 $guid = intval($_GET['character']);
 $realmid = intval($_GET['realm']);
-$character = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_cdb.characters WHERE guid = '".$guid."'"));
+
 $realm_extra = mysql_fetch_assoc(mysql_query("SELECT * FROM realms WHERE id = '".$realmid."'"));
 if(!$realm_extra){ echo '<meta http-equiv="refresh" content="0;url=account_log.php"/>'; die(); }
 $realm = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_adb.realmlist WHERE id = '".$realm_extra['realmid']."'"));
 $server_cdb = $realm_extra['char_db'];
+
+$character = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_cdb.characters WHERE guid = '".$guid."'"));
+
 
 function racetxt($race){
     switch($race){
