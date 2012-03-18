@@ -134,19 +134,6 @@ _gaq.push(['_trackPageLoadTime']);
    if($numrows > 0){
         echo '
         <span class="clear"></span>
-        
-		<table id="order-history">
-			<thead>
-				<tr>
-					<th align="center"><a href="#" class="sort-link numeric"><span class="arrow">'.$Vote['Vote10'].'</span></a></th>
-					<th align="center"><a href="#" class="sort-link numeric"><span class="arrow">'.$Vote['Vote11'].'</span></a></th>
-					<th align="center"><span class="arrow">Date</span>'.$Vote['Vote12'].'</th>
-					<th align="center"><span class="arrow">'.$Vote['Vote13'].'</span></th>
-					<th align="center"><span class="arrow">'.$Vote['Vote14'].'</span></th>
-					<th><a href="#" class="sort-link"><span class="arrow">'.$Vote['Vote15'].'</span></a></th>
-					<th align="center"><a href="#" class="sort-link numeric"><span class="arrow">'.$Vote['Vote16'].'</span></a></th>
-				</tr>
-			</thead>
         ';
             
             while($raw = mysql_fetch_array($sql)){
