@@ -17,6 +17,7 @@ $comments['comments'] = "&Sigma;&chi;&omicron;&lambda;&iota;&alpha;";
 $loading_forum_sett['loading_forum_sett'] = "&Phi;&omicron;&rho;&tau;&omega;&nu;&omicron;&nu;&tau;&alpha;&iota; &omicron;&iota; &rho;&upsilon;&theta;&mu;&iota;&sigma;&epsilon;&iota;&#962; &tau;&omicron;&upsilon; &phi;&omicron;&rho;&omicron;&upsilon;&mu;...";
 $post['post'] = "&Delta;&eta;&mu;&omicron;&sigma;&iota;&epsilon;&upsilon;&sigma;&eta;";
 $reply['reply'] = "&Alpha;&pi;&alpha;&nu;&tau;&eta;&sigma;&eta;";
+$Forum['reply'] = "&Alpha;&pi;&alpha;&nu;&tau;&eta;&sigma;&eta;";
 $click['click'] = " &Pi;&Alpha;&Tau;&Eta;&Sigma;&Tau;&Epsilon; ";
 $code_forum['code_forum']= " to view the &Phi;&Omicron;&Rho;&Upsilon;&Mu; &tau;&omicron;&nu; &Kappa;&omega;&delta;&iota;&kappa;&alpha;.";
 $here['here'] = "&epsilon;&delta;&omega;";

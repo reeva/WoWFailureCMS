@@ -18,6 +18,7 @@ $comments['comments'] = "Comments";
 $loading_forum_sett['loading_forum_sett'] = "Loading Forum Settings";
 $post['post'] = "Post";
 $reply['reply'] = "Reply";
+$Forum['reply'] = "Reply";
 $click['click'] = " Klick ";
 $code_forum['code_forum']= " to view the Forums Code of Conduct.";
 $here['here'] = "here";
