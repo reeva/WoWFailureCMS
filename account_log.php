@@ -135,7 +135,7 @@ Core.baseUrl = '/login/en/';
     </script>
     <?php
     echo "<h3><font color='green'>".$Log['Log10']."</font></h3>";
-    echo '<meta http-equiv="refresh" content="8;url=account_man.php"';
+    echo '<meta http-equiv="refresh" content="2;url=account_man.php"';
   } ?>
   <ul id="help-links">
       <li class="icon-pass">
