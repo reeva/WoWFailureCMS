@@ -75,13 +75,12 @@ _gaq.push(['_trackPageview']);
 								?>
 								Videos <span class="total">(<?php echo $totalSql; ?>)</span>
 								</a>
-
+                <div class="section-content">
 								<?php					
-								$consulta1 = mysql_query("SELECT * FROM media WHERE visible = 1 ORDER BY date DESC LIMIT 0,1");
+								$consulta1 = mysql_query("SELECT * FROM media WHERE visible = 1 AND type = '0' ORDER BY date DESC LIMIT 0,2");
 								while($video1 = mysql_fetch_assoc($consulta1)) {
 								?>
                         				
-                  <div class="section-content">
 									<a href="./media/videos_visor.php?id=<?php echo $video1['id']; ?>" class="thumb-wrapper video-thumb-wrapper first-video">
 									<span class="video-info">
 									<span class="video-title"><?php echo substr($video1['title'],0,50); ?></span>
@@ -91,25 +90,9 @@ _gaq.push(['_trackPageview']);
 									<span class="thumb-bg"; style="background-image: url('http://img.youtube.com/vi/<?php echo $video1['id_url']; ?>/0.jpg'); background-size: 188px 118px">
 									<span class="thumb-frame"></span>
 									</span>
-									<?php } ?>
 									</a>
+									<?php } ?>
                                     
-									<?php					
-									$consulta2 = mysql_query("SELECT * FROM media WHERE visible = 1 ORDER BY date DESC LIMIT 1,1");
-									while($video2 = mysql_fetch_assoc($consulta2)) {
-									?>                                    									
-									<a href="./media/videos_visor.php?id=<?php echo $video2['id']; ?>" class="thumb-wrapper video-thumb-wrapper first-video">
-									<span class="video-info">
-									<span class="video-title"><?php echo substr($video2['title'],0,50); ?></span>
-									<span class="video-desc"><?php echo substr(strip_tags($video2['description']),0,50); ?>...</span>
-									<span class="date-added">Fecha: <?php echo $video2['date']; ?></span>
-									</span>
-									<span class="thumb-bg"; style="background-image: url('http://img.youtube.com/vi/<?php echo $video2['id_url']; ?>/0.jpg'); background-size: 188px 118px">
-									<span class="thumb-frame"></span>
-									</span>
-									<?php } ?>
-									</a>
-									
 									<span class="clear"><!-- --></span>
 								</div>
 								<span class="clear"><!-- --></span>
