@@ -89,7 +89,7 @@ _gaq.push(['_trackPageLoadTime']);
 
 			<div class="header">
 				<h2 class="subcategory"><?php echo $Vote['Vote']; ?></h2>
-				<h3 class="headline"><?php echo $Vote['Vote1']; ?><?php echo $website['title']; ?></h3>
+				<h3 class="headline">Vote System</h3>
 				<a href=""><img src="wow/static/local-common/images/game-icons/wow.png" alt="World of Warcraft" width="48" height="48" /></a>
 			</div>
 

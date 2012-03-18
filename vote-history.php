@@ -93,14 +93,48 @@ _gaq.push(['_trackPageLoadTime']);
 	<br>
 
 <?php
-$con = mysql_connect($serveraddress, $serveruser, $serverpass, $serverport) or die(mysql_error());
-mysql_select_db($server_db, $con) or die (mysql_error());
-$sql = mysql_query("SELECT * FROM votes, vote ORDER BY RAND() LIMIT 49") or die(mysql_error());
-$numrows = mysql_num_rows($sql);
-if($numrows > 0)
-{
-echo '
-<span class="clear"></span>
+    $orderby = "DESC";
+    $link = "vote-history.php?date=asc";
+    if(isset($_GET['date'])) if($_GET['date'] == "desc"){ $orderby = "DESC"; $link = "vote-history.php?date=asc"; }else{ $orderby = "ASC"; $link = "vote-history.php?date=desc";}
+    $sql = mysql_query("SELECT * FROM votes WHERE userid = '".$account_information['id']."' ORDER BY `date` ".$orderby." LIMIT 50") or die(mysql_error());
+    $numrows = mysql_num_rows($sql);
+
+    if($numrows > 0){
+        echo '
+        Vote History<br><br>
+        <span class="clear"></span>
+        <table id="order-history">
+			<thead>
+				<tr>
+					<th align="center"><span class="arrow">'.$Vote['Vote10'].'</span></th>
+					<th align="center"><a href="'.$link.'" class="sort-link numeric"><span class="arrow">'.$Vote['Vote12'].'</span></a></th>
+					<th align="center"><span class="arrow">'.$Vote['Vote13'].'</span></th>
+					<th align="center"><span class="arrow">Points Earned</span></th>
+					<th align="center"><span class="arrow">'.$Vote['Vote16'].'</span></th>
+				</tr>
+			</thead>
+        ';
+            
+            while($raw = mysql_fetch_array($sql)){
+                $vote = mysql_fetch_assoc(mysql_query("SELECT * FROM vote WHERE id = '".$raw['voteid']."'"));
+                echo '
+                <tbody>
+                <tr class="parent-row">
+                    <td valign="top" class="align-center" data-raw="20"><span class="icon-frame frame-14 " data-tooltip="'.$account_extra['firstName'].'"><a href="">'.$account_extra['firstName'].'</a></span></td>
+                    <td valign="top" class="align-center" data-raw="20"><span><time datetime="2011-07-02T18:25+00:00">'.substr($raw['date'],0,10).'</time></span></td>
+                    <td valign="top" class="align-center" data-raw="20"><strong data-service-id="null">'.substr($raw['date'],11,8).'</strong></td>
+                    <td valign="top" class="align-center">1 VP Earned</td>
+                    <td valign="top" class="align-center" data-raw="20">'.$vote['Name'].'</td>
+                </tr>
+                </tbody>';
+            }
+        echo "</table><br />";
+   } else echo '<b>'.$Vote['Vote9'].'</b>';
+   
+   if($numrows > 0){
+        echo '
+        <span class="clear"></span>
+        
 		<table id="order-history">
 			<thead>
 				<tr>
@@ -111,28 +145,26 @@ echo '
 					<th align="center"><span class="arrow">'.$Vote['Vote14'].'</span></th>
 					<th><a href="#" class="sort-link"><span class="arrow">'.$Vote['Vote15'].'</span></a></th>
 					<th align="center"><a href="#" class="sort-link numeric"><span class="arrow">'.$Vote['Vote16'].'</span></a></th>
-					</tr>
-				</thead>';
-while($raw = mysql_fetch_array($sql)){
-echo '
-<tbody>
-<tr class="parent-row">
-<td valign="top" class="align-center" data-raw="20"><span class="icon-frame frame-14 " data-tooltip="'.$_SESSION['username'].'"><a href="">'.$raw['AccountID'].'</a></span></td>
-<td valign="top" class="align-center" data-raw="20"><a href="http://www.wowhead.com/item='.$raw['ItemID_took'].'">'.$raw['ItemID_took'].'</a></td>
-<td valign="top" class="align-center" data-raw="20"><span><time datetime="2011-07-02T18:25+00:00">'.$raw['Vote_Date'].'</time></span></td>
-<td valign="top" class="align-center" data-raw="20"><strong data-service-id="null">'.$raw['Vote_Hour'].'</strong></td>
-<td valign="top" class="align-center">'.$raw['Costs'].' VP</td>
-<td valign="top" class="align-center">'.$raw['Points'].'</td>
-<td valign="top" class="align-center" data-raw="20">'.$raw['Link'].'</td>
-</tbody>';
-}
-echo '</tr>';
-echo"</table><br />";
-}
-else
-{
-echo '<b>'.$Vote['Vote9'].'</b>';
-}
+				</tr>
+			</thead>
+        ';
+            
+            while($raw = mysql_fetch_array($sql)){
+                echo '
+                <tbody>
+                <tr class="parent-row">
+                    <td valign="top" class="align-center" data-raw="20"><span class="icon-frame frame-14 " data-tooltip="'.$account_extra['firstName'].'"><a href="">'.$account_extra['id'].'</a></span></td>
+                    <td valign="top" class="align-center" data-raw="20"><a href="http://www.wowhead.com/item='.$raw['ItemID_took'].'">'.$raw['ItemID_took'].'</a></td>
+                    <td valign="top" class="align-center" data-raw="20"><span><time datetime="2011-07-02T18:25+00:00">'.$raw['Vote_Date'].'</time></span></td>
+                    <td valign="top" class="align-center" data-raw="20"><strong data-service-id="null">'.$raw['Vote_Hour'].'</strong></td>
+                    <td valign="top" class="align-center">'.$raw['Costs'].' VP</td>
+                    <td valign="top" class="align-center">'.$raw['Points'].'</td>
+                    <td valign="top" class="align-center" data-raw="20">'.$raw['Link'].'</td>
+                </tr>
+                </tbody>';
+            }
+        echo "</table><br />";
+   } else echo '<b>'.$Vote['Vote9'].'</b>';
 ?>
 <script type="text/javascript">
 //<![CDATA[
