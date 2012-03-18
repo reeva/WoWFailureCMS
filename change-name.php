@@ -70,10 +70,28 @@ _gaq.push(['_trackPageLoadTime']);
 <div id="page-header">
 <span class="float-right"><span class="form-req">*</span> <?php echo $Reg['Reg']; ?></span>
 <h2 class="subcategory">CHARACTERS SETTINGS</h2>
-<h3 class="headline">Name Change</h3>
+<?php
+$price = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_db.prices WHERE service = 'name-change'"))or $free = 1;
+?>
+<h3 class="headline">Name Change
+<?php
+if ($free!= 1 && ($price['vp'] > 0 || $price['dp'] > 0)){
+  echo ' (';
+  if ($price['vp'] > 0){
+    echo $price['vp'].' VP';
+  }
+  if ($price['vp'] > 0 && $price['dp'] > 0){ echo ', ';}
+  if ($price['dp'] > 0){
+    echo $price['dp'].' DP';
+  }
+  echo ')';
+}
+?>
+</h3>
 </div>
 <div id="page-content" class="page-content">
-<p><?php echo $Reg['Reg3']; ?><b><?php echo $Reg['Reg4']; ?></b><?php echo $Reg['Reg5']; ?></p>
+<p><?php echo $Reg['Reg3']; ?><b><?php echo $Reg['Reg4']; ?></b> be offline for this tool to successfully work! Plus you need to be Loged to the 
+website. Use this form to change your characters Name.</p>
 <form autocomplete="off" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
 <input type="hidden" name="csrftoken" value="" />
 <?php 
@@ -89,17 +107,17 @@ if(isset($_POST['submit']))
 	$check = mysql_query("SELECT * FROM $server_cdb.characters WHERE guid = '".$character."' AND account = '".$account_information['id']."'");
 	$check2 = mysql_query("SELECT * FROM $server_cdb.characetrs WHERE name = '".$new_name."'")or $dont2 = 1;
 	
-	$price = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_db.prices WHERE service = 'name-change'"))or $free = 1;
-	
-	if(empty($new_name)) $errors[] = "Your new character name is blank.";
+	if(trim(strlen($new_name))< 2) $errors[] = "Your new character name must have 2 letters at least.";
+	if(preg_match('#[\d]#',$new_name)) $errors[] = "Your new character name can't have numbers.";
+	if(strlen(str_replace(' ','',$new_name)) < strlen($new_name)) $errors[] = "Your new character name can't have blank spaces.";
 	if(empty($character) || mysql_num_rows($check) < 1) $errors[] = "You have not selected an eligible character for name change.";
 	else if($dont2 == 0) if(mysql_num_rows($check2) > 0) $errors[] = "There's already a character created with this name.";
 	
 	if(!isset($free))
 		if($price['type'] == 'vote'){
-			if($account_extra['vote_points'] < $price['vp'])$errors[] = "You don't have enough vote points (Needed ".$price['vp']."VP).";
+			if($account_extra['vote_points'] < $price['vp'])$errors[] = "You don't have enough vote points (Needed ".$price['vp']." VP)";
 		}else if($price['type'] == 'donate'){
-			if($account_extra['donation_points'] < $price['dp'])$errors[] = "You don't have enough donation points (Needed ".$price['dp']."DP).";
+			if($account_extra['donation_points'] < $price['dp'])$errors[] = "You don't have enough donation points (Needed ".$price['dp']." DP)";
 		}
 	
 	if(count($errors) < 1){
@@ -109,11 +127,11 @@ if(isset($_POST['submit']))
 		echo '<meta http-equiv="refresh" content="2;url=change-name.php"/>';
 	
 	}else{
-	
+	  echo '<p align="center"><font color="red"><strong>ERROR</strong></font><br/>';
 		foreach($errors AS $error){
 			echo $error . '<br>';
 		}
-		
+		echo '</p>';
 		echo '<meta http-equiv="refresh" content="2;url=change-name.php"/>';
 		
 	}
