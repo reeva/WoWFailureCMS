@@ -66,6 +66,31 @@ foreach($bomb AS $bombs)
 return $content;
 }
 
+
+function removeBBCode($content){
+    $content=str_replace("[quote]", "",$content);
+    $content=str_replace("[/quote]", "",$content);
+    $content=str_replace("[b]", "",$content);
+    $content=str_replace("[/b]", "",$content);
+    $content=str_replace("[i]", "",$content);
+    $content=str_replace("[/i]", "",$content);
+    $content=str_replace("[u]", "",$content);
+    $content=str_replace("[/u]", "",$content);
+    $content=str_replace("[ul]", "",$content);
+    $content=str_replace("[/ul]", "",$content);
+    $content=str_replace("[li]", "",$content);
+    $content=str_replace("[/li]", "",$content);
+    $content=str_replace("[code]", "",$content);
+    $content=str_replace("[/code]", "",$content);
+    $content=str_replace("[img]", "",$content);
+    $content=str_replace("[/img]", "",$content);
+    $content=str_replace("[IMG]", "",$content);
+    $content=str_replace("[/IMG]", "\"/>",$content);
+    $content=str_replace("[item=", "item : ",$content);
+    $content=str_replace(" /]", "",$content);
+    return $content;
+}
+
 function ago($time)
 {
    $periods = array("second", "minute", "hour", "day", "week", "month", "year", "decade");

@@ -1,7 +1,7 @@
 <?php
 $page_cat = "forums";
 require_once("../../configs.php");
-
+require_once("../functions/post_toHtml.php");
 ?>
 <head>
 <title><?php echo $website['title']; ?></title>
@@ -219,10 +219,11 @@ echo '
 							if($thread['prefix'] != "none"){
 							echo'<span class="post-status">['.$thread['prefix'].']</span>';
 							}
+                            $small = removeBBCode($thread['content']);
 							echo'
 							<div id="thread_tt_'.$thread['id'].'" style="display:none">
 								<div class="tt_detail">
-										'.substr($thread['content'],0,75).'...
+										'.substr($small,0,75).'...
 								</div>
 								
 								<div class="tt_time">'.$thread['date'].'</div> 
