@@ -1,4 +1,6 @@
-<?php require_once("../../../configs.php"); ?>
+<?php require_once("../../../configs.php"); 
+$page_cat = "forums";
+?>
 <head>
 <title><?php echo $website['title']; ?></title>
 <meta content="false" http-equiv="imagetoolbar" />
@@ -77,6 +79,7 @@ if($_GET['t'] != ""){
 	$ndate = date('Y-m-d H:i:s');
 	
 	$thread = mysql_fetch_assoc(mysql_query("SELECT * FROM forum_threads WHERE id = '".$threadid."'"))or $error=1;
+	$postid = mysql_fetch_assoc(mysql_query("SELECT * FROM forum_posts WHERE type = 1 AND postid = '".$thread['id']."'"));
 	$update = mysql_query("UPDATE forum_threads SET views = views + 1 WHERE id = '".$thread['id']."'");
 	$forum = mysql_fetch_assoc(mysql_query("SELECT * FROM forum_forums WHERE id = '".$thread['forumid']."'"))or $error=1;
 	$category = mysql_fetch_assoc(mysql_query("SELECT * FROM forum_categ WHERE id = '".$forum['categ']."'"))or $error=1;
@@ -182,12 +185,25 @@ if($error == 1){
 			<div class="forum-actions top">
 				<div class="actions-panel">
 					<a class="ui-button button1 imgbutton " href="../?f='.$thread['forumid'].'"><span><span><span class="back-arrow"> </span></span></span></a>';
-					if(isset($_SESSION['username']) && ($thread['locked'] == 0 || $userInfo['class'] != ""))
-					//If session startef and (active thread or blizz/mvp claas) show reply button
-					{
-							echo '<a class="ui-button button1" href="#new-post"><span><span>'.$Forum['Forum61'].'</span></span></a>';
-              	
-					}else echo '<a class="ui-button button1 disabled " href="javascript:;"><span><span>'.$Forum['Forum61'].'</span></span></a>';
+					if (isset($_SESSION['username'])){
+					   if ($thread['locked'] == 0 && $userInfo['class'] == ""){
+                echo '<a class="ui-button button1" href="#new-post"><span><span>'.$Forum['Forum61'].'</span></span></a>';
+             }
+             elseif ($thread['locked'] == 1 && $userInfo['class'] == ""){
+                echo '<a class="ui-button button1 disabled" href="#new-post"><span><span>'.$Forum['Forum61'].'</span></span></a>';
+             }
+             else{ //If class mvp or blizz
+                echo '<a class="ui-button button1" href="#new-post"><span><span>'.$Forum['Forum61'].'</span></span></a>';
+                if ($thread['locked'] == 0) echo '<a class="ui-button button1" href="../edit-post/lock.php?p='.$postid['id'].'"><span><span>Close Topic</span></span></a>';
+                else echo '<a class="ui-button button1" href="../edit-post/lock.php?p='.$postid['id'].'"><span><span>Open Topic</span></span></a>';
+                echo '<a class="ui-button button1" href="../edit-post/delete.php?p='.$postid['id'].'"><span><span>Delete Topic</span></span></a>';
+             } 
+          }
+          elseif($thread['locked'] == 0){
+            echo '<a class="ui-button button1" href="?login" onclick="return Login.open()"><span><span>'.$Forum['Forum61'].'</span></span></a>';
+          } else{
+            echo '<a class="ui-button button1 disabled" href="?login" onclick="return Login.open()"><span><span>'.$Forum['Forum61'].'</span></span></a>';
+          }
 					echo '		
 					<span class="clear"><!-- --></span>
 				</div>
@@ -503,25 +519,33 @@ if($error == 1){
 									if($userInfo['class'] != ""){
 										echo '<div class="respond">';
 											if($reply['author'] == $userInfo['id']){
-                        echo'<a class="ui-button button2 " href="../edit-post/?p='.$postid['id'].'"><span><span>'.$Forum['Forum22'].'</span></span></a>';
+                        echo '<a class="ui-button button2 " href="../edit-post/?p='.$postid['id'].'"><span><span>'.$Forum['Forum22'].'</span></span></a>';
                       }
-											echo'									
-											
+											echo'
+											<a class="ui-button button2 " href="#new-post">
+										    <span><span>'.$Forum['reply'].'</span></span>
+									    </a>
+                      <a class="ui-button button2 " href="../edit-post/delete.php?p='.$postid['id'].'"><span><span>Delete</span></span></a>							
 											<a class="ui-button button2 " href="#new-post" onclick="Cms.Topic.quote('.$reply['id'].');">
 												<span><span><span class="icon-quote">'.$Forum['Forum72'].'</span></span></span>
-											</a>
+											</a>	
 										</div>';
 									}else echo '<div class="no-post-options"><!-- --></div>';
 								}else{
 									echo '
 									<div class="respond">';
 										if($reply['author'] == $userInfo['id']){
-                      echo'<a class="ui-button button2 " href="../edit-post/?p='.$postid['id'].'"><span><span>'.$Forum['Forum22'].'</span></span></a>';
+                      echo '<a class="ui-button button2 " href="../edit-post/?p='.$postid['id'].'"><span><span>'.$Forum['Forum22'].'</span></span></a>';
+                      echo '<a class="ui-button button2 " href="../edit-post/delete.php?p='.$postid['id'].'"><span><span>Delete</span></span></a>';
                     }
 									  echo '
 									  <a class="ui-button button2 " href="#new-post">
-										  <span><span>Reply</span></span>
-									  </a>
+										  <span><span>'.$Forum['reply'].'</span></span>
+									  </a>';
+									  if($userInfo['class'] != "" && $reply['author'] != $userInfo['id']){
+                      echo '<a class="ui-button button2 " href="../edit-post/delete.php?p='.$postid['id'].'"><span><span>Delete</span></span></a>';
+                    } 
+									  echo'
 										<a class="ui-button button2 " href="#new-post" onclick="Cms.Topic.quote('.$reply['id'].');">
 											<span><span><span class="icon-quote">'.$Forum['Forum72'].'</span></span></span>
 										</a>

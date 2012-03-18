@@ -18,6 +18,7 @@ $comments['comments'] = "Comentarios";
 $loading_forum_sett['loading_forum_sett'] = "Cargando Configs del Foro";
 $post['post'] = "Postear";
 $reply['reply'] = "Responder";
+$Forum['reply'] = "Responder";
 $click['click'] = " Click ";
 $code_forum['code_forum']= " para ver el Codigo de Conducta de los Foros.";
 $here['here'] = "aquí";

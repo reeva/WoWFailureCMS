@@ -577,6 +577,7 @@ $Forum['Forum77'] = "Latest Blizzard Posts";
 $Forum['Forum78'] = "All Blizzard posts";
 $Forum['Forum79'] = "Popular Topics";
 $Forum['Forum80'] = "in";
+$Forum['reply'] = "Reply";
 // Finishing the Forum Translation
 
 //userplate
