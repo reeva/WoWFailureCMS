@@ -2,7 +2,10 @@
 <div class="search-bar">
 <form action="<?php echo $website['root']; ?>search.php" method="get" autocomplete="off">
 <div>
-<input href="<?php echo $website['root']; ?>search.php" type="text" class="input border-5 glow-shadow-2" name="search" id="search-field" maxlength="200" tabindex="40" alt="<?php echo $search['text_bar']; ?>" value="<?php echo $search['text_bar']; ?>" />
+<div class="ui-typeahead-ghost">
+<input type="text" value="" autocomplete="off" readonly="readonly" class="search-field input input-ghost" />
+<input href="<?php echo $website['root']; ?>search.php" type="text" class="input border-5 glow-shadow-2" name="search" id="search-field" maxlength="200" tabindex="40" alt="<?php echo $search['text_bar']; ?>" value="<?php echo $search['text_bar']; ?>" style="background-color: transparent; " />
+</div>
 <input href="<?php echo $website['root']; ?>search.php" type="submit" class="search-button" value="" tabindex="41" />
 </div>
 </form>
