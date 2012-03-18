@@ -4,6 +4,7 @@ $page_cat = "security";
 if(!isset($_SESSION['username'])) header('Location: account_log.php');
 if(!isset($_POST['character'])) header('Location: account_log.php');
 if(!isset($_POST['realm'])) header('Location: account_log.php');
+if(!isset($_POST['newname'])) header('Location: account_log.php');
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
@@ -106,6 +107,8 @@ if(!$realm_extra){ echo '<meta http-equiv="refresh" content="0;url=account_log.p
 $realm = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_adb.realmlist WHERE id = '".$realm_extra['realmid']."'"));
 $server_cdb = $realm_extra['char_db'];
 
+$newname = mysql_real_escape_string($_POST['newname']);
+
 function racetxt($race){
     switch($race){
         case 1: return "Human"; break;
@@ -173,32 +176,89 @@ function classtxt($class){
 </div>
 
 <div class="service-form">
-    <div class="service-interior light">
-        <form method="POST" action="name-change.php">
-        <h3 class="headline">Confirm the changes for this character:</h3>
-        <div class="confirm-service">
-            <span class="confirm-service-label pad-bottom">New Name:</span>
-            <span class="confirm-service-details">
-                Please write down your new character name.<br /><br />
-                <em>
-                    <input type="text" id="newname" name="newname" value="" class=" input border-5 glow-shadow-2" maxlength="20" tabindex="1" />
-                </em>
-            </span>
-        </div>
-        <span class="clear"><!-- --></span>
+    <div class="service-interior">
+        <h2 class="caption">Name Change</h2>
         
-            <input type="hidden" name="character" value="<?php echo $character['guid'] ?>"/>
-            <input type="hidden" name="realm" value="<?php echo $realm_extra['id'] ?>"/>
-            <div class="service-interior light">
-                <fieldset class="ui-controls section-stacked override" >
-                    <button class="ui-button button1" type="submit" tabindex="1"><span><span>Continue to Payment</span></span></button>
+        <div class="tos-left full-width">
+            <ul>
+                <?php
+                    $string = "";
+                    if(!$character){ $string += '<li>This character does not exist.</li>'; $disabled = 1;}
+                    if($character['account'] != $account_information['id']){ $string += '<li>This character does not belong to you.</li>'; $disabled = 1;}
+                    if($character['online'] == 1){ $string += '<li>This character is online.</li>'; $disabled = 1;}
                     
-                    <a class="ui-cancel" href="name.php" tabindex="1">
-                        <span>Back</span>
-                    </a>
-                </fieldset>
-            </div>
-        </form>
+                    if(!isset($disabled)){
+                        echo '<div class="service-tag-contents border-3">
+                                <div class="character-icon wow-portrait-64-80 wow-0-4-6 glow-shadow-3">
+                                    <img src="'.$website['root'].'images/avatars/2d/'.$character['race'].'-'.$character['gender'].'.jpg" width="64" height="64" alt="" />
+                                </div>
+                                
+                                <div class="service-tag-description">
+                                    <span class="character-name caption">'.$character['name'].' -> '.$newname.'</span>
+                                    <span class="character-class"> '.$character['level'] . ' ' . racetxt($character['race']) . ' ' . classtxt($character['class']).'</span>
+                                    <span class="character-realm"> '.$realm['name'].'</span>
+                                </div>
+                                
+                                <span class="clear"><!-- --></span>
+                            </div>';
+                    }
+                ?>
+                <li>Settings are being applied...</li>
+            </ul>
+        </div>
+        
+        <span class="clear"><!-- --></span>
+    </div>
+    
+    <br />
+    
+    <div class="service-interior">
+        <h2 class="caption">Reports</h2>
+        
+        <div class="tos-left full-width">
+            <ul>
+                <?php
+                echo $string;
+                $checkNew = mysql_query("SELECT * FROM $server_cdb.characters WHERE name = '".$newname."'");
+                if($checkNew && mysql_num_rows($checkNew) > 0) echo '<li>There\'s another character with this name in-game.</li>';
+                else if(!isset($disabled)) {
+                    switch($price['type']){
+                        case "vote" : 
+                            if($account_extra['vote_points'] < $price['vp']) echo '<li>You don\'t have enough vote points.</li>';
+                            else {
+                                $buy = mysql_query("UPDATE users SET vote_points = vote_points - '".$price['vp']."' WHERE id = '".$account_extra['id']."'");
+                                $setchar = mysql_query("UPDATE $server_cdb.characters SET name = '".$newname."' WHERE guid = '".$character['guid']."'");
+                                echo '<li>Your character\'s name has been successfuly changed to '.$newname.'!</li>';
+                            }
+                            break;
+                            
+                        case "donate" : 
+                            if($account_extra['donation_points'] < $price['dp']) echo '<li>You don\'t have enough donation points.</li>';
+                            else {
+                                $buy = mysql_query("UPDATE users SET donation_points = vote_points - '".$price['dp']."' WHERE id = '".$account_extra['id']."'");
+                                $setchar = mysql_query("UPDATE $server_cdb.characters SET name = '".$newname."' WHERE guid = '".$character['guid']."'");
+                                echo '<li>Your character\'s name has been successfuly changed to '.$newname.'!</li>';
+                            }
+                            break;
+                            
+                        case "free" :
+                                $setchar = mysql_query("UPDATE $server_cdb.characters SET name = '".$newname."' WHERE guid = '".$character['guid']."'");
+                                echo '<li>Your character\'s name has been successfuly changed to '.$newname.'!</li>';
+                            break;
+                    }
+                }
+                
+                if(isset($disabled) && $disabled == 0){
+                    $buy = mysql_query("UPDATE users SET vote_points");
+                }else{
+                    echo '<meta http-equiv="refresh" content="3;url=name.php"/>';
+                }
+                
+                ?>
+            </ul>
+        </div>
+        
+        <span class="clear"><!-- --></span>
     </div>
 </div>
 

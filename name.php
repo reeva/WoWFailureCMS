@@ -90,65 +90,130 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 </div>
 
 <div class="service-form">
-<div class="character-list">
 
-<a href="#" class="realm opened border-2" id="active-realm" rel="character-list"><span class="realm-name"><?php echo $name_realm1['realm'] ?></span></a>
-<ul id="character-list-hellscream">
-    <?php
-        function racetxt($race){
-            switch($race){
-                case 1: return "Human"; break;
-                case 2: return "Orc"; break;
-                case 3: return "Dwarf"; break;
-                case 4: return "Night Elf"; break;
-                case 5: return "Undead"; break;
-                case 6: return "Tauren"; break;
-                case 7: return "Gnome"; break;
-                case 8: return "Troll"; break;
-                case 9: return "Goblin"; break;
-                case 10: return "Blood Elf"; break;
-                case 11: return "Draenei"; break;
-                case 22: return "Worgen"; break;
-                
-            }
-        }
+
+<?php
+
+function racetxt($race){
+    switch($race){
+        case 1: return "Human"; break;
+        case 2: return "Orc"; break;
+        case 3: return "Dwarf"; break;
+        case 4: return "Night Elf"; break;
+        case 5: return "Undead"; break;
+        case 6: return "Tauren"; break;
+        case 7: return "Gnome"; break;
+        case 8: return "Troll"; break;
+        case 9: return "Goblin"; break;
+        case 10: return "Blood Elf"; break;
+        case 11: return "Draenei"; break;
+        case 22: return "Worgen"; break;
         
-        function classtxt($class){
-            switch($class){
-                case 1: return "Warrior"; break;
-                case 2: return "Paladin"; break;
-                case 3: return "Hunter"; break;
-                case 4: return "Rogue"; break;
-                case 5: return "Priest"; break;
-                case 6: return "Death Knight"; break;
-                case 7: return "Shaman"; break;
-                case 8: return "Mage"; break;
-                case 9: return "Warlock"; break;
-                case 10: return "Druid"; break;                
-            }
-        }
+    }
+}
+
+function classtxt($class){
+    switch($class){
+        case 1: return "Warrior"; break;
+        case 2: return "Paladin"; break;
+        case 3: return "Hunter"; break;
+        case 4: return "Rogue"; break;
+        case 5: return "Priest"; break;
+        case 6: return "Death Knight"; break;
+        case 7: return "Shaman"; break;
+        case 8: return "Mage"; break;
+        case 9: return "Warlock"; break;
+        case 10: return "Druid"; break;                
+    }
+}
+?>
+
+<?php
+$icon = array(
+	0 => 'PvE',
+	1 => 'PvP',
+	4 => 'PvE',
+	6 => 'RP',
+	8 => 'RP-PVP',
+	16 => 'FFA_PVP',
+);
+                    
+$get_realms = mysql_query("SELECT * FROM realms ORDER BY `id` ASC");
+if($get_realms){
+    $i=0;
+    while($realm_extra = mysql_fetch_array($get_realms)){
+        $realm = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_adb.realmlist WHERE id = '".$realm_extra['realmid']."'"));
+        $i++;
+        $realm_data[$i]['name'] = $realm['name'];
+        $realm_data[$i]['id'] = $realm['id'];
+        $realm_data[$i]['locale'] = "English";
+        $realm_data[$i]['icon'] = $icon[$realm['icon']];
+    }
+    
+    $n=$i;
+    echo '<script type="text/javascript" src="wow/static/js/management/services.js?v24"></script>';
+    echo '<script type="text/javascript">
+        //<![CDATA[
+        Services.realmName = [';
+    for($i=1;$i<=$n;$i++) if($i==$n) echo'"'.$realm[$i]['name'].'"'; else echo'"'.$realm[$i]['name'].'",';
+    
+    echo '];
+        Services.realmID = [';
+    for($i=1;$i<=$n;$i++) if($i==$n) echo'"'.$realm[$i]['id'].'"'; else echo'"'.$realm[$i]['id'].'",';
+    echo '];
         
-        $get_characters = mysql_query("SELECT * FROM $server_cdb.characters WHERE account = '".$account_information['id']."'");
-        while($character = mysql_fetch_array($get_characters))
-        {
-            echo'
-            <!-- todo handle character static errors -->
-            <a href="name-next.php?character='.$character['guid'].'">
-            <li class="character border-1" id="username:EU:ID-NUMBER">
-                <div class="character-icon wow-portrait-64-80 wow-0-4-6 glow-shadow-3">
-                    <img src="'.$website['root'].'images/avatars/2d/'.$character['race'].'-'.$character['gender'].'.jpg" width="64" height="64" alt="" />
-                </div>
-                <div class="character-description">
-                    <span class="character-name caption"><a href="name-next.php?character='.$character['guid'].'" class="character-link">'.$character['name'].'</a></span>
-                    <span class="character-class">
-                    Level '.$character['level'].' '.racetxt($character['race']).' '.classtxt($character['class']).'
-                    </span>
-                </div>
-            </li>
-            </a>';
-        }
-    ?>
-</ul>
+        Services.realmType = [';
+    for($i=1;$i<=$n;$i++) if($i==$n) echo'"'.$realm[$i]['icon'].'"'; else echo'"'.$realm[$i]['icon'].'",';
+    echo '];
+        
+        Services.realmLocale = [';
+    for($i=1;$i<=$n;$i++) if($i==$n) echo'"'.$realm[$i]['locale'].'"'; else echo'"'.$realm[$i]['locale'].'",';
+    echo '];
+        
+        //]]>
+        </script>';
+}
+
+$get_realms = mysql_query("SELECT * FROM realms ORDER BY `id` ASC");
+if($get_realms){
+    $i=0;
+    while($realm_extra = mysql_fetch_array($get_realms)){
+        
+            $realm = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_adb.realmlist WHERE id = '".$realm_extra['realmid']."'"));
+            $server_cdb = $realm_extra['char_db'];
+            
+            echo '
+            <div class="character-list">
+            <a href="#" class="realm border-2 opened" id="active-realm" rel="character-list"><span class="realm-name">'.$realm['name'].'</span></a>
+            <ul id="character-list-'.$realm['name'].'" style="display: block;">';
+            
+                    $get_characters = mysql_query("SELECT * FROM $server_cdb.characters WHERE account = '".$account_information['id']."'");
+                    while($character = mysql_fetch_array($get_characters))
+                    {
+                        echo '
+                        <a href="name-next.php?character='.$character['guid'].'&realm='.$realm_extra['id'].'">
+                        <li class="character border-4" id="'.$account_information['username'].':EU:'.$account_information['id'].'">
+                            <div class="character-icon wow-portrait-64-80 wow-0-10-2 glow-shadow-3">
+                                <img src="'.$website['root'].'images/avatars/2d/'.$character['race'].'-'.$character['gender'].'.jpg" width="64" height="64" alt="" />
+                            </div>
+                            <div class="character-description">
+                                <span class="character-name caption">'.$character['name'].'</span>
+                                <span class="character-class">
+                                Level '.$character['level'].' '.racetxt($character['race']).' '.classtxt($character['class']).'
+                                </span>
+                            </div>
+                        </li>
+                        </a>';
+                    }
+                    
+            echo '</ul></div>';
+            echo '<br />';
+    }
+}
+
+echo '<div id="error-container" style="display: none;"></div>';
+
+?>
     <!-- Recheck whats Wrong -->
 </center>
 <div id="error-container" style="display: none;"></div>
@@ -417,6 +482,40 @@ wowarenateam: 'Arena Teams',
 other: 'Other'
 }
 };
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+
+$(function() {
+
+$(".realmselect-dialog").dialog("destroy");
+
+$('.realmselect-dialog').dialog({
+
+autoOpen: false,
+
+modal: true,
+
+position: "center",
+
+resizeable: false,
+
+closeText: "Close",
+
+width: 570,
+
+height: 580,
+
+open: function() {
+
+}
+
+});
+
+});
+
 //]]>
 </script>
 

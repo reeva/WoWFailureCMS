@@ -1,5 +1,4 @@
 <div id="header">
-
 <div class="search-bar">
 <form action="<?php echo $website['root']; ?>search.php" method="get" autocomplete="off">
 <div>
@@ -10,13 +9,10 @@
 </div>
 
 <h1 id="logo"><a href="<?php echo $website['root']; ?>"><?php echo $website['title']; ?></a></h1>
-
 <div class="header-plate">
 			<ul class="menu" id="menu">
-
 			<?php if(isset($page_cat)){
-			
-      ?>
+			?>
 			<li class="menu-home"><a href="<?php echo $website['root']; ?>index.php" <?php if($page_cat=='home') echo'class="menu-active"';?>><span><?php echo $home['home']; ?></span></a></li>
 			<li class="menu-game"><a href="<?php echo $website['root']; ?>media.php" <?php if($page_cat=='media') echo'class="menu-active"';?>><span><?php echo $Media['Media']; ?></span></a></li>
 			<li class="menu-community"><a href="<?php echo $website['root']; ?>community.php" <?php if($page_cat=='community') echo'class="menu-active"';?>><span><?php echo $Community['Community']; ?></span></a></li>
@@ -36,4 +32,4 @@
 			</ul>
 			<?php require("userplate.php"); } ?>
 		</div>
-	</div>
+</div>

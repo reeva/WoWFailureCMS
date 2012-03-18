@@ -3,6 +3,7 @@ include("configs.php");
 $page_cat = "security";
 if(!isset($_SESSION['username'])) header('Location: account_log.php');
 if(!isset($_GET['character'])) header('Location: account_log.php');
+if(!isset($_GET['realm'])) header('Location: account_log.php');
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
@@ -89,7 +90,12 @@ _gaq.push(['_trackPageLoadTime']);
 
 <?php
 $guid = intval($_GET['character']);
+$realmid = intval($_GET['realm']);
 $character = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_cdb.characters WHERE guid = '".$guid."'"));
+$realm_extra = mysql_fetch_assoc(mysql_query("SELECT * FROM realms WHERE id = '".$realmid."'"));
+if(!$realm_extra){ echo '<meta http-equiv="refresh" content="0;url=account_log.php"/>'; die(); }
+$realm = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_adb.realmlist WHERE id = '".$realm_extra['realmid']."'"));
+$server_cdb = $realm_extra['char_db'];
 
 function racetxt($race){
     switch($race){
@@ -138,7 +144,7 @@ function classtxt($class){
             <div class="service-tag-description">
                 <span class="character-name caption"><?php echo $character['name']; ?></span>
                 <span class="character-class"> <?php echo $character['level'] . ' ' . racetxt($character['race']) . ' ' . classtxt($character['class']); ?></span>
-                <span class="character-realm"> <?php echo $name_realm1['realm']; ?></span>
+                <span class="character-realm"> <?php echo $realm['name']; ?></span>
             </div>
             
             <span class="clear"><!-- --></span>
@@ -193,10 +199,11 @@ function classtxt($class){
         
         <form method="POST" action="name-confirm.php">
             <input type="hidden" name="character" value="<?php echo $character['guid'] ?>"/>
+            <input type="hidden" name="realm" value="<?php echo $realm_extra['id'] ?>"/>
             <fieldset class="ui-controls section-stacked" >
                 <?php if(isset($disabled)) echo '<button class="ui-button button1 disabled" type="submit" id="tos-submit" tabindex="1" disabled="disabled"><span><span>Agree &amp; Continue</span></span></button>';
                 else echo '<button class="ui-button button1" type="submit" id="tos-submit" tabindex="1"><span><span>Agree &amp; Continue</span></span></button>'; ?>
-                <a class="ui-cancel" href="" tabindex="1"><span>Back </span></a>
+                <a class="ui-cancel" href="name.php" tabindex="1"><span>Back </span></a>
             </fieldset>
             
             <script type="text/javascript">
