@@ -1,4 +1,6 @@
-<?php require_once("configs.php"); ?>
+<?php 
+require_once("configs.php");
+?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" xmlns:xml="http://www.w3.org/XML/1998/namespace" class="chrome chrome8">
 <head>
 <title><?php echo $website['title']; ?></title>
@@ -70,7 +72,7 @@ _gaq.push(['_trackPageview']);
 								<span class="view-all"><span class="arrow"></span><?php echo $Media['AllVideos']; ?></span>
 								<span class="gallery-icon"></span>
                                 <?php
-								$consulta0 = mysql_query(" SELECT * FROM media WHERE visible = 1");
+								$consulta0 = mysql_query(" SELECT * FROM media WHERE visible = 1 AND type = '0'");
 								$totalSql = mysql_num_rows($consulta0);
 								?>
 								Videos <span class="total">(<?php echo $totalSql; ?>)</span>
@@ -85,7 +87,7 @@ _gaq.push(['_trackPageview']);
 									<span class="video-info">
 									<span class="video-title"><?php echo substr($video1['title'],0,50); ?></span>
 									<span class="video-desc"><?php echo substr(strip_tags($video1['description']),0,50); ?>...</span>
-									<span class="date-added">Fecha: <?php echo $video1['date']; ?></span>
+									<span class="date-added">Date Added: <?php echo date('d/m/Y', strtotime($video1['date'])); ?></span>
 									</span>
 									<span class="thumb-bg"; style="background-image: url('http://img.youtube.com/vi/<?php echo $video1['id_url']; ?>/0.jpg'); background-size: 188px 118px">
 									<span class="thumb-frame"></span>
@@ -102,37 +104,30 @@ _gaq.push(['_trackPageview']);
 							
 								<a class="gallery-title screenshots" href="#">
 								<span class="view-all"><span class="arrow"></span>All Screenshots</span>
+								<?php
+                  $screen_all = mysql_query("SELECT * FROM media WHERE visible = '1' AND type = '2'");
+                  $screen_total = mysql_num_rows($screen_all);
+                ?>
 								<span class="gallery-icon"></span>
-								Screenshots <span class="total">(4)</span>
+								Screenshots <span class="total">(<?php echo $screen_total; ?>)</span>
 								</a>
 								
 								<div class="section-content">
-									<a class="thumb-wrapper left-col" href="#">
-									<span class="thumb-bg" style="background-image:url(http://eu.media.blizzard.com/wow/media/screenshots/races/worgen08-index-thumb.jpg)">
+								<?php
+								  $pos = 0;
+                  $screen_index = mysql_query("SELECT * FROM media WHERE visible = '1' AND type = '2' ORDER BY date DESC LIMIT 0,4");
+                  while ($screen = mysql_fetch_assoc($screen_index)){
+                ?>
+									<a class="thumb-wrapper <?php 
+                    if ($pos % 2 == 0 ){ echo 'left-col';} //correct postion depends of number
+                    if ($pos > 2){ echo 'bottom-row';}
+                    $pos++; ?>" href="#">
+									<span class="thumb-bg" style="background-image:url(<?php echo 'images/wallpapers/'.$screen['id_url'];  ?>);background-size: 189px 118px">
 									<span class="thumb-frame"></span>
 									</span>
-									<span class="date-added">Date Added: 16/02/2011</span>
-
+									<span class="date-added">Date Added:<?php echo date('d/m/Y', strtotime($screen['date'])); ?></span>
 									</a>
-									<a class="thumb-wrapper" href="#">
-									<span class="thumb-bg" style="background-image:url(http://eu.media.blizzard.com/wow/media/screenshots/classes/druid-troll02-index-thumb.jpg)">
-									<span class="thumb-frame"></span>
-									</span>
-									<span class="date-added">Date Added: 15/12/2010</span>
-									</a>
-									<a class="thumb-wrapper left-col bottom-row" href="#">
-									<span class="thumb-bg" style="background-image:url(http://eu.media.blizzard.com/wow/media/screenshots/events/lunar-festival/lunar-festival-ss17-index-thumb.jpg)">
-									<span class="thumb-frame"></span>
-									</span>
-									<span class="date-added">Date Added: 01/11/2010</span>
-									</a>
-									<a class="thumb-wrapper bottom-row" href="#">
-									<span class="thumb-bg" style="background-image:url(http://eu.media.blizzard.com/wow/media/screenshots/screenshot-of-the-day/cataclysm/cataclysm-ss1565-index-thumb.jpg)">
-
-									<span class="thumb-frame"></span>
-									</span>
-									<span class="date-added">Date Added: 01/11/2010</span>
-									</a>
+								<?php } ?>
 									<span class="clear"><!-- --></span>
 								</div>
 								

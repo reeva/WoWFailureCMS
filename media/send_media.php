@@ -126,9 +126,8 @@ if (isset($_POST['send'])){
         echo "Error: " . $_FILES["file"]["error"] . ". File couldn't be sent.<br />";
       }
       else{                                                      
-        $fileName = str_replace(' ','_',$_FILES["file"]["name"]);
-        $fileName = stripslashes($fileName);
-        $fileName = $_POST['type'].$ext.$fileName; //An unique media name for file storage
+        $random = rand (10,100);
+        $fileName = $_POST['type'].$ext.$random; //An unique media name for file storage
         $url = $url.$fileName;  //The absolute route for links
         $id = $fileName;       //The filename for php refers, unlink(), etc.                                 
                                                                     

@@ -74,7 +74,18 @@ _gaq.push(['_trackPageview']);
 						$consulta0 = mysql_query(" SELECT * FROM media WHERE visible = 1 AND type = '0'");
 						$totalSql = mysql_num_rows($consulta0);
 						$pagTotal = ceil($totalSql/$CantIndex);
-						if (!isset($_GET['pag'])) {$pagActual=1;} else {$pagActual=$_GET['pag'];}
+						if (!isset($_GET['pag'])) {
+              $pagActual=1;
+            }
+            elseif($_GET['pag'] > $pagTotal){
+              $pagActual =$pagTotal; 
+            }
+            elseif($_GET['pag'] < 1){
+              $pagActual =1; 
+            }
+            else{
+              $pagActual=$_GET['pag'];
+            }
 						$pagAnterior = $pagActual-1;
 						$pagSiguiente = $pagActual+1;
 						?>
@@ -90,7 +101,7 @@ _gaq.push(['_trackPageview']);
 							} 
 							else {
 							?>
-							<a class="ui-button button1 button1-previous " href="" id="previous-item" onClick="GalleryViewer.getPreviousPage()" >
+							<a class="ui-button button1 button1-previous " href="#" id="previous-item" onClick="GalleryViewer.getPreviousPage()" >
 							<span>
 							<span><?php echo $Media['Previous']; ?></span>
 							</span></a>
@@ -111,7 +122,7 @@ _gaq.push(['_trackPageview']);
 							} 
 							else {
 							?>
-							<a class="ui-button button1 button1-next " href="" id="next-item" onClick="GalleryViewer.getNextPage()" >
+							<a class="ui-button button1 button1-next " href="#" id="next-item" onClick="GalleryViewer.getNextPage()" >
 							<span>
 							<span><?php echo $Media['Next']; ?></span>
 							</span></a>

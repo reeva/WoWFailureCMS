@@ -101,7 +101,7 @@ $('#checkall').toggleClass('clicked');
               <p>An error has ocurred while approving/unpproving the media file</p>
             </div>';
         }
-        echo '<meta http-equiv="refresh" content="3;url='.$_SERVER['HTTP_REFERER'].'"/>';
+        echo '<meta http-equiv="refresh" content="1;url='.$_SERVER['HTTP_REFERER'].'"/>';
       ?>
       </div>
     </div>
