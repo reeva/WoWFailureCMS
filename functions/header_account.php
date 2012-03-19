@@ -44,11 +44,11 @@
 <div class="flyout-menu" id="player-menu" style="display: none">
 <ul>
 <li><a href="<?php echo $website['root']; ?>chars-unst.php"><?php echo $ha['ha17']; ?></a></li>
-<li><a href=""><?php echo $ha['ha18']; ?></a></li>
-<li><a href=""><?php echo $ha['ha19']; ?></a></li>
-<li><a href=""><?php echo $ha['ha20']; ?></a></li>
+<li><a href="<?php echo $website['root']; ?>options/change_name.php"><?php echo $ha['ha18']; ?></a></li>
+<li><a href="<?php echo $website['root']; ?>options/change_faction.php"><?php echo $ha['ha19']; ?></a></li>
+<li><a href="<?php echo $website['root']; ?>options/change_race.php"><?php echo $ha['ha20']; ?></a></li>
+<li><a href="<?php echo $website['root']; ?>options/change_appear.php"><?php echo $ha['ha22']; ?></a></li>
 <li><a href=""><?php echo $ha['ha21']; ?></a></li>
-<li><a href=""><?php echo $ha['ha22']; ?></a></li>
 <li><a href="<?php echo $website['root']; ?>raf-invite.php"><?php echo $ha['ha23']; ?></a></li>
 <li><a href=""><?php echo $ha['ha24']; ?></a></li>
 </ul>

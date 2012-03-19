@@ -11,3 +11,5 @@ ALTER TABLE `users`
 	ADD COLUMN `donation_points` INT(10) DEFAULT 0 NOT NULL AFTER `vote_points`;
 
 insert into `prices` (`id`, `service`, `type`, `vp`, `dp`) values('1','name-change','vote','300','0');
+
+UPDATE `version` SET `Revision`='188' WHERE `Name`='AquaFlameCMS';
