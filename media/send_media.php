@@ -113,10 +113,9 @@ if (isset($_POST['send'])){
     $id = $matches[1][0];
   }
   else{  //Image sent and upload to host
-    
-    $ext = date('dmYHis',time());
-    $url = $website['address'].$website['root'].'images/wallpapers/';
-    $path = '../images/wallpapers/';
+  
+    $url = $website['address'].$website['root'].'images/wallpapers/';   //absolute route
+    $path = '../images/wallpapers/';                                   //relative route
     
     if ((($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg") 
         || ($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "image/bmp")
@@ -125,9 +124,12 @@ if (isset($_POST['send'])){
       if ($_FILES["file"]["error"] > 0){
         echo "Error: " . $_FILES["file"]["error"] . ". File couldn't be sent.<br />";
       }
-      else{                                                      
+      else{
+        $file = pathinfo($_FILES["file"]["name"]);
+        $ext = '.'.$file['extension']; 
+        $part = date('dmYHis',time());                                            
         $random = rand (10,100);
-        $fileName = $_POST['type'].$ext.$random; //An unique media name for file storage
+        $fileName = $_POST['type'].$part.$random.$ext; //An unique media name for file storage
         $url = $url.$fileName;  //The absolute route for links
         $id = $fileName;       //The filename for php refers, unlink(), etc.                                 
                                                                     
