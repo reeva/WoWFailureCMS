@@ -23,7 +23,8 @@
 .media-content .filter-dropdown .apply-filters .button3 span { color:#FFB100; background-image:none; text-transform:none }
 
 /* film-strip container */
-.media-content .film-strip-wrapper { background-image:url(../../images/media/horizontal-bg.jpg) }
+.media-content .film-strip-wrapper2 { background-image:url(../../images/media/horizontal-bg.jpg) }
+.media-content .film-strip-wrapper { background-image:url(../../images/media/vertical-bg.jpg) }
 .media-content .film-strip-thumb-wrapper.film-strip-thumbnail-loader { background-image:url(../../images/loaders/thumbnail-loader.gif); background-color:#362015; background-position:50px 28px }
 
 /* film-strip ajax target */

@@ -92,7 +92,7 @@ _gaq.push(['_trackPageview']);
 					//]]>
 					</script>
 					<div class="media-content">
-						<div id="media-content" class="film-strip-wrapper">
+						<div id="media-content" class="film-strip-wrapper2">
 					<?php
 						if($error == 0){
 						  $posted = 0;
@@ -131,12 +131,13 @@ _gaq.push(['_trackPageview']);
 							}
               else{				
 							 $posterInfo = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_db.users WHERE id = '".$videos['author']."'"));					
-				  ?>
+				  ?> 
 					<table width="940" height="546">
 					<tr><td width="40"></td><td width="860"><span style="font-size:16px; color:#F9EFA2";><?php echo $videos['title']; ?></span></td><td width="40"></td></tr>
 					<tr><td height="500" colspan="3" align="center" valign="middle">
-					<iframe width="767" height="420" src="http://www.youtube.com/embed/<?php echo $videos['id_url']; ?>?wmode=transparent" frameborder="0" allowfullscreen></iframe></td></tr></table>
-					</div>
+					<iframe width="767" height="420" src="http://www.youtube.com/embed/<?php echo $videos['id_url']; ?>?wmode=transparent" frameborder="0" allowfullscreen></iframe></td></tr>
+          </table>
+          </div>
           <table width="940">
             <tr><td width="40"></td><td width="860" height="40">by <a href="#"><?php echo $posterInfo['firstName']; ?></a><span> // </span><?php echo $videos['date']; ?></td><td width="40"></td></tr>
 					  <tr><td width="40"></td><td width="860"><font color='#C09A67'><?php echo $videos['description']; ?></font></td><td width="40"></td></tr>
