@@ -248,28 +248,28 @@ tabindex="1">
 </a>
 </li>
 <li class="wow-service pfc">
-<a href="">
+<a href="/options/change_faction.php">
 <span class="icon glow-shadow-3"></span>
 <strong><?php echo $Man['Man40']; ?></strong>
 <?php echo $Man['Man41']; ?>
 </a>
 </li>
 <li class="wow-service prc">
-<a href="">
+<a href="/options/change_race.php">
 <span class="icon glow-shadow-3"></span>
 <strong><?php echo $Man['Man42']; ?></strong>
 <?php echo $Man['Man43']; ?>
 </a>
 </li>
 <li class="wow-service pnc">
-<a href="">
+<a href="/options/change_name.php">
 <span class="icon glow-shadow-3"></span>
 <strong><?php echo $Man['Man44']; ?></strong>
 <?php echo $Man['Man45']; ?>
 </a>
 </li>
 <li class="wow-service pcc">
-<a href="">
+<a href="/options/change_appear.php">
 <span class="icon glow-shadow-3"></span>
 <strong><?php echo $Man['Man46']; ?></strong>
 <?php echo $Man['Man47']; ?>
