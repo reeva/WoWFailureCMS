@@ -53,6 +53,15 @@ $website['root'] = "/";
 
 ######################
 
+$maintenance = false; //Change true(maintenance mode)/false(normal mode) to disable/enable website
+if($maintenance == true){
+  if($bucle_mant == 0 ){                        
+    header('Location: maintenance.php');
+  }
+}else{
+
+############
+
 $connection_setup = mysql_connect($serveraddress . ':' . $serverport,$serveruser,$serverpass)or die(mysql_error());
 mysql_select_db($server_db,$connection_setup)or die(mysql_error());
 
@@ -61,5 +70,7 @@ if(isset($_SESSION['username'])){
 	$account_information = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_adb.account WHERE username = '".$username."'"));
 	$account_extra = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_db.users WHERE id = '".$account_information['id']."'"));
 	mysql_select_db($server_db,$connection_setup)or die(mysql_error());
+}
+###########
 }
 ?>
