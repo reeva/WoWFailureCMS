@@ -123,7 +123,7 @@ var GalleryViewer = {
      * Load item based on its id and the gallery type
      */
     loadItem: function(nodeId) {
-
+        
         if (!GalleryViewer.initialized) {
             GalleryViewer.init();
         }
@@ -218,6 +218,9 @@ var GalleryViewer = {
                 var tempImage = new Image();
                 tempImage.src = itemPaths[newIndex] + "";
                 GalleryViewer.imageLoader(tempImage);
+                
+                getData(nodeId);//Custom function to load data image
+                
             } else if (GalleryViewer.galleryType == "videos") {
                 GalleryViewer.setVideo(newIndex);
             }

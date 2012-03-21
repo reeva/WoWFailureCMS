@@ -127,7 +127,7 @@ var itemPaths = [<?php echo $paths; ?>];
       ?>
       <a id="<?php echo $thumb['id']; ?>" class="film-strip-thumb-wrapper"  
         style="background-image:url(../images/wallpapers/<?php echo $thumb['id_url']; ?>);background-size: 120px 75px;"
-        href="#/<?php echo $thumb['id']; ?>" onclick="GalleryViewer.loadItem('<?php echo $thumb['id']; ?>')">
+        href="#/<?php echo $thumb['id']; ?>" onclick="GalleryViewer.loadItem('<?php echo $thumb['id']; ?>');">
         <span class="film-strip-thumb-frame"></span>
       </a>      
 
@@ -157,7 +157,7 @@ var itemPaths = [<?php echo $paths; ?>];
 </dl>
 <dl class="meta-details">
 <dt class="dt-downloads">
-<a class="format" href="" onclick="window.open(this.href);return false;">
+<a class="format" href="#" onclick="window.open(this.href);return false;">
 Download the fullsize Image
 </a>
 </dt>
@@ -167,8 +167,7 @@ Download the fullsize Image
 </div>
 <div id="media-comments">
 <div id="load-comments">
-<span id="load-comments-link">Loading Comments...</span>
-<span class="clear"><!-- --></span>
+<span id="load-comments-link" style="display:none;">Loading Comments...</span>
 </div>
 </div>
 <div id="comments-error-retry" style="display:none">
@@ -183,6 +182,7 @@ An error has ocurred while loading the comments, <a href="javascript:;" onclick=
 </div>
 <script type="text/javascript" src="../wow/static/local-common/js/dropdown.js?v39"></script>
 <script type="text/javascript" src="../wow/static/local-common/js/media/gallery-viewer.js?v39"></script>
+<script type="text/javascript" src="../wow/static/local-common/js/media/data.js"></script>
 <script type="text/javascript" src="../wow/static/local-common/js/third-party/jquery.mousewheel.min.js?v39"></script>
 <!--[if lt IE 8]> <script type="text/javascript" src="../wow/static/local-common/js/third-party/jquery.pngFix.pack.js?v39"></script>
 <script type="text/javascript">
