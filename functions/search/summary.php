@@ -2,7 +2,7 @@
 if (isset($_GET['search']) && !empty($_GET['search'])) {    //Here starts the search
     $error=false;
     
-    $term = $_GET['search'];  //Get the term search
+     $term = strip_tags(htmlentities(htmlspecialchars($_GET['search'])));  //Get the term search
     
     $conn = mysql_open($serveraddress, $serveruser, $serverpass);              //connect to DB
     $sqlc = "SELECT guid,level,name,race,class,gender FROM `" . $server_cdb .
