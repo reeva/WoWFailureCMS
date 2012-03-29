@@ -1,5 +1,6 @@
 <?php 
 require_once("configs.php");
+$page_cat="media";
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" xmlns:xml="http://www.w3.org/XML/1998/namespace" class="chrome chrome8">
 <head>
@@ -53,7 +54,7 @@ _gaq.push(['_trackPageview']);
 
 <body class="en-gb game-index">
 	<div id="wrapper">
-		<?php $page_cat="media"; include("header.php"); ?>
+		<?php include("header.php"); ?>
 		
 		<div id="content">
 			<div class="content-top">
@@ -102,7 +103,7 @@ _gaq.push(['_trackPageview']);
 							
 							<div class="media-index-section float-right">
 							
-								<a class="gallery-title screenshots" href="#">
+								<a class="gallery-title screenshots" href="media/images_index.php?type=2">
 								<span class="view-all"><span class="arrow"></span>All Screenshots</span>
 								<?php
                   $screen_all = mysql_query("SELECT * FROM media WHERE visible = '1' AND type = '2'");
@@ -121,11 +122,12 @@ _gaq.push(['_trackPageview']);
 									<a class="thumb-wrapper <?php 
                     if ($pos % 2 == 0 ){ echo 'left-col';} //correct postion depends of number
                     if ($pos > 2){ echo 'bottom-row';}
-                    $pos++; ?>" href="#">
+                    $pos++; ?>" 
+                    href="media/images_visor.php?type=2&id=<?php echo $screen['id']; ?>#/<?php echo $screen['id']; ?>">
 									<span class="thumb-bg" style="background-image:url(<?php echo 'images/wallpapers/'.$screen['id_url'];  ?>);background-size: 189px 118px">
 									<span class="thumb-frame"></span>
 									</span>
-									<span class="date-added">Date Added:<?php echo date('d/m/Y', strtotime($screen['date'])); ?></span>
+									<span class="date-added">Date Added: <?php echo date('d/m/Y', strtotime($screen['date'])); ?></span>
 									</a>
 								<?php } ?>
 									<span class="clear"><!-- --></span>
@@ -137,24 +139,32 @@ _gaq.push(['_trackPageview']);
 							<span class="clear"><!-- --></span>
 							
 							<div class="media-index-section float-left">
-								<a class="gallery-title artwork" href="#">
+								<?php
+                  $art_all = mysql_query("SELECT * FROM media WHERE visible = '1' AND type = '3'");
+                  $art_total = mysql_num_rows($art_all);
+                ?>
+								<a class="gallery-title artwork" href="media/images_index.php?type=3">
 								<span class="view-all"><span class="arrow"></span>All Artwork</span>
 								<span class="gallery-icon"></span>
-								Artwork <span class="total">(2)</span></a>
+								Artwork <span class="total">(<?php echo $art_total; ?>)</span></a>
 								
 								<div class="section-content">
-									<a class="thumb-wrapper left-col" href="#">
-									<span class="thumb-bg" style="background-image:url(http://eu.media.blizzard.com/wow/media/artwork/trading-card-game/series1/tcg-series1-009-index-thumb.jpg)">
+								<?php
+								  $pos = 0;
+                  $art_index = mysql_query("SELECT * FROM media WHERE visible = '1' AND type = '3' ORDER BY date DESC LIMIT 0,2");
+                  while ($art = mysql_fetch_assoc($art_index)){
+                ?>
+									<a class="thumb-wrapper 
+                  <?php 
+                    if ($pos % 2 == 0 ){ echo 'left-col';} //correct postion depends of number
+                    $pos++; ?>" 
+                  href="media/images_visor.php?type=3&id=<?php echo $art['id']; ?>#/<?php echo $art['id']; ?>">
+									<span class="thumb-bg" style="background-image:url(<?php echo 'images/wallpapers/'.$art['id_url'];  ?>);background-size: 189px 118px">
 									<span class="thumb-frame"></span>
 									</span>
-									<span class="date-added">Date Added: 18/04/2011</span>
+									<span class="date-added">Date Added: <?php echo date('d/m/Y', strtotime($art['date'])); ?></span>
 									</a>
-									<a class="thumb-wrapper" href="#">
-									<span class="thumb-bg" style="background-image:url(http://eu.media.blizzard.com/wow/media/artwork/wow-cataclysm/artwork-worgenvgoblin-index-thumb.jpg)">
-									<span class="thumb-frame"></span>
-									</span>
-									<span class="date-added">Date Added: 14/04/2011</span>
-									</a>
+								<?php } ?>
 									<span class="clear"><!-- --></span>
 								</div>
 								
@@ -162,26 +172,33 @@ _gaq.push(['_trackPageview']);
 							</div>
 							
 							<div class="media-index-section float-right">
-								<a class="gallery-title wallpapers" href="#">
+							<?php
+                $wall_all = mysql_query("SELECT * FROM media WHERE visible = '1' AND type = '1'");
+                $wall_total = mysql_num_rows($wall_all);
+              ?>
+								<a class="gallery-title wallpapers" href="media/images_index.php?type=1">
 								<span class="view-all"><span class="arrow"></span>All Wallpapers</span>
 								<span class="gallery-icon"></span>
-								Wallpapers <span class="total">(2)</span>
+								Wallpapers <span class="total">(<?php echo $wall_total; ?>)</span>
 								</a>
 								
 								<div class="section-content">
-									<a class="thumb-wrapper left-col" href="#">
-									<span class="thumb-bg" style="background-image:url(http://eu.media.blizzard.com/wow/media/wallpapers/comics/comic-worgen02/comic-worgen02-index-thumb.jpg)">
+								<?php
+								  $pos = 0;
+                  $wall_index = mysql_query("SELECT * FROM media WHERE visible = '1' AND type = '1' ORDER BY date DESC LIMIT 0,2");
+                  while ($wall = mysql_fetch_assoc($wall_index)){
+                ?>
+									<a class="thumb-wrapper                   
+                  <?php 
+                    if ($pos % 2 == 0 ){ echo 'left-col';} //correct postion depends of number
+                    $pos++; ?>" 
+                  href="media/images_visor.php?type=1&id=<?php echo $wall['id']; ?>#/<?php echo $wall['id']; ?>">
+									<span class="thumb-bg" style="background-image:url(<?php echo 'images/wallpapers/'.$wall['id_url'];  ?>);background-size: 189px 118px">
 									<span class="thumb-frame"></span>
 									</span>
-
-									<span class="date-added">Date Added: 30/03/2011</span>
+									<span class="date-added">Date Added: <?php echo date('d/m/Y', strtotime($wall['date'])); ?></span>
 									</a>
-									<a class="thumb-wrapper" href="#">
-									<span class="thumb-bg" style="background-image:url(http://eu.media.blizzard.com/wow/media/wallpapers/comics/comic-worgen05/comic-worgen05-index-thumb.jpg)">
-									<span class="thumb-frame"></span>
-									</span>
-									<span class="date-added">Date Added: 30/03/2011</span>
-									</a>
+								<?php } ?>
 									<span class="clear"><!-- --></span>
 								</div>
 								
@@ -189,26 +206,33 @@ _gaq.push(['_trackPageview']);
 							</div>
 							
 							<div class="media-index-section float-left">
-								<a class="gallery-title comics" href="#">
+							<?php
+                $wall_all = mysql_query("SELECT * FROM media WHERE visible = '1' AND type = '4'");
+                $wall_total = mysql_num_rows($wall_all);
+              ?>
+								<a class="gallery-title comics" href="media/images_index.php?type=4">
 								<span class="view-all"><span class="arrow"></span>All Comics</span>
 
 								<span class="gallery-icon"></span>
-								Comics <span class="total">(2)</span>
+								Comics <span class="total">(<?php echo $wall_total; ?>)</span>
 								</a>
 								<div class="section-content">
-									<a class="thumb-wrapper left-col" href="#">
-									<span class="thumb-bg" style="background-image:url(http://eu.media.blizzard.com/wow/media/comics/comic-2011-04-02-index-thumb.jpg)">
+								<?php
+								  $pos = 0;
+                  $wall_index = mysql_query("SELECT * FROM media WHERE visible = '1' AND type = '4' ORDER BY date DESC LIMIT 0,2");
+                  while ($wall = mysql_fetch_assoc($wall_index)){
+                ?>
+									<a class="thumb-wrapper                   
+                  <?php 
+                    if ($pos % 2 == 0 ){ echo 'left-col';} //correct postion depends of number
+                    $pos++; ?>" 
+                  href="media/images_visor.php?type=4&id=<?php echo $wall['id']; ?>#/<?php echo $wall['id']; ?>">
+									<span class="thumb-bg" style="background-image:url(<?php echo 'images/wallpapers/'.$wall['id_url'];  ?>);background-size: 189px 118px">
 									<span class="thumb-frame"></span>
 									</span>
-									<span class="date-added">Date Added: 19/04/2011</span>
+									<span class="date-added">Date Added: <?php echo date('d/m/Y', strtotime($wall['date'])); ?></span>
 									</a>
-									<a class="thumb-wrapper" href="#">
-									<span class="thumb-bg" style="background-image:url(http://eu.media.blizzard.com/wow/media/comics/comic-2011-04-01-index-thumb.jpg)">
-									<span class="thumb-frame"></span>
-									</span>
-
-									<span class="date-added">Date Added: 06/04/2011</span>
-									</a>
+								<?php } ?>
 									<span class="clear"><!-- --></span>
 								</div>
 								<span class="clear"><!-- --></span>

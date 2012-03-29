@@ -13,7 +13,7 @@
 <span></span>
 <div class="flyout-menu" id="settings-menu" style="display: none">
 <ul>
-<li><a href="#"><?php echo $ha['ha2']; ?></a></li>
+<li><a href="<?php echo $website['root']; ?>change-mail.php"><?php echo $ha['ha2']; ?></a></li>
 <li><a href="<?php echo $website['root']; ?>change-password.php"><?php echo $ha['ha3']; ?></a></li>
 <li><a href="#"><?php echo $ha['ha4']; ?></a></li>
 <li><a href="#"><?php echo $ha['ha5']; ?></a></li>

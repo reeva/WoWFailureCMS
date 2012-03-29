@@ -203,7 +203,6 @@ _gaq.push(['_trackPageLoadTime']);
 	   </div>
 	</div>
   <?php 
-  mysql_end($conn);
   include("footer.php"); ?>
 </div>
 <script type="text/javascript">

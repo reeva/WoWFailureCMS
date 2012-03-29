@@ -36,6 +36,7 @@
 
 /* film-strip container */
 .media-content .film-strip-wrapper { width:942px; height:655px; background:no-repeat; margin:8px auto 0 }
+.media-content .film-strip-wrapper2 { width:942px; height:655px; background:no-repeat; margin:8px auto 0 }
 .media-content .film-strip-wrapper .ajax-frame { width:738px; height:655px; position:relative }
 .ie6 .media-content .film-strip-wrapper .ajax-frame { width:735px }
 .media-content .film-strip-wrapper .ajax-frame .paging-arrow { background-repeat:no-repeat; display:none; height:85px; width:56px; position:absolute; top:288px }

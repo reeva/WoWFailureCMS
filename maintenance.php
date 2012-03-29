@@ -1,4 +1,5 @@
 <?php
+$bucle_mant = 1;
 require_once("configs.php");
 ?>
 <!DOCTYPE html>
