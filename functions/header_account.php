@@ -64,6 +64,21 @@
 <a href="<?php echo $website['root']; ?>index.php" class="border-3"><?php echo $ha['ha25']; ?></a>
 <span></span>
 </li>
+
+<li class="account-balance" id="accountBalanceCenter" data-tooltip-options="{&quot;location&quot;: &quot;mouse&quot;}">
+<a href="#" class="border-3 menu-arrow title" onclick="openAccountDropdown(this, 'accountBalance'); return false;">
+<span class="sub-title">Balance:</span><br />
+<span class="balance" id="primary-balance">0 &#8364;</span>
+</a>
+<div class="flyout-menu" id="accountBalance-menu">
+<ul>
+<li class=" first nonBeta"><a href="#">Add Funds</a></li>
+<li class=""><a href="#">Balance History</a></li>
+<li class="line nonBeta"><a href="#" onclick="$('#account-balance-dialog').dialog('open'); return false;">Other Currencies...</a></li>
+<li class="nonBeta"><a href="#">Balance Help</a></li>
+</ul>
+</div>
+</li>
 </ul>
 <span class="clear"><!-- --></span>
 </div>
