@@ -84,7 +84,7 @@ if(!isset($_SESSION['username'])){
                         $actualchar = mysql_fetch_assoc($check_chars);
                         $avatar = $actualchar['race']."-".$actualchar['gender'].".jpg";
                         
-                        $set_character = mysql_query("UPDATE users SET `avatar` = '".$avatar."', `character` = '".$actualchar['id']."', `char_realm` = '".$realm_extra['id']."' WHERE id = '".$account_extra['id']."'");
+                        @$set_character = mysql_query("UPDATE users SET `avatar` = '".$avatar."', `character` = '".$actualchar['id']."', `char_realm` = '".$realm_extra['id']."' WHERE id = '".$account_extra['id']."'");
                    }
                 }
                 
