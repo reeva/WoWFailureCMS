@@ -269,7 +269,7 @@ tabindex="1">
 </a>
 </li>
 <li class="wow-service pcc">
-<a href="/options/change_appear.php">
+<a href="./options/change_appear.php">
 <span class="icon glow-shadow-3"></span>
 <strong><?php echo $Man['Man46']; ?></strong>
 <?php echo $Man['Man47']; ?>
