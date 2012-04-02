@@ -80,7 +80,12 @@ _gaq.push(['_trackPageLoadTime']);
 <span class="float-right"><span class="form-req">*</span> <?php echo $Reg['Reg']; ?></span>
 <h2 class="subcategory">CHARACTERS SETTINGS</h2>
 <?php
-  $price = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_db.prices WHERE service = 'race-change'"))or $free = 1;
+  $price = mysql_fetch_assoc(mysql_query("SELECT * FROM $server_db.prices WHERE service = 'race-change'"));
+	if ($price['id']=='' || ($price['vp']==0 && $price['dp']==0)){
+		$free = 1;
+	}else{
+		$free = 0;
+	}
 ?>
 <h3 class="headline">Race Change
 <?php
@@ -106,32 +111,40 @@ website. Your character should not have a change option activated.</p>
 <?php 
 if(isset($_POST['submit']))
 {
-	$character = intval($_POST['character']);
-	
-	$errors = Array();
-	
-	$dont2 = 0;
-	
-	$check = mysql_query("SELECT * FROM $server_cdb.characters WHERE guid = '".$character."' AND account = '".$account_information['id']."'");
-	
-	if(empty($character) || mysql_num_rows($check) < 1) $errors[] = "You have not selected an eligible character for name change.";
-	
-	if(!isset($free)){
-		if($price['vp'] > 0){
-			if($account_extra['vote_points'] < $price['vp'])$errors[] = "You don't have enough vote points (Needed ".$price['vp']." VP)";
-		}
-    if($price['dp'] > 0){
-			if($account_extra['donation_points'] < $price['dp'])$errors[] = "You don't have enough donation points (Needed ".$price['dp']." DP)";
-		} //Allow to make price of both points
+	$type=$_POST['type'];
+	if ($type==2){
+		$method="vp";
+		$method1="vote_points";
+		$method2="vote points";
+	}else{
+		$method="dp";
+		$method1="donation_points";
+		$method2="donation points";
 	}
 	
+	$buscarpuntos = mysql_fetch_array(mysql_query("SELECT * FROM $server_db.users WHERE id='".$account_information['id']."'"));
+	
+	$character = intval($_POST['character']);
+
+	$errors = Array();
+
+	$dont2 = 0;
+
+	$check = mysql_query("SELECT * FROM $server_cdb.characters WHERE guid = '".$character."' AND account = '".$account_information['id']."'");
+
+	if(empty($character) || mysql_num_rows($check) < 1) $errors[] = "You have not selected an eligible character for name change.";
+	
+	if ($buscarpuntos[$method1]<$price[$method]) $errors[] = "You dont have enough ".$method2;
+
 	if(count($errors) < 1){
+		$total=$buscarpuntos[$method1]-$price[$method];
+		$substract = mysql_query("UPDATE $server_db.users SET $method1=$total WHERE id='".$account_information['id']."'");
 		$change = mysql_query("UPDATE $server_cdb.characters SET at_login = '128' WHERE guid = '".$character."'");
 		echo '<p align="center"><font color="green"><strong>Succes!</strong></font><br/>';
 		echo "<strong>You can now change your Character Race logining ingame.</strong>";
 		echo '</p>';
 		echo '<meta http-equiv="refresh" content="2;url=../account_man.php"/>';
-	
+
 	}else{
 	  echo '<p align="center"><font color="red"><strong>ERROR</strong></font><br/>';
 		foreach($errors AS $error){
@@ -139,9 +152,9 @@ if(isset($_POST['submit']))
 		}
 		echo '</p>';
 		echo '<meta http-equiv="refresh" content="2;url=change_race.php"/>';
-		
+
 	}
-	
+
 }
 else{
 ?>
@@ -177,7 +190,20 @@ else{
 			?>
 		</select>
 	</div>
-
+	<?php 
+		if($free==0){
+			echo "<div class=\"form-row required\">
+					<label for=\"type\" class=\"label-full \">
+						<strong>Paymenth Method</strong>
+						<span class=\"form-required\">*</span>
+					</label>
+					<select id=\"type\" name=\"type\">
+						<ption value=\"1\">Donation Points</option>
+						<option value=\"2\">Vote Points</option>
+					</select>
+					</div>";
+				}
+	?>
 	<fieldset class="ui-controls " >
 		<?php
 		if (mysql_num_rows($get_chars) < 1){
