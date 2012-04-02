@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])) {
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
 <head>
-<title><?php echo $website['title']; ?><?php echo $Reg['Reg37']; ?></title>
+<title><?php echo $website['title']; ?><?php echo $Mail['1']; ?></title>
 <meta content="false" http-equiv="imagetoolbar" />
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <link rel="shortcut icon" href="wow/static/local-common/images/favicons/wow.png" type="image/x-icon" />
@@ -70,10 +70,10 @@ _gaq.push(['_trackPageLoadTime']);
 <div id="page-header">
 <span class="float-right"><span class="form-req">*</span> <?php echo $Reg['Reg']; ?></span>
 <h2 class="subcategory"><?php echo $Reg['Reg1']; ?></h2>
-<h3 class="headline">Change E-Mail</h3>
+<h3 class="headline"><?php echo $Mail['2']; ?></h3>
 </div>
 <div id="page-content" class="page-content">
-<p><?php echo $Reg['Reg3']; ?><b><?php echo $Reg['Reg4']; ?></b> be Offline to this tool works. Use this tool to change your E-Mail.</p>
+<p><?php echo $Mail['3']; ?></p>
 <form autocomplete="off" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
 <input type="hidden" name="csrftoken" value="" />
 <?php 
@@ -101,17 +101,17 @@ if(isset($_POST['submit']))
         $result = mysql_query($query) or die(mysql_error());
         $numrows = mysql_num_rows($result);
 
-        if($newMail != $newMail1) { die("<p align='center'><font color='red'>".$Reg['Reg6']."</font><br><br>E-Mail Addresses MUST match<br><br>".$Reg['Reg8']."</p><p align='center'><a href='change-mail.php'><button class='ui-button button1' type='submit' value='back' tabindex='1'><span><span>".$re['back']."</span></span></button></a></p>"); }
+        if($newMail != $newMail1) { die("<p align='center'><font color='red'>".$Reg['Reg6']."</font><br><br>".$Mail['7']."<br><br>".$Reg['Reg8']."</p><p align='center'><a href='change-mail.php'><button class='ui-button button1' type='submit' value='back' tabindex='1'><span><span>".$re['back']."</span></span></button></a></p>"); }
 
-        if(!valid_email($newMail)){die("<p align='center'><font color='red'>".$Reg['Reg6']."</font><br><br>The new E-Mail address is not a valid E-mail.<br><br>".$Reg['Reg8']."</p><p align='center'><a href='change-mail.php'><button class='ui-button button1' type='submit' value='back' tabindex='1'><span><span>".$re['back']."</span></span></button></a></p>"); }
+        if(!valid_email($newMail)){die("<p align='center'><font color='red'>".$Reg['Reg6']."</font><br><br>".$Mail['8']."<br><br>".$Reg['Reg8']."</p><p align='center'><a href='change-mail.php'><button class='ui-button button1' type='submit' value='back' tabindex='1'><span><span>".$re['back']."</span></span></button></a></p>"); }
 
-        if($numrows == 0) { die("<p align='center'><font color='red'>".$Reg['Reg6']."</font><br><br>Invalid E-Mail address, write your current E-Mail correctly.<br><br>".$Reg['Reg15']."</p><p align='center'><a href='change-mail.php'><button class='ui-button button1' type='submit' value='back' tabindex='1'><span><span>".$re['back']."</span></span></button></a></p>"); }
+        if($numrows == 0) { die("<p align='center'><font color='red'>".$Reg['Reg6']."</font><br><br>".$Mail['9']."<br><br>".$Reg['Reg15']."</p><p align='center'><a href='change-mail.php'><button class='ui-button button1' type='submit' value='back' tabindex='1'><span><span>".$re['back']."</span></span></button></a></p>"); }
 
         $query = "UPDATE account SET email = '".$newMail."' WHERE username = '".$eaccount."'";
         $result = mysql_query($query) or die(mysql_error());
         
 
-        echo "<p align='center'>The E-Mail for account<br><br>'<b><font color='green'>".$account."</font></b>'<br><br>".$Reg['Reg17']."<p align='center'><a href='account_man.php'><button class='ui-button button1' type='submit' value='back' tabindex='1'><span><span>".$re['back']."</span></span></button></a></p>";
+        echo "<p align='center'>".$Mail['10']."<br><br>'<b><font color='green'>".$account."</font></b>'<br><br>".$Reg['Reg17']."<p align='center'><a href='account_man.php'><button class='ui-button button1' type='submit' value='back' tabindex='1'><span><span>".$re['back']."</span></span></button></a></p>";
         //close mysql connection
         mysql_close($con);
 }
@@ -127,7 +127,7 @@ else{
 </div>
 <div class="form-row required">
 <label for="curMail" class="label-full ">
-<strong> Current E-Mail
+<strong> <?php echo $Mail['4']; ?>
 </strong>
 <span class="form-required">*</span>
 </label>
@@ -135,7 +135,7 @@ else{
 </div>
 <div class="form-row required">
 <label for="newMail" class="label-full ">
-<strong> New E-Mail
+<strong> <?php echo $Mail['5']; ?>
 </strong>
 <span class="form-required">*</span>
 </label>
@@ -143,7 +143,7 @@ else{
 </div>
 <div class="form-row required">
 <label for="confirmMail" class="label-full ">
-<strong> Confirm E-Mail
+<strong> <?php echo $Mail['6']; ?>
 </strong>
 <span class="form-required">*</span>
 </label>
