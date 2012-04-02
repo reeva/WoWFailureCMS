@@ -969,4 +969,16 @@ $Media['Title'] = "Title";
 $Media['File'] = "File";
 $Media['Multimedia'] = "Multimedia";
 //Finish Media
+//Start Mail
+$Mail['1'] = "Change your E-Mail";
+$Mail['2'] = "Change E-Mail";
+$Mail['3'] = "Your account MUST be offline to this tool to work. Use this tool to change your email.";
+$Mail['4'] = "Current E-Mail";
+$Mail['5'] = "New E-Mail";
+$Mail['6'] = "Confirm E-Mail";
+$Mail['7'] = "E-Mail Addresses MUST match";
+$Mail['8'] = "The new E-Mail address is not a valid E-mail.";
+$Mail['9'] = "Invalid E-Mail address, write your current E-Mail correctly.";
+$Mail['10'] = "The E-Mail for account";
+//Finish Mail
 ?>

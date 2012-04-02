@@ -968,4 +968,16 @@ $Media['Title'] = "Título";
 $Media['File'] = "Archivo";
 $Media['Multimedia'] = "Multimedia";
 //Finish Media
+//Start Mail
+$Mail['1'] = "Cambia tu correo electrónico";
+$Mail['2'] = "Cambiar correo";
+$Mail['3'] = "Tu cuenta tiene que estar DESCONECTADA para que esta herramienta pueda funcionar. Utiliza esta herramiena para cambiar tu correo.";
+$Mail['4'] = "Correo actual";
+$Mail['5'] = "Correo nuevo";
+$Mail['6'] = "Confirmar correo";
+$Mail['7'] = "Los correos deben coincidir";
+$Mail['8'] = "El nuevo correo que has introducido no es válido.";
+$Mail['9'] = "Dirección de correo inválida, por favor, escribe tu correo actual correctamente.";
+$Mail['10'] = "El correo de la cuenta";
+//Finish Mail
 ?>
