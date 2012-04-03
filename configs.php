@@ -18,15 +18,15 @@ $_SESSION['Local'] = $language;
 
 # Mysql ################
 
-$serveraddress = "127.0.0.1";
+$serveraddress = "localhost";
 $serveruser = "root";
-$serverpass = "password";
+$serverpass = "**********";
 $serverport	= "3306";
 
-$server_db = "website";
+$server_db = "web";
 $server_adb = "auth";
 
-$server_cdb = "characters";
+$server_cdb = "char";
 $server_wdb = "world";
 
 ######################
@@ -34,24 +34,46 @@ $server_wdb = "world";
 
 # Extra ################
 
-$website['realm'] = "Set Realmlist Your_Realmlist";
+$website['realm'] = "Set Realmlist logon.yourserver.com";
 $mysql_cod = 'cp1251';
-$name_realm1['realm'] = "Realm Name"; //Temporal Fix for new changes, TEMPORAL
+$name_realm1['realm'] = "Name of your 1st Realm"; //Temporal Fix for new changes, TEMPORAL
 
 # Comunity Links ############
 
-$comun_link['Facebook'] = "http://www.facebook.com/";          // Your adress of Facebook comunity
+$comun_link['Facebook'] = "http://www.facebook.com/pages/Voragine-Gaming/377582425600832";          // Your adress of Facebook comunity
 $comun_link['Twitter'] = "http://twitter.com//";               // Your adress of Twitter comunity
 $comun_link['Youtube'] = "http://www.youtube.com/";            // Your adress of Youtube comunity
 
 # Important #############
 
-$website['title'] = "WoWFailureCMS";
-$website['slogan'] = "WoWFailureCMS, get your best CMS today, simple and fast!";
-$website['address'] = "http://localhost";
-$website['root'] = "/";
+$website['title'] = "Your Server Name";
+$website['slogan'] = "Your server slogan!";
+$website['address'] = "http://localhost/"; // End with /, it's important
+$website['root'] = "/"; // End with /, it's important
 
 ######################
+
+# Paypal #############
+
+	// PayPal email
+	//--- Receiver of the donations
+		$paypal_email="yourpaypalemail@hotmail.com";
+	
+	// PayPal URL
+	//--- set to sandbox.paypal.com for testing purposes
+		$paypal="www.paypal.com";
+	
+	// PayPal postback URL
+	//--- Gives the donator his donation points. You only need to edit the domain, not the file name
+		$paypal_postback="http://yourwebsite.com/paypal_do.php";
+	
+	// PayPal return URL
+	//--- Return the donator to this page when donated
+		$paypal_return="http://localhost.com/dev/index.php";
+
+######################
+
+# Maintenance #############
 
 $maintenance = false; //Change true(maintenance mode)/false(normal mode) to disable/enable website
 if($maintenance == true){
